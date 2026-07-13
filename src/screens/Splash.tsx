@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { LogoMark } from '@/components/Logo'
 import { useAppSettings } from '@/context/AppSettings'
 
@@ -8,15 +8,18 @@ const FRAME_URLS = Array.from(
   { length: TOTAL_FRAMES },
   (_, i) => `/splash-frames/frame-${String(i + 1).padStart(3, '0')}.jpg`,
 )
+const AUDIO_URL = '/splash-audio.mp3'
 
 export function Splash({ onFinish }: { onFinish: () => void }) {
   const { t } = useAppSettings()
   const [frameIndex, setFrameIndex] = useState(0)
   const [listo, setListo] = useState(false)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
 
   useEffect(() => {
     let cancelado = false
-    Promise.all(
+
+    const cargaImagenes = Promise.all(
       FRAME_URLS.map(
         (src) =>
           new Promise<void>((resolve) => {
@@ -26,16 +29,35 @@ export function Splash({ onFinish }: { onFinish: () => void }) {
             img.src = src
           }),
       ),
-    ).then(() => {
+    )
+
+    const audio = new Audio(AUDIO_URL)
+    audio.preload = 'auto'
+    audio.volume = 0.9
+    audioRef.current = audio
+    const cargaAudio = new Promise<void>((resolve) => {
+      audio.addEventListener('canplaythrough', () => resolve(), { once: true })
+      audio.addEventListener('error', () => resolve(), { once: true })
+      setTimeout(resolve, 1500)
+    })
+
+    Promise.all([cargaImagenes, cargaAudio]).then(() => {
       if (!cancelado) setListo(true)
     })
+
     return () => {
       cancelado = true
+      audio.pause()
     }
   }, [])
 
   useEffect(() => {
     if (!listo) return
+
+    audioRef.current?.play().catch(() => {
+      // El navegador bloqueó el autoplay con sonido; la animación sigue sin audio.
+    })
+
     const intervalo = setInterval(() => {
       setFrameIndex((i) => {
         if (i >= TOTAL_FRAMES - 1) {
