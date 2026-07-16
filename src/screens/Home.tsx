@@ -3,7 +3,7 @@ import { LogoMark } from '@/components/Logo'
 import { SettingsToggle } from '@/components/SettingsToggle'
 import { useAppSettings } from '@/context/AppSettings'
 import { getAnios, getHistorial, getPromedio } from '@/lib/data'
-import type { CursoMeta } from '@/lib/cursos'
+import { getCursosActivos, type CursoMeta } from '@/lib/cursos'
 import { Button } from '@/components/ui/button'
 import {
   ClipboardList,
@@ -113,13 +113,15 @@ export function Home({
           </div>
           <div className="flex items-center gap-2">
             <SettingsToggle variante="oscuro" />
-            <button
-              onClick={onCambiarCurso}
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/80 transition hover:bg-white/20"
-              aria-label={t.home.cambiarCurso}
-            >
-              <ArrowLeftRight className="h-4 w-4" />
-            </button>
+            {getCursosActivos().length > 1 && (
+              <button
+                onClick={onCambiarCurso}
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/80 transition hover:bg-white/20"
+                aria-label={t.home.cambiarCurso}
+              >
+                <ArrowLeftRight className="h-4 w-4" />
+              </button>
+            )}
             <button
               onClick={onLogout}
               className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/80 transition hover:bg-white/20"

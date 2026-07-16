@@ -1,7 +1,7 @@
 import { LogoMark } from '@/components/Logo'
 import { SettingsToggle } from '@/components/SettingsToggle'
 import { useAppSettings } from '@/context/AppSettings'
-import { CURSOS, type CursoId } from '@/lib/cursos'
+import { getCursosActivos, type CursoId } from '@/lib/cursos'
 import { ChevronRight, LogOut, Stethoscope, Landmark, Car } from 'lucide-react'
 
 const ICONOS: Record<CursoId, typeof Stethoscope> = {
@@ -52,7 +52,7 @@ export function SeleccionCurso({
       </div>
 
       <div className="mt-6 space-y-3 px-6">
-        {CURSOS.map((curso, idx) => {
+        {getCursosActivos().map((curso, idx) => {
           const Icon = ICONOS[curso.id]
           const info = t.cursos[curso.id]
           return (

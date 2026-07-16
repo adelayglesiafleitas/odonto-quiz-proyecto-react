@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import type { Pantalla, Pregunta } from '@/types'
 import { seleccionarPreguntas } from '@/lib/data'
-import { getCursoMeta, type CursoId } from '@/lib/cursos'
+import { getCursoMeta, getCursosActivos, type CursoId } from '@/lib/cursos'
 import { Splash } from '@/screens/Splash'
 import { Login } from '@/screens/Login'
 import { SeleccionCurso } from '@/screens/SeleccionCurso'
@@ -65,7 +65,13 @@ function App() {
         <Login
           onLogin={() => {
             setAutenticado(true)
-            setPantalla('seleccionCurso')
+            const activos = getCursosActivos()
+            if (activos.length === 1) {
+              setCursoActivo(activos[0].id)
+              setPantalla('home')
+            } else {
+              setPantalla('seleccionCurso')
+            }
           }}
         />
       )}
