@@ -1,0 +1,1277 @@
+[
+  {
+    "numero": 1,
+    "pregunta": "¿Cuál es la velocidad máxima genérica para un turismo en autopista o autovía?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Velocidad y distancias de seguridad",
+    "anio": 2026,
+    "bibliografia": "Reglamento General de Circulación (RD 1428/2003), art. 50",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "120 km/h",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "100 km/h",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "140 km/h",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 2,
+    "pregunta": "¿Cuál es la velocidad máxima genérica para un turismo en una carretera convencional (una sola calzada)?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Velocidad y distancias de seguridad",
+    "anio": 2026,
+    "bibliografia": "Reglamento General de Circulación (RD 1428/2003), art. 50",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "90 km/h",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "100 km/h",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "70 km/h",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 3,
+    "pregunta": "En carretera convencional, ¿hasta qué velocidad se puede superar el límite para adelantar a un vehículo que circula más lento?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Velocidad y distancias de seguridad",
+    "anio": 2026,
+    "bibliografia": "Reglamento General de Circulación (RD 1428/2003)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Hasta 109 km/h, si el vehículo adelantado va a menos de 90 km/h",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "No se puede superar el límite en ningún caso",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Hasta 130 km/h sin ninguna condición",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 4,
+    "pregunta": "En una vía urbana de un único carril por sentido, ¿cuál es la velocidad máxima habitual?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Velocidad y distancias de seguridad",
+    "anio": 2026,
+    "bibliografia": "Reglamento General de Circulación (RD 1428/2003)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "30 km/h",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "50 km/h",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "20 km/h",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 5,
+    "pregunta": "¿Qué debe permitir la distancia de seguridad respecto al vehículo de delante?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Velocidad y distancias de seguridad",
+    "anio": 2026,
+    "bibliografia": "Reglamento General de Circulación (RD 1428/2003), art. 54",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Detenerse sin colisionar si el vehículo de delante frena bruscamente",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Adelantarlo en cualquier momento sin mirar el retrovisor",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Circular pegado para ahorrar combustible",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 6,
+    "pregunta": "¿Qué factor obliga a aumentar la distancia de seguridad respecto a un día seco?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Velocidad y distancias de seguridad",
+    "anio": 2026,
+    "bibliografia": "Reglamento General de Circulación (RD 1428/2003)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Lluvia, niebla o poca visibilidad",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Llevar el depósito lleno de combustible",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Circular de día en vez de de noche",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 7,
+    "pregunta": "En una vía urbana con dos o más carriles por sentido, ¿cuál suele ser la velocidad máxima?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Velocidad y distancias de seguridad",
+    "anio": 2026,
+    "bibliografia": "Reglamento General de Circulación (RD 1428/2003)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "50 km/h",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "30 km/h",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "70 km/h",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 8,
+    "pregunta": "¿Cuál es la tasa máxima de alcoholemia permitida con carácter general para conductores en España?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Alcohol, drogas y carné por puntos",
+    "anio": 2026,
+    "bibliografia": "Reglamento General de Circulación (RD 1428/2003), art. 20",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "0,5 g/l en sangre (0,25 mg/l en aire espirado)",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "1,5 g/l en sangre",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "No existe ningún límite legal",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 9,
+    "pregunta": "¿Qué tasa de alcoholemia se aplica a los conductores noveles y profesionales?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Alcohol, drogas y carné por puntos",
+    "anio": 2026,
+    "bibliografia": "Reglamento General de Circulación (RD 1428/2003), art. 20",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "0,3 g/l en sangre (0,15 mg/l en aire espirado)",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "0,8 g/l en sangre",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La misma que el resto de conductores",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 10,
+    "pregunta": "¿A partir de qué tasa en aire espirado conducir bajo los efectos del alcohol se considera delito penal?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Alcohol, drogas y carné por puntos",
+    "anio": 2026,
+    "bibliografia": "Código Penal, art. 379",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "0,6 mg/l en aire espirado",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "0,15 mg/l en aire espirado",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Nunca es delito, siempre es sanción administrativa",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 11,
+    "pregunta": "¿Cuántos puntos tiene, con carácter general, el carné de un conductor con más de dos años de experiencia?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Alcohol, drogas y carné por puntos",
+    "anio": 2026,
+    "bibliografia": "Ley sobre Tráfico, Circulación de Vehículos a Motor y Seguridad Vial",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "12 puntos",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "20 puntos",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "6 puntos",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 12,
+    "pregunta": "Si un conductor se queda a 0 puntos, ¿qué debe hacer para recuperar el permiso?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Alcohol, drogas y carné por puntos",
+    "anio": 2026,
+    "bibliografia": "Ley sobre Tráfico, Circulación de Vehículos a Motor y Seguridad Vial",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Cursar un curso de recuperación y aprobar un examen teórico en Tráfico",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Nada, los puntos se recuperan solos al día siguiente",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Pagar una multa y seguir conduciendo con normalidad",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 13,
+    "pregunta": "¿Qué ocurre si un conductor circula con una tasa de alcoholemia entre 0,25 y 0,50 mg/l en aire espirado?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Alcohol, drogas y carné por puntos",
+    "anio": 2026,
+    "bibliografia": "Reglamento General de Circulación (RD 1428/2003)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Sanción administrativa: multa y pérdida de puntos del carné",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "No pasa nada si el conductor se siente bien",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Se retira el vehículo de forma definitiva",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 14,
+    "pregunta": "Un menor que circula en bicicleta o patinete, ¿qué tasa de alcohol tiene permitida?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Alcohol, drogas y carné por puntos",
+    "anio": 2026,
+    "bibliografia": "Reglamento General de Circulación (RD 1428/2003)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "0,0 g/l, no puede haber ingerido nada de alcohol",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "La misma tasa que un conductor profesional",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "No existe límite para bicicletas o patinetes",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 15,
+    "pregunta": "En un cruce sin semáforos ni señales de prioridad, ¿quién tiene preferencia de paso?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Prioridad y circulación",
+    "anio": 2026,
+    "bibliografia": "Reglamento General de Circulación (RD 1428/2003), art. 55",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El vehículo que se aproxima por la derecha",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "El vehículo más grande",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "El que llegue primero, sin importar el lado",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 16,
+    "pregunta": "En una rotonda, ¿quién tiene prioridad?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Prioridad y circulación",
+    "anio": 2026,
+    "bibliografia": "Reglamento General de Circulación (RD 1428/2003)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Los vehículos que ya están circulando dentro de la rotonda",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Los vehículos que quieren entrar en la rotonda",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Siempre el vehículo de mayor tamaño",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 17,
+    "pregunta": "¿Qué orden de prioridad tienen las señales de circulación entre sí?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Prioridad y circulación",
+    "anio": 2026,
+    "bibliografia": "Reglamento General de Circulación (RD 1428/2003)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Agente de tráfico, semáforo, señal vertical y por último marca vial",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "La marca vial siempre está por encima del agente de tráfico",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Todas las señales tienen el mismo valor y se puede elegir cuál seguir",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 18,
+    "pregunta": "¿Por qué lado se debe adelantar a otro vehículo, con carácter general?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Prioridad y circulación",
+    "anio": 2026,
+    "bibliografia": "Reglamento General de Circulación (RD 1428/2003)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Por la izquierda",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Por la derecha, siempre que haya espacio",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Por el lado que el conductor prefiera",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 19,
+    "pregunta": "Un semáforo en ámbar (amarillo) fijo indica que…",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Prioridad y circulación",
+    "anio": 2026,
+    "bibliografia": "Reglamento General de Circulación (RD 1428/2003)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "hay que detenerse, salvo que ya se esté tan cerca que frenar sea peligroso",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "se puede acelerar para cruzar cuanto antes",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "el semáforo está averiado y no hay que respetarlo",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 20,
+    "pregunta": "¿Qué señal tiene forma de octógono rojo con la palabra STOP?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Prioridad y circulación",
+    "anio": 2026,
+    "bibliografia": "Reglamento General de Circulación (RD 1428/2003)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Obliga a detenerse por completo y ceder el paso",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Solo obliga a reducir la velocidad, no a parar",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Indica que la vía tiene prioridad sobre las demás",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 21,
+    "pregunta": "¿Es obligatorio el uso del cinturón de seguridad?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Seguridad vial y elementos obligatorios",
+    "anio": 2026,
+    "bibliografia": "Reglamento General de Circulación (RD 1428/2003), art. 117",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Sí, para el conductor y todos los ocupantes, en cualquier plaza",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Solo es obligatorio para el conductor",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Solo es obligatorio en autopistas",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 22,
+    "pregunta": "¿Desde el 1 de enero de 2026, qué dispositivo es el único de preseñalización de peligro autorizado en España?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Seguridad vial y elementos obligatorios",
+    "anio": 2026,
+    "bibliografia": "DGT, nota de prensa sobre la baliza V16 conectada",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La baliza V16 conectada",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "El teléfono móvil con la linterna encendida",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "No existe ningún dispositivo obligatorio",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 23,
+    "pregunta": "¿Está permitido usar el teléfono móvil sujeto con la mano mientras se conduce?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Seguridad vial y elementos obligatorios",
+    "anio": 2026,
+    "bibliografia": "Reglamento General de Circulación (RD 1428/2003), art. 18",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "No, está prohibido conducir sujetando el móvil con la mano",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Sí, siempre que se hable menos de un minuto",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Sí, sin ninguna restricción",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 24,
+    "pregunta": "¿Deben los niños viajar en sistemas de retención infantil adaptados a su altura y peso?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Seguridad vial y elementos obligatorios",
+    "anio": 2026,
+    "bibliografia": "Reglamento General de Circulación (RD 1428/2003)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Sí, es obligatorio mientras no superen la altura o el peso establecidos",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "No, basta con el cinturón de seguridad del vehículo desde cualquier edad",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Solo es obligatorio en viajes de más de 100 km",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 25,
+    "pregunta": "¿Se pueden seguir usando los triángulos de señalización junto a la baliza V16 en 2026?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Seguridad vial y elementos obligatorios",
+    "anio": 2026,
+    "bibliografia": "DGT, nota de prensa sobre la baliza V16 conectada",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Sí, la DGT confirmó que se pueden seguir usando sin sanción",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "No, usar un triángulo conlleva multa automática",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Solo se permiten en motocicletas",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 26,
+    "pregunta": "¿Es obligatorio el uso del casco para motocicletas?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Seguridad vial y elementos obligatorios",
+    "anio": 2026,
+    "bibliografia": "Reglamento General de Circulación (RD 1428/2003)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Sí, para el conductor y el pasajero",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Solo para el conductor",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "No es obligatorio en ninguna vía",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 27,
+    "pregunta": "¿Cuáles son los tres pasos básicos de actuación ante un accidente de tráfico (PAS)?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Actuación en accidente y primeros auxilios",
+    "anio": 2026,
+    "bibliografia": "DGT, pautas de socorrismo vial",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Proteger, Avisar y Socorrer",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Parar, Acelerar y Salir",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Adelantar, Señalizar y Continuar",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 28,
+    "pregunta": "¿Qué número de teléfono se utiliza en España para emergencias en carretera?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Actuación en accidente y primeros auxilios",
+    "anio": 2026,
+    "bibliografia": "DGT",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "112",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "091",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "080",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 29,
+    "pregunta": "Ante un herido tras un accidente, ¿se le debe mover del lugar?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Actuación en accidente y primeros auxilios",
+    "anio": 2026,
+    "bibliografia": "DGT, pautas de socorrismo vial",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "No, salvo peligro inminente (fuego, tráfico) o para reanimarlo",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Sí, siempre hay que moverlo a un lugar más cómodo",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Sí, hay que sentarlo inmediatamente",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 30,
+    "pregunta": "¿Qué se debe hacer al detenerse por una avería en el arcén de una autovía?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Actuación en accidente y primeros auxilios",
+    "anio": 2026,
+    "bibliografia": "Reglamento General de Circulación (RD 1428/2003)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Encender las luces de emergencia, señalizar el vehículo y ponerse a salvo fuera de la calzada",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Quedarse dentro del vehículo en el carril",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Intentar reparar el vehículo en el carril de circulación",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 31,
+    "pregunta": "¿Qué chaleco se recomienda ponerse antes de bajar del vehículo tras una avería o accidente en carretera?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Actuación en accidente y primeros auxilios",
+    "anio": 2026,
+    "bibliografia": "DGT",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Un chaleco reflectante homologado",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Cualquier prenda de color oscuro",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "No es necesario ningún chaleco",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 32,
+    "pregunta": "Según el Diccionario en Lectura Fácil de la DGT, ¿qué es la 'distancia de seguridad'?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Velocidad y distancias de seguridad",
+    "anio": 2026,
+    "bibliografia": "Diccionario en Lectura Fácil. Permiso B, DGT (2ª edición, noviembre 2025)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La distancia de separación entre 2 vehículos para evitar el peligro de choque por detrás",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "La distancia mínima obligatoria para adelantar a un ciclista",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La distancia que debe dejarse libre en un paso de peatones",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 33,
+    "pregunta": "¿Qué diferencia hay entre la 'distancia de reacción' y la 'distancia de frenado'?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Velocidad y distancias de seguridad",
+    "anio": 2026,
+    "bibliografia": "Diccionario en Lectura Fácil. Permiso B, DGT (2ª edición, noviembre 2025)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La de reacción es el espacio recorrido hasta pisar el freno; la de frenado es el espacio recorrido desde que se frena hasta detenerse por completo",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Son exactamente el mismo concepto con dos nombres distintos",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La distancia de reacción solo se calcula en condiciones de lluvia",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 34,
+    "pregunta": "¿Qué es el 'aquaplaning'?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Velocidad y distancias de seguridad",
+    "anio": 2026,
+    "bibliografia": "Diccionario en Lectura Fácil. Permiso B, DGT (2ª edición, noviembre 2025)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Una situación peligrosa con lluvia en la que el conductor pierde el control porque los neumáticos no se agarran a la carretera",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Una técnica recomendada para frenar con seguridad en carretera mojada",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Un tipo de neumático especial fabricado para circular bajo lluvia intensa",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 35,
+    "pregunta": "¿En qué consiste el 'efecto de visión túnel' al conducir a mucha velocidad?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Velocidad y distancias de seguridad",
+    "anio": 2026,
+    "bibliografia": "Diccionario en Lectura Fácil. Permiso B, DGT (2ª edición, noviembre 2025)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "En la reducción de la capacidad de ver lo que ocurre a los lados, viendo solo lo que hay enfrente",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "En la sensación de mareo que produce circular dentro de un túnel",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "En un fallo habitual de los faros del vehículo dentro de los túneles",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 36,
+    "pregunta": "¿Qué es el 'etilómetro'?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Alcohol, drogas y carné por puntos",
+    "anio": 2026,
+    "bibliografia": "Diccionario en Lectura Fácil. Permiso B, DGT (2ª edición, noviembre 2025)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El aparato que mide en el aire espirado la cantidad de alcohol de un conductor",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Un tipo de multa que se impone por consumo de alcohol al volante",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "El carné especial que reciben los conductores noveles",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 37,
+    "pregunta": "Según la DGT, ¿a quién se considera 'conductor novel'?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Alcohol, drogas y carné por puntos",
+    "anio": 2026,
+    "bibliografia": "Diccionario en Lectura Fácil. Permiso B, DGT (2ª edición, noviembre 2025)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Al conductor con menos de 1 año de antigüedad en el carné",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "A cualquier conductor menor de 25 años, sin importar su antigüedad",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Al conductor que nunca ha sufrido un accidente",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 38,
+    "pregunta": "¿Cuántos puntos recibe un conductor novel al obtener por primera vez el permiso de conducir?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Alcohol, drogas y carné por puntos",
+    "anio": 2026,
+    "bibliografia": "Diccionario en Lectura Fácil. Permiso B, DGT (2ª edición, noviembre 2025)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "8 puntos",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "12 puntos",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "20 puntos",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 39,
+    "pregunta": "¿Qué es el 'microsueño' al volante?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Alcohol, drogas y carné por puntos",
+    "anio": 2026,
+    "bibliografia": "Diccionario en Lectura Fácil. Permiso B, DGT (2ª edición, noviembre 2025)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Un sueño muy corto en el que el conductor pierde el control del vehículo, uno de los motivos de accidentes graves",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Una técnica de descanso recomendada durante trayectos largos",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "El sueño profundo que solo puede producirse conduciendo de noche",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 40,
+    "pregunta": "¿Cómo se realiza habitualmente el control de alcoholemia a un conductor?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Alcohol, drogas y carné por puntos",
+    "anio": 2026,
+    "bibliografia": "Diccionario en Lectura Fácil. Permiso B, DGT (2ª edición, noviembre 2025)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Soplando por un aparato (etilómetro) que mide el alcohol en el aire espirado",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Con un análisis de sangre obligatorio realizado en el propio control",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Preguntando directamente al conductor cuánto ha bebido",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 41,
+    "pregunta": "En una glorieta o rotonda, ¿hacia qué lado se debe circular al entrar?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Prioridad y circulación",
+    "anio": 2026,
+    "bibliografia": "Diccionario en Lectura Fácil. Permiso B, DGT (2ª edición, noviembre 2025)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Siempre hacia la derecha",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Hacia la izquierda si hay poco tráfico",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "En el sentido que decida cada conductor",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 42,
+    "pregunta": "¿Qué es una 'isleta' en una vía o carretera?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Prioridad y circulación",
+    "anio": 2026,
+    "bibliografia": "Diccionario en Lectura Fácil. Permiso B, DGT (2ª edición, noviembre 2025)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Una zona de la vía que no se debe pisar con el vehículo",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Un carril reservado para vehículos de alta ocupación (VAO)",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Una señal vertical que obliga a ceder el paso",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 43,
+    "pregunta": "¿Qué es la 'mediana' de una carretera?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Prioridad y circulación",
+    "anio": 2026,
+    "bibliografia": "Diccionario en Lectura Fácil. Permiso B, DGT (2ª edición, noviembre 2025)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La zona situada en medio de la carretera que separa los 2 sentidos del tráfico y por la que no se puede circular",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "El carril central reservado exclusivamente para adelantamientos",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La línea discontinua que separa carriles del mismo sentido",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 44,
+    "pregunta": "¿Qué es el 'ángulo muerto' o 'punto ciego' de un vehículo?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Prioridad y circulación",
+    "anio": 2026,
+    "bibliografia": "Diccionario en Lectura Fácil. Permiso B, DGT (2ª edición, noviembre 2025)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La zona de los laterales del coche que no es posible ver con los retrovisores",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "La parte del parabrisas que cubre el limpiaparabrisas",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La zona de la carretera sin iluminación nocturna",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 45,
+    "pregunta": "¿Para qué sirve la luz de preseñalización de peligro V-16?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Seguridad vial y elementos obligatorios",
+    "anio": 2026,
+    "bibliografia": "Diccionario en Lectura Fácil. Permiso B, DGT (2ª edición, noviembre 2025)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Para avisar de que el vehículo está parado en la vía por un peligro, colocándose encima del techo",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Para iluminar la calzada en carreteras sin farolas",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Para indicar el sentido de circulación en un carril reversible",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 46,
+    "pregunta": "¿Para qué sirve el reposacabezas del asiento?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Seguridad vial y elementos obligatorios",
+    "anio": 2026,
+    "bibliografia": "Diccionario en Lectura Fácil. Permiso B, DGT (2ª edición, noviembre 2025)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Para apoyar y ajustar la cabeza y evitar daños en el cuello, como el latigazo cervical",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Para regular la temperatura dentro del vehículo",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Para sujetar el anclaje del cinturón de seguridad",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 47,
+    "pregunta": "¿Cómo debe colocarse correctamente la cinta torácica del cinturón de seguridad?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Seguridad vial y elementos obligatorios",
+    "anio": 2026,
+    "bibliografia": "Diccionario en Lectura Fácil. Permiso B, DGT (2ª edición, noviembre 2025)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Pasando entre el hombro y el cuello y bajando por el centro del pecho",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Por debajo del brazo, sin pasar nunca sobre el hombro",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Solo es obligatoria para los ocupantes de los asientos traseros",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 48,
+    "pregunta": "¿Qué función cumplen los frenos ABS?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Seguridad vial y elementos obligatorios",
+    "anio": 2026,
+    "bibliografia": "Diccionario en Lectura Fácil. Permiso B, DGT (2ª edición, noviembre 2025)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Evitar que las ruedas se bloqueen cuando se produce un frenazo brusco",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Aumentar la velocidad máxima permitida del vehículo",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Sustituir al freno de mano al estacionar en pendientes",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 49,
+    "pregunta": "¿Qué certifica la Inspección Técnica de Vehículos (ITV)?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Seguridad vial y elementos obligatorios",
+    "anio": 2026,
+    "bibliografia": "Diccionario en Lectura Fácil. Permiso B, DGT (2ª edición, noviembre 2025)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Que el vehículo cumple con las normas de seguridad y de no contaminación",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Que el conductor no tiene puntos pendientes de recuperar",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Que el seguro del vehículo está al día de pago",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 50,
+    "pregunta": "¿Qué significan las siglas RCP en primeros auxilios?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Actuación en accidente y primeros auxilios",
+    "anio": 2026,
+    "bibliografia": "Diccionario en Lectura Fácil. Permiso B, DGT (2ª edición, noviembre 2025)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Reanimación CardioPulmonar",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Regla de Control Preventivo",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Registro de Circulación Provincial",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 51,
+    "pregunta": "¿A qué se refieren los 'gastos administrativos' derivados de un accidente de tráfico?",
+    "asignatura": "Permiso de conducir B",
+    "capitulo": "Actuación en accidente y primeros auxilios",
+    "anio": 2026,
+    "bibliografia": "Diccionario en Lectura Fácil. Permiso B, DGT (2ª edición, noviembre 2025)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Al dinero necesario para pagar gastos como una grúa que retira el vehículo accidentado",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "A la multa que se impone siempre a ambos conductores implicados",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Al coste del examen teórico de recuperación de puntos",
+        "correcta": false
+      }
+    ]
+  }
+]

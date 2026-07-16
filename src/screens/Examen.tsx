@@ -123,7 +123,7 @@ export function Examen({
         <Progress value={progreso} className="mt-3 h-1.5" />
       </div>
 
-      <div className="flex-1 overflow-y-auto px-5 py-6 pb-28">
+      <div className="flex-1 overflow-y-auto px-5 py-6 pb-32">
         <span className="inline-block rounded-full bg-accent/12 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-accent">
           {pregunta.capitulo}
         </span>
@@ -163,7 +163,7 @@ export function Examen({
         </div>
       </div>
 
-      <div className="fixed inset-x-0 bottom-0 flex gap-3 border-t border-border bg-background/95 p-4 backdrop-blur">
+      <div className="safe-bottom fixed inset-x-0 bottom-0 flex gap-3 border-t border-border bg-background/95 p-4 backdrop-blur">
         <Button
           variant="outline"
           onClick={anterior}
@@ -184,7 +184,7 @@ export function Examen({
       </div>
 
       {confirmarSalir && (
-        <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-4 sm:items-center">
+        <div className="safe-bottom fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-4 sm:items-center">
           <div className="card-elevated w-full max-w-sm rounded-3xl bg-card p-6">
             <h3 className="text-base font-bold text-foreground">{t.examen.salirTitulo}</h3>
             <p className="mt-1.5 text-sm text-muted-foreground">

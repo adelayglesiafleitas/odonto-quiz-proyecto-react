@@ -15,12 +15,14 @@ export interface Pregunta {
 }
 
 export interface IntentoExamen {
+  cursoId: string
   fecha: string
   totalPreguntas: number
   correctas: number
   porcentaje: number
   aprobado: boolean
   capitulo: string | 'todos'
+  anio: number | 'todos'
   tiempoLimiteMinutos: number | null
   tiempoUsadoSeg: number
   agotoTiempo: boolean
@@ -29,6 +31,7 @@ export interface IntentoExamen {
 export type Pantalla =
   | 'splash'
   | 'login'
+  | 'seleccionCurso'
   | 'home'
   | 'configurar'
   | 'examen'

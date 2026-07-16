@@ -1,12 +1,27 @@
-import preguntasRaw from '../preguntas.json'
+import odontologiaRaw from '../data/odontologia.json'
+import nacionalidadRaw from '../data/nacionalidad.json'
+import conducirRaw from '../data/conducir.json'
 import type { Pregunta, IntentoExamen } from '../types'
 import { getCookieJSON, setCookieJSON } from './cookies'
 
-export const PREGUNTAS = preguntasRaw as Pregunta[]
+const BANCOS: Record<string, Pregunta[]> = {
+  odontologia: odontologiaRaw as Pregunta[],
+  nacionalidad: nacionalidadRaw as Pregunta[],
+  conducir: conducirRaw as Pregunta[],
+}
 
-export function getCapitulos(): string[] {
-  const set = new Set(PREGUNTAS.map((p) => p.capitulo))
+export function getPreguntas(cursoId: string): Pregunta[] {
+  return BANCOS[cursoId] ?? []
+}
+
+export function getCapitulos(cursoId: string): string[] {
+  const set = new Set(getPreguntas(cursoId).map((p) => p.capitulo))
   return Array.from(set).sort()
+}
+
+export function getAnios(cursoId: string): number[] {
+  const set = new Set(getPreguntas(cursoId).map((p) => p.anio))
+  return Array.from(set).sort((a, b) => b - a)
 }
 
 export function shuffle<T>(arr: T[]): T[] {
@@ -18,27 +33,35 @@ export function shuffle<T>(arr: T[]): T[] {
   return a
 }
 
-export function seleccionarPreguntas(cantidad: number, capitulo: string | 'todos'): Pregunta[] {
-  const pool = capitulo === 'todos' ? PREGUNTAS : PREGUNTAS.filter((p) => p.capitulo === capitulo)
+export function seleccionarPreguntas(
+  cursoId: string,
+  cantidad: number,
+  capitulo: string | 'todos',
+  anio: number | 'todos' = 'todos',
+): Pregunta[] {
+  let pool = getPreguntas(cursoId)
+  if (capitulo !== 'todos') pool = pool.filter((p) => p.capitulo === capitulo)
+  if (anio !== 'todos') pool = pool.filter((p) => p.anio === anio)
   const barajadas = shuffle(pool)
   return barajadas.slice(0, Math.min(cantidad, barajadas.length))
 }
 
-const HISTORIAL_COOKIE = 'odontoprep_historial'
-const HISTORIAL_MAX = 12
+const HISTORIAL_COOKIE = 'examprep_historial'
+const HISTORIAL_MAX = 30
 
-export function getHistorial(): IntentoExamen[] {
-  return getCookieJSON<IntentoExamen[]>(HISTORIAL_COOKIE, [])
+export function getHistorial(cursoId?: string): IntentoExamen[] {
+  const todos = getCookieJSON<IntentoExamen[]>(HISTORIAL_COOKIE, [])
+  return cursoId ? todos.filter((i) => i.cursoId === cursoId) : todos
 }
 
 export function guardarIntento(intento: IntentoExamen) {
-  const historial = getHistorial()
-  historial.unshift(intento)
-  setCookieJSON(HISTORIAL_COOKIE, historial.slice(0, HISTORIAL_MAX))
+  const todos = getCookieJSON<IntentoExamen[]>(HISTORIAL_COOKIE, [])
+  todos.unshift(intento)
+  setCookieJSON(HISTORIAL_COOKIE, todos.slice(0, HISTORIAL_MAX))
 }
 
-export function getPromedio(): number {
-  const historial = getHistorial()
+export function getPromedio(cursoId?: string): number {
+  const historial = getHistorial(cursoId)
   if (historial.length === 0) return 0
   const suma = historial.reduce((acc, i) => acc + i.porcentaje, 0)
   return Math.round(suma / historial.length)

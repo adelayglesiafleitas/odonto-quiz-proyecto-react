@@ -3,9 +3,9 @@ import { getCookie, getCookieJSON, setCookie, setCookieJSON } from './cookies'
 export type Tema = 'dark' | 'light'
 export type Idioma = 'es' | 'en'
 
-const TEMA_COOKIE = 'odontoprep_tema'
-const IDIOMA_COOKIE = 'odontoprep_idioma'
-const CONFIG_EXAMEN_COOKIE = 'odontoprep_config_examen'
+const TEMA_COOKIE = 'examprep_tema'
+const IDIOMA_COOKIE = 'examprep_idioma'
+const CONFIG_EXAMEN_COOKIE_PREFIJO = 'examprep_config_examen_'
 
 export function getTemaGuardado(): Tema {
   const valor = getCookie(TEMA_COOKIE)
@@ -28,21 +28,32 @@ export function guardarIdioma(idioma: Idioma) {
 export interface ConfigExamenGuardada {
   cantidad: number
   capitulo: string
+  anio: number | 'todos'
   conTiempo: boolean
   duracion: number
 }
 
-const CONFIG_EXAMEN_DEFAULT: ConfigExamenGuardada = {
-  cantidad: 30,
-  capitulo: 'todos',
-  conTiempo: false,
-  duracion: 30,
+function configExamenDefault(cantidad: number, duracion: number): ConfigExamenGuardada {
+  return {
+    cantidad,
+    capitulo: 'todos',
+    anio: 'todos',
+    conTiempo: false,
+    duracion,
+  }
 }
 
-export function getConfigExamenGuardada(): ConfigExamenGuardada {
-  return getCookieJSON<ConfigExamenGuardada>(CONFIG_EXAMEN_COOKIE, CONFIG_EXAMEN_DEFAULT)
+export function getConfigExamenGuardada(
+  cursoId: string,
+  cantidadDefault: number,
+  duracionDefault: number,
+): ConfigExamenGuardada {
+  return getCookieJSON<ConfigExamenGuardada>(
+    CONFIG_EXAMEN_COOKIE_PREFIJO + cursoId,
+    configExamenDefault(cantidadDefault, duracionDefault),
+  )
 }
 
-export function guardarConfigExamen(config: ConfigExamenGuardada) {
-  setCookieJSON(CONFIG_EXAMEN_COOKIE, config)
+export function guardarConfigExamen(cursoId: string, config: ConfigExamenGuardada) {
+  setCookieJSON(CONFIG_EXAMEN_COOKIE_PREFIJO + cursoId, config)
 }

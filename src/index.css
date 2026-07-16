@@ -16,15 +16,15 @@
     --secondary-foreground: 205 45% 15%;
     --muted: 199 25% 93%;
     --muted-foreground: 205 15% 42%;
-    --accent: 187 75% 42%;
+    --accent: 187 80% 30%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 4 78% 56%;
+    --destructive: 4 78% 50%;
     --destructive-foreground: 0 0% 100%;
-    --success: 152 55% 38%;
+    --success: 152 55% 32%;
     --success-foreground: 0 0% 100%;
-    --border: 200 20% 88%;
-    --input: 200 20% 88%;
-    --ring: 187 75% 42%;
+    --border: 200 20% 82%;
+    --input: 205 15% 55%;
+    --ring: 187 80% 30%;
     --radius: 1.1rem;
   }
 
@@ -43,12 +43,12 @@
     --muted-foreground: 205 12% 62%;
     --accent: 187 80% 52%;
     --accent-foreground: 204 45% 8%;
-    --destructive: 4 72% 58%;
+    --destructive: 4 72% 50%;
     --destructive-foreground: 0 0% 100%;
     --success: 152 50% 48%;
     --success-foreground: 204 45% 8%;
-    --border: 204 22% 19%;
-    --input: 204 22% 19%;
+    --border: 204 22% 24%;
+    --input: 205 12% 45%;
     --ring: 187 80% 52%;
   }
 }
@@ -61,6 +61,34 @@
     @apply bg-background text-foreground;
     font-feature-settings: "cv11", "ss01";
   }
+
+  /* Visible keyboard-focus indicator for every interactive element, including
+     plain <button>s that don't opt into a Tailwind ring utility. Elements that
+     define their own focus-visible ring (shadcn button/input) override this
+     because utilities are emitted after this base layer. */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  ::selection {
+    background: hsl(var(--accent) / 0.25);
+    color: hsl(var(--foreground));
+  }
+}
+
+/* Respect the OS-level "reduce motion" preference: this covers vestibular
+   and motion-sensitivity needs alongside the color/contrast work above. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 .app-shell {
@@ -68,26 +96,61 @@
   width: 100%;
 }
 
+/* Fixed bottom action bars sit above the iOS/Android home-indicator area. */
+.safe-bottom {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
 .brand-gradient {
-  background: linear-gradient(160deg, #0a3547 0%, #0f5c6e 55%, #12879a 100%);
+  background:
+    radial-gradient(130% 70% at 100% 0%, hsl(187 80% 55% / 0.22) 0%, transparent 60%),
+    linear-gradient(160deg, #0a3547 0%, #0f5c6e 55%, #12879a 100%);
 }
 
 .accent-gradient {
-  background: linear-gradient(135deg, #12879a 0%, #1fc6c6 100%);
+  background: linear-gradient(135deg, hsl(193 72% 22%) 0%, hsl(187 82% 30%) 100%);
 }
 
 .card-elevated {
-  box-shadow: 0 1px 2px rgba(9, 41, 54, 0.04), 0 12px 28px -12px rgba(9, 41, 54, 0.18);
+  box-shadow:
+    0 0 0 1px hsl(var(--foreground) / 0.04),
+    0 1px 2px rgba(9, 41, 54, 0.04),
+    0 12px 28px -12px rgba(9, 41, 54, 0.18);
 }
 
 .dark .card-elevated {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 12px 28px -12px rgba(0, 0, 0, 0.55);
+  box-shadow:
+    0 0 0 1px hsl(var(--foreground) / 0.06),
+    0 1px 2px rgba(0, 0, 0, 0.2),
+    0 12px 28px -12px rgba(0, 0, 0, 0.55);
+}
+
+/* Clickable cards (only real <button>s carry this tag) get a gentle lift on
+   hover/focus so pointer and keyboard users see they're interactive; touch
+   users are unaffected since there's no hover on touchscreens. */
+button.card-elevated {
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+button.card-elevated:hover,
+button.card-elevated:focus-visible {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 0 1px hsl(var(--accent) / 0.25),
+    0 2px 4px rgba(9, 41, 54, 0.06),
+    0 16px 32px -12px rgba(9, 41, 54, 0.28);
+}
+.dark button.card-elevated:hover,
+.dark button.card-elevated:focus-visible {
+  box-shadow:
+    0 0 0 1px hsl(var(--accent) / 0.3),
+    0 2px 4px rgba(0, 0, 0, 0.25),
+    0 16px 32px -12px rgba(0, 0, 0, 0.65);
 }
 
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(15, 92, 110, 0.25);
+  background: hsl(var(--muted-foreground) / 0.35);
   border-radius: 999px;
 }

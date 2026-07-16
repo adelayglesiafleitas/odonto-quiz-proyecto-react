@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { LogoMark } from '@/components/Logo'
 import { SettingsToggle } from '@/components/SettingsToggle'
 import { useAppSettings } from '@/context/AppSettings'
-import { getHistorial, getPromedio } from '@/lib/data'
+import { getAnios, getHistorial, getPromedio } from '@/lib/data'
+import type { CursoMeta } from '@/lib/cursos'
 import { Button } from '@/components/ui/button'
 import {
   ClipboardList,
@@ -16,28 +17,39 @@ import {
   Timer,
   TimerOff,
   Play,
+  CalendarDays,
+  ArrowLeftRight,
 } from 'lucide-react'
 import type { Pantalla } from '@/types'
 
-const DURACIONES = [15, 30, 45, 60, 90]
+const DURACIONES = [15, 30, 40, 45, 60, 90]
 
 export function Home({
+  cursoId,
+  cursoMeta,
   onNavigate,
   onIniciarSimulacro,
+  onCambiarCurso,
   onLogout,
 }: {
+  cursoId: string
+  cursoMeta: CursoMeta
   onNavigate: (p: Pantalla) => void
-  onIniciarSimulacro: (tiempoLimiteMinutos: number | null) => void
+  onIniciarSimulacro: (tiempoLimiteMinutos: number | null, anio: number | 'todos') => void
+  onCambiarCurso: () => void
   onLogout: () => void
 }) {
   const { t } = useAppSettings()
-  const historial = getHistorial()
-  const promedio = getPromedio()
+  const historial = getHistorial(cursoId)
+  const promedio = getPromedio(cursoId)
   const mejor = historial.reduce((max, i) => Math.max(max, i.porcentaje), 0)
+  const anios = getAnios(cursoId)
+  const nombreCurso = t.cursos[cursoId as 'odontologia' | 'nacionalidad' | 'conducir']?.nombre ?? t.home.estudiante
 
   const [mostrarModal, setMostrarModal] = useState(false)
   const [conTiempo, setConTiempo] = useState(false)
-  const [duracion, setDuracion] = useState(30)
+  const [duracion, setDuracion] = useState(cursoMeta.duracionOficialMinutos)
+  const [anio, setAnio] = useState<number | 'todos'>('todos')
 
   const opciones: {
     id: Pantalla | 'simulacro'
@@ -49,7 +61,7 @@ export function Home({
     {
       id: 'simulacro',
       titulo: t.home.simulacroTitulo,
-      descripcion: t.home.simulacroDesc,
+      descripcion: t.home.simulacroDesc(cursoMeta.cantidadOficial, cursoMeta.porcentajeAprobado),
       icon: ClipboardList,
       tono: 'accent',
     },
@@ -85,7 +97,7 @@ export function Home({
 
   function confirmarSimulacro() {
     setMostrarModal(false)
-    onIniciarSimulacro(conTiempo ? duracion : null)
+    onIniciarSimulacro(conTiempo ? duracion : null, cursoMeta.tieneConvocatorias ? anio : 'todos')
   }
 
   return (
@@ -96,11 +108,18 @@ export function Home({
             <LogoMark className="h-9 w-9" />
             <div>
               <p className="text-xs text-white/60">{t.home.hola}</p>
-              <p className="-mt-0.5 text-[15px] font-bold">{t.home.estudiante}</p>
+              <p className="-mt-0.5 text-[15px] font-bold">{nombreCurso}</p>
             </div>
           </div>
           <div className="flex items-center gap-2">
             <SettingsToggle variante="oscuro" />
+            <button
+              onClick={onCambiarCurso}
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/80 transition hover:bg-white/20"
+              aria-label={t.home.cambiarCurso}
+            >
+              <ArrowLeftRight className="h-4 w-4" />
+            </button>
             <button
               onClick={onLogout}
               className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/80 transition hover:bg-white/20"
@@ -125,7 +144,7 @@ export function Home({
               </div>
               <div className="flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1">
                 <TrendingUp className="h-3.5 w-3.5 text-[#1fc6c6]" />
-                <span className="text-xs font-semibold">{t.home.meta}</span>
+                <span className="text-xs font-semibold">{t.home.meta(cursoMeta.porcentajeAprobado)}</span>
               </div>
             </div>
           </div>
@@ -157,10 +176,40 @@ export function Home({
       </div>
 
       {mostrarModal && (
-        <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-4 sm:items-center">
+        <div className="safe-bottom fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-4 sm:items-center">
           <div className="card-elevated w-full max-w-sm rounded-3xl bg-card p-6">
             <h3 className="text-base font-bold text-foreground">{t.home.modalTitulo}</h3>
-            <p className="mt-1.5 text-sm text-muted-foreground">{t.home.modalSubtitulo}</p>
+            <p className="mt-1.5 text-sm text-muted-foreground">{t.home.modalSubtitulo(cursoMeta.cantidadOficial)}</p>
+
+            {cursoMeta.tieneConvocatorias && (
+              <div className="mt-4 space-y-2">
+                <p className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground">
+                  <CalendarDays className="h-3.5 w-3.5" />
+                  {t.home.modalAnio}
+                </p>
+                <div className="grid grid-cols-4 gap-2">
+                  <button
+                    onClick={() => setAnio('todos')}
+                    className={`card-elevated rounded-xl py-2.5 text-center text-xs font-bold transition ${
+                      anio === 'todos' ? 'bg-primary text-primary-foreground' : 'bg-secondary text-foreground'
+                    }`}
+                  >
+                    {t.configurar.todosAnios}
+                  </button>
+                  {anios.map((a) => (
+                    <button
+                      key={a}
+                      onClick={() => setAnio(a)}
+                      className={`card-elevated rounded-xl py-2.5 text-center text-xs font-bold transition ${
+                        anio === a ? 'bg-primary text-primary-foreground' : 'bg-secondary text-foreground'
+                      }`}
+                    >
+                      {a}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <div className="mt-5 grid grid-cols-2 gap-2.5">
               <button
@@ -186,7 +235,7 @@ export function Home({
             {conTiempo && (
               <div className="animate-float-up mt-3 space-y-2">
                 <p className="text-xs font-semibold text-muted-foreground">{t.configurar.duracion}</p>
-                <div className="grid grid-cols-5 gap-2">
+                <div className="grid grid-cols-3 gap-2">
                   {DURACIONES.map((d) => (
                     <button
                       key={d}
@@ -195,7 +244,7 @@ export function Home({
                         duracion === d ? 'accent-gradient text-white' : 'bg-secondary text-foreground'
                       }`}
                     >
-                      {d}m
+                      {d}m{d === cursoMeta.duracionOficialMinutos ? ` (${t.configurar.duracionOficial})` : ''}
                     </button>
                   ))}
                 </div>

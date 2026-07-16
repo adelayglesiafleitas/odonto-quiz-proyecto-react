@@ -19,18 +19,26 @@ function esCorrecta(pregunta: Pregunta, seleccion: string[]): boolean {
 }
 
 export function Resultados({
+  cursoId,
   preguntas,
   respuestas,
   capitulo,
+  anio,
+  umbralAprobado,
+  mostrarConvocatoria,
   tiempoLimiteMinutos,
   tiempoUsadoSeg,
   agotoTiempo,
   onRepetir,
   onInicio,
 }: {
+  cursoId: string
   preguntas: Pregunta[]
   respuestas: RespuestaUsuario
   capitulo: string
+  anio: number | 'todos'
+  umbralAprobado: number
+  mostrarConvocatoria: boolean
   tiempoLimiteMinutos: number | null
   tiempoUsadoSeg: number
   agotoTiempo: boolean
@@ -44,33 +52,38 @@ export function Resultados({
   const { correctas, porcentaje, aprobado } = useMemo(() => {
     const correctas = preguntas.filter((p) => esCorrecta(p, respuestas[p.numero] ?? [])).length
     const porcentaje = Math.round((correctas / preguntas.length) * 100)
-    return { correctas, porcentaje, aprobado: porcentaje >= 70 }
-  }, [preguntas, respuestas])
+    return { correctas, porcentaje, aprobado: porcentaje >= umbralAprobado }
+  }, [preguntas, respuestas, umbralAprobado])
 
   useEffect(() => {
     guardarIntento({
+      cursoId,
       fecha: new Date().toISOString(),
       totalPreguntas: preguntas.length,
       correctas,
       porcentaje,
       aprobado,
       capitulo,
+      anio,
       tiempoLimiteMinutos,
       tiempoUsadoSeg,
       agotoTiempo,
     })
-    setPromedio(getPromedio())
+    setPromedio(getPromedio(cursoId))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const circunferencia = 2 * Math.PI * 54
 
   return (
-    <div className="app-shell bg-background pb-10">
+    <div className="app-shell bg-background pb-32">
       <div className={`rounded-b-[32px] px-6 pb-8 pt-8 text-white ${aprobado ? 'brand-gradient' : 'bg-gradient-to-br from-[#7a1f2b] to-[#4a1018]'}`}>
         <p className="text-center text-xs font-bold uppercase tracking-widest text-white/60">
           {aprobado ? t.resultados.aprobado : t.resultados.noAprobado}
         </p>
+        {mostrarConvocatoria && (
+          <p className="mt-1 text-center text-[11px] font-semibold text-white/50">{t.resultados.convocatoria(anio)}</p>
+        )}
 
         <div className="relative mx-auto mt-5 flex h-36 w-36 items-center justify-center">
           <svg viewBox="0 0 120 120" className="h-full w-full -rotate-90">
@@ -96,7 +109,7 @@ export function Resultados({
 
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <div className="rounded-2xl bg-white/10 px-4 py-2.5 text-center">
-            <p className="text-sm font-extrabold">70%</p>
+            <p className="text-sm font-extrabold">{umbralAprobado}%</p>
             <p className="text-[10px] text-white/60">{t.resultados.minimoAprobatorio}</p>
           </div>
           <div className="rounded-2xl bg-white/10 px-4 py-2.5 text-center">
@@ -173,7 +186,7 @@ export function Resultados({
         </div>
       </div>
 
-      <div className="fixed inset-x-0 bottom-0 flex gap-3 border-t border-border bg-background/95 p-4 backdrop-blur">
+      <div className="safe-bottom fixed inset-x-0 bottom-0 flex gap-3 border-t border-border bg-background/95 p-4 backdrop-blur">
         <Button variant="outline" onClick={onInicio} className="h-12 flex-1 rounded-2xl font-bold">
           <HomeIcon className="mr-1.5 h-4 w-4" />
           {t.resultados.inicio}

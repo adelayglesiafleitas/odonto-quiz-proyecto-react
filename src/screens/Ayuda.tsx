@@ -1,15 +1,18 @@
-import { ArrowLeft, ClipboardList, Target, BookOpenCheck, SlidersHorizontal } from 'lucide-react'
+import { ArrowLeft, ClipboardList, Target, BookOpenCheck, SlidersHorizontal, ShieldCheck, ExternalLink } from 'lucide-react'
 import { useAppSettings } from '@/context/AppSettings'
 import { SettingsToggle } from '@/components/SettingsToggle'
 
-export function Ayuda({ onBack }: { onBack: () => void }) {
+export function Ayuda({ cursoId, umbralAprobado, onBack }: { cursoId: string; umbralAprobado: number; onBack: () => void }) {
   const { t } = useAppSettings()
+  const formatoOficial =
+    t.ayuda.formatoOficial[cursoId as 'odontologia' | 'nacionalidad' | 'conducir'] ?? t.ayuda.formatoOficial.odontologia
 
   const items = [
     { icon: ClipboardList, titulo: t.ayuda.simulacroTitulo, texto: t.ayuda.simulacroTexto },
     { icon: SlidersHorizontal, titulo: t.ayuda.configurarTitulo, texto: t.ayuda.configurarTexto },
-    { icon: Target, titulo: t.ayuda.puntuacionTitulo, texto: t.ayuda.puntuacionTexto },
+    { icon: Target, titulo: t.ayuda.puntuacionTitulo, texto: t.ayuda.puntuacionTexto(umbralAprobado) },
     { icon: BookOpenCheck, titulo: t.ayuda.estudioTitulo, texto: t.ayuda.estudioTexto },
+    { icon: ShieldCheck, titulo: formatoOficial.titulo, texto: formatoOficial.texto },
   ]
 
   return (
@@ -39,6 +42,18 @@ export function Ayuda({ onBack }: { onBack: () => void }) {
             </div>
           )
         })}
+
+        {formatoOficial.enlace && (
+          <a
+            href={formatoOficial.enlace.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="card-elevated flex items-center gap-2 rounded-2xl bg-accent/10 p-4 text-sm font-semibold text-accent transition hover:bg-accent/15"
+          >
+            <ExternalLink className="h-4 w-4 shrink-0" />
+            {formatoOficial.enlace.texto}
+          </a>
+        )}
       </div>
 
       <div className="card-elevated mt-4 rounded-2xl bg-secondary p-4">

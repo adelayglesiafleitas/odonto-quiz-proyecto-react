@@ -1,33 +1,42 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { ArrowLeft, Play, BookMarked, Hash, Timer, TimerOff } from 'lucide-react'
-import { getCapitulos, PREGUNTAS } from '@/lib/data'
+import { ArrowLeft, Play, BookMarked, Hash, Timer, TimerOff, CalendarDays } from 'lucide-react'
+import { getAnios, getCapitulos, getPreguntas } from '@/lib/data'
 import { getConfigExamenGuardada, guardarConfigExamen } from '@/lib/settings'
 import { useAppSettings } from '@/context/AppSettings'
+import type { CursoMeta } from '@/lib/cursos'
 
-const CANTIDADES = [10, 20, 30, 40]
-const DURACIONES = [15, 30, 45, 60, 90]
+const DURACIONES = [15, 30, 40, 45, 60, 90]
 
 export function ConfigurarExamen({
+  cursoId,
+  cursoMeta,
   onBack,
   onIniciar,
 }: {
+  cursoId: string
+  cursoMeta: CursoMeta
   onBack: () => void
-  onIniciar: (cantidad: number, capitulo: string, tiempoLimiteMinutos: number | null) => void
+  onIniciar: (cantidad: number, capitulo: string, tiempoLimiteMinutos: number | null, anio: number | 'todos') => void
 }) {
   const { t } = useAppSettings()
-  const capitulos = getCapitulos()
-  const guardada = getConfigExamenGuardada()
+  const preguntas = getPreguntas(cursoId)
+  const capitulos = getCapitulos(cursoId)
+  const anios = getAnios(cursoId)
+  const guardada = getConfigExamenGuardada(cursoId, cursoMeta.cantidadOficial, cursoMeta.duracionOficialMinutos)
   const [cantidad, setCantidad] = useState(guardada.cantidad)
   const [capitulo, setCapitulo] = useState<string>(guardada.capitulo)
+  const [anio, setAnio] = useState<number | 'todos'>(cursoMeta.tieneConvocatorias ? guardada.anio : 'todos')
   const [conTiempo, setConTiempo] = useState(guardada.conTiempo)
   const [duracion, setDuracion] = useState(guardada.duracion)
 
-  const disponibles = capitulo === 'todos' ? PREGUNTAS.length : PREGUNTAS.filter((p) => p.capitulo === capitulo).length
+  const disponibles = preguntas.filter(
+    (p) => (capitulo === 'todos' || p.capitulo === capitulo) && (anio === 'todos' || p.anio === anio),
+  ).length
 
   function iniciar() {
-    guardarConfigExamen({ cantidad, capitulo, conTiempo, duracion })
-    onIniciar(cantidad, capitulo, conTiempo ? duracion : null)
+    guardarConfigExamen(cursoId, { cantidad, capitulo, anio, conTiempo, duracion })
+    onIniciar(cantidad, capitulo, conTiempo ? duracion : null, anio)
   }
 
   return (
@@ -48,7 +57,7 @@ export function ConfigurarExamen({
           {t.configurar.cantidadPreguntas}
         </div>
         <div className="grid grid-cols-4 gap-2.5">
-          {CANTIDADES.map((c) => (
+          {cursoMeta.cantidadesDisponibles.map((c) => (
             <button
               key={c}
               onClick={() => setCantidad(c)}
@@ -91,7 +100,7 @@ export function ConfigurarExamen({
         {conTiempo && (
           <div className="animate-float-up space-y-2 pt-1">
             <p className="px-1 text-xs font-semibold text-muted-foreground">{t.configurar.duracion}</p>
-            <div className="grid grid-cols-5 gap-2">
+            <div className="grid grid-cols-3 gap-2">
               {DURACIONES.map((d) => (
                 <button
                   key={d}
@@ -100,13 +109,43 @@ export function ConfigurarExamen({
                     duracion === d ? 'accent-gradient text-white' : 'bg-card text-foreground'
                   }`}
                 >
-                  {d}m
+                  {d}m{d === cursoMeta.duracionOficialMinutos ? ` (${t.configurar.duracionOficial})` : ''}
                 </button>
               ))}
             </div>
           </div>
         )}
       </div>
+
+      {cursoMeta.tieneConvocatorias && (
+        <div className="mt-7 space-y-3">
+          <div className="flex items-center gap-2 px-1 text-xs font-bold uppercase tracking-wide text-muted-foreground">
+            <CalendarDays className="h-3.5 w-3.5" />
+            {t.configurar.anio}
+          </div>
+          <div className="grid grid-cols-4 gap-2.5">
+            <button
+              onClick={() => setAnio('todos')}
+              className={`card-elevated rounded-2xl py-3 text-center text-xs font-bold transition ${
+                anio === 'todos' ? 'bg-primary text-primary-foreground' : 'bg-card text-foreground'
+              }`}
+            >
+              {t.configurar.todosAnios}
+            </button>
+            {anios.map((a) => (
+              <button
+                key={a}
+                onClick={() => setAnio(a)}
+                className={`card-elevated rounded-2xl py-3 text-center text-xs font-bold transition ${
+                  anio === a ? 'bg-primary text-primary-foreground' : 'bg-card text-foreground'
+                }`}
+              >
+                {a}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="mt-7 space-y-3">
         <div className="flex items-center gap-2 px-1 text-xs font-bold uppercase tracking-wide text-muted-foreground">
@@ -122,12 +161,12 @@ export function ConfigurarExamen({
           >
             {t.configurar.todosCapitulos}
             <span className={capitulo === 'todos' ? 'text-white/70' : 'text-muted-foreground'}>
-              {PREGUNTAS.length} {t.configurar.preguntas}
+              {preguntas.filter((p) => anio === 'todos' || p.anio === anio).length} {t.configurar.preguntas}
             </span>
           </button>
           <div className="max-h-64 space-y-2 overflow-y-auto pr-1">
             {capitulos.map((cap) => {
-              const n = PREGUNTAS.filter((p) => p.capitulo === cap).length
+              const n = preguntas.filter((p) => p.capitulo === cap && (anio === 'todos' || p.anio === anio)).length
               return (
                 <button
                   key={cap}
@@ -147,7 +186,7 @@ export function ConfigurarExamen({
         </div>
       </div>
 
-      <div className="fixed inset-x-0 bottom-0 border-t border-border bg-background/95 p-4 backdrop-blur">
+      <div className="safe-bottom fixed inset-x-0 bottom-0 border-t border-border bg-background/95 p-4 backdrop-blur">
         <Button
           onClick={iniciar}
           disabled={disponibles === 0}

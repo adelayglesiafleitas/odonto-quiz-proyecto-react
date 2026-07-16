@@ -1,0 +1,391 @@
+[
+  { "numero": 1, "pregunta": "España es…", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 1 · Gobierno y participación ciudadana", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 1001", "opciones": [
+    { "letra": "A", "texto": "una monarquía parlamentaria", "correcta": true },
+    { "letra": "B", "texto": "una república federal", "correcta": false },
+    { "letra": "C", "texto": "una monarquía federal", "correcta": false }
+  ]},
+  { "numero": 2, "pregunta": "La ley fundamental de España se llama…", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 1 · Gobierno y participación ciudadana", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 1002", "opciones": [
+    { "letra": "A", "texto": "Constitución", "correcta": true },
+    { "letra": "B", "texto": "Ley básica", "correcta": false },
+    { "letra": "C", "texto": "Ordenamiento esencial", "correcta": false }
+  ]},
+  { "numero": 3, "pregunta": "Según la Constitución española, la soberanía nacional reside en…", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 1 · Gobierno y participación ciudadana", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 1003", "opciones": [
+    { "letra": "A", "texto": "el pueblo español", "correcta": true },
+    { "letra": "B", "texto": "el Gobierno del Estado", "correcta": false },
+    { "letra": "C", "texto": "el Congreso de los Diputados", "correcta": false }
+  ]},
+  { "numero": 4, "pregunta": "¿Quién es el jefe del Estado en España?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 1 · Gobierno y participación ciudadana", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 1011", "opciones": [
+    { "letra": "A", "texto": "El presidente del Gobierno", "correcta": false },
+    { "letra": "B", "texto": "El rey", "correcta": true },
+    { "letra": "C", "texto": "El ministro de Economía", "correcta": false }
+  ]},
+  { "numero": 5, "pregunta": "En la Constitución se establece la separación de poderes: el poder ejecutivo, el legislativo y el…", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 1 · Gobierno y participación ciudadana", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 1009", "opciones": [
+    { "letra": "A", "texto": "judicial", "correcta": true },
+    { "letra": "B", "texto": "informativo", "correcta": false },
+    { "letra": "C", "texto": "político", "correcta": false }
+  ]},
+  { "numero": 6, "pregunta": "¿Cómo se llama la cámara de representación territorial en España?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 1 · Gobierno y participación ciudadana", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 1016", "opciones": [
+    { "letra": "A", "texto": "Senado", "correcta": true },
+    { "letra": "B", "texto": "Diputación permanente", "correcta": false },
+    { "letra": "C", "texto": "Congreso de los Diputados", "correcta": false }
+  ]},
+  { "numero": 7, "pregunta": "¿Cuál de estos organismos se encarga de interpretar la Constitución?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 1 · Gobierno y participación ciudadana", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 1014", "opciones": [
+    { "letra": "A", "texto": "El Poder Constitucional", "correcta": false },
+    { "letra": "B", "texto": "El Tribunal Constitucional", "correcta": true },
+    { "letra": "C", "texto": "El Consejo General del Poder Judicial", "correcta": false }
+  ]},
+  { "numero": 8, "pregunta": "¿Cómo se aprobó la Constitución española?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 1 · Gobierno y participación ciudadana", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 1018", "opciones": [
+    { "letra": "A", "texto": "Por imposición legal", "correcta": false },
+    { "letra": "B", "texto": "Por referéndum", "correcta": true },
+    { "letra": "C", "texto": "Por el Tribunal Constitucional", "correcta": false }
+  ]},
+  { "numero": 9, "pregunta": "¿Cómo se llama la ley más importante de cada comunidad autónoma?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 1 · Gobierno y participación ciudadana", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 1019", "opciones": [
+    { "letra": "A", "texto": "Estatuto de Autonomía", "correcta": true },
+    { "letra": "B", "texto": "Normativa autonómica", "correcta": false },
+    { "letra": "C", "texto": "Ley de la comunidad", "correcta": false }
+  ]},
+  { "numero": 10, "pregunta": "La gestión de la sanidad es competencia de…", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 1 · Gobierno y participación ciudadana", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 1012", "opciones": [
+    { "letra": "A", "texto": "el Estado", "correcta": false },
+    { "letra": "B", "texto": "las comunidades autónomas", "correcta": true },
+    { "letra": "C", "texto": "los ayuntamientos", "correcta": false }
+  ]},
+  { "numero": 11, "pregunta": "¿Quién fue el primer presidente del Gobierno de España en democracia?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 1 · Gobierno y participación ciudadana", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 1013", "opciones": [
+    { "letra": "A", "texto": "Mariano Rajoy", "correcta": false },
+    { "letra": "B", "texto": "Adolfo Suárez", "correcta": true },
+    { "letra": "C", "texto": "José Luis Rodríguez Zapatero", "correcta": false }
+  ]},
+  { "numero": 12, "pregunta": "El castellano o español es lengua oficial…", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 1 · Gobierno y participación ciudadana", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 1006", "opciones": [
+    { "letra": "A", "texto": "en toda España", "correcta": true },
+    { "letra": "B", "texto": "solo donde no hay otras lenguas", "correcta": false },
+    { "letra": "C", "texto": "en toda la península ibérica", "correcta": false }
+  ]},
+  { "numero": 13, "pregunta": "¿Qué lengua es oficial en el País Vasco?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 1 · Gobierno y participación ciudadana", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 1032", "opciones": [
+    { "letra": "A", "texto": "El bable", "correcta": false },
+    { "letra": "B", "texto": "El aragonés", "correcta": false },
+    { "letra": "C", "texto": "El euskera", "correcta": true }
+  ]},
+  { "numero": 14, "pregunta": "El aranés es una lengua cooficial que se habla en un pequeño territorio de…", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 1 · Gobierno y participación ciudadana", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 1034", "opciones": [
+    { "letra": "A", "texto": "Cataluña", "correcta": true },
+    { "letra": "B", "texto": "La Rioja", "correcta": false },
+    { "letra": "C", "texto": "Aragón", "correcta": false }
+  ]},
+  { "numero": 15, "pregunta": "En las elecciones municipales se vota a…", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 1 · Gobierno y participación ciudadana", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 1031", "opciones": [
+    { "letra": "A", "texto": "alcaldes y concejales", "correcta": true },
+    { "letra": "B", "texto": "ministros y ministras", "correcta": false },
+    { "letra": "C", "texto": "diputados y senadores", "correcta": false }
+  ]},
+  { "numero": 16, "pregunta": "¿Qué hay en las Islas Baleares, en vez de diputaciones?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 1 · Gobierno y participación ciudadana", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 1022", "opciones": [
+    { "letra": "A", "texto": "Cabildos", "correcta": false },
+    { "letra": "B", "texto": "Consejos insulares", "correcta": true },
+    { "letra": "C", "texto": "Centros de diputados", "correcta": false }
+  ]},
+  { "numero": 17, "pregunta": "Las instituciones de una comunidad autónoma son: el consejo de gobierno, el presidente y…", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 1 · Gobierno y participación ciudadana", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 1035", "opciones": [
+    { "letra": "A", "texto": "el ayuntamiento", "correcta": false },
+    { "letra": "B", "texto": "la asamblea legislativa", "correcta": true },
+    { "letra": "C", "texto": "la delegación de gobierno", "correcta": false }
+  ]},
+  { "numero": 18, "pregunta": "¿Qué se necesita para hacer trámites por internet con la Administración?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 1 · Gobierno y participación ciudadana", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 1017", "opciones": [
+    { "letra": "A", "texto": "Un pasaporte válido", "correcta": false },
+    { "letra": "B", "texto": "Una firma electrónica", "correcta": true },
+    { "letra": "C", "texto": "Una firma en papel", "correcta": false }
+  ]},
+
+  { "numero": 19, "pregunta": "En España, la Constitución obliga a todos los ciudadanos a practicar una religión.", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 2 · Verdadero o falso", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 2001", "opciones": [
+    { "letra": "V", "texto": "Verdadero", "correcta": false },
+    { "letra": "F", "texto": "Falso", "correcta": true }
+  ]},
+  { "numero": 20, "pregunta": "En España, la Constitución prohíbe la tortura y la pena de muerte.", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 2 · Verdadero o falso", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 2003", "opciones": [
+    { "letra": "V", "texto": "Verdadero", "correcta": true },
+    { "letra": "F", "texto": "Falso", "correcta": false }
+  ]},
+  { "numero": 21, "pregunta": "El funcionamiento de los partidos políticos tiene que ser democrático.", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 2 · Verdadero o falso", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 2004", "opciones": [
+    { "letra": "V", "texto": "Verdadero", "correcta": true },
+    { "letra": "F", "texto": "Falso", "correcta": false }
+  ]},
+  { "numero": 22, "pregunta": "Se puede obligar a alguien a decir cuáles son sus ideas políticas o religiosas.", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 2 · Verdadero o falso", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 2005", "opciones": [
+    { "letra": "V", "texto": "Verdadero", "correcta": false },
+    { "letra": "F", "texto": "Falso", "correcta": true }
+  ]},
+  { "numero": 23, "pregunta": "Se puede limitar a una persona el derecho a entrar y salir libremente de España por motivos ideológicos.", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 2 · Verdadero o falso", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 2006", "opciones": [
+    { "letra": "V", "texto": "Verdadero", "correcta": false },
+    { "letra": "F", "texto": "Falso", "correcta": true }
+  ]},
+  { "numero": 24, "pregunta": "La Educación Primaria (de 6 a 12 años) es gratuita y obligatoria.", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 2 · Verdadero o falso", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 2007", "opciones": [
+    { "letra": "V", "texto": "Verdadero", "correcta": true },
+    { "letra": "F", "texto": "Falso", "correcta": false }
+  ]},
+  { "numero": 25, "pregunta": "En España, la policía puede entrar en cualquier casa sin resolución judicial en cualquier momento.", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 2 · Verdadero o falso", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 2009", "opciones": [
+    { "letra": "V", "texto": "Verdadero", "correcta": false },
+    { "letra": "F", "texto": "Falso", "correcta": true }
+  ]},
+  { "numero": 26, "pregunta": "Se garantiza el secreto de las comunicaciones de los españoles, salvo resolución judicial.", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 2 · Verdadero o falso", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 2010", "opciones": [
+    { "letra": "V", "texto": "Verdadero", "correcta": true },
+    { "letra": "F", "texto": "Falso", "correcta": false }
+  ]},
+  { "numero": 27, "pregunta": "Los profesores pueden enseñar con libertad, dentro de los límites de la Constitución.", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 2 · Verdadero o falso", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 2012", "opciones": [
+    { "letra": "V", "texto": "Verdadero", "correcta": true },
+    { "letra": "F", "texto": "Falso", "correcta": false }
+  ]},
+  { "numero": 28, "pregunta": "La Constitución reconoce únicamente los derechos fundamentales de los españoles.", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 2 · Verdadero o falso", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 2013", "opciones": [
+    { "letra": "V", "texto": "Verdadero", "correcta": false },
+    { "letra": "F", "texto": "Falso", "correcta": true }
+  ]},
+  { "numero": 29, "pregunta": "Los ciudadanos deben colaborar con los jueces si se lo piden.", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 2 · Verdadero o falso", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 2014", "opciones": [
+    { "letra": "V", "texto": "Verdadero", "correcta": true },
+    { "letra": "F", "texto": "Falso", "correcta": false }
+  ]},
+  { "numero": 30, "pregunta": "La atención sanitaria gratuita es solo para personas mayores de 65 años.", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 2 · Verdadero o falso", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 2018", "opciones": [
+    { "letra": "V", "texto": "Verdadero", "correcta": false },
+    { "letra": "F", "texto": "Falso", "correcta": true }
+  ]},
+  { "numero": 31, "pregunta": "En España hay una religión oficial.", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 2 · Verdadero o falso", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 2021", "opciones": [
+    { "letra": "V", "texto": "Verdadero", "correcta": false },
+    { "letra": "F", "texto": "Falso", "correcta": true }
+  ]},
+  { "numero": 32, "pregunta": "La atención sanitaria pública es gratuita.", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 2 · Verdadero o falso", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 2022", "opciones": [
+    { "letra": "V", "texto": "Verdadero", "correcta": true },
+    { "letra": "F", "texto": "Falso", "correcta": false }
+  ]},
+  { "numero": 33, "pregunta": "La enseñanza básica en España es solo para los extranjeros.", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 2 · Verdadero o falso", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 2023", "opciones": [
+    { "letra": "V", "texto": "Verdadero", "correcta": false },
+    { "letra": "F", "texto": "Falso", "correcta": true }
+  ]},
+  { "numero": 34, "pregunta": "Los trabajadores tienen derecho a hacer huelga.", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 2 · Verdadero o falso", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 2026", "opciones": [
+    { "letra": "V", "texto": "Verdadero", "correcta": true },
+    { "letra": "F", "texto": "Falso", "correcta": false }
+  ]},
+  { "numero": 35, "pregunta": "Todos tienen derecho a disfrutar de un medio ambiente adecuado para el desarrollo de la persona, así como el deber de conservarlo.", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 2 · Verdadero o falso", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 2029", "opciones": [
+    { "letra": "V", "texto": "Verdadero", "correcta": true },
+    { "letra": "F", "texto": "Falso", "correcta": false }
+  ]},
+  { "numero": 36, "pregunta": "La ley prohíbe la discriminación por cualquier circunstancia personal o social.", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 2 · Verdadero o falso", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 2032", "opciones": [
+    { "letra": "V", "texto": "Verdadero", "correcta": true },
+    { "letra": "F", "texto": "Falso", "correcta": false }
+  ]},
+  { "numero": 37, "pregunta": "En España, los ciudadanos pueden desplazarse libremente por todo el territorio nacional.", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 2 · Verdadero o falso", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 2033", "opciones": [
+    { "letra": "V", "texto": "Verdadero", "correcta": true },
+    { "letra": "F", "texto": "Falso", "correcta": false }
+  ]},
+  { "numero": 38, "pregunta": "Los jueces administran la justicia en España según las indicaciones del Gobierno.", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 2 · Verdadero o falso", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 2034", "opciones": [
+    { "letra": "V", "texto": "Verdadero", "correcta": false },
+    { "letra": "F", "texto": "Falso", "correcta": true }
+  ]},
+
+  { "numero": 39, "pregunta": "¿Dónde están Cáceres y Badajoz?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 3 · Geografía y organización territorial", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 3001", "opciones": [
+    { "letra": "A", "texto": "En el Principado de Asturias", "correcta": false },
+    { "letra": "B", "texto": "En Andalucía", "correcta": false },
+    { "letra": "C", "texto": "En Extremadura", "correcta": true }
+  ]},
+  { "numero": 40, "pregunta": "¿Cuál es la capital de la Comunidad Valenciana?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 3 · Geografía y organización territorial", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 3002", "opciones": [
+    { "letra": "A", "texto": "Alicante", "correcta": false },
+    { "letra": "B", "texto": "Castellón", "correcta": false },
+    { "letra": "C", "texto": "Valencia", "correcta": true }
+  ]},
+  { "numero": 41, "pregunta": "¿Dónde están las islas Baleares?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 3 · Geografía y organización territorial", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 3003", "opciones": [
+    { "letra": "A", "texto": "En el mar Cantábrico", "correcta": false },
+    { "letra": "B", "texto": "En el mar Mediterráneo", "correcta": true },
+    { "letra": "C", "texto": "En el océano Atlántico", "correcta": false }
+  ]},
+  { "numero": 42, "pregunta": "¿Cómo se llama la extensa llanura situada en el centro de la península ibérica?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 3 · Geografía y organización territorial", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 3004", "opciones": [
+    { "letra": "A", "texto": "Marisma", "correcta": false },
+    { "letra": "B", "texto": "Cordillera", "correcta": false },
+    { "letra": "C", "texto": "Meseta", "correcta": true }
+  ]},
+  { "numero": 43, "pregunta": "El parque nacional de Ordesa está en...", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 3 · Geografía y organización territorial", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 3005", "opciones": [
+    { "letra": "A", "texto": "Aragón", "correcta": true },
+    { "letra": "B", "texto": "Navarra", "correcta": false },
+    { "letra": "C", "texto": "Castilla-La Mancha", "correcta": false }
+  ]},
+  { "numero": 44, "pregunta": "¿En qué comunidad autónoma están Guadalajara y Cuenca?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 3 · Geografía y organización territorial", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 3006", "opciones": [
+    { "letra": "A", "texto": "En Castilla y León", "correcta": false },
+    { "letra": "B", "texto": "En Castilla-La Mancha", "correcta": true },
+    { "letra": "C", "texto": "En Cantabria", "correcta": false }
+  ]},
+  { "numero": 45, "pregunta": "¿Qué comunidad autónoma tiene como capital Santiago de Compostela?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 3 · Geografía y organización territorial", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 3007", "opciones": [
+    { "letra": "A", "texto": "Galicia", "correcta": true },
+    { "letra": "B", "texto": "Asturias", "correcta": false },
+    { "letra": "C", "texto": "Cantabria", "correcta": false }
+  ]},
+  { "numero": 46, "pregunta": "¿Dónde está Almería?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 3 · Geografía y organización territorial", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 3008", "opciones": [
+    { "letra": "A", "texto": "En Andalucía", "correcta": true },
+    { "letra": "B", "texto": "En Canarias", "correcta": false },
+    { "letra": "C", "texto": "En Aragón", "correcta": false }
+  ]},
+  { "numero": 47, "pregunta": "La capital de la comunidad autónoma de Galicia es…", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 3 · Geografía y organización territorial", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 3009", "opciones": [
+    { "letra": "A", "texto": "A Coruña", "correcta": false },
+    { "letra": "B", "texto": "Vigo", "correcta": false },
+    { "letra": "C", "texto": "Santiago de Compostela", "correcta": true }
+  ]},
+  { "numero": 48, "pregunta": "¿Cuál de estos ríos desemboca en el mar Mediterráneo?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 3 · Geografía y organización territorial", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 3010", "opciones": [
+    { "letra": "A", "texto": "El Tajo", "correcta": false },
+    { "letra": "B", "texto": "El Júcar", "correcta": true },
+    { "letra": "C", "texto": "El Duero", "correcta": false }
+  ]},
+  { "numero": 49, "pregunta": "¿Dónde está el monte Aneto?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 3 · Geografía y organización territorial", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 3011", "opciones": [
+    { "letra": "A", "texto": "En los Pirineos", "correcta": true },
+    { "letra": "B", "texto": "En el Sistema Central", "correcta": false },
+    { "letra": "C", "texto": "En Sierra Nevada", "correcta": false }
+  ]},
+  { "numero": 50, "pregunta": "La ciudad de Vitoria es la sede administrativa de…", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 3 · Geografía y organización territorial", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 3012", "opciones": [
+    { "letra": "A", "texto": "Navarra", "correcta": false },
+    { "letra": "B", "texto": "País Vasco", "correcta": true },
+    { "letra": "C", "texto": "La Rioja", "correcta": false }
+  ]},
+  { "numero": 51, "pregunta": "España se divide en…", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 3 · Geografía y organización territorial", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 3013", "opciones": [
+    { "letra": "A", "texto": "departamentos y regiones", "correcta": false },
+    { "letra": "B", "texto": "comunidades y ciudades autónomas", "correcta": true },
+    { "letra": "C", "texto": "regiones autónomas y distritos", "correcta": false }
+  ]},
+  { "numero": 52, "pregunta": "El parque nacional de Aigüestortes está en...", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 3 · Geografía y organización territorial", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 3014", "opciones": [
+    { "letra": "A", "texto": "Cataluña", "correcta": true },
+    { "letra": "B", "texto": "Aragón", "correcta": false },
+    { "letra": "C", "texto": "Castilla y León", "correcta": false }
+  ]},
+  { "numero": 53, "pregunta": "¿Cuál de estos ríos desemboca en el océano Atlántico?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 3 · Geografía y organización territorial", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 3017", "opciones": [
+    { "letra": "A", "texto": "El Guadalquivir", "correcta": true },
+    { "letra": "B", "texto": "El Manzanares", "correcta": false },
+    { "letra": "C", "texto": "El Júcar", "correcta": false }
+  ]},
+  { "numero": 54, "pregunta": "El principal río que desemboca en el mar Mediterráneo es el…", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 3 · Geografía y organización territorial", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes, pregunta n.º 3021", "opciones": [
+    { "letra": "A", "texto": "Ebro", "correcta": true },
+    { "letra": "B", "texto": "Duero", "correcta": false },
+    { "letra": "C", "texto": "Tajo", "correcta": false }
+  ]},
+
+  { "numero": 55, "pregunta": "¿Quién escribió \"Don Quijote de la Mancha\"?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 4 · Cultura, arte e historia", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "Miguel de Cervantes", "correcta": true },
+    { "letra": "B", "texto": "Federico García Lorca", "correcta": false },
+    { "letra": "C", "texto": "Lope de Vega", "correcta": false }
+  ]},
+  { "numero": 56, "pregunta": "¿Qué pintor español es el autor de \"Las Meninas\", en el Museo del Prado?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 4 · Cultura, arte e historia", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "Diego Velázquez", "correcta": true },
+    { "letra": "B", "texto": "Pablo Picasso", "correcta": false },
+    { "letra": "C", "texto": "Salvador Dalí", "correcta": false }
+  ]},
+  { "numero": 57, "pregunta": "¿Qué pintor español pintó el \"Guernica\", que se conserva en el Museo Reina Sofía de Madrid?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 4 · Cultura, arte e historia", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "Pablo Picasso", "correcta": true },
+    { "letra": "B", "texto": "Francisco de Goya", "correcta": false },
+    { "letra": "C", "texto": "Joan Miró", "correcta": false }
+  ]},
+  { "numero": 58, "pregunta": "\"Los fusilamientos del 3 de mayo\" y \"La maja desnuda\", conservados en el Museo del Prado, son obras de…", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 4 · Cultura, arte e historia", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "Francisco de Goya", "correcta": true },
+    { "letra": "B", "texto": "Joaquín Sorolla", "correcta": false },
+    { "letra": "C", "texto": "Antonio López", "correcta": false }
+  ]},
+  { "numero": 59, "pregunta": "Además del Prado y el Reina Sofía, ¿en qué ciudad está el Museo Guggenheim?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 4 · Cultura, arte e historia", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "Bilbao", "correcta": true },
+    { "letra": "B", "texto": "Sevilla", "correcta": false },
+    { "letra": "C", "texto": "Valencia", "correcta": false }
+  ]},
+  { "numero": 60, "pregunta": "¿En qué ciudad se encuentra el Museo Thyssen-Bornemisza?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 4 · Cultura, arte e historia", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "Madrid", "correcta": true },
+    { "letra": "B", "texto": "Barcelona", "correcta": false },
+    { "letra": "C", "texto": "Málaga", "correcta": false }
+  ]},
+  { "numero": 61, "pregunta": "¿Aproximadamente cuántos bienes españoles reconoce la UNESCO como Patrimonio de la Humanidad?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 4 · Cultura, arte e historia", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "49, el tercer país del mundo con más bienes reconocidos", "correcta": true },
+    { "letra": "B", "texto": "10, una cifra baja comparada con el resto de Europa", "correcta": false },
+    { "letra": "C", "texto": "Ninguno, España no tiene bienes reconocidos por la UNESCO", "correcta": false }
+  ]},
+  { "numero": 62, "pregunta": "¿Cuál de estos conjuntos NO estuvo entre los primeros cinco bienes españoles declarados Patrimonio de la Humanidad en 1984?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 4 · Cultura, arte e historia", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "La Alhambra y el Generalife de Granada", "correcta": false },
+    { "letra": "B", "texto": "La Mezquita de Córdoba", "correcta": false },
+    { "letra": "C", "texto": "El Museo Guggenheim de Bilbao", "correcta": true }
+  ]},
+  { "numero": 63, "pregunta": "¿Qué famosa ruta de peregrinación europea, declarada Patrimonio de la Humanidad, termina en Galicia?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 4 · Cultura, arte e historia", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "El Camino de Santiago", "correcta": true },
+    { "letra": "B", "texto": "La Vía de la Plata únicamente", "correcta": false },
+    { "letra": "C", "texto": "El Sendero Ibérico", "correcta": false }
+  ]},
+  { "numero": 64, "pregunta": "Durante Al-Ándalus, ¿qué ciudad se convirtió en un gran centro científico y cultural donde se estudiaban medicina, filosofía, matemáticas y astronomía?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 4 · Cultura, arte e historia", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "Córdoba", "correcta": true },
+    { "letra": "B", "texto": "Bilbao", "correcta": false },
+    { "letra": "C", "texto": "Santander", "correcta": false }
+  ]},
+  { "numero": 65, "pregunta": "¿Qué institución de Toledo tradujo al latín y al castellano numerosas obras escritas en árabe y griego durante la Edad Media?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 4 · Cultura, arte e historia", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "La Escuela de Traductores de Toledo", "correcta": true },
+    { "letra": "B", "texto": "La Real Academia Española", "correcta": false },
+    { "letra": "C", "texto": "El Consejo Superior de Investigaciones Científicas", "correcta": false }
+  ]},
+  { "numero": 66, "pregunta": "¿Cuál es la mayor institución pública dedicada a la investigación científica en España?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 4 · Cultura, arte e historia", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "El Consejo Superior de Investigaciones Científicas (CSIC)", "correcta": true },
+    { "letra": "B", "texto": "El Instituto Cervantes", "correcta": false },
+    { "letra": "C", "texto": "La Real Academia Española (RAE)", "correcta": false }
+  ]},
+  { "numero": 67, "pregunta": "¿Qué fiesta popular de Valencia incluye grandes figuras de cartón que se queman en la calle?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 4 · Cultura, arte e historia", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "Las Fallas", "correcta": true },
+    { "letra": "B", "texto": "La Feria de Abril", "correcta": false },
+    { "letra": "C", "texto": "Los Sanfermines", "correcta": false }
+  ]},
+
+  { "numero": 68, "pregunta": "¿Qué número de teléfono se utiliza en España para emergencias?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 5 · Vida en sociedad y trámites", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "112", "correcta": true },
+    { "letra": "B", "texto": "911", "correcta": false },
+    { "letra": "C", "texto": "100", "correcta": false }
+  ]},
+  { "numero": 69, "pregunta": "¿Qué documento necesita un extranjero residente en España para identificarse ante la Administración?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 5 · Vida en sociedad y trámites", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "El NIE (Número de Identidad de Extranjero)", "correcta": true },
+    { "letra": "B", "texto": "El DNI español", "correcta": false },
+    { "letra": "C", "texto": "Un carné de la Seguridad Social de otro país", "correcta": false }
+  ]},
+  { "numero": 70, "pregunta": "¿Dónde debe registrarse una persona para acreditar dónde vive (empadronamiento)?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 5 · Vida en sociedad y trámites", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "En el Ayuntamiento", "correcta": true },
+    { "letra": "B", "texto": "En la Comisaría de Policía", "correcta": false },
+    { "letra": "C", "texto": "En el Consulado de su país de origen", "correcta": false }
+  ]},
+  { "numero": 71, "pregunta": "¿Cómo se llama el sistema público de salud en España?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 5 · Vida en sociedad y trámites", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "El Sistema Nacional de Salud", "correcta": true },
+    { "letra": "B", "texto": "El seguro privado obligatorio", "correcta": false },
+    { "letra": "C", "texto": "No existe un sistema público de salud", "correcta": false }
+  ]},
+  { "numero": 72, "pregunta": "¿Qué impuesto se paga al comprar la mayoría de productos y servicios en España?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 5 · Vida en sociedad y trámites", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "El IVA (Impuesto sobre el Valor Añadido)", "correcta": true },
+    { "letra": "B", "texto": "El IRPF", "correcta": false },
+    { "letra": "C", "texto": "El IBI", "correcta": false }
+  ]},
+  { "numero": 73, "pregunta": "¿Qué cuerpo de seguridad se encarga sobre todo de las zonas rurales y las fronteras, junto a la Policía Nacional?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 5 · Vida en sociedad y trámites", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "La Guardia Civil", "correcta": true },
+    { "letra": "B", "texto": "El Ejército de Tierra", "correcta": false },
+    { "letra": "C", "texto": "La Policía Portuaria", "correcta": false }
+  ]},
+  { "numero": 74, "pregunta": "¿Qué comida suele ser la principal del día en España, normalmente entre las 14:00 y las 15:00?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 5 · Vida en sociedad y trámites", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "La comida", "correcta": true },
+    { "letra": "B", "texto": "El desayuno", "correcta": false },
+    { "letra": "C", "texto": "La cena", "correcta": false }
+  ]},
+  { "numero": 75, "pregunta": "Además del permiso de residencia, ¿qué necesita tramitar un extranjero para trabajar legalmente en España?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 5 · Vida en sociedad y trámites", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "Una autorización de trabajo", "correcta": true },
+    { "letra": "B", "texto": "Solo el pasaporte", "correcta": false },
+    { "letra": "C", "texto": "Nada, es automático", "correcta": false }
+  ]},
+  { "numero": 76, "pregunta": "¿Qué documento identifica a los ciudadanos españoles en su día a día?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 5 · Vida en sociedad y trámites", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "El DNI (Documento Nacional de Identidad)", "correcta": true },
+    { "letra": "B", "texto": "El NIE", "correcta": false },
+    { "letra": "C", "texto": "El carné de conducir", "correcta": false }
+  ]},
+  { "numero": 77, "pregunta": "¿En qué edades es obligatoria la escolarización en España?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 5 · Vida en sociedad y trámites", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "De los 6 a los 16 años", "correcta": true },
+    { "letra": "B", "texto": "De los 3 a los 12 años", "correcta": false },
+    { "letra": "C", "texto": "De los 8 a los 18 años", "correcta": false }
+  ]},
+  { "numero": 78, "pregunta": "¿Qué se debe hacer al llegar a vivir a un municipio en España para acceder a algunos servicios públicos?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 5 · Vida en sociedad y trámites", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "Empadronarse en el Ayuntamiento", "correcta": true },
+    { "letra": "B", "texto": "Sacarse el carné de conducir", "correcta": false },
+    { "letra": "C", "texto": "Abrir una cuenta bancaria", "correcta": false }
+  ]},
+  { "numero": 79, "pregunta": "¿Cuál es la moneda oficial de España?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 5 · Vida en sociedad y trámites", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "El euro", "correcta": true },
+    { "letra": "B", "texto": "La peseta", "correcta": false },
+    { "letra": "C", "texto": "El dólar", "correcta": false }
+  ]},
+  { "numero": 80, "pregunta": "¿Qué institución gestiona las pensiones y prestaciones sociales en España?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 5 · Vida en sociedad y trámites", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "La Seguridad Social", "correcta": true },
+    { "letra": "B", "texto": "El Ayuntamiento", "correcta": false },
+    { "letra": "C", "texto": "El Banco de España", "correcta": false }
+  ]},
+  { "numero": 81, "pregunta": "¿Qué se recomienda hacer antes de acudir a un centro de salud o a un organismo público en España?", "asignatura": "Nacionalidad española (CCSE)", "capitulo": "Tarea 5 · Vida en sociedad y trámites", "anio": 2026, "bibliografia": "Manual CCSE 2026, Instituto Cervantes", "opciones": [
+    { "letra": "A", "texto": "Solicitar cita previa", "correcta": true },
+    { "letra": "B", "texto": "Presentarse sin avisar", "correcta": false },
+    { "letra": "C", "texto": "Llamar únicamente por la tarde", "correcta": false }
+  ]}
+]
