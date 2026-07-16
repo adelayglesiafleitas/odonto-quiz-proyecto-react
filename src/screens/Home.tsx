@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { LogoMark } from '@/components/Logo'
 import { SettingsToggle } from '@/components/SettingsToggle'
 import { useAppSettings } from '@/context/AppSettings'
-import { getAnios, getHistorial, getPromedio } from '@/lib/data'
+import { getAnios } from '@/lib/data'
+import { getHistorialRemoto, getPromedioRemoto } from '@/lib/historial'
 import { getCursosActivos, type CursoMeta } from '@/lib/cursos'
 import { Button } from '@/components/ui/button'
 import {
@@ -25,6 +26,7 @@ import type { Pantalla } from '@/types'
 const DURACIONES = [15, 30, 40, 45, 60, 90]
 
 export function Home({
+  userId,
   cursoId,
   cursoMeta,
   onNavigate,
@@ -32,6 +34,7 @@ export function Home({
   onCambiarCurso,
   onLogout,
 }: {
+  userId: string
   cursoId: string
   cursoMeta: CursoMeta
   onNavigate: (p: Pantalla) => void
@@ -40,10 +43,25 @@ export function Home({
   onLogout: () => void
 }) {
   const { t } = useAppSettings()
-  const historial = getHistorial(cursoId)
-  const promedio = getPromedio(cursoId)
-  const mejor = historial.reduce((max, i) => Math.max(max, i.porcentaje), 0)
+  const [mejor, setMejor] = useState(0)
+  const [promedio, setPromedio] = useState(0)
+  const [intentos, setIntentos] = useState(0)
   const anios = getAnios(cursoId)
+
+  useEffect(() => {
+    let cancelado = false
+    getHistorialRemoto(userId, cursoId).then((historial) => {
+      if (cancelado) return
+      setMejor(historial.reduce((max, i) => Math.max(max, i.porcentaje), 0))
+      setIntentos(historial.length)
+    })
+    getPromedioRemoto(userId, cursoId).then((p) => {
+      if (!cancelado) setPromedio(p)
+    })
+    return () => {
+      cancelado = true
+    }
+  }, [userId, cursoId])
   const nombreCurso = t.cursos[cursoId as 'odontologia' | 'nacionalidad' | 'conducir']?.nombre ?? t.home.estudiante
 
   const [mostrarModal, setMostrarModal] = useState(false)
@@ -137,7 +155,7 @@ export function Home({
           <div className="mt-3 flex items-center justify-between">
             <div>
               <p className="text-3xl font-extrabold leading-none">{promedio}%</p>
-              <p className="mt-1.5 text-[11px] text-white/60">{t.home.promedioSufijo(historial.length)}</p>
+              <p className="mt-1.5 text-[11px] text-white/60">{t.home.promedioSufijo(intentos)}</p>
             </div>
             <div className="flex flex-col items-end gap-1.5 text-right">
               <div className="flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1">

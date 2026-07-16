@@ -1,19 +1,21 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { ArrowLeft, Play, BookMarked, Hash, Timer, TimerOff, CalendarDays } from 'lucide-react'
 import { getAnios, getCapitulos, getPreguntas } from '@/lib/data'
-import { getConfigExamenGuardada, guardarConfigExamen } from '@/lib/settings'
+import { getConfigExamenRemota, guardarConfigExamenRemota } from '@/lib/configExamen'
 import { useAppSettings } from '@/context/AppSettings'
 import type { CursoMeta } from '@/lib/cursos'
 
 const DURACIONES = [15, 30, 40, 45, 60, 90]
 
 export function ConfigurarExamen({
+  userId,
   cursoId,
   cursoMeta,
   onBack,
   onIniciar,
 }: {
+  userId: string
   cursoId: string
   cursoMeta: CursoMeta
   onBack: () => void
@@ -23,19 +25,34 @@ export function ConfigurarExamen({
   const preguntas = getPreguntas(cursoId)
   const capitulos = getCapitulos(cursoId)
   const anios = getAnios(cursoId)
-  const guardada = getConfigExamenGuardada(cursoId, cursoMeta.cantidadOficial, cursoMeta.duracionOficialMinutos)
-  const [cantidad, setCantidad] = useState(guardada.cantidad)
-  const [capitulo, setCapitulo] = useState<string>(guardada.capitulo)
-  const [anio, setAnio] = useState<number | 'todos'>(cursoMeta.tieneConvocatorias ? guardada.anio : 'todos')
-  const [conTiempo, setConTiempo] = useState(guardada.conTiempo)
-  const [duracion, setDuracion] = useState(guardada.duracion)
+  const [cantidad, setCantidad] = useState(cursoMeta.cantidadOficial)
+  const [capitulo, setCapitulo] = useState<string>('todos')
+  const [anio, setAnio] = useState<number | 'todos'>('todos')
+  const [conTiempo, setConTiempo] = useState(false)
+  const [duracion, setDuracion] = useState(cursoMeta.duracionOficialMinutos)
+
+  useEffect(() => {
+    let cancelado = false
+    getConfigExamenRemota(userId, cursoId, cursoMeta.cantidadOficial, cursoMeta.duracionOficialMinutos).then((guardada) => {
+      if (cancelado) return
+      setCantidad(guardada.cantidad)
+      setCapitulo(guardada.capitulo)
+      setAnio(cursoMeta.tieneConvocatorias ? guardada.anio : 'todos')
+      setConTiempo(guardada.conTiempo)
+      setDuracion(guardada.duracion)
+    })
+    return () => {
+      cancelado = true
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userId, cursoId])
 
   const disponibles = preguntas.filter(
     (p) => (capitulo === 'todos' || p.capitulo === capitulo) && (anio === 'todos' || p.anio === anio),
   ).length
 
   function iniciar() {
-    guardarConfigExamen(cursoId, { cantidad, capitulo, anio, conTiempo, duracion })
+    guardarConfigExamenRemota(userId, cursoId, { cantidad, capitulo, anio, conTiempo, duracion })
     onIniciar(cantidad, capitulo, conTiempo ? duracion : null, anio)
   }
 

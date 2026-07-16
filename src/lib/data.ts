@@ -1,8 +1,7 @@
 import odontologiaRaw from '../data/odontologia.json'
 import nacionalidadRaw from '../data/nacionalidad.json'
 import conducirRaw from '../data/conducir.json'
-import type { Pregunta, IntentoExamen } from '../types'
-import { getCookieJSON, setCookieJSON } from './cookies'
+import type { Pregunta } from '../types'
 
 const BANCOS: Record<string, Pregunta[]> = {
   odontologia: odontologiaRaw as Pregunta[],
@@ -44,25 +43,4 @@ export function seleccionarPreguntas(
   if (anio !== 'todos') pool = pool.filter((p) => p.anio === anio)
   const barajadas = shuffle(pool)
   return barajadas.slice(0, Math.min(cantidad, barajadas.length))
-}
-
-const HISTORIAL_COOKIE = 'examprep_historial'
-const HISTORIAL_MAX = 30
-
-export function getHistorial(cursoId?: string): IntentoExamen[] {
-  const todos = getCookieJSON<IntentoExamen[]>(HISTORIAL_COOKIE, [])
-  return cursoId ? todos.filter((i) => i.cursoId === cursoId) : todos
-}
-
-export function guardarIntento(intento: IntentoExamen) {
-  const todos = getCookieJSON<IntentoExamen[]>(HISTORIAL_COOKIE, [])
-  todos.unshift(intento)
-  setCookieJSON(HISTORIAL_COOKIE, todos.slice(0, HISTORIAL_MAX))
-}
-
-export function getPromedio(cursoId?: string): number {
-  const historial = getHistorial(cursoId)
-  if (historial.length === 0) return 0
-  const suma = historial.reduce((acc, i) => acc + i.porcentaje, 0)
-  return Math.round(suma / historial.length)
 }

@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import type { Session } from '@supabase/supabase-js'
 import type { Pantalla, Pregunta } from '@/types'
 import { seleccionarPreguntas } from '@/lib/data'
 import { getCursoMeta, getCursosActivos, type CursoId } from '@/lib/cursos'
+import { supabase } from '@/lib/supabase'
 import { Splash } from '@/screens/Splash'
 import { Login } from '@/screens/Login'
 import { SeleccionCurso } from '@/screens/SeleccionCurso'
@@ -27,15 +29,47 @@ interface ResultadoExamen {
 
 function App() {
   const [pantalla, setPantalla] = useState<Pantalla>('splash')
-  const [autenticado, setAutenticado] = useState(false)
+  const [session, setSession] = useState<Session | null>(null)
+  const [sesionLista, setSesionLista] = useState(false)
   const [cursoActivo, setCursoActivo] = useState<CursoId | null>(null)
   const [sesionExamen, setSesionExamen] = useState<SesionExamen | null>(null)
   const [resultado, setResultado] = useState<ResultadoExamen>({ respuestas: {}, tiempoUsadoSeg: 0, agotoTiempo: false })
 
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data }) => {
+      setSession(data.session)
+      setSesionLista(true)
+    })
+    const { data: listener } = supabase.auth.onAuthStateChange((_evento, nuevaSesion) => {
+      setSession(nuevaSesion)
+    })
+    return () => listener.subscription.unsubscribe()
+  }, [])
+
+  const userId = session?.user.id ?? null
+  const autenticado = !!session
   const cursoMeta = cursoActivo ? getCursoMeta(cursoActivo) : null
 
-  function irALogin() {
-    setAutenticado(false)
+  function entrarTrasAutenticar() {
+    const activos = getCursosActivos()
+    if (activos.length === 1) {
+      setCursoActivo(activos[0].id)
+      setPantalla('home')
+    } else {
+      setPantalla('seleccionCurso')
+    }
+  }
+
+  function terminarSplash() {
+    if (sesionLista && autenticado) {
+      entrarTrasAutenticar()
+    } else {
+      setPantalla('login')
+    }
+  }
+
+  async function irALogin() {
+    await supabase.auth.signOut()
     setCursoActivo(null)
     setPantalla('login')
   }
@@ -59,22 +93,9 @@ function App() {
 
   return (
     <div className="mx-auto min-h-screen w-full max-w-md bg-background font-sans">
-      {pantalla === 'splash' && <Splash onFinish={() => setPantalla('login')} />}
+      {pantalla === 'splash' && <Splash onFinish={terminarSplash} />}
 
-      {pantalla === 'login' && (
-        <Login
-          onLogin={() => {
-            setAutenticado(true)
-            const activos = getCursosActivos()
-            if (activos.length === 1) {
-              setCursoActivo(activos[0].id)
-              setPantalla('home')
-            } else {
-              setPantalla('seleccionCurso')
-            }
-          }}
-        />
-      )}
+      {pantalla === 'login' && <Login onLogin={entrarTrasAutenticar} />}
 
       {pantalla === 'seleccionCurso' && autenticado && (
         <SeleccionCurso
@@ -86,8 +107,9 @@ function App() {
         />
       )}
 
-      {pantalla === 'home' && autenticado && cursoActivo && cursoMeta && (
+      {pantalla === 'home' && autenticado && userId && cursoActivo && cursoMeta && (
         <Home
+          userId={userId}
           cursoId={cursoActivo}
           cursoMeta={cursoMeta}
           onNavigate={setPantalla}
@@ -97,8 +119,14 @@ function App() {
         />
       )}
 
-      {pantalla === 'configurar' && cursoActivo && cursoMeta && (
-        <ConfigurarExamen cursoId={cursoActivo} cursoMeta={cursoMeta} onBack={() => setPantalla('home')} onIniciar={iniciarExamen} />
+      {pantalla === 'configurar' && userId && cursoActivo && cursoMeta && (
+        <ConfigurarExamen
+          userId={userId}
+          cursoId={cursoActivo}
+          cursoMeta={cursoMeta}
+          onBack={() => setPantalla('home')}
+          onIniciar={iniciarExamen}
+        />
       )}
 
       {pantalla === 'examen' && sesionExamen && (
@@ -110,8 +138,9 @@ function App() {
         />
       )}
 
-      {pantalla === 'resultados' && sesionExamen && cursoActivo && cursoMeta && (
+      {pantalla === 'resultados' && userId && sesionExamen && cursoActivo && cursoMeta && (
         <Resultados
+          userId={userId}
           cursoId={cursoActivo}
           preguntas={sesionExamen.preguntas}
           respuestas={resultado.respuestas}

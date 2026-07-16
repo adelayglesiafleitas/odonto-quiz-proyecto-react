@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import type { Pregunta } from '@/types'
 import type { RespuestaUsuario } from './Examen'
 import { Button } from '@/components/ui/button'
-import { guardarIntento, getPromedio } from '@/lib/data'
+import { guardarIntentoRemoto, getPromedioRemoto } from '@/lib/historial'
 import { useAppSettings } from '@/context/AppSettings'
 import { CheckCircle2, XCircle, RotateCcw, Home as HomeIcon, ChevronDown, Clock, AlarmClockOff } from 'lucide-react'
 
@@ -19,6 +19,7 @@ function esCorrecta(pregunta: Pregunta, seleccion: string[]): boolean {
 }
 
 export function Resultados({
+  userId,
   cursoId,
   preguntas,
   respuestas,
@@ -32,6 +33,7 @@ export function Resultados({
   onRepetir,
   onInicio,
 }: {
+  userId: string
   cursoId: string
   preguntas: Pregunta[]
   respuestas: RespuestaUsuario
@@ -56,7 +58,8 @@ export function Resultados({
   }, [preguntas, respuestas, umbralAprobado])
 
   useEffect(() => {
-    guardarIntento({
+    let cancelado = false
+    guardarIntentoRemoto(userId, {
       cursoId,
       fecha: new Date().toISOString(),
       totalPreguntas: preguntas.length,
@@ -69,7 +72,13 @@ export function Resultados({
       tiempoUsadoSeg,
       agotoTiempo,
     })
-    setPromedio(getPromedio(cursoId))
+      .then(() => getPromedioRemoto(userId, cursoId))
+      .then((p) => {
+        if (!cancelado) setPromedio(p)
+      })
+    return () => {
+      cancelado = true
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

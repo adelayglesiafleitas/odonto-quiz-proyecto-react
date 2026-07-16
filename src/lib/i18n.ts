@@ -13,15 +13,23 @@ export interface Diccionario {
     cancelar: string
   }
   login: {
-    bienvenida: string
-    subtitulo: string
-    usuario: string
+    tituloLogin: string
+    tituloRegistro: string
+    subtituloLogin: string
+    subtituloRegistro: string
+    correo: string
     contrasena: string
-    error: string
-    ingresando: string
+    confirmarContrasena: string
     iniciarSesion: string
-    demo: string
-    demoNota: string
+    crearCuenta: string
+    ingresando: string
+    creandoCuenta: string
+    noTengoCuenta: string
+    yaTengoCuenta: string
+    revisaCorreo: string
+    error: string
+    errorContrasenasNoCoinciden: string
+    errorContrasenaCorta: string
   }
   cursos: {
     odontologia: { nombre: string; descripcion: string }
@@ -134,15 +142,23 @@ export const es: Diccionario = {
     cancelar: 'Cancelar',
   },
   login: {
-    bienvenida: 'Bienvenido de nuevo',
-    subtitulo: 'Inicia sesión para practicar tu examen',
-    usuario: 'Usuario',
+    tituloLogin: 'Bienvenido de nuevo',
+    tituloRegistro: 'Crea tu cuenta',
+    subtituloLogin: 'Inicia sesión para practicar tu examen',
+    subtituloRegistro: 'Regístrate para guardar tu progreso',
+    correo: 'Correo electrónico',
     contrasena: 'Contraseña',
-    error: 'Usuario o contraseña incorrectos. Usa 123 / 123.',
-    ingresando: 'Ingresando…',
+    confirmarContrasena: 'Confirma tu contraseña',
     iniciarSesion: 'Iniciar sesión',
-    demo: 'Acceso demo · usuario 123 · contraseña 123',
-    demoNota: 'El inicio de sesión dinámico llegará próximamente',
+    crearCuenta: 'Crear cuenta',
+    ingresando: 'Ingresando…',
+    creandoCuenta: 'Creando cuenta…',
+    noTengoCuenta: '¿No tienes cuenta? Regístrate',
+    yaTengoCuenta: '¿Ya tienes cuenta? Inicia sesión',
+    revisaCorreo: 'Revisa tu correo para confirmar tu cuenta antes de iniciar sesión.',
+    error: 'Correo o contraseña incorrectos.',
+    errorContrasenasNoCoinciden: 'Las contraseñas no coinciden.',
+    errorContrasenaCorta: 'La contraseña debe tener al menos 6 caracteres.',
   },
   cursos: {
     odontologia: {
@@ -266,7 +282,7 @@ export const es: Diccionario = {
       },
     },
     footer:
-      'El inicio de sesión es una versión demo (usuario y contraseña: 123). Tus preferencias, tu curso activo y tus puntuaciones se guardan en cookies en este navegador.',
+      'Tu cuenta y tu historial de puntuaciones se guardan de forma segura en tu perfil, así que los tienes disponibles en cualquier dispositivo en el que inicies sesión. Tus preferencias de tema e idioma se guardan solo en este navegador.',
   },
 }
 
@@ -283,15 +299,23 @@ export const en: Diccionario = {
     cancelar: 'Cancel',
   },
   login: {
-    bienvenida: 'Welcome back',
-    subtitulo: 'Sign in to practice your exam',
-    usuario: 'Username',
+    tituloLogin: 'Welcome back',
+    tituloRegistro: 'Create your account',
+    subtituloLogin: 'Sign in to practice your exam',
+    subtituloRegistro: 'Sign up to save your progress',
+    correo: 'Email',
     contrasena: 'Password',
-    error: 'Incorrect username or password. Use 123 / 123.',
-    ingresando: 'Signing in…',
+    confirmarContrasena: 'Confirm your password',
     iniciarSesion: 'Sign in',
-    demo: 'Demo access · username 123 · password 123',
-    demoNota: 'Dynamic sign-in is coming soon',
+    crearCuenta: 'Create account',
+    ingresando: 'Signing in…',
+    creandoCuenta: 'Creating account…',
+    noTengoCuenta: "Don't have an account? Sign up",
+    yaTengoCuenta: 'Already have an account? Sign in',
+    revisaCorreo: 'Check your email to confirm your account before signing in.',
+    error: 'Incorrect email or password.',
+    errorContrasenasNoCoinciden: 'Passwords do not match.',
+    errorContrasenaCorta: 'Password must be at least 6 characters.',
   },
   cursos: {
     odontologia: {
@@ -415,7 +439,7 @@ export const en: Diccionario = {
       },
     },
     footer:
-      'Sign-in is a demo version (username and password: 123). Your preferences, active exam, and scores are saved as cookies in this browser.',
+      "Your account and score history are saved securely in your profile, so they're available on any device you sign in from. Your theme and language preferences are saved only in this browser.",
   },
 }
 
