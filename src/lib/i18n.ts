@@ -31,6 +31,13 @@ export interface Diccionario {
     errorContrasenasNoCoinciden: string
     errorContrasenaCorta: string
   }
+  dispositivo: {
+    titulo: string
+    mensaje: (n: number) => string
+    cerrarOtrosBoton: string
+    cancelarBoton: string
+    cerrando: string
+  }
   cursos: {
     odontologia: { nombre: string; descripcion: string }
     nacionalidad: { nombre: string; descripcion: string }
@@ -159,6 +166,14 @@ export const es: Diccionario = {
     error: 'Correo o contraseña incorrectos.',
     errorContrasenasNoCoinciden: 'Las contraseñas no coinciden.',
     errorContrasenaCorta: 'La contraseña debe tener al menos 6 caracteres.',
+  },
+  dispositivo: {
+    titulo: 'Límite de dispositivos alcanzado',
+    mensaje: (n) =>
+      `Esta cuenta ya está iniciada en ${n} dispositivos. Por seguridad, solo se permiten 2 a la vez. Cierra sesión en otro dispositivo para continuar aquí.`,
+    cerrarOtrosBoton: 'Cerrar sesión en los demás y continuar aquí',
+    cancelarBoton: 'Cancelar',
+    cerrando: 'Cerrando sesión en los demás dispositivos…',
   },
   cursos: {
     odontologia: {
@@ -316,6 +331,14 @@ export const en: Diccionario = {
     error: 'Incorrect email or password.',
     errorContrasenasNoCoinciden: 'Passwords do not match.',
     errorContrasenaCorta: 'Password must be at least 6 characters.',
+  },
+  dispositivo: {
+    titulo: 'Device limit reached',
+    mensaje: (n) =>
+      `This account is already signed in on ${n} devices. For security, only 2 are allowed at once. Sign out on another device to continue here.`,
+    cerrarOtrosBoton: 'Sign out everywhere else and continue here',
+    cancelarBoton: 'Cancel',
+    cerrando: 'Signing out on other devices…',
   },
   cursos: {
     odontologia: {

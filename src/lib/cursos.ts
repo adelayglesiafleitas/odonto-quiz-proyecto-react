@@ -19,6 +19,11 @@ export const CURSOS: CursoMeta[] = [
     duracionOficialMinutos: 40,
     cantidadOficial: 30,
     porcentajeAprobado: 70,
+    // La mayoría del banco es temático (sin año real por pregunta -> anio=0,
+    // que getAnios() excluye del selector). Desde jul-2026 sí incluye un
+    // examen real fechado (convocatoria 2025, teórico + práctico con clave
+    // oficial), así que el filtro de convocatoria vuelve a tener sentido:
+    // solo aparecerá "2025" como opción seleccionable.
     tieneConvocatorias: true,
     cantidadesDisponibles: [10, 20, 30, 40],
     activo: true,

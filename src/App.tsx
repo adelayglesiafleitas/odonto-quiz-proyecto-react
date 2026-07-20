@@ -4,7 +4,9 @@ import type { Pantalla, Pregunta } from '@/types'
 import { seleccionarPreguntas } from '@/lib/data'
 import { getCursoMeta, getCursosActivos, type CursoId } from '@/lib/cursos'
 import { supabase } from '@/lib/supabase'
+import { verificarDispositivo, cerrarSesionOtrosDispositivos, liberarDispositivoActual } from '@/lib/dispositivos'
 import { Splash } from '@/screens/Splash'
+import { DispositivoBloqueado } from '@/screens/DispositivoBloqueado'
 import { Login } from '@/screens/Login'
 import { SeleccionCurso } from '@/screens/SeleccionCurso'
 import { Home } from '@/screens/Home'
@@ -34,6 +36,8 @@ function App() {
   const [cursoActivo, setCursoActivo] = useState<CursoId | null>(null)
   const [sesionExamen, setSesionExamen] = useState<SesionExamen | null>(null)
   const [resultado, setResultado] = useState<ResultadoExamen>({ respuestas: {}, tiempoUsadoSeg: 0, agotoTiempo: false })
+  const [verifDispositivo, setVerifDispositivo] = useState<'pendiente' | 'ok' | 'bloqueado'>('pendiente')
+  const [dispositivosActivos, setDispositivosActivos] = useState(0)
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
@@ -49,6 +53,26 @@ function App() {
   const userId = session?.user.id ?? null
   const autenticado = !!session
   const cursoMeta = cursoActivo ? getCursoMeta(cursoActivo) : null
+
+  useEffect(() => {
+    if (!userId) {
+      setVerifDispositivo('pendiente')
+      return
+    }
+    let cancelado = false
+    verificarDispositivo(userId).then((resultado) => {
+      if (cancelado) return
+      if (resultado.permitido) {
+        setVerifDispositivo('ok')
+      } else {
+        setDispositivosActivos(resultado.dispositivos)
+        setVerifDispositivo('bloqueado')
+      }
+    })
+    return () => {
+      cancelado = true
+    }
+  }, [userId])
 
   function entrarTrasAutenticar() {
     const activos = getCursosActivos()
@@ -69,9 +93,19 @@ function App() {
   }
 
   async function irALogin() {
+    if (userId) {
+      await liberarDispositivoActual(userId)
+    }
     await supabase.auth.signOut()
     setCursoActivo(null)
+    setVerifDispositivo('pendiente')
     setPantalla('login')
+  }
+
+  async function continuarEnEsteDispositivo() {
+    if (!userId) return
+    await cerrarSesionOtrosDispositivos(userId)
+    setVerifDispositivo('ok')
   }
 
   function iniciarExamen(cantidad: number, capitulo: string, tiempoLimiteMinutos: number | null, anio: number | 'todos') {
@@ -89,6 +123,20 @@ function App() {
   function finalizarExamen(respuestas: RespuestaUsuario, tiempoUsadoSeg: number, agotoTiempo: boolean) {
     setResultado({ respuestas, tiempoUsadoSeg, agotoTiempo })
     setPantalla('resultados')
+  }
+
+  if (userId && verifDispositivo === 'bloqueado') {
+    return (
+      <div className="mx-auto min-h-screen w-full max-w-md bg-background font-sans">
+        <DispositivoBloqueado
+          dispositivos={dispositivosActivos}
+          onContinuarAqui={continuarEnEsteDispositivo}
+          onCancelar={() => {
+            void irALogin()
+          }}
+        />
+      </div>
+    )
   }
 
   return (

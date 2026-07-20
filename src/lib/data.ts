@@ -19,7 +19,10 @@ export function getCapitulos(cursoId: string): string[] {
 }
 
 export function getAnios(cursoId: string): number[] {
+  // anio = 0 significa "banco temático sin convocatoria real verificada"
+  // (ver cursos.ts); no se muestra como opción de convocatoria seleccionable.
   const set = new Set(getPreguntas(cursoId).map((p) => p.anio))
+  set.delete(0)
   return Array.from(set).sort((a, b) => b - a)
 }
 
