@@ -140,20 +140,20 @@ export function ConfigurarExamen({
             <CalendarDays className="h-3.5 w-3.5" />
             {t.configurar.anio}
           </div>
+          <button
+            onClick={() => setAnio('todos')}
+            className={`card-elevated w-full rounded-2xl px-3 py-3 text-center text-sm font-bold leading-tight transition ${
+              anio === 'todos' ? 'bg-primary text-primary-foreground' : 'bg-card text-foreground'
+            }`}
+          >
+            {t.configurar.todosAnios}
+          </button>
           <div className="grid grid-cols-4 gap-2.5">
-            <button
-              onClick={() => setAnio('todos')}
-              className={`card-elevated rounded-2xl py-3 text-center text-xs font-bold transition ${
-                anio === 'todos' ? 'bg-primary text-primary-foreground' : 'bg-card text-foreground'
-              }`}
-            >
-              {t.configurar.todosAnios}
-            </button>
             {anios.map((a) => (
               <button
                 key={a}
                 onClick={() => setAnio(a)}
-                className={`card-elevated rounded-2xl py-3 text-center text-xs font-bold transition ${
+                className={`card-elevated rounded-2xl px-1 py-3 text-center text-xs font-bold leading-tight transition ${
                   anio === a ? 'bg-primary text-primary-foreground' : 'bg-card text-foreground'
                 }`}
               >

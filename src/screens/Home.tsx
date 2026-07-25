@@ -193,20 +193,20 @@ export function Home({
                   <CalendarDays className="h-3.5 w-3.5" />
                   {t.home.modalAnio}
                 </p>
+                <button
+                  onClick={() => setAnio('todos')}
+                  className={`card-elevated w-full rounded-xl px-3 py-2.5 text-center text-xs font-bold leading-tight transition ${
+                    anio === 'todos' ? 'bg-primary text-primary-foreground' : 'bg-secondary text-foreground'
+                  }`}
+                >
+                  {t.configurar.todosAnios}
+                </button>
                 <div className="grid grid-cols-4 gap-2">
-                  <button
-                    onClick={() => setAnio('todos')}
-                    className={`card-elevated rounded-xl py-2.5 text-center text-xs font-bold transition ${
-                      anio === 'todos' ? 'bg-primary text-primary-foreground' : 'bg-secondary text-foreground'
-                    }`}
-                  >
-                    {t.configurar.todosAnios}
-                  </button>
                   {anios.map((a) => (
                     <button
                       key={a}
                       onClick={() => setAnio(a)}
-                      className={`card-elevated rounded-xl py-2.5 text-center text-xs font-bold transition ${
+                      className={`card-elevated rounded-xl px-1 py-2.5 text-center text-xs font-bold leading-tight transition ${
                         anio === a ? 'bg-primary text-primary-foreground' : 'bg-secondary text-foreground'
                       }`}
                     >

@@ -122,6 +122,14 @@ export function Splash({ onFinish }: { onFinish: () => void }) {
           />
         </div>
       </div>
+
+      <button
+        type="button"
+        onClick={onFinish}
+        className="absolute right-4 top-4 z-20 rounded-full border border-white/25 bg-black/25 px-4 py-1.5 text-sm font-medium text-white/90 backdrop-blur-sm transition-colors hover:bg-black/40"
+      >
+        Saltar intro
+      </button>
     </div>
   )
 }
