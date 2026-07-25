@@ -8,8 +8,6 @@ import { getCursosActivos, type CursoMeta } from '@/lib/cursos'
 import { Button } from '@/components/ui/button'
 import {
   ClipboardList,
-  SlidersHorizontal,
-  BookOpenCheck,
   HelpCircle,
   ChevronRight,
   LogOut,
@@ -27,6 +25,7 @@ const DURACIONES = [15, 30, 40, 45, 60, 90]
 
 export function Home({
   userId,
+  nickname,
   cursoId,
   cursoMeta,
   onNavigate,
@@ -35,6 +34,7 @@ export function Home({
   onLogout,
 }: {
   userId: string
+  nickname: string | null
   cursoId: string
   cursoMeta: CursoMeta
   onNavigate: (p: Pantalla) => void
@@ -62,7 +62,7 @@ export function Home({
       cancelado = true
     }
   }, [userId, cursoId])
-  const nombreCurso = t.cursos[cursoId as 'odontologia' | 'nacionalidad' | 'conducir']?.nombre ?? t.home.estudiante
+  const nombreMostrado = nickname && nickname.trim().length > 0 ? nickname : t.home.estudiante
 
   const [mostrarModal, setMostrarModal] = useState(false)
   const [conTiempo, setConTiempo] = useState(false)
@@ -82,20 +82,6 @@ export function Home({
       descripcion: t.home.simulacroDesc(cursoMeta.cantidadOficial, cursoMeta.porcentajeAprobado),
       icon: ClipboardList,
       tono: 'accent',
-    },
-    {
-      id: 'configurar',
-      titulo: t.home.configurarTitulo,
-      descripcion: t.home.configurarDesc,
-      icon: SlidersHorizontal,
-      tono: 'primary',
-    },
-    {
-      id: 'estudio',
-      titulo: t.home.estudioTitulo,
-      descripcion: t.home.estudioDesc,
-      icon: BookOpenCheck,
-      tono: 'success',
     },
     {
       id: 'ayuda',
@@ -126,7 +112,7 @@ export function Home({
             <LogoMark className="h-9 w-9" />
             <div>
               <p className="text-xs text-white/60">{t.home.hola}</p>
-              <p className="-mt-0.5 text-[15px] font-bold">{nombreCurso}</p>
+              <p className="-mt-0.5 text-[15px] font-bold">{nombreMostrado}</p>
             </div>
           </div>
           <div className="flex items-center gap-2">

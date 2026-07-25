@@ -51,6 +51,7 @@ function App() {
   }, [])
 
   const userId = session?.user.id ?? null
+  const nickname = (session?.user.user_metadata?.nickname as string | undefined) ?? null
   const autenticado = !!session
   const cursoMeta = cursoActivo ? getCursoMeta(cursoActivo) : null
 
@@ -158,6 +159,7 @@ function App() {
       {pantalla === 'home' && autenticado && userId && cursoActivo && cursoMeta && (
         <Home
           userId={userId}
+          nickname={nickname}
           cursoId={cursoActivo}
           cursoMeta={cursoMeta}
           onNavigate={setPantalla}

@@ -17,6 +17,7 @@ export interface Diccionario {
     tituloRegistro: string
     subtituloLogin: string
     subtituloRegistro: string
+    nick: string
     correo: string
     contrasena: string
     confirmarContrasena: string
@@ -30,6 +31,7 @@ export interface Diccionario {
     error: string
     errorContrasenasNoCoinciden: string
     errorContrasenaCorta: string
+    errorNickRequerido: string
   }
   dispositivo: {
     titulo: string
@@ -153,6 +155,7 @@ export const es: Diccionario = {
     tituloRegistro: 'Crea tu cuenta',
     subtituloLogin: 'Inicia sesión para practicar tu examen',
     subtituloRegistro: 'Regístrate para guardar tu progreso',
+    nick: 'Nick',
     correo: 'Correo electrónico',
     contrasena: 'Contraseña',
     confirmarContrasena: 'Confirma tu contraseña',
@@ -166,6 +169,7 @@ export const es: Diccionario = {
     error: 'Correo o contraseña incorrectos.',
     errorContrasenasNoCoinciden: 'Las contraseñas no coinciden.',
     errorContrasenaCorta: 'La contraseña debe tener al menos 6 caracteres.',
+    errorNickRequerido: 'Escribe un nick.',
   },
   dispositivo: {
     titulo: 'Límite de dispositivos alcanzado',
@@ -318,6 +322,7 @@ export const en: Diccionario = {
     tituloRegistro: 'Create your account',
     subtituloLogin: 'Sign in to practice your exam',
     subtituloRegistro: 'Sign up to save your progress',
+    nick: 'Nickname',
     correo: 'Email',
     contrasena: 'Password',
     confirmarContrasena: 'Confirm your password',
@@ -331,6 +336,7 @@ export const en: Diccionario = {
     error: 'Incorrect email or password.',
     errorContrasenasNoCoinciden: 'Passwords do not match.',
     errorContrasenaCorta: 'Password must be at least 6 characters.',
+    errorNickRequerido: 'Enter a nickname.',
   },
   dispositivo: {
     titulo: 'Device limit reached',

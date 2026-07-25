@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { SettingsToggle } from '@/components/SettingsToggle'
 import { useAppSettings } from '@/context/AppSettings'
 import { supabase } from '@/lib/supabase'
-import { Eye, EyeOff, Lock, Mail, AlertCircle, MailCheck } from 'lucide-react'
+import { Eye, EyeOff, Lock, Mail, AlertCircle, MailCheck, User } from 'lucide-react'
 
 type Modo = 'login' | 'registro'
 
@@ -36,6 +36,7 @@ function traducirErrorAuth(mensaje: string, idioma: 'es' | 'en'): string {
 export function Login({ onLogin }: { onLogin: () => void }) {
   const { t, idioma } = useAppSettings()
   const [modo, setModo] = useState<Modo>('login')
+  const [nick, setNick] = useState('')
   const [correo, setCorreo] = useState('')
   const [clave, setClave] = useState('')
   const [confirmarClave, setConfirmarClave] = useState('')
@@ -56,6 +57,10 @@ export function Login({ onLogin }: { onLogin: () => void }) {
     setError(null)
     setRevisarCorreo(false)
 
+    if (modo === 'registro' && nick.trim().length === 0) {
+      setError(t.login.errorNickRequerido)
+      return
+    }
     if (modo === 'registro' && clave !== confirmarClave) {
       setError(t.login.errorContrasenasNoCoinciden)
       return
@@ -76,7 +81,11 @@ export function Login({ onLogin }: { onLogin: () => void }) {
       }
       onLogin()
     } else {
-      const { data, error: err } = await supabase.auth.signUp({ email: correo.trim(), password: clave })
+      const { data, error: err } = await supabase.auth.signUp({
+        email: correo.trim(),
+        password: clave,
+        options: { data: { nickname: nick.trim() } },
+      })
       setCargando(false)
       if (err) {
         setError(traducirErrorAuth(err.message, idioma))
@@ -118,6 +127,28 @@ export function Login({ onLogin }: { onLogin: () => void }) {
         <p className="mt-1 text-sm text-muted-foreground">{esRegistro ? t.login.subtituloRegistro : t.login.subtituloLogin}</p>
 
         <div className="mt-6 space-y-4">
+          {esRegistro && (
+            <div className="animate-float-up space-y-1.5">
+              <Label htmlFor="nick" className="text-xs font-semibold text-foreground/80">
+                {t.login.nick}
+              </Label>
+              <div className="relative">
+                <User className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                <Input
+                  id="nick"
+                  type="text"
+                  placeholder="Ana92"
+                  value={nick}
+                  onChange={(e) => setNick(e.target.value)}
+                  className="h-11 rounded-xl pl-9"
+                  autoComplete="nickname"
+                  maxLength={30}
+                  required
+                />
+              </div>
+            </div>
+          )}
+
           <div className="space-y-1.5">
             <Label htmlFor="correo" className="text-xs font-semibold text-foreground/80">
               {t.login.correo}

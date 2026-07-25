@@ -124,10 +124,7 @@ export function Examen({
       </div>
 
       <div className="flex-1 overflow-y-auto px-5 py-6 pb-32">
-        <span className="inline-block rounded-full bg-accent/12 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-accent">
-          {pregunta.capitulo}
-        </span>
-        <h2 className="mt-3 text-[17px] font-bold leading-snug text-foreground">{pregunta.pregunta}</h2>
+        <h2 className="text-[17px] font-bold leading-snug text-foreground">{pregunta.pregunta}</h2>
         {esMultiple && (
           <p className="mt-1.5 text-xs font-medium text-muted-foreground">{t.examen.multipleAyuda}</p>
         )}
@@ -175,7 +172,6 @@ export function Examen({
         </Button>
         <Button
           onClick={siguiente}
-          disabled={seleccion.length === 0}
           className="h-12 flex-1 rounded-2xl bg-primary font-bold hover:bg-primary/90"
         >
           {indice === preguntas.length - 1 ? t.examen.finalizar : t.examen.siguiente}
