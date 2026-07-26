@@ -4,10 +4,10 @@ import { getCapitulos, getPreguntas } from '@/lib/data'
 import { Button } from '@/components/ui/button'
 import { useAppSettings } from '@/context/AppSettings'
 
-export function Estudio({ cursoId, onBack }: { cursoId: string; onBack: () => void }) {
+export function Estudio({ onBack }: { onBack: () => void }) {
   const { t } = useAppSettings()
-  const todasPreguntas = useMemo(() => getPreguntas(cursoId), [cursoId])
-  const capitulos = useMemo(() => ['todos', ...getCapitulos(cursoId)], [cursoId])
+  const todasPreguntas = useMemo(() => getPreguntas(), [])
+  const capitulos = useMemo(() => ['todos', ...getCapitulos()], [])
   const [capitulo, setCapitulo] = useState('todos')
   const [indice, setIndice] = useState(0)
   const [revelado, setRevelado] = useState(false)

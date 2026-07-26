@@ -4,7 +4,7 @@ import { SettingsToggle } from '@/components/SettingsToggle'
 import { useAppSettings } from '@/context/AppSettings'
 import { getAnios } from '@/lib/data'
 import { getHistorialRemoto, getPromedioRemoto } from '@/lib/historial'
-import { getCursosActivos, type CursoMeta } from '@/lib/cursos'
+import type { CursoMeta } from '@/lib/cursos'
 import { Button } from '@/components/ui/button'
 import {
   ClipboardList,
@@ -17,7 +17,6 @@ import {
   TimerOff,
   Play,
   CalendarDays,
-  ArrowLeftRight,
 } from 'lucide-react'
 import type { Pantalla } from '@/types'
 
@@ -30,7 +29,6 @@ export function Home({
   cursoMeta,
   onNavigate,
   onIniciarSimulacro,
-  onCambiarCurso,
   onLogout,
 }: {
   userId: string
@@ -39,14 +37,13 @@ export function Home({
   cursoMeta: CursoMeta
   onNavigate: (p: Pantalla) => void
   onIniciarSimulacro: (tiempoLimiteMinutos: number | null, anio: number | 'todos') => void
-  onCambiarCurso: () => void
   onLogout: () => void
 }) {
   const { t } = useAppSettings()
   const [mejor, setMejor] = useState(0)
   const [promedio, setPromedio] = useState(0)
   const [intentos, setIntentos] = useState(0)
-  const anios = getAnios(cursoId)
+  const anios = getAnios()
 
   useEffect(() => {
     let cancelado = false
@@ -117,15 +114,6 @@ export function Home({
           </div>
           <div className="flex items-center gap-2">
             <SettingsToggle variante="oscuro" />
-            {getCursosActivos().length > 1 && (
-              <button
-                onClick={onCambiarCurso}
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/80 transition hover:bg-white/20"
-                aria-label={t.home.cambiarCurso}
-              >
-                <ArrowLeftRight className="h-4 w-4" />
-              </button>
-            )}
             <button
               onClick={onLogout}
               className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/80 transition hover:bg-white/20"

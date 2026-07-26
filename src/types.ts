@@ -31,7 +31,6 @@ export interface IntentoExamen {
 export type Pantalla =
   | 'splash'
   | 'login'
-  | 'seleccionCurso'
   | 'home'
   | 'configurar'
   | 'examen'

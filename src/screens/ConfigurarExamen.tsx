@@ -22,9 +22,9 @@ export function ConfigurarExamen({
   onIniciar: (cantidad: number, capitulo: string, tiempoLimiteMinutos: number | null, anio: number | 'todos') => void
 }) {
   const { t } = useAppSettings()
-  const preguntas = getPreguntas(cursoId)
-  const capitulos = getCapitulos(cursoId)
-  const anios = getAnios(cursoId)
+  const preguntas = getPreguntas()
+  const capitulos = getCapitulos()
+  const anios = getAnios()
   const [cantidad, setCantidad] = useState(cursoMeta.cantidadOficial)
   const [capitulo, setCapitulo] = useState<string>('todos')
   const [anio, setAnio] = useState<number | 'todos'>('todos')

@@ -2,10 +2,9 @@ import { ArrowLeft, ClipboardList, Target, BookOpenCheck, SlidersHorizontal, Shi
 import { useAppSettings } from '@/context/AppSettings'
 import { SettingsToggle } from '@/components/SettingsToggle'
 
-export function Ayuda({ cursoId, umbralAprobado, onBack }: { cursoId: string; umbralAprobado: number; onBack: () => void }) {
+export function Ayuda({ umbralAprobado, onBack }: { umbralAprobado: number; onBack: () => void }) {
   const { t } = useAppSettings()
-  const formatoOficial =
-    t.ayuda.formatoOficial[cursoId as 'odontologia' | 'nacionalidad' | 'conducir'] ?? t.ayuda.formatoOficial.odontologia
+  const formatoOficial = t.ayuda.formatoOficial
 
   const items = [
     { icon: ClipboardList, titulo: t.ayuda.simulacroTitulo, texto: t.ayuda.simulacroTexto },

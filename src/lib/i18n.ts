@@ -40,21 +40,9 @@ export interface Diccionario {
     cancelarBoton: string
     cerrando: string
   }
-  cursos: {
-    odontologia: { nombre: string; descripcion: string }
-    nacionalidad: { nombre: string; descripcion: string }
-    conducir: { nombre: string; descripcion: string }
-  }
-  seleccionCurso: {
-    titulo: string
-    subtitulo: string
-    empezar: string
-    cerrarSesion: string
-  }
   home: {
     hola: string
     estudiante: string
-    cambiarCurso: string
     progreso: string
     promedioSufijo: (n: number) => string
     mejorPuntaje: string
@@ -130,10 +118,7 @@ export interface Diccionario {
     puntuacionTexto: (umbral: number) => string
     estudioTitulo: string
     estudioTexto: string
-    formatoOficial: Record<
-      'odontologia' | 'nacionalidad' | 'conducir',
-      { titulo: string; texto: string; enlace?: { texto: string; url: string } }
-    >
+    formatoOficial: { titulo: string; texto: string; enlace?: { texto: string; url: string } }
     footer: string
   }
 }
@@ -179,30 +164,9 @@ export const es: Diccionario = {
     cancelarBoton: 'Cancelar',
     cerrando: 'Cerrando sesión en los demás dispositivos…',
   },
-  cursos: {
-    odontologia: {
-      nombre: 'Homologación de Odontología',
-      descripcion: 'Prueba de conjunto para ejercer como odontólogo en España',
-    },
-    nacionalidad: {
-      nombre: 'Nacionalidad española (CCSE)',
-      descripcion: 'Conocimientos constitucionales y socioculturales de España',
-    },
-    conducir: {
-      nombre: 'Permiso de conducir (B)',
-      descripcion: 'Examen teórico de la DGT: señales, normativa y seguridad vial',
-    },
-  },
-  seleccionCurso: {
-    titulo: '¿Qué vas a estudiar?',
-    subtitulo: 'Elige la prueba que quieres practicar',
-    empezar: 'Entrar',
-    cerrarSesion: 'Cerrar sesión',
-  },
   home: {
     hola: 'Hola,',
     estudiante: 'Estudiante',
-    cambiarCurso: 'Cambiar de prueba',
     progreso: 'Tu progreso general',
     promedioSufijo: (n) => `promedio en ${n} simulacro${n === 1 ? '' : 's'}`,
     mejorPuntaje: 'mejor puntaje',
@@ -280,25 +244,9 @@ export const es: Diccionario = {
     estudioTitulo: 'Modo estudio',
     estudioTexto: 'Repasa las preguntas sin presión: revela la respuesta correcta cuando quieras y avanza a tu ritmo por capítulo.',
     formatoOficial: {
-      odontologia: {
-        titulo: 'Cómo es la prueba oficial real',
-        texto:
-          'La prueba de conjunto para la homologación de Odontología en España dura 40 minutos por asignatura (sin prórroga). Cada pregunta tiene 4 opciones con 1 válida: acertar suma 1 punto, fallar o dejar en blanco no penaliza. Para aprobar una asignatura hacen falta 20/30 puntos en la parte teórica o 10/15 en la práctica (3 casos clínicos de 5 preguntas). El día del examen hay que llevar DNI/pasaporte, la resolución del Ministerio y bolígrafo azul o negro tipo BIC; no se permite ningún dispositivo electrónico. Elige la convocatoria en "Configurar examen" o en el simulacro rápido para practicar con el formato de un año concreto. Las convocatorias 2022-2026 reparten el mismo banco de preguntas de estudio entre varios años: ninguna universidad publica el enunciado real de sus exámenes, así que esto es material de práctica, no las preguntas exactas de cada convocatoria.',
-      },
-      nacionalidad: {
-        titulo: 'Cómo es la prueba CCSE real',
-        texto:
-          'La prueba CCSE (Conocimientos Constitucionales y Socioculturales de España) del Instituto Cervantes consta de 25 preguntas repartidas en 5 tareas: 10 de selección múltiple sobre gobierno y participación ciudadana, 3 de verdadero/falso sobre derechos y deberes, 2 sobre geografía con apoyo de mapa, 3 sobre cultura e historia y 7 sobre vida en sociedad y trámites. Tienes 45 minutos y necesitas acertar 15 de 25 (60%) para obtener el "Apto". Las preguntas de gobierno, verdadero/falso y geografía de esta app están tomadas del Manual CCSE 2026 del Instituto Cervantes (el único manual vigente: cada edición anual sustituye a la anterior); las de cultura y sociedad se basan en su contenido oficial. El Instituto Cervantes no publica por adelantado el examen exacto que te tocará.',
-      },
-      conducir: {
-        titulo: 'Cómo es el examen teórico real de la DGT',
-        texto:
-          'El examen teórico del permiso B tiene 30 preguntas tipo test y dura 30 minutos. Puedes fallar como máximo 3 preguntas: necesitas acertar 27 de 30 (90%) para aprobar, y una pregunta sin responder cuenta como fallo. La DGT no publica su banco de preguntas exacto (para preservar la validez del examen), así que las preguntas de esta app se basan en normativa real y vigente: el Reglamento General de Circulación, la Ley de Tráfico, las notas de prensa oficiales de la DGT (incluyendo cambios recientes como la baliza V16) y el "Diccionario en Lectura Fácil. Permiso B" de la propia DGT, del que se han tomado varias definiciones oficiales para generar preguntas adicionales.',
-        enlace: {
-          texto: 'Descargar el Diccionario en Lectura Fácil (PDF oficial de la DGT)',
-          url: 'https://www.dgt.es/export/sites/web-DGT/.galleries/downloads/nuestros_servicios/permisos-de-conducir/Accesibilidad/Diccionario-en-Lectura-Facil.-Permiso-B.pdf',
-        },
-      },
+      titulo: 'Cómo es la prueba oficial real',
+      texto:
+        'La prueba de conjunto para la homologación de Odontología en España dura 40 minutos por asignatura (sin prórroga). Cada pregunta tiene 4 opciones con 1 válida: acertar suma 1 punto, fallar o dejar en blanco no penaliza. Para aprobar una asignatura hacen falta 20/30 puntos en la parte teórica o 10/15 en la práctica (3 casos clínicos de 5 preguntas). El día del examen hay que llevar DNI/pasaporte, la resolución del Ministerio y bolígrafo azul o negro tipo BIC; no se permite ningún dispositivo electrónico. Elige la convocatoria en "Configurar examen" o en el simulacro rápido para practicar con el formato de un año concreto. Las convocatorias 2022-2026 reparten el mismo banco de preguntas de estudio entre varios años: ninguna universidad publica el enunciado real de sus exámenes, así que esto es material de práctica, no las preguntas exactas de cada convocatoria.',
     },
     footer:
       'Tu cuenta y tu historial de puntuaciones se guardan de forma segura en tu perfil, así que los tienes disponibles en cualquier dispositivo en el que inicies sesión. Tus preferencias de tema e idioma se guardan solo en este navegador.',
@@ -346,30 +294,9 @@ export const en: Diccionario = {
     cancelarBoton: 'Cancel',
     cerrando: 'Signing out on other devices…',
   },
-  cursos: {
-    odontologia: {
-      nombre: 'Dentistry degree recognition',
-      descripcion: 'Test to practice as a dentist in Spain',
-    },
-    nacionalidad: {
-      nombre: 'Spanish nationality (CCSE)',
-      descripcion: 'Constitutional and sociocultural knowledge of Spain',
-    },
-    conducir: {
-      nombre: 'Driving licence (category B)',
-      descripcion: 'DGT theory test: road signs, rules and road safety',
-    },
-  },
-  seleccionCurso: {
-    titulo: 'What are you studying for?',
-    subtitulo: 'Choose the exam you want to practice',
-    empezar: 'Enter',
-    cerrarSesion: 'Sign out',
-  },
   home: {
     hola: 'Hi,',
     estudiante: 'Student',
-    cambiarCurso: 'Switch exam',
     progreso: 'Your overall progress',
     promedioSufijo: (n) => `average across ${n} mock exam${n === 1 ? '' : 's'}`,
     mejorPuntaje: 'best score',
@@ -447,25 +374,9 @@ export const en: Diccionario = {
     estudioTitulo: 'Study mode',
     estudioTexto: 'Review questions with no pressure: reveal the correct answer whenever you want and move at your own pace by chapter.',
     formatoOficial: {
-      odontologia: {
-        titulo: 'What the real official exam is like',
-        texto:
-          'The official "prueba de conjunto" for Dentistry degree recognition in Spain lasts 40 minutes per subject (no extensions). Each question has 4 options with 1 correct answer: a correct answer scores 1 point, a wrong or blank answer scores 0 (no penalty). Passing a subject requires 20/30 points in the theory part or 10/15 in the practical part (3 clinical cases of 5 questions each). On exam day you must bring your ID/passport, the Ministry resolution letter, and a blue or black oil-based pen; no electronic devices are allowed. Pick a specific exam year in "Configure exam" or the quick mock exam to practice that year\'s format. The 2022-2026 exam years split the same study question bank across several years: no university publishes the real wording of its exams, so this is practice material, not the exact questions from any given year.',
-      },
-      nacionalidad: {
-        titulo: 'What the real CCSE exam is like',
-        texto:
-          'The Instituto Cervantes CCSE exam (Constitutional and Sociocultural Knowledge of Spain) has 25 questions across 5 tasks: 10 multiple-choice on government and civic participation, 3 true/false on rights and duties, 2 on geography with a map, 3 on culture and history, and 7 on everyday life and paperwork. You have 45 minutes and need 15 out of 25 correct (60%) to pass. The government, true/false and geography questions in this app are taken directly from the Instituto Cervantes CCSE 2026 Manual (the only edition in force — each yearly edition replaces the previous one); the culture and society questions are based on its official content. The Instituto Cervantes does not publish the exact exam you will get in advance.',
-      },
-      conducir: {
-        titulo: 'What the real DGT theory test is like',
-        texto:
-          'The category-B theory test has 30 multiple-choice questions and lasts 30 minutes. You can miss at most 3 questions: you need 27 out of 30 correct (90%) to pass, and an unanswered question counts as a mistake. The DGT does not publish its exact question bank (to keep the exam valid), so this app\'s questions are based on real, current regulations: the General Traffic Regulations, the Traffic Law, official DGT press releases (including recent changes like the V16 beacon), and the DGT\'s own "Easy-to-Read Dictionary for Licence B", from which several official definitions were used to generate additional questions.',
-        enlace: {
-          texto: 'Download the Easy-to-Read Dictionary (official DGT PDF)',
-          url: 'https://www.dgt.es/export/sites/web-DGT/.galleries/downloads/nuestros_servicios/permisos-de-conducir/Accesibilidad/Diccionario-en-Lectura-Facil.-Permiso-B.pdf',
-        },
-      },
+      titulo: 'What the real official exam is like',
+      texto:
+        'The official "prueba de conjunto" for Dentistry degree recognition in Spain lasts 40 minutes per subject (no extensions). Each question has 4 options with 1 correct answer: a correct answer scores 1 point, a wrong or blank answer scores 0 (no penalty). Passing a subject requires 20/30 points in the theory part or 10/15 in the practical part (3 clinical cases of 5 questions each). On exam day you must bring your ID/passport, the Ministry resolution letter, and a blue or black oil-based pen; no electronic devices are allowed. Pick a specific exam year in "Configure exam" or the quick mock exam to practice that year\'s format. The 2022-2026 exam years split the same study question bank across several years: no university publishes the real wording of its exams, so this is practice material, not the exact questions from any given year.',
     },
     footer:
       "Your account and score history are saved securely in your profile, so they're available on any device you sign in from. Your theme and language preferences are saved only in this browser.",

@@ -123,7 +123,7 @@ export function Examen({
         <Progress value={progreso} className="mt-3 h-1.5" />
       </div>
 
-      <div className="flex-1 overflow-y-auto px-5 py-6 pb-32">
+      <div className="flex-1 overflow-y-auto px-5 py-6 pb-64">
         <h2 className="text-[17px] font-bold leading-snug text-foreground">{pregunta.pregunta}</h2>
         {esMultiple && (
           <p className="mt-1.5 text-xs font-medium text-muted-foreground">{t.examen.multipleAyuda}</p>
@@ -160,23 +160,49 @@ export function Examen({
         </div>
       </div>
 
-      <div className="safe-bottom fixed inset-x-0 bottom-0 flex gap-3 border-t border-border bg-background/95 p-4 backdrop-blur">
-        <Button
-          variant="outline"
-          onClick={anterior}
-          disabled={indice === 0}
-          className="h-12 flex-1 rounded-2xl font-bold"
-        >
-          <ArrowLeft className="mr-1.5 h-4 w-4" />
-          {t.examen.anterior}
-        </Button>
-        <Button
-          onClick={siguiente}
-          className="h-12 flex-1 rounded-2xl bg-primary font-bold hover:bg-primary/90"
-        >
-          {indice === preguntas.length - 1 ? t.examen.finalizar : t.examen.siguiente}
-          <ArrowRight className="ml-1.5 h-4 w-4" />
-        </Button>
+      <div className="safe-bottom fixed inset-x-0 bottom-0 border-t border-border bg-background/95 p-4 backdrop-blur">
+        <div className="mx-auto w-full max-w-md">
+          <div className="grid grid-cols-10 gap-1">
+            {preguntas.map((p, i) => {
+              const respondida = (respuestas[p.numero]?.length ?? 0) > 0
+              const actual = i === indice
+              return (
+                <button
+                  key={p.numero}
+                  onClick={() => setIndice(i)}
+                  aria-label={t.examen.preguntaContador(i + 1, preguntas.length)}
+                  aria-current={actual}
+                  className={`flex aspect-square w-full items-center justify-center rounded-md border text-[10px] transition ${
+                    respondida
+                      ? 'border-emerald-500 bg-white font-bold text-emerald-600'
+                      : 'border-white/70 bg-red-500/90 font-medium text-white'
+                  } ${actual ? 'ring-2 ring-accent ring-offset-1 ring-offset-background' : ''}`}
+                >
+                  {i + 1}
+                </button>
+              )
+            })}
+          </div>
+
+          <div className="mt-3 flex gap-3">
+            <Button
+              variant="outline"
+              onClick={anterior}
+              disabled={indice === 0}
+              className="h-12 flex-1 rounded-2xl font-bold"
+            >
+              <ArrowLeft className="mr-1.5 h-4 w-4" />
+              {t.examen.anterior}
+            </Button>
+            <Button
+              onClick={siguiente}
+              className="h-12 flex-1 rounded-2xl bg-primary font-bold hover:bg-primary/90"
+            >
+              {indice === preguntas.length - 1 ? t.examen.finalizar : t.examen.siguiente}
+              <ArrowRight className="ml-1.5 h-4 w-4" />
+            </Button>
+          </div>
+        </div>
       </div>
 
       {confirmarSalir && (
