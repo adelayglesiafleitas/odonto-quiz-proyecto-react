@@ -5210,176 +5210,6 @@
     "numero": 153
   },
   {
-    "pregunta": "​ la hormona del grupo mineralcorticoides segregada por la suprarrenal que se encarga de los líquidos extracelular y equilibrio de la presión arterial",
-    "asignatura": "Pacientes Especiales",
-    "capitulo": "Patología endocrina",
-    "anio": 0,
-    "bibliografia": "MACHUCA NUEVO (727)",
-    "opciones": [
-      {
-        "letra": "A",
-        "texto": "Aldosterona",
-        "correcta": true
-      },
-      {
-        "letra": "B",
-        "texto": "Androgenos",
-        "correcta": false
-      },
-      {
-        "letra": "C",
-        "texto": "Cortisol",
-        "correcta": false
-      },
-      {
-        "letra": "D",
-        "texto": "Paratohormona",
-        "correcta": false
-      },
-      {
-        "letra": "E",
-        "texto": "Paratiroides",
-        "correcta": false
-      }
-    ],
-    "numero": 154
-  },
-  {
-    "pregunta": "​ paciente con cálculo renal asociado a dolor, quiste y fracturas óseas está relacionado con:",
-    "asignatura": "Pacientes Especiales",
-    "capitulo": "Patología endocrina",
-    "anio": 0,
-    "bibliografia": "MACHUCA NUEVO (726)",
-    "opciones": [
-      {
-        "letra": "A",
-        "texto": "Hiperparatiroides",
-        "correcta": true
-      },
-      {
-        "letra": "B",
-        "texto": "Sindrome de gadner",
-        "correcta": false
-      },
-      {
-        "letra": "C",
-        "texto": "Síndrome cushing",
-        "correcta": false
-      },
-      {
-        "letra": "D",
-        "texto": "Mieloma multiple",
-        "correcta": false
-      },
-      {
-        "letra": "E",
-        "texto": "Osteodisplasia",
-        "correcta": false
-      }
-    ],
-    "numero": 155
-  },
-  {
-    "pregunta": "En pacientes hipertiroideos el estrés generado en un tratamiento odontológico puede causar",
-    "asignatura": "Pacientes Especiales",
-    "capitulo": "Patología endocrina",
-    "anio": 0,
-    "bibliografia": "PAG 1180 MACHUCA NUEVO",
-    "opciones": [
-      {
-        "letra": "A",
-        "texto": "Agravamiento del cuadro endocrinológico",
-        "correcta": false
-      },
-      {
-        "letra": "B",
-        "texto": "Crisis tiroideas fatales, por lo que el tratamiento debe evitarse en pacientes no controlados",
-        "correcta": true
-      },
-      {
-        "letra": "C",
-        "texto": "Tendencia a consumo elevado de sedantes",
-        "correcta": false
-      },
-      {
-        "letra": "D",
-        "texto": "Los pacientes hipertiroideos no requieren atenciones especiales desde la óptica del odontólogo",
-        "correcta": false
-      }
-    ],
-    "numero": 156
-  },
-  {
-    "pregunta": "En qué pacientes se presenta erupción dentaria precoz:",
-    "asignatura": "Pacientes Especiales",
-    "capitulo": "Patología endocrina",
-    "anio": 0,
-    "bibliografia": "PAG 72 4MN",
-    "opciones": [
-      {
-        "letra": "A",
-        "texto": "Hipertiroidismo",
-        "correcta": true
-      },
-      {
-        "letra": "B",
-        "texto": "Enfermedad de Paget",
-        "correcta": false
-      },
-      {
-        "letra": "C",
-        "texto": "Cretinismo",
-        "correcta": false
-      },
-      {
-        "letra": "D",
-        "texto": "Parálisis cerebral",
-        "correcta": false
-      },
-      {
-        "letra": "E",
-        "texto": "TDAH ( trastorno por deficit de atencion)",
-        "correcta": false
-      }
-    ],
-    "numero": 157
-  },
-  {
-    "pregunta": "UNA MUJER DE 72 AÑOS CONSULTA POR BOCIO .A DONDE SABE QUE PADECE ESTE PROBLEMA HACE AÑOS QUE NO LE PRODUCE NINGUNA MOLESTIA Y DESDE HACE UNOS MESES ESTA ANTICOAGULADA CON ACENOCUMAROL POR UNA ARRITMIA .A LA EXPLORACION FISICA SE PALPA UN BOCIO DE GRADO 2 CON VARIOS NODULOS DE ENTRE 1 Y 2 CM EN AMBOS LADOS DE LA TIROIDES. Y PRESENTA LA SIGUIENTE ANALITICA; TSH 0,01mUI/ml,, RN 0,35-5,5, T4 2,6 ng/dl, T3L 5,6 pg/ml, RN 2,3-4,2, TSI normal, AC. ANTITIROGLOBULINA NORMAL, ANTI –TPO NORMAL, GAMMAGRAFIA DE TIROIDES 99, CAPTACION AUMENTADA CON DISTRIBUCION IRREGULAR DEL TRAZADO. CON ESTOS DATOS CUAL DE LAS SIGUIENTES AFIRMACIONES ES INCORRECTA:",
-    "asignatura": "Pacientes Especiales",
-    "capitulo": "Patología endocrina",
-    "anio": 0,
-    "bibliografia": "724 mn",
-    "opciones": [
-      {
-        "letra": "A",
-        "texto": "BOCIO MULTINODULAR TOXICO",
-        "correcta": false
-      },
-      {
-        "letra": "B",
-        "texto": "HIPERTIROIDISMO APATICO",
-        "correcta": false
-      },
-      {
-        "letra": "C",
-        "texto": "ENF. DE GRAVES-BASEDOW",
-        "correcta": true
-      },
-      {
-        "letra": "D",
-        "texto": "TIROTOXICOSIS",
-        "correcta": false
-      },
-      {
-        "letra": "E",
-        "texto": "A Y B SON CORRECTAS",
-        "correcta": false
-      }
-    ],
-    "numero": 158
-  },
-  {
     "pregunta": "CUAL DE ESTAS ETIOLOGIAS ES LA MAS FRECUENTE EN EL HIPOTIROIDISMO CONGETITO:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología endocrina",
@@ -5412,7 +5242,7 @@
         "correcta": false
       }
     ],
-    "numero": 159
+    "numero": 154
   },
   {
     "pregunta": "UNA MUJER DE 32 AÑOS ACUDE A LA CONSULTA X INSOMNIO , HA ADELGAZADO 6 KILOS EN LOS 2 ULTIMOS MESES , ASTENIA, CALOR EXCESIVO, PALPITACIONES,TAMBIEN REFIERE UN AGRANDAMIENTO EN LA REGION ANTERIOR DEL CUELLO QUE RESULTA VISIBLE A 2 METROS , PROTUSION OCULAR A LA EXPLORACION FISICA TIENE VITILIGO EN LAS MANOS , BOCIO DIFUSO PALPABLE,PRESENTA EDEMA PALPEBRAL , PROPTOSIS, DIPLOPIA DE CANTO EXTERNO, TREMOR FINO DISTAL, DE LOS DEDOS DE LAS MANOS ,ONICOLISIS, CON ESTOS DATOS ¿Cuál DE LAS SIGUIENTES AFIRMACIONES ES INCORRECTA?",
@@ -5447,7 +5277,7 @@
         "correcta": false
       }
     ],
-    "numero": 160
+    "numero": 155
   },
   {
     "pregunta": "ENTRE LAS ENF. DE LA HIPOFISIS POSTERIOR O NEUROHIPOFISIS ESTAN:",
@@ -5477,7 +5307,7 @@
         "correcta": false
       }
     ],
-    "numero": 161
+    "numero": 156
   },
   {
     "pregunta": "En que horario se atiende a paciente con enfermedad de Addison?",
@@ -5507,7 +5337,7 @@
         "correcta": false
       }
     ],
-    "numero": 162
+    "numero": 157
   },
   {
     "pregunta": "Marque la respuesta FALSA. En un paciente con hipertiroidismo no controlado que acude para tratamiento bucodental:",
@@ -5542,7 +5372,7 @@
         "correcta": false
       }
     ],
-    "numero": 163
+    "numero": 158
   },
   {
     "pregunta": "Marque la respuesta CIERTA. En un paciente hipotiroideo, las complicaciones orales que se pueden encontrar son:",
@@ -5577,7 +5407,7 @@
         "correcta": false
       }
     ],
-    "numero": 164
+    "numero": 159
   },
   {
     "pregunta": "Marque la respuesta FALSA. Entre los potenciales problemas que hemos de tener en cuenta en los pacientes con insuficiencia suprarrenal se encuentran:",
@@ -5612,7 +5442,7 @@
         "correcta": false
       }
     ],
-    "numero": 165
+    "numero": 160
   },
   {
     "pregunta": "MARQUE LA INCORRECTA. PACIENTE CON FEOCROMOCITOMA",
@@ -5647,7 +5477,7 @@
         "correcta": false
       }
     ],
-    "numero": 166
+    "numero": 161
   },
   {
     "pregunta": "Marque la FALSA. Ante un paciente con enfermedad de Adisson, regulada con sustitutivo, que precisa exodoncia quirúrgica del 48:",
@@ -5677,7 +5507,7 @@
         "correcta": true
       }
     ],
-    "numero": 167
+    "numero": 162
   },
   {
     "pregunta": "Marque la repuesta falsa: En los hipotiroidismos infantiles",
@@ -5707,7 +5537,7 @@
         "correcta": false
       }
     ],
-    "numero": 168
+    "numero": 163
   },
   {
     "pregunta": "Marque la FALSA. En un paciente con hipertiroidismo no controlado que acude para tratamiento bucodental:",
@@ -5742,7 +5572,7 @@
         "correcta": false
       }
     ],
-    "numero": 169
+    "numero": 164
   },
   {
     "pregunta": "Marque la respuesta FALSA. En un niño hipertiroideo una manifestación clínica oral característica es:",
@@ -5772,7 +5602,7 @@
         "correcta": true
       }
     ],
-    "numero": 170
+    "numero": 165
   },
   {
     "pregunta": "En la tirotoxicosis NO suele presentarse",
@@ -5802,42 +5632,7 @@
         "correcta": false
       }
     ],
-    "numero": 171
-  },
-  {
-    "pregunta": "Marque la respuesta FALSA. En un niño hipotiroideo una manifestación clínica oral característica es:",
-    "asignatura": "Pacientes Especiales",
-    "capitulo": "Patología endocrina",
-    "anio": 0,
-    "bibliografia": "",
-    "opciones": [
-      {
-        "letra": "A",
-        "texto": "Macroglosia",
-        "correcta": false
-      },
-      {
-        "letra": "B",
-        "texto": "Retraso eruptivo",
-        "correcta": false
-      },
-      {
-        "letra": "C",
-        "texto": "Retraso maduración dentaria",
-        "correcta": false
-      },
-      {
-        "letra": "D",
-        "texto": "Son ciertas todas las anteriores",
-        "correcta": false
-      },
-      {
-        "letra": "E",
-        "texto": "Son falsas todas las anteriores",
-        "correcta": true
-      }
-    ],
-    "numero": 172
+    "numero": 166
   },
   {
     "pregunta": "¿Cuál de los siguientes signos no se corresponde a un signo característico del síndrome de Cushing?",
@@ -5872,7 +5667,7 @@
         "correcta": true
       }
     ],
-    "numero": 173
+    "numero": 167
   },
   {
     "pregunta": "Señale la afirmación incorrecta acerca del paciente con patología tiroidea:",
@@ -5907,7 +5702,7 @@
         "correcta": true
       }
     ],
-    "numero": 174
+    "numero": 168
   },
   {
     "pregunta": "Señale la afirmación incorrecta acerca de la enfermedad de addison.",
@@ -5942,7 +5737,7 @@
         "correcta": false
       }
     ],
-    "numero": 175
+    "numero": 169
   },
   {
     "pregunta": "Señale la opción incorrecta acerca del manejo odontológico del paciente con patología tiroidea:",
@@ -5977,7 +5772,7 @@
         "correcta": true
       }
     ],
-    "numero": 176
+    "numero": 170
   },
   {
     "pregunta": "¿Cuál de las siguientes afirmaciones con respecto al hipotiroidismo es falsa?",
@@ -6012,7 +5807,7 @@
         "correcta": false
       }
     ],
-    "numero": 177
+    "numero": 171
   },
   {
     "pregunta": "Cuál de las siguientes afirmaciones con respecto al manejo odontológico del paciente con síndrome de Addison",
@@ -6047,7 +5842,7 @@
         "correcta": false
       }
     ],
-    "numero": 178
+    "numero": 172
   },
   {
     "pregunta": "Cuál de las siguientes manifestaciones orales de hipoparatiroidismo es falsa?",
@@ -6082,37 +5877,7 @@
         "correcta": false
       }
     ],
-    "numero": 179
-  },
-  {
-    "pregunta": "En enfermos afectados del sÌndrome de Cushing el tratamiento odontológico debe tener en cuenta que",
-    "asignatura": "Pacientes Especiales",
-    "capitulo": "Patología endocrina",
-    "anio": 0,
-    "bibliografia": "",
-    "opciones": [
-      {
-        "letra": "A",
-        "texto": "Nunca debe usarse material rotatorio",
-        "correcta": false
-      },
-      {
-        "letra": "B",
-        "texto": "Las citas deben ser cortas y debe controlarse la tensión arterial",
-        "correcta": true
-      },
-      {
-        "letra": "C",
-        "texto": "Debe aplicarse un tratamiento previo antibiótico",
-        "correcta": false
-      },
-      {
-        "letra": "D",
-        "texto": "No debe tenerse ninguna consideración especial más allá de las que se tienen con los pacientes convencionales",
-        "correcta": false
-      }
-    ],
-    "numero": 180
+    "numero": 173
   },
   {
     "pregunta": "La enfermedad de Addison afecta a las glándulas suprarrenales y tiene algunas manifestaciones orales como:",
@@ -6142,7 +5907,7 @@
         "correcta": false
       }
     ],
-    "numero": 181
+    "numero": 174
   },
   {
     "pregunta": "Los pacientes hipotiroideos deben tratarse con especial cuidado debido a que:",
@@ -6172,7 +5937,7 @@
         "correcta": false
       }
     ],
-    "numero": 182
+    "numero": 175
   },
   {
     "pregunta": "El signo de Chvostek es una contracción de los músculos faciales y labio superior cuando el examinador golpea el nervio facial en frente de la oreja. Si existe positividad del signo ¿cuál de las siguientes situaciones sugiere?",
@@ -6202,7 +5967,7 @@
         "correcta": false
       }
     ],
-    "numero": 183
+    "numero": 176
   },
   {
     "pregunta": "En pacientes hipertiroideos el estrés generado en un tratamiento odontológico puede causar:",
@@ -6232,7 +5997,7 @@
         "correcta": false
       }
     ],
-    "numero": 184
+    "numero": 177
   },
   {
     "pregunta": "En el hipoparatiroidismo NO suele presentarse",
@@ -6262,42 +6027,7 @@
         "correcta": false
       }
     ],
-    "numero": 185
-  },
-  {
-    "pregunta": "Con qué entidad patológica se relaciona el retraso de la erupción dental:",
-    "asignatura": "Pacientes Especiales",
-    "capitulo": "Patología endocrina",
-    "anio": 0,
-    "bibliografia": "",
-    "opciones": [
-      {
-        "letra": "A",
-        "texto": "hipertiroidismo",
-        "correcta": false
-      },
-      {
-        "letra": "B",
-        "texto": "anemia crónica",
-        "correcta": false
-      },
-      {
-        "letra": "C",
-        "texto": "síndrome de Down",
-        "correcta": true
-      },
-      {
-        "letra": "D",
-        "texto": "asma",
-        "correcta": false
-      },
-      {
-        "letra": "E",
-        "texto": "saturnismo",
-        "correcta": false
-      }
-    ],
-    "numero": 186
+    "numero": 178
   },
   {
     "pregunta": "En el hipotiroidismo no es habitual:",
@@ -6327,7 +6057,7 @@
         "correcta": true
       }
     ],
-    "numero": 187
+    "numero": 179
   },
   {
     "pregunta": "Qué horario es el más adecuado para tratar un paciente con enfermedad de Addison:",
@@ -6357,77 +6087,7 @@
         "correcta": false
       }
     ],
-    "numero": 188
-  },
-  {
-    "pregunta": "Ante una paciente con feocromocitoma, que precisa tratamiento odontológico:",
-    "asignatura": "Pacientes Especiales",
-    "capitulo": "Patología endocrina",
-    "anio": 0,
-    "bibliografia": "",
-    "opciones": [
-      {
-        "letra": "A",
-        "texto": "la premedicación con benzodiacepinas de acción corta",
-        "correcta": false
-      },
-      {
-        "letra": "B",
-        "texto": "Los monitorizamos en nuestra consulta con un pulsioxímetro",
-        "correcta": false
-      },
-      {
-        "letra": "C",
-        "texto": "Si tuviese taquicardia, usaríamos beta bloqueantes",
-        "correcta": false
-      },
-      {
-        "letra": "D",
-        "texto": "sólo debería tratarse en medio hospitalario",
-        "correcta": true
-      },
-      {
-        "letra": "E",
-        "texto": "Ante una crisis hipertensiva, usaremos nitroprusiato en el gabinete.",
-        "correcta": false
-      }
-    ],
-    "numero": 189
-  },
-  {
-    "pregunta": "La pigmentación oscura en la mucosa oral es un signo de:",
-    "asignatura": "Pacientes Especiales",
-    "capitulo": "Patología endocrina",
-    "anio": 0,
-    "bibliografia": "",
-    "opciones": [
-      {
-        "letra": "A",
-        "texto": "enfermedad de cushing",
-        "correcta": false
-      },
-      {
-        "letra": "B",
-        "texto": "enfermedad de Addison",
-        "correcta": true
-      },
-      {
-        "letra": "C",
-        "texto": "enfermedad de Whipple",
-        "correcta": false
-      },
-      {
-        "letra": "D",
-        "texto": "enfermedad de Feocromocitoma",
-        "correcta": false
-      },
-      {
-        "letra": "E",
-        "texto": "diabetes Gestacional múltiple",
-        "correcta": false
-      }
-    ],
-    "numero": 190
+    "numero": 180
   },
   {
     "pregunta": "El manejo odontológico de un paciente con bocio:",
@@ -6462,7 +6122,7 @@
         "correcta": false
       }
     ],
-    "numero": 191
+    "numero": 181
   },
   {
     "pregunta": "¿Cuál de las siguientes manifestaciones orales de Hipoparatiroidismo es falsa?:",
@@ -6497,72 +6157,7 @@
         "correcta": false
       }
     ],
-    "numero": 192
-  },
-  {
-    "pregunta": "En los pacientes con antecedentes de crisis tirotóxica:",
-    "asignatura": "Pacientes Especiales",
-    "capitulo": "Patología endocrina",
-    "anio": 0,
-    "bibliografia": "",
-    "opciones": [
-      {
-        "letra": "A",
-        "texto": "no se deben utilizar anestésicos con vasoconstrictor",
-        "correcta": false
-      },
-      {
-        "letra": "B",
-        "texto": "si la paciente está en tratamiento con Propiltiouracilo esto se deberá ser un tiempo de protrombina",
-        "correcta": false
-      },
-      {
-        "letra": "C",
-        "texto": "Se deberá premedicar a la paciente con barbitúricos suaves",
-        "correcta": false
-      },
-      {
-        "letra": "D",
-        "texto": "la respuesta a y b son falsas",
-        "correcta": false
-      },
-      {
-        "letra": "E",
-        "texto": "las respuestas A, B y C son ciertas",
-        "correcta": true
-      }
-    ],
-    "numero": 193
-  },
-  {
-    "pregunta": "Insuficiencia suprarrenal por producción de ACTH. ¿Cuál es el tumor más frecuente?",
-    "asignatura": "Pacientes Especiales",
-    "capitulo": "Patología endocrina",
-    "anio": 0,
-    "bibliografia": "(Cualquiera que produce corticoide que inhiben ACTH producen insuficiencia suprarrenal)",
-    "opciones": [
-      {
-        "letra": "A",
-        "texto": "Tumor renal",
-        "correcta": false
-      },
-      {
-        "letra": "B",
-        "texto": "Tumor de pulmón",
-        "correcta": true
-      },
-      {
-        "letra": "C",
-        "texto": "Tumor de miembros inferiores",
-        "correcta": false
-      },
-      {
-        "letra": "D",
-        "texto": "tumor de tiroides",
-        "correcta": false
-      }
-    ],
-    "numero": 194
+    "numero": 182
   },
   {
     "pregunta": "Insuficiencia suprarrenal que se presenta siempre",
@@ -6592,7 +6187,7 @@
         "correcta": true
       }
     ],
-    "numero": 195
+    "numero": 183
   },
   {
     "pregunta": "Que hormona se produce en la neurohipófisis",
@@ -6627,7 +6222,7 @@
         "correcta": false
       }
     ],
-    "numero": 196
+    "numero": 184
   },
   {
     "pregunta": "En que alteración endocrina se suele producir una maloclusión de clase III",
@@ -6662,7 +6257,7 @@
         "correcta": false
       }
     ],
-    "numero": 197
+    "numero": 185
   },
   {
     "pregunta": "Ante una pigmentación oral habría que hacer diagnóstico diferencial con",
@@ -6697,6 +6292,6 @@
         "correcta": true
       }
     ],
-    "numero": 198
+    "numero": 186
   }
 ]
