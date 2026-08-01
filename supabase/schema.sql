@@ -163,3 +163,83 @@ $$;
 
 revoke all on function public.verificar_dispositivo(text, int) from public;
 grant execute on function public.verificar_dispositivo(text, int) to authenticated;
+
+-- 5) Panel de administración: quién es admin.
+--    Deliberadamente NO se usa la service_role key en el panel de admin:
+--    esa clave se salta toda la seguridad (RLS incluida), y si viviera en
+--    el código de una app de navegador cualquiera podría extraerla desde
+--    las herramientas de desarrollador. En su lugar, esta tabla marca qué
+--    cuentas son administradoras, y se usa desde políticas de RLS y desde
+--    una función "security definer" para los pocos datos (el email) que
+--    viven fuera del esquema public y no son accesibles por la API.
+create table if not exists public.admins (
+  user_id uuid primary key references auth.users(id) on delete cascade,
+  creado_en timestamptz not null default now()
+);
+
+alter table public.admins enable row level security;
+
+create policy "Cada cuenta ve si ella misma es admin"
+  on public.admins for select
+  using (auth.uid() = user_id);
+
+-- No hay política de insert/update/delete: dar de alta a un admin es un
+-- paso manual y deliberado desde el SQL Editor o el Table Editor de
+-- Supabase, nunca algo que una cuenta pueda hacerse a sí misma desde la
+-- app. Para dar de alta al primer admin, ejecuta aparte:
+--   insert into public.admins (user_id) values ('<uuid-de-tu-usuario>');
+
+-- 6) Los admins pueden ver los datos de cualquier usuario en las tablas ya
+--    existentes (y liberar dispositivos ajenos, por si alguien se queda
+--    bloqueado). Estas políticas se SUMAN a las que ya dejaban a cada
+--    usuario ver solo lo suyo: en Postgres, varias políticas permisivas
+--    para la misma acción se combinan con OR, así que no hace falta tocar
+--    ni una línea de las políticas que ya existían.
+create policy "Los admins ven todo el historial"
+  on public.historial_intentos for select
+  using (exists (select 1 from public.admins a where a.user_id = auth.uid()));
+
+create policy "Los admins ven toda la configuración"
+  on public.config_examen for select
+  using (exists (select 1 from public.admins a where a.user_id = auth.uid()));
+
+create policy "Los admins ven todos los dispositivos"
+  on public.dispositivos_activos for select
+  using (exists (select 1 from public.admins a where a.user_id = auth.uid()));
+
+create policy "Los admins liberan cualquier dispositivo"
+  on public.dispositivos_activos for delete
+  using (exists (select 1 from public.admins a where a.user_id = auth.uid()));
+
+-- 7) Listado de usuarios para el panel de admin.
+--    auth.users no se expone por la API de Supabase ni se puede proteger
+--    con RLS desde el cliente, así que hace falta una función "security
+--    definer": corre con los permisos de quien la creó (que sí puede leer
+--    auth.users), pero la función misma comprueba que quien la llama es
+--    admin antes de devolver ninguna fila.
+create or replace function public.admin_listar_usuarios()
+returns table (
+  user_id uuid,
+  email text,
+  nickname text,
+  creado_en timestamptz,
+  ultimo_acceso timestamptz
+)
+language plpgsql
+security definer
+set search_path = public
+as $$
+begin
+  if not exists (select 1 from public.admins where user_id = auth.uid()) then
+    raise exception 'No autorizado';
+  end if;
+
+  return query
+    select u.id, u.email, (u.raw_user_meta_data->>'nickname')::text, u.created_at, u.last_sign_in_at
+    from auth.users u
+    order by u.created_at desc;
+end;
+$$;
+
+revoke all on function public.admin_listar_usuarios() from public;
+grant execute on function public.admin_listar_usuarios() to authenticated;
