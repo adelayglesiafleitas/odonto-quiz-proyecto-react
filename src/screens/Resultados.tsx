@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import type { Pregunta } from '@/types'
 import type { RespuestaUsuario } from './Examen'
 import { Button } from '@/components/ui/button'
-import { guardarIntentoRemoto, getPromedioRemoto } from '@/lib/historial'
+import { guardarIntentoRemoto, getHistorialRemoto, calcularPromedio } from '@/lib/historial'
 import { useAppSettings } from '@/context/AppSettings'
 import { CheckCircle2, XCircle, RotateCcw, Home as HomeIcon, ChevronDown, Clock, AlarmClockOff } from 'lucide-react'
 
@@ -72,9 +72,9 @@ export function Resultados({
       tiempoUsadoSeg,
       agotoTiempo,
     })
-      .then(() => getPromedioRemoto(userId, cursoId))
-      .then((p) => {
-        if (!cancelado) setPromedio(p)
+      .then(() => getHistorialRemoto(userId, cursoId))
+      .then((historial) => {
+        if (!cancelado) setPromedio(calcularPromedio(historial))
       })
     return () => {
       cancelado = true

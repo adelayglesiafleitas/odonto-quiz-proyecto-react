@@ -61,7 +61,7 @@ function App() {
       return
     }
     let cancelado = false
-    verificarDispositivo(userId).then((resultado) => {
+    verificarDispositivo().then((resultado) => {
       if (cancelado) return
       if (resultado.permitido) {
         setVerifDispositivo('ok')

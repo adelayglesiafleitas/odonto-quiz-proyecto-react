@@ -14,43 +14,32 @@ function getDeviceId(): string {
 
 export type ResultadoVerificacion = { permitido: true } | { permitido: false; dispositivos: number }
 
-export async function verificarDispositivo(userId: string): Promise<ResultadoVerificacion> {
+interface FilaVerificacion {
+  permitido: boolean
+  dispositivos: number | null
+}
+
+// Antes esto eran hasta 3 idas y vueltas seguidas a Supabase (select, y
+// luego update o count+insert). Ahora es una sola llamada a la función
+// verificar_dispositivo (ver supabase/schema.sql), que hace todo el
+// chequeo en una transacción atómica del lado del servidor.
+export async function verificarDispositivo(): Promise<ResultadoVerificacion> {
   const deviceId = getDeviceId()
-  const ahora = new Date().toISOString()
 
-  const { data: existente } = await supabase
-    .from('dispositivos_activos')
-    .select('device_id')
-    .eq('user_id', userId)
-    .eq('device_id', deviceId)
-    .maybeSingle()
+  const { data, error } = await supabase
+    .rpc('verificar_dispositivo', { p_device_id: deviceId, p_limite: LIMITE_DISPOSITIVOS })
+    .single<FilaVerificacion>()
 
-  if (existente) {
-    await supabase
-      .from('dispositivos_activos')
-      .update({ ultimo_uso: ahora })
-      .eq('user_id', userId)
-      .eq('device_id', deviceId)
+  if (error) {
+    console.error('Error al verificar el dispositivo:', error.message)
+    // Ante un fallo de verificación (p.ej. de red) no bloqueamos el
+    // acceso: es preferible dejar entrar a un usuario legítimo que
+    // arriesgarse a dejar a alguien fuera por un error transitorio.
     return { permitido: true }
   }
 
-  const { count } = await supabase
-    .from('dispositivos_activos')
-    .select('device_id', { count: 'exact', head: true })
-    .eq('user_id', userId)
-
-  const activos = count ?? 0
-  if (activos >= LIMITE_DISPOSITIVOS) {
-    return { permitido: false, dispositivos: activos }
-  }
-
-  await supabase.from('dispositivos_activos').insert({
-    user_id: userId,
-    device_id: deviceId,
-    primer_uso: ahora,
-    ultimo_uso: ahora,
-  })
-  return { permitido: true }
+  if (data.permitido) return { permitido: true }
+  return { permitido: false, dispositivos: data.dispositivos ?? LIMITE_DISPOSITIVOS }
 }
 
 /** Cierra sesión en todos los demás dispositivos de esta cuenta y deja

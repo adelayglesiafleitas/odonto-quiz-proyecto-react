@@ -69,8 +69,11 @@ export async function guardarIntentoRemoto(userId: string, intento: IntentoExame
   if (error) console.error('Error al guardar el intento:', error.message)
 }
 
-export async function getPromedioRemoto(userId: string, cursoId?: string): Promise<number> {
-  const historial = await getHistorialRemoto(userId, cursoId)
+// Se deriva del historial ya cargado en vez de volver a consultar Supabase:
+// antes getPromedioRemoto pedía su propia copia del historial (hasta 30 filas)
+// aunque quien la llamaba ya tuviera ese mismo historial en memoria, lo que
+// duplicaba la lectura en pantallas como Home. Calcularlo aquí es gratis.
+export function calcularPromedio(historial: IntentoExamen[]): number {
   if (historial.length === 0) return 0
   const suma = historial.reduce((acc, i) => acc + i.porcentaje, 0)
   return Math.round(suma / historial.length)

@@ -3,7 +3,7 @@ import { LogoMark } from '@/components/Logo'
 import { SettingsToggle } from '@/components/SettingsToggle'
 import { useAppSettings } from '@/context/AppSettings'
 import { getAnios } from '@/lib/data'
-import { getHistorialRemoto, getPromedioRemoto } from '@/lib/historial'
+import { getHistorialRemoto, calcularPromedio } from '@/lib/historial'
 import type { CursoMeta } from '@/lib/cursos'
 import { Button } from '@/components/ui/button'
 import {
@@ -51,9 +51,7 @@ export function Home({
       if (cancelado) return
       setMejor(historial.reduce((max, i) => Math.max(max, i.porcentaje), 0))
       setIntentos(historial.length)
-    })
-    getPromedioRemoto(userId, cursoId).then((p) => {
-      if (!cancelado) setPromedio(p)
+      setPromedio(calcularPromedio(historial))
     })
     return () => {
       cancelado = true

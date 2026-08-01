@@ -99,3 +99,67 @@ create policy "Los usuarios actualizan sus propios dispositivos"
 create policy "Los usuarios borran sus propios dispositivos"
   on public.dispositivos_activos for delete
   using (auth.uid() = user_id);
+
+-- 4) Verificación de dispositivo en una sola llamada atómica.
+--    Antes el cliente hacía hasta 3 consultas seguidas (select, y luego
+--    update o count+insert) cada vez que se abría la app. Además, al ser
+--    pasos separados sin bloqueo, dos pestañas nuevas podían pasar el
+--    conteo casi a la vez y colarse ambas por encima del límite. Esta
+--    función hace el chequeo, el conteo y el alta/actualización dentro de
+--    una sola transacción, y usa un bloqueo consultivo por usuario
+--    (pg_advisory_xact_lock) para serializar llamadas concurrentes de la
+--    misma cuenta y cerrar esa ventana de carrera.
+create or replace function public.verificar_dispositivo(
+  p_device_id text,
+  p_limite int default 2
+)
+returns table (permitido boolean, dispositivos int)
+language plpgsql
+security invoker
+as $$
+declare
+  v_user_id uuid := auth.uid();
+  v_ahora timestamptz := now();
+  v_existe boolean;
+  v_count int;
+begin
+  if v_user_id is null then
+    raise exception 'No autenticado';
+  end if;
+
+  -- Serializa las llamadas concurrentes de este usuario (p.ej. dos
+  -- pestañas abriéndose a la vez) para que el conteo de más abajo sea
+  -- siempre correcto.
+  perform pg_advisory_xact_lock(hashtext(v_user_id::text));
+
+  select exists (
+    select 1 from public.dispositivos_activos
+    where user_id = v_user_id and device_id = p_device_id
+  ) into v_existe;
+
+  if v_existe then
+    update public.dispositivos_activos
+      set ultimo_uso = v_ahora
+      where user_id = v_user_id and device_id = p_device_id;
+    return query select true, null::int;
+    return;
+  end if;
+
+  select count(*) into v_count
+    from public.dispositivos_activos
+    where user_id = v_user_id;
+
+  if v_count >= p_limite then
+    return query select false, v_count;
+    return;
+  end if;
+
+  insert into public.dispositivos_activos (user_id, device_id, primer_uso, ultimo_uso)
+    values (v_user_id, p_device_id, v_ahora, v_ahora);
+
+  return query select true, null::int;
+end;
+$$;
+
+revoke all on function public.verificar_dispositivo(text, int) from public;
+grant execute on function public.verificar_dispositivo(text, int) to authenticated;
