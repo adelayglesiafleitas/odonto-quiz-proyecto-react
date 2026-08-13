@@ -107,6 +107,7 @@ export interface Diccionario {
     todos: string
     preguntaContador: (a: number, b: number) => string
     tocaVer: string
+    totalPreguntas: (n: number) => string
   }
   ayuda: {
     titulo: string
@@ -231,6 +232,7 @@ export const es: Diccionario = {
     todos: 'Todos',
     preguntaContador: (a, b) => `Pregunta ${a} de ${b}`,
     tocaVer: 'Toca para ver la respuesta',
+    totalPreguntas: (n) => `${n} pregunta${n === 1 ? '' : 's'}`,
   },
   ayuda: {
     titulo: 'Ayuda',
@@ -361,6 +363,7 @@ export const en: Diccionario = {
     todos: 'All',
     preguntaContador: (a, b) => `Question ${a} of ${b}`,
     tocaVer: 'Tap to reveal the answer',
+    totalPreguntas: (n) => `${n} question${n === 1 ? '' : 's'}`,
   },
   ayuda: {
     titulo: 'Help',

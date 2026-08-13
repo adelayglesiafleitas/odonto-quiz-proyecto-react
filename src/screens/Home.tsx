@@ -17,6 +17,7 @@ import {
   TimerOff,
   Play,
   CalendarDays,
+  BookOpen,
 } from 'lucide-react'
 import type { Pantalla } from '@/types'
 
@@ -77,6 +78,13 @@ export function Home({
       descripcion: t.home.simulacroDesc(cursoMeta.cantidadOficial, cursoMeta.porcentajeAprobado),
       icon: ClipboardList,
       tono: 'accent',
+    },
+    {
+      id: 'estudio',
+      titulo: t.home.estudioTitulo,
+      descripcion: t.home.estudioDesc,
+      icon: BookOpen,
+      tono: 'primary',
     },
     {
       id: 'ayuda',
