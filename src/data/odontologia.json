@@ -30913,5 +30913,1995 @@
       }
     ],
     "numero": 915
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes NO se considera un efecto secundario de los antiparkinsonianos ?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Disgeusia",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Bruxismo",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Discinesia lingual",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Hiposalivación",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Saliva de color rojizo",
+        "correcta": false
+      }
+    ],
+    "numero": 916
+  },
+  {
+    "pregunta": "En el diagnóstico diferencial de dolor facial en un paciente diagnosticado de esclerosis múltiple deben incluirse las siguientes causas EXCEPTO…",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Síndrome de dolor-disfuncional de la ATM",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Infarto pulpar",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Neuralgia del trigémino",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Espasmo faciales",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Neuralgia del glosofaríngeo",
+        "correcta": false
+      }
+    ],
+    "numero": 917
+  },
+  {
+    "pregunta": "Respecto a las demencias independientemente de su etiología los signos orales que se puede encontrar, excepto:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Halitosis",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Disquinesias orofaciales",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Papilas hiperplásticas",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Xerostomía",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Traumatismos",
+        "correcta": false
+      }
+    ],
+    "numero": 918
+  },
+  {
+    "pregunta": "La causa más frecuente de deterioro intelectual adquirido es:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "PAG 1096-1097 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Demencia multiinfártica",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Enfermedad de Alzheimer",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Enfermedad de Dic",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Hipotiroidismo",
+        "correcta": false
+      }
+    ],
+    "numero": 919
+  },
+  {
+    "pregunta": "La afectación y clínica de un accidente vascular cerebral ICTUS depende de:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Circulación colaterales",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Tamaño de vasos afectados",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Localización del área dañada",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Duración de la oclusión",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todas",
+        "correcta": true
+      }
+    ],
+    "numero": 920
+  },
+  {
+    "pregunta": "La afectación y la clínica de un accidente cerebrovascular depende de :",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "la localización de la zona afectada",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "la duración de la oclusión",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "el tamaño de los vasos colaterales",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "a y c son correctas",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "a y b son correctas",
+        "correcta": true
+      }
+    ],
+    "numero": 921
+  },
+  {
+    "pregunta": "Marca la respuesta FALSA de ACV",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "a partir de los 55 años, PAG 1109 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El Accidente Isquémico transitorio es una microembolia que desaparece",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Suelen darse sobretodo en adultos jóvenes",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Suele existir antecedentes de hipertensión arterial o trombosis",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Trombosis, suele acontecer en grandes ramas vasculares",
+        "correcta": false
+      }
+    ],
+    "numero": 922
+  },
+  {
+    "pregunta": "Un paciente acude a la consulta, con Ansiedad y estrés, que complicaciones pudiera provocar paro cardíaco",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "infarto al miocardio",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "aumento de presión arterial",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "ACV o ICTUS",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ninguna de las anteriores",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todas las anteriores",
+        "correcta": true
+      }
+    ],
+    "numero": 923
+  },
+  {
+    "pregunta": "Las alteraciones bucales en Alzheimer se deben a:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Mala higiene",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Medicación",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Se les olvida colocarse la prótesis",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "A y B",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "todas",
+        "correcta": true
+      }
+    ],
+    "numero": 924
+  },
+  {
+    "pregunta": "Factores que aumentan el riesgo de ictus:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "HTA",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "arteriosclerosis",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "diabetes, tabaco",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "estrés e inactividad física",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todas",
+        "correcta": true
+      }
+    ],
+    "numero": 925
+  },
+  {
+    "pregunta": "Marque la respuesta FALSA. En relación a los pacientes que han sufrido un ictus cerebral:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El tratamiento dental puede precipitar un cuadro de ACV",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El antecedente de aterosclerosis coronaria es raro",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Tras un episodio debe demorarse el tratamiento ordinario al menos 6 meses",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Puede administrarse óxido nitroso",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Puede haber sangrado secundario al tratamiento farmacológico que suele estar recibiendo",
+        "correcta": false
+      }
+    ],
+    "numero": 926
+  },
+  {
+    "pregunta": "Marque la respuesta falsa: Cuál de estas situaciones limita la higiene bucal:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El Parkinson",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "La miastenia grave",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "miocardiopatia hipertrófica",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "La parálisis cerebral",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "distrofias neuromusculares",
+        "correcta": false
+      }
+    ],
+    "numero": 927
+  },
+  {
+    "pregunta": "Marque la repuesta falsa: De los accidentes cerebro cardiovasculares",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "el TIA es una microembolia que desaparece",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "suelen darse sobre todo en adultos jóvenes",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "suele existir antecedentes de HTA o trombosis.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Trombosis suele acontecer en grandes ramas vasculares.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todas verdaderas",
+        "correcta": false
+      }
+    ],
+    "numero": 928
+  },
+  {
+    "pregunta": "Marque la respuesta falsa. En los accidentes cerebrovasculares:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El TIA es una microembolia que desaparece",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Suelen darse sobre todo en adultos jóvenes",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "La embolia suele darse en las arterias terminales",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Suelen existir antecedentes de HTA o trombosis",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "La trombosis suele acontecer en grandes ramas vasculares",
+        "correcta": false
+      }
+    ],
+    "numero": 929
+  },
+  {
+    "pregunta": "Marque la respuesta FALSA. En relación a los pacientes que han sufrido un ictus cerebral:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El tratamiento dental puede precipitar un cuadro de ACV",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El antecedente de aterosclerosis coronaria es raro",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Tras un episodio debe demorarse el tratamiento ordinario al menos 6 meses",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Puede administrarse óxido nitroso",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Puede haber sangrado secundario al tratamiento farmacológico que suele estar recibiendo",
+        "correcta": false
+      }
+    ],
+    "numero": 930
+  },
+  {
+    "pregunta": "Señale la opción correcta acerca del manejo odontológico del paciente con demencia",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "En el paciente con demencia hay que valorar su capacidad cognitiva.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Prevenir la aparición de patología oral.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Debe realizarle un plan de tratamiento individualizado a cada paciente.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Convertir el cuidado oral en hábito común de la vida del paciente de manera precoz",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todas las anteriores son correctas.",
+        "correcta": true
+      }
+    ],
+    "numero": 931
+  },
+  {
+    "pregunta": "Cuál de las siguientes demencias es exclusivamente irreversible?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Demencia por tumor cerebral.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Demencia por alcohol.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Demencia sifilítica.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Demencia pugilística.",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Demencia por alteración cerebral y arteriosclerosis cerebral.",
+        "correcta": false
+      }
+    ],
+    "numero": 932
+  },
+  {
+    "pregunta": "Cual de los siguientes síndromes es un síndrome craneofacial?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "PAG 867  MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Síndrome de Hunter.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Síndrome de Hurler.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Síndrome de Down.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Síndrome de Cri Du Chat .",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Síndrome de Crouzon.",
+        "correcta": true
+      }
+    ],
+    "numero": 933
+  },
+  {
+    "pregunta": "Cuál de los siguientes síndromes es una cromosomopatía.",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Síndrome de Teacher Collins.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Síndrome de Russell – Silver.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Síndrome de Donohue.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Síndrome de Williams.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Ninguno de los anteriores.",
+        "correcta": true
+      }
+    ],
+    "numero": 934
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes afirmaciones acerca del paciente psiquiátrico tipo B es incorrecta desde el punto de vista",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Se deben mantener los dientes con pronóstico incierto a toda costa",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Hay que mantener la mayor cantidad posible de dientes pares en oclusión",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Poner corona de recubrimiento total en todo diente susceptible",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Actuar con la mayor inmediatez posible",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todas las afirmaciones son correctas",
+        "correcta": false
+      }
+    ],
+    "numero": 935
+  },
+  {
+    "pregunta": "Cual de las siguientes demencias cerebrales es irreversible?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Demencia por drogas",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Demencia por pugilistica",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Demencia endocrina",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Demencia metabólica",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Demencia por sífilis",
+        "correcta": false
+      }
+    ],
+    "numero": 936
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes causas de demencias cerebrales es reversible?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Drogas.",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Enfermedad de Parkinson.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Enfermedad de Alzheimer.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Enfermedad de Huntington.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todas las anteriores son causas de demencias cerebrales reversibles.",
+        "correcta": false
+      }
+    ],
+    "numero": 937
+  },
+  {
+    "pregunta": "Con respecto a la clasificación de los pacientes psiquiátricos o neurológicos según el punto de vista odontológico señale la afirmación",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Los pacientes de tipo A son aquellos en los que no tiene porque darse un deterioro progresivo con el transcurso del tiempo.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Los pacientes de tipo B son aquellos en los que se suele producir un deterioro a medida que pase el tiempo.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "En los pacientes de Tipo A el tratamiento odontológico no suele requerir de decisiones inmediatas.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "En los pacientes de tipo B hay que mantener a toda costa los dientes con pronóstico incierto.",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Un paciente con Parkinson estaría encuadrado en el tipo B.",
+        "correcta": false
+      }
+    ],
+    "numero": 938
+  },
+  {
+    "pregunta": "Indique cuál de los siguientes problemas odontológicos no está especialmente asociado a la enfermedad de Parkinson:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Aparición de petequias en la mucosa oral.",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Dificultad en control y retención de prótesis removibles.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Xerostomía",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Caries radiculares",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Trastornos masticatorios",
+        "correcta": false
+      }
+    ],
+    "numero": 939
+  },
+  {
+    "pregunta": "Cuál de los siguientes síndromes que pueden producir minusvalía psíquica no es un síndrome craneofacial?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Síndrome de Lowe",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Síndrome de Apert",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Síndrome de Hurler",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Síndrome de Carpenter",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Síndrome de Treacher-Collins",
+        "correcta": false
+      }
+    ],
+    "numero": 940
+  },
+  {
+    "pregunta": "De los accidentes cerebro vasculares . Marque la respuesta falsa:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "ACV",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El TIA es una microembolia que desaparece.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Suele darse sobre todo en adultos jóvenes.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Suele existir antecedentes de HTA o trombosis.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Trombosis suele acontecer en grandes ramas vasculares.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todas son verdaderas.",
+        "correcta": false
+      }
+    ],
+    "numero": 941
+  },
+  {
+    "pregunta": "La esclerosis múltiple se define como",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "PAG 1107  MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Es una enfermedad autoinmunitaria que afecta al sistema nervioso central",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "afecta más a las mujeres que a los hombres",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": ". Es una enfermedad autoinmunitaria que afecta al cerebro",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Es una enfermedad autoinmunitaria que afecta al la médula espinal",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "A y B son correctas",
+        "correcta": true
+      }
+    ],
+    "numero": 942
+  },
+  {
+    "pregunta": "La afectación y la clínica de un accidente cerebrovascular depende",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "la localización de la zona afectada",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "la duración de la oclusión",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "el tamaño de los vasos colaterales",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "a y c son correctas",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "A y B son correctas",
+        "correcta": true
+      }
+    ],
+    "numero": 943
+  },
+  {
+    "pregunta": "La afectación y la clínica del accidente vasculocerebral dependen de:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Localización área dañada",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Tamaño vaso afectado",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Duración de la oclusión",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Presencia de circulación colateral",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todas las anteriores",
+        "correcta": true
+      }
+    ],
+    "numero": 944
+  },
+  {
+    "pregunta": "La afectación y la clínica de un accidente cerebrovascular depende de:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "la localización de la zona afectada",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "de la duración de la oclusión",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "del tamaño de los vasos colaterales",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "a y c son ciertas",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "a y b son ciertas",
+        "correcta": false
+      }
+    ],
+    "numero": 945
+  },
+  {
+    "pregunta": "Por qué los pacientes con Parkinson pueden tener xerostomía:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "inhibidores de la monoaminooxidasa",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "agentes antimuscarínicos",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "levodopa",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "fármacos IMAO",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "disfunción glandular",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "candidiasis",
+        "correcta": false
+      }
+    ],
+    "numero": 946
+  },
+  {
+    "pregunta": "Ante sospecha de ACV debemos solicitar al paciente que sonría, que repita una frase coherente y:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "ponerse de pie",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "levantar los brazos",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "decir una frase coherente",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "caminar de forma recta",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "diga el día de la semana",
+        "correcta": false
+      }
+    ],
+    "numero": 947
+  },
+  {
+    "pregunta": "La mejor hora para tratar un paciente que ha tenido un infarto cerebral es:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "PAG 325 INMACULDA TOMAS",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "a primera hora de la mañana",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "a primera hora de la tarde",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "última hora de la tarde",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "media mañana",
+        "correcta": true
+      }
+    ],
+    "numero": 948
+  },
+  {
+    "pregunta": "¿Cuál de estos pacientes necesitaría tratamiento odontológico inmediato : a. Esquizofrénico paranoide.",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Psicosis maniaca depresiva.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Enfermedad de Alzheimer.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Paciente ansioso compulsivo.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Esquizofrenia con delirio.",
+        "correcta": false
+      }
+    ],
+    "numero": 949
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes no es una característica habitual del síndrome de PRADER- WILLI?:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "RECURSO NEMOTÉCNICO (PADRE WILLI GORDO, no se ve pies y manos, se enfada si quitas comida feliz si se la das )",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "CI no superior a 80.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Delgadez extrema.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Explosiones de mal carácter.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "carácter habitualmente feliz.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Manos y pies pequeños.",
+        "correcta": false
+      }
+    ],
+    "numero": 950
+  },
+  {
+    "pregunta": "La enfermedad de RIGA-FEDE:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Realmente su descubridor fue Dan Towers.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "No suele darse parálisis cerebral.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Hay ulceración dorsal de la lengua.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "No tiene tratamiento posible.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Puede llevar a la muerte por inanición.",
+        "correcta": true
+      }
+    ],
+    "numero": 951
+  },
+  {
+    "pregunta": "¿Qué problema cromosómico tiene un paciente con síndrome de Maullido de Gato? a. Trisomía del 21",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Mutación Xq28",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Delección del cromosoma 5",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Delección del cromosoma 7",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Trisomía del cromosoma 13",
+        "correcta": false
+      }
+    ],
+    "numero": 952
+  },
+  {
+    "pregunta": "La enfermedad de Riga-Fede es...",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Es una trisomía cromosómica",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Es una encefalopatía con ulceración de la lengua",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Es una delección cromosómica",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Es una coagulopatía hereditaria grave",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Es una infección crónica autoinmune",
+        "correcta": false
+      }
+    ],
+    "numero": 953
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes síndromes es un síndrome craneofacial?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Síndrome de Hunter.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Síndrome de Hurler.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Síndrome de Down.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Síndrome de Cri Du Chat .",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Síndrome de Crouzon.",
+        "correcta": true
+      }
+    ],
+    "numero": 954
+  },
+  {
+    "pregunta": "Ante que medicación que puede estar recibiendo un paciente psiquiátrico podemos esperar hipotensión postural.",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Propanolol",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "IMAO",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "ADT",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "A y C",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "B y C",
+        "correcta": false
+      }
+    ],
+    "numero": 955
+  },
+  {
+    "pregunta": "En un paciente que tiene anorexia nerviosa, que nos podemos encontrar a nivel oral 1027MN",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Agrandamiento parotídeo",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Estomatitis angular",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Puede presentar anemia",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Puede presentar arritmias",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "a y b",
+        "correcta": true
+      }
+    ],
+    "numero": 956
+  },
+  {
+    "pregunta": "En un paciente que tiene anorexia nerviosa, que nos podemos encontrar 1027MN",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Agrandamiento parotídeo",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Estomatitis angular",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Puede presentar anemia",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Puede presentar arritmias",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "todas son correctas",
+        "correcta": true
+      }
+    ],
+    "numero": 957
+  },
+  {
+    "pregunta": "Si un paciente está tomando ADT y presenta boca seca, candidiasis oral incluso una Parotiditis supurativa aguda, a que ADT cambiaría: No NM",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Mionserina complutense",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Amitriptilina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Imipramino",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "B y C",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Cualquiera de los anteriores",
+        "correcta": false
+      }
+    ],
+    "numero": 958
+  },
+  {
+    "pregunta": "La depresión a nivel oral puede identificarse, entre otras cosas, por:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Halitosis",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Boca quemante",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Alteraciones del sabor",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Disfunción de la ATM",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todo lo anterior",
+        "correcta": true
+      }
+    ],
+    "numero": 959
+  },
+  {
+    "pregunta": "Ante un paciente ansioso debemos administrar:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "100 mg de Amitriptilina im la noche antes",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "100 mg de diazepam vía oral la noche antes y una hora antes de la intervención",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "10 mg de Diazepam vía oral la noche antes y 1 h antes del tratamiento",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Lo mismo pero iv",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "nada de lo anterior",
+        "correcta": false
+      }
+    ],
+    "numero": 960
+  },
+  {
+    "pregunta": "Cuáles son los efectos colaterales más importantes de los antidepresivos Tricíclicos",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "PAG 1012  MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Aftosis oral",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Estomatitis angular",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Sequedad de boca",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Arritmias",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "C y D",
+        "correcta": true
+      }
+    ],
+    "numero": 961
+  },
+  {
+    "pregunta": "que fármaco prescribiría usted a un paciente ansioso que nos acude a la consulta para un problema dental.",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Diazepam 10 mg vía oral la noche antes y 1h antes del tratamiento",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Lorazepam 500mg la noche antes",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Captopril 200 mg la noche antes",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Diazepam 100mg la noche antes y 50 mg 1h antes",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Nada de lo anterior",
+        "correcta": false
+      }
+    ],
+    "numero": 962
+  },
+  {
+    "pregunta": "La Carbamazepina produce como efectos colaterales",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "1009MN",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Hipertensión arterial",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Ataxia",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Leucopenia agranulocitosis",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Todas las anteriores",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Ninguna de las anteriores",
+        "correcta": false
+      }
+    ],
+    "numero": 963
+  },
+  {
+    "pregunta": "Cuáles son los efectos colaterales más importantes de los antidepresivos Tricíclicos",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Aftosis oral",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Estomatitis angular",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Sequedad de boca",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Arritmias",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "C y D",
+        "correcta": true
+      }
+    ],
+    "numero": 964
+  },
+  {
+    "pregunta": "Consideraciones dentales en un paciente con anorexia nerviosa.",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "PAG 1022-1023-1027  MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Inflamación parotídea",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Estomatitis angular",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Erosión de los dientes sobre todo palatino de incisivos superiores y oclusal de los inferiores, por jugos gástricos",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Úlceras a nivel del paladar blando",
+        "correcta": false
+      }
+    ],
+    "numero": 965
+  },
+  {
+    "pregunta": "La levodopa es un fármaco que se utiliza en el tratamiento de",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Enfermedad de Parkinson",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Miastenia gravis",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Enfermedad de Alzheimer",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Esquizofrenia",
+        "correcta": false
+      }
+    ],
+    "numero": 966
+  },
+  {
+    "pregunta": "la tioridazina utilizada en la enfermedad de Parkinson produce",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Diarrea",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Sialorrea",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Vómitos",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Cambios en el electrocardiograma",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Rubor facial",
+        "correcta": false
+      }
+    ],
+    "numero": 967
+  },
+  {
+    "pregunta": "Que sustancia es escasa en la enfermedad de Parkinson",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Dopamina",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Acetil colina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Eritropoyetina",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Aspirina",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Insulina",
+        "correcta": false
+      }
+    ],
+    "numero": 968
+  },
+  {
+    "pregunta": "En la esclerosis múltiple que nos puede interferir para el manejo dental",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Alteraciones Cardiovasculares",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Patología renal concomitante",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Alteraciones hepáticas",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Problemas respiratorios",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Nada de lo anterior es frecuente en esclerosis múltiple",
+        "correcta": true
+      }
+    ],
+    "numero": 969
+  },
+  {
+    "pregunta": "Ante un dolor de tipo lancinante, discontinuo en el tiempo e irradiado hacia distintas zonas de la cara, debemos hacer diagnóstico diferencial con",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Neuralgia del trigémino",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Esclerosis múltiple",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Con todo lo anterior",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Son ciertas A y B",
+        "correcta": true
+      }
+    ],
+    "numero": 970
+  },
+  {
+    "pregunta": "Señale la respuesta correcta frente a la distrofia muscular a nivel oral",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Aumento del tono de los músculos faciales",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Aumento de los reflejos protectores",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "No existe riesgo de aspiración",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Disminución del número de caries",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Presencia de Maloclusiones",
+        "correcta": true
+      }
+    ],
+    "numero": 971
+  },
+  {
+    "pregunta": "El tratamiento dental en un paciente que ha sufrido un ACV se caracteriza por:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La posición de trabajo ideal es tumbado",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Se utilizarán pastas de impresión no fluidas",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "No usar dique de goma",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "B y C",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Todo lo anterior",
+        "correcta": false
+      }
+    ],
+    "numero": 972
+  },
+  {
+    "pregunta": "Cual no es un factor de riesgo en los ACV",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Hipotensión",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Tabaquismo",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Arteriosclerosis",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Hiperlipidemia",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Estrés",
+        "correcta": false
+      }
+    ],
+    "numero": 973
   }
 ]
