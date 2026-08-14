@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { LogoMark } from '@/components/Logo'
+import { Spinner } from '@/components/Spinner'
 import { SettingsToggle } from '@/components/SettingsToggle'
 import { useAppSettings } from '@/context/AppSettings'
 import { getAnios } from '@/lib/data'
@@ -44,15 +45,18 @@ export function Home({
   const [mejor, setMejor] = useState(0)
   const [promedio, setPromedio] = useState(0)
   const [intentos, setIntentos] = useState(0)
+  const [cargandoStats, setCargandoStats] = useState(true)
   const anios = getAnios()
 
   useEffect(() => {
     let cancelado = false
+    setCargandoStats(true)
     getHistorialRemoto(userId, cursoId).then((historial) => {
       if (cancelado) return
       setMejor(historial.reduce((max, i) => Math.max(max, i.porcentaje), 0))
       setIntentos(historial.length)
       setPromedio(calcularPromedio(historial))
+      setCargandoStats(false)
     })
     return () => {
       cancelado = true
@@ -111,13 +115,7 @@ export function Home({
     <div className="app-shell bg-background pb-10">
       <div className="brand-gradient rounded-b-[32px] px-6 pb-8 pt-6 text-white">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <LogoMark className="h-9 w-9" />
-            <div>
-              <p className="text-xs text-white/60">{t.home.hola}</p>
-              <p className="-mt-0.5 text-[15px] font-bold">{nombreMostrado}</p>
-            </div>
-          </div>
+          <LogoMark className="h-10 w-auto" />
           <div className="flex items-center gap-2">
             <SettingsToggle variante="oscuro" />
             <button
@@ -130,24 +128,35 @@ export function Home({
           </div>
         </div>
 
-        <div className="card-elevated mt-6 rounded-3xl bg-white/10 p-5 backdrop-blur-sm">
-          <p className="text-xs font-medium text-white/70">{t.home.progreso}</p>
-          <div className="mt-3 flex items-center justify-between">
-            <div>
-              <p className="text-3xl font-extrabold leading-none">{promedio}%</p>
-              <p className="mt-1.5 text-[11px] text-white/60">{t.home.promedioSufijo(intentos)}</p>
-            </div>
-            <div className="flex flex-col items-end gap-1.5 text-right">
-              <div className="flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1">
-                <Trophy className="h-3.5 w-3.5 text-[#ffd166]" />
-                <span className="text-xs font-semibold">{mejor}% {t.home.mejorPuntaje}</span>
-              </div>
-              <div className="flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1">
-                <TrendingUp className="h-3.5 w-3.5 text-[#1fc6c6]" />
-                <span className="text-xs font-semibold">{t.home.meta(cursoMeta.porcentajeAprobado)}</span>
-              </div>
-            </div>
+        <div className="card-elevated mt-5 rounded-3xl bg-white/10 p-5 backdrop-blur-sm">
+          <div className="text-center">
+            <p className="text-xs text-white/60">{t.home.hola}</p>
+            <p className="-mt-0.5 text-lg font-bold">{nombreMostrado}</p>
           </div>
+
+          <p className="mt-3 text-xs font-medium text-white/70">{t.home.progreso}</p>
+          {cargandoStats ? (
+            <div className="mt-4 flex items-center justify-center py-2.5">
+              <Spinner className="h-6 w-6 text-white/70" />
+            </div>
+          ) : (
+            <div className="mt-3 flex items-center justify-between">
+              <div>
+                <p className="text-3xl font-extrabold leading-none">{promedio}%</p>
+                <p className="mt-1.5 text-[11px] text-white/60">{t.home.promedioSufijo(intentos)}</p>
+              </div>
+              <div className="flex flex-col items-end gap-1.5 text-right">
+                <div className="flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1">
+                  <Trophy className="h-3.5 w-3.5 text-[#ffd166]" />
+                  <span className="text-xs font-semibold">{mejor}% {t.home.mejorPuntaje}</span>
+                </div>
+                <div className="flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1">
+                  <TrendingUp className="h-3.5 w-3.5 text-[#1fc6c6]" />
+                  <span className="text-xs font-semibold">{t.home.meta(cursoMeta.porcentajeAprobado)}</span>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 

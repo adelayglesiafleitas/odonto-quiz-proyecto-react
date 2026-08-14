@@ -12,9 +12,127 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <title>ExamPrep · Simulacros de examen</title>
+    <style>
+      /*
+        Loader estático, sin dependencia de React ni de Tailwind: se pinta en
+        cuanto el navegador procesa este HTML, así que cubre el tramo (a
+        veces varios segundos en una conexión lenta) entre "se abrió la app"
+        y "el bundle de JS terminó de descargarse y React montó". Vive dentro
+        de #root a propósito: en cuanto React monta, reemplaza el contenido
+        de #root y este loader desaparece solo, sin necesitar JS propio.
+      */
+      #app-preloader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.75rem;
+        overflow: hidden;
+        background: #04141c;
+      }
+      #app-preloader .glow-a,
+      #app-preloader .glow-b {
+        position: absolute;
+        border-radius: 9999px;
+        filter: blur(64px);
+        pointer-events: none;
+      }
+      #app-preloader .glow-a {
+        top: -6rem;
+        right: -6rem;
+        width: 18rem;
+        height: 18rem;
+        background: rgba(255, 255, 255, 0.05);
+      }
+      #app-preloader .glow-b {
+        bottom: -7rem;
+        left: -4rem;
+        width: 18rem;
+        height: 18rem;
+        background: rgba(31, 198, 198, 0.1);
+      }
+      #app-preloader .ring-wrap {
+        position: relative;
+        width: 7rem;
+        height: 7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #app-preloader .spin-ring {
+        position: absolute;
+        inset: 0;
+        border-radius: 9999px;
+        border: 3px solid rgba(255, 255, 255, 0.15);
+        border-top-color: #1fc6c6;
+        animation: preloader-spin 0.9s linear infinite;
+      }
+      #app-preloader img {
+        position: relative;
+        height: 2.5rem;
+        width: auto;
+        filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.35));
+      }
+      #app-preloader .label {
+        font-family: Manrope, system-ui, sans-serif;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.7);
+      }
+      #app-preloader .bar-track {
+        height: 0.25rem;
+        width: 10rem;
+        overflow: hidden;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.15);
+      }
+      #app-preloader .bar-fill {
+        height: 100%;
+        width: 33%;
+        border-radius: 9999px;
+        background: #1fc6c6;
+        animation: preloader-bar 1.3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      }
+      @keyframes preloader-spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes preloader-bar {
+        0% {
+          transform: translateX(-100%) scaleX(0.5);
+        }
+        50% {
+          transform: translateX(20%) scaleX(1);
+        }
+        100% {
+          transform: translateX(120%) scaleX(0.5);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #app-preloader .spin-ring,
+        #app-preloader .bar-fill {
+          animation-duration: 0.01ms !important;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div id="app-preloader" role="status" aria-label="Cargando">
+        <div class="glow-a"></div>
+        <div class="glow-b"></div>
+        <div class="ring-wrap">
+          <span class="spin-ring"></span>
+          <img src="/logo.png" alt="" />
+        </div>
+        <p class="label">Cargando...</p>
+        <div class="bar-track"><div class="bar-fill"></div></div>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -77,6 +77,11 @@ module.exports = {
           "60%": { transform: "scale(1.08)", opacity: "1" },
           "100%": { transform: "scale(1)", opacity: "1" },
         },
+        "progress-indeterminate": {
+          "0%": { transform: "translateX(-100%) scaleX(0.5)" },
+          "50%": { transform: "translateX(20%) scaleX(1)" },
+          "100%": { transform: "translateX(120%) scaleX(0.5)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -84,6 +89,7 @@ module.exports = {
         "pulse-ring": "pulse-ring 2.2s cubic-bezier(0.2,0.6,0.4,1) infinite",
         "float-up": "float-up 0.5s ease-out both",
         "logo-pop": "logo-pop 0.9s cubic-bezier(0.2,0.8,0.3,1) both",
+        "progress-indeterminate": "progress-indeterminate 1.3s cubic-bezier(0.4,0,0.2,1) infinite",
       },
     },
   },

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import type { Pregunta } from '@/types'
 import type { RespuestaUsuario } from './Examen'
 import { Button } from '@/components/ui/button'
+import { Spinner } from '@/components/Spinner'
 import { guardarIntentoRemoto, getHistorialRemoto, calcularPromedio } from '@/lib/historial'
 import { useAppSettings } from '@/context/AppSettings'
 import { CheckCircle2, XCircle, RotateCcw, Home as HomeIcon, ChevronDown, Clock, AlarmClockOff } from 'lucide-react'
@@ -50,6 +51,7 @@ export function Resultados({
   const { t } = useAppSettings()
   const [expandido, setExpandido] = useState<number | null>(null)
   const [promedio, setPromedio] = useState(0)
+  const [cargandoPromedio, setCargandoPromedio] = useState(true)
 
   const { correctas, porcentaje, aprobado } = useMemo(() => {
     const correctas = preguntas.filter((p) => esCorrecta(p, respuestas[p.numero] ?? [])).length
@@ -74,7 +76,9 @@ export function Resultados({
     })
       .then(() => getHistorialRemoto(userId, cursoId))
       .then((historial) => {
-        if (!cancelado) setPromedio(calcularPromedio(historial))
+        if (cancelado) return
+        setPromedio(calcularPromedio(historial))
+        setCargandoPromedio(false)
       })
     return () => {
       cancelado = true
@@ -122,8 +126,12 @@ export function Resultados({
             <p className="text-[10px] text-white/60">{t.resultados.minimoAprobatorio}</p>
           </div>
           <div className="rounded-2xl bg-white/10 px-4 py-2.5 text-center">
-            <p className="text-sm font-extrabold">{promedio}%</p>
-            <p className="text-[10px] text-white/60">{t.resultados.tuPromedio}</p>
+            {cargandoPromedio ? (
+              <Spinner className="mx-auto h-4 w-4 text-white/70" />
+            ) : (
+              <p className="text-sm font-extrabold">{promedio}%</p>
+            )}
+            <p className="mt-0.5 text-[10px] text-white/60">{t.resultados.tuPromedio}</p>
           </div>
           <div className="rounded-2xl bg-white/10 px-4 py-2.5 text-center">
             <p className="flex items-center justify-center gap-1 text-sm font-extrabold">

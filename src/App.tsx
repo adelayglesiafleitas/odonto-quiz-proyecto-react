@@ -5,7 +5,7 @@ import { cargarBanco, seleccionarPreguntas } from '@/lib/data'
 import { CURSO, CURSO_ID } from '@/lib/cursos'
 import { supabase } from '@/lib/supabase'
 import { verificarDispositivo, cerrarSesionOtrosDispositivos, liberarDispositivoActual } from '@/lib/dispositivos'
-import { Splash } from '@/screens/Splash'
+import { LoadingScreen } from '@/components/LoadingScreen'
 import { DispositivoBloqueado } from '@/screens/DispositivoBloqueado'
 import { Login } from '@/screens/Login'
 import { Home } from '@/screens/Home'
@@ -32,13 +32,14 @@ function App() {
   const [pantalla, setPantalla] = useState<Pantalla>('splash')
   const [session, setSession] = useState<Session | null>(null)
   const [sesionLista, setSesionLista] = useState(false)
+  const [tiempoMinimoListo, setTiempoMinimoListo] = useState(false)
   const [sesionExamen, setSesionExamen] = useState<SesionExamen | null>(null)
   const [resultado, setResultado] = useState<ResultadoExamen>({ respuestas: {}, tiempoUsadoSeg: 0, agotoTiempo: false })
   const [verifDispositivo, setVerifDispositivo] = useState<'pendiente' | 'ok' | 'bloqueado'>('pendiente')
   const [dispositivosActivos, setDispositivosActivos] = useState(0)
 
   useEffect(() => {
-    // Se dispara en paralelo a la animación del splash (~5s), así que para
+    // Se dispara en paralelo a la pantalla de carga inicial, así que para
     // cuando se necesita ya está resuelto en la mayoría de los casos.
     cargarBanco()
     supabase.auth.getSession().then(({ data }) => {
@@ -49,6 +50,15 @@ function App() {
       setSession(nuevaSesion)
     })
     return () => listener.subscription.unsubscribe()
+  }, [])
+
+  useEffect(() => {
+    // La verificación de sesión puede resolver casi al instante (sesión en
+    // caché), lo que haría que la pantalla de carga apareciera y
+    // desapareciera en una fracción de segundo. Este mínimo garantiza que el
+    // usuario siempre alcance a verla, incluso en conexiones rápidas.
+    const temporizador = setTimeout(() => setTiempoMinimoListo(true), 700)
+    return () => clearTimeout(temporizador)
   }, [])
 
   const userId = session?.user.id ?? null
@@ -82,6 +92,13 @@ function App() {
       setPantalla('login')
     }
   }
+
+  useEffect(() => {
+    if (pantalla === 'splash' && sesionLista && tiempoMinimoListo) {
+      terminarSplash()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sesionLista, tiempoMinimoListo])
 
   async function irALogin() {
     if (userId) {
@@ -128,7 +145,7 @@ function App() {
 
   return (
     <div className="mx-auto min-h-screen w-full max-w-md bg-background font-sans">
-      {pantalla === 'splash' && <Splash onFinish={terminarSplash} />}
+      {pantalla === 'splash' && <LoadingScreen />}
 
       {pantalla === 'login' && <Login onLogin={() => cargarBanco().then(() => setPantalla('home'))} />}
 

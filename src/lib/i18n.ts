@@ -11,6 +11,7 @@ export interface Diccionario {
     bienvenidoOscuro: string
     bienvenidoClaro: string
     cancelar: string
+    cargando: string
   }
   login: {
     tituloLogin: string
@@ -135,6 +136,7 @@ export const es: Diccionario = {
     bienvenidoOscuro: 'Bienvenido al lado oscuro',
     bienvenidoClaro: 'Bienvenido a la luz',
     cancelar: 'Cancelar',
+    cargando: 'Cargando...',
   },
   login: {
     tituloLogin: 'Bienvenido de nuevo',
@@ -266,6 +268,7 @@ export const en: Diccionario = {
     bienvenidoOscuro: 'Welcome to the dark side',
     bienvenidoClaro: 'Welcome to the light',
     cancelar: 'Cancel',
+    cargando: 'Loading...',
   },
   login: {
     tituloLogin: 'Welcome back',

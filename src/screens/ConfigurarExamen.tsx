@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
+import { Spinner } from '@/components/Spinner'
 import { ArrowLeft, Play, BookMarked, Hash, Timer, TimerOff, CalendarDays } from 'lucide-react'
 import { getAnios, getCapitulos, getPreguntas } from '@/lib/data'
 import { getConfigExamenRemota, guardarConfigExamenRemota } from '@/lib/configExamen'
@@ -30,9 +31,11 @@ export function ConfigurarExamen({
   const [anio, setAnio] = useState<number | 'todos'>('todos')
   const [conTiempo, setConTiempo] = useState(false)
   const [duracion, setDuracion] = useState(cursoMeta.duracionOficialMinutos)
+  const [cargandoConfig, setCargandoConfig] = useState(true)
 
   useEffect(() => {
     let cancelado = false
+    setCargandoConfig(true)
     getConfigExamenRemota(userId, cursoId, cursoMeta.cantidadOficial, cursoMeta.duracionOficialMinutos).then((guardada) => {
       if (cancelado) return
       setCantidad(guardada.cantidad)
@@ -40,6 +43,7 @@ export function ConfigurarExamen({
       setAnio(cursoMeta.tieneConvocatorias ? guardada.anio : 'todos')
       setConTiempo(guardada.conTiempo)
       setDuracion(guardada.duracion)
+      setCargandoConfig(false)
     })
     return () => {
       cancelado = true
@@ -66,6 +70,7 @@ export function ConfigurarExamen({
           <ArrowLeft className="h-4 w-4" />
         </button>
         <h1 className="text-lg font-extrabold text-foreground">{t.configurar.titulo}</h1>
+        {cargandoConfig && <Spinner className="h-4 w-4 text-muted-foreground" />}
       </div>
 
       <div className="mt-6 space-y-3">

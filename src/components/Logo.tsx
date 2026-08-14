@@ -14,7 +14,7 @@ export function LogoMark({ className }: { className?: string }) {
 export function LogoLockup({ className, dark = false, tagline }: { className?: string; dark?: boolean; tagline?: string }) {
   return (
     <div className={cn('flex items-center gap-2.5', className)}>
-      <LogoMark className="h-9 w-9 shrink-0" />
+      <LogoMark className="h-10 w-auto shrink-0" />
       <div className="leading-tight">
         <p className={cn('text-[15px] font-extrabold tracking-tight', dark ? 'text-white' : 'text-primary')}>
           ExamPrep
