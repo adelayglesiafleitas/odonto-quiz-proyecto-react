@@ -14,6 +14,8 @@ import { Examen, type RespuestaUsuario } from '@/screens/Examen'
 import { Resultados } from '@/screens/Resultados'
 import { Estudio } from '@/screens/Estudio'
 import { Ayuda } from '@/screens/Ayuda'
+import { Academia } from '@/screens/Academia'
+import { Configuracion } from '@/screens/Configuracion'
 
 interface SesionExamen {
   preguntas: Pregunta[]
@@ -120,10 +122,6 @@ function App() {
     setPantalla('examen')
   }
 
-  function iniciarSimulacroRapido(tiempoLimiteMinutos: number | null, anio: number | 'todos') {
-    iniciarExamen(CURSO.cantidadOficial, 'todos', tiempoLimiteMinutos, anio)
-  }
-
   function finalizarExamen(respuestas: RespuestaUsuario, tiempoUsadoSeg: number, agotoTiempo: boolean) {
     setResultado({ respuestas, tiempoUsadoSeg, agotoTiempo })
     setPantalla('resultados')
@@ -156,7 +154,6 @@ function App() {
           cursoId={CURSO_ID}
           cursoMeta={CURSO}
           onNavigate={setPantalla}
-          onIniciarSimulacro={iniciarSimulacroRapido}
           onLogout={irALogin}
         />
       )}
@@ -208,7 +205,13 @@ function App() {
       {pantalla === 'estudio' && <Estudio onBack={() => setPantalla('home')} />}
 
       {pantalla === 'ayuda' && (
-        <Ayuda umbralAprobado={CURSO.porcentajeAprobado} onBack={() => setPantalla('home')} />
+        <Ayuda umbralAprobado={CURSO.porcentajeAprobado} onNavigate={setPantalla} />
+      )}
+
+      {pantalla === 'academia' && autenticado && <Academia onNavigate={setPantalla} />}
+
+      {pantalla === 'config' && autenticado && (
+        <Configuracion nickname={nickname} onNavigate={setPantalla} onLogout={irALogin} />
       )}
     </div>
   )

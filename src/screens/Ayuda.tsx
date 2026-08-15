@@ -1,8 +1,17 @@
-import { ArrowLeft, ClipboardList, Target, BookOpenCheck, SlidersHorizontal, ShieldCheck, ExternalLink } from 'lucide-react'
+import { ClipboardList, Target, BookOpenCheck, SlidersHorizontal, ShieldCheck, ExternalLink } from 'lucide-react'
 import { useAppSettings } from '@/context/AppSettings'
 import { SettingsToggle } from '@/components/SettingsToggle'
+import { LogoMark } from '@/components/Logo'
+import { BottomNav } from '@/components/BottomNav'
+import type { Pantalla } from '@/types'
 
-export function Ayuda({ umbralAprobado, onBack }: { umbralAprobado: number; onBack: () => void }) {
+export function Ayuda({
+  umbralAprobado,
+  onNavigate,
+}: {
+  umbralAprobado: number
+  onNavigate: (p: Pantalla) => void
+}) {
   const { t } = useAppSettings()
   const formatoOficial = t.ayuda.formatoOficial
 
@@ -15,18 +24,15 @@ export function Ayuda({ umbralAprobado, onBack }: { umbralAprobado: number; onBa
   ]
 
   return (
-    <div className="app-shell bg-background px-6 pb-10 pt-6">
+    <div className="app-shell bg-background px-6 pb-28 pt-6">
       <div className="flex items-center justify-between gap-3">
-        <div className="flex items-center gap-3">
-          <button onClick={onBack} className="flex h-9 w-9 items-center justify-center rounded-full bg-secondary text-foreground">
-            <ArrowLeft className="h-4 w-4" />
-          </button>
-          <h1 className="text-lg font-extrabold text-foreground">{t.ayuda.titulo}</h1>
-        </div>
+        <LogoMark className="h-8 w-auto" />
         <SettingsToggle />
       </div>
 
-      <div className="mt-6 space-y-3">
+      <h1 className="mt-6 text-lg font-extrabold text-foreground">{t.ayuda.titulo}</h1>
+
+      <div className="mt-4 space-y-3">
         {items.map((item) => {
           const Icon = item.icon
           return (
@@ -58,6 +64,8 @@ export function Ayuda({ umbralAprobado, onBack }: { umbralAprobado: number; onBa
       <div className="card-elevated mt-4 rounded-2xl bg-secondary p-4">
         <p className="text-xs leading-relaxed text-muted-foreground">{t.ayuda.footer}</p>
       </div>
+
+      <BottomNav activo="ayuda" onNavigate={onNavigate} />
     </div>
   )
 }

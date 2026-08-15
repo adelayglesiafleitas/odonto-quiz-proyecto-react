@@ -62,6 +62,7 @@ export interface Diccionario {
     modalSubtitulo: (cantidad: number) => string
     modalAnio: string
     comenzarSimulacro: string
+    fraseEtiqueta: string
   }
   configurar: {
     titulo: string
@@ -122,6 +123,24 @@ export interface Diccionario {
     estudioTexto: string
     formatoOficial: { titulo: string; texto: string; enlace?: { texto: string; url: string } }
     footer: string
+  }
+  nav: {
+    home: string
+    academia: string
+    ayuda: string
+    config: string
+    simulacro: string
+  }
+  academia: {
+    titulo: string
+    bienvenidaTitulo: string
+    bienvenidaTexto: string
+    proximamente: string
+  }
+  config: {
+    titulo: string
+    cuenta: string
+    preferencias: string
   }
 }
 
@@ -188,6 +207,7 @@ export const es: Diccionario = {
     modalSubtitulo: (cantidad) => `Elige convocatoria y cómo quieres hacer tu simulacro de ${cantidad} preguntas`,
     modalAnio: 'Convocatoria',
     comenzarSimulacro: 'Comenzar simulacro',
+    fraseEtiqueta: 'Frase del día',
   },
   configurar: {
     titulo: 'Configurar examen',
@@ -255,6 +275,24 @@ export const es: Diccionario = {
     footer:
       'Tu cuenta y tu historial de puntuaciones se guardan de forma segura en tu perfil, así que los tienes disponibles en cualquier dispositivo en el que inicies sesión. Tus preferencias de tema e idioma se guardan solo en este navegador.',
   },
+  nav: {
+    home: 'Home',
+    academia: 'Academia',
+    ayuda: 'Ayuda',
+    config: 'Config',
+    simulacro: 'Simulacro',
+  },
+  academia: {
+    titulo: 'Academia',
+    bienvenidaTitulo: 'Bienvenido a la Academia',
+    bienvenidaTexto: 'Este va a ser tu espacio para aprender: acá vas a encontrar clases y contenido de estudio más adelante. Por ahora, practica con el modo estudio.',
+    proximamente: 'Contenido próximamente',
+  },
+  config: {
+    titulo: 'Configuración',
+    cuenta: 'Tu cuenta',
+    preferencias: 'Preferencias',
+  },
 }
 
 export const en: Diccionario = {
@@ -320,6 +358,7 @@ export const en: Diccionario = {
     modalSubtitulo: (cantidad) => `Choose the exam year and how you want to take your ${cantidad}-question mock exam`,
     modalAnio: 'Exam year',
     comenzarSimulacro: 'Start mock exam',
+    fraseEtiqueta: 'Quote of the day',
   },
   configurar: {
     titulo: 'Configure exam',
@@ -386,6 +425,24 @@ export const en: Diccionario = {
     },
     footer:
       "Your account and score history are saved securely in your profile, so they're available on any device you sign in from. Your theme and language preferences are saved only in this browser.",
+  },
+  nav: {
+    home: 'Home',
+    academia: 'Academy',
+    ayuda: 'Help',
+    config: 'Settings',
+    simulacro: 'Mock exam',
+  },
+  academia: {
+    titulo: 'Academy',
+    bienvenidaTitulo: 'Welcome to the Academy',
+    bienvenidaTexto: "This is going to be your space to learn: you'll find classes and study content here soon. For now, practice with study mode.",
+    proximamente: 'Content coming soon',
+  },
+  config: {
+    titulo: 'Settings',
+    cuenta: 'Your account',
+    preferencias: 'Preferences',
   },
 }
 

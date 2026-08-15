@@ -37,3 +37,5 @@ export type Pantalla =
   | 'resultados'
   | 'estudio'
   | 'ayuda'
+  | 'academia'
+  | 'config'

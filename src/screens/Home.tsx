@@ -2,27 +2,13 @@ import { useEffect, useState } from 'react'
 import { LogoMark } from '@/components/Logo'
 import { Spinner } from '@/components/Spinner'
 import { SettingsToggle } from '@/components/SettingsToggle'
+import { BottomNav } from '@/components/BottomNav'
 import { useAppSettings } from '@/context/AppSettings'
-import { getAnios } from '@/lib/data'
 import { getHistorialRemoto, calcularPromedio } from '@/lib/historial'
+import { getFrases, indiceFraseAleatoria } from '@/lib/frases'
 import type { CursoMeta } from '@/lib/cursos'
-import { Button } from '@/components/ui/button'
-import {
-  ClipboardList,
-  HelpCircle,
-  ChevronRight,
-  LogOut,
-  Trophy,
-  TrendingUp,
-  Timer,
-  TimerOff,
-  Play,
-  CalendarDays,
-  BookOpen,
-} from 'lucide-react'
+import { LogOut, Trophy, TrendingUp, Quote } from 'lucide-react'
 import type { Pantalla } from '@/types'
-
-const DURACIONES = [15, 30, 40, 45, 60, 90]
 
 export function Home({
   userId,
@@ -30,7 +16,6 @@ export function Home({
   cursoId,
   cursoMeta,
   onNavigate,
-  onIniciarSimulacro,
   onLogout,
 }: {
   userId: string
@@ -38,15 +23,15 @@ export function Home({
   cursoId: string
   cursoMeta: CursoMeta
   onNavigate: (p: Pantalla) => void
-  onIniciarSimulacro: (tiempoLimiteMinutos: number | null, anio: number | 'todos') => void
   onLogout: () => void
 }) {
-  const { t } = useAppSettings()
+  const { t, idioma } = useAppSettings()
   const [mejor, setMejor] = useState(0)
   const [promedio, setPromedio] = useState(0)
   const [intentos, setIntentos] = useState(0)
   const [cargandoStats, setCargandoStats] = useState(true)
-  const anios = getAnios()
+  const [indiceFrase] = useState(() => indiceFraseAleatoria(getFrases(idioma).length))
+  const frase = getFrases(idioma)[indiceFrase]
 
   useEffect(() => {
     let cancelado = false
@@ -64,55 +49,8 @@ export function Home({
   }, [userId, cursoId])
   const nombreMostrado = nickname && nickname.trim().length > 0 ? nickname : t.home.estudiante
 
-  const [mostrarModal, setMostrarModal] = useState(false)
-  const [conTiempo, setConTiempo] = useState(false)
-  const [duracion, setDuracion] = useState(cursoMeta.duracionOficialMinutos)
-  const [anio, setAnio] = useState<number | 'todos'>('todos')
-
-  const opciones: {
-    id: Pantalla | 'simulacro'
-    titulo: string
-    descripcion: string
-    icon: typeof ClipboardList
-    tono: 'accent' | 'primary' | 'success' | 'muted'
-  }[] = [
-    {
-      id: 'simulacro',
-      titulo: t.home.simulacroTitulo,
-      descripcion: t.home.simulacroDesc(cursoMeta.cantidadOficial, cursoMeta.porcentajeAprobado),
-      icon: ClipboardList,
-      tono: 'accent',
-    },
-    {
-      id: 'estudio',
-      titulo: t.home.estudioTitulo,
-      descripcion: t.home.estudioDesc,
-      icon: BookOpen,
-      tono: 'primary',
-    },
-    {
-      id: 'ayuda',
-      titulo: t.home.ayudaTitulo,
-      descripcion: t.home.ayudaDesc,
-      icon: HelpCircle,
-      tono: 'muted',
-    },
-  ]
-
-  const tonos: Record<string, string> = {
-    accent: 'bg-accent/12 text-accent',
-    primary: 'bg-primary/10 text-primary',
-    success: 'bg-success/12 text-success',
-    muted: 'bg-muted text-muted-foreground',
-  }
-
-  function confirmarSimulacro() {
-    setMostrarModal(false)
-    onIniciarSimulacro(conTiempo ? duracion : null, cursoMeta.tieneConvocatorias ? anio : 'todos')
-  }
-
   return (
-    <div className="app-shell bg-background pb-10">
+    <div className="app-shell bg-background pb-28">
       <div className="brand-gradient rounded-b-[32px] px-6 pb-8 pt-6 text-white">
         <div className="flex items-center justify-between">
           <LogoMark className="h-10 w-auto" />
@@ -160,121 +98,18 @@ export function Home({
         </div>
       </div>
 
-      <div className="mt-6 space-y-3 px-6">
-        <p className="px-1 text-xs font-bold uppercase tracking-wide text-muted-foreground">{t.home.empezar}</p>
-        {opciones.map((op, idx) => {
-          const Icon = op.icon
-          return (
-            <button
-              key={op.titulo}
-              onClick={() => (op.id === 'simulacro' ? setMostrarModal(true) : onNavigate(op.id as Pantalla))}
-              className="card-elevated flex w-full items-center gap-4 rounded-2xl bg-card p-4 text-left transition active:scale-[0.98]"
-              style={{ animationDelay: `${idx * 0.05}s` }}
-            >
-              <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl ${tonos[op.tono]}`}>
-                <Icon className="h-5 w-5" />
-              </span>
-              <span className="min-w-0 flex-1">
-                <p className="text-[15px] font-bold text-foreground">{op.titulo}</p>
-                <p className="mt-0.5 truncate text-xs text-muted-foreground">{op.descripcion}</p>
-              </span>
-              <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
-            </button>
-          )
-        })}
+      <div className="mt-6 px-6">
+        <div className="card-elevated rounded-2xl bg-card p-4">
+          <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide text-accent">
+            <Quote className="h-3.5 w-3.5" />
+            {t.home.fraseEtiqueta}
+          </div>
+          <p className="mt-2.5 text-[15px] font-semibold leading-relaxed text-foreground">&ldquo;{frase.texto}&rdquo;</p>
+          {frase.autor && <p className="mt-2.5 text-xs font-medium text-muted-foreground">— {frase.autor}</p>}
+        </div>
       </div>
 
-      {mostrarModal && (
-        <div className="safe-bottom fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-4 sm:items-center">
-          <div className="card-elevated w-full max-w-sm rounded-3xl bg-card p-6">
-            <h3 className="text-base font-bold text-foreground">{t.home.modalTitulo}</h3>
-            <p className="mt-1.5 text-sm text-muted-foreground">{t.home.modalSubtitulo(cursoMeta.cantidadOficial)}</p>
-
-            {cursoMeta.tieneConvocatorias && (
-              <div className="mt-4 space-y-2">
-                <p className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground">
-                  <CalendarDays className="h-3.5 w-3.5" />
-                  {t.home.modalAnio}
-                </p>
-                <button
-                  onClick={() => setAnio('todos')}
-                  className={`card-elevated w-full rounded-xl px-3 py-2.5 text-center text-xs font-bold leading-tight transition ${
-                    anio === 'todos' ? 'bg-primary text-primary-foreground' : 'bg-secondary text-foreground'
-                  }`}
-                >
-                  {t.configurar.todosAnios}
-                </button>
-                <div className="grid grid-cols-4 gap-2">
-                  {anios.map((a) => (
-                    <button
-                      key={a}
-                      onClick={() => setAnio(a)}
-                      className={`card-elevated rounded-xl px-1 py-2.5 text-center text-xs font-bold leading-tight transition ${
-                        anio === a ? 'bg-primary text-primary-foreground' : 'bg-secondary text-foreground'
-                      }`}
-                    >
-                      {a}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            <div className="mt-5 grid grid-cols-2 gap-2.5">
-              <button
-                onClick={() => setConTiempo(false)}
-                className={`card-elevated flex items-center justify-center gap-2 rounded-2xl py-3.5 text-sm font-bold transition ${
-                  !conTiempo ? 'bg-primary text-primary-foreground' : 'bg-secondary text-foreground'
-                }`}
-              >
-                <TimerOff className="h-4 w-4" />
-                {t.configurar.sinTiempo}
-              </button>
-              <button
-                onClick={() => setConTiempo(true)}
-                className={`card-elevated flex items-center justify-center gap-2 rounded-2xl py-3.5 text-sm font-bold transition ${
-                  conTiempo ? 'bg-primary text-primary-foreground' : 'bg-secondary text-foreground'
-                }`}
-              >
-                <Timer className="h-4 w-4" />
-                {t.configurar.conTiempo}
-              </button>
-            </div>
-
-            {conTiempo && (
-              <div className="animate-float-up mt-3 space-y-2">
-                <p className="text-xs font-semibold text-muted-foreground">{t.configurar.duracion}</p>
-                <div className="grid grid-cols-3 gap-2">
-                  {DURACIONES.map((d) => (
-                    <button
-                      key={d}
-                      onClick={() => setDuracion(d)}
-                      className={`card-elevated rounded-xl py-2.5 text-center text-xs font-bold transition ${
-                        duracion === d ? 'accent-gradient text-white' : 'bg-secondary text-foreground'
-                      }`}
-                    >
-                      {d}m{d === cursoMeta.duracionOficialMinutos ? ` (${t.configurar.duracionOficial})` : ''}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            <div className="mt-6 flex gap-3">
-              <Button variant="outline" className="h-11 flex-1 rounded-xl" onClick={() => setMostrarModal(false)}>
-                {t.comun.cancelar}
-              </Button>
-              <Button
-                className="h-11 flex-1 rounded-xl bg-primary font-bold hover:bg-primary/90"
-                onClick={confirmarSimulacro}
-              >
-                <Play className="mr-1.5 h-4 w-4" />
-                {t.home.comenzarSimulacro}
-              </Button>
-            </div>
-          </div>
-        </div>
-      )}
+      <BottomNav activo="home" onNavigate={onNavigate} />
     </div>
   )
 }
