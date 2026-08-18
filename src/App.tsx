@@ -1,22 +1,32 @@
-import { useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect, useState, type ReactNode } from 'react'
+import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom'
 import type { Session } from '@supabase/supabase-js'
 import type { Pantalla, Pregunta } from '@/types'
 import { cargarBanco, seleccionarPreguntas } from '@/lib/data'
 import { CURSO, CURSO_ID } from '@/lib/cursos'
 import { supabase } from '@/lib/supabase'
 import { verificarDispositivo, cerrarSesionOtrosDispositivos, liberarDispositivoActual } from '@/lib/dispositivos'
+import { RUTA } from '@/lib/rutas'
 import { LoadingScreen } from '@/components/LoadingScreen'
 import { DispositivoBloqueado } from '@/screens/DispositivoBloqueado'
 import { Login } from '@/screens/Login'
-import { Home } from '@/screens/Home'
-import { ElegirAsignatura } from '@/screens/ElegirAsignatura'
-import { ConfigurarExamen } from '@/screens/ConfigurarExamen'
-import { Examen, type RespuestaUsuario } from '@/screens/Examen'
-import { Resultados } from '@/screens/Resultados'
-import { Estudio } from '@/screens/Estudio'
-import { Ayuda } from '@/screens/Ayuda'
-import { Academia } from '@/screens/Academia'
-import { Configuracion } from '@/screens/Configuracion'
+import type { RespuestaUsuario } from '@/screens/Examen'
+
+// Cada pantalla se carga como su propio chunk: antes todo (Home, Academia,
+// Configuración, Ayuda, el examen, etc.) vivía en un único bundle de ~512 KB
+// que se descargaba entero apenas se abría la app, sin importar a qué
+// pantalla fuera el usuario. Con import() dinámico, quien solo entra a
+// hacer login no descarga el código de Academia ni de Configurar examen
+// hasta que realmente navega ahí.
+const Home = lazy(() => import('@/screens/Home').then((m) => ({ default: m.Home })))
+const ElegirAsignatura = lazy(() => import('@/screens/ElegirAsignatura').then((m) => ({ default: m.ElegirAsignatura })))
+const ConfigurarExamen = lazy(() => import('@/screens/ConfigurarExamen').then((m) => ({ default: m.ConfigurarExamen })))
+const Examen = lazy(() => import('@/screens/Examen').then((m) => ({ default: m.Examen })))
+const Resultados = lazy(() => import('@/screens/Resultados').then((m) => ({ default: m.Resultados })))
+const Estudio = lazy(() => import('@/screens/Estudio').then((m) => ({ default: m.Estudio })))
+const Ayuda = lazy(() => import('@/screens/Ayuda').then((m) => ({ default: m.Ayuda })))
+const Academia = lazy(() => import('@/screens/Academia').then((m) => ({ default: m.Academia })))
+const Configuracion = lazy(() => import('@/screens/Configuracion').then((m) => ({ default: m.Configuracion })))
 
 interface SesionExamen {
   preguntas: Pregunta[]
@@ -35,8 +45,29 @@ interface ResultadoExamen {
   agotoTiempo: boolean
 }
 
+// Envuelve las rutas que requieren sesión iniciada. Espera a que la sesión
+// termine de resolverse antes de decidir nada: si redirigiera a /login
+// apenas se monta (cuando "autenticado" todavía es false por defecto,
+// mientras Supabase resuelve en segundo plano), alguien con la sesión
+// guardada que entra directo a una URL como /home vería un rebote falso a
+// login antes de terminar de cargar.
+function Protegida({
+  sesionLista,
+  autenticado,
+  children,
+}: {
+  sesionLista: boolean
+  autenticado: boolean
+  children: ReactNode
+}) {
+  if (!sesionLista) return <LoadingScreen />
+  if (!autenticado) return <Navigate to={RUTA.login} replace />
+  return <>{children}</>
+}
+
 function App() {
-  const [pantalla, setPantalla] = useState<Pantalla>('splash')
+  const navigate = useNavigate()
+  const location = useLocation()
   const [session, setSession] = useState<Session | null>(null)
   const [sesionLista, setSesionLista] = useState(false)
   const [tiempoMinimoListo, setTiempoMinimoListo] = useState(false)
@@ -95,20 +126,21 @@ function App() {
     }
   }, [userId])
 
-  function terminarSplash() {
-    if (sesionLista && autenticado) {
-      cargarBanco().then(() => setPantalla('home'))
-    } else {
-      setPantalla('login')
-    }
-  }
-
+  // Splash ('/'): solo decide algo mientras seguimos ahí, para no interferir
+  // si el usuario ya está navegando por el resto de la app.
   useEffect(() => {
-    if (pantalla === 'splash' && sesionLista && tiempoMinimoListo) {
-      terminarSplash()
+    if (location.pathname !== RUTA.splash || !sesionLista || !tiempoMinimoListo) return
+    if (autenticado) {
+      cargarBanco().then(() => navigate(RUTA.home, { replace: true }))
+    } else {
+      navigate(RUTA.login, { replace: true })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sesionLista, tiempoMinimoListo])
+  }, [location.pathname, sesionLista, tiempoMinimoListo, autenticado])
+
+  function irA(p: Pantalla) {
+    navigate(RUTA[p])
+  }
 
   async function irALogin() {
     if (userId) {
@@ -116,7 +148,7 @@ function App() {
     }
     await supabase.auth.signOut()
     setVerifDispositivo('pendiente')
-    setPantalla('login')
+    navigate(RUTA.login, { replace: true })
   }
 
   async function continuarEnEsteDispositivo() {
@@ -127,17 +159,19 @@ function App() {
 
   function iniciarExamen(cantidad: number, capitulo: string, tiempoLimiteMinutos: number | null, anio: number | 'todos') {
     setSesionExamen({ preguntas: seleccionarPreguntas(cantidad, capitulo, anio), capitulo, anio, tiempoLimiteMinutos })
-    setPantalla('examen')
+    navigate(RUTA.examen)
   }
 
   function finalizarExamen(respuestas: RespuestaUsuario, tiempoUsadoSeg: number, agotoTiempo: boolean) {
     setResultado({ respuestas, tiempoUsadoSeg, agotoTiempo })
-    setPantalla('resultados')
+    // replace: un examen ya entregado no debería poder "reabrirse" con el
+    // botón atrás del navegador.
+    navigate(RUTA.resultados, { replace: true })
   }
 
   function repasarFallos(preguntas: Pregunta[]) {
     setSesionExamen({ preguntas, capitulo: 'todos', anio: 'todos', tiempoLimiteMinutos: null, esRepaso: true })
-    setPantalla('examen')
+    navigate(RUTA.examen)
   }
 
   if (userId && verifDispositivo === 'bloqueado') {
@@ -156,94 +190,158 @@ function App() {
 
   return (
     <div className="mx-auto min-h-screen w-full max-w-md bg-background font-sans">
-      {pantalla === 'splash' && <LoadingScreen />}
+      <Suspense fallback={<LoadingScreen />}>
+        <Routes>
+          <Route path={RUTA.splash} element={<LoadingScreen />} />
 
-      {pantalla === 'login' && <Login onLogin={() => cargarBanco().then(() => setPantalla('home'))} />}
-
-      {pantalla === 'home' && autenticado && userId && (
-        <Home
-          userId={userId}
-          nickname={nickname}
-          cursoId={CURSO_ID}
-          cursoMeta={CURSO}
-          onNavigate={setPantalla}
-          onLogout={irALogin}
-        />
-      )}
-
-      {pantalla === 'asignaturas' && autenticado && (
-        <ElegirAsignatura
-          onSeleccionar={(id) => {
-            setAsignaturaId(id)
-            setPantalla('configurar')
-          }}
-          onNavigate={setPantalla}
-        />
-      )}
-
-      {pantalla === 'configurar' && userId && (
-        <ConfigurarExamen
-          userId={userId}
-          cursoId={CURSO_ID}
-          cursoMeta={CURSO}
-          onBack={() => setPantalla('asignaturas')}
-          onNavigate={setPantalla}
-          onIniciar={iniciarExamen}
-        />
-      )}
-
-      {pantalla === 'examen' && sesionExamen && (
-        <Examen
-          preguntas={sesionExamen.preguntas}
-          tiempoLimiteMinutos={sesionExamen.tiempoLimiteMinutos}
-          onCancelar={() => setPantalla('home')}
-          onFinalizar={finalizarExamen}
-        />
-      )}
-
-      {pantalla === 'resultados' && userId && sesionExamen && (
-        <Resultados
-          userId={userId}
-          cursoId={CURSO_ID}
-          preguntas={sesionExamen.preguntas}
-          respuestas={resultado.respuestas}
-          capitulo={sesionExamen.capitulo}
-          anio={sesionExamen.anio}
-          umbralAprobado={CURSO.porcentajeAprobado}
-          mostrarConvocatoria={CURSO.tieneConvocatorias}
-          tiempoLimiteMinutos={sesionExamen.tiempoLimiteMinutos}
-          tiempoUsadoSeg={resultado.tiempoUsadoSeg}
-          agotoTiempo={resultado.agotoTiempo}
-          esRepaso={sesionExamen.esRepaso ?? false}
-          onNavigate={setPantalla}
-          onRepasarFallos={repasarFallos}
-          onRepetir={() => {
-            if (sesionExamen.esRepaso) {
-              repasarFallos(sesionExamen.preguntas)
-            } else {
-              iniciarExamen(
-                sesionExamen.preguntas.length,
-                sesionExamen.capitulo,
-                sesionExamen.tiempoLimiteMinutos,
-                sesionExamen.anio,
+          <Route
+            path={RUTA.login}
+            element={
+              !sesionLista ? (
+                <LoadingScreen />
+              ) : autenticado ? (
+                <Navigate to={RUTA.home} replace />
+              ) : (
+                <Login onLogin={() => cargarBanco().then(() => navigate(RUTA.home, { replace: true }))} />
               )
             }
-          }}
-          onInicio={() => setPantalla('home')}
-        />
-      )}
+          />
 
-      {pantalla === 'estudio' && <Estudio onBack={() => setPantalla('home')} />}
+          <Route
+            path={RUTA.home}
+            element={
+              <Protegida sesionLista={sesionLista} autenticado={autenticado}>
+                {userId && (
+                  <Home
+                    userId={userId}
+                    nickname={nickname}
+                    cursoId={CURSO_ID}
+                    cursoMeta={CURSO}
+                    onNavigate={irA}
+                    onLogout={irALogin}
+                  />
+                )}
+              </Protegida>
+            }
+          />
 
-      {pantalla === 'ayuda' && (
-        <Ayuda umbralAprobado={CURSO.porcentajeAprobado} onNavigate={setPantalla} />
-      )}
+          <Route
+            path={RUTA.asignaturas}
+            element={
+              <Protegida sesionLista={sesionLista} autenticado={autenticado}>
+                <ElegirAsignatura
+                  onSeleccionar={(id) => {
+                    setAsignaturaId(id)
+                    navigate(RUTA.configurar)
+                  }}
+                  onNavigate={irA}
+                />
+              </Protegida>
+            }
+          />
 
-      {pantalla === 'academia' && autenticado && <Academia onNavigate={setPantalla} />}
+          <Route
+            path={RUTA.configurar}
+            element={
+              <Protegida sesionLista={sesionLista} autenticado={autenticado}>
+                {userId && (
+                  <ConfigurarExamen
+                    userId={userId}
+                    cursoId={CURSO_ID}
+                    cursoMeta={CURSO}
+                    onBack={() => navigate(RUTA.asignaturas)}
+                    onNavigate={irA}
+                    onIniciar={iniciarExamen}
+                  />
+                )}
+              </Protegida>
+            }
+          />
 
-      {pantalla === 'config' && autenticado && (
-        <Configuracion nickname={nickname} onNavigate={setPantalla} onLogout={irALogin} />
-      )}
+          <Route
+            path={RUTA.examen}
+            element={
+              <Protegida sesionLista={sesionLista} autenticado={autenticado}>
+                {sesionExamen ? (
+                  <Examen
+                    preguntas={sesionExamen.preguntas}
+                    tiempoLimiteMinutos={sesionExamen.tiempoLimiteMinutos}
+                    onCancelar={() => navigate(RUTA.home)}
+                    onFinalizar={finalizarExamen}
+                  />
+                ) : (
+                  <Navigate to={RUTA.home} replace />
+                )}
+              </Protegida>
+            }
+          />
+
+          <Route
+            path={RUTA.resultados}
+            element={
+              <Protegida sesionLista={sesionLista} autenticado={autenticado}>
+                {userId && sesionExamen ? (
+                  <Resultados
+                    userId={userId}
+                    cursoId={CURSO_ID}
+                    preguntas={sesionExamen.preguntas}
+                    respuestas={resultado.respuestas}
+                    capitulo={sesionExamen.capitulo}
+                    anio={sesionExamen.anio}
+                    umbralAprobado={CURSO.porcentajeAprobado}
+                    mostrarConvocatoria={CURSO.tieneConvocatorias}
+                    tiempoLimiteMinutos={sesionExamen.tiempoLimiteMinutos}
+                    tiempoUsadoSeg={resultado.tiempoUsadoSeg}
+                    agotoTiempo={resultado.agotoTiempo}
+                    esRepaso={sesionExamen.esRepaso ?? false}
+                    onNavigate={irA}
+                    onRepasarFallos={repasarFallos}
+                    onRepetir={() => {
+                      if (sesionExamen.esRepaso) {
+                        repasarFallos(sesionExamen.preguntas)
+                      } else {
+                        iniciarExamen(
+                          sesionExamen.preguntas.length,
+                          sesionExamen.capitulo,
+                          sesionExamen.tiempoLimiteMinutos,
+                          sesionExamen.anio,
+                        )
+                      }
+                    }}
+                    onInicio={() => navigate(RUTA.home)}
+                  />
+                ) : (
+                  <Navigate to={RUTA.home} replace />
+                )}
+              </Protegida>
+            }
+          />
+
+          <Route path={RUTA.estudio} element={<Estudio onBack={() => navigate(RUTA.home)} />} />
+
+          <Route path={RUTA.ayuda} element={<Ayuda umbralAprobado={CURSO.porcentajeAprobado} onNavigate={irA} />} />
+
+          <Route
+            path={RUTA.academia}
+            element={
+              <Protegida sesionLista={sesionLista} autenticado={autenticado}>
+                <Academia onNavigate={irA} />
+              </Protegida>
+            }
+          />
+
+          <Route
+            path={RUTA.config}
+            element={
+              <Protegida sesionLista={sesionLista} autenticado={autenticado}>
+                <Configuracion nickname={nickname} onNavigate={irA} onLogout={irALogin} />
+              </Protegida>
+            }
+          />
+
+          <Route path="*" element={<Navigate to={RUTA.splash} replace />} />
+        </Routes>
+      </Suspense>
     </div>
   )
 }

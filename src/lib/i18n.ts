@@ -118,10 +118,16 @@ export interface Diccionario {
   }
   ayuda: {
     titulo: string
+    navegacionTitulo: string
+    navegacionTexto: string
     simulacroTitulo: string
     simulacroTexto: string
     configurarTitulo: string
     configurarTexto: string
+    repasarFallosTitulo: string
+    repasarFallosTexto: string
+    rachaTitulo: string
+    rachaTexto: string
     puntuacionTitulo: string
     puntuacionTexto: (umbral: number) => string
     estudioTitulo: string
@@ -272,15 +278,23 @@ export const es: Diccionario = {
   },
   ayuda: {
     titulo: 'Ayuda',
+    navegacionTitulo: 'Cómo moverte por la app',
+    navegacionTexto:
+      'Abajo tenés 5 accesos siempre disponibles: Home (tu progreso y racha), Academia (modo estudio y contenido), el botón central de Simulacro (para rendir un examen), Ayuda y Configuración (tu cuenta y preferencias).',
     simulacroTitulo: 'Simulacro de examen',
-    simulacroTexto: 'Responde preguntas aleatorias tal como en el examen real. Puedes navegar entre preguntas antes de finalizar.',
+    simulacroTexto: 'Toca el botón central de Simulacro para elegir la asignatura y luego responder preguntas aleatorias tal como en el examen real. Puedes navegar entre preguntas antes de finalizar.',
     configurarTitulo: 'Configurar examen',
-    configurarTexto: 'Elige cuántas preguntas quieres, si tendrá límite de tiempo y si deseas practicar un capítulo específico o todos.',
+    configurarTexto: 'Después de elegir la asignatura, elige cuántas preguntas quieres, si tendrá límite de tiempo y si deseas practicar un capítulo específico o todos.',
+    repasarFallosTitulo: 'Repasa lo que fallaste',
+    repasarFallosTexto:
+      'Al terminar un simulacro, si fallaste alguna pregunta aparece un botón para armar al toque un mini-examen solo con esas preguntas. Es una herramienta de repaso: no cuenta como un intento nuevo, así que no cambia tu promedio ni tu racha.',
+    rachaTitulo: 'Racha de estudio',
+    rachaTexto: 'Cada día que completes al menos un simulacro suma un día a tu racha, visible en el inicio. Si pasa un día entero sin practicar, la racha vuelve a empezar desde cero.',
     puntuacionTitulo: 'Puntuación y aprobación',
     puntuacionTexto: (umbral) =>
       `Cada simulacro se califica sobre 100%. Necesitas ${umbral}% o más para aprobar. Tu historial se promedia automáticamente y se muestra en el inicio.`,
     estudioTitulo: 'Modo estudio',
-    estudioTexto: 'Repasa las preguntas sin presión: revela la respuesta correcta cuando quieras y avanza a tu ritmo por capítulo.',
+    estudioTexto: 'Dentro de Academia, repasa las preguntas sin presión: revela la respuesta correcta cuando quieras y avanza a tu ritmo por capítulo.',
     formatoOficial: {
       titulo: 'Cómo es la prueba oficial real',
       texto:
@@ -432,15 +446,23 @@ export const en: Diccionario = {
   },
   ayuda: {
     titulo: 'Help',
+    navegacionTitulo: 'Getting around the app',
+    navegacionTexto:
+      "There are 5 tabs always available at the bottom: Home (your progress and streak), Academy (study mode and content), the center Mock exam button (to take an exam), Help, and Settings (your account and preferences).",
     simulacroTitulo: 'Mock exam',
-    simulacroTexto: 'Answer random questions just like the real exam. You can navigate between questions before finishing.',
+    simulacroTexto: 'Tap the center Mock exam button to pick a subject, then answer random questions just like the real exam. You can navigate between questions before finishing.',
     configurarTitulo: 'Configure exam',
-    configurarTexto: 'Choose how many questions you want, whether it has a time limit, and whether to practice a specific chapter or all of them.',
+    configurarTexto: 'After picking the subject, choose how many questions you want, whether it has a time limit, and whether to practice a specific chapter or all of them.',
+    repasarFallosTitulo: 'Review what you missed',
+    repasarFallosTexto:
+      "After finishing a mock exam, if you missed any question a button appears to instantly build a mini-exam with just those questions. It's a review tool: it doesn't count as a new attempt, so it won't change your average or your streak.",
+    rachaTitulo: 'Study streak',
+    rachaTexto: "Every day you complete at least one mock exam adds a day to your streak, shown on the home screen. If a full day goes by without practicing, the streak resets to zero.",
     puntuacionTitulo: 'Scoring and passing',
     puntuacionTexto: (umbral) =>
       `Each mock exam is scored out of 100%. You need ${umbral}% or more to pass. Your history is averaged automatically and shown on the home screen.`,
     estudioTitulo: 'Study mode',
-    estudioTexto: 'Review questions with no pressure: reveal the correct answer whenever you want and move at your own pace by chapter.',
+    estudioTexto: "Inside Academy, review questions with no pressure: reveal the correct answer whenever you want and move at your own pace by chapter.",
     formatoOficial: {
       titulo: 'What the real official exam is like',
       texto:

@@ -1,4 +1,4 @@
-import { ClipboardList, Target, BookOpenCheck, SlidersHorizontal, ShieldCheck, ExternalLink } from 'lucide-react'
+import { ClipboardList, Target, BookOpenCheck, SlidersHorizontal, ShieldCheck, ExternalLink, Compass, Flame, Award } from 'lucide-react'
 import { useAppSettings } from '@/context/AppSettings'
 import { SettingsToggle } from '@/components/SettingsToggle'
 import { LogoMark } from '@/components/Logo'
@@ -16,10 +16,13 @@ export function Ayuda({
   const formatoOficial = t.ayuda.formatoOficial
 
   const items = [
+    { icon: Compass, titulo: t.ayuda.navegacionTitulo, texto: t.ayuda.navegacionTexto },
     { icon: ClipboardList, titulo: t.ayuda.simulacroTitulo, texto: t.ayuda.simulacroTexto },
     { icon: SlidersHorizontal, titulo: t.ayuda.configurarTitulo, texto: t.ayuda.configurarTexto },
-    { icon: Target, titulo: t.ayuda.puntuacionTitulo, texto: t.ayuda.puntuacionTexto(umbralAprobado) },
+    { icon: Target, titulo: t.ayuda.repasarFallosTitulo, texto: t.ayuda.repasarFallosTexto },
+    { icon: Flame, titulo: t.ayuda.rachaTitulo, texto: t.ayuda.rachaTexto },
     { icon: BookOpenCheck, titulo: t.ayuda.estudioTitulo, texto: t.ayuda.estudioTexto },
+    { icon: Award, titulo: t.ayuda.puntuacionTitulo, texto: t.ayuda.puntuacionTexto(umbralAprobado) },
     { icon: ShieldCheck, titulo: formatoOficial.titulo, texto: formatoOficial.texto },
   ]
 
