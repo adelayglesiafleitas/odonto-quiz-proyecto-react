@@ -63,9 +63,12 @@ export interface Diccionario {
     modalAnio: string
     comenzarSimulacro: string
     fraseEtiqueta: string
+    racha: (n: number) => string
   }
   configurar: {
     titulo: string
+    asignatura: string
+    masAsignaturas: string
     cantidadPreguntas: string
     conLimite: string
     sinTiempo: string
@@ -103,6 +106,8 @@ export interface Diccionario {
     inicio: string
     repetir: string
     convocatoria: (anio: number | 'todos') => string
+    repasarFallosTitulo: string
+    repasarFallosDesc: (n: number) => string
   }
   estudio: {
     titulo: string
@@ -141,6 +146,10 @@ export interface Diccionario {
     titulo: string
     cuenta: string
     preferencias: string
+  }
+  asignaturas: {
+    titulo: string
+    subtitulo: string
   }
 }
 
@@ -208,9 +217,12 @@ export const es: Diccionario = {
     modalAnio: 'Convocatoria',
     comenzarSimulacro: 'Comenzar simulacro',
     fraseEtiqueta: 'Frase del día',
+    racha: (n) => `${n} día${n === 1 ? '' : 's'} seguidos`,
   },
   configurar: {
     titulo: 'Configurar examen',
+    asignatura: 'Asignatura',
+    masAsignaturas: 'Más asignaturas próximamente',
     cantidadPreguntas: 'Cantidad de preguntas',
     conLimite: '¿Con límite de tiempo?',
     sinTiempo: 'Sin tiempo',
@@ -248,6 +260,8 @@ export const es: Diccionario = {
     inicio: 'Inicio',
     repetir: 'Repetir',
     convocatoria: (anio) => (anio === 'todos' ? 'Todas las convocatorias' : `Convocatoria ${anio}`),
+    repasarFallosTitulo: 'Repasar lo que fallé',
+    repasarFallosDesc: (n) => `${n} pregunta${n === 1 ? '' : 's'} para repasar`,
   },
   estudio: {
     titulo: 'Modo estudio',
@@ -292,6 +306,10 @@ export const es: Diccionario = {
     titulo: 'Configuración',
     cuenta: 'Tu cuenta',
     preferencias: 'Preferencias',
+  },
+  asignaturas: {
+    titulo: '¿Qué vas a examinar?',
+    subtitulo: 'Elige la asignatura para configurar tu simulacro.',
   },
 }
 
@@ -359,9 +377,12 @@ export const en: Diccionario = {
     modalAnio: 'Exam year',
     comenzarSimulacro: 'Start mock exam',
     fraseEtiqueta: 'Quote of the day',
+    racha: (n) => `${n}-day streak`,
   },
   configurar: {
     titulo: 'Configure exam',
+    asignatura: 'Subject',
+    masAsignaturas: 'More subjects coming soon',
     cantidadPreguntas: 'Number of questions',
     conLimite: 'Time limit?',
     sinTiempo: 'No time limit',
@@ -399,6 +420,8 @@ export const en: Diccionario = {
     inicio: 'Home',
     repetir: 'Retry',
     convocatoria: (anio) => (anio === 'todos' ? 'All years' : `${anio} exam year`),
+    repasarFallosTitulo: 'Review what I missed',
+    repasarFallosDesc: (n) => `${n} question${n === 1 ? '' : 's'} to review`,
   },
   estudio: {
     titulo: 'Study mode',
@@ -443,6 +466,10 @@ export const en: Diccionario = {
     titulo: 'Settings',
     cuenta: 'Your account',
     preferencias: 'Preferences',
+  },
+  asignaturas: {
+    titulo: 'What are you testing on?',
+    subtitulo: 'Choose a subject to set up your mock exam.',
   },
 }
 

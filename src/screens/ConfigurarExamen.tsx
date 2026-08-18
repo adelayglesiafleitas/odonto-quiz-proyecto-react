@@ -5,7 +5,9 @@ import { ArrowLeft, Play, BookMarked, Hash, Timer, TimerOff, CalendarDays } from
 import { getAnios, getCapitulos, getPreguntas } from '@/lib/data'
 import { getConfigExamenRemota, guardarConfigExamenRemota } from '@/lib/configExamen'
 import { useAppSettings } from '@/context/AppSettings'
+import { BottomNav } from '@/components/BottomNav'
 import type { CursoMeta } from '@/lib/cursos'
+import type { Pantalla } from '@/types'
 
 const DURACIONES = [15, 30, 40, 45, 60, 90]
 
@@ -14,12 +16,14 @@ export function ConfigurarExamen({
   cursoId,
   cursoMeta,
   onBack,
+  onNavigate,
   onIniciar,
 }: {
   userId: string
   cursoId: string
   cursoMeta: CursoMeta
   onBack: () => void
+  onNavigate: (p: Pantalla) => void
   onIniciar: (cantidad: number, capitulo: string, tiempoLimiteMinutos: number | null, anio: number | 'todos') => void
 }) {
   const { t } = useAppSettings()
@@ -61,7 +65,7 @@ export function ConfigurarExamen({
   }
 
   return (
-    <div className="app-shell bg-background px-6 pb-32 pt-6">
+    <div className="app-shell bg-background px-6 pb-56 pt-6">
       <div className="flex items-center gap-3">
         <button
           onClick={onBack}
@@ -208,17 +212,23 @@ export function ConfigurarExamen({
         </div>
       </div>
 
-      <div className="safe-bottom fixed inset-x-0 bottom-0 border-t border-border bg-background/95 p-4 backdrop-blur">
-        <Button
-          onClick={iniciar}
-          disabled={disponibles === 0}
-          className="h-12 w-full rounded-2xl bg-primary text-[15px] font-bold hover:bg-primary/90"
-        >
-          <Play className="mr-2 h-4 w-4" />
-          {t.configurar.comenzar} ({Math.min(cantidad, disponibles)} {t.configurar.preguntas}
-          {conTiempo ? ` · ${duracion} min` : ''})
-        </Button>
-      </div>
+      <BottomNav
+        activo="simulacro"
+        onNavigate={onNavigate}
+        accesorio={
+          <div className="border-t border-border bg-background/95 p-3 backdrop-blur">
+            <Button
+              onClick={iniciar}
+              disabled={disponibles === 0}
+              className="h-12 w-full rounded-2xl bg-primary text-[15px] font-bold hover:bg-primary/90"
+            >
+              <Play className="mr-2 h-4 w-4" />
+              {t.configurar.comenzar} ({Math.min(cantidad, disponibles)} {t.configurar.preguntas}
+              {conTiempo ? ` · ${duracion} min` : ''})
+            </Button>
+          </div>
+        }
+      />
     </div>
   )
 }

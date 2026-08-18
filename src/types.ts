@@ -32,6 +32,7 @@ export type Pantalla =
   | 'splash'
   | 'login'
   | 'home'
+  | 'asignaturas'
   | 'configurar'
   | 'examen'
   | 'resultados'

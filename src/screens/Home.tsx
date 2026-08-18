@@ -4,10 +4,10 @@ import { Spinner } from '@/components/Spinner'
 import { SettingsToggle } from '@/components/SettingsToggle'
 import { BottomNav } from '@/components/BottomNav'
 import { useAppSettings } from '@/context/AppSettings'
-import { getHistorialRemoto, calcularPromedio } from '@/lib/historial'
+import { getHistorialRemoto, calcularPromedio, getFechasIntentos, calcularRacha } from '@/lib/historial'
 import { getFrases, indiceFraseAleatoria } from '@/lib/frases'
 import type { CursoMeta } from '@/lib/cursos'
-import { LogOut, Trophy, TrendingUp, Quote } from 'lucide-react'
+import { LogOut, Trophy, TrendingUp, Quote, Flame } from 'lucide-react'
 import type { Pantalla } from '@/types'
 
 export function Home({
@@ -29,6 +29,7 @@ export function Home({
   const [mejor, setMejor] = useState(0)
   const [promedio, setPromedio] = useState(0)
   const [intentos, setIntentos] = useState(0)
+  const [racha, setRacha] = useState(0)
   const [cargandoStats, setCargandoStats] = useState(true)
   const [indiceFrase] = useState(() => indiceFraseAleatoria(getFrases(idioma).length))
   const frase = getFrases(idioma)[indiceFrase]
@@ -36,13 +37,16 @@ export function Home({
   useEffect(() => {
     let cancelado = false
     setCargandoStats(true)
-    getHistorialRemoto(userId, cursoId).then((historial) => {
-      if (cancelado) return
-      setMejor(historial.reduce((max, i) => Math.max(max, i.porcentaje), 0))
-      setIntentos(historial.length)
-      setPromedio(calcularPromedio(historial))
-      setCargandoStats(false)
-    })
+    Promise.all([getHistorialRemoto(userId, cursoId), getFechasIntentos(userId, cursoId)]).then(
+      ([historial, fechas]) => {
+        if (cancelado) return
+        setMejor(historial.reduce((max, i) => Math.max(max, i.porcentaje), 0))
+        setIntentos(historial.length)
+        setPromedio(calcularPromedio(historial))
+        setRacha(calcularRacha(fechas))
+        setCargandoStats(false)
+      },
+    )
     return () => {
       cancelado = true
     }
@@ -92,6 +96,12 @@ export function Home({
                   <TrendingUp className="h-3.5 w-3.5 text-[#1fc6c6]" />
                   <span className="text-xs font-semibold">{t.home.meta(cursoMeta.porcentajeAprobado)}</span>
                 </div>
+                {racha > 0 && (
+                  <div className="flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1">
+                    <Flame className="h-3.5 w-3.5 text-[#ff8a5b]" />
+                    <span className="text-xs font-semibold">{t.home.racha(racha)}</span>
+                  </div>
+                )}
               </div>
             </div>
           )}

@@ -3,9 +3,11 @@ import type { Pregunta } from '@/types'
 import type { RespuestaUsuario } from './Examen'
 import { Button } from '@/components/ui/button'
 import { Spinner } from '@/components/Spinner'
+import { BottomNav } from '@/components/BottomNav'
 import { guardarIntentoRemoto, getHistorialRemoto, calcularPromedio } from '@/lib/historial'
 import { useAppSettings } from '@/context/AppSettings'
-import { CheckCircle2, XCircle, RotateCcw, Home as HomeIcon, ChevronDown, Clock, AlarmClockOff } from 'lucide-react'
+import { CheckCircle2, XCircle, RotateCcw, Home as HomeIcon, ChevronDown, Clock, AlarmClockOff, Target, ChevronRight } from 'lucide-react'
+import type { Pantalla } from '@/types'
 
 function formatearTiempo(seg: number): string {
   const m = Math.floor(seg / 60)
@@ -31,8 +33,11 @@ export function Resultados({
   tiempoLimiteMinutos,
   tiempoUsadoSeg,
   agotoTiempo,
+  esRepaso,
   onRepetir,
   onInicio,
+  onNavigate,
+  onRepasarFallos,
 }: {
   userId: string
   cursoId: string
@@ -45,8 +50,11 @@ export function Resultados({
   tiempoLimiteMinutos: number | null
   tiempoUsadoSeg: number
   agotoTiempo: boolean
+  esRepaso: boolean
   onRepetir: () => void
   onInicio: () => void
+  onNavigate: (p: Pantalla) => void
+  onRepasarFallos: (preguntas: Pregunta[]) => void
 }) {
   const { t } = useAppSettings()
   const [expandido, setExpandido] = useState<number | null>(null)
@@ -59,21 +67,32 @@ export function Resultados({
     return { correctas, porcentaje, aprobado: porcentaje >= umbralAprobado }
   }, [preguntas, respuestas, umbralAprobado])
 
+  const preguntasFalladas = useMemo(
+    () => preguntas.filter((p) => !esCorrecta(p, respuestas[p.numero] ?? [])),
+    [preguntas, respuestas],
+  )
+
   useEffect(() => {
     let cancelado = false
-    guardarIntentoRemoto(userId, {
-      cursoId,
-      fecha: new Date().toISOString(),
-      totalPreguntas: preguntas.length,
-      correctas,
-      porcentaje,
-      aprobado,
-      capitulo,
-      anio,
-      tiempoLimiteMinutos,
-      tiempoUsadoSeg,
-      agotoTiempo,
-    })
+    // Un repaso de fallos no es un simulacro completo: no se guarda en el
+    // historial para no inflar el promedio, el mejor puntaje ni la racha con
+    // sesiones cortas armadas solo con preguntas que ya se respondieron mal.
+    const guardar = esRepaso
+      ? Promise.resolve()
+      : guardarIntentoRemoto(userId, {
+          cursoId,
+          fecha: new Date().toISOString(),
+          totalPreguntas: preguntas.length,
+          correctas,
+          porcentaje,
+          aprobado,
+          capitulo,
+          anio,
+          tiempoLimiteMinutos,
+          tiempoUsadoSeg,
+          agotoTiempo,
+        })
+    guardar
       .then(() => getHistorialRemoto(userId, cursoId))
       .then((historial) => {
         if (cancelado) return
@@ -89,7 +108,7 @@ export function Resultados({
   const circunferencia = 2 * Math.PI * 54
 
   return (
-    <div className="app-shell bg-background pb-32">
+    <div className="app-shell bg-background pb-56">
       <div className={`rounded-b-[32px] px-6 pb-8 pt-8 text-white ${aprobado ? 'brand-gradient' : 'bg-gradient-to-br from-[#7a1f2b] to-[#4a1018]'}`}>
         <p className="text-center text-xs font-bold uppercase tracking-widest text-white/60">
           {aprobado ? t.resultados.aprobado : t.resultados.noAprobado}
@@ -152,6 +171,24 @@ export function Resultados({
         )}
       </div>
 
+      {preguntasFalladas.length > 0 && (
+        <div className="mt-6 px-6">
+          <button
+            onClick={() => onRepasarFallos(preguntasFalladas)}
+            className="card-elevated flex w-full items-center gap-3 rounded-2xl bg-card p-4 text-left transition active:scale-[0.98]"
+          >
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-destructive/10 text-destructive">
+              <Target className="h-5 w-5" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <p className="text-sm font-bold text-foreground">{t.resultados.repasarFallosTitulo}</p>
+              <p className="text-xs text-muted-foreground">{t.resultados.repasarFallosDesc(preguntasFalladas.length)}</p>
+            </div>
+            <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
+          </button>
+        </div>
+      )}
+
       <div className="mt-6 px-6">
         <p className="px-1 text-xs font-bold uppercase tracking-wide text-muted-foreground">{t.resultados.repaso}</p>
         <div className="mt-3 space-y-2.5">
@@ -203,16 +240,22 @@ export function Resultados({
         </div>
       </div>
 
-      <div className="safe-bottom fixed inset-x-0 bottom-0 flex gap-3 border-t border-border bg-background/95 p-4 backdrop-blur">
-        <Button variant="outline" onClick={onInicio} className="h-12 flex-1 rounded-2xl font-bold">
-          <HomeIcon className="mr-1.5 h-4 w-4" />
-          {t.resultados.inicio}
-        </Button>
-        <Button onClick={onRepetir} className="h-12 flex-1 rounded-2xl bg-primary font-bold hover:bg-primary/90">
-          <RotateCcw className="mr-1.5 h-4 w-4" />
-          {t.resultados.repetir}
-        </Button>
-      </div>
+      <BottomNav
+        activo="simulacro"
+        onNavigate={onNavigate}
+        accesorio={
+          <div className="flex gap-3 border-t border-border bg-background/95 p-4 backdrop-blur">
+            <Button variant="outline" onClick={onInicio} className="h-12 flex-1 rounded-2xl font-bold">
+              <HomeIcon className="mr-1.5 h-4 w-4" />
+              {t.resultados.inicio}
+            </Button>
+            <Button onClick={onRepetir} className="h-12 flex-1 rounded-2xl bg-primary font-bold hover:bg-primary/90">
+              <RotateCcw className="mr-1.5 h-4 w-4" />
+              {t.resultados.repetir}
+            </Button>
+          </div>
+        }
+      />
     </div>
   )
 }

@@ -9,6 +9,7 @@ import { LoadingScreen } from '@/components/LoadingScreen'
 import { DispositivoBloqueado } from '@/screens/DispositivoBloqueado'
 import { Login } from '@/screens/Login'
 import { Home } from '@/screens/Home'
+import { ElegirAsignatura } from '@/screens/ElegirAsignatura'
 import { ConfigurarExamen } from '@/screens/ConfigurarExamen'
 import { Examen, type RespuestaUsuario } from '@/screens/Examen'
 import { Resultados } from '@/screens/Resultados'
@@ -22,6 +23,10 @@ interface SesionExamen {
   capitulo: string
   anio: number | 'todos'
   tiempoLimiteMinutos: number | null
+  // Mini-examen armado desde Resultados con las preguntas falladas de un
+  // intento anterior: no representa un capítulo/año real, así que "Repetir"
+  // debe volver a armar el mismo set fallado en vez de re-filtrar el banco.
+  esRepaso?: boolean
 }
 
 interface ResultadoExamen {
@@ -39,6 +44,9 @@ function App() {
   const [resultado, setResultado] = useState<ResultadoExamen>({ respuestas: {}, tiempoUsadoSeg: 0, agotoTiempo: false })
   const [verifDispositivo, setVerifDispositivo] = useState<'pendiente' | 'ok' | 'bloqueado'>('pendiente')
   const [dispositivosActivos, setDispositivosActivos] = useState(0)
+  // Por ahora hay un solo banco de preguntas (CURSO_ID), así que esto no
+  // filtra nada todavía; queda listo para cuando haya más de una asignatura.
+  const [, setAsignaturaId] = useState<string | null>(null)
 
   useEffect(() => {
     // Se dispara en paralelo a la pantalla de carga inicial, así que para
@@ -127,6 +135,11 @@ function App() {
     setPantalla('resultados')
   }
 
+  function repasarFallos(preguntas: Pregunta[]) {
+    setSesionExamen({ preguntas, capitulo: 'todos', anio: 'todos', tiempoLimiteMinutos: null, esRepaso: true })
+    setPantalla('examen')
+  }
+
   if (userId && verifDispositivo === 'bloqueado') {
     return (
       <div className="mx-auto min-h-screen w-full max-w-md bg-background font-sans">
@@ -158,12 +171,23 @@ function App() {
         />
       )}
 
+      {pantalla === 'asignaturas' && autenticado && (
+        <ElegirAsignatura
+          onSeleccionar={(id) => {
+            setAsignaturaId(id)
+            setPantalla('configurar')
+          }}
+          onNavigate={setPantalla}
+        />
+      )}
+
       {pantalla === 'configurar' && userId && (
         <ConfigurarExamen
           userId={userId}
           cursoId={CURSO_ID}
           cursoMeta={CURSO}
-          onBack={() => setPantalla('home')}
+          onBack={() => setPantalla('asignaturas')}
+          onNavigate={setPantalla}
           onIniciar={iniciarExamen}
         />
       )}
@@ -190,14 +214,21 @@ function App() {
           tiempoLimiteMinutos={sesionExamen.tiempoLimiteMinutos}
           tiempoUsadoSeg={resultado.tiempoUsadoSeg}
           agotoTiempo={resultado.agotoTiempo}
-          onRepetir={() =>
-            iniciarExamen(
-              sesionExamen.preguntas.length,
-              sesionExamen.capitulo,
-              sesionExamen.tiempoLimiteMinutos,
-              sesionExamen.anio,
-            )
-          }
+          esRepaso={sesionExamen.esRepaso ?? false}
+          onNavigate={setPantalla}
+          onRepasarFallos={repasarFallos}
+          onRepetir={() => {
+            if (sesionExamen.esRepaso) {
+              repasarFallos(sesionExamen.preguntas)
+            } else {
+              iniciarExamen(
+                sesionExamen.preguntas.length,
+                sesionExamen.capitulo,
+                sesionExamen.tiempoLimiteMinutos,
+                sesionExamen.anio,
+              )
+            }
+          }}
           onInicio={() => setPantalla('home')}
         />
       )}

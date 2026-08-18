@@ -78,3 +78,49 @@ export function calcularPromedio(historial: IntentoExamen[]): number {
   const suma = historial.reduce((acc, i) => acc + i.porcentaje, 0)
   return Math.round(suma / historial.length)
 }
+
+// Consulta liviana (solo la fecha) y con un límite más alto que
+// HISTORIAL_MAX, para que una racha larga de un usuario muy activo no se
+// corte por el límite pensado para el cálculo de promedio/mejor puntaje.
+const RACHA_MAX = 90
+
+export async function getFechasIntentos(userId: string, cursoId?: string): Promise<string[]> {
+  let consulta = supabase
+    .from('historial_intentos')
+    .select('fecha')
+    .eq('user_id', userId)
+    .order('fecha', { ascending: false })
+    .limit(RACHA_MAX)
+
+  if (cursoId) consulta = consulta.eq('curso_id', cursoId)
+
+  const { data, error } = await consulta
+  if (error) {
+    console.error('Error al leer las fechas de intentos:', error.message)
+    return []
+  }
+  return (data ?? []).map((fila) => fila.fecha as string)
+}
+
+// Días consecutivos con al menos un simulacro completado, contando hacia
+// atrás desde hoy en la zona horaria del navegador. Si todavía no se
+// practicó hoy, se cuenta desde ayer para no "romper" la racha antes de que
+// el usuario haya tenido chance de practicar en el día.
+export function calcularRacha(fechas: string[]): number {
+  if (fechas.length === 0) return 0
+
+  const clave = (d: Date) => `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`
+  const dias = new Set(fechas.map((f) => clave(new Date(f))))
+
+  const cursor = new Date()
+  if (!dias.has(clave(cursor))) {
+    cursor.setDate(cursor.getDate() - 1)
+  }
+
+  let racha = 0
+  while (dias.has(clave(cursor))) {
+    racha++
+    cursor.setDate(cursor.getDate() - 1)
+  }
+  return racha
+}
