@@ -18,6 +18,7 @@ import type { RespuestaUsuario } from '@/screens/Examen'
 // pantalla fuera el usuario. Con import() dinámico, quien solo entra a
 // hacer login no descarga el código de Academia ni de Configurar examen
 // hasta que realmente navega ahí.
+
 const Home = lazy(() => import('@/screens/Home').then((m) => ({ default: m.Home })))
 const ElegirAsignatura = lazy(() => import('@/screens/ElegirAsignatura').then((m) => ({ default: m.ElegirAsignatura })))
 const ConfigurarExamen = lazy(() => import('@/screens/ConfigurarExamen').then((m) => ({ default: m.ConfigurarExamen })))

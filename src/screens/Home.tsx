@@ -6,6 +6,7 @@ import { BottomNav } from '@/components/BottomNav'
 import { useAppSettings } from '@/context/AppSettings'
 import { getHistorialRemoto, calcularPromedio, getFechasIntentos, calcularRacha } from '@/lib/historial'
 import { getFrases, indiceFraseAleatoria } from '@/lib/frases'
+import { colorStrokePorcentaje } from '@/lib/utils'
 import type { CursoMeta } from '@/lib/cursos'
 import { LogOut, Trophy, TrendingUp, Quote, Flame, BarChart3, ChevronRight } from 'lucide-react'
 import type { Pantalla } from '@/types'
@@ -94,7 +95,7 @@ export function Home({
                       cy="40"
                       r="32"
                       fill="none"
-                      stroke="#1fc6c6"
+                      stroke={colorStrokePorcentaje(promedio)}
                       strokeWidth="7"
                       strokeLinecap="round"
                       strokeDasharray={PROMEDIO_CIRCUNFERENCIA}

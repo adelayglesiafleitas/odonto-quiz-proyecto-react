@@ -4,6 +4,7 @@ import { useAppSettings } from '@/context/AppSettings'
 import { Spinner } from '@/components/Spinner'
 import { BottomNav } from '@/components/BottomNav'
 import { getAsignaturas } from '@/lib/asignaturas'
+import { colorBgPorcentaje, colorStrokePorcentaje, colorTextPorcentaje } from '@/lib/utils'
 import {
   getHistorialRemoto,
   calcularPromedio,
@@ -114,7 +115,7 @@ export function Estadisticas({
                     cy="48"
                     r="42"
                     fill="none"
-                    stroke="hsl(var(--accent))"
+                    stroke={colorStrokePorcentaje(promedio)}
                     strokeWidth="9"
                     strokeLinecap="round"
                     strokeDasharray={circunferencia}
@@ -166,9 +167,7 @@ export function Estadisticas({
                     </div>
                     <div className="mt-1.5 h-2 w-full overflow-hidden rounded-full bg-primary/10">
                       <div
-                        className={`h-full rounded-full transition-all ${
-                          c.porcentaje >= 70 ? 'bg-success' : c.porcentaje >= 40 ? 'bg-[#e0a72b]' : 'bg-destructive'
-                        }`}
+                        className={`h-full rounded-full transition-all ${colorBgPorcentaje(c.porcentaje)}`}
                         style={{ width: `${c.porcentaje}%` }}
                       />
                     </div>
@@ -195,7 +194,7 @@ export function Estadisticas({
                 </span>
                 <span className="truncate text-sm font-bold text-foreground">{asignatura?.nombre}</span>
               </div>
-              <span className="shrink-0 text-sm font-extrabold text-foreground">{promedio}%</span>
+              <span className={`shrink-0 text-sm font-extrabold ${colorTextPorcentaje(promedio)}`}>{promedio}%</span>
             </div>
           </div>
         </>
