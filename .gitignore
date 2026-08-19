@@ -1,0 +1,34 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist*
+*.local
+
+# Env vars (nunca subir claves, ni siquiera la publishable)
+.env
+.env.local
+.env.*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Copias de seguridad manuales del banco de preguntas: el historial real
+# de versiones ya vive en git, así que estos .bak sueltos solo suman peso
+# al repo sin aportar nada que git log no tenga.
+*.bak
+*.bak_*
