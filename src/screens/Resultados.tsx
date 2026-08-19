@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import type { Pregunta } from '@/types'
+import type { ConteoCapitulo, Pregunta } from '@/types'
 import type { RespuestaUsuario } from './Examen'
 import { Button } from '@/components/ui/button'
 import { Spinner } from '@/components/Spinner'
@@ -72,6 +72,20 @@ export function Resultados({
     [preguntas, respuestas],
   )
 
+  // Conteo agregado de aciertos/total por capítulo de este intento (no una
+  // fila por pregunta): ver el comentario en types.ts / supabase/schema.sql
+  // sobre por qué se guarda así en vez de una tabla por-pregunta.
+  const desgloseCapitulos = useMemo(() => {
+    const mapa: Record<string, ConteoCapitulo> = {}
+    for (const p of preguntas) {
+      const entrada = mapa[p.capitulo] ?? { correctas: 0, total: 0 }
+      entrada.total += 1
+      if (esCorrecta(p, respuestas[p.numero] ?? [])) entrada.correctas += 1
+      mapa[p.capitulo] = entrada
+    }
+    return mapa
+  }, [preguntas, respuestas])
+
   useEffect(() => {
     let cancelado = false
     // Un repaso de fallos no es un simulacro completo: no se guarda en el
@@ -91,6 +105,7 @@ export function Resultados({
           tiempoLimiteMinutos,
           tiempoUsadoSeg,
           agotoTiempo,
+          desgloseCapitulos,
         })
     guardar
       .then(() => getHistorialRemoto(userId, cursoId))

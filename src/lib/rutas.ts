@@ -17,4 +17,5 @@ export const RUTA: Record<Pantalla, string> = {
   ayuda: '/ayuda',
   academia: '/academia',
   config: '/config',
+  estadisticas: '/estadisticas',
 }

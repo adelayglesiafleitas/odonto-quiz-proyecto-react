@@ -64,6 +64,7 @@ export interface Diccionario {
     comenzarSimulacro: string
     fraseEtiqueta: string
     racha: (n: number) => string
+    verEstadisticas: string
   }
   configurar: {
     titulo: string
@@ -157,6 +158,18 @@ export interface Diccionario {
     titulo: string
     subtitulo: string
   }
+  estadisticas: {
+    titulo: string
+    general: string
+    promedioGeneral: string
+    intentos: (n: number) => string
+    actividadSemanal: string
+    porCapitulo: string
+    porAsignatura: string
+    puntoDebil: string
+    sinDatosTitulo: string
+    sinDatosTexto: string
+  }
 }
 
 export const es: Diccionario = {
@@ -224,6 +237,7 @@ export const es: Diccionario = {
     comenzarSimulacro: 'Comenzar simulacro',
     fraseEtiqueta: 'Frase del día',
     racha: (n) => `${n} día${n === 1 ? '' : 's'} seguidos`,
+    verEstadisticas: 'Ver estadísticas completas',
   },
   configurar: {
     titulo: 'Configurar examen',
@@ -325,6 +339,18 @@ export const es: Diccionario = {
     titulo: '¿Qué vas a examinar?',
     subtitulo: 'Elige la asignatura para configurar tu simulacro.',
   },
+  estadisticas: {
+    titulo: 'Estadísticas',
+    general: 'General',
+    promedioGeneral: 'Promedio general',
+    intentos: (n) => `${n} simulacro${n === 1 ? '' : 's'} realizados`,
+    actividadSemanal: 'Actividad de esta semana',
+    porCapitulo: 'Por capítulo',
+    porAsignatura: 'Por asignatura',
+    puntoDebil: 'Punto débil',
+    sinDatosTitulo: 'Todavía no hay datos',
+    sinDatosTexto: 'Completa tu primer simulacro para ver tus estadísticas acá.',
+  },
 }
 
 export const en: Diccionario = {
@@ -392,6 +418,7 @@ export const en: Diccionario = {
     comenzarSimulacro: 'Start mock exam',
     fraseEtiqueta: 'Quote of the day',
     racha: (n) => `${n}-day streak`,
+    verEstadisticas: 'View full statistics',
   },
   configurar: {
     titulo: 'Configure exam',
@@ -492,6 +519,18 @@ export const en: Diccionario = {
   asignaturas: {
     titulo: 'What are you testing on?',
     subtitulo: 'Choose a subject to set up your mock exam.',
+  },
+  estadisticas: {
+    titulo: 'Statistics',
+    general: 'Overall',
+    promedioGeneral: 'Overall average',
+    intentos: (n) => `${n} mock exam${n === 1 ? '' : 's'} taken`,
+    actividadSemanal: "This week's activity",
+    porCapitulo: 'By chapter',
+    porAsignatura: 'By subject',
+    puntoDebil: 'Weak spot',
+    sinDatosTitulo: 'No data yet',
+    sinDatosTexto: 'Complete your first mock exam to see your statistics here.',
   },
 }
 

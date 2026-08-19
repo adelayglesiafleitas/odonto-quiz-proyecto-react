@@ -243,3 +243,53 @@ $$;
 
 revoke all on function public.admin_listar_usuarios() from public;
 grant execute on function public.admin_listar_usuarios() to authenticated;
+
+-- 8) Estadísticas por capítulo.
+--    En vez de una tabla con una fila por cada pregunta respondida (que con
+--    miles de usuarios crecería 20-40x más rápido que el historial actual
+--    sin necesidad), cada intento guarda un JSON con el conteo agregado de
+--    aciertos/total por capítulo. Esto mantiene "una fila por intento" y
+--    permite calcular estadísticas por capítulo sumando esos JSON del lado
+--    del servidor.
+alter table public.historial_intentos
+  add column if not exists desglose_capitulos jsonb;
+
+comment on column public.historial_intentos.desglose_capitulos is
+  'Mapa capitulo -> {correctas, total} de ese intento. Null en intentos guardados antes de esta columna.';
+
+-- Suma el desglose por capítulo de los últimos p_limite intentos del
+-- usuario autenticado (mismo límite que ya usa el cliente para
+-- promedio/mejor puntaje: HISTORIAL_MAX = 30). Se hace en el servidor y no
+-- trayendo todas las filas al navegador para sumar en JS, y solo lee las
+-- filas de auth.uid() gracias al filtro + el índice ya existente en
+-- (user_id, curso_id, fecha desc): el costo no cambia sin importar cuántos
+-- usuarios totales tenga la tabla.
+create or replace function public.obtener_estadisticas_capitulos(
+  p_curso_id text,
+  p_limite int default 30
+)
+returns table (capitulo text, correctas bigint, total bigint)
+language sql
+security invoker
+stable
+set search_path = public
+as $$
+  select entry.key as capitulo,
+         sum((entry.value->>'correctas')::int)::bigint as correctas,
+         sum((entry.value->>'total')::int)::bigint as total
+  from (
+    select desglose_capitulos
+    from public.historial_intentos
+    where user_id = auth.uid()
+      and curso_id = p_curso_id
+      and desglose_capitulos is not null
+    order by fecha desc
+    limit p_limite
+  ) recientes,
+  jsonb_each(recientes.desglose_capitulos) as entry
+  group by entry.key
+  order by capitulo;
+$$;
+
+revoke all on function public.obtener_estadisticas_capitulos(text, int) from public;
+grant execute on function public.obtener_estadisticas_capitulos(text, int) to authenticated;

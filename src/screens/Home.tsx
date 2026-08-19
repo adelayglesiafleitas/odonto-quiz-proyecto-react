@@ -7,8 +7,10 @@ import { useAppSettings } from '@/context/AppSettings'
 import { getHistorialRemoto, calcularPromedio, getFechasIntentos, calcularRacha } from '@/lib/historial'
 import { getFrases, indiceFraseAleatoria } from '@/lib/frases'
 import type { CursoMeta } from '@/lib/cursos'
-import { LogOut, Trophy, TrendingUp, Quote, Flame } from 'lucide-react'
+import { LogOut, Trophy, TrendingUp, Quote, Flame, BarChart3, ChevronRight } from 'lucide-react'
 import type { Pantalla } from '@/types'
+
+const PROMEDIO_CIRCUNFERENCIA = 2 * Math.PI * 32
 
 export function Home({
   userId,
@@ -83,9 +85,26 @@ export function Home({
             </div>
           ) : (
             <div className="mt-3 flex items-center justify-between">
-              <div>
-                <p className="text-3xl font-extrabold leading-none">{promedio}%</p>
-                <p className="mt-1.5 text-[11px] text-white/60">{t.home.promedioSufijo(intentos)}</p>
+              <div className="flex items-center gap-3">
+                <div className="relative flex h-20 w-20 shrink-0 items-center justify-center">
+                  <svg viewBox="0 0 80 80" className="h-full w-full -rotate-90">
+                    <circle cx="40" cy="40" r="32" fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="7" />
+                    <circle
+                      cx="40"
+                      cy="40"
+                      r="32"
+                      fill="none"
+                      stroke="#1fc6c6"
+                      strokeWidth="7"
+                      strokeLinecap="round"
+                      strokeDasharray={PROMEDIO_CIRCUNFERENCIA}
+                      strokeDashoffset={PROMEDIO_CIRCUNFERENCIA - (promedio / 100) * PROMEDIO_CIRCUNFERENCIA}
+                      style={{ transition: 'stroke-dashoffset 1s ease-out' }}
+                    />
+                  </svg>
+                  <span className="absolute text-lg font-extrabold">{promedio}%</span>
+                </div>
+                <p className="max-w-[6.5rem] text-[11px] leading-snug text-white/60">{t.home.promedioSufijo(intentos)}</p>
               </div>
               <div className="flex flex-col items-end gap-1.5 text-right">
                 <div className="flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1">
@@ -105,6 +124,15 @@ export function Home({
               </div>
             </div>
           )}
+
+          <button
+            onClick={() => onNavigate('estadisticas')}
+            className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-2xl bg-white/10 py-2.5 text-xs font-bold text-white transition active:scale-[0.98] hover:bg-white/15"
+          >
+            <BarChart3 className="h-3.5 w-3.5" />
+            {t.home.verEstadisticas}
+            <ChevronRight className="h-3.5 w-3.5" />
+          </button>
         </div>
       </div>
 

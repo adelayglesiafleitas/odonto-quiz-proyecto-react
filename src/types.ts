@@ -14,6 +14,17 @@ export interface Pregunta {
   opciones: Opcion[]
 }
 
+// Aciertos/total de un capítulo dentro de un único intento. Se guarda un
+// mapa capítulo -> conteo (no una fila por pregunta) para que la tabla de
+// historial siga creciendo una fila por intento, no una fila por pregunta:
+// con miles de usuarios, esa segunda forma multiplicaría el tamaño de la
+// tabla por 20-40x sin necesidad, ya que para las estadísticas alcanza con
+// el conteo agregado por capítulo.
+export interface ConteoCapitulo {
+  correctas: number
+  total: number
+}
+
 export interface IntentoExamen {
   cursoId: string
   fecha: string
@@ -26,6 +37,7 @@ export interface IntentoExamen {
   tiempoLimiteMinutos: number | null
   tiempoUsadoSeg: number
   agotoTiempo: boolean
+  desgloseCapitulos: Record<string, ConteoCapitulo>
 }
 
 export type Pantalla =
@@ -40,3 +52,4 @@ export type Pantalla =
   | 'ayuda'
   | 'academia'
   | 'config'
+  | 'estadisticas'

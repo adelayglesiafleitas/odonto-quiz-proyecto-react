@@ -27,6 +27,7 @@ const Estudio = lazy(() => import('@/screens/Estudio').then((m) => ({ default: m
 const Ayuda = lazy(() => import('@/screens/Ayuda').then((m) => ({ default: m.Ayuda })))
 const Academia = lazy(() => import('@/screens/Academia').then((m) => ({ default: m.Academia })))
 const Configuracion = lazy(() => import('@/screens/Configuracion').then((m) => ({ default: m.Configuracion })))
+const Estadisticas = lazy(() => import('@/screens/Estadisticas').then((m) => ({ default: m.Estadisticas })))
 
 interface SesionExamen {
   preguntas: Pregunta[]
@@ -317,7 +318,18 @@ function App() {
             }
           />
 
-          <Route path={RUTA.estudio} element={<Estudio onBack={() => navigate(RUTA.home)} />} />
+          <Route path={RUTA.estudio} element={<Estudio onBack={() => navigate(RUTA.home)} onNavigate={irA} />} />
+
+          <Route
+            path={RUTA.estadisticas}
+            element={
+              <Protegida sesionLista={sesionLista} autenticado={autenticado}>
+                {userId && (
+                  <Estadisticas userId={userId} cursoId={CURSO_ID} onBack={() => navigate(RUTA.home)} onNavigate={irA} />
+                )}
+              </Protegida>
+            }
+          />
 
           <Route path={RUTA.ayuda} element={<Ayuda umbralAprobado={CURSO.porcentajeAprobado} onNavigate={irA} />} />
 

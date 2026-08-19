@@ -2,8 +2,13 @@ import { useMemo, useState } from 'react'
 import { ArrowLeft } from 'lucide-react'
 import { getCapitulos, getPreguntas } from '@/lib/data'
 import { useAppSettings } from '@/context/AppSettings'
+import { BottomNav } from '@/components/BottomNav'
+import type { Pantalla } from '@/types'
 
-export function Estudio({ onBack }: { onBack: () => void }) {
+// La barra de navegación inferior nunca debe faltar en ninguna pantalla
+// principal: el usuario no debe quedar "varado" sin forma de navegar.
+// "academia" queda marcada como activa porque es de donde se llega acá.
+export function Estudio({ onBack, onNavigate }: { onBack: () => void; onNavigate: (p: Pantalla) => void }) {
   const { t } = useAppSettings()
   const todasPreguntas = useMemo(() => getPreguntas(), [])
   const capitulos = useMemo(() => ['todos', ...getCapitulos()], [])
@@ -15,7 +20,7 @@ export function Estudio({ onBack }: { onBack: () => void }) {
   )
 
   return (
-    <div className="app-shell bg-background pb-6 pt-6">
+    <div className="app-shell bg-background pb-28 pt-6">
       <div className="flex items-center gap-3 px-6">
         <button onClick={onBack} className="flex h-9 w-9 items-center justify-center rounded-full bg-secondary text-foreground">
           <ArrowLeft className="h-4 w-4" />
@@ -68,6 +73,8 @@ export function Estudio({ onBack }: { onBack: () => void }) {
           </div>
         ))}
       </div>
+
+      <BottomNav activo="academia" onNavigate={onNavigate} />
     </div>
   )
 }
