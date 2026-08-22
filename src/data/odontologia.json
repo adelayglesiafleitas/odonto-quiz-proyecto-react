@@ -32903,5 +32903,2940 @@
       }
     ],
     "numero": 973
+  },
+  {
+    "pregunta": "Medicamentos seguros en el embarazo.",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Lidocaina - penicilinas - ibuprofeno",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Prilocaina - paracetamol-cefalosporina",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Articaina - paracetamol - eritromicina",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Primo Aina- paracetamol- cefalospirina",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todas las anteriores",
+        "correcta": false
+      }
+    ],
+    "numero": 974
+  },
+  {
+    "pregunta": "Una paciente embarazada de 20 semanas, con fobia al dentista, acude para hacerse una tartrectomía porque le sangran las encías, indique su actitud.",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Sedarla con hidroxizina",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Sedarla con alprazolam",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Sedarla con midazolam",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Sedarla con diazepam",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Ninguna de las anteriores es correcta.",
+        "correcta": true
+      }
+    ],
+    "numero": 975
+  },
+  {
+    "pregunta": "En relación a la administración de fármacos en la mujer embarazada. Según la clasificación de la FDA y CE marque la respuesta Falsa.",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "PAG 770 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La categoría A corresponde a la ausencia de riesgo fetal.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "La categoría C el riesgo fetal no está demostrado.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La categoría X corresponde a riesgo fetal confirmado.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "La categoría D se sospecha que el fármaco produce malformaciones congénitas.",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "En la categoría B no hay datos en humanos para evaluar la seguridad del fármaco.",
+        "correcta": false
+      }
+    ],
+    "numero": 976
+  },
+  {
+    "pregunta": "Señale la afirmación incorrecta acerca de la gingivitis gravídica:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Presentan lesiones rojo rutilante en la encía.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Mayoritariamente aparece en áreas interdentales.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La hiposialia juega un papel importante en su desarrollo.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Rara vez presenta sangrado.",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "No siempre es una lesión dolorosa.",
+        "correcta": false
+      }
+    ],
+    "numero": 977
+  },
+  {
+    "pregunta": "En el embarazo señale la correcta.",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "PAG 771-772 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Causa la caries.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Influye especialmente la hiperémesis gravídica.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Es necesario el control de dieta e higiene.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Facilita la aparición de lesiones mucosas relacionadas con la alteración del flujo gingival.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Estabiliza los casos de periodontitis previos.",
+        "correcta": false
+      }
+    ],
+    "numero": 978
+  },
+  {
+    "pregunta": "En embarazada que fármaco se puede usar sin peligro fetal:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Lidocaína",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Ibuprofeno",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Metronidazol",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "a y c son correctas",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "todas son incorrectas",
+        "correcta": false
+      }
+    ],
+    "numero": 979
+  },
+  {
+    "pregunta": "En la embarazada",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "PAG 763, 766 Y 138 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La periodontitis progresa durante el 3º trimestre en 2º trimestre",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Las pacientes embarazadas apenas tienen movilidad dentaria",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Épulis con frecuencia 30-40% 0.5-5%",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "A y b son correctas",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todas son falsas",
+        "correcta": true
+      }
+    ],
+    "numero": 980
+  },
+  {
+    "pregunta": "Respecto a las manifestaciones generales de la embarazada, señalar la falsa:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "PAG 832, 755 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "aumento del gasto cardíaco",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "hiperexcrecion renal",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "disminución de los factores de la coagulación",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "déficit de hierro",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "inmunodp",
+        "correcta": false
+      }
+    ],
+    "numero": 981
+  },
+  {
+    "pregunta": "En la mujer embarazada. Señale la correcta",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "la bupivacaína es un buen anestésico local",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "como analgésico puede usarse el acetaminofén",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "la aspirina puede usarse en el 2 y 3 trimestre de embarazo",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "las benzodiazepinas pueden aliviar el stress",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "el mejor periodo para realizar los tratamientos electivos es durante el primer trimestre",
+        "correcta": false
+      }
+    ],
+    "numero": 982
+  },
+  {
+    "pregunta": "Marque la respuesta CIERTA. Una paciente embarazada que precisa asistencia dental",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Se pueden tratar en el primer trimestre pero no en el tercero",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Se pueden usar betalactámicos en los 3 trimestres",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Se pueden usar AINEs en los 3 trimestres",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Los pónticos se pueden hacer en los 3 trimestres",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Las radiografías se pueden hacer en los 3 trimestres",
+        "correcta": false
+      }
+    ],
+    "numero": 983
+  },
+  {
+    "pregunta": "Fármaco de uso en odontología, cual, está contraindicado en el embarazo.",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Paracetamol.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Amoxicilina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "El uso conjunto de paracetamol y Amoxicilina.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "No hay contraindicación de uso ni en A, B o C.",
+        "correcta": true
+      }
+    ],
+    "numero": 984
+  },
+  {
+    "pregunta": "En relación a la administración de fármacos en la mujer embarazada, según las clasificaciones de la FDA y de la CE: Marque la respuesta FALSA",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La categoría A corresponde a ausencia de riesgo fetal.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "En la categoría C el riesgo fetal no está demostrado.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La categoría X corresponde a riesgo fetal confirmado.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "En la categoría D se sospecha que el fármaco produce malformaciones congénitas.",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "En la categoría B no hay datos humanos para evaluar la seguridad del fármaco",
+        "correcta": false
+      }
+    ],
+    "numero": 985
+  },
+  {
+    "pregunta": "Marque la respuesta CIERTA. Una paciente embarazada que precisa asistencia dental a. Se pueden tratar en el primer trimestre pero no en el tercero",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Se pueden usar b- lactámicos en los 3 trimestres",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Se pueden usar AINEs en los 3 trimestres",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Los pónticos se pueden hacer en los 3 trimestres",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Las radiografías se pueden hacer en los 3 trimestres",
+        "correcta": false
+      }
+    ],
+    "numero": 986
+  },
+  {
+    "pregunta": "De los siguientes fármacos ¿cuál estaría encuadrado en la categoría D acerca de riesgo de medicación en el embarazo?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "PAG 770 MACHUCA NUEVO, también está en la cat. B",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Metronidazol",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Amoxicilina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Lidocaina",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Clindamicina",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Paracetamol",
+        "correcta": false
+      }
+    ],
+    "numero": 987
+  },
+  {
+    "pregunta": "Señale la afirmación incorrecta acerca de la gingivitis gravídica:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Presentan lesiones rojo rutilantes en la encía.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Mayoritariamente aparece en áreas interdentales.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La hiposialia juega un papel clave en su desarrollo.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Rara vez presentan sangrado.",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "No siempre es una lesión dolorosa.",
+        "correcta": false
+      }
+    ],
+    "numero": 988
+  },
+  {
+    "pregunta": "De los siguientes fármacos ¿Cuál es compatible con la lactancia según la clasificación del riesgo de consumo en la lactancia?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Azitromicina",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Metronidazol",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Aspirina",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ketoprofeno",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Ketoconazol",
+        "correcta": false
+      }
+    ],
+    "numero": 989
+  },
+  {
+    "pregunta": "Señale la opción incorrecta acerca de la gingivitis gravídica del embarazo:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Produce halitosis.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Puede ser dolorosa.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Las papilas interceptarias no suelen ser afectadas.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Se dan entre el 2do y octavo mes del embarazo más frecuente.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "La hiposialia juega un papel determinado en su aparición.",
+        "correcta": false
+      }
+    ],
+    "numero": 990
+  },
+  {
+    "pregunta": "Cual de los siguientes fármacos pertenece a la categoría D (teratogénicos potenciales en animales, en casos extremos debe considerarse",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Talidomida",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Clindamicina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Ketoconazol",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Metronidazol",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "C y D son correctas",
+        "correcta": true
+      }
+    ],
+    "numero": 991
+  },
+  {
+    "pregunta": "Señale cuál de las siguientes afirmaciones es falsa respecto al embarazo y la enfermedad periodontal",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "PAG 765 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Durante el embarazo aumenta la vasoconstricción capilar gingival",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Se reduce la queratinización epitelial, lo que provoca mayor labilidad a la placa bacteriana",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La enfermedad periodontal en el embarazo puede provocar bajo peso del bebé al nacer",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Se produce un aumento de prostaglandinas durante el embarazo",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Se produce un aumento de IgA durante el embarazo",
+        "correcta": true
+      }
+    ],
+    "numero": 992
+  },
+  {
+    "pregunta": "Señale la afirmación correcta acerca del granuloma piógeno:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Suele aparecer en el primer trimestre",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Se suele dar principalmente por palatino del maxilar superior",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Está relacionado con el aumento de placa",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Nunca cede espontáneamente tras el parto",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Ninguna es correcta, todas son falsas",
+        "correcta": false
+      }
+    ],
+    "numero": 993
+  },
+  {
+    "pregunta": "Cuál de los siguientes fármacos pertenece a la categoría X de la clasificación del riesgo de",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "nunca debe darse a pacientes  embarazadas; c y d",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Ácido fólico",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Paracetamol",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Amoxicilina",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Estreptomicina",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Gentamicina",
+        "correcta": false
+      }
+    ],
+    "numero": 994
+  },
+  {
+    "pregunta": "En las mujeres embarazadas, señale la opción incorrecta con respecto a su estado oral:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La patología periodontal del embarazo debuta de manera grave pero mejora espontáneamente a medida que avanza el embarazo.",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Los elevados niveles de estrógenos y progesterona en el embarazo hacen que aumente la inflamación gingival.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Las hormonas del embarazo alteran el sustrato de las bacterias orales, lo que provoca su crecimiento.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Durante el embarazo puede aparecer una hipermovilidad dentaria por laxitud del ligamento periodontal.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Clinicamente, la encía de la embarazada aumenta de tamaño y presenta tumefacción.",
+        "correcta": false
+      }
+    ],
+    "numero": 995
+  },
+  {
+    "pregunta": "Indique la afirmación correcta con respecto al manejo odontológico de la paciente embarazada:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "PAG 771 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El estado periodontal de la embarazada afectará a su periodonto pero no ocasionará problemas ni a la gestación ni al feto.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Se debe evitar la amoxicilina con clavulánico y la aspirina.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Bajo ningún concepto se emplearán en embarazadas anestésicos locales con vasoconstrictores.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "El antibiótico de elección durante el embarazo es la tetraciclina.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "La radiografía intraoral se puede usar sin problemas durante todo el embarazo pues su nivel de radiación es muy bajo.",
+        "correcta": false
+      }
+    ],
+    "numero": 996
+  },
+  {
+    "pregunta": "Señale la afirmación incorrecta con respecto al tratamiento odontológico durante la lactancia:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El riesgo principal de las pacientes que se encuentran amamantando viene referido por la secreción de fármacos a través de la leche.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Si el tratamiento es esencial, se debe administrar después de dar el pecho al niño.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Se preferirá administrar ibuprofeno antes que ácido acetilsalicílico como antiinflamatorio",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Se preferirá administrar amoxicilina antes qu metronidazol como antibiótico",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "No existe afirmación incorrecta, todas son correctas.",
+        "correcta": true
+      }
+    ],
+    "numero": 997
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes normas debe observarse en el empleo de fármacos en mujeres  gestantes?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Fomentar la politerapia y la polifarmacia.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Administrar medicamentos para obtener un efecto placebo.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Administrar la mayor dosis eficaz de los medicamentos necesarios durante el mayor tiempo  posible.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Durante el primer trimestre del embarazo se debe fomentar la prescripción de medicamentos  pues el feto apenas está formado y no \nnotará los efectos.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "No se debe olvidar que cualquier mujer en edad fértil es una gestante potencial.",
+        "correcta": true
+      }
+    ],
+    "numero": 998
+  },
+  {
+    "pregunta": "Fármaco de uso en odontología, cual, está contraindicado en el embarazo?:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Paracetamol.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Amoxicilina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "El uso conjunto de paracetamol y amoxicilina.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "No hay contraindicación de uso ni en A, B o C.",
+        "correcta": true
+      }
+    ],
+    "numero": 999
+  },
+  {
+    "pregunta": "Que fármaco de uso corriente en odontología, de los siguientes esta contraindicado durante el embarazo",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "lidocaína",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "amoxicilina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "cefalosporinas",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "No hay contraindicación en uso ni en A, B o C",
+        "correcta": true
+      }
+    ],
+    "numero": 1000
+  },
+  {
+    "pregunta": "En la mujer gestante los cambios hormonales tienen repercusiones orales que se manifiestan en:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Incremento de enfermedades periodontales",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Mayor incidencia de infecciones odontogénicas",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Mayor incidencia de caries",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Todas las respuestas anteriores son correctas.",
+        "correcta": true
+      }
+    ],
+    "numero": 1001
+  },
+  {
+    "pregunta": "¿Qué cambio fisiológico ocurre durante un embarazo normal?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Hiperuricemia",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Proteinuria",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Aumento de la filtración glomerular",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Hipertensión",
+        "correcta": false
+      }
+    ],
+    "numero": 1002
+  },
+  {
+    "pregunta": "Pueden emplearse durante el embarazo:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Laxantes con podofilino",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Diuréticos del tipo cloruro amónico",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Metronidazol",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ampicilina",
+        "correcta": true
+      }
+    ],
+    "numero": 1003
+  },
+  {
+    "pregunta": "Qué cambio fisiológico ocurre durante un embarazo sin complicaciones.",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "pag 756 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "hiperuricemia",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "proteinuria",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "aumento del filtrado glomerular",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "hipertensión",
+        "correcta": false
+      }
+    ],
+    "numero": 1004
+  },
+  {
+    "pregunta": "Acude para tratamiento de un absceso agudo en el 2.4, paciente de 32 años de edad, embarazada de 72 días. ¿Qué fármacos podemos usar en su tratamiento?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Amoxicilina",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Ampicilina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Cloruro de Lidocaína",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Paracetamol",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todos los anteriores",
+        "correcta": true
+      }
+    ],
+    "numero": 1005
+  },
+  {
+    "pregunta": "Paciente de 29 años de edad, portadora de un embarazo gemelar",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "No le puede hacer nada porque la paciente está embarazada",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Informa a la paciente que al estar embarazada no puede realizarse más tratamiento que el sintomático y le pauta con analgésicos del tipo aspirina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Informa a la paciente que al estar embarazada no puede realizarse más",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Tomar una Rx de aleta con delantal de plomo y al comprobar que el",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Una vez realizado el diagnóstico tratarla normalmente*",
+        "correcta": true
+      }
+    ],
+    "numero": 1006
+  },
+  {
+    "pregunta": "Paciente de 29 años de edad, portadora de un embarazo gemelar de 4 meses y medio de evolución, que acude por un flemón en el tercer cuadrante, se observa 36 con caries oclusodistal profunda, su actitud sería:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "No le puedo hacer nada porque la paciente está embarazada.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Informar a la paciente que al estar embarazada no puede realizarse mas tratamiento que el sintomático pauta analgésica de tipo aspirina.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Informar a la paciente que al estar embarazada no puede realizarse mas tratamiento que el sintomático pauta amoxicilina e ibuprofeno",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Tomar una Rx de aleta con delantal de plomo y al comprobar que el problema es pulpar, proceder a la exodoncia.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Una vez realizado el Dx tratarla normalmente.",
+        "correcta": true
+      }
+    ],
+    "numero": 1007
+  },
+  {
+    "pregunta": "En qué posición debe colocarse en el sillón dental una paciente embarazada de 10 semanas, que amerita tratamiento dental:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "decúbito supino",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "decúbito lateral izquierdo",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "decúbito lateral derecho",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "es indiferente",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Trendelenburg",
+        "correcta": false
+      }
+    ],
+    "numero": 1008
+  },
+  {
+    "pregunta": "Mujer de 35 años, embarazada de 21 semanas, presenta absceso periodontal de encía a nivel del 27, solicitando información a su ginecólogo éste nos indica que padece diabetes gestacional, en esta paciente, señale la incorrecta:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Procedemos como en otra paciente Periodontal con absceso periodontal",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "prescribimos antibiótico y antiinflamatorios, analgésicos y clorhexidina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Puede realizarse un curetaje periodontal, mejor que un raspado y alisado de la zona",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Sería interesante, aunque no imprescindible verla en medio hospitalario",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "sería inconveniente citarla a primera hora de la mañana por la diabetes",
+        "correcta": false
+      }
+    ],
+    "numero": 1009
+  },
+  {
+    "pregunta": "La paciente con diabetes Mellitus Gestacional:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "no requerirá cuidados odontológicos especiales",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "sólo requerirá cuidados odontológicos especiales si tiene amenaza de aborto",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "sólo requerirá cuidados odontológicos especiales si tiene periodontitis",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "es una paciente para cuidados especiales, por su diabetes y por su gestación",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "todas las respuestas anteriores no son ciertas",
+        "correcta": false
+      }
+    ],
+    "numero": 1010
+  },
+  {
+    "pregunta": "¿Con respecto a la teratogenicidad, cuál de los siguientes fármacos tiene categoría D?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Acetaminofen",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Acido Clavulanico",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Metronidazol",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Clindamicina",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Cefalexina",
+        "correcta": false
+      }
+    ],
+    "numero": 1011
+  },
+  {
+    "pregunta": "¿Cual de los siguientes fármacos puede utilizarse con más seguridad en una madre que  esta amamantando a su hijo?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Clavulanico",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Metronidazol",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Tetraciclina.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Doxicilina",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Azitromicina",
+        "correcta": true
+      }
+    ],
+    "numero": 1012
+  },
+  {
+    "pregunta": "¿Cual de los siguientes fármacos se considera categoría C, con respecto al riesgo de ser  suministrado en el embarazo?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Azitromicina.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Clavulanico",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Aspirina.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Gentamicina",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Lidocaína",
+        "correcta": false
+      }
+    ],
+    "numero": 1013
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes fármacos no emplearía nunca con un paciente gestante?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Zitromax",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Rhodogil",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Clamoxyl",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Bexistar",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Fugisdin",
+        "correcta": false
+      }
+    ],
+    "numero": 1014
+  },
+  {
+    "pregunta": "¿Cuál de estos fármacos es teratogenico con categoría D?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Acido clavulanico. B",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Gentamicina. D /C",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Aspirina D",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Clindamicina. B",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Amoxicilina. B",
+        "correcta": false
+      }
+    ],
+    "numero": 1015
+  },
+  {
+    "pregunta": "¿Cual de estos fármacos no emplearía nunca con una paciente gestante?:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Zitromax",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Adiro",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Clamoxyl",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Bexistar",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Fugisdin .",
+        "correcta": false
+      }
+    ],
+    "numero": 1016
+  },
+  {
+    "pregunta": "¿Cual de estos fármacos es teratogenico con categoría X?:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Acido Clavulanico",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Gentamicina.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Estreptomicina.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Clindamicina.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Amoxicilina.",
+        "correcta": false
+      }
+    ],
+    "numero": 1017
+  },
+  {
+    "pregunta": "¿En qué momento de la gestación estaría más indicado efectuar una exodoncia a una paciente?:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "En el primer trimestre.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "En el segundo trimestre",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "En el tercer trimestre.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Justo tras el parto.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Tras la fase de amamantamiento.",
+        "correcta": false
+      }
+    ],
+    "numero": 1018
+  },
+  {
+    "pregunta": "Con respecto al granuloma gravídico, señale la correcta:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "segundo trimestre. pag 766 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Suele darse en el tercer trimestre.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Debe extirparse quirúrgicamente.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Suele darse en la zona vestibular mandibular.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "No suele ceder de manera espontanea tras el parto",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Suele ser pediculado e interdental.",
+        "correcta": true
+      }
+    ],
+    "numero": 1019
+  },
+  {
+    "pregunta": "Señale la afirmación incorrecta acerca de la gingivitis gravídica:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Presentan lesiones rojo rutilantes en la encía.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Mayoritariamente aparece en áreas interdentales.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La hiposialia juega un papel clave en su desarrollo.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Rara vez presentan sangrado.",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "No siempre es una lesión dolorosa",
+        "correcta": false
+      }
+    ],
+    "numero": 1020
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes fármacos reduce más el efecto de los anticonceptivos orales?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Amoxicilina Clavulánico",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Metronidazol",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Azitromicina",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Doxiciclina",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "A y B",
+        "correcta": true
+      }
+    ],
+    "numero": 1021
+  },
+  {
+    "pregunta": "Señale la opción incorrecta acerca del manejo odontológico de la paciente consumidora de anticonceptivos orales:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Tienen una mayor predisposición a la gingivitis.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Tienen una mayor predisposición a la alveolitis seca post-extracción.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "El antibiótico de elección son las tetraciclinas.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Son pacientes que se pueden tratar con seguridad.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Pueden aparecer épulis gingivales.",
+        "correcta": false
+      }
+    ],
+    "numero": 1022
+  },
+  {
+    "pregunta": "Señale la opción incorrecta a cerca de los anticonceptivos orales:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "PAG 784 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Las mujeres en tratamiento con estos fármacos presentan mayores niveles de la especie prevotella en la flora gingival.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Las mujeres en tratamiento con estos fármacos experimentan un aumento de dos a tres veces en la incidencia de osteítis localizada después de la extracción del 3er molar mandibular:",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Sus múltiples interacciones farmacológicas es el mayor riesgo que presentan.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "La amoxicilina puede reducir su eficacia.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Los fármacos tranquilizantes no presentan interacción con ellos",
+        "correcta": true
+      }
+    ],
+    "numero": 1023
+  },
+  {
+    "pregunta": "Señale la afirmación falsa acerca del manejo odontológico se la paciente consumidora de anticonceptivos orales",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "PAG 782 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Mayor tendencia a padecer gingivitis",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Mayor tendencia a padecer alveolitis seca post-extracción",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Mayor tendencia a padecer pulpitis aguda ante caries",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "La amoxicilina reduce el efecto de los anticonceptivos orales",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todas son correctas, ninguna es falsa",
+        "correcta": false
+      }
+    ],
+    "numero": 1024
+  },
+  {
+    "pregunta": "Señale la afirmación incorrecta con respecto al manejo odontológico de la paciente en tratamiento con anticonceptivos:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Suelen presentar mayor incidencia de alveolitis seca tras la extracción de los terceros molares.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Los efectos indeseables de los anticonceptivos orales son los mismos que se observan en la cavidad oral de las gestantes.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "El uso prolongado de anticonceptivos orales con estrógenos puede conducir a la aparición de lesiones periodontales.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Los anticonceptivos orales no interaccionan con otros fármacos pues son hormonas naturales del organismo.",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Es muy interesante asegurarnos que la paciente dice la verdad al ser interrogada sobre el consumo de anticonceptivos",
+        "correcta": false
+      }
+    ],
+    "numero": 1025
+  },
+  {
+    "pregunta": "una paciente que toma anticonceptivos orales que patología encontraremos con mayor frecuencia entre las que se citan:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "PAG 782 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "endometritis",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Fibromialgia",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Frigidez",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Trombosis",
+        "correcta": true
+      }
+    ],
+    "numero": 1026
+  },
+  {
+    "pregunta": "Señale la opción incorrecta acerca del manejo odontológico de la paciente consumidora de anticonceptivos orales:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Tienen una mayor predisposición a la gingivitis.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Tienen una mayor predisposición a la alveolitis seca post-extracción.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "El antibiótico de elección son las tetraciclinas.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Son pacientes que se pueden tratar con seguridad.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Pueden aparecer épulis gingivales",
+        "correcta": false
+      }
+    ],
+    "numero": 1027
+  },
+  {
+    "pregunta": "Señale la opción incorrecta acerca de la menopausia:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Supone el cese permanente de la menstruación.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "En ella se da un descenso de estrógenos y aumento de progesterona.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Cursa con sofocos.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Puede cursar con insomnio.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Las pacientes menopáusicas tienden a padecer HTA",
+        "correcta": false
+      }
+    ],
+    "numero": 1028
+  },
+  {
+    "pregunta": "Cuál de las siguientes manifestaciones no es propia de la menopausia?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Palpitaciones",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Sofocos",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Hipersialia",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Prurito",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Mialgias",
+        "correcta": false
+      }
+    ],
+    "numero": 1029
+  },
+  {
+    "pregunta": "Cuál delas siguientes manifestaciones clínicas no se corresponde con la paciente menopáusica?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Hipersalivación.",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Osteoporosis.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Infecciones urinarias.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Obesidad",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Insomnio.",
+        "correcta": false
+      }
+    ],
+    "numero": 1030
+  },
+  {
+    "pregunta": "Señale la opción correcta con respecto al estado odontológico de la paciente postmenopáusica:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "PAG  785 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La osteoporosis es el factor más importante en la patogenia de la periodontitis en la mujer Postmenopáusica.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El síndrome de ardor bucal es igual de prevalente en hombres y mujeres mayores.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "El uso tópico de flúor en mujeres postmenopáusicas no aporta ningún beneficio oral adicional.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "El tratamiento hormonal sustitutivo mejora la sintomatología del síndrome de ardor bucal en mujeres postmenopáusicas.",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Todas las opciones anteriores son correctas.",
+        "correcta": false
+      }
+    ],
+    "numero": 1031
+  },
+  {
+    "pregunta": "Las pacientes que están bajo tratamientos anovulatorios, presentan una modificación de los cuadros estomatológicos. Señale la correcta.",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La falta de ovulación las asemeja a las particularidades de las pacientes menopáusicas",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Similares a los de las mujeres grávidas",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Caracterizados por un incremento de las poblaciones de Gramnegativos",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ninguna de las anteriores",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "B y C son correctas",
+        "correcta": true
+      }
+    ],
+    "numero": 1032
+  },
+  {
+    "pregunta": "Las pacientes que están bajo tratamientos anovulatorios, presentan una modificación de los cuadros estomatológicos",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "cambios en las proporciones de las especies microbianas orales",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "similares a los de las mujeres grávidas",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "c caracterizados por un incremento de las poblaciones de Gramnegativos anaerobicos",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "todas las anteriores",
+        "correcta": true
+      }
+    ],
+    "numero": 1033
+  },
+  {
+    "pregunta": "Señale la opción incorrecta acerca de la menopausia:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Supone el cese permanente de la menstruación.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "En ella se da un descenso de estrógenos y aumento de progesterona.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Cursa con sofocos.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Puede cursar con insomnio.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Las pacientes menopáusicas tienden a padecer HTA",
+        "correcta": false
+      }
+    ],
+    "numero": 1034
+  },
+  {
+    "pregunta": "Marque la respuesta FALSA. Un paciente oncológico que recibe bisfosfonatos como terapia puede:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Tener un Mieloma.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Tener un cuadro de osteorradionecrosis post-extracción.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Tener un Cáncer de Mama con metástasis.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Tener un cuadro de osteoquimionecrosis post-extracción.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Tener un Cáncer de Próstata con metástasis.",
+        "correcta": false
+      }
+    ],
+    "numero": 1035
+  },
+  {
+    "pregunta": "Marque la respuesta FALSA. Ante un paciente oncológico que recibe bifosfonatos como terapia hay que pensar que puede:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Tener un Mieloma.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Tener un Cáncer de Mama con metástasis.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Sufrir un cuadro de osteoquimionecrosis post-extracción.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Tener un Cáncer de Próstata con metástasis.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todo lo anterior es falso",
+        "correcta": true
+      }
+    ],
+    "numero": 1036
+  },
+  {
+    "pregunta": "El tratamiento con bifosfonatos esta indicado en:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Osteoporosis",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Enfermedad de paget.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Cáncer de mama.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Cáncer de próstata",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todas las anteriores",
+        "correcta": true
+      }
+    ],
+    "numero": 1037
+  },
+  {
+    "pregunta": "La osteonecrosis en pacientes que toman bifosfonatos",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "PAG 852-582 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Depende de la dosis del bifosfonato",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "duración del tto",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Aumenta en tratamiento combinado con corticoesteroides",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "a y b",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "a, b y c",
+        "correcta": true
+      }
+    ],
+    "numero": 1038
+  },
+  {
+    "pregunta": "que interviene en la osteonecrósis en paciente bajo tratamiento con bifosfonatos",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Potencia del fármaco y concentración Vías de administración",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Uso junto con corticoides",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Duración del tratamiento",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "A y b",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "A b y c",
+        "correcta": true
+      }
+    ],
+    "numero": 1039
+  },
+  {
+    "pregunta": "Respecto al mecanismo de acción de los bifosfonatos ¿Cuál de las siguientes afirmaciones es falsa?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Inhibición del desarrollo de osteoclastos por monocitos.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Aumento de la apoptosis de los osteoclastos",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Inhibición del factor inhibidor de los osteoclastos",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Reducción de la actividad osteoclastica",
+        "correcta": false
+      }
+    ],
+    "numero": 1040
+  },
+  {
+    "pregunta": "El óxido nitroso está contraindicado en:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Pac con miastenia gravis",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Pac sind down",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Pacientes psicópatas",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Pac epilépticos",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Pac esquizofrénicos",
+        "correcta": false
+      }
+    ],
+    "numero": 1041
+  },
+  {
+    "pregunta": "En relación a los niveles de sedación, marque la falsa:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La ansiolisis equivale al término de sedación suave",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "La sedación moderada equivale a la sedación consciente",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "En la sedación profunda el paciente no despierta fácilmente pero si responde a estímulos dolorosos.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "En la sedación profunda el paciente puede necesitar protección de las vías aéreas.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "El límite entre sedación profunda y anestesia general es muy claro",
+        "correcta": true
+      }
+    ],
+    "numero": 1042
+  },
+  {
+    "pregunta": "Los objetivos de la sedación son: Marque la respuesta FALSA",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Disminuir la ansiedad del paciente frente al tratamiento dental.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Facilitar el manejo de conducta del paciente colaborador, infantil o discapacitado.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Evitar movimientos indeseados del paciente durante el tratamiento.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Facilitar el trabajo del profesional.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Producir una respuesta positiva al tratamiento por la amnesia que aparece",
+        "correcta": true
+      }
+    ],
+    "numero": 1043
+  },
+  {
+    "pregunta": "Marque la FALSA. En relación al uso de la sedación para el control del estrés:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "PAG 947, 952 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La sedación endovenosa con Midazolan no requiere monitorización porque se puede revertir fácilmente con Flumazenilo.",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "La sedación endovenosa realizada con Propofol sí requiere monitorización.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La sedación con Ketamina requiere la vía parenteral para su aplicación",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "La sedación inhalatoria se realiza habitualmente con óxido nitroso.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "La sedación oral se realiza habitualmente con benzodiacepinas.",
+        "correcta": false
+      }
+    ],
+    "numero": 1044
+  },
+  {
+    "pregunta": "En relación a los requisitos de la prótesis fija en pacientes bajo anestesia general Señale la correcta",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "el arco facial debe apoyarse sobre el nasion del paciente",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "para disminuir la secreción salival no usar atropina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "los hidrocoloides son útiles en la impresiones",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "la lengua no supone dificultad",
+        "correcta": false
+      }
+    ],
+    "numero": 1045
+  },
+  {
+    "pregunta": "Acude a la consulta paciente que lleva 2 años recibiendo infusiones intravenosas mensuales de ácido zoledrónico. Dicho tratamiento no",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "PAG 1138 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Exodoncias secuenciales.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Colgajo de Widman modificado.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Colocación de implantes.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Tratamiento de conductos radiculares.",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Colgajo periodontal básico.",
+        "correcta": false
+      }
+    ],
+    "numero": 1046
+  },
+  {
+    "pregunta": "Señale la asociación correcta entre los valores de la prueba Telopéptido Carboxiterminal de la Telomerasa y el Riesgo de",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "PAG 1137 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Ningún riesgo de desarrollar Osteonecrosis",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Ninguno a mínimo riesgo de desarrollar Osteonecrosis",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Riesgo moderado de desarrollar Osteonecrosis",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Riesgo Alto de desarrollar Osteonecrosis",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todas las asociaciones anteriores son correctas",
+        "correcta": true
+      }
+    ],
+    "numero": 1047
+  },
+  {
+    "pregunta": "Con respecto al tratamiento con bifosfonato señale la opción correcta:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "PAG 208 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "En los bifosfonatos orales el periodo de riesgo no suele aparecer hasta pasado los 3 primeros años del inicio del tratamiento.",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "No es necesario realizar interconsulta con el médico.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La cirugía oral en pacientes bajo tratamiento con bifosfonato intravenoso es un procedimiento probablemente seguro.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "El tratamiento periodontal básico es el contraindicado en pacientes bajo tratamiento con bifosfonatos orales.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "El tratamiento ortodóncico está contraindicado en pacientes con tratamiento bajo bifosfonato I.V",
+        "correcta": false
+      }
+    ],
+    "numero": 1048
+  },
+  {
+    "pregunta": "Señale la opción incorrecta a cerca de los valores del telopéptido carboxiterminal de la telomerasa con respecto al riesgo de",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "PAG 1137 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Entre 300 y 600 pg/ml el riesgo de osteonecrosis es ninguno.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Menor de 100 pg/ml el riesgo de osteonecrosis es moderado.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Entre 150 y 299 el riesgo de osteonecrosis es de ninguno a mínimo.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "B y c son opciones incorrectas.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todas las opciones son correctas, no hay opción incorrecta.",
+        "correcta": false
+      }
+    ],
+    "numero": 1049
+  },
+  {
+    "pregunta": "Señale la opción incorrecta acerca del tratamiento con bisfosfonatos y odontología:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "PAG 1137 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "En pacientes bajo tratamiento con bisfosfonatos intravenosos, los tratamientos de riesgo se deben hacer antes del mismo o durante los",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "En pacientes consumidores de bisfosfonatos orales los tratamientos de riesgo deben realizarse en los tres primeros años",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Cuando la prueba CTX es mayor de 150 /ml, el riesgo de osteonecrosis es alto",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "c y d son incorrectas.",
+        "correcta": false
+      }
+    ],
+    "numero": 1050
+  },
+  {
+    "pregunta": "Acude a consulta una paciente que lleva recibiendo bisfosfonatos por vía intravenosa más de 8 años. ¿Que procedimientos podemos",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Cirugía de remodelado óseo",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Exodoncias",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Cirugía periodontal",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Cirugía de colocación de implantes",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Ninguno de los anteriores",
+        "correcta": true
+      }
+    ],
+    "numero": 1051
+  },
+  {
+    "pregunta": "Paciente de 72 años, con antecedentes de consumo de bifosfonatos por vía  intravenosa durante 11 años, acude a la clínica para realizarse extracciones del 34 y 35. Qué se debe hacer?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Se extraerán las piezas como en el caso de pacientes que no consumen bifosfonatos",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Se extraerán las piezas usando esponjas de fibrina y suturando la herida.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Se indicará al paciente que suspenda el consumo de bifosfonatos durante dos semanas y se procederá a la extracción una vez",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "No se procederá a la extracción hasta que no se cumpla un protocolo marcado por el médico .",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Se prescribirá un tratamiento previo con Clorhexidina durante una semana y entonces se extraerán dichas piezas.",
+        "correcta": false
+      }
+    ],
+    "numero": 1052
+  },
+  {
+    "pregunta": "Si realizamos un remodelado óseo mandibular en un paciente que lleva 15 años consumiendo bisfosfonatos por vía oral, Qué \ncomplicación podríamos encontrarnos con más probabilidad?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Aparición de estomatitis aftosa oral.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Cicatrización tórpida de la mucosa oral.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Sobreinfección del tejido blando.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Imposibilidad de controlar el sangrado.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Osteonecrosis mandibular.",
+        "correcta": true
+      }
+    ],
+    "numero": 1053
+  },
+  {
+    "pregunta": "Marque la repuesta cierta:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "predominan las osteorradionecrosis maxilares",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "aparecen ante mala higiene del paciente",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "las exodoncias están contraindicadas",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "el margen de seguridad y el tiempo trascurrido para realizar la exodoncia durante la aplicación de la radioterapia es fijo",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "los procesos periodontales pueden originar una secuela la osteorradionecrosis",
+        "correcta": false
+      }
+    ],
+    "numero": 1054
+  },
+  {
+    "pregunta": "Respecto al mecanismo de acción de los bifosfonatos ¿Cuál de las siguientes afirmaciones es falsa?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Inhibición del desarrollo de osteoclastos por monocitos.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Aumento de la apoptosis de los osteoclastos",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Inhibición del factor inhibidor de los osteoclastos",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Reducción de la actividad osteoclastica",
+        "correcta": false
+      }
+    ],
+    "numero": 1055
+  },
+  {
+    "pregunta": "La osteorradionecrosis depende de:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "hipoxia",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "zona",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "duración",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "dosis",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "tiempo  de exposición",
+        "correcta": false
+      }
+    ],
+    "numero": 1056
+  },
+  {
+    "pregunta": "Cuál de los siguientes bifosfonatos se asocia mas frecuentemente con osteoquimionecrosis maxilar:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Alendronato",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Ibandronato",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "risedronato",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "zoledronato",
+        "correcta": true
+      }
+    ],
+    "numero": 1057
+  },
+  {
+    "pregunta": "Acude a la consulta paciente que lleva 2 años recibiendo infusiones intravenosas mensuales de ácido zoledrónico. Dicho tratamiento no puede suspenderse ¿Qué procedimiento clínico no estaría contraindicado?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Exodoncias secuenciales.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Colgajo de Widman modificado.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Colocación de implantes.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Tratamiento de conductos radiculares.",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Colgajo periodontal básico.",
+        "correcta": false
+      }
+    ],
+    "numero": 1058
+  },
+  {
+    "pregunta": "Señale la asociación correcta entre los valores de la prueba Telopéptido Carboxiterminal de la Telomerasa y el Riesgo de Osteonecrosis:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Ningún riesgo de desarrollar Osteonecrosis",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Ninguno a mínimo riesgo de desarrollar Osteonecrosis",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Riesgo moderado de desarrollar Osteonecrosis",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Riesgo Alto de desarrollar Osteonecrosis",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todas las asociaciones anteriores son correctas",
+        "correcta": true
+      }
+    ],
+    "numero": 1059
   }
 ]
