@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import type { Pregunta } from '@/types'
 import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
+import { ReportarPregunta } from '@/components/ReportarPregunta'
 import { useAppSettings } from '@/context/AppSettings'
 import { ArrowLeft, ArrowRight, CheckCircle2, Circle, CheckSquare, Square, X, Timer, AlertTriangle } from 'lucide-react'
 
@@ -14,11 +15,13 @@ function formatearTiempo(seg: number): string {
 }
 
 export function Examen({
+  userId,
   preguntas,
   tiempoLimiteMinutos,
   onCancelar,
   onFinalizar,
 }: {
+  userId: string
   preguntas: Pregunta[]
   tiempoLimiteMinutos: number | null
   onCancelar: () => void
@@ -129,6 +132,14 @@ export function Examen({
           <p className="mt-1.5 text-xs font-medium text-muted-foreground">{t.examen.multipleAyuda}</p>
         )}
 
+        {/* Reportar pregunta también durante el examen (no solo en Resultados):
+            así lo pidió el diseño original — a veces el error se nota en el
+            momento, antes de terminar. Reusa el mismo componente/tabla que
+            Resultados.tsx. */}
+        <div className="mt-2.5">
+          <ReportarPregunta userId={userId} pregunta={pregunta} />
+        </div>
+
         <div className="mt-5 space-y-2.5">
           {pregunta.opciones.map((op) => {
             const activa = seleccion.includes(op.letra)
@@ -151,9 +162,10 @@ export function Examen({
                 ) : (
                   <Circle className="mt-0.5 h-5 w-5 shrink-0 text-muted-foreground/50" />
                 )}
-                <span className="text-sm font-medium leading-snug text-foreground">
-                  <span className="font-bold">{op.letra}.</span> {op.texto}
-                </span>
+                {/* Sin letra visible durante el examen a propósito (decisión 2026-08-22):
+                    el orden de arriba a abajo ya identifica cada opción mientras se rinde.
+                    La letra recién se muestra en Resultados, al revisar qué falló. */}
+                <span className="text-sm font-medium leading-snug text-foreground">{op.texto}</span>
               </button>
             )
           })}

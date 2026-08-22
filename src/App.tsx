@@ -264,8 +264,9 @@ function App() {
             path={RUTA.examen}
             element={
               <Protegida sesionLista={sesionLista} autenticado={autenticado}>
-                {sesionExamen ? (
+                {userId && sesionExamen ? (
                   <Examen
+                    userId={userId}
                     preguntas={sesionExamen.preguntas}
                     tiempoLimiteMinutos={sesionExamen.tiempoLimiteMinutos}
                     onCancelar={() => navigate(RUTA.home)}

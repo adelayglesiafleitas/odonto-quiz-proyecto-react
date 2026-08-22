@@ -135,6 +135,24 @@ export interface Diccionario {
     estudioTexto: string
     formatoOficial: { titulo: string; texto: string; enlace?: { texto: string; url: string } }
     footer: string
+    seccionUsarApp: string
+    seccionAtencionCliente: string
+    escribirSoporteTitulo: string
+    escribirSoporteTexto: string
+    misConsultasTitulo: string
+    misConsultasTexto: string
+    proximamente: string
+  }
+  reportarPregunta: {
+    abrir: string
+    titulo: string
+    subtitulo: string
+    motivos: Record<'respuesta_incorrecta' | 'opcion_ambigua_o_duplicada' | 'texto_con_error' | 'otro', string>
+    comentarioPlaceholder: string
+    enviar: string
+    exito: string
+    listo: string
+    error: string
   }
   nav: {
     home: string
@@ -316,6 +334,30 @@ export const es: Diccionario = {
     },
     footer:
       'Tu cuenta y tu historial de puntuaciones se guardan de forma segura en tu perfil, así que los tienes disponibles en cualquier dispositivo en el que inicies sesión. Tus preferencias de tema e idioma se guardan solo en este navegador.',
+    seccionUsarApp: 'Usar la app',
+    seccionAtencionCliente: 'Atención al cliente',
+    escribirSoporteTitulo: 'Escribir a soporte',
+    escribirSoporteTexto:
+      'Reporta un error o envía una consulta directamente al equipo. Muy pronto vas a poder abrir un ticket desde acá.',
+    misConsultasTitulo: 'Mis consultas',
+    misConsultasTexto: 'Acá vas a ver el estado de tus consultas y las respuestas del equipo.',
+    proximamente: 'Próximamente',
+  },
+  reportarPregunta: {
+    abrir: 'Reportar esta pregunta',
+    titulo: 'Reportar esta pregunta',
+    subtitulo: '¿Qué está mal?',
+    motivos: {
+      respuesta_incorrecta: 'La respuesta marcada como correcta no lo es',
+      opcion_ambigua_o_duplicada: 'Una opción es ambigua o está duplicada',
+      texto_con_error: 'El enunciado o una opción tiene un error de texto',
+      otro: 'Otro motivo',
+    },
+    comentarioPlaceholder: 'Contanos más (opcional)',
+    enviar: 'Enviar reporte',
+    exito: 'Gracias, lo vamos a revisar.',
+    listo: 'Listo',
+    error: 'No se pudo enviar. Intenta de nuevo.',
   },
   nav: {
     home: 'Home',
@@ -497,6 +539,29 @@ export const en: Diccionario = {
     },
     footer:
       "Your account and score history are saved securely in your profile, so they're available on any device you sign in from. Your theme and language preferences are saved only in this browser.",
+    seccionUsarApp: 'Using the app',
+    seccionAtencionCliente: 'Customer support',
+    escribirSoporteTitulo: 'Contact support',
+    escribirSoporteTexto: "Report a bug or send a question straight to the team. You'll soon be able to open a ticket right here.",
+    misConsultasTitulo: 'My requests',
+    misConsultasTexto: "See the status of your requests and the team's replies here.",
+    proximamente: 'Coming soon',
+  },
+  reportarPregunta: {
+    abrir: 'Report this question',
+    titulo: 'Report this question',
+    subtitulo: "What's wrong?",
+    motivos: {
+      respuesta_incorrecta: "The answer marked as correct isn't",
+      opcion_ambigua_o_duplicada: 'An option is ambiguous or duplicated',
+      texto_con_error: 'The question or an option has a text error',
+      otro: 'Something else',
+    },
+    comentarioPlaceholder: 'Tell us more (optional)',
+    enviar: 'Send report',
+    exito: "Thanks, we'll take a look.",
+    listo: 'Done',
+    error: "Couldn't send it. Please try again.",
   },
   nav: {
     home: 'Home',

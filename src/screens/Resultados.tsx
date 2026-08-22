@@ -4,6 +4,7 @@ import type { RespuestaUsuario } from './Examen'
 import { Button } from '@/components/ui/button'
 import { Spinner } from '@/components/Spinner'
 import { BottomNav } from '@/components/BottomNav'
+import { ReportarPregunta } from '@/components/ReportarPregunta'
 import { guardarIntentoRemoto, getHistorialRemoto, calcularPromedio } from '@/lib/historial'
 import { useAppSettings } from '@/context/AppSettings'
 import { CheckCircle2, XCircle, RotateCcw, Home as HomeIcon, ChevronDown, Clock, AlarmClockOff, Target, ChevronRight } from 'lucide-react'
@@ -247,6 +248,9 @@ export function Resultados({
                         </div>
                       )
                     })}
+                    <div className="pt-1">
+                      <ReportarPregunta userId={userId} pregunta={p} />
+                    </div>
                   </div>
                 )}
               </div>
