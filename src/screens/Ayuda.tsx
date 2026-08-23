@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   ClipboardList,
   Target,
@@ -10,6 +11,7 @@ import {
   Flame,
   Award,
   ChevronDown,
+  ChevronRight,
   MessageCircleQuestion,
   Inbox,
 } from 'lucide-react'
@@ -17,17 +19,38 @@ import { useAppSettings } from '@/context/AppSettings'
 import { SettingsToggle } from '@/components/SettingsToggle'
 import { LogoMark } from '@/components/Logo'
 import { BottomNav } from '@/components/BottomNav'
+import { RUTA_SOPORTE } from '@/lib/rutas'
+import { listarMisTickets, contarNoLeidos, type Ticket } from '@/lib/tickets'
 import type { Pantalla } from '@/types'
 
 export function Ayuda({
   umbralAprobado,
+  userId,
   onNavigate,
 }: {
   umbralAprobado: number
+  userId: string | null
   onNavigate: (p: Pantalla) => void
 }) {
   const { t } = useAppSettings()
+  const navigate = useNavigate()
   const formatoOficial = t.ayuda.formatoOficial
+
+  // Solo para el resumen ("3 conversaciones · 1 sin leer") de la tarjeta de
+  // abajo: la lista real vive en /ayuda/soporte (MisConsultas.tsx). Ayuda es
+  // visible sin sesión iniciada (ver App.tsx), así que esto no se pide si
+  // todavía no hay userId.
+  const [tickets, setTickets] = useState<Ticket[] | null>(null)
+  useEffect(() => {
+    if (!userId) return
+    let cancelado = false
+    listarMisTickets(userId).then((lista) => {
+      if (!cancelado) setTickets(lista)
+    })
+    return () => {
+      cancelado = true
+    }
+  }, [userId])
 
   // Un solo acordeón abierto a la vez en toda la pantalla (no uno por sección):
   // evita que dos tarjetas largas queden abiertas juntas y la pantalla vuelva
@@ -103,36 +126,49 @@ export function Ayuda({
         })}
       </div>
 
-      {/* Sección 2: atención al cliente (2026-08-22). Por ahora son tarjetas
-          informativas, no filas de navegación: todavía no existe la pantalla
-          ni el backend de tickets detrás, así que no se simula un enlace que
-          no lleva a ningún lado. Cuando se implemente el flujo de soporte
-          real, estas dos pasan a ser botones que navegan a /ayuda/soporte y
-          /ayuda/soporte/:id. */}
+      {/* Sección 2: atención al cliente. Tickets reales sobre las tablas
+          `tickets`/`mensajes` (ver claude/atencion-cliente-diseno.md). Ayuda
+          es visible sin sesión iniciada, pero estas dos tarjetas navegan a
+          /ayuda/soporte, que sí está protegida — si no hay sesión, redirige
+          a login antes de mostrar nada. */}
       <p className="mt-6 px-1 text-xs font-bold uppercase tracking-wide text-muted-foreground">
         {t.ayuda.seccionAtencionCliente}
       </p>
       <div className="mt-2 space-y-2">
-        {[
-          { icon: MessageCircleQuestion, titulo: t.ayuda.escribirSoporteTitulo, texto: t.ayuda.escribirSoporteTexto },
-          { icon: Inbox, titulo: t.ayuda.misConsultasTitulo, texto: t.ayuda.misConsultasTexto },
-        ].map((item) => {
-          const Icon = item.icon
-          return (
-            <div key={item.titulo} className="card-elevated flex items-start gap-3 rounded-2xl bg-card p-4">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
-                <Icon className="h-5 w-5" />
-              </span>
-              <div className="flex-1">
-                <p className="text-[15px] font-bold text-foreground">{item.titulo}</p>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.texto}</p>
-              </div>
-              <span className="mt-0.5 shrink-0 rounded-full bg-secondary px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-muted-foreground">
-                {t.ayuda.proximamente}
-              </span>
-            </div>
-          )
-        })}
+        <button
+          onClick={() => navigate(RUTA_SOPORTE, { state: { abrirNuevo: true } })}
+          className="card-elevated flex w-full items-center gap-3 rounded-2xl bg-card p-4 text-left"
+        >
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
+            <MessageCircleQuestion className="h-5 w-5" />
+          </span>
+          <div className="flex-1">
+            <p className="text-[15px] font-bold text-foreground">{t.ayuda.escribirSoporteTitulo}</p>
+            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{t.ayuda.escribirSoporteTexto}</p>
+          </div>
+          <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
+        </button>
+
+        <button
+          onClick={() => navigate(RUTA_SOPORTE)}
+          className="card-elevated flex w-full items-center gap-3 rounded-2xl bg-card p-4 text-left"
+        >
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-info/10 text-info">
+            <Inbox className="h-5 w-5" />
+          </span>
+          <div className="flex-1">
+            <p className="text-[15px] font-bold text-foreground">{t.ayuda.misConsultasTitulo}</p>
+            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+              {t.ayuda.misConsultasResumen(tickets?.length ?? 0, tickets ? contarNoLeidos(tickets) : 0)}
+            </p>
+          </div>
+          {tickets && contarNoLeidos(tickets) > 0 && (
+            <span className="flex h-5 min-w-5 shrink-0 items-center justify-center rounded-full bg-accent px-1.5 text-[11px] font-extrabold text-accent-foreground">
+              {contarNoLeidos(tickets)}
+            </span>
+          )}
+          <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
+        </button>
       </div>
 
       <div className="card-elevated mt-4 rounded-2xl bg-secondary p-4">

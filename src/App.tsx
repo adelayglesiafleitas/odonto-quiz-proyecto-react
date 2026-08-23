@@ -6,7 +6,7 @@ import { cargarBanco, seleccionarPreguntas } from '@/lib/data'
 import { CURSO, CURSO_ID } from '@/lib/cursos'
 import { supabase } from '@/lib/supabase'
 import { verificarDispositivo, cerrarSesionOtrosDispositivos, liberarDispositivoActual } from '@/lib/dispositivos'
-import { RUTA } from '@/lib/rutas'
+import { RUTA, RUTA_SOPORTE, RUTA_SOPORTE_DETALLE } from '@/lib/rutas'
 import { LoadingScreen } from '@/components/LoadingScreen'
 import { DispositivoBloqueado } from '@/screens/DispositivoBloqueado'
 import { Login } from '@/screens/Login'
@@ -29,6 +29,8 @@ const Ayuda = lazy(() => import('@/screens/Ayuda').then((m) => ({ default: m.Ayu
 const Academia = lazy(() => import('@/screens/Academia').then((m) => ({ default: m.Academia })))
 const Configuracion = lazy(() => import('@/screens/Configuracion').then((m) => ({ default: m.Configuracion })))
 const Estadisticas = lazy(() => import('@/screens/Estadisticas').then((m) => ({ default: m.Estadisticas })))
+const MisConsultas = lazy(() => import('@/screens/MisConsultas').then((m) => ({ default: m.MisConsultas })))
+const HiloConsulta = lazy(() => import('@/screens/HiloConsulta').then((m) => ({ default: m.HiloConsulta })))
 
 interface SesionExamen {
   preguntas: Pregunta[]
@@ -333,7 +335,28 @@ function App() {
             }
           />
 
-          <Route path={RUTA.ayuda} element={<Ayuda umbralAprobado={CURSO.porcentajeAprobado} onNavigate={irA} />} />
+          <Route
+            path={RUTA.ayuda}
+            element={<Ayuda umbralAprobado={CURSO.porcentajeAprobado} userId={userId} onNavigate={irA} />}
+          />
+
+          <Route
+            path={RUTA_SOPORTE}
+            element={
+              <Protegida sesionLista={sesionLista} autenticado={autenticado}>
+                {userId && <MisConsultas userId={userId} onNavigate={irA} />}
+              </Protegida>
+            }
+          />
+
+          <Route
+            path={RUTA_SOPORTE_DETALLE}
+            element={
+              <Protegida sesionLista={sesionLista} autenticado={autenticado}>
+                {userId && <HiloConsulta userId={userId} />}
+              </Protegida>
+            }
+          />
 
           <Route
             path={RUTA.academia}

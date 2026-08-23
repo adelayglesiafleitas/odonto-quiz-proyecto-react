@@ -140,7 +140,7 @@ export interface Diccionario {
     escribirSoporteTitulo: string
     escribirSoporteTexto: string
     misConsultasTitulo: string
-    misConsultasTexto: string
+    misConsultasResumen: (total: number, sinLeer: number) => string
     proximamente: string
   }
   reportarPregunta: {
@@ -153,6 +153,30 @@ export interface Diccionario {
     exito: string
     listo: string
     error: string
+  }
+  soporte: {
+    tituloLista: string
+    subtituloLista: string
+    nuevaConsulta: string
+    vacioTitulo: string
+    vacioTexto: string
+    estado: Record<'abierto' | 'en_progreso' | 'resuelto' | 'cerrado', string>
+    motivo: Record<'cuenta' | 'pagos' | 'otro', string>
+    preguntaChip: (numero: number) => string
+    nuevoTitulo: string
+    nuevoSubtitulo: string
+    asuntoLabel: string
+    asuntoPlaceholder: string
+    mensajeLabel: string
+    mensajePlaceholder: string
+    enviar: string
+    enviando: string
+    error: string
+    camposRequeridos: string
+    escribirPlaceholder: string
+    reabreAviso: string
+    soporteAutor: string
+    vos: string
   }
   nav: {
     home: string
@@ -337,10 +361,13 @@ export const es: Diccionario = {
     seccionUsarApp: 'Usar la app',
     seccionAtencionCliente: 'Atención al cliente',
     escribirSoporteTitulo: 'Escribir a soporte',
-    escribirSoporteTexto:
-      'Reporta un error o envía una consulta directamente al equipo. Muy pronto vas a poder abrir un ticket desde acá.',
+    escribirSoporteTexto: 'Contanos qué pasó y te respondemos por acá.',
     misConsultasTitulo: 'Mis consultas',
-    misConsultasTexto: 'Acá vas a ver el estado de tus consultas y las respuestas del equipo.',
+    misConsultasResumen: (total, sinLeer) => {
+      if (total === 0) return 'Todavía no escribiste a soporte'
+      if (sinLeer === 0) return `${total} conversación${total === 1 ? '' : 'es'}`
+      return `${total} conversación${total === 1 ? '' : 'es'} · ${sinLeer} sin leer`
+    },
     proximamente: 'Próximamente',
   },
   reportarPregunta: {
@@ -358,6 +385,39 @@ export const es: Diccionario = {
     exito: 'Gracias, lo vamos a revisar.',
     listo: 'Listo',
     error: 'No se pudo enviar. Intenta de nuevo.',
+  },
+  soporte: {
+    tituloLista: 'Mis consultas',
+    subtituloLista: 'Tus conversaciones con soporte',
+    nuevaConsulta: 'Nueva consulta',
+    vacioTitulo: 'Todavía no escribiste a soporte',
+    vacioTexto: 'Cuando tengas una consulta o un problema, escribinos y te vamos a responder acá.',
+    estado: {
+      abierto: 'Abierto',
+      en_progreso: 'En progreso',
+      resuelto: 'Resuelto',
+      cerrado: 'Cerrado',
+    },
+    motivo: {
+      cuenta: 'Mi cuenta o mi perfil',
+      pagos: 'Pagos y suscripción',
+      otro: 'Otra consulta',
+    },
+    preguntaChip: (numero) => `Pregunta N.º ${numero}`,
+    nuevoTitulo: 'Nueva consulta',
+    nuevoSubtitulo: 'Elegí el motivo y contanos qué necesitás',
+    asuntoLabel: 'Asunto',
+    asuntoPlaceholder: 'Resumí tu consulta en pocas palabras',
+    mensajeLabel: 'Contanos más',
+    mensajePlaceholder: 'Dános el mayor detalle posible…',
+    enviar: 'Enviar',
+    enviando: 'Enviando…',
+    error: 'No se pudo enviar. Intenta de nuevo.',
+    camposRequeridos: 'Completá el asunto y el mensaje.',
+    escribirPlaceholder: 'Escribí un mensaje…',
+    reabreAviso: 'Esta consulta está resuelta — si escribís un mensaje, se reabre automáticamente.',
+    soporteAutor: 'Soporte',
+    vos: 'Vos',
   },
   nav: {
     home: 'Home',
@@ -542,9 +602,13 @@ export const en: Diccionario = {
     seccionUsarApp: 'Using the app',
     seccionAtencionCliente: 'Customer support',
     escribirSoporteTitulo: 'Contact support',
-    escribirSoporteTexto: "Report a bug or send a question straight to the team. You'll soon be able to open a ticket right here.",
+    escribirSoporteTexto: "Tell us what happened and we'll reply right here.",
     misConsultasTitulo: 'My requests',
-    misConsultasTexto: "See the status of your requests and the team's replies here.",
+    misConsultasResumen: (total, sinLeer) => {
+      if (total === 0) return "You haven't contacted support yet"
+      if (sinLeer === 0) return `${total} conversation${total === 1 ? '' : 's'}`
+      return `${total} conversation${total === 1 ? '' : 's'} · ${sinLeer} unread`
+    },
     proximamente: 'Coming soon',
   },
   reportarPregunta: {
@@ -562,6 +626,39 @@ export const en: Diccionario = {
     exito: "Thanks, we'll take a look.",
     listo: 'Done',
     error: "Couldn't send it. Please try again.",
+  },
+  soporte: {
+    tituloLista: 'My requests',
+    subtituloLista: 'Your conversations with support',
+    nuevaConsulta: 'New request',
+    vacioTitulo: "You haven't contacted support yet",
+    vacioTexto: "When you have a question or an issue, write to us and we'll reply here.",
+    estado: {
+      abierto: 'Open',
+      en_progreso: 'In progress',
+      resuelto: 'Resolved',
+      cerrado: 'Closed',
+    },
+    motivo: {
+      cuenta: 'My account or profile',
+      pagos: 'Payments and subscription',
+      otro: 'Something else',
+    },
+    preguntaChip: (numero) => `Question No. ${numero}`,
+    nuevoTitulo: 'New request',
+    nuevoSubtitulo: "Pick a reason and tell us what you need",
+    asuntoLabel: 'Subject',
+    asuntoPlaceholder: 'Summarize your request in a few words',
+    mensajeLabel: 'Tell us more',
+    mensajePlaceholder: 'Give us as much detail as you can…',
+    enviar: 'Send',
+    enviando: 'Sending…',
+    error: "Couldn't send it. Please try again.",
+    camposRequeridos: 'Fill in the subject and the message.',
+    escribirPlaceholder: 'Write a message…',
+    reabreAviso: "This request is resolved — sending a message will reopen it automatically.",
+    soporteAutor: 'Support',
+    vos: 'You',
   },
   nav: {
     home: 'Home',

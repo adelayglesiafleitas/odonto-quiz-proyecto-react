@@ -19,3 +19,13 @@ export const RUTA: Record<Pantalla, string> = {
   config: '/config',
   estadisticas: '/estadisticas',
 }
+
+// Atención al cliente: no son "pantallas lógicas" del enum Pantalla porque
+// son rutas con id (un hilo de ticket concreto), así que viven fuera del
+// mapa de arriba y se navegan con react-router directo (useNavigate), no
+// con onNavigate. Ver claude/atencion-cliente-diseno.md.
+export const RUTA_SOPORTE = '/ayuda/soporte'
+export const RUTA_SOPORTE_DETALLE = '/ayuda/soporte/:id'
+export function rutaSoporteDetalle(id: string): string {
+  return `/ayuda/soporte/${id}`
+}
