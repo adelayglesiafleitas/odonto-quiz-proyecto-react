@@ -35838,5 +35838,3550 @@
       }
     ],
     "numero": 1059
+  },
+  {
+    "pregunta": "Mientras realizamos una exodoncia a un joven de 34 años, atleta, garantizada la analgesia, sufre un síncope. ¿Cuál de los siguientes síncopes es el más frecuente en la población en general?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "sincope ortostatico",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "síncope vaso vagal",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "síncope arrítmico",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "síncope instructivo por estenosis aórtica",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "síncope por hipersensibilidad seno.",
+        "correcta": false
+      }
+    ],
+    "numero": 1060
+  },
+  {
+    "pregunta": "El signo principal de la hiperventilación es:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Cianosis",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Disnea",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Hipercapnia",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Hipoxia",
+        "correcta": false
+      }
+    ],
+    "numero": 1061
+  },
+  {
+    "pregunta": "En un paciente en shock y manifestaciones respiratorias",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Ponerlo en trendelembourg si baja la tensión.",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Evaluar constantes",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Efectuar RCP si es necesario.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Pedir ayuda.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Aplicar salbutamol inhalador.",
+        "correcta": false
+      }
+    ],
+    "numero": 1062
+  },
+  {
+    "pregunta": "Paciente que durante la operatoria presenta dolor opresivo en base de cuello, hombros y  brazo izquierdo; acompañándose de signos vegetativos intensos y sin localidad  neurológica.",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Suspención de la operatoria, posición semisentada, administrar solinitrina sublingual.",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Monitorización pulso y TA.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Administración de AAS 500mg, si no hay alergias a salicilatos ni patologías GI",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Administrar adalat sublingual, si TA mínima sube de 10.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todas pueden ser actitudes adecuadas",
+        "correcta": false
+      }
+    ],
+    "numero": 1063
+  },
+  {
+    "pregunta": "Los procedimientos básicos a seguir antes las emergencias indican que el paso 3 consiste en.",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "PAG 103 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Monitorizar la frecuencia y carácter de la respiración.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Chequear frecuencia del pulso y su característica.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Chequear la presión sanguínea.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Asegurarse que el paciente no tenga la vía aérea obstruída.",
+        "correcta": true
+      }
+    ],
+    "numero": 1064
+  },
+  {
+    "pregunta": "Ante un paciente que presente un cuerpo extraño en la vía aérea señale la opción correcta",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Golpes fuertes, secos y repetidos entre los homóplatos del paciente.",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Introducir un dedo extendido por el centro de la faringe para sacar el cuerpo extraño.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Hiperextender la cabeza del paciente.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Hacer una traqueotomía de urgencia",
+        "correcta": false
+      }
+    ],
+    "numero": 1065
+  },
+  {
+    "pregunta": "Tenemos que sospechar una intoxicación por fármaco vasoconstrictor si aparece:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Arritmia",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Dolor ansioso",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Hipertensión arterial",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Excitación",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todas las anteriores son ciertas",
+        "correcta": true
+      }
+    ],
+    "numero": 1066
+  },
+  {
+    "pregunta": "Si presenciamos un síndrome de hiperventilación, el paciente:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "pag 110-111 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Suele ser varón",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Está tranquilo",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Presenta una frecuencia respiratoria muy baja",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Puede presentar dolor precordial",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Pierde siempre la consciencia",
+        "correcta": false
+      }
+    ],
+    "numero": 1067
+  },
+  {
+    "pregunta": "El fármaco de elección en el tratamiento de una reacción anafiláctica grave continúa siendo la administración de:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Atropina",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Adrenalina",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Antihistamínicos",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Corticoides",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Oxígeno",
+        "correcta": false
+      }
+    ],
+    "numero": 1068
+  },
+  {
+    "pregunta": "El sincope o cuadro vasovagal se caracteriza por:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Hipertensión",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Taquicardia",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Bradicardia",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Dolor precordial",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Mantener el nivel de consciencia",
+        "correcta": false
+      }
+    ],
+    "numero": 1069
+  },
+  {
+    "pregunta": "La posición de seguridad se realiza:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Si el paciente mantiene el ritmo cardiaco",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Durante las maniobras de reanimación",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Si hemos podido extraer el material extraño de la orofaringe",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Si el paciente está inconsciente, mantiene la ventilación espontánea y no hay riesgo de lesión cervical",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "El paciente ha tenido un accidente de trafico",
+        "correcta": false
+      }
+    ],
+    "numero": 1070
+  },
+  {
+    "pregunta": "¿Cuál de estas sustancias actúa como vasodilatador arteriolar?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Adrenalina",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Fenilefrina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Histamina",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Norepinefrina",
+        "correcta": false
+      }
+    ],
+    "numero": 1071
+  },
+  {
+    "pregunta": "Dentro de los agentes hemostásicos que podemos usar en una exodoncia. Marque la falsa:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "acido epsilon amino caproico",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "celulosa oxidada",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "acido tranexamico",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "clopidrogel",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "cloruto de aluminio",
+        "correcta": false
+      }
+    ],
+    "numero": 1072
+  },
+  {
+    "pregunta": "Crisis asmática",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "PAG 115 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "salbutamol",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Antihistamínicos inhalados",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Corticoides iv",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "A y C",
+        "correcta": true
+      }
+    ],
+    "numero": 1073
+  },
+  {
+    "pregunta": "En crisis hipertensión, ¿Fármaco de elección?:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "25mg",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "nifedipino",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "furosemida",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "captopril",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "los tres",
+        "correcta": false
+      }
+    ],
+    "numero": 1074
+  },
+  {
+    "pregunta": "Qué medicamentos puede causar crisis asmática:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Macrólidos",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Corticoesteroides",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "AAS",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Teofilina",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Antihistaminicos",
+        "correcta": false
+      }
+    ],
+    "numero": 1075
+  },
+  {
+    "pregunta": "Frecuencia en reanimación cardiopulmonar",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "100 / 20",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "15 / 2",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "50/ 100",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "30/ 2",
+        "correcta": true
+      }
+    ],
+    "numero": 1076
+  },
+  {
+    "pregunta": "Cual de los siguientes no es maniobra vagal:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Valsalva",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Tomar aire y comprimir sin dejar salir el aire",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Compresión del globo ocular",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Piernas más altas que el tronco",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Provocar náuseas",
+        "correcta": false
+      }
+    ],
+    "numero": 1077
+  },
+  {
+    "pregunta": "Qué hacer primero si tienes un paciente en el sillón con una arritmia severa",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Suspender tratamiento y valorar constantes vitales",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Dar O2",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Trendelenburg y maniobras vagales",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Evacuación a hospital",
+        "correcta": false
+      }
+    ],
+    "numero": 1078
+  },
+  {
+    "pregunta": "En la reanimación cardiopulmonar básica MARQUE LA CIERTA: a. La adrenalina es un fármaco esencial.",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Los corticoides son fármacos imprescindibles.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "La atropina es un medicamento de primera indicación.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Son correctas a y b.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Son todas incorrectas.",
+        "correcta": true
+      }
+    ],
+    "numero": 1079
+  },
+  {
+    "pregunta": "Que no hay que hacer ante una exposición accidental",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Lavar la herida",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Remitir a seguimiento",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Información sobre el paciente",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Apretar herida",
+        "correcta": true
+      }
+    ],
+    "numero": 1080
+  },
+  {
+    "pregunta": "Marque la respuesta CIERTA, Cuando un paciente pierde la conciencia en el gabinete dental, lo más frecuente es que se deba a:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Síncope vaso – vagal.",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Crisis convulsiva",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Crisis de hipertensión ortostática.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Crisis de hipoglucemia.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Síncope tusígeno",
+        "correcta": false
+      }
+    ],
+    "numero": 1081
+  },
+  {
+    "pregunta": "Si un paciente tiene una crisis vagal debemos:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Retirar todo el instrumental.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Continuar con el tratamiento.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Colocar la cabeza hacia un lado para facilitar la respiración.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Elevar las piernas.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "A y d",
+        "correcta": true
+      }
+    ],
+    "numero": 1082
+  },
+  {
+    "pregunta": "Marque la respuesta FALSA:Paciente con pérdida de conciencia súbita en la consulta puede ser debido a:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Sincope vaso vagal",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Cardiopatía isquémica.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Tormenta tiroidea.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Trastorno convulsivo.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Shock anafiláctico.",
+        "correcta": false
+      }
+    ],
+    "numero": 1083
+  },
+  {
+    "pregunta": "cuál no se usa en maniobra vagal?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Vasalva",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Masaje carotídeo",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Apretar globos oculares",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Algo así como aguantar la respiración",
+        "correcta": false
+      }
+    ],
+    "numero": 1084
+  },
+  {
+    "pregunta": "Cual de los siguientes no es maniobra vagal:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Valsalva",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Tomar aire y comprimir sin dejar salir el aire",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Compresión del globo ocular",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Piernas mas altas que el tronco",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Provocar nauseas",
+        "correcta": false
+      }
+    ],
+    "numero": 1085
+  },
+  {
+    "pregunta": "Un paciente acude a la puerta de urgencias con una herida producida por un clavo oxidado, profunda pero con la piel poco lesionada. Cual es la pauta más adecuada para prevenir el tétanos, teniendo en cuenta que el paciente no recuerda cuando le pusieron la última dosis de la vacuna del tétanos.",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "administrarle gamaglobulina antitetánica y vacunación completa con las tres dosis del toxoide antitetanico.",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "administrarle gamaglobulina antitetánica",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "no es necesaria la profilaxis ya que la piel está poco lesionada",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "administrarle gamaglobulina antitetánica y una dosis de refuerzo de la vacuna antitetánica",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "proponerle la cámara hiperbárica",
+        "correcta": false
+      }
+    ],
+    "numero": 1086
+  },
+  {
+    "pregunta": "Que medicamentos puede causar crisis asmática:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "Y AINES",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Macrólidos",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Corticoesteroides",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "AAS",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Teofilina",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Antihistaminicos",
+        "correcta": false
+      }
+    ],
+    "numero": 1087
+  },
+  {
+    "pregunta": "Crisis asmática",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Salbutamol",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Antihistaminicos inhalados",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Corticoides iv",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "A y c",
+        "correcta": true
+      }
+    ],
+    "numero": 1088
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes fármacos inyectables no se considera esencial tener en la clínica dental ante situaciones de urgencia",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Adrenalina.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Corticoides.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Morfina.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Antihistamínicos.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Diazepam.",
+        "correcta": false
+      }
+    ],
+    "numero": 1089
+  },
+  {
+    "pregunta": "Ante un shock anafiláctico, señale la afirmación incorrecta sobre cómo se debería actuar:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Administración de suero salino isotónico.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Posicionar al paciente en decúbito supino.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Inyectar adrenalina.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Administrar vasodilatadores periféricos.",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Inyectar corticoides.",
+        "correcta": false
+      }
+    ],
+    "numero": 1090
+  },
+  {
+    "pregunta": "Con respecto a las técnicas para la desobstrucción de la vía aérea, señale la afirmación correcta.",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El mecanismo más efectivo para eliminar cuerpos extraños de la vía aérea es la tos.",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "La técnica de percusión interescapular está desaconsejada en lactantes y niños.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La técnica de compresión torácica es más eficaz que la maniobra de Heimlich.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "La cricotiroidotomía sólo se debe realizar si el paciente está consciente.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "La extracción: manual del cuerpo extraño se realizará con el paciente consciente o inconsciente, sin importar el estado de conciencia.",
+        "correcta": false
+      }
+    ],
+    "numero": 1091
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes medicamentos no es de tenencia obligatoria para las urgencias médicas que se pueden dar en el gabinete dental? se repite en la pregunta 8",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Ácido valproico",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Aminofilina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Salbutamol",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Nifedipino",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Atropina",
+        "correcta": false
+      }
+    ],
+    "numero": 1092
+  },
+  {
+    "pregunta": "¿Qué es lo que no se debe hacer ante una emergencia vital en el gabinete odontológico?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Aflojar la ropa apretada alrededor del cuello.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Realizar la maniobra frente - mentón.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Colocar al paciente rápidamente en decúbito prono.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Acercar el oído y la mejilla a la boca del paciente para comprobar si hay respiración.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Si no se palpa el pulso comenzar de inmediato la compresión cardiaca externa.",
+        "correcta": false
+      }
+    ],
+    "numero": 1093
+  },
+  {
+    "pregunta": "De las siguientes afirmaciones con respecto a las situaciones específicas de urgencia que se pueden dar en un gabinete dental Indique cuál es falsa.",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La mayoría de las reacciones adversas a los anestésicos son respuestas psicógenas",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "La aspiración previa y la inyección lenta del anestésico es la mejor prevención de la inyección intravascular inadvertida",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Si el paciente está inconsciente pero respira de forma espontánea se le administrará oxígeno al 21%",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "En las reacciones alérgicas a los anestésicos locales y sus componentes las que afectan al sistema respiratorio son las más frecuentes",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "La máxima eficacia se obtiene cuando la RCP básica se inicia antes de que hayan pasado 4 minutos de producirse la parada",
+        "correcta": false
+      }
+    ],
+    "numero": 1094
+  },
+  {
+    "pregunta": "Señale la respuesta verdadera con respecto a la RCP básica:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Debe iniciarse antes de los 6 min de parada",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "En la fase A se atiende a la ventilación del paciente",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La maniobra frente-mentón no debe realizarse hasta el final",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "En la fase A es útil la cánula de Guedel",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "En la fase C es cuando se utiliza el ambú",
+        "correcta": false
+      }
+    ],
+    "numero": 1095
+  },
+  {
+    "pregunta": "Marque la falsa",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "en hipotiroideos",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "consumidores de β bloqueantes",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "consumidores de antihipertensivos tipo ergotamina",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "pacientes bajo anestesia general con halotano",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "consumidores de antidepresivos tricíclicos",
+        "correcta": false
+      }
+    ],
+    "numero": 1096
+  },
+  {
+    "pregunta": "En la reanimación cardiopulmonar básica MARQUE LA CIERTA:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La adrenalina es un fármaco esencial.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Los corticoides son fármacos imprescindibles.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La atropina es un medicamento de primera indicación.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Son correctas a y b.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Son todas incorrectas.",
+        "correcta": true
+      }
+    ],
+    "numero": 1097
+  },
+  {
+    "pregunta": "Marque la respuesta CIERTA, Cuando un paciente pierde la conciencia en el gabinete dental, lo más frecuente es que se deba a:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Síncope vaso – vagal.",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Crisis convulsiva",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Crisis de hipertensión ortostática.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Crisis de hipoglucemia.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Síncope tusígeno.",
+        "correcta": false
+      }
+    ],
+    "numero": 1098
+  },
+  {
+    "pregunta": "Marque la respuesta FALSA: Paciente con pérdida de conciencia súbita en la consulta puede ser debido a:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Sincope vaso vagal",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Cardiopatía isquémica.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Tormenta tiroidea.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Trastorno convulsivo.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Shock anafiláctico.",
+        "correcta": false
+      }
+    ],
+    "numero": 1099
+  },
+  {
+    "pregunta": "Fármaco de primera elección en crisis hipertensiva?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Nifedipino",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Furosemida",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Captopril",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Los tres",
+        "correcta": false
+      }
+    ],
+    "numero": 1100
+  },
+  {
+    "pregunta": "En la respuesta de hipersensibilidad de tipo I intervienen:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "es una respuesta inmune",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "interviene la inmunoglobulinas E",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "es coordinada por TH2",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "sales de oro",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "A, B y C son correctas.",
+        "correcta": false
+      }
+    ],
+    "numero": 1101
+  },
+  {
+    "pregunta": "Si estamos realizando una endodoncia sin dique de goma y de repente nos encontramos ante un paciente con disnea importante, de inicio súbito, tos seca, roncus, sibilantes, taquicardia, cianosis y ansiedad; pensaremos que estamos ante:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Objeto extraño en vías altas",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Crisis asmática",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Infarto de miocardio",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Embolia pulmonar aguda",
+        "correcta": false
+      }
+    ],
+    "numero": 1102
+  },
+  {
+    "pregunta": "Todos los siguientes son componentes de la obstrucción respiratoria en el asma, excepto:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "aumento de mucosidad",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "laringoespasmo",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "inflamación de vías aéreas",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "broncoespasmo",
+        "correcta": false
+      }
+    ],
+    "numero": 1103
+  },
+  {
+    "pregunta": "Si estamos realizando una endodoncia sin dique de goma y de repente nos encontramos ante un paciente con disnea importante, de inicio súbito, tos seca, roncus, sibilantes, taquicardia, cianosis y ansiedad; el tratamiento es:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Retirar el objeto extraño y administrar Oxígeno",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Adrenalina sc, Teofilina iv, Oxígeno",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Nitroglicerina sublingual, Oxígeno",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Posición de Trendelemburg, Oxígeno",
+        "correcta": false
+      }
+    ],
+    "numero": 1104
+  },
+  {
+    "pregunta": "Los procedimientos básicos a seguir ante las emergencias indican que el paso 3 consiste en:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Monitorizar la frecuencia y carácter de la respiración",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Chequear la frecuencia del pulso y su característica",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Chequear la presión sanguínea",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Asegurarse que el paciente no tenga la vía aérea obstruida",
+        "correcta": true
+      }
+    ],
+    "numero": 1105
+  },
+  {
+    "pregunta": "Todos los siguientes son componentes de la obstrucción aérea en el asma, excepto:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Tapones mucosos.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Laringoespasmo.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Broncoespasmos.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Edema de vías.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Hipersensibilidad del árbol respiratorio.",
+        "correcta": false
+      }
+    ],
+    "numero": 1106
+  },
+  {
+    "pregunta": "¿Qué signos respiratorios encontramos en la anafilaxia?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Edema de laringe.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Estridor.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Broncoespasmo.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Sibilancias.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todos los anteriores.",
+        "correcta": true
+      }
+    ],
+    "numero": 1107
+  },
+  {
+    "pregunta": "¿Qué signos cardiocirculatorios encontramos en la anafilaxia?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Vasodilatación.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Ausencia de pulso.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Colapso cardiovascular.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Shock",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todos los anteriores.",
+        "correcta": true
+      }
+    ],
+    "numero": 1108
+  },
+  {
+    "pregunta": "En el tratamiento de la anafilaxia, los antihistamínicos y los glucocorticoides son",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Imprescindibles.",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Prescindibles y secundarios.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Son los primeros fármacos que han de suministrarse.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Se administran vía aérea.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Ninguna de las anteriores es correcta.",
+        "correcta": false
+      }
+    ],
+    "numero": 1109
+  },
+  {
+    "pregunta": "En el tratamiento del síncope señale la incorrecta:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Paciente en decúbito prono con las piernas elevadas.",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Posición de Trendelemburg cuando sea posible.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Levantar la mandíbula.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Administrar oxígeno.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Monitorizar al paciente.",
+        "correcta": false
+      }
+    ],
+    "numero": 1110
+  },
+  {
+    "pregunta": "¿Cuándo dejaremos de practicar las maniobras de RCP?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Cuando el paciente recupere el pulso espontáneo",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Cuando el paciente recupere la respiración espontánea.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Cuando lleguen los esfuerzos.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Todas las anteriores.",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Ninguna de las anteriores.",
+        "correcta": false
+      }
+    ],
+    "numero": 1111
+  },
+  {
+    "pregunta": "¿Cómo hay que realizar las maniobras de RCP durante el embarazo?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "De forma habitual.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Con la paciente en decúbito lateral izquierdo.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Con la paciente de decúbito lateral derecho.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Existe un protocolo específico para las embarazadas.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Hay que esperar que llegue la ambulancia medicalizada.",
+        "correcta": false
+      }
+    ],
+    "numero": 1112
+  },
+  {
+    "pregunta": "¿Qué técnica de resucitación proporcionó más compresiones adecuadas por minuto durante los primeros 2 minutos de RCP?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La maniobra de Valsalva.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "La técnica de Heimlich.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La técnica de compresión contínua.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "La técnica estándar de las maniobras de RCP.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "La técnica de posición lateral de seguridad.",
+        "correcta": false
+      }
+    ],
+    "numero": 1113
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes no es un factor desencadenante del síncope vasovagal?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Ansiedad.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Dolor.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Calor.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Cambios posturales.",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Ayuno.",
+        "correcta": false
+      }
+    ],
+    "numero": 1114
+  },
+  {
+    "pregunta": "De manera súbita, mientras realizamos un tratamiento de conductos con limas K, nuestro paciente manifiesta disnea importante con esfuerzo respiratorio, tos seca, borboteo y silbido del aire al paso por las vías aéreas, taquicardia, cianosis y ansiedad; pensaremos que estamos ante",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Objeto extraño en vías altas",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Crisis asmática.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Infarto de miocardio.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Embolia pulmonar aguda.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Ninguna de las anteriores.",
+        "correcta": false
+      }
+    ],
+    "numero": 1115
+  },
+  {
+    "pregunta": "Ante un paciente que presenta alcalosis respiratoria, su actuación será",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Gritar al paciente para que reaccione",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Abofetear al paciente para que no pierda la consciencia",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Administrarle de 5 a 10mg de atropina subcutánea",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Hacer que respire en una bolsa de papel",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Administrarle belladona",
+        "correcta": false
+      }
+    ],
+    "numero": 1116
+  },
+  {
+    "pregunta": "Los procedimientos básicos a seguir ante las emergencias indican que el paso 3 consiste  en:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Monitorizar la frecuencia y carácter de la respiración",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Chequear la frecuencia del pulso y su característica",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Chequear la presión sanguínea",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Asegurarse que el paciente no tenga la vía aérea obstruida",
+        "correcta": true
+      }
+    ],
+    "numero": 1117
+  },
+  {
+    "pregunta": "Ante un paciente que presenta un cuerpo extraño en la vía aérea, señale la opción correcta:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Golpes fuertes, secos y repetidos entre los omóplatos del paciente",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Introducir un dedo extendido por el centro de la faringe para sacar el cuerpo extraño",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Ver si conseguimos desatascar la faringe del paciente con el aspirador del equipo dental",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Hiperextender la cabeza del paciente",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "De entrada, hacer una traqueotomía de urgencia",
+        "correcta": false
+      }
+    ],
+    "numero": 1118
+  },
+  {
+    "pregunta": "Todos los siguientes son componentes de la obstrucción aérea en el asma, excepto:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Tapones mucosos",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Laringoespasmo.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Broncoespasmos",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Edema de vías.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Hipersensibilidad del árbol respiratorio.",
+        "correcta": false
+      }
+    ],
+    "numero": 1119
+  },
+  {
+    "pregunta": "Ante una crisis hipertensiva en la consulta dental qué fármaco",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "bloqueante beta adrenérgico",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "bloqueante alfa adrenérgico",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "simpaticolítico central",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "inhibidor de la enzima convertasa",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "antagonista del calcio",
+        "correcta": false
+      }
+    ],
+    "numero": 1120
+  },
+  {
+    "pregunta": "Si estamos realizando un endodoncia sin dique de goma y de",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Objeto extraño en vías aéreas",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Crisis asmática",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Infarto de miocardio",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Infarto pulmonar agudo",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Cor pulmonale",
+        "correcta": false
+      }
+    ],
+    "numero": 1121
+  },
+  {
+    "pregunta": "En el caso anterior, su tratamiento es:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Retirar el objeto extraño y administrar oxígeno",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Adrenalina sc, Teofilina iv, oxigeno*",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Nitroglicerina sublingual, oxígeno",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Posición de Trendelemburg, oxígeno",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Avisar a la ambulancia",
+        "correcta": false
+      }
+    ],
+    "numero": 1122
+  },
+  {
+    "pregunta": "Sí estamos realizando una endodoncia sin dique de goma y de repente nos encontramos que el paciente tiene disnea importante de inicio súbito, tos severa, cianosis, roncus, ansiedad, seguramente estamos ante:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "objeto extraño en las vías aéreas",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "crisis asmática",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "infarto al miocardio",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "infarto pulmonar agudo",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Cor pulmonale",
+        "correcta": false
+      }
+    ],
+    "numero": 1123
+  },
+  {
+    "pregunta": "En el caso anterior su tratamiento es:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "retirar los objetos extraños y administrar oxígeno",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "adrenalina SC, teofilina IV, oxígeno",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "nitroglicerina sublingual, oxígeno",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "posición Trendelenburg, oxígeno",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "avisar a la ambulancia",
+        "correcta": false
+      }
+    ],
+    "numero": 1124
+  },
+  {
+    "pregunta": "Ante una sospecha de paro cardiorrespiratorio, qué secuencia es la correcta?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "valorar la conciencia tomar, tomar pulso, comprobar respiración, abrir vías aéreas",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "valorar la conciencia, abrir vías aéreas, comprobar respiración, tomar pulso",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "tomar pulso, valorar la conciencia, comprobar respiración, abrir vías aéreas",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "abrir vía aérea, tomar pulso, comprobar respiración, valorar la conciencia",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "ninguna hemos de darle un puñetazo en el pecho",
+        "correcta": false
+      }
+    ],
+    "numero": 1125
+  },
+  {
+    "pregunta": "Si un paciente pierde el conocimiento en el transcurso de un tratamiento de odontológico en el gabinete dental la primera medida será:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "comprobar la permeabilidad de las vías aéreas",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "solicitar una ambulancia",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "masaje cardiaco",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "perfundir un suero fisiológico",
+        "correcta": false
+      }
+    ],
+    "numero": 1126
+  },
+  {
+    "pregunta": "Señale la respuesta verdadera con respecto a la RCP:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Debe iniciarse antes de los 6 minutos de parada",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "En la fase A se atiende la ventilación delpaciente",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La maniobra frente-mentón no debe realizarse hasta el final",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "En la fase A es útill la cánula de Guedel",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "En la fase C es cuando se utiliza en Ambú",
+        "correcta": false
+      }
+    ],
+    "numero": 1127
+  },
+  {
+    "pregunta": "Ante un paciente de 42 años y 74kg de peso, que no respira y al que debamos practicarle la ventilación boca a boca, cuál sería la frecuencia que debemos emplear:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "PAG 104 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "1 cada 2 segundos",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "1 cada 3 segundos",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "1 cada 4 segundos",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "1 cada 5 segundos",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "1 cada 6 segundos",
+        "correcta": false
+      }
+    ],
+    "numero": 1128
+  },
+  {
+    "pregunta": "En cuál de los siguientes cuadros de emergencia el paciente debe quedar colocado en el gabinete con los pies por encima de la cabeza?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "IAM",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Shock anafiláctico",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Síncope de etiología desconocida",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Síncope vasovagal",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Crisis hipertensiva",
+        "correcta": false
+      }
+    ],
+    "numero": 1129
+  },
+  {
+    "pregunta": "Es falso que la adrenalina:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "PAG 100 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Bloquea los niveles de AMPc",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Reduzca la hipotensión",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Bloquee la broncoconstricción",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Mejore el gaspo cardíaco",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Está indicada en el shock",
+        "correcta": false
+      }
+    ],
+    "numero": 1130
+  },
+  {
+    "pregunta": "¿Cuál de estos fármacos no es obligatorio que aparezcan en la unidad farmacológica del botiquín, según la legislación andaluza?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Atropina",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Captopril",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Adrenalina",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Teofilina",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Dextrosa",
+        "correcta": false
+      }
+    ],
+    "numero": 1131
+  },
+  {
+    "pregunta": "¿Cuál de estos elementos no es legalmente obligatorio de mantener en el botiquín de emergencias?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Adrenalina",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Ibuprofeno",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Salbutamol",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Hidrocortisona",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Atropina",
+        "correcta": false
+      }
+    ],
+    "numero": 1132
+  },
+  {
+    "pregunta": "Cuál de los siguientes fármacos no es de tenencia obligatoria para las urgencias médicas que se pueden dar en el gabinete dental?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Ácido valpróico",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Aminofilina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Salbutamol",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Nifedipina",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Atropina",
+        "correcta": false
+      }
+    ],
+    "numero": 1133
+  },
+  {
+    "pregunta": "De los fármacos empleados en las emergencias:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "PAG 100 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La atropina incrementa la secreción de moco",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El diazepam estimula el SNC",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La aminofilina inhibe la fosfodiesterasa",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "El salbutamol es broncoconstrictor",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "La nitroglicerina eleva la tensión arterial",
+        "correcta": false
+      }
+    ],
+    "numero": 1134
+  },
+  {
+    "pregunta": "¿qué es lo que no se debe hacer ante una emergencia vital en el gabinete odontológico?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Aflojar la ropa apretada alrededor del cuello",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Realizar la maniobra frente-mentón",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Colocar al paciente rápidamente de cúbito prono",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Acercar el oido y mejilla a la boca del paciente para comprobar si hay respiración",
+        "correcta": false
+      }
+    ],
+    "numero": 1135
+  },
+  {
+    "pregunta": "De las siguientes actividades indique cuáles son imprescindibles en la práctica de la odontológica:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "saber administrar una inyección intramuscular",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "saber canalizar una vía venosa",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "saber interpretar un electrocardiograma",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "saber explorar los pares craneales",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "saber medir la tensión arterial",
+        "correcta": true
+      }
+    ],
+    "numero": 1136
+  },
+  {
+    "pregunta": "¿Qué no debe hacerse en una emergencia grave en la clínica dental?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Desalojar la sala de espera",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Decir a una enfermeraue llame al 061 o servicios de emergencia",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Procurar un buen traslado medicalizado delpaciente antes de seguir la consulta",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Procurar las medidas de soporte vital básico mientras se produce el traslado",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Dar pocas explicaciones sobre la situación a los familiares",
+        "correcta": true
+      }
+    ],
+    "numero": 1137
+  },
+  {
+    "pregunta": "El fármaco que debe utilizarse en el shock anafiláctico es:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Adrenalina",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Acetilcolina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Prednisona",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Teofilina",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Efedrina",
+        "correcta": false
+      }
+    ],
+    "numero": 1138
+  },
+  {
+    "pregunta": "El mecanismo de acción de la Nifedipina es:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Inhibir el flujo simpático del SNC",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Reduce el tono muscular liso pag 626 y 627",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Estimula el sistema Renina-Angiotensina para la reabsorción de sodio y agua",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Dilatación directa de arterias y arteriolas",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Antagonista de la estimulación de receptores alfa adrenérgicos",
+        "correcta": false
+      }
+    ],
+    "numero": 1139
+  },
+  {
+    "pregunta": "Ante una emergencia cardiovascular, en cuál de los siguientes supuestos colocaría al paciente en posición de Trendelenburg:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "IAM",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Ángor.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Crisis de taquicardia",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Crisis de hipotensión.",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Crisis de hipertensión.",
+        "correcta": false
+      }
+    ],
+    "numero": 1140
+  },
+  {
+    "pregunta": "Paciente que durante la operación presenta dolor opresivo en base de cuello, hombros y  brazo izquierdo, acompañándose de signos vegetativos intensos y sin localización neurológica:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Suspensión de la operatoria, posición semisentado, administración de solunitrina  sublingual.",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Monitorización de pulso y T.A.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Administración de AAS 500mg, si no hay alergias a salicilatos ni patologías GI",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Administración de Adalat sublingual, si TA mínima sube de 10",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "a, b , c y d pueden ser actitudes adecuadas.",
+        "correcta": false
+      }
+    ],
+    "numero": 1141
+  },
+  {
+    "pregunta": "Ante un paciente con parada cardio-respiratoria, que proceder inicial es prioritario?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Llamar al 061.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Monitorizar pulso y T.A",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Mantener la viabilidad de las vías respiratorias y proceder a RCP inmediata.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Desfibrilación eléctrica.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Ninguna respuesta es correcta.",
+        "correcta": false
+      }
+    ],
+    "numero": 1142
+  },
+  {
+    "pregunta": "Una vez comprobado que el desvanecimiento es debido a un sincope vasovagal. ¿Que fármaco emplearía?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Atropina.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Adrenalina",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Nifedipino.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "hidrocortisona.",
+        "correcta": false
+      }
+    ],
+    "numero": 1143
+  },
+  {
+    "pregunta": "¿En cuál de los siguientes cuadros de emergencia el paciente debe quedar colocado en el gabinetecon los pies por encima de la cabeza?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Infarto agudo al miocardio.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Shock anafiláctico.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Sincope de etiología desconocida",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Sincope Vasovagal.",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Crisis Hipertensiva",
+        "correcta": false
+      }
+    ],
+    "numero": 1144
+  },
+  {
+    "pregunta": "Tras instilar a un paciente tratado con anterioridad sin problemas un anestésico a base de mepivacaina sin adrenalina, este comienza a tornarse excitado, presentando una taquicardia moderada, ¿Cuál podríamos sospechar que fuera el origen de esta situación?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "PAG 106 MACHUCA NUEVO",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El efecto de la adrenalina endógena.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El paciente se ha vuelto pusilánime",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Punción vascular del anestésico.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Efecto de un excipiente inadecuado",
+        "correcta": false
+      }
+    ],
+    "numero": 1145
+  },
+  {
+    "pregunta": "Ante un paciente con parada cárdio respiratoria, que proceder inicial es prioritario:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Llamar al 061.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Monitorizar pulso y TA.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Mantener la viabilidad de la vía respiratoria y proceder a RCP inmediata.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Desfibrilación electrica.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Ninguna de las respuestas es cierta.",
+        "correcta": false
+      }
+    ],
+    "numero": 1146
+  },
+  {
+    "pregunta": "¿Cuál de estos fármacos no es obligatorio que aparezcan en la unidad farmacológica del botiquín, según la legislación andaluza?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Atropina",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Captopril",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Adrenalina",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Teofilina",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Dextrosa",
+        "correcta": false
+      }
+    ],
+    "numero": 1147
+  },
+  {
+    "pregunta": "Señale la respuesta verdadera con respecto a la RCP básica:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Debe iniciarse antes de los 6 min de parada",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "En la fase A se atiende a la ventilación del paciente",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La maniobra frente-mentón no debe realizarse hasta el final",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "En la fase A es útil la cánula de Guedel",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "En la fase C es cuando se utiliza el ambú",
+        "correcta": false
+      }
+    ],
+    "numero": 1148
+  },
+  {
+    "pregunta": "¿Cuál de estos elementos no es legalmente obligatorio de mantener en el botiquín de emergencias?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Adrenalina",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Ibuprofeno",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Salbutamol",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Hidrocortisona",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Atropina",
+        "correcta": false
+      }
+    ],
+    "numero": 1149
+  },
+  {
+    "pregunta": "Es falso que la adrenalina:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Bloquea los niveles de AMPc",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Reduzca la hipotensión",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Bloquee la broncoconstricción",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Mejore el gasto cardíaco",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Esté indicada en el shock",
+        "correcta": false
+      }
+    ],
+    "numero": 1150
+  },
+  {
+    "pregunta": "De los fármacos empleados en las emergencias:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La atropina incrementa la secreción de moco",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El diazepam estimula el SNC",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La aminofilina inhibe la fosfodiesterasa",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "El salbutamol es broncoconstrictor",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "La nitroglicerina eleva la tensión arterial",
+        "correcta": false
+      }
+    ],
+    "numero": 1151
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes medicamentos no es de tenencia obligatoria para las urgencias médicas que se pueden dar en el gabinete dental?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Ácido valproico",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Aminofilina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Salbutamol",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Nifedipina",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Atropina",
+        "correcta": false
+      }
+    ],
+    "numero": 1152
+  },
+  {
+    "pregunta": "¿Qué es lo que no se debe hacer ante una emergencia vital en el gabinete odontológico?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Aflojar la ropa apretada alrededor del cuello",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Realizar la maniobra frente-mentón",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Colocar al paciente rápidamente en decúbito prono",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Acercar el oído y mejilla a la boca del paciente para comprobar si hay respiración e. Si no se palpa el pulso comenzar de inmediato la compresión cardíaca externa",
+        "correcta": false
+      }
+    ],
+    "numero": 1153
+  },
+  {
+    "pregunta": "El fármaco que debe utilizarse en el Shock anafiláctico es",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Adrenalina",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Acetilcolina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Prednisona",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Teofilina",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Efedrina",
+        "correcta": false
+      }
+    ],
+    "numero": 1154
+  },
+  {
+    "pregunta": "En el botiquín de Emergencia NO se pone:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "antiagregantes plaquetarios.",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Sistema ambulatorio de ventilación.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Dispositivos de punción venosa",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Fonendoscopio, porque el dentista sabe usarlo",
+        "correcta": false
+      }
+    ],
+    "numero": 1155
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes dispositivos no tiene que formar parte del botiquín de emergencias?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Sistema ambú de ventilación asistida para paradas cardiorespiratorias b. Dispositivos de punción venosa para toma de vías periféricas",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Antiagregantes plaquetarios para los IAM y ACV",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Vasodilatadores venosos para los IAM y angor",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Fonendoscopio porque el dentista no sabe usarlo",
+        "correcta": false
+      }
+    ],
+    "numero": 1156
+  },
+  {
+    "pregunta": "El mecanismo de acción de la Nifedipina es:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Inhibir el flujo simpático del sistema nervioso central",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Reduce el tono muscular liso",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Estimula el sistema renina-angiotensina para la reabsorción de sodio y agua d. Dilatación directa de arterias y arteriolas",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Antagonista de la estimulación de receptores alfa adrenérgicos",
+        "correcta": false
+      }
+    ],
+    "numero": 1157
+  },
+  {
+    "pregunta": "Ante un paciente de 42 años y 74 kilos de peso, que no respira y al que debamos practicarle la ventilación boca a boca, cuál será la frecuencia que debemos emplear.",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "1 cada 2 segundos",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "1 cada 3 segundos",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "1 cada 4 segundos",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "1 cada 5 segundos",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "1 cada 6 segundos",
+        "correcta": false
+      }
+    ],
+    "numero": 1158
+  },
+  {
+    "pregunta": "¿En cuál de los siguientes cuadros de emergencia el paciente debe quedar colocado en el gabinete con los pies por encima de la cabeza?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Infarto agudo de miocardio",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Shock anafiláctico",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Síncope de etiología desconocida",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Síncope vasovagal",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Crisis hipertensiva",
+        "correcta": false
+      }
+    ],
+    "numero": 1159
+  },
+  {
+    "pregunta": "Ante un paciente con parada cárdio respiratoria, que proceder inicial es prioritario:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Llamar al 061.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Monitorizar pulso y ta.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Mantener la viabilidad de la vía respiratoria y proceder a rcp inmediata.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Desfibrilación electrica.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Ninguna de las respuestas es cierta.",
+        "correcta": false
+      }
+    ],
+    "numero": 1160
+  },
+  {
+    "pregunta": "El estrés y la ansiedad relacionados con la visita dental pueden ser causa de:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Aumento de la presión arterial.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Infarto al miocardio.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "ACV",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Todas las anteriores",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Ninguna de las anteriores.",
+        "correcta": false
+      }
+    ],
+    "numero": 1161
+  },
+  {
+    "pregunta": ".Si durante el tratamiento dental surge dolor precordial en un paciente con patología cardiovascular cual de las siguientes afirmaciones es falsa:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Aflojar las prendas de vestir ceñidas.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Nunca se debe administrar analgesico pues enmascaría los síntomas",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Si persiste se debería suspender el tratamiento odontoestomatológico.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Reclinar al paciente pero llevándolo a una posición semisentada con la cabeza más alta que las piernas.",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Si los signos y síntomas ceden en un lapso de 10 minutos se podría terminar el tratamiento odontoestomatológico",
+        "correcta": false
+      }
+    ],
+    "numero": 1162
+  },
+  {
+    "pregunta": "Si durante el tratamiento dental surge dolor precordial en un paciente con patología cardiovascular cuál de las siguientes afirmaciones es falsa.",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Aflojar prendas de vestir ceñidas",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Nunca se debe administrar ningún analgésico, pues enmascararía los síntomas",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Suspender el tratamiento odontológico",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Reclinar al paciente, pero llevändolo a una posición semisentada, con la cabeza más alta que las piernas",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Si los signos y síntomas ceden en un lapso de 10 minutos se podrá terminar el tratamiento odontológico.",
+        "correcta": false
+      }
+    ],
+    "numero": 1163
+  },
+  {
+    "pregunta": "En cuál de los siguientes cuadros de emergencia el paciente debe quedar colocado en el gabinete con los pies por encima de la cabeza?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Urgencias y alergias",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Infarto agudo al miocardio.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Shock anafiláctico.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Sincope de etiología desconocida.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Sincope vasovagal.",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Crisis hipertensiva.",
+        "correcta": false
+      }
+    ],
+    "numero": 1164
   }
 ]
