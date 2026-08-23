@@ -10,12 +10,10 @@ const MOTIVOS: Exclude<OrigenTicket, 'pregunta'>[] = ['cuenta', 'pagos', 'otro']
 // ReportarPregunta.tsx (bottom-sheet en mobile, card-elevated), pero crea un
 // ticket de soporte general en vez de reportar una pregunta puntual.
 export function NuevaConsultaModal({
-  userId,
   abierto,
   onClose,
   onCreado,
 }: {
-  userId: string
   abierto: boolean
   onClose: () => void
   onCreado: (ticketId: string) => void

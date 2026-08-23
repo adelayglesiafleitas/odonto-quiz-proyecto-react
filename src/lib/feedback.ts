@@ -14,7 +14,11 @@ export type TipoFeedbackPregunta = 'respuesta_incorrecta' | 'opcion_ambigua_o_du
 // hay) es el primer mensaje, y si no escribió nada se manda el motivo como
 // mensaje para que el ticket nunca quede sin cuerpo.
 export async function reportarPregunta(
-  userId: string,
+  // Ya no se usa acá (crearTicket toma el usuario de auth.uid() en el
+  // servidor), pero se mantiene en la firma para no tocar el call site en
+  // ReportarPregunta.tsx. El prefijo _ evita el error TS6133 de parámetro
+  // sin usar (noUnusedParameters en tsconfig).
+  _userId: string,
   pregunta: Pregunta,
   tipo: TipoFeedbackPregunta,
   comentario: string | null,

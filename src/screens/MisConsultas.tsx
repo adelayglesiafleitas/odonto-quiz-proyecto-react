@@ -108,7 +108,6 @@ export function MisConsultas({ userId, onNavigate }: { userId: string; onNavigat
       </div>
 
       <NuevaConsultaModal
-        userId={userId}
         abierto={nuevoAbierto}
         onClose={() => setNuevoAbierto(false)}
         onCreado={(ticketId) => navigate(rutaSoporteDetalle(ticketId))}
