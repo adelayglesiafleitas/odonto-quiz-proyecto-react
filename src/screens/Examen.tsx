@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
 import { ReportarPregunta } from '@/components/ReportarPregunta'
 import { useAppSettings } from '@/context/AppSettings'
-import { ArrowLeft, ArrowRight, CheckCircle2, Circle, CheckSquare, Square, X, Timer, AlertTriangle } from 'lucide-react'
+import { ArrowLeft, ArrowRight, X, Timer, AlertTriangle } from 'lucide-react'
 
 export type RespuestaUsuario = Record<number, string[]>
 
@@ -151,20 +151,23 @@ export function Examen({
                   activa ? 'border-accent bg-accent/8' : 'border-transparent bg-card'
                 }`}
               >
-                {esMultiple ? (
-                  activa ? (
-                    <CheckSquare className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
-                  ) : (
-                    <Square className="mt-0.5 h-5 w-5 shrink-0 text-muted-foreground/50" />
-                  )
-                ) : activa ? (
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
-                ) : (
-                  <Circle className="mt-0.5 h-5 w-5 shrink-0 text-muted-foreground/50" />
-                )}
-                {/* Sin letra visible durante el examen a propósito (decisión 2026-08-22):
-                    el orden de arriba a abajo ya identifica cada opción mientras se rinde.
-                    La letra recién se muestra en Resultados, al revisar qué falló. */}
+                {/* La letra reemplaza al círculo/cuadrado como marcador único
+                    (decisión 2026-08-23, mockup "Opción 1"): el marcador de
+                    selección ES la letra, así que el texto arranca limpio,
+                    sin nada pegado adelante. Redondo para selección única,
+                    cuadrado (rounded-lg) para selección múltiple — mismo
+                    código de color que antes usaban los íconos de radio. */}
+                <span
+                  className={`mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center border-2 text-xs font-extrabold transition-colors ${
+                    esMultiple ? 'rounded-lg' : 'rounded-full'
+                  } ${
+                    activa
+                      ? 'border-accent bg-accent text-accent-foreground'
+                      : 'border-muted-foreground/30 text-muted-foreground'
+                  }`}
+                >
+                  {op.letra}
+                </span>
                 <span className="text-sm font-medium leading-snug text-foreground">{op.texto}</span>
               </button>
             )

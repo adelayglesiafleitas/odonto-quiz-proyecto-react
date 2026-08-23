@@ -364,7 +364,7 @@ export const es: Diccionario = {
     academia: 'Academia',
     ayuda: 'Ayuda',
     config: 'Config',
-    simulacro: 'Simulacro',
+    simulacro: 'Examinarse',
   },
   academia: {
     titulo: 'Academia',

@@ -44,32 +44,14 @@ export function shuffle<T>(arr: T[]): T[] {
   return a
 }
 
-// Buena parte del banco (~800 de 1059 preguntas) tiene 5 opciones en vez de
-// 4. En el examen se muestran como máximo 4: se conservan TODAS las
-// correctas (nunca se saca una respuesta válida) y se descarta al azar una
-// de las incorrectas hasta llegar a 4. No modifica el JSON del banco — la
-// pregunta original con sus 5 opciones sigue intacta en odontologia.json,
-// esto recorta solo la copia que se arma para un examen puntual.
-const MAXIMO_OPCIONES = 4
-
-function limitarOpciones(pregunta: Pregunta, maximo = MAXIMO_OPCIONES): Pregunta {
-  if (pregunta.opciones.length <= maximo) return pregunta
-
-  const correctas = pregunta.opciones.filter((o) => o.correcta)
-  const incorrectas = pregunta.opciones.filter((o) => !o.correcta)
-  const cupoIncorrectas = Math.max(0, maximo - correctas.length)
-  const incorrectasElegidas = new Set(shuffle(incorrectas).slice(0, cupoIncorrectas))
-
-  // Se conserva el orden original de aparición (no el orden barajado): varias
-  // preguntas están armadas como una escalera de opciones cada vez más
-  // completas ("clorhexidina" → "clorhexidina + analgésicos" → ...), y
-  // desordenarlas les quitaría sentido.
-  const opciones = pregunta.opciones
-    .filter((o) => o.correcta || incorrectasElegidas.has(o))
-    .map((o, i) => ({ ...o, letra: String.fromCharCode(65 + i) })) // re-etiqueta A, B, C, D
-
-  return { ...pregunta, opciones }
-}
+// Decisión 2026-08-22 (revertida 2026-08-23): se había probado recortar a un
+// máximo de 4 opciones por pregunta en el examen (~800 de 1059 preguntas
+// tienen 5). El usuario detectó que eso rompía preguntas con más de una
+// respuesta correcta (ej. A y E correctas a la vez) — el recorte al azar de
+// las incorrectas podía dejar una combinación rara para ese tipo de
+// pregunta. Se sacó el recorte por completo: ahora el examen siempre
+// muestra TODAS las opciones de cada pregunta tal como están en
+// odontologia.json, sin importar si son 4, 5 o cualquier otra cantidad.
 
 export function seleccionarPreguntas(
   cantidad: number,
@@ -80,5 +62,5 @@ export function seleccionarPreguntas(
   if (capitulo !== 'todos') pool = pool.filter((p) => p.capitulo === capitulo)
   if (anio !== 'todos') pool = pool.filter((p) => p.anio === anio)
   const barajadas = shuffle(pool)
-  return barajadas.slice(0, Math.min(cantidad, barajadas.length)).map((p) => limitarOpciones(p))
+  return barajadas.slice(0, Math.min(cantidad, barajadas.length))
 }
