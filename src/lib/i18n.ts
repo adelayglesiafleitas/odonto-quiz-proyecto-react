@@ -429,7 +429,7 @@ export const es: Diccionario = {
   academia: {
     titulo: 'Academia',
     bienvenidaTitulo: 'Bienvenido a la Academia',
-    bienvenidaTexto: 'Este va a ser tu espacio para aprender: acá vas a encontrar clases y contenido de estudio más adelante. Por ahora, practica con el modo estudio.',
+    bienvenidaTexto: 'Este va a ser tu espacio para aprender: acá vas a encontrar clases y contenido de estudio más adelante.',
     proximamente: 'Contenido próximamente',
   },
   config: {
@@ -670,7 +670,7 @@ export const en: Diccionario = {
   academia: {
     titulo: 'Academy',
     bienvenidaTitulo: 'Welcome to the Academy',
-    bienvenidaTexto: "This is going to be your space to learn: you'll find classes and study content here soon. For now, practice with study mode.",
+    bienvenidaTexto: "This is going to be your space to learn: you'll find classes and study content here soon.",
     proximamente: 'Content coming soon',
   },
   config: {
