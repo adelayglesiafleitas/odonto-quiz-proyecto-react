@@ -83,6 +83,15 @@ export interface Diccionario {
     todosAnios: string
     preguntas: string
     comenzar: string
+    heroTitulo: string
+    heroDescripcion: string
+    heroDuracionEtiqueta: string
+    heroTodos: string
+    heroCapitulosEtiqueta: string
+    personalizarBoton: string
+    personalizandoTitulo: string
+    personalizandoBase: (cantidad: number, minutos: number) => string
+    restablecer: string
   }
   examen: {
     preguntaContador: (a: number, b: number) => string
@@ -300,6 +309,16 @@ export const es: Diccionario = {
     todosAnios: 'Todas las convocatorias',
     preguntas: 'preguntas',
     comenzar: 'Comenzar examen',
+    heroTitulo: 'Examen oficial',
+    heroDescripcion:
+      'Mismas condiciones que el examen real de homologación: mismo número de preguntas, mismo tiempo y el banco completo sin filtrar.',
+    heroDuracionEtiqueta: 'duración',
+    heroTodos: 'Todos',
+    heroCapitulosEtiqueta: 'los capítulos',
+    personalizarBoton: 'Personalizar cantidad, tiempo y capítulos',
+    personalizandoTitulo: 'Personalizando el examen oficial',
+    personalizandoBase: (cantidad, minutos) => `Base: ${cantidad} preguntas · ${minutos} min · todos los capítulos`,
+    restablecer: 'Restablecer a valores oficiales',
   },
   examen: {
     preguntaContador: (a, b) => `Pregunta ${a} / ${b}`,
@@ -543,6 +562,16 @@ export const en: Diccionario = {
     todosAnios: 'All years',
     preguntas: 'questions',
     comenzar: 'Start exam',
+    heroTitulo: 'Official exam',
+    heroDescripcion:
+      'Same conditions as the real accreditation exam: same number of questions, same time limit, and the full question bank with no filters.',
+    heroDuracionEtiqueta: 'duration',
+    heroTodos: 'All',
+    heroCapitulosEtiqueta: 'chapters',
+    personalizarBoton: 'Customize question count, time and chapters',
+    personalizandoTitulo: 'Customizing the official exam',
+    personalizandoBase: (cantidad, minutos) => `Base: ${cantidad} questions · ${minutos} min · all chapters`,
+    restablecer: 'Reset to official settings',
   },
   examen: {
     preguntaContador: (a, b) => `Question ${a} / ${b}`,
