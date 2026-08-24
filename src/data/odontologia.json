@@ -41605,5 +41605,1115 @@
       }
     ],
     "numero": 1237
+  },
+  {
+    "pregunta": "¿Qué debe controlarse antes de procedimientos quirúrgicos en pacientes diabéticos?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología endocrina",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Frecuencia cardíaca",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Glucemia capilar",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Frecuencia respiratoria",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Hemoglobina",
+        "correcta": false
+      }
+    ],
+    "numero": 1238
+  },
+  {
+    "pregunta": "Bajo la denominación de enfermos inmunodeficientes se agrupan:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Enfermedades infecciosas",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Enfermos de SIDA, Leucemia, Transplantados y en tratamiento anticanceroso",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Únicamente enfermos de SIDA",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Enfermos con insuficiencia renal, tratados con corticoesteroides, Diabetes y con insuficiencia hepática",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Enfermos de SIDA, Leucemia, Transplantados, en tratamiento anticanceroso, con insuficiencia renal, tratados con corticoesteroides, Diabetes y con insuficiencia hepática",
+        "correcta": true
+      }
+    ],
+    "numero": 1239
+  },
+  {
+    "pregunta": "¿Qué caracteriza principalmente a la parálisis cerebral espástica?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Movimientos vermiformes",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Alteración del equilibrio",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Hipertonía muscular",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Forma mixta",
+        "correcta": false
+      }
+    ],
+    "numero": 1240
+  },
+  {
+    "pregunta": "Un paciente con hipertiroidismo no controlado requiere tratamiento dental electivo. ¿Cuál es la conducta más adecuada?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología endocrina",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Realizar el procedimiento bajo anestesia general",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Administrar profilaxis antibiótica y tratar",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Retrasar el tratamiento hasta lograr control hormonal",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Sustituir la anestesia local por una benzodiacepina",
+        "correcta": false
+      }
+    ],
+    "numero": 1241
+  },
+  {
+    "pregunta": "Señale la opción incorrecta acerca del paciente con TEA:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Es interesante que la auxiliar dental sea siempre la misma",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Suelen ser pacientes cariñosos, simpáticos y colaboradores",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Si es un Asperger, suele tener un cociente intelectual mayor",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "El TEA presenta patologías más numerosas a nivel dental",
+        "correcta": false
+      }
+    ],
+    "numero": 1242
+  },
+  {
+    "pregunta": "Un paciente con trastorno de desarrollo intelectual vive en casa, realiza tareas domésticas y presenta lectura y escritura básicas. ¿Qué grado de severidad es más compatible?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "TDI moderado",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "TDI severo",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "TDI leve",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "TDI profundo",
+        "correcta": false
+      }
+    ],
+    "numero": 1243
+  },
+  {
+    "pregunta": "Señale la afirmación incorrecta acerca del papel del dentista con respecto al paciente Diabético Tipo 1:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología endocrina",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "En pacientes con abscesos periodontales hay que hacer despistaje",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "En exodoncias, se deberían legrar los alveolos meticulosamente",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Se debería sustituir la profilaxis con clindamicina por azitromicina",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Se podría utilizar articaína +epinefrina como anestésico en exodoncias",
+        "correcta": false
+      }
+    ],
+    "numero": 1244
+  },
+  {
+    "pregunta": "¿Cómo clasificaría la condición de \"médicamente estable\" según la clasificación del estado de riesgo para pacientes dentales?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Tipo I",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Tipo II",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Tipo III",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Tipo IV",
+        "correcta": false
+      }
+    ],
+    "numero": 1245
+  },
+  {
+    "pregunta": "¿Qué fármaco se menciona como epileptógeno en pacientes con epilepsia?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología neurológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Nanohidroxiapatita",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Fosfopéptido de caseína",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Xilitol",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Tramadol",
+        "correcta": true
+      }
+    ],
+    "numero": 1246
+  },
+  {
+    "pregunta": "¿Qué tipos de complicaciones no esperamos en un paciente con cirrosis hepática?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología hepatorrenal",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Infecciones",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Toxicidad farmacológica",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Hemorragias",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Desequilibrio hidroelectrolitico",
+        "correcta": true
+      }
+    ],
+    "numero": 1247
+  },
+  {
+    "pregunta": "Ante un paciente sometido a hemodiálisis desde hace 3 meses y acude a nuestra consulta para exodoncia de un molar. Señale la respuesta correcta:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología hepatorrenal",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "No precisa profilaxis antibiótica",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "La exodoncia puede realizarse en cualquier momento",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La A es la correcta",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "La exodoncia se hará al día siguiente de la hemodiálisis.",
+        "correcta": true
+      }
+    ],
+    "numero": 1248
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes complicaciones de la quimioterapia es la que causa una mayor mortalidad?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología oncológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Mucositis",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Sabor metálico",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Hiposialia",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Infecciones",
+        "correcta": true
+      }
+    ],
+    "numero": 1249
+  },
+  {
+    "pregunta": "Dentro de las posibles manifestaciones orales de las inmunodeficiencias se encuentran:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Enfermedades infecciosas",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Úlceras neutropénicas",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Afectaciones severas del tejido periodontal",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Candidiasis orales",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Todas son correctas",
+        "correcta": true
+      }
+    ],
+    "numero": 1250
+  },
+  {
+    "pregunta": "En una paciente con una enfermedad autoinmune que toma 7.5mg de prednisona al dia por la mañana y precisa colocación de 4 implantes. ¿Cuál de las siguientes actuaciones no es necesaria?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología endocrina",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Un buen control del estrés emocional si es necesario con ansiolíticos",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Un buen control del dolor intra y postoperatorio.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Administrar suplementos de corticoides",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Prevenir infecciones",
+        "correcta": false
+      }
+    ],
+    "numero": 1251
+  },
+  {
+    "pregunta": "En relación con el manejo dental paciente hipotiroideo, señale cuál es la verdadera:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología endocrina",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El paciente debe estar bien controlado para realizar tratamientos cruentos, sino puede provocar una crisis tirotóxica.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Debemos controlar bien la coagulación por los fármacos que toma.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Para el control del estrés emocional no debemos usar benzodiacepinas.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Los fármacos son metabolizados más lentamente.",
+        "correcta": true
+      }
+    ],
+    "numero": 1252
+  },
+  {
+    "pregunta": "En relación con un paciente con niveles de calcio sérico bajo, a nivel del área orofacial debemos tener en cuenta todo excepto:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología endocrina",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "No hacer tratamientos dentales con cifras de calcio sérico inferior a 8mg/ml",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Mayor riesgo de caries por hipoplasia del esmalte",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Parestesias en labios y lengua",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Riesgo de fracturas patológicas por lisis ósea",
+        "correcta": true
+      }
+    ],
+    "numero": 1253
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes afirmaciones en relación con el Síndrome de Cushing es falsa?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología endocrina",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Todos los pacientes que padecen esta enfermedad precisan de suplementos de corticoides ante los tratamientos odontológicos cruentos",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "una de las causas más frecuentes del desarrollo del S. Cushing es la administración exógena de corticoides",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Tienen mayor tendencia a las infecciones y al retardo en la cicatrización de las heridas.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Presentan “cara de luna llena y “giba de búfalo”",
+        "correcta": false
+      }
+    ],
+    "numero": 1254
+  },
+  {
+    "pregunta": "Cuál de estas no es una manifestación oral característica de pacientes diabéticos?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología endocrina",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Enfermedad Periodontal",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Candidiasis Oral",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Xerostomía",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Úlceras Neutropénicas",
+        "correcta": true
+      }
+    ],
+    "numero": 1255
+  },
+  {
+    "pregunta": "Dentro de los aspectos a tener en cuenta en el tratamiento odontológico en un paciente diabetico señale lo que no es correcto:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología endocrina",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El control metabólico del paciente medido por la hemoglobina glicosilada, siendo en un paciente bien controlado inferior a 7.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El control de la glucemia capilar pretratamiento, siendo ésta nunca inferior a 200 por riesgo de hipoglucemia.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Que no modifique sus hábitos alimenticios.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Que no dejen de tomar su medicación habitual.",
+        "correcta": false
+      }
+    ],
+    "numero": 1256
+  },
+  {
+    "pregunta": "En relación con el manejo odontológico clínico del paciente con enfermedad Suprarrenal o enfermedad de Addison señale la opción que no es correcta:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología endocrina",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "controlar muy bien el estrés premedicando con algún ansiolítico.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Realizar una correcta técnica anestésica para minimizar el dolor intraoperatorio y postoperatorio",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "El paciente va a estar tomando glucocorticoides y mineralocorticoides a dosis fisiológicas y con un ritmo circadiano, por lo que solo en casos de tratamientos cruentos debemos doblar la dosis el día de la intervención y el día siguiente.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "El paciente va a estar tomando glucocorticoides y mineralocorticoides a dosis fisiológicas y con un ritmo circadiano, por lo que no debemos doblar la dosis del glucocorticoide ya que tiene suficiente cantidad para responder al estrés y si no ya producirá más su propio organismo.",
+        "correcta": true
+      }
+    ],
+    "numero": 1257
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes afirmaciones en relación con la diabetes y la salud oral le parece cierta?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología endocrina",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "En la actualidad hay estudios que demuestran una relación directa entre la diabetes y la enfermedad periodontal.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El buen control metabólico de la diabetes es un factor determinante para el control de la agresividad y la velocidad en la pérdida de tejidos de soporte de los dientes.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "El tratamiento adecuado de la enfermedad periodontal mejora el control metabólico de la diabetes.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Todas son ciertas.",
+        "correcta": true
+      }
+    ],
+    "numero": 1258
+  },
+  {
+    "pregunta": "En cuál de las siguientes situaciones no pautaría una profilaxis antibiótica?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología cardiovascular",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "ajuste de aparato de ortodoncia",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "colocación de una espiga",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "caída de la dentición primaria",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "en ninguna de las anteriores",
+        "correcta": true
+      }
+    ],
+    "numero": 1259
+  },
+  {
+    "pregunta": "Ante qué patología pautaria una profilaxis antibiótica?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología cardiovascular",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Prótesis valvular cardiaca",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "CIA aislada",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Cirugía de Bypass coronario",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "soplo cardiaco funcional",
+        "correcta": false
+      }
+    ],
+    "numero": 1260
+  },
+  {
+    "pregunta": "De las siguientes. ¿Qué situación se considera de riesgo moderado para establecer una profilaxis de endocarditis bacteriana?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología cardiovascular",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Prótesis valvular cardíaca",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "CIA aislada",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Miocardiopatía hipertrófica",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Endocarditis bacteriana previa.",
+        "correcta": false
+      }
+    ],
+    "numero": 1261
+  },
+  {
+    "pregunta": "Según los protocolos actuales ¿cual es el primer fármaco de elección para profilaxis en alérgicos a las penicilinas?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología cardiovascular",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Cefalexina",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Azitromicina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Eritromicina",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Clindamicina",
+        "correcta": true
+      }
+    ],
+    "numero": 1262
+  },
+  {
+    "pregunta": "Señale la incorrecta:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología hemorrágica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "En un paciente con angiopatía congénita como Sde de Ehler- Danlos se observará un tiempo de hemorragia aumentado.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "En un paciente con trombopatía congénita como el Sde de Bernard Soulier veremos un tiempo de hemorragia aumentado y recuento de plaquetas normal.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "En un paciente con trombopenia encontramos un tiempo de hemorragia aumentado y recuento de plaquetas normal.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "En un paciente con trombopenia asociada a fármacos tendremos un tiempo de hemorragia aumentado y un recuento de plaquetas disminuido",
+        "correcta": false
+      }
+    ],
+    "numero": 1263
+  },
+  {
+    "pregunta": "en relación con la osteorradionecrosis cuál de las siguientes afirmaciones es falsa?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología oncológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Se define como un área ósea sometida a irradiación y que permanece expuesta al exterior más de 8 semanas al coexistir una solución de continuidad de tejidos blandos.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Es una complicación temprana de la radioterapia y es frecuente en maxilar.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "En su etiopatogenia intervienen 2 factores importantes: La hipovascularizacion y la infección.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "La pauta antibiótica adecuada para prevenirla ante un proceso cruento odontologico es: Amoxicilina/Clavulánico 2gr 12h durante 10 dias+enjuague de clorhexidina al 0.12% o Clindamicina 300 mg 1 comprimido cada 8 h durante 10 días y ciprofloxacina 500mg/12h durante 10 dias+enjuague de clorhexidina al 0.12%",
+        "correcta": false
+      }
+    ],
+    "numero": 1264
+  },
+  {
+    "pregunta": "ante un paciente que está siendo tratado con un NAO deberemos tomar las siguientes medidas excepto una que es incorrecta:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología hemorrágica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "No se debe suspender el anticoagulante ante procedimientos dentales habituales",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "No se deben realizar exodoncias aunque los dos dientes sean contiguos",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La última dosis se habrá tomado al menos 6 horas antes de la cita",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Después de la exodoncia puede tomar cualquier AINE.",
+        "correcta": true
+      }
+    ],
+    "numero": 1265
+  },
+  {
+    "pregunta": "En aquellos pacientes sometidos a Radioterapia en el territorio cervicofacial, deberemos tomar una serie de precauciones a la hora de realizar una exodoncia",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología oncológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Utilizaremos anestesia sin vasoconstrictor",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Usaremos una anestesia infiltrativa, troncular o ligamentosa según consideremos.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Debe realizarse un legrado correcto del alveolo.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Se llevará a cabo bajo cobertura antibiótica",
+        "correcta": false
+      }
+    ],
+    "numero": 1266
+  },
+  {
+    "pregunta": "Se considera un paciente ASA IV cuando?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Es un paciente moribundo.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Paciente sano que tolera bien el estrés.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Paciente sano pero con ansiedad extrema.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Paciente que tiene enfermedad sistémica grave incapacitante.",
+        "correcta": true
+      }
+    ],
+    "numero": 1267
+  },
+  {
+    "pregunta": "En caso de Hepatopatía, podemos esperar déficit de todos los factores excepto:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología hepatorrenal",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "VIII",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "IX",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "X",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "XI",
+        "correcta": false
+      }
+    ],
+    "numero": 1268
+  },
+  {
+    "pregunta": "En el caso anterior encontramos las siguientes alteraciones, excepto una:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología hepatorrenal",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Plaquetopenia",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Tiempo de protrombina aumentado",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "TTp normal",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Tiempo de protrombina disminuido",
+        "correcta": true
+      }
+    ],
+    "numero": 1269
+  },
+  {
+    "pregunta": "Entre las siguientes características clínicas hay una que no define a un diente como intratable. Señalela:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Resto radicular",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Diente con recesión gingival severa",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Caries muy extensa",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Bolsa periodontal de 7 milímetros, con movilidad.",
+        "correcta": true
+      }
+    ],
+    "numero": 1270
+  },
+  {
+    "pregunta": "¿A cuál clasificación corresponde el estado bucal de un paciente que presenta enfermedad periodontal moderada, 6 caries e higiene oral regular?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Mal estado bucal",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Estado bucal moderado.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Estado bucal aceptable",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Estado bucal bueno.",
+        "correcta": false
+      }
+    ],
+    "numero": 1271
+  },
+  {
+    "pregunta": "Ante cual/es de las siguientes situaciones se considera que un paciente es médicamente comprometido?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Otras situaciones especiales",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Tratamiento con bifosfonatos de larga duración.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Tratamiento con QT.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Patología sistémica severa y descompensada.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "todas las anteriores son correctas.",
+        "correcta": true
+      }
+    ],
+    "numero": 1272
+  },
+  {
+    "pregunta": "Dentro del tratamiento previo a la radioterapia se pueden llevar a cabo una serie de actuaciones odontológicas, entre las que NO se encuentra:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología oncológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Plan exhaustivo de higiene bucodental con utilización de elevadas concentraciones de flúor.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Exodoncias de dientes con mal pronóstico, que deben realizarse 7-10 días antes de iniciar el tratamiento.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Exodoncias de dientes con mal pronóstico, que deben realizarse 15-21 días antes de iniciar el tratamiento.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "La cirugía preprotésica debe realizarse al menos 6 semanas antes de iniciarse el tratamiento.",
+        "correcta": false
+      }
+    ],
+    "numero": 1273
+  },
+  {
+    "pregunta": "Una vez iniciada la radioterapia estará contraindicado el siguiente tratamiento:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Patología oncológica",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Exodoncia de molares",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Tratamiento de conductos",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Aplicación de flúor diario en cubetas",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Utilización de clorhexidina.",
+        "correcta": false
+      }
+    ],
+    "numero": 1274
   }
 ]
