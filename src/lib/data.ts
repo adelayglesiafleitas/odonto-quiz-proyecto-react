@@ -55,11 +55,14 @@ export function shuffle<T>(arr: T[]): T[] {
 
 export function seleccionarPreguntas(
   cantidad: number,
-  capitulo: string | 'todos',
+  capitulos: string[],
   anio: number | 'todos' = 'todos',
 ): Pregunta[] {
   let pool = getPreguntas()
-  if (capitulo !== 'todos') pool = pool.filter((p) => p.capitulo === capitulo)
+  // Array vacío = todos los capítulos; con elementos, cualquier pregunta de
+  // cualquiera de los capítulos elegidos entra en el pool (combinación, no
+  // intersección).
+  if (capitulos.length > 0) pool = pool.filter((p) => capitulos.includes(p.capitulo))
   if (anio !== 'todos') pool = pool.filter((p) => p.anio === anio)
   const barajadas = shuffle(pool)
   return barajadas.slice(0, Math.min(cantidad, barajadas.length))

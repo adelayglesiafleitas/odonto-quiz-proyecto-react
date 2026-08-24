@@ -27,7 +27,7 @@ export function Resultados({
   cursoId,
   preguntas,
   respuestas,
-  capitulo,
+  capitulos,
   anio,
   umbralAprobado,
   mostrarConvocatoria,
@@ -44,7 +44,7 @@ export function Resultados({
   cursoId: string
   preguntas: Pregunta[]
   respuestas: RespuestaUsuario
-  capitulo: string
+  capitulos: string[]
   anio: number | 'todos'
   umbralAprobado: number
   mostrarConvocatoria: boolean
@@ -101,7 +101,7 @@ export function Resultados({
           correctas,
           porcentaje,
           aprobado,
-          capitulo,
+          capitulos,
           anio,
           tiempoLimiteMinutos,
           tiempoUsadoSeg,
@@ -230,6 +230,16 @@ export function Resultados({
                 </button>
                 {abierto && (
                   <div className="space-y-1.5 border-t border-border px-4 py-3">
+                    {p.caso && (
+                      <div className="mb-2 rounded-xl bg-secondary/60 p-3">
+                        <p className="text-[10px] font-bold uppercase tracking-wide text-muted-foreground">
+                          {t.examen.casoClinico}
+                        </p>
+                        <p className="mt-1 whitespace-pre-line text-[12px] leading-snug text-foreground/80">
+                          {p.caso}
+                        </p>
+                      </div>
+                    )}
                     {p.opciones.map((op) => {
                       const marcada = sel.includes(op.letra)
                       return (

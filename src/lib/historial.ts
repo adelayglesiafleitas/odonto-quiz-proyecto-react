@@ -8,7 +8,7 @@ interface FilaHistorial {
   correctas: number
   porcentaje: number
   aprobado: boolean
-  capitulo: string
+  capitulos: string[] | null
   anio: number | null
   tiempo_limite_minutos: number | null
   tiempo_usado_seg: number
@@ -24,7 +24,7 @@ function filaAIntento(fila: FilaHistorial): IntentoExamen {
     correctas: fila.correctas,
     porcentaje: fila.porcentaje,
     aprobado: fila.aprobado,
-    capitulo: fila.capitulo,
+    capitulos: fila.capitulos ?? [],
     anio: fila.anio ?? 'todos',
     tiempoLimiteMinutos: fila.tiempo_limite_minutos,
     tiempoUsadoSeg: fila.tiempo_usado_seg,
@@ -39,7 +39,7 @@ export async function getHistorialRemoto(userId: string, cursoId?: string): Prom
   let consulta = supabase
     .from('historial_intentos')
     .select(
-      'curso_id, fecha, total_preguntas, correctas, porcentaje, aprobado, capitulo, anio, tiempo_limite_minutos, tiempo_usado_seg, agoto_tiempo, desglose_capitulos',
+      'curso_id, fecha, total_preguntas, correctas, porcentaje, aprobado, capitulos, anio, tiempo_limite_minutos, tiempo_usado_seg, agoto_tiempo, desglose_capitulos',
     )
     .eq('user_id', userId)
     .order('fecha', { ascending: false })
@@ -64,7 +64,7 @@ export async function guardarIntentoRemoto(userId: string, intento: IntentoExame
     correctas: intento.correctas,
     porcentaje: intento.porcentaje,
     aprobado: intento.aprobado,
-    capitulo: intento.capitulo,
+    capitulos: intento.capitulos,
     anio: intento.anio === 'todos' ? null : intento.anio,
     tiempo_limite_minutos: intento.tiempoLimiteMinutos,
     tiempo_usado_seg: intento.tiempoUsadoSeg,

@@ -34,7 +34,8 @@ const HiloConsulta = lazy(() => import('@/screens/HiloConsulta').then((m) => ({ 
 
 interface SesionExamen {
   preguntas: Pregunta[]
-  capitulo: string
+  // Array vacío = todos los capítulos (antes era el string 'todos').
+  capitulos: string[]
   anio: number | 'todos'
   tiempoLimiteMinutos: number | null
   // Mini-examen armado desde Resultados con las preguntas falladas de un
@@ -161,8 +162,13 @@ function App() {
     setVerifDispositivo('ok')
   }
 
-  function iniciarExamen(cantidad: number, capitulo: string, tiempoLimiteMinutos: number | null, anio: number | 'todos') {
-    setSesionExamen({ preguntas: seleccionarPreguntas(cantidad, capitulo, anio), capitulo, anio, tiempoLimiteMinutos })
+  function iniciarExamen(
+    cantidad: number,
+    capitulos: string[],
+    tiempoLimiteMinutos: number | null,
+    anio: number | 'todos',
+  ) {
+    setSesionExamen({ preguntas: seleccionarPreguntas(cantidad, capitulos, anio), capitulos, anio, tiempoLimiteMinutos })
     navigate(RUTA.examen)
   }
 
@@ -174,7 +180,7 @@ function App() {
   }
 
   function repasarFallos(preguntas: Pregunta[]) {
-    setSesionExamen({ preguntas, capitulo: 'todos', anio: 'todos', tiempoLimiteMinutos: null, esRepaso: true })
+    setSesionExamen({ preguntas, capitulos: [], anio: 'todos', tiempoLimiteMinutos: null, esRepaso: true })
     navigate(RUTA.examen)
   }
 
@@ -291,7 +297,7 @@ function App() {
                     cursoId={CURSO_ID}
                     preguntas={sesionExamen.preguntas}
                     respuestas={resultado.respuestas}
-                    capitulo={sesionExamen.capitulo}
+                    capitulos={sesionExamen.capitulos}
                     anio={sesionExamen.anio}
                     umbralAprobado={CURSO.porcentajeAprobado}
                     mostrarConvocatoria={CURSO.tieneConvocatorias}
@@ -307,7 +313,7 @@ function App() {
                       } else {
                         iniciarExamen(
                           sesionExamen.preguntas.length,
-                          sesionExamen.capitulo,
+                          sesionExamen.capitulos,
                           sesionExamen.tiempoLimiteMinutos,
                           sesionExamen.anio,
                         )

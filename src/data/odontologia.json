@@ -39383,5 +39383,2227 @@
       }
     ],
     "numero": 1164
+  },
+  {
+    "pregunta": "¿Qué horario es el más adecuado para efectuar el tratamiento odontológico de este paciente?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2023",
+    "anio": 2023,
+    "bibliografia": "Diz 175 (infarto)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "A primera hora de la mañana",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "A última hora de la mañana o primera de la tarde",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "A última hora de la tarde",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Es indiferente",
+        "correcta": false
+      }
+    ],
+    "numero": 1165,
+    "caso": "CASO 1. Varón de 60 años acude con dolor e inflamación en resto radicular 46. Antecedentes Patológicos: Sin alergias. Fumador 1 cajetilla. HTA bien controlada con tratamiento farmacológico. Dislipidemia. Diabetes tipo II. Hace 8 meses tubo infarto agudo q requirió inserción de 3 stent farmacoactivos; cardiologigamente estable. Tratamiento: atenolol, enalapril, hidroclorotiazida, atorvastatina, metformina, AAS y clopidogrel. Exploración TA 145/85 FC 89 Ritmo Saturación de oxígeno 96%. Glucemia capilar 140gr/dl HbAc 7% Higiene pobre, abundante sarro, Enf periodontal moderada, bolsas de 4-5 sectores posteriores. Ausencia de los molares 16, 26, 27, 36, 37 y 47 Resto radicular 46 fistula vestibular, imagen radiolucida caries 15, 24, 33, 43, 44, 45"
+  },
+  {
+    "pregunta": "¿Qué régimen de profilaxis antibiótica para prevenir endocarditis bacteriana estaría recomendado?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2023",
+    "anio": 2023,
+    "bibliografia": "Diz 169 (no indicada en infarto); Diz 193 (no indicado en stent)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Amoxicilina 2g vía oral",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Clindamicina 600mg oral",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Azitromicina 500mg oral",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ninguno",
+        "correcta": true
+      }
+    ],
+    "numero": 1166,
+    "caso": "CASO 1. Varón de 60 años acude con dolor e inflamación en resto radicular 46. Antecedentes Patológicos: Sin alergias. Fumador 1 cajetilla. HTA bien controlada con tratamiento farmacológico. Dislipidemia. Diabetes tipo II. Hace 8 meses tubo infarto agudo q requirió inserción de 3 stent farmacoactivos; cardiologigamente estable. Tratamiento: atenolol, enalapril, hidroclorotiazida, atorvastatina, metformina, AAS y clopidogrel. Exploración TA 145/85 FC 89 Ritmo Saturación de oxígeno 96%. Glucemia capilar 140gr/dl HbAc 7% Higiene pobre, abundante sarro, Enf periodontal moderada, bolsas de 4-5 sectores posteriores. Ausencia de los molares 16, 26, 27, 36, 37 y 47 Resto radicular 46 fistula vestibular, imagen radiolucida caries 15, 24, 33, 43, 44, 45"
+  },
+  {
+    "pregunta": "Si no existen otros factores añadidos de riesgo de sangrado, ¿qué debe hacer con respecto a la medicación antitrombótica antes de efectuar la exodoncia?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2023",
+    "anio": 2023,
+    "bibliografia": "Diz 193",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Mantener los dos antiagregantes plaquetarios",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Retirar clopidogrel",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Retirar AAS",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Retirar los dos antiagregantes",
+        "correcta": false
+      }
+    ],
+    "numero": 1167,
+    "caso": "CASO 1. Varón de 60 años acude con dolor e inflamación en resto radicular 46. Antecedentes Patológicos: Sin alergias. Fumador 1 cajetilla. HTA bien controlada con tratamiento farmacológico. Dislipidemia. Diabetes tipo II. Hace 8 meses tubo infarto agudo q requirió inserción de 3 stent farmacoactivos; cardiologigamente estable. Tratamiento: atenolol, enalapril, hidroclorotiazida, atorvastatina, metformina, AAS y clopidogrel. Exploración TA 145/85 FC 89 Ritmo Saturación de oxígeno 96%. Glucemia capilar 140gr/dl HbAc 7% Higiene pobre, abundante sarro, Enf periodontal moderada, bolsas de 4-5 sectores posteriores. Ausencia de los molares 16, 26, 27, 36, 37 y 47 Resto radicular 46 fistula vestibular, imagen radiolucida caries 15, 24, 33, 43, 44, 45"
+  },
+  {
+    "pregunta": "Se decide prescribir un antibiótico en este paciente ¿cuál será su primera opción?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2023",
+    "anio": 2023,
+    "bibliografia": "Diz 291 (amoxicilina altera función plaquetaria / macrólidos interaccionan con estatinas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Clindamicina",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Azitromicina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Claritromicina",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Amoxicilina",
+        "correcta": false
+      }
+    ],
+    "numero": 1168,
+    "caso": "CASO 1. Varón de 60 años acude con dolor e inflamación en resto radicular 46. Antecedentes Patológicos: Sin alergias. Fumador 1 cajetilla. HTA bien controlada con tratamiento farmacológico. Dislipidemia. Diabetes tipo II. Hace 8 meses tubo infarto agudo q requirió inserción de 3 stent farmacoactivos; cardiologigamente estable. Tratamiento: atenolol, enalapril, hidroclorotiazida, atorvastatina, metformina, AAS y clopidogrel. Exploración TA 145/85 FC 89 Ritmo Saturación de oxígeno 96%. Glucemia capilar 140gr/dl HbAc 7% Higiene pobre, abundante sarro, Enf periodontal moderada, bolsas de 4-5 sectores posteriores. Ausencia de los molares 16, 26, 27, 36, 37 y 47 Resto radicular 46 fistula vestibular, imagen radiolucida caries 15, 24, 33, 43, 44, 45"
+  },
+  {
+    "pregunta": "Con respecto a la diabetes, el tratamiento quirúrgico de este paciente debería hacerse en medio hospitalario si tuviera valores de HbA1c:",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2023",
+    "anio": 2023,
+    "bibliografia": "Diz 89",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": ">5%",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": ">7%",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": ">9%",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": ">12%",
+        "correcta": false
+      }
+    ],
+    "numero": 1169,
+    "caso": "CASO 1. Varón de 60 años acude con dolor e inflamación en resto radicular 46. Antecedentes Patológicos: Sin alergias. Fumador 1 cajetilla. HTA bien controlada con tratamiento farmacológico. Dislipidemia. Diabetes tipo II. Hace 8 meses tubo infarto agudo q requirió inserción de 3 stent farmacoactivos; cardiologigamente estable. Tratamiento: atenolol, enalapril, hidroclorotiazida, atorvastatina, metformina, AAS y clopidogrel. Exploración TA 145/85 FC 89 Ritmo Saturación de oxígeno 96%. Glucemia capilar 140gr/dl HbAc 7% Higiene pobre, abundante sarro, Enf periodontal moderada, bolsas de 4-5 sectores posteriores. Ausencia de los molares 16, 26, 27, 36, 37 y 47 Resto radicular 46 fistula vestibular, imagen radiolucida caries 15, 24, 33, 43, 44, 45"
+  },
+  {
+    "pregunta": "Si el paciente tiene un dolor leve-moderado, ¿qué analgésico pautaría?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2023",
+    "anio": 2023,
+    "bibliografia": "Diz 158 (coxib contraindicados, AINEs evitar por betabloqueante); Inma 251",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Celecoxib",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Ibuprofeno",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Paracetamol",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Diclofenaco",
+        "correcta": false
+      }
+    ],
+    "numero": 1170,
+    "caso": "CASO 1. Varón de 60 años acude con dolor e inflamación en resto radicular 46. Antecedentes Patológicos: Sin alergias. Fumador 1 cajetilla. HTA bien controlada con tratamiento farmacológico. Dislipidemia. Diabetes tipo II. Hace 8 meses tubo infarto agudo q requirió inserción de 3 stent farmacoactivos; cardiologigamente estable. Tratamiento: atenolol, enalapril, hidroclorotiazida, atorvastatina, metformina, AAS y clopidogrel. Exploración TA 145/85 FC 89 Ritmo Saturación de oxígeno 96%. Glucemia capilar 140gr/dl HbAc 7% Higiene pobre, abundante sarro, Enf periodontal moderada, bolsas de 4-5 sectores posteriores. Ausencia de los molares 16, 26, 27, 36, 37 y 47 Resto radicular 46 fistula vestibular, imagen radiolucida caries 15, 24, 33, 43, 44, 45"
+  },
+  {
+    "pregunta": "Para prevenir complicaciones derivadas del tratamiento odontológico en esta paciente, ¿qué medida de prevención NO está justificada?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2023",
+    "anio": 2023,
+    "bibliografia": "Diz 327",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Medidas locales de hemostasia",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Administración perioperatoria de antibióticos",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Suplemento de corticoides",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Control de la ingesta post-tratamiento",
+        "correcta": false
+      }
+    ],
+    "numero": 1171,
+    "caso": "CASO 2. Mujer de 60 años acude para sanear la boca, tiene removibles arriba y abajo desde hace 15 años en los que no ha ido al dentista más que para quitarse algún diente por dolor o infección y alguno se le ha roto. Quiere que se le extraigan todos y no tener más complicaciones y el nefrólogo la metió en la lista de transplante Sin alergia HTA de larga evolucion, IRC necesita un transplante y tiene diálisis martes jueves y sábados diabetics tipo 1 dislipemia EPOC Gold 1 colescistectomia y apendicitis. Toma ramipril fueosemida atorvastatina usa insulina de acción lenta a las 22H omeprazol paracetamol budosomida-formoterol bromuro de ipiatropo y salbutamol. Tiene ausencias arriba y abajo restos en 13-15-25-47 caries en 14 23 24-35-43-45 con fistula acúmulo moderado mala higiene hipo salía estomatitis protretica enf perio con movilidad de remanentes grado 2 y 3. Y ortopanto con lesión radio lúcida foco periapiacal entre 45-46"
+  },
+  {
+    "pregunta": "¿Antibiótico de primera elección que no necesita ajuste de su dosis?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2023",
+    "anio": 2023,
+    "bibliografia": "Inma 177; Diz 121",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Clindamicina",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Metronidazol",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Claritromicina",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Amoxicilina",
+        "correcta": false
+      }
+    ],
+    "numero": 1172,
+    "caso": "CASO 2. Mujer de 60 años acude para sanear la boca, tiene removibles arriba y abajo desde hace 15 años en los que no ha ido al dentista más que para quitarse algún diente por dolor o infección y alguno se le ha roto. Quiere que se le extraigan todos y no tener más complicaciones y el nefrólogo la metió en la lista de transplante Sin alergia HTA de larga evolucion, IRC necesita un transplante y tiene diálisis martes jueves y sábados diabetics tipo 1 dislipemia EPOC Gold 1 colescistectomia y apendicitis. Toma ramipril fueosemida atorvastatina usa insulina de acción lenta a las 22H omeprazol paracetamol budosomida-formoterol bromuro de ipiatropo y salbutamol. Tiene ausencias arriba y abajo restos en 13-15-25-47 caries en 14 23 24-35-43-45 con fistula acúmulo moderado mala higiene hipo salía estomatitis protretica enf perio con movilidad de remanentes grado 2 y 3. Y ortopanto con lesión radio lúcida foco periapiacal entre 45-46"
+  },
+  {
+    "pregunta": "¿Qué día de la semana es el menos indicado para tratar a este paciente?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2023",
+    "anio": 2023,
+    "bibliografia": "Inma 175 (evitar el día antes de la diálisis)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Lunes",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Miércoles",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Viernes",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Es indiferente",
+        "correcta": false
+      }
+    ],
+    "numero": 1173,
+    "caso": "CASO 2. Mujer de 60 años acude para sanear la boca, tiene removibles arriba y abajo desde hace 15 años en los que no ha ido al dentista más que para quitarse algún diente por dolor o infección y alguno se le ha roto. Quiere que se le extraigan todos y no tener más complicaciones y el nefrólogo la metió en la lista de transplante Sin alergia HTA de larga evolucion, IRC necesita un transplante y tiene diálisis martes jueves y sábados diabetics tipo 1 dislipemia EPOC Gold 1 colescistectomia y apendicitis. Toma ramipril fueosemida atorvastatina usa insulina de acción lenta a las 22H omeprazol paracetamol budosomida-formoterol bromuro de ipiatropo y salbutamol. Tiene ausencias arriba y abajo restos en 13-15-25-47 caries en 14 23 24-35-43-45 con fistula acúmulo moderado mala higiene hipo salía estomatitis protretica enf perio con movilidad de remanentes grado 2 y 3. Y ortopanto con lesión radio lúcida foco periapiacal entre 45-46"
+  },
+  {
+    "pregunta": "¿A qué hora debe realizarse preferentemente el tratamiento odontológico?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2023",
+    "anio": 2023,
+    "bibliografia": "Diz 92 (máximo efecto de la insulina de acción prolongada a las 12h, tomada a las 22h)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "10 AM",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Por la mañana",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Por la tarde",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ciertas A y B",
+        "correcta": false
+      }
+    ],
+    "numero": 1174,
+    "caso": "CASO 2. Mujer de 60 años acude para sanear la boca, tiene removibles arriba y abajo desde hace 15 años en los que no ha ido al dentista más que para quitarse algún diente por dolor o infección y alguno se le ha roto. Quiere que se le extraigan todos y no tener más complicaciones y el nefrólogo la metió en la lista de transplante Sin alergia HTA de larga evolucion, IRC necesita un transplante y tiene diálisis martes jueves y sábados diabetics tipo 1 dislipemia EPOC Gold 1 colescistectomia y apendicitis. Toma ramipril fueosemida atorvastatina usa insulina de acción lenta a las 22H omeprazol paracetamol budosomida-formoterol bromuro de ipiatropo y salbutamol. Tiene ausencias arriba y abajo restos en 13-15-25-47 caries en 14 23 24-35-43-45 con fistula acúmulo moderado mala higiene hipo salía estomatitis protretica enf perio con movilidad de remanentes grado 2 y 3. Y ortopanto con lesión radio lúcida foco periapiacal entre 45-46"
+  },
+  {
+    "pregunta": "¿Cuál es probablemente el fármaco responsable del agrandamiento gingival?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2023",
+    "anio": 2023,
+    "bibliografia": "Diz 49",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Furosemida",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Amlodipino",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Espironolactona",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Digoxina",
+        "correcta": false
+      }
+    ],
+    "numero": 1175,
+    "caso": "Caso 3: Varón 65 años acude a consulta ya que debe operarse de una válvula cardíaca y su médico le recomendó sanear la boca antes. Alérgico a penicilinas y derivados, intolerante a ciprofloxacino y clindamicina (le produce diarrea severa) hipertensión arterial , fibrilación auricular, portador de\nmarcapasos bicameral desde hace 4 años estenosis aórtica severa e insuficiencia mitral leve . Colecistectomía, portador de prótesis de cadera hace 1 año. Toma : Amlodipina,furosemida,espironolactona,digoxina,acenocumarol (INR 2,8 24h antes), Omeprazol y paracetamol.\nResto radicular del 44.\nRecesión gingival 3 mm en 43 33 mov. Grado 1\nMov Grado 2 en 32 41 42\nAgrandamiento gingival generalizado"
+  },
+  {
+    "pregunta": "Para evitar complicaciones hemorrágicas al realizar las exodoncias, ¿qué considera más adecuado?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2023",
+    "anio": 2023,
+    "bibliografia": "Inma 244 (menos de 3,5 no se interfiere el tratamiento)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Instaurar una terapia puente con heparina",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "No alterar la pauta de acenocumarol",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Reducir la dosis de acenocumarol",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Reemplazar el acenocumarol por un antiagregante plaquetario",
+        "correcta": false
+      }
+    ],
+    "numero": 1176,
+    "caso": "Caso 3: Varón 65 años acude a consulta ya que debe operarse de una válvula cardíaca y su médico le recomendó sanear la boca antes. Alérgico a penicilinas y derivados, intolerante a ciprofloxacino y clindamicina (le produce diarrea severa) hipertensión arterial , fibrilación auricular, portador de\nmarcapasos bicameral desde hace 4 años estenosis aórtica severa e insuficiencia mitral leve . Colecistectomía, portador de prótesis de cadera hace 1 año. Toma : Amlodipina,furosemida,espironolactona,digoxina,acenocumarol (INR 2,8 24h antes), Omeprazol y paracetamol.\nResto radicular del 44.\nRecesión gingival 3 mm en 43 33 mov. Grado 1\nMov Grado 2 en 32 41 42\nAgrandamiento gingival generalizado"
+  },
+  {
+    "pregunta": "¿Qué inconvenientes tienen los anticoagulantes antagonistas de la vitamina K?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2023",
+    "anio": 2023,
+    "bibliografia": "Diz 245",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Ventana terapéutica ancha",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "La respuesta puede estar condicionada por factores genéticos",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Su farmacodinamica está condicionada por la dieta",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Son ciertas B y C",
+        "correcta": true
+      }
+    ],
+    "numero": 1177,
+    "caso": "Caso 3: Varón 65 años acude a consulta ya que debe operarse de una válvula cardíaca y su médico le recomendó sanear la boca antes. Alérgico a penicilinas y derivados, intolerante a ciprofloxacino y clindamicina (le produce diarrea severa) hipertensión arterial , fibrilación auricular, portador de\nmarcapasos bicameral desde hace 4 años estenosis aórtica severa e insuficiencia mitral leve . Colecistectomía, portador de prótesis de cadera hace 1 año. Toma : Amlodipina,furosemida,espironolactona,digoxina,acenocumarol (INR 2,8 24h antes), Omeprazol y paracetamol.\nResto radicular del 44.\nRecesión gingival 3 mm en 43 33 mov. Grado 1\nMov Grado 2 en 32 41 42\nAgrandamiento gingival generalizado"
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes analgésicos debe evitarse?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2023",
+    "anio": 2023,
+    "bibliografia": "Diz 176 (interaccionan con acenocumarol y digoxina)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Ibuprofeno",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Diclofenaco",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Naproxeno",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Todas ciertas",
+        "correcta": true
+      }
+    ],
+    "numero": 1178,
+    "caso": "Caso 3: Varón 65 años acude a consulta ya que debe operarse de una válvula cardíaca y su médico le recomendó sanear la boca antes. Alérgico a penicilinas y derivados, intolerante a ciprofloxacino y clindamicina (le produce diarrea severa) hipertensión arterial , fibrilación auricular, portador de\nmarcapasos bicameral desde hace 4 años estenosis aórtica severa e insuficiencia mitral leve . Colecistectomía, portador de prótesis de cadera hace 1 año. Toma : Amlodipina,furosemida,espironolactona,digoxina,acenocumarol (INR 2,8 24h antes), Omeprazol y paracetamol.\nResto radicular del 44.\nRecesión gingival 3 mm en 43 33 mov. Grado 1\nMov Grado 2 en 32 41 42\nAgrandamiento gingival generalizado"
+  },
+  {
+    "pregunta": "[Figura 8] ¿Cuál sería su Diagnóstico de presunción del caso?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2024",
+    "anio": 2024,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Anorexia",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Esquizofrenia",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Psicosis bipolar",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Bulimia",
+        "correcta": true
+      }
+    ],
+    "numero": 1179,
+    "caso": "CASO 1. Paciente de 25 años de edad, con mal estado oral, dolores generalizados que se acentúan a la percusión en algunos dientes y en general con los cambios de temperatura. Esta nerviosa y agitada tiene mal estado oral la paciente refiere que lo que ocurre es por una ingesta excesiva de alimentos pero su apariencia fisica (aspecto fisico) no se corresponde con sus circunstancias puesto que presenta un aspecto normal, a lo largo de la anamnesis la paciente expresa el deseo que le extraigan todos los dientes y se le coloquen implantes, ya que su saliva es muy ácida e imposibilita las reconstrucciones como en otras veces."
+  },
+  {
+    "pregunta": "A la exploración clínica se observan callosidades en las manos, ¿cómo se denominan estas lesiones y a qué se deben?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2024",
+    "anio": 2024,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Gránulos de Fordyce, por estimulación epitelial ácida",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Manchas de Koplik, por sobreinfectación vírica",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Signos de Russell por el ácido del vómito estimulado",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Enfermedad de Dahrier-Whithe por el virus del papiloma",
+        "correcta": false
+      }
+    ],
+    "numero": 1180,
+    "caso": "CASO 1. Paciente de 25 años de edad, con mal estado oral, dolores generalizados que se acentúan a la percusión en algunos dientes y en general con los cambios de temperatura. Esta nerviosa y agitada tiene mal estado oral la paciente refiere que lo que ocurre es por una ingesta excesiva de alimentos pero su apariencia fisica (aspecto fisico) no se corresponde con sus circunstancias puesto que presenta un aspecto normal, a lo largo de la anamnesis la paciente expresa el deseo que le extraigan todos los dientes y se le coloquen implantes, ya que su saliva es muy ácida e imposibilita las reconstrucciones como en otras veces."
+  },
+  {
+    "pregunta": "[Figura 8] La situación anómala de las amalgamas de la figura 8 son características del síndrome. ¿Cómo se denominan y a qué se deben?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2024",
+    "anio": 2024,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Amalgamas sobre-obturadas por corrosión de la amalgama",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Amalgamas flotantes, por corrosión preferente del esmalte",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Amalgamas filtradas, por la higiene oral defectuosa asociada",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Amalgamas contaminadas, por la interacción ácido-mercurio",
+        "correcta": false
+      }
+    ],
+    "numero": 1181,
+    "caso": "CASO 1. Paciente de 25 años de edad, con mal estado oral, dolores generalizados que se acentúan a la percusión en algunos dientes y en general con los cambios de temperatura. Esta nerviosa y agitada tiene mal estado oral la paciente refiere que lo que ocurre es por una ingesta excesiva de alimentos pero su apariencia fisica (aspecto fisico) no se corresponde con sus circunstancias puesto que presenta un aspecto normal, a lo largo de la anamnesis la paciente expresa el deseo que le extraigan todos los dientes y se le coloquen implantes, ya que su saliva es muy ácida e imposibilita las reconstrucciones como en otras veces."
+  },
+  {
+    "pregunta": "Ante una paciente de estas características, ¿qué actitud terapéutica no pondría en marcha?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2024",
+    "anio": 2024,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Consulta urgente al psiquiatra, si no estuviera diagnosticado",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Uso de paracetamol 1gr vía oral cada 12 horas por el dolor",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Enjuagues con bicarbonato y/o fluoruro sódico al 0.05%",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Uso de coronas con recubrimiento total a la mayor brevedad",
+        "correcta": true
+      }
+    ],
+    "numero": 1182,
+    "caso": "CASO 1. Paciente de 25 años de edad, con mal estado oral, dolores generalizados que se acentúan a la percusión en algunos dientes y en general con los cambios de temperatura. Esta nerviosa y agitada tiene mal estado oral la paciente refiere que lo que ocurre es por una ingesta excesiva de alimentos pero su apariencia fisica (aspecto fisico) no se corresponde con sus circunstancias puesto que presenta un aspecto normal, a lo largo de la anamnesis la paciente expresa el deseo que le extraigan todos los dientes y se le coloquen implantes, ya que su saliva es muy ácida e imposibilita las reconstrucciones como en otras veces."
+  },
+  {
+    "pregunta": "[Figura 6] Ante esta historia clínica, ¿qué sería y qué podría originar la lesión de la figura 6?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2024",
+    "anio": 2024,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Escaldadura por ingesta de líquidos calientes",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Candidiasis por introducir los dedos sucios",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Erosión por liquen de las mucosas sobreañadida",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Eritroplasia por exposición excesiva al ácido",
+        "correcta": false
+      }
+    ],
+    "numero": 1183,
+    "caso": "CASO 1. Paciente de 25 años de edad, con mal estado oral, dolores generalizados que se acentúan a la percusión en algunos dientes y en general con los cambios de temperatura. Esta nerviosa y agitada tiene mal estado oral la paciente refiere que lo que ocurre es por una ingesta excesiva de alimentos pero su apariencia fisica (aspecto fisico) no se corresponde con sus circunstancias puesto que presenta un aspecto normal, a lo largo de la anamnesis la paciente expresa el deseo que le extraigan todos los dientes y se le coloquen implantes, ya que su saliva es muy ácida e imposibilita las reconstrucciones como en otras veces."
+  },
+  {
+    "pregunta": "¿Cuál sería el diagnóstico de sospecha más probable acerca de la coagulación que podría tener?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2024",
+    "anio": 2024,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Hemofilia A",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Enfermedad de Rendu Osler",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Hemofilia B",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Enfermedad de Von Willebrand",
+        "correcta": true
+      }
+    ],
+    "numero": 1184,
+    "caso": "CASO 2. A su consulta acude una mujer de 50 años se aqueja de un dolor intenso en el 22, dicho dolor se acentúa a la percusión y con los cambios de temperatura, la paciente no ha consumido ningún medicamento porque según refiere sufre de una coagulopatía congénita. La historia clinica no refiere mas datos de interés. (fotos intraorales de piezas dentales ninguna lesión en particular)"
+  },
+  {
+    "pregunta": "¿Qué tratamiento odontológico de urgencia llevaría a cabo?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2024",
+    "anio": 2024,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Aspirina y Metronidazol y remisión al hematólogo",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Paracetamol con codeína y remisión al hematólogo",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Ibuprofeno y amoxicilina y remisión al hematólogo",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Apertura de cámara y remisión al hematólogo",
+        "correcta": false
+      }
+    ],
+    "numero": 1185,
+    "caso": "CASO 2. A su consulta acude una mujer de 50 años se aqueja de un dolor intenso en el 22, dicho dolor se acentúa a la percusión y con los cambios de temperatura, la paciente no ha consumido ningún medicamento porque según refiere sufre de una coagulopatía congénita. La historia clinica no refiere mas datos de interés. (fotos intraorales de piezas dentales ninguna lesión en particular)"
+  },
+  {
+    "pregunta": "Una vez solucionada la emergencia y asegurada la enfermedad de base, ¿en qué condiciones estaría indicado el tratamiento de las caries cervicales inferiores que padece?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2024",
+    "anio": 2024,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Hospitalario previa administración de desmopresina",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Ambulatorio previa administración de desmopresina",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Hospitalario previa administración del factor VIII",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ambulatorio previa administración del factor VIII",
+        "correcta": false
+      }
+    ],
+    "numero": 1186,
+    "caso": "CASO 2. A su consulta acude una mujer de 50 años se aqueja de un dolor intenso en el 22, dicho dolor se acentúa a la percusión y con los cambios de temperatura, la paciente no ha consumido ningún medicamento porque según refiere sufre de una coagulopatía congénita. La historia clinica no refiere mas datos de interés. (fotos intraorales de piezas dentales ninguna lesión en particular)"
+  },
+  {
+    "pregunta": "Patología estable, ¿qué procedimiento le harías a ese diente con dolor a la percusión en la pieza 22?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2024",
+    "anio": 2024,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Endodoncia ambulatoria",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Exodoncia hospitalaria",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Endodoncia hospitalaria",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Exodoncia ambulatoria",
+        "correcta": false
+      }
+    ],
+    "numero": 1187,
+    "caso": "CASO 2. A su consulta acude una mujer de 50 años se aqueja de un dolor intenso en el 22, dicho dolor se acentúa a la percusión y con los cambios de temperatura, la paciente no ha consumido ningún medicamento porque según refiere sufre de una coagulopatía congénita. La historia clinica no refiere mas datos de interés. (fotos intraorales de piezas dentales ninguna lesión en particular)"
+  },
+  {
+    "pregunta": "¿Qué tipo de técnica anestésica sería la menos adecuada para tratar las caries cervicales inferiores?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2024",
+    "anio": 2024,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Periapical mandibular de los premolares",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Intraligamentosa de los premolares",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Del agujero mentoniano",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Troncular mandibular derecha",
+        "correcta": true
+      }
+    ],
+    "numero": 1188,
+    "caso": "CASO 2. A su consulta acude una mujer de 50 años se aqueja de un dolor intenso en el 22, dicho dolor se acentúa a la percusión y con los cambios de temperatura, la paciente no ha consumido ningún medicamento porque según refiere sufre de una coagulopatía congénita. La historia clinica no refiere mas datos de interés. (fotos intraorales de piezas dentales ninguna lesión en particular)"
+  },
+  {
+    "pregunta": "[imagen referencial] De entre los fármacos, ¿cuál no podría emplear con seguridad en el paciente?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2024",
+    "anio": 2024,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Amoxicilina",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Azitromicina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Ibuprofeno",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Paracetamol",
+        "correcta": false
+      }
+    ],
+    "numero": 1189,
+    "caso": "CASO 3. Acude a consulta una paciente de 25 años aquejandonse de un intenso dolor en el molar 36 dicho dolor se asentua a la percusión. Paciente no consume medicación porque está embarazada 1 mes y medio (6 semanas) además hace algunos días paciente presenta una abultada tumoración a la altura del canino superior derecho en la historia clínica no se detecta otro antecedente de interés."
+  },
+  {
+    "pregunta": "¿Qué tratamiento odontológico de urgencia no sería recomendable llevar a cabo?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2024",
+    "anio": 2024,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Apertura 36 e IRM",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Exodoncia de urgencia del 36 con o sin sutura",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Endodoncia completa del 36 y reconstrucción",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Contemplativo hasta el 2do trimestre",
+        "correcta": true
+      }
+    ],
+    "numero": 1190,
+    "caso": "CASO 3. Acude a consulta una paciente de 25 años aquejandonse de un intenso dolor en el molar 36 dicho dolor se asentua a la percusión. Paciente no consume medicación porque está embarazada 1 mes y medio (6 semanas) además hace algunos días paciente presenta una abultada tumoración a la altura del canino superior derecho en la historia clínica no se detecta otro antecedente de interés."
+  },
+  {
+    "pregunta": "Si el tratamiento no era urgente, ¿deberías tratarla?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2024",
+    "anio": 2024,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "No, derivar al segundo trimestre",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Sí, atenderlo inmediatamente",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "No, esperar hasta el tercer trimestre",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "(no se recuerda exacto la respuesta)",
+        "correcta": false
+      }
+    ],
+    "numero": 1191,
+    "caso": "CASO 3. Acude a consulta una paciente de 25 años aquejandonse de un intenso dolor en el molar 36 dicho dolor se asentua a la percusión. Paciente no consume medicación porque está embarazada 1 mes y medio (6 semanas) además hace algunos días paciente presenta una abultada tumoración a la altura del canino superior derecho en la historia clínica no se detecta otro antecedente de interés."
+  },
+  {
+    "pregunta": "¿Cómo denominaría a la lesión gingival de la paciente a la altura del canino de 13?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2024",
+    "anio": 2024,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Gingivitis del embarazo",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Tumor del embarazo",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Absceso del embarazo",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "GUNA del embarazo",
+        "correcta": false
+      }
+    ],
+    "numero": 1192,
+    "caso": "CASO 3. Acude a consulta una paciente de 25 años aquejandonse de un intenso dolor en el molar 36 dicho dolor se asentua a la percusión. Paciente no consume medicación porque está embarazada 1 mes y medio (6 semanas) además hace algunos días paciente presenta una abultada tumoración a la altura del canino superior derecho en la historia clínica no se detecta otro antecedente de interés."
+  },
+  {
+    "pregunta": "La paciente comunica que la lesión le sangra y molesta, ¿qué tratamiento y cuándo harías?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2024",
+    "anio": 2024,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Ligadura en el 2º trimestre",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Gingivectomía con bisel externo en el 2º trimestre",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Ligadura en el 3º trimestre",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Gingivectomía en el 3º trimestre",
+        "correcta": false
+      }
+    ],
+    "numero": 1193,
+    "caso": "CASO 3. Acude a consulta una paciente de 25 años aquejandonse de un intenso dolor en el molar 36 dicho dolor se asentua a la percusión. Paciente no consume medicación porque está embarazada 1 mes y medio (6 semanas) además hace algunos días paciente presenta una abultada tumoración a la altura del canino superior derecho en la historia clínica no se detecta otro antecedente de interés."
+  },
+  {
+    "pregunta": "¿Cuál diagnóstico diferencial sería el menos remoto?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2024",
+    "anio": 2024,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "ERGE",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Rumiación",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "EPOC",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Anorexia",
+        "correcta": false
+      }
+    ],
+    "numero": 1194,
+    "caso": "CASO 3. Acude a consulta una paciente de 25 años aquejandonse de un intenso dolor en el molar 36 dicho dolor se asentua a la percusión. Paciente no consume medicación porque está embarazada 1 mes y medio (6 semanas) además hace algunos días paciente presenta una abultada tumoración a la altura del canino superior derecho en la historia clínica no se detecta otro antecedente de interés."
+  },
+  {
+    "pregunta": "Si se decidiera reponer el molar 36, ¿cuál de las siguientes afirmaciones sería incorrecta?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2024",
+    "anio": 2024,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Sólo se colocan implantes en medio hospitalario",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Es preceptivo realizar un CBCT previo",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Es preceptivo el informe hematológico previo",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Debe utilizar ácido tranexámico post operatorio",
+        "correcta": false
+      }
+    ],
+    "numero": 1195,
+    "caso": "CASO 3. Acude a consulta una paciente de 25 años aquejandonse de un intenso dolor en el molar 36 dicho dolor se asentua a la percusión. Paciente no consume medicación porque está embarazada 1 mes y medio (6 semanas) además hace algunos días paciente presenta una abultada tumoración a la altura del canino superior derecho en la historia clínica no se detecta otro antecedente de interés."
+  },
+  {
+    "pregunta": "Dado el trimestre de gestación, ¿qué postura estaría más indicada en el sillón dental?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2024",
+    "anio": 2024,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Decúbito lateral derecho",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Supino frontal",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Decúbito lateral izquierdo",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Trendelemburg",
+        "correcta": false
+      }
+    ],
+    "numero": 1196,
+    "caso": "CASO 3. Acude a consulta una paciente de 25 años aquejandonse de un intenso dolor en el molar 36 dicho dolor se asentua a la percusión. Paciente no consume medicación porque está embarazada 1 mes y medio (6 semanas) además hace algunos días paciente presenta una abultada tumoración a la altura del canino superior derecho en la historia clínica no se detecta otro antecedente de interés."
+  },
+  {
+    "pregunta": "Acude a la consulta un paciente de 62 años que nos refiere como antecedentes médicos de\ninterés un infarto agudo del miocardio hace 6 años. Tras el que le implantaron 3 stents,\ndiabetes tipo II e hipertensión arterial controlada por fármacos. Trae a la consulta una serie\nde fármacos que toma diariamente: clopidrogel, IECA, metformina, aspirina. Es alérgico a la\namoxicilina. ¿Cuál de los fármacos que toma se lo han prescrito para la hipertensión arterial?",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Clopidogrel",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "IECA",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Metformina",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Aspirina",
+        "correcta": false
+      }
+    ],
+    "numero": 1197
+  },
+  {
+    "pregunta": "Acude a la consulta un paciente de 62 años que nos refiere como antecedentes médicos de\ninterés un infarto agudo del miocardio hace 6 años. Tras el que le implantaron 3 stents,\ndiabetes tipo II e hipertensión arterial controlada por fármacos. Trae a la consulta una serie\nde fármacos que toma diariamente: clopidrogel, IECA, metformina, aspirina. Es alérgico a la\namoxicilina. En relación con su tratamiento odontológico señale la correcta:",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "A priori, si necesita exodoncia de un 33 retiraremos metformina 3 días antes",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "A priori, si se necesita exodoncia de un 33 se duplica la metformina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "A priori, si se necesita exodoncia de un 33 retiraremos aspirina una semana antes",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "A priori, si se necesita exodoncia del 33 no es necesario modificar",
+        "correcta": true
+      }
+    ],
+    "numero": 1198
+  },
+  {
+    "pregunta": "Acude a la consulta un paciente de 62 años que nos refiere como antecedentes médicos de\ninterés un infarto agudo del miocardio hace 6 años. Tras el que le implantaron 3 stents,\ndiabetes tipo II e hipertensión arterial controlada por fármacos. Trae a la consulta una serie de fármacos que toma diariamente: clopidrogel, IECA, metformina, aspirina. Es alérgico a la amoxicilina. Si necesita tratamiento periodontal quirúrgico señale la respuesta correcta:",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "No es necesario profilaxis por tener stent",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Amoxicilina 2 g 1h antes",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Clindamicina 300 mg 1h antes",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Conocer INR (<3.5)",
+        "correcta": false
+      }
+    ],
+    "numero": 1199
+  },
+  {
+    "pregunta": "Acude a la consulta un paciente de 62 años que nos refiere como antecedentes médicos de\ninterés un infarto agudo del miocardio hace 6 años. Tras el que le implantaron 3 stents,\ndiabetes tipo II e hipertensión arterial controlada por fármacos. Trae a la consulta una serie\nde fármacos que toma diariamente: clopidrogel, IECA, metformina, aspirina. Es alérgico a la\namoxicilina. Crisis hipertensiva durante tratamiento:",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Tumbar, tranquilizar, oxígeno",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Captopril 25 mg SL",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Diazepam 25 mg",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Metformina 25 mg",
+        "correcta": false
+      }
+    ],
+    "numero": 1200
+  },
+  {
+    "pregunta": "Paciente 25 años con síndrome de Down. Braquicefalia:",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Impropia",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Hipoplasias poco habituales",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Mordida abierta característica",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Clase II muy frecuente",
+        "correcta": false
+      }
+    ],
+    "numero": 1201
+  },
+  {
+    "pregunta": "Paciente 25 años con síndrome de Down. Fotografías extraorales:",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Macroglosia no propia",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Queilitis angular propia",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Desgaste no propio",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Mordida abierta no propia",
+        "correcta": false
+      }
+    ],
+    "numero": 1202
+  },
+  {
+    "pregunta": "Paciente 25 años con síndrome de Down. Diagnóstico periodontal:",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Gingivitis no inducida por biofilm",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Periodontitis I",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Periodontitis II",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Periodontitis III",
+        "correcta": true
+      }
+    ],
+    "numero": 1203
+  },
+  {
+    "pregunta": "Paciente 25 años con síndrome de Down. Dolor en 46:",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Endodoncia ambulatoria",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Endodoncia bajo AG",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Exodoncia e implante inmediato ambulatorio",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Exodoncia e implante bajo sedación",
+        "correcta": false
+      }
+    ],
+    "numero": 1204
+  },
+  {
+    "pregunta": "Paciente 25 años con síndrome de Down. Plan periodontal:",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Exodoncias precoces",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Inicio precoz fase higiénica",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Cirugía a colgajo inmediata",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Curetaje inmediato >4 mm",
+        "correcta": false
+      }
+    ],
+    "numero": 1205
+  },
+  {
+    "pregunta": "Paciente 25 años con síndrome de Down. Parámetro de glicemia no controlada:",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Glucemia basal 100 mg/dl 7 días",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "HbA1c >6,5",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "HbA1c <6,5",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Glucemia basal 190 mg/dl día previo",
+        "correcta": false
+      }
+    ],
+    "numero": 1206
+  },
+  {
+    "pregunta": "Paciente 25 años con síndrome de Down. Periodontal en Down:",
+    "asignatura": "Examen Práctico",
+    "capitulo": "2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "No relación",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Defecto migración neutrófilos",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Clasificación no asocia",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Relación con sialorrea",
+        "correcta": false
+      }
+    ],
+    "numero": 1207
+  },
+  {
+    "pregunta": "Cuál de las siguientes situaciones podría explicar los problemas de coagulación en una cirrosis hepática muy avanzada?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Déficit de factores k dependientes",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Anemia",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Trombocitosis",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Descenso de albúmina en sangre",
+        "correcta": false
+      }
+    ],
+    "numero": 1208
+  },
+  {
+    "pregunta": "En qué casos prescribiría profilaxis antibiótica para prevención de endocarditis bacteriana si queremos colocar un implante dental a nuestro paciente",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Pacientes con antecedentes de endocarditis bacteriana hace 10 años",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Paciente con 5 stents cardiacos tras infarto agudo de miocardio hace 2 años",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Paciente con marcapasos sistemáticamente, sin necesidad de consulta con especialista",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Paciente con hipertrofia de la pared intraventricular por hipertensión arterial",
+        "correcta": false
+      }
+    ],
+    "numero": 1209
+  },
+  {
+    "pregunta": "Ante un paciente que nos refiere dolor precordial durante el tratamiento odontológico ¿Qué debemos hacer?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Colocar al paciente en Trendelenburg en nuestro sillón dental",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Administrar hasta 5 dosis de nitroglicerina sublingual siempre que la tensión arterial sea inferior a 90/50mm/hg",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Solicitar asistencia médica especializada",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Hacer todo lo anterior",
+        "correcta": false
+      }
+    ],
+    "numero": 1210
+  },
+  {
+    "pregunta": "Cuál de los siguientes fármacos está indicado en la Hipertensión Arterial?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Ciclosporina",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Inhibidores de la enzima convertidora de angiotensina",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Metotrexate",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Clirpropamida",
+        "correcta": false
+      }
+    ],
+    "numero": 1211
+  },
+  {
+    "pregunta": "Si un paciente nos refiere IAM es falso:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "No tratarlo antes de 2 meses del infarto",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "No tratarlo preferiblemente antes de 3 meses del IAM",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Controlar dolor pre y post operatorio siempre",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Si le han prescrito una aspirina infantil para prevenir hay que retirarla 2 días antes de cualquier exodoncia",
+        "correcta": true
+      }
+    ],
+    "numero": 1212
+  },
+  {
+    "pregunta": "Cuál de las siguientes situaciones es habitual verla en un paciente con esclerosis lateral amiotrófica",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Macroglosia",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Sialorrea",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Mayor tendencia a caries en los pacientes de larga evolución",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Todas las anteriores",
+        "correcta": true
+      }
+    ],
+    "numero": 1213
+  },
+  {
+    "pregunta": "Cuál de los siguientes fármacos suele usarse para tratamiento preventivo del ictus y puede alterar el tratamiento odontológico",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Clopidogrel",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Metrotexato",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Salbutamol",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Benzodiacepinas",
+        "correcta": false
+      }
+    ],
+    "numero": 1214
+  },
+  {
+    "pregunta": "¿Cuál es una característica fenotípica craneofacial del paciente Síndrome de Down?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Gran desarrollo de amigos maxilares, sobre todo superior",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Hiperplasia de los huesos de la cara",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Depresión del puente nasal",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Aceleración del cierre de las fontanelas",
+        "correcta": false
+      }
+    ],
+    "numero": 1215
+  },
+  {
+    "pregunta": "En relación con el manejo odontológico de un paciente con epilepsia, es cierto que:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Se recomienda aumentar la dosis de los fármacos anticonvulsivantes antes del procedimiento dental",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Se aconseja las citas a las pocas horas de tomar anticonvulsivantes",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Los anestésicos locales interaccionan con los anticonvulsivos",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "La técnica anestésica con articaína puede producir convulsiones en pacientes sensibles, aunque es raro",
+        "correcta": false
+      }
+    ],
+    "numero": 1216
+  },
+  {
+    "pregunta": "En relación al manejo del paciente con discapacidad, es cierto que:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "En la persona con discapacidad visual la técnica de manejo de conducta \"decir, mostrar y hacer\" cambia a \"decir, tocar, oler y hacer\"",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Discapacidad auditiva tiene menor prevalencia de caries que población normal",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "En pacientes con déficit auditivo se recomienda que no entren los padres",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "En discapacidad visual NO es importante el contacto físico durante el tratamiento",
+        "correcta": false
+      }
+    ],
+    "numero": 1217
+  },
+  {
+    "pregunta": "Según el tratamiento para la mucositis en pacientes en quimioterapia, ¿qué tratamiento es el verdadero?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Se suelen disminuir las úlceras orales incluidas por el metotrexato con enjuagues de ácido folínico al 80%",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Crioterapia está contraindicada si toma oxaliplatino",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Palifermin no reduce la severidad y la duración de mucositis en pacientes que son sometidos a trasplante de progenitores hematopoyéticos",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Chupar hielo durante la infusión de 5-fluoracilo no puede disminuir la mucositis",
+        "correcta": false
+      }
+    ],
+    "numero": 1218
+  },
+  {
+    "pregunta": "En relación con las leucemias y pautas del tratamiento dental se puede afirmar que:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La anestesia troncular está indicada",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "No hay que realizar profilaxis antibiótica siempre antes del tratamiento dental",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Se recomienda el tratamiento con el paciente en posición semirreclinada",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "No siempre hay que valorar las analíticas",
+        "correcta": false
+      }
+    ],
+    "numero": 1219
+  },
+  {
+    "pregunta": "¿Cuál es una complicación oral a largo plazo de pacientes irradiados durante el tratamiento del cáncer de cabeza y cuello?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Necrosis de la mucosa",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Placas de ateroma en carótida",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Trismo",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Disfagia",
+        "correcta": false
+      }
+    ],
+    "numero": 1220
+  },
+  {
+    "pregunta": "Una lesión oral que puede aparecer por oncoterapia en odontología infantil es:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Hipocalcificación radicular",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Macrodoncia",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Cierre apical tardío",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Acortamiento radicular",
+        "correcta": true
+      }
+    ],
+    "numero": 1221
+  },
+  {
+    "pregunta": "Es falso que en los pacientes con Síndrome de Down:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La braquicefalia esté bastante pronunciada",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Los senos maxilares estén muy neumatizados",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "La macroglosia sea de tipo lengua escrotal",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Los incisivos sean cónicos y microdónticos",
+        "correcta": false
+      }
+    ],
+    "numero": 1222
+  },
+  {
+    "pregunta": "A su consulta acude con odontalgia e inflamación aguda un paciente con enfermedad hepática crónica e insuficiencia hepática moderada a grave, ¿cuál de estos fármacos está absolutamente contraindicado?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Metronidazol",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Metamizol",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Azitromicina",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Clindamicina",
+        "correcta": false
+      }
+    ],
+    "numero": 1223
+  },
+  {
+    "pregunta": "Señale la afirmación incorrecta acerca de la guía clínica de la Federación Europea de Periodoncia (FEP) para el manejo del paciente diabético en el gabinete dental",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Se debería solicitar información de los registros recientes de hemoglobina glicosilada",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Tratamientos periodontales quirúrgicos estarían contraindicados en diabetes mellitus tipo I",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Recomendar la sustitución precoz de los dientes perdidos",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Explorar presencia de infecciones por cándida, caries y sequedad bucal",
+        "correcta": false
+      }
+    ],
+    "numero": 1224
+  },
+  {
+    "pregunta": "¿Cuál suele considerarse como complicación oral de la diabetes?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Alveolitis seca post extracción",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Estomatitis necrotizante",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Síndrome Peutz-Jeghers",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Abscesos pulpares",
+        "correcta": false
+      }
+    ],
+    "numero": 1225
+  },
+  {
+    "pregunta": "¿Qué precauciones odontológicas específicas protocolarias tendría con un paciente diabético?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Administrar profilaxis antibiótica rutinaria",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Uso rutinario de mepivacaína sin adrenalina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "No suturar exodoncias para evitar infecciones",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Cirugía diferida si no hay control metabólico",
+        "correcta": true
+      }
+    ],
+    "numero": 1226
+  },
+  {
+    "pregunta": "Señale la opción correcta con respecto al manejo de anestésicos dentales y sedación en pacientes con enfermedad respiratoria",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "En algunos pacientes asmáticos se podría usar epinefrina",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "En pacientes con EPOC una alternativa es el óxido nitroso",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "En consumidores de Timolol se aumentan las dosis de epinefrina",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Si padece EPOC y consume Nadolol, se puede usar óxido nitroso",
+        "correcta": false
+      }
+    ],
+    "numero": 1227
+  },
+  {
+    "pregunta": "Con respecto a la colocación de implante en una paciente con coagulopatía hereditaria. ¿Diga lo incorrecto?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Las mujeres no padecen coagulopatías hereditarias",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "No se pueden colocar sin hacer un CBCT previo",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La anestesia más segura es la ligamentosa",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "A veces es mejor el ingreso hospitalario",
+        "correcta": false
+      }
+    ],
+    "numero": 1228
+  },
+  {
+    "pregunta": "A su consulta llega para la exodoncia de un resto radicular subgingival retenido un paciente que presenta informe médico acerca de la revisión satisfactoria de 2 stents coronarios colocados hace 4 años y de su tratamiento con aspirina y clopidogrel, ¿cuál sería su actitud?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Profilaxis antibiótica con betalactámicos",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Retirar los fármacos y pasarlo a la pauta de heparina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Retirar clopidogrel y mantener aspirina",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Retirar aspirina y mantener clopidogrel",
+        "correcta": false
+      }
+    ],
+    "numero": 1229
+  },
+  {
+    "pregunta": "A su consulta acude un paciente con una infección y tratado con edoxabán, ¿cuál de los siguientes fármacos sería menos recomendable utilizar?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Ácido clavulánico",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Amoxicilina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Clorhexidina",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ketoconazol",
+        "correcta": true
+      }
+    ],
+    "numero": 1230
+  },
+  {
+    "pregunta": "Señale la opción incorrecta con respecto al manejo odontológico del paciente anticoagulado:",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Si el paciente consume apixabán debe suprimir la dosis matutina",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Si el paciente consume acenocumarínico, INR 2,5",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Si el paciente consume dabigatrán, no tendría utilidad valorar el INR",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Si el paciente consume warfarina nocturna, debe suprimir la toma",
+        "correcta": true
+      }
+    ],
+    "numero": 1231
+  },
+  {
+    "pregunta": "Con respecto a la pauta de sustitución de los anticoagulantes orales cumarínicos por heparina (20mg), ¿cuál de las siguientes situaciones sería correcta?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "5 días antes de la exodoncia se suspende el anticoagulante",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "1 día antes de la exodoncia se inyectan 20 mg de heparina",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "El mismo día de la exodoncia se inyectan 40 mg de heparina",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "6 días tras la exodoncia se suspende la heparina según INR",
+        "correcta": false
+      }
+    ],
+    "numero": 1232
+  },
+  {
+    "pregunta": "¿Qué signo clínico NO esperaría encontrar en un paciente leucémico?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Hemorragia gingival",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Gingivitis necrotizante",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Periodontitis apical",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Hiperplasia gingival",
+        "correcta": false
+      }
+    ],
+    "numero": 1233
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes tratamientos es específico de la mucositis post oncoterapia?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Enjuagues de agua templada",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Lidocaína en spray o gel",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Agua oxigenada pura sin rebajar",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Profilaxis con metronidazol",
+        "correcta": false
+      }
+    ],
+    "numero": 1234
+  },
+  {
+    "pregunta": "¿Qué es más común en la anorexia que en la bulimia?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Amalgamas flotantes",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Hepatotoxicidad",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Signo de Russell",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Escaldaduras palatinas",
+        "correcta": false
+      }
+    ],
+    "numero": 1235
+  },
+  {
+    "pregunta": "A su consulta acude una paciente que está amamantando y es alérgica a la penicilina. ¿Cuál de los siguientes fármacos no se debería emplear en ningún caso?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Clindamicina",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Cefamandol",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Gentamicina",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Azitromicina",
+        "correcta": false
+      }
+    ],
+    "numero": 1236
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes fármacos puede provocar un agrandamiento gingival?",
+    "asignatura": "Pacientes Especiales",
+    "capitulo": "Repaso general 2025",
+    "anio": 2025,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Nifedipino",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Fenitoína",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Ciclosporina",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Todos los fármacos anteriores pueden producir agrandamiento gingival",
+        "correcta": true
+      }
+    ],
+    "numero": 1237
   }
 ]

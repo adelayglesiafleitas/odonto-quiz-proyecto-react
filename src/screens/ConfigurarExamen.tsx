@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Spinner } from '@/components/Spinner'
-import { ArrowLeft, Play, BookMarked, Hash, Timer, TimerOff, CalendarDays } from 'lucide-react'
+import { ArrowLeft, Play, BookMarked, Hash, Timer, TimerOff, CalendarDays, Check } from 'lucide-react'
 import { getAnios, getCapitulos, getPreguntas } from '@/lib/data'
 import { getConfigExamenRemota, guardarConfigExamenRemota } from '@/lib/configExamen'
 import { useAppSettings } from '@/context/AppSettings'
@@ -24,14 +24,17 @@ export function ConfigurarExamen({
   cursoMeta: CursoMeta
   onBack: () => void
   onNavigate: (p: Pantalla) => void
-  onIniciar: (cantidad: number, capitulo: string, tiempoLimiteMinutos: number | null, anio: number | 'todos') => void
+  onIniciar: (cantidad: number, capitulos: string[], tiempoLimiteMinutos: number | null, anio: number | 'todos') => void
 }) {
   const { t } = useAppSettings()
   const preguntas = getPreguntas()
-  const capitulos = getCapitulos()
+  const todosLosCapitulos = getCapitulos()
   const anios = getAnios()
   const [cantidad, setCantidad] = useState(cursoMeta.cantidadOficial)
-  const [capitulo, setCapitulo] = useState<string>('todos')
+  // Array vacío = "todos los capítulos"; con elementos, el examen combina
+  // las preguntas de todos los capítulos elegidos (no es excluyente como
+  // antes, que solo dejaba elegir uno o todos).
+  const [capitulos, setCapitulos] = useState<string[]>([])
   const [anio, setAnio] = useState<number | 'todos'>('todos')
   const [conTiempo, setConTiempo] = useState(false)
   const [duracion, setDuracion] = useState(cursoMeta.duracionOficialMinutos)
@@ -43,7 +46,7 @@ export function ConfigurarExamen({
     getConfigExamenRemota(userId, cursoId, cursoMeta.cantidadOficial, cursoMeta.duracionOficialMinutos).then((guardada) => {
       if (cancelado) return
       setCantidad(guardada.cantidad)
-      setCapitulo(guardada.capitulo)
+      setCapitulos(guardada.capitulos)
       setAnio(cursoMeta.tieneConvocatorias ? guardada.anio : 'todos')
       setConTiempo(guardada.conTiempo)
       setDuracion(guardada.duracion)
@@ -56,12 +59,16 @@ export function ConfigurarExamen({
   }, [userId, cursoId])
 
   const disponibles = preguntas.filter(
-    (p) => (capitulo === 'todos' || p.capitulo === capitulo) && (anio === 'todos' || p.anio === anio),
+    (p) => (capitulos.length === 0 || capitulos.includes(p.capitulo)) && (anio === 'todos' || p.anio === anio),
   ).length
 
   function iniciar() {
-    guardarConfigExamenRemota(userId, cursoId, { cantidad, capitulo, anio, conTiempo, duracion })
-    onIniciar(cantidad, capitulo, conTiempo ? duracion : null, anio)
+    guardarConfigExamenRemota(userId, cursoId, { cantidad, capitulos, anio, conTiempo, duracion })
+    onIniciar(cantidad, capitulos, conTiempo ? duracion : null, anio)
+  }
+
+  function toggleCapitulo(cap: string) {
+    setCapitulos((prev) => (prev.includes(cap) ? prev.filter((c) => c !== cap) : [...prev, cap]))
   }
 
   return (
@@ -178,33 +185,36 @@ export function ConfigurarExamen({
           <BookMarked className="h-3.5 w-3.5" />
           {t.configurar.capitulo}
         </div>
+        <p className="px-1 text-xs font-medium text-muted-foreground">{t.configurar.capituloAyuda}</p>
         <div className="space-y-2">
           <button
-            onClick={() => setCapitulo('todos')}
+            onClick={() => setCapitulos([])}
             className={`card-elevated flex w-full items-center justify-between rounded-2xl px-4 py-3.5 text-left text-sm font-semibold transition ${
-              capitulo === 'todos' ? 'bg-primary text-primary-foreground' : 'bg-card text-foreground'
+              capitulos.length === 0 ? 'bg-primary text-primary-foreground' : 'bg-card text-foreground'
             }`}
           >
             {t.configurar.todosCapitulos}
-            <span className={capitulo === 'todos' ? 'text-white/70' : 'text-muted-foreground'}>
+            <span className={capitulos.length === 0 ? 'text-white/70' : 'text-muted-foreground'}>
               {preguntas.filter((p) => anio === 'todos' || p.anio === anio).length} {t.configurar.preguntas}
             </span>
           </button>
           <div className="max-h-64 space-y-2 overflow-y-auto pr-1">
-            {capitulos.map((cap) => {
+            {todosLosCapitulos.map((cap) => {
               const n = preguntas.filter((p) => p.capitulo === cap && (anio === 'todos' || p.anio === anio)).length
+              const activo = capitulos.includes(cap)
               return (
                 <button
                   key={cap}
-                  onClick={() => setCapitulo(cap)}
+                  onClick={() => toggleCapitulo(cap)}
                   className={`card-elevated flex w-full items-center justify-between rounded-2xl px-4 py-3.5 text-left text-sm font-semibold transition ${
-                    capitulo === cap ? 'bg-primary text-primary-foreground' : 'bg-card text-foreground'
+                    activo ? 'bg-primary text-primary-foreground' : 'bg-card text-foreground'
                   }`}
                 >
-                  <span className="truncate pr-2">{cap}</span>
-                  <span className={`shrink-0 ${capitulo === cap ? 'text-white/70' : 'text-muted-foreground'}`}>
-                    {n}
+                  <span className="flex min-w-0 items-center gap-2 truncate pr-2">
+                    {activo && <Check className="h-4 w-4 shrink-0" />}
+                    <span className="truncate">{cap}</span>
                   </span>
+                  <span className={`shrink-0 ${activo ? 'text-white/70' : 'text-muted-foreground'}`}>{n}</span>
                 </button>
               )
             })}

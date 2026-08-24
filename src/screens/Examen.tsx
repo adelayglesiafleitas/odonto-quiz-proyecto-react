@@ -127,6 +127,14 @@ export function Examen({
       </div>
 
       <div className="flex-1 overflow-y-auto px-5 py-6 pb-64">
+        {pregunta.caso && (
+          <div className="card-elevated mb-3 rounded-2xl bg-secondary/60 p-4">
+            <p className="text-[10px] font-bold uppercase tracking-wide text-muted-foreground">
+              {t.examen.casoClinico}
+            </p>
+            <p className="mt-1 whitespace-pre-line text-[13px] leading-snug text-foreground/80">{pregunta.caso}</p>
+          </div>
+        )}
         <h2 className="text-[17px] font-bold leading-snug text-foreground">{pregunta.pregunta}</h2>
         {esMultiple && (
           <p className="mt-1.5 text-xs font-medium text-muted-foreground">{t.examen.multipleAyuda}</p>

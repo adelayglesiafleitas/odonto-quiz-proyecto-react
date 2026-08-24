@@ -2,7 +2,8 @@ import { supabase } from './supabase'
 
 export interface ConfigExamenGuardada {
   cantidad: number
-  capitulo: string
+  // Array vacío = "todos los capítulos" (antes era el string 'todos').
+  capitulos: string[]
   anio: number | 'todos'
   conTiempo: boolean
   duracion: number
@@ -10,14 +11,14 @@ export interface ConfigExamenGuardada {
 
 interface FilaConfig {
   cantidad: number
-  capitulo: string
+  capitulos: string[] | null
   anio: number | null
   con_tiempo: boolean
   duracion: number
 }
 
 function configDefault(cantidad: number, duracion: number): ConfigExamenGuardada {
-  return { cantidad, capitulo: 'todos', anio: 'todos', conTiempo: false, duracion }
+  return { cantidad, capitulos: [], anio: 'todos', conTiempo: false, duracion }
 }
 
 export async function getConfigExamenRemota(
@@ -28,7 +29,7 @@ export async function getConfigExamenRemota(
 ): Promise<ConfigExamenGuardada> {
   const { data, error } = await supabase
     .from('config_examen')
-    .select('cantidad, capitulo, anio, con_tiempo, duracion')
+    .select('cantidad, capitulos, anio, con_tiempo, duracion')
     .eq('user_id', userId)
     .eq('curso_id', cursoId)
     .maybeSingle<FilaConfig>()
@@ -41,7 +42,7 @@ export async function getConfigExamenRemota(
 
   return {
     cantidad: data.cantidad,
-    capitulo: data.capitulo,
+    capitulos: data.capitulos ?? [],
     anio: data.anio ?? 'todos',
     conTiempo: data.con_tiempo,
     duracion: data.duracion,
@@ -58,7 +59,7 @@ export async function guardarConfigExamenRemota(
       user_id: userId,
       curso_id: cursoId,
       cantidad: config.cantidad,
-      capitulo: config.capitulo,
+      capitulos: config.capitulos,
       anio: config.anio === 'todos' ? null : config.anio,
       con_tiempo: config.conTiempo,
       duracion: config.duracion,

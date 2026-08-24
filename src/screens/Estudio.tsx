@@ -56,6 +56,14 @@ export function Estudio({ onBack, onNavigate }: { onBack: () => void; onNavigate
               )}
             </div>
 
+            {p.caso && (
+              <div className="mt-2 rounded-xl bg-secondary/60 p-3">
+                <p className="text-[10px] font-bold uppercase tracking-wide text-muted-foreground">
+                  {t.examen.casoClinico}
+                </p>
+                <p className="mt-1 whitespace-pre-line text-[12px] leading-snug text-foreground/80">{p.caso}</p>
+              </div>
+            )}
             <p className="mt-2 text-[15px] font-bold leading-snug text-foreground">{p.pregunta}</p>
 
             <div className="mt-3 space-y-1.5">

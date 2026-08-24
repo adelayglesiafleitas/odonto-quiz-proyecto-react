@@ -12,6 +12,12 @@ export interface Pregunta {
   anio: number
   bibliografia: string
   opciones: Opcion[]
+  // Enunciado del caso clínico que agrupa a esta pregunta con otras del
+  // mismo caso (ej. capítulo "Examen Práctico"). Opcional: la gran mayoría
+  // del banco no tiene caso y no se toca. Se guarda repetido en cada
+  // pregunta del caso (no una sola vez) porque el examen baraja el banco
+  // pregunta por pregunta — cada una tiene que ser autocontenida.
+  caso?: string
 }
 
 // Aciertos/total de un capítulo dentro de un único intento. Se guarda un
@@ -32,7 +38,9 @@ export interface IntentoExamen {
   correctas: number
   porcentaje: number
   aprobado: boolean
-  capitulo: string | 'todos'
+  // Array vacío = "todos los capítulos" (mismo significado que antes tenía
+  // el string 'todos'); con elementos = esos capítulos combinados.
+  capitulos: string[]
   anio: number | 'todos'
   tiempoLimiteMinutos: number | null
   tiempoUsadoSeg: number

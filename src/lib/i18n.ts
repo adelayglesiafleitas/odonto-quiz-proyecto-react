@@ -77,6 +77,7 @@ export interface Diccionario {
     duracion: string
     duracionOficial: string
     capitulo: string
+    capituloAyuda: string
     todosCapitulos: string
     anio: string
     todosAnios: string
@@ -85,6 +86,7 @@ export interface Diccionario {
   }
   examen: {
     preguntaContador: (a: number, b: number) => string
+    casoClinico: string
     multipleAyuda: string
     anterior: string
     siguiente: string
@@ -292,6 +294,7 @@ export const es: Diccionario = {
     duracion: 'Duración del examen',
     duracionOficial: 'oficial',
     capitulo: 'Capítulo',
+    capituloAyuda: 'Podés elegir más de uno',
     todosCapitulos: 'Todos los capítulos',
     anio: 'Convocatoria',
     todosAnios: 'Todas las convocatorias',
@@ -300,6 +303,7 @@ export const es: Diccionario = {
   },
   examen: {
     preguntaContador: (a, b) => `Pregunta ${a} / ${b}`,
+    casoClinico: 'Caso clínico',
     multipleAyuda: 'Selecciona todas las opciones correctas',
     anterior: 'Anterior',
     siguiente: 'Siguiente',
@@ -533,6 +537,7 @@ export const en: Diccionario = {
     duracion: 'Exam duration',
     duracionOficial: 'official',
     capitulo: 'Chapter',
+    capituloAyuda: 'You can pick more than one',
     todosCapitulos: 'All chapters',
     anio: 'Exam year',
     todosAnios: 'All years',
@@ -541,6 +546,7 @@ export const en: Diccionario = {
   },
   examen: {
     preguntaContador: (a, b) => `Question ${a} / ${b}`,
+    casoClinico: 'Clinical case',
     multipleAyuda: 'Select all correct options',
     anterior: 'Previous',
     siguiente: 'Next',
