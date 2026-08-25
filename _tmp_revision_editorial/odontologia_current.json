@@ -1,6 +1,6 @@
 [
   {
-    "pregunta": "Los pacientes con enfermedad cardiovascular son mas sensibles a la acción de la adrenalina, en estos hay que utilizar siempre que no este contraindicado, dosis menores de anestésicos con vasoconstrictor y a la dilución mas baja de adrenaliana 1:200.000, no se podrán usar mas de:",
+    "pregunta": "Los pacientes con enfermedad cardiovascular son mas sensibles a la accion de la adrenalina, en estos hay que utilizar siempre que no este contraindicado, dosis menores de anestesicos con vasoconstrictor y a la dilucion mas baja de adrenaliana 1:200.000, no se podran usar mas de:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -53,7 +53,7 @@
       },
       {
         "letra": "D",
-        "texto": "En casos típicos el dolor puede irradiarse al hombro derecho",
+        "texto": "En casos tipicos el dolor puede irradiarse al hombro derecho",
         "correcta": true
       },
       {
@@ -73,27 +73,27 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "Los nitratos sublingulales y el nifedipino, proporcionan alivio rápido",
+        "texto": "Los nitratos sublingulales y el nifedipino, proporcionan alivio rapido",
         "correcta": false
       },
       {
         "letra": "B",
-        "texto": "Si estos pacientes son portadores de bypass coronarios necesitan protección antibiótica contra la endocarditis",
+        "texto": "Si estos pacientes son portadores de bypass coronarios necesitan proteccion antibiotica contra la endocarditis",
         "correcta": true
       },
       {
         "letra": "C",
-        "texto": "La intervención dental exigirá la colaboración del médico del paciente",
+        "texto": "La intervencion dental exigira la colaboracion del médico del paciente",
         "correcta": false
       },
       {
         "letra": "D",
-        "texto": "Los barbitúricos son peligrosos",
+        "texto": "Los barbituricos son peligrosos",
         "correcta": false
       },
       {
         "letra": "E",
-        "texto": "Deben ser sedados con benzodiacepinas desde un día antes de la cita",
+        "texto": "Deben ser sedados con benzodiacepinas desde un dia antes de la cita",
         "correcta": false
       }
     ],
@@ -118,7 +118,7 @@
       },
       {
         "letra": "C",
-        "texto": "Clinicamente en el infarto de miocardio hay hipertensión",
+        "texto": "Clinicamente en el infarto de miocardio hay hipertension",
         "correcta": false
       },
       {
@@ -165,7 +165,7 @@
     "numero": 5
   },
   {
-    "pregunta": "Los vasoconstrictores están contraindicados en forma absoluta en las siguientes patologías excepto de forma relativa en:",
+    "pregunta": "Los vasoconstrictores estan contraindicados en forma absoluta en las siguientes patologias excepto de forma relativa en:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -293,14 +293,14 @@
       },
       {
         "letra": "D",
-        "texto": "Ritmo cardíaco extrasinusales es un factor predictivo de riesgo mayor",
+        "texto": "Ritmo cardiaco extrasinusales es un factor predictivo de riesgo mayor",
         "correcta": false
       }
     ],
     "numero": 9
   },
   {
-    "pregunta": "Marque la respuesta FALSA. En los pacientes con patología cardíaca y vascular corregida quirúrgicamente:",
+    "pregunta": "Marque la respuesta FALSA. En los pacientes con patología cardiaca y vascular corregida quirúrgicamente:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -335,7 +335,7 @@
     "numero": 10
   },
   {
-    "pregunta": "Marque la respuesta FALSA. En un paciente con insuficiencia cardíaca:",
+    "pregunta": "Marque la respuesta FALSA. En un paciente con insuficiencia cardiaca:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -468,7 +468,7 @@
       },
       {
         "letra": "E",
-        "texto": "Ritmo cardíaco extrasinusal es un factor predictivo de riesgo mayor",
+        "texto": "Ritmo cardiaco extrasinusal es un factor predictivo de riesgo mayor",
         "correcta": false
       }
     ],
@@ -615,7 +615,7 @@
     "numero": 18
   },
   {
-    "pregunta": "¿Cuál de los siguientes factores es un factor predictivo menor del riesgo cardíaco?",
+    "pregunta": "¿Cuál de los siguientes factores es un factor predictivo menor del riesgo cardiaco?",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -748,7 +748,7 @@
       },
       {
         "letra": "E",
-        "texto": "Insuficiencia cardíaca descompensada.",
+        "texto": "Insuficiencia cardiaca descompensada.",
         "correcta": false
       }
     ],
@@ -768,7 +768,7 @@
       },
       {
         "letra": "B",
-        "texto": "Los fármacos antagonistas del calcio que se emplean como antihipertensivos pueden producir hiperplasia gingival.",
+        "texto": "Los farmacos antagonistas del calcio que se emplean como antihipertensivos pueden producir hiperplasia gingival.",
         "correcta": false
       },
       {
@@ -853,7 +853,7 @@
       },
       {
         "letra": "E",
-        "texto": "Los ritmos cardíacos extraauriculares son un factor predictivo de riesgo mayor.",
+        "texto": "Los ritmos cardiacos extraauriculares son un factor predictivo de riesgo mayor.",
         "correcta": false
       }
     ],
@@ -993,7 +993,7 @@
       },
       {
         "letra": "E",
-        "texto": "Ritmo cardíaco extrasinusales es un factor predictivo de riesgo mayor",
+        "texto": "Ritmo cardiaco extrasinusales es un factor predictivo de riesgo mayor",
         "correcta": false
       }
     ],
@@ -1688,7 +1688,7 @@
       },
       {
         "letra": "E",
-        "texto": "arritmia cardíaca",
+        "texto": "arritmia cardiaca",
         "correcta": false
       }
     ],
@@ -2133,7 +2133,7 @@
       },
       {
         "letra": "D",
-        "texto": "PIGMENTACION CUTANEA (848MN pigmentación intrínseca gris )",
+        "texto": "PIGMENTACION CUTANEA (848MN pigmentacion intrinseca gris )",
         "correcta": false
       },
       {
@@ -2149,7 +2149,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
-    "bibliografia": "MN 632; vademécum; fenómeno Raynaud",
+    "bibliografia": "MN 632; vademecum; fenomeno Raynaud",
     "opciones": [
       {
         "letra": "A",
@@ -2173,7 +2173,7 @@
       },
       {
         "letra": "E",
-        "texto": "Extremidades frías",
+        "texto": "Extremidades frias",
         "correcta": false
       }
     ],
@@ -2700,7 +2700,7 @@
     "numero": 79
   },
   {
-    "pregunta": "Marque la respuesta FALSA. En un paciente con insuficiencia cardíaca:",
+    "pregunta": "Marque la respuesta FALSA. En un paciente con insuficiencia cardiaca:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -2735,7 +2735,7 @@
     "numero": 80
   },
   {
-    "pregunta": "Cuál de estos efectos adversos medicamentosos NO es propio de los pacientes con insuficiencia cardíaca? MN845",
+    "pregunta": "Cuál de estos efectos adversos medicamentosos NO es propio de los pacientes con insuficiencia cardiaca? MN845",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -3323,7 +3323,7 @@
       },
       {
         "letra": "B",
-        "texto": "Si el tratamiento es urgente deber· ser siempre conservador “MC623 si es urgente el tratamiento será conservador mediante ATB y analgésico”",
+        "texto": "Si el tratamiento es urgente deber· ser siempre conservador “MC623 si es urgente el tratamiento será conservador mediante ATB y analgesico”",
         "correcta": true
       },
       {
@@ -3374,7 +3374,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
-    "bibliografia": "120mm Hg emergencia “lesión org.diana”/urgencia",
+    "bibliografia": "120mm Hg emergencia “lesion org.diana”/urgencia",
     "opciones": [
       {
         "letra": "A",
@@ -3834,7 +3834,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
-    "bibliografia": "áreas de microinfarto",
+    "bibliografia": "areas de microinfarto",
     "opciones": [
       {
         "letra": "A",
@@ -4425,7 +4425,7 @@
     "numero": 130
   },
   {
-    "pregunta": "En un paciente con tetralogía de Fallot que consiste en una severa anomalía anatómica, es falso que presente:",
+    "pregunta": "En un paciente con tetralogia de Fallot que consiste en una severa anomalia anatomica, es falso que presente:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -4443,7 +4443,7 @@
       },
       {
         "letra": "C",
-        "texto": "Hipertrofia del ventrículo derecho",
+        "texto": "Hipertrofia del ventriculo derecho",
         "correcta": false
       },
       {
@@ -4455,7 +4455,7 @@
     "numero": 131
   },
   {
-    "pregunta": "La cardipoatia congénita más frecuente es:",
+    "pregunta": "La cardipoatia congenita más frecuente es:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -4490,7 +4490,7 @@
     "numero": 132
   },
   {
-    "pregunta": "Se observa frecuentemente en niños con síndrome de Down",
+    "pregunta": "Se observa frecuentemente en niños con sindrome de Down",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -4525,7 +4525,7 @@
     "numero": 133
   },
   {
-    "pregunta": "En las anomalías anatómicas, incluidas en la tetralogía de Fallot no esta incluida:",
+    "pregunta": "En las anomalias anatomicas, incluidas en la tetralogia de Fallot no esta incluida:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -4543,7 +4543,7 @@
       },
       {
         "letra": "C",
-        "texto": "Hipertrofia del ventrículo derecho",
+        "texto": "Hipertrofia del ventriculo derecho",
         "correcta": false
       },
       {
@@ -4560,7 +4560,7 @@
     "numero": 134
   },
   {
-    "pregunta": "Respecto a las consideraciones dentales en las cardiopatias congénitas es incorrecto:",
+    "pregunta": "Respecto a las consideraciones dentales en las cardiopatias congenitas es incorrecto:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -4568,12 +4568,12 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "Se pueden asociar a una erupción retarsada de ladenticion temporal y permanente",
+        "texto": "Se pueden asociar a una erupcion retarsada de ladenticion temporal y permanente",
         "correcta": false
       },
       {
         "letra": "B",
-        "texto": "Alteraciones en la posición de los dientes e hipoplasia del esmalte",
+        "texto": "Alteraciones en la posicion de los dientes e hipoplasia del esmalte",
         "correcta": false
       },
       {
@@ -4583,7 +4583,7 @@
       },
       {
         "letra": "D",
-        "texto": "Se pueden desarrollar abcesos cerebrales después de infecciones dentales",
+        "texto": "Se pueden desarrollar abcesos cerebrales despues de infecciones dentales",
         "correcta": false
       },
       {
@@ -4618,12 +4618,12 @@
       },
       {
         "letra": "D",
-        "texto": "Necesariamente hay que prescribir protección antibiótica para la endocarditis",
+        "texto": "Necesariamente hay que prescribir proteccion antibiotica para la endocarditis",
         "correcta": true
       },
       {
         "letra": "E",
-        "texto": "Los trabajos hay que realizarlos en posición supina.",
+        "texto": "Los trabajos hay que realizarlos en posicion supina.",
         "correcta": false
       }
     ],
@@ -4713,7 +4713,7 @@
       },
       {
         "letra": "B",
-        "texto": "El cardiólogo dará antibiótico",
+        "texto": "El cardiologo dará antibiotico",
         "correcta": false
       },
       {
@@ -4723,7 +4723,7 @@
       },
       {
         "letra": "D",
-        "texto": "Dar antibióticos hasta que cure",
+        "texto": "Dar antibioticos hasta que cure",
         "correcta": true
       },
       {
@@ -5268,7 +5268,7 @@
       },
       {
         "letra": "D",
-        "texto": "Mieloma múltiple",
+        "texto": "Mieloma multiple",
         "correcta": false
       },
       {
@@ -5338,7 +5338,7 @@
       },
       {
         "letra": "E",
-        "texto": "TDAH ( trastorno por déficit de atención)",
+        "texto": "TDAH ( trastorno por deficit de atencion)",
         "correcta": false
       }
     ],
@@ -5358,7 +5358,7 @@
       },
       {
         "letra": "B",
-        "texto": "Hipertiroidismo apático",
+        "texto": "Hipertiroidismo apatico",
         "correcta": false
       },
       {
@@ -5380,7 +5380,7 @@
     "numero": 158
   },
   {
-    "pregunta": "Cual de estas etiologías es la mas frecuente en el hipotiroidismo congetito:",
+    "pregunta": "Cual de estas etiologias es la mas frecuente en el hipotiroidismo congetito:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología endocrina",
     "anio": 0,
@@ -5438,7 +5438,7 @@
       },
       {
         "letra": "D",
-        "texto": "Solicitar una punción por aspiración de gl. tiroides",
+        "texto": "Solicitar una puncion por aspiracion de gl. tiroides",
         "correcta": false
       },
       {
@@ -5450,7 +5450,7 @@
     "numero": 160
   },
   {
-    "pregunta": "Entre las enf. de la hipófisis posterior o neurohipofisis están:",
+    "pregunta": "Entre las enf. de la hipofisis posterior o neurohipofisis estan:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología endocrina",
     "anio": 0,
@@ -5468,7 +5468,7 @@
       },
       {
         "letra": "C",
-        "texto": "Diabetes insípida",
+        "texto": "Diabetes insipida",
         "correcta": true
       },
       {
@@ -7265,7 +7265,7 @@
     "numero": 215
   },
   {
-    "pregunta": "Que medicamento NO administrarías en EPOC",
+    "pregunta": "Que medicamento NO administrarias en EPOC",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología respiratoria",
     "anio": 0,
@@ -7299,7 +7299,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología respiratoria",
     "anio": 0,
-    "bibliografia": "pág 656 cuadro MACHUCA NUEVO",
+    "bibliografia": "pag 656 cuadro MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -7313,7 +7313,7 @@
       },
       {
         "letra": "C",
-        "texto": "midazolam midazolam dosis bajas vía oral Inma",
+        "texto": "midazolam midazolam dosis bajas via oral Inma",
         "correcta": false
       },
       {
@@ -7855,7 +7855,7 @@
     "numero": 234
   },
   {
-    "pregunta": "Si hablamos de un paciente menor de 35 años con niveles elevados de IgE y pruebas cutáneas positivas a una alérgeno específico estamos hablando de un paciente afecto de:",
+    "pregunta": "Si hablamos de un paciente menor de 35 años con niveles elevados de IgE y pruebas cutáneas positivas a una alergeno específico estamos hablando de un paciente afecto de:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología respiratoria",
     "anio": 0,
@@ -9484,7 +9484,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología oncológica",
     "anio": 0,
-    "bibliografia": "pág 609-610-1132 MACHUCA NUEVO. osteonecrosis por bisfosfonatos 14 DIAS ANTES 7 DIAS DESPUES",
+    "bibliografia": "pag 609-610-1132 MACHUCA NUEVO. osteonecrosis por bisfosfonatos 14 DIAS ANTES 7 DIAS DESPUES",
     "opciones": [
       {
         "letra": "A",
@@ -9528,7 +9528,7 @@
       },
       {
         "letra": "C",
-        "texto": "Eritema, úlcera y puede consumir líquidos",
+        "texto": "Eritema, úlcera y puede consumir liquidos",
         "correcta": false
       },
       {
@@ -10528,7 +10528,7 @@
       },
       {
         "letra": "C",
-        "texto": "Eritema, ulcera y puede consumir líquidos",
+        "texto": "Eritema, ulcera y puede consumir liquidos",
         "correcta": false
       },
       {
@@ -10673,7 +10673,7 @@
       },
       {
         "letra": "E",
-        "texto": "Trasplante autólogo de médula ósea",
+        "texto": "Trasplante autólogo de medula ósea",
         "correcta": false
       }
     ],
@@ -11364,7 +11364,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología oncológica",
     "anio": 0,
-    "bibliografia": "pág 610 Machuca Nuevo",
+    "bibliografia": "pag 610 Machuca Nuevo",
     "opciones": [
       {
         "letra": "A",
@@ -11863,7 +11863,7 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "uso de dentrificos adaptados (dentrificos de xerostomia ,con alto contenido de flúor ,xialogogos)",
+        "texto": "uso de dentrificos adaptados (dentrificos de xerostomia ,con alto contenido de fluor ,xialogogos)",
         "correcta": false
       },
       {
@@ -13919,7 +13919,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología oncológica",
     "anio": 0,
-    "bibliografia": "pág 609 MACHUCA NUEVO",
+    "bibliografia": "pag 609 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -14424,7 +14424,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hemorrágica",
     "anio": 0,
-    "bibliografia": "pág 799 MACHUCA NUEVO",
+    "bibliografia": "pag 799 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -14529,7 +14529,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hemorrágica",
     "anio": 0,
-    "bibliografia": "pág 804 MACHUCA NUEVO",
+    "bibliografia": "pag 804 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -14673,7 +14673,7 @@
       },
       {
         "letra": "E",
-        "texto": "seudoxantoma clásico",
+        "texto": "seudoxantoma clasico",
         "correcta": false
       }
     ],
@@ -14924,7 +14924,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hemorrágica",
     "anio": 0,
-    "bibliografia": "pág 805 MACHUCA NUEVO. pág 807 tabla 5",
+    "bibliografia": "pag 805 MACHUCA NUEVO. pag 807 tabla 5",
     "opciones": [
       {
         "letra": "A",
@@ -14955,7 +14955,7 @@
     "numero": 444
   },
   {
-    "pregunta": "La agregación plaquetaria en el coagulo se inicia por:",
+    "pregunta": "La agregacion plaquetaria en el coagulo se inicia por:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hemorrágica",
     "anio": 0,
@@ -15113,7 +15113,7 @@
       },
       {
         "letra": "C",
-        "texto": "Si el sangrado post-extracción es a nivel óseo, nunca se usará cera de hueso en el alvéolo",
+        "texto": "Si el sangrado post-extracción es a nivel óseo, nunca se usará cera de hueso en el alveolo",
         "correcta": false
       },
       {
@@ -16883,22 +16883,22 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "Lavado del alvéolo con 0,3mg/kg de peso de desmopresina",
+        "texto": "Lavado del alveolo con 0,3mg/kg de peso de desmopresina",
         "correcta": false
       },
       {
         "letra": "B",
-        "texto": "Lavado del alvéolo con 0,3mg/kg de peso de desmopresina y sutura del",
+        "texto": "Lavado del alveolo con 0,3mg/kg de peso de desmopresina y sutura del",
         "correcta": false
       },
       {
         "letra": "C",
-        "texto": "Lavado del alvéolo con 5ml de ácido tranexámico",
+        "texto": "Lavado del alveolo con 5ml de ácido tranexámico",
         "correcta": false
       },
       {
         "letra": "D",
-        "texto": "Lavado del alvéolo con 5ml de ácido tranexámico y sutura del alvéolo",
+        "texto": "Lavado del alveolo con 5ml de ácido tranexámico y sutura del alveolo",
         "correcta": true
       },
       {
@@ -17400,7 +17400,7 @@
     "numero": 515
   },
   {
-    "pregunta": "¿Cual es el mecanismo de acción de los fármacos derivados cumarinicos, como el sintrom?",
+    "pregunta": "¿Cual es el mecanismo de accion de los farmacos derivados cumarinicos, como el sintrom?",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hemorrágica",
     "anio": 0,
@@ -17408,12 +17408,12 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "Activan los depósitos de vitamina K",
+        "texto": "Activan los depositos de vitamina K",
         "correcta": false
       },
       {
         "letra": "B",
-        "texto": "Potencian la acción de la antitrombina (heparina)",
+        "texto": "Potencian la accion de la antitrombina (heparina)",
         "correcta": false
       },
       {
@@ -17610,7 +17610,7 @@
     "numero": 521
   },
   {
-    "pregunta": "De los siguientes fármacos cual es antiagregante plaquetario",
+    "pregunta": "De los siguientes farmacos cual es antiagregante plaquetario",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hemorrágica",
     "anio": 0,
@@ -17618,7 +17618,7 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "ácido acetil salicílico",
+        "texto": "acido acetil salicílico",
         "correcta": false
       },
       {
@@ -17723,34 +17723,34 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "Dos días",
+        "texto": "Dos dias",
         "correcta": false
       },
       {
         "letra": "B",
-        "texto": "Tres días",
+        "texto": "Tres dias",
         "correcta": false
       },
       {
         "letra": "C",
-        "texto": "Cuatro días",
+        "texto": "Cuatro dias",
         "correcta": false
       },
       {
         "letra": "D",
-        "texto": "Siete días",
+        "texto": "Siete dias",
         "correcta": true
       },
       {
         "letra": "E",
-        "texto": "Ocho días",
+        "texto": "Ocho dias",
         "correcta": false
       }
     ],
     "numero": 525
   },
   {
-    "pregunta": "De los siguientes fármacos cual es antiagregante plaquetario",
+    "pregunta": "De los siguientes farmacos cual es antiagregante plaquetario",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hemorrágica",
     "anio": 0,
@@ -18018,7 +18018,7 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "Apósito de ácido amino Capróico (antifibrinolitico)",
+        "texto": "Apósito de acido amino Capróico (antifibrinolitico)",
         "correcta": false
       },
       {
@@ -18364,7 +18364,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Discrasias sanguíneas",
     "anio": 0,
-    "bibliografia": "cloranfenicol puede causar anemia aplasica; pág 833 MACHUCA NEUVO",
+    "bibliografia": "cloranfenicol puede causar anemia aplasica; pag 833 MACHUCA NEUVO",
     "opciones": [
       {
         "letra": "A",
@@ -18874,7 +18874,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Discrasias sanguíneas",
     "anio": 0,
-    "bibliografia": "Pedro Diz pág 283; 563 cap VIH machuca nuevo",
+    "bibliografia": "Pedro Diz pag 283; 563 cap VIH machuca nuevo",
     "opciones": [
       {
         "letra": "A",
@@ -18904,7 +18904,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Discrasias sanguíneas",
     "anio": 0,
-    "bibliografia": "comunes en todas las anemias pág 832 MACHUCA NUEVO",
+    "bibliografia": "comunes en todas las anemias pag 832 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -18939,7 +18939,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Discrasias sanguíneas",
     "anio": 0,
-    "bibliografia": "pág 575 MACHUCA NUEVO",
+    "bibliografia": "pag 575 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -19693,7 +19693,7 @@
       },
       {
         "letra": "D",
-        "texto": "Herpes zóster",
+        "texto": "Herpes zoster",
         "correcta": true
       }
     ],
@@ -19830,7 +19830,7 @@
     "numero": 588
   },
   {
-    "pregunta": "Señale qué lesión está menos comúnmente asociada a la infección por VIH",
+    "pregunta": "Señale qué lesión está menos comunmente asociada a la infección por VIH",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Enfermedades infecciosas",
     "anio": 0,
@@ -20428,7 +20428,7 @@
       },
       {
         "letra": "E",
-        "texto": "Herpes zóster",
+        "texto": "Herpes zoster",
         "correcta": true
       }
     ],
@@ -23060,7 +23060,7 @@
     "numero": 683
   },
   {
-    "pregunta": "Identifica cual de las siguientes no se considera como una complicación de una hepatitis aguda vírica:",
+    "pregunta": "Identifica cual de las siguientes no se considera como una complicacion de una hepatitis aguda virica:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
@@ -23068,22 +23068,22 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "Cirrosis hepática",
+        "texto": "Cirrosis hepatica",
         "correcta": false
       },
       {
         "letra": "B",
-        "texto": "Pancreatitis crónica",
+        "texto": "Pancreatitis cronica",
         "correcta": true
       },
       {
         "letra": "C",
-        "texto": "Insuficiencia hepática",
+        "texto": "Insuficiencia hepatica",
         "correcta": false
       },
       {
         "letra": "D",
-        "texto": "Cancer de hígado",
+        "texto": "Cancer de higado",
         "correcta": false
       }
     ],
@@ -23108,7 +23108,7 @@
       },
       {
         "letra": "C",
-        "texto": "Mediante la palpación del hígado",
+        "texto": "Mediante la palpacion del higado",
         "correcta": false
       },
       {
@@ -23488,7 +23488,7 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "El ser varón es factor de riesgo",
+        "texto": "El ser varon es factor de riesgo",
         "correcta": true
       },
       {
@@ -25689,7 +25689,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
-    "bibliografia": "recomendado lorazepam único",
+    "bibliografia": "recomendado lorazepam unico",
     "opciones": [
       {
         "letra": "A",
@@ -26244,7 +26244,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
-    "bibliografia": "aguda o crónica",
+    "bibliografia": "aguda o cronica",
     "opciones": [
       {
         "letra": "A",
@@ -27960,7 +27960,7 @@
     "numero": 828
   },
   {
-    "pregunta": "Marque la correcta. En paciente con hemodiálisis crónica",
+    "pregunta": "Marque la correcta. En paciente con hemodiálisis cronica",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
@@ -28008,7 +28008,7 @@
       },
       {
         "letra": "B",
-        "texto": "Riesgo de infección, VHB, VHC, citomegalovirus, etc.",
+        "texto": "Riesgo de infeccion, VHB, VHC, citomegalovirus, etc.",
         "correcta": false
       },
       {
@@ -28048,7 +28048,7 @@
       },
       {
         "letra": "C",
-        "texto": "Propia de la patología renal",
+        "texto": "Propia de la patologia renal",
         "correcta": false
       },
       {
@@ -28304,11 +28304,11 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
-    "bibliografia": "pág 748 MACHUCA NUEVO",
+    "bibliografia": "pag 748 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
-        "texto": "Salicilatos riesgo de sangrado gástrico",
+        "texto": "Salicilatos riesgo de sangrado gastrico",
         "correcta": false
       },
       {
@@ -32063,7 +32063,7 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "Psicosis maníaca depresiva.",
+        "texto": "Psicosis maniaca depresiva.",
         "correcta": false
       },
       {
@@ -33473,7 +33473,7 @@
       },
       {
         "letra": "C",
-        "texto": "Las papilas interceptarías no suelen ser afectadas.",
+        "texto": "Las papilas interceptarias no suelen ser afectadas.",
         "correcta": true
       },
       {
@@ -33924,7 +33924,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Otras situaciones especiales",
     "anio": 0,
-    "bibliografia": "pág 756 MACHUCA NUEVO",
+    "bibliografia": "pag 756 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -34444,7 +34444,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Otras situaciones especiales",
     "anio": 0,
-    "bibliografia": "segundo trimestre. pág 766 MACHUCA NUEVO",
+    "bibliografia": "segundo trimestre. pag 766 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -34943,7 +34943,7 @@
       },
       {
         "letra": "C",
-        "texto": "c caracterizados por un incremento de las poblaciones de Gramnegativos anaeróbicos",
+        "texto": "c caracterizados por un incremento de las poblaciones de Gramnegativos anaerobicos",
         "correcta": false
       },
       {
@@ -36074,7 +36074,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Urgencias y alergias",
     "anio": 0,
-    "bibliografia": "pág 110-111 MACHUCA NUEVO",
+    "bibliografia": "pag 110-111 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -36183,7 +36183,7 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "Si el paciente mantiene el ritmo cardíaco",
+        "texto": "Si el paciente mantiene el ritmo cardiaco",
         "correcta": false
       },
       {
@@ -36248,7 +36248,7 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "ácido epsilon amino caproico",
+        "texto": "acido epsilon amino caproico",
         "correcta": false
       },
       {
@@ -36258,7 +36258,7 @@
       },
       {
         "letra": "C",
-        "texto": "ácido tranexamico",
+        "texto": "acido tranexamico",
         "correcta": false
       },
       {
@@ -36963,7 +36963,7 @@
       },
       {
         "letra": "E",
-        "texto": "Si no se palpa el pulso comenzar de inmediato la compresión cardíaca externa.",
+        "texto": "Si no se palpa el pulso comenzar de inmediato la compresión cardiaca externa.",
         "correcta": false
       }
     ],
@@ -38078,7 +38078,7 @@
       },
       {
         "letra": "C",
-        "texto": "masaje cardíaco",
+        "texto": "masaje cardiaco",
         "correcta": false
       },
       {
@@ -38393,7 +38393,7 @@
       },
       {
         "letra": "D",
-        "texto": "Acercar el oído y mejilla a la boca del paciente para comprobar si hay respiración",
+        "texto": "Acercar el oido y mejilla a la boca del paciente para comprobar si hay respiración",
         "correcta": false
       }
     ],
@@ -38518,7 +38518,7 @@
       },
       {
         "letra": "B",
-        "texto": "Reduce el tono muscular liso pág 626 y 627",
+        "texto": "Reduce el tono muscular liso pag 626 y 627",
         "correcta": true
       },
       {
@@ -38763,7 +38763,7 @@
       },
       {
         "letra": "D",
-        "texto": "Desfibrilación eléctrica.",
+        "texto": "Desfibrilación electrica.",
         "correcta": false
       },
       {
@@ -39233,7 +39233,7 @@
       },
       {
         "letra": "D",
-        "texto": "Desfibrilación eléctrica.",
+        "texto": "Desfibrilación electrica.",
         "correcta": false
       },
       {
@@ -39293,7 +39293,7 @@
       },
       {
         "letra": "B",
-        "texto": "Nunca se debe administrar analgésico pues enmascaría los síntomas",
+        "texto": "Nunca se debe administrar analgesico pues enmascaría los síntomas",
         "correcta": true
       },
       {
@@ -39599,7 +39599,7 @@
       }
     ],
     "numero": 1171,
-    "caso": "CASO 2. Mujer de 60 años acude para sanear la boca, tiene removibles arriba y abajo desde hace 15 años en los que no ha ido al dentista más que para quitarse algún diente por dolor o infección y alguno se le ha roto. Quiere que se le extraigan todos y no tener más complicaciones y el nefrólogo la metió en la lista de transplante Sin alergia HTA de larga evolución, IRC necesita un transplante y tiene diálisis martes jueves y sábados diabetics tipo 1 dislipemia EPOC Gold 1 colescistectomia y apendicitis. Toma ramipril fueosemida atorvastatina usa insulina de acción lenta a las 22H omeprazol paracetamol budosomida-formoterol bromuro de ipiatropo y salbutamol. Tiene ausencias arriba y abajo restos en 13-15-25-47 caries en 14 23 24-35-43-45 con fistula acúmulo moderado mala higiene hipo salía estomatitis protretica enf perio con movilidad de remanentes grado 2 y 3. Y ortopanto con lesión radio lúcida foco periapiacal entre 45-46"
+    "caso": "CASO 2. Mujer de 60 años acude para sanear la boca, tiene removibles arriba y abajo desde hace 15 años en los que no ha ido al dentista más que para quitarse algún diente por dolor o infección y alguno se le ha roto. Quiere que se le extraigan todos y no tener más complicaciones y el nefrólogo la metió en la lista de transplante Sin alergia HTA de larga evolucion, IRC necesita un transplante y tiene diálisis martes jueves y sábados diabetics tipo 1 dislipemia EPOC Gold 1 colescistectomia y apendicitis. Toma ramipril fueosemida atorvastatina usa insulina de acción lenta a las 22H omeprazol paracetamol budosomida-formoterol bromuro de ipiatropo y salbutamol. Tiene ausencias arriba y abajo restos en 13-15-25-47 caries en 14 23 24-35-43-45 con fistula acúmulo moderado mala higiene hipo salía estomatitis protretica enf perio con movilidad de remanentes grado 2 y 3. Y ortopanto con lesión radio lúcida foco periapiacal entre 45-46"
   },
   {
     "pregunta": "¿Antibiótico de primera elección que no necesita ajuste de su dosis?",
@@ -39630,7 +39630,7 @@
       }
     ],
     "numero": 1172,
-    "caso": "CASO 2. Mujer de 60 años acude para sanear la boca, tiene removibles arriba y abajo desde hace 15 años en los que no ha ido al dentista más que para quitarse algún diente por dolor o infección y alguno se le ha roto. Quiere que se le extraigan todos y no tener más complicaciones y el nefrólogo la metió en la lista de transplante Sin alergia HTA de larga evolución, IRC necesita un transplante y tiene diálisis martes jueves y sábados diabetics tipo 1 dislipemia EPOC Gold 1 colescistectomia y apendicitis. Toma ramipril fueosemida atorvastatina usa insulina de acción lenta a las 22H omeprazol paracetamol budosomida-formoterol bromuro de ipiatropo y salbutamol. Tiene ausencias arriba y abajo restos en 13-15-25-47 caries en 14 23 24-35-43-45 con fistula acúmulo moderado mala higiene hipo salía estomatitis protretica enf perio con movilidad de remanentes grado 2 y 3. Y ortopanto con lesión radio lúcida foco periapiacal entre 45-46"
+    "caso": "CASO 2. Mujer de 60 años acude para sanear la boca, tiene removibles arriba y abajo desde hace 15 años en los que no ha ido al dentista más que para quitarse algún diente por dolor o infección y alguno se le ha roto. Quiere que se le extraigan todos y no tener más complicaciones y el nefrólogo la metió en la lista de transplante Sin alergia HTA de larga evolucion, IRC necesita un transplante y tiene diálisis martes jueves y sábados diabetics tipo 1 dislipemia EPOC Gold 1 colescistectomia y apendicitis. Toma ramipril fueosemida atorvastatina usa insulina de acción lenta a las 22H omeprazol paracetamol budosomida-formoterol bromuro de ipiatropo y salbutamol. Tiene ausencias arriba y abajo restos en 13-15-25-47 caries en 14 23 24-35-43-45 con fistula acúmulo moderado mala higiene hipo salía estomatitis protretica enf perio con movilidad de remanentes grado 2 y 3. Y ortopanto con lesión radio lúcida foco periapiacal entre 45-46"
   },
   {
     "pregunta": "¿Qué día de la semana es el menos indicado para tratar a este paciente?",
@@ -39661,7 +39661,7 @@
       }
     ],
     "numero": 1173,
-    "caso": "CASO 2. Mujer de 60 años acude para sanear la boca, tiene removibles arriba y abajo desde hace 15 años en los que no ha ido al dentista más que para quitarse algún diente por dolor o infección y alguno se le ha roto. Quiere que se le extraigan todos y no tener más complicaciones y el nefrólogo la metió en la lista de transplante Sin alergia HTA de larga evolución, IRC necesita un transplante y tiene diálisis martes jueves y sábados diabetics tipo 1 dislipemia EPOC Gold 1 colescistectomia y apendicitis. Toma ramipril fueosemida atorvastatina usa insulina de acción lenta a las 22H omeprazol paracetamol budosomida-formoterol bromuro de ipiatropo y salbutamol. Tiene ausencias arriba y abajo restos en 13-15-25-47 caries en 14 23 24-35-43-45 con fistula acúmulo moderado mala higiene hipo salía estomatitis protretica enf perio con movilidad de remanentes grado 2 y 3. Y ortopanto con lesión radio lúcida foco periapiacal entre 45-46"
+    "caso": "CASO 2. Mujer de 60 años acude para sanear la boca, tiene removibles arriba y abajo desde hace 15 años en los que no ha ido al dentista más que para quitarse algún diente por dolor o infección y alguno se le ha roto. Quiere que se le extraigan todos y no tener más complicaciones y el nefrólogo la metió en la lista de transplante Sin alergia HTA de larga evolucion, IRC necesita un transplante y tiene diálisis martes jueves y sábados diabetics tipo 1 dislipemia EPOC Gold 1 colescistectomia y apendicitis. Toma ramipril fueosemida atorvastatina usa insulina de acción lenta a las 22H omeprazol paracetamol budosomida-formoterol bromuro de ipiatropo y salbutamol. Tiene ausencias arriba y abajo restos en 13-15-25-47 caries en 14 23 24-35-43-45 con fistula acúmulo moderado mala higiene hipo salía estomatitis protretica enf perio con movilidad de remanentes grado 2 y 3. Y ortopanto con lesión radio lúcida foco periapiacal entre 45-46"
   },
   {
     "pregunta": "¿A qué hora debe realizarse preferentemente el tratamiento odontológico?",
@@ -39692,7 +39692,7 @@
       }
     ],
     "numero": 1174,
-    "caso": "CASO 2. Mujer de 60 años acude para sanear la boca, tiene removibles arriba y abajo desde hace 15 años en los que no ha ido al dentista más que para quitarse algún diente por dolor o infección y alguno se le ha roto. Quiere que se le extraigan todos y no tener más complicaciones y el nefrólogo la metió en la lista de transplante Sin alergia HTA de larga evolución, IRC necesita un transplante y tiene diálisis martes jueves y sábados diabetics tipo 1 dislipemia EPOC Gold 1 colescistectomia y apendicitis. Toma ramipril fueosemida atorvastatina usa insulina de acción lenta a las 22H omeprazol paracetamol budosomida-formoterol bromuro de ipiatropo y salbutamol. Tiene ausencias arriba y abajo restos en 13-15-25-47 caries en 14 23 24-35-43-45 con fistula acúmulo moderado mala higiene hipo salía estomatitis protretica enf perio con movilidad de remanentes grado 2 y 3. Y ortopanto con lesión radio lúcida foco periapiacal entre 45-46"
+    "caso": "CASO 2. Mujer de 60 años acude para sanear la boca, tiene removibles arriba y abajo desde hace 15 años en los que no ha ido al dentista más que para quitarse algún diente por dolor o infección y alguno se le ha roto. Quiere que se le extraigan todos y no tener más complicaciones y el nefrólogo la metió en la lista de transplante Sin alergia HTA de larga evolucion, IRC necesita un transplante y tiene diálisis martes jueves y sábados diabetics tipo 1 dislipemia EPOC Gold 1 colescistectomia y apendicitis. Toma ramipril fueosemida atorvastatina usa insulina de acción lenta a las 22H omeprazol paracetamol budosomida-formoterol bromuro de ipiatropo y salbutamol. Tiene ausencias arriba y abajo restos en 13-15-25-47 caries en 14 23 24-35-43-45 con fistula acúmulo moderado mala higiene hipo salía estomatitis protretica enf perio con movilidad de remanentes grado 2 y 3. Y ortopanto con lesión radio lúcida foco periapiacal entre 45-46"
   },
   {
     "pregunta": "¿Cuál es probablemente el fármaco responsable del agrandamiento gingival?",
@@ -39847,7 +39847,7 @@
       }
     ],
     "numero": 1179,
-    "caso": "CASO 1. Paciente de 25 años de edad, con mal estado oral, dolores generalizados que se acentúan a la percusión en algunos dientes y en general con los cambios de temperatura. Esta nerviosa y agitada tiene mal estado oral la paciente refiere que lo que ocurre es por una ingesta excesiva de alimentos pero su apariencia física (aspecto físico) no se corresponde con sus circunstancias puesto que presenta un aspecto normal, a lo largo de la anamnesis la paciente expresa el deseo que le extraigan todos los dientes y se le coloquen implantes, ya que su saliva es muy ácida e imposibilita las reconstrucciones como en otras veces."
+    "caso": "CASO 1. Paciente de 25 años de edad, con mal estado oral, dolores generalizados que se acentúan a la percusión en algunos dientes y en general con los cambios de temperatura. Esta nerviosa y agitada tiene mal estado oral la paciente refiere que lo que ocurre es por una ingesta excesiva de alimentos pero su apariencia fisica (aspecto fisico) no se corresponde con sus circunstancias puesto que presenta un aspecto normal, a lo largo de la anamnesis la paciente expresa el deseo que le extraigan todos los dientes y se le coloquen implantes, ya que su saliva es muy ácida e imposibilita las reconstrucciones como en otras veces."
   },
   {
     "pregunta": "A la exploración clínica se observan callosidades en las manos, ¿cómo se denominan estas lesiones y a qué se deben?",
@@ -39878,7 +39878,7 @@
       }
     ],
     "numero": 1180,
-    "caso": "CASO 1. Paciente de 25 años de edad, con mal estado oral, dolores generalizados que se acentúan a la percusión en algunos dientes y en general con los cambios de temperatura. Esta nerviosa y agitada tiene mal estado oral la paciente refiere que lo que ocurre es por una ingesta excesiva de alimentos pero su apariencia física (aspecto físico) no se corresponde con sus circunstancias puesto que presenta un aspecto normal, a lo largo de la anamnesis la paciente expresa el deseo que le extraigan todos los dientes y se le coloquen implantes, ya que su saliva es muy ácida e imposibilita las reconstrucciones como en otras veces."
+    "caso": "CASO 1. Paciente de 25 años de edad, con mal estado oral, dolores generalizados que se acentúan a la percusión en algunos dientes y en general con los cambios de temperatura. Esta nerviosa y agitada tiene mal estado oral la paciente refiere que lo que ocurre es por una ingesta excesiva de alimentos pero su apariencia fisica (aspecto fisico) no se corresponde con sus circunstancias puesto que presenta un aspecto normal, a lo largo de la anamnesis la paciente expresa el deseo que le extraigan todos los dientes y se le coloquen implantes, ya que su saliva es muy ácida e imposibilita las reconstrucciones como en otras veces."
   },
   {
     "pregunta": "[Figura 8] La situación anómala de las amalgamas de la figura 8 son características del síndrome. ¿Cómo se denominan y a qué se deben?",
@@ -39909,7 +39909,7 @@
       }
     ],
     "numero": 1181,
-    "caso": "CASO 1. Paciente de 25 años de edad, con mal estado oral, dolores generalizados que se acentúan a la percusión en algunos dientes y en general con los cambios de temperatura. Esta nerviosa y agitada tiene mal estado oral la paciente refiere que lo que ocurre es por una ingesta excesiva de alimentos pero su apariencia física (aspecto físico) no se corresponde con sus circunstancias puesto que presenta un aspecto normal, a lo largo de la anamnesis la paciente expresa el deseo que le extraigan todos los dientes y se le coloquen implantes, ya que su saliva es muy ácida e imposibilita las reconstrucciones como en otras veces."
+    "caso": "CASO 1. Paciente de 25 años de edad, con mal estado oral, dolores generalizados que se acentúan a la percusión en algunos dientes y en general con los cambios de temperatura. Esta nerviosa y agitada tiene mal estado oral la paciente refiere que lo que ocurre es por una ingesta excesiva de alimentos pero su apariencia fisica (aspecto fisico) no se corresponde con sus circunstancias puesto que presenta un aspecto normal, a lo largo de la anamnesis la paciente expresa el deseo que le extraigan todos los dientes y se le coloquen implantes, ya que su saliva es muy ácida e imposibilita las reconstrucciones como en otras veces."
   },
   {
     "pregunta": "Ante una paciente de estas características, ¿qué actitud terapéutica no pondría en marcha?",
@@ -39940,7 +39940,7 @@
       }
     ],
     "numero": 1182,
-    "caso": "CASO 1. Paciente de 25 años de edad, con mal estado oral, dolores generalizados que se acentúan a la percusión en algunos dientes y en general con los cambios de temperatura. Esta nerviosa y agitada tiene mal estado oral la paciente refiere que lo que ocurre es por una ingesta excesiva de alimentos pero su apariencia física (aspecto físico) no se corresponde con sus circunstancias puesto que presenta un aspecto normal, a lo largo de la anamnesis la paciente expresa el deseo que le extraigan todos los dientes y se le coloquen implantes, ya que su saliva es muy ácida e imposibilita las reconstrucciones como en otras veces."
+    "caso": "CASO 1. Paciente de 25 años de edad, con mal estado oral, dolores generalizados que se acentúan a la percusión en algunos dientes y en general con los cambios de temperatura. Esta nerviosa y agitada tiene mal estado oral la paciente refiere que lo que ocurre es por una ingesta excesiva de alimentos pero su apariencia fisica (aspecto fisico) no se corresponde con sus circunstancias puesto que presenta un aspecto normal, a lo largo de la anamnesis la paciente expresa el deseo que le extraigan todos los dientes y se le coloquen implantes, ya que su saliva es muy ácida e imposibilita las reconstrucciones como en otras veces."
   },
   {
     "pregunta": "[Figura 6] Ante esta historia clínica, ¿qué sería y qué podría originar la lesión de la figura 6?",
@@ -39971,7 +39971,7 @@
       }
     ],
     "numero": 1183,
-    "caso": "CASO 1. Paciente de 25 años de edad, con mal estado oral, dolores generalizados que se acentúan a la percusión en algunos dientes y en general con los cambios de temperatura. Esta nerviosa y agitada tiene mal estado oral la paciente refiere que lo que ocurre es por una ingesta excesiva de alimentos pero su apariencia física (aspecto físico) no se corresponde con sus circunstancias puesto que presenta un aspecto normal, a lo largo de la anamnesis la paciente expresa el deseo que le extraigan todos los dientes y se le coloquen implantes, ya que su saliva es muy ácida e imposibilita las reconstrucciones como en otras veces."
+    "caso": "CASO 1. Paciente de 25 años de edad, con mal estado oral, dolores generalizados que se acentúan a la percusión en algunos dientes y en general con los cambios de temperatura. Esta nerviosa y agitada tiene mal estado oral la paciente refiere que lo que ocurre es por una ingesta excesiva de alimentos pero su apariencia fisica (aspecto fisico) no se corresponde con sus circunstancias puesto que presenta un aspecto normal, a lo largo de la anamnesis la paciente expresa el deseo que le extraigan todos los dientes y se le coloquen implantes, ya que su saliva es muy ácida e imposibilita las reconstrucciones como en otras veces."
   },
   {
     "pregunta": "¿Cuál sería el diagnóstico de sospecha más probable acerca de la coagulación que podría tener?",
@@ -40002,7 +40002,7 @@
       }
     ],
     "numero": 1184,
-    "caso": "CASO 2. A su consulta acude una mujer de 50 años se aqueja de un dolor intenso en el 22, dicho dolor se acentúa a la percusión y con los cambios de temperatura, la paciente no ha consumido ningún medicamento porque según refiere sufre de una coagulopatía congénita. La historia clínica no refiere mas datos de interés. (fotos intraorales de piezas dentales ninguna lesión en particular)"
+    "caso": "CASO 2. A su consulta acude una mujer de 50 años se aqueja de un dolor intenso en el 22, dicho dolor se acentúa a la percusión y con los cambios de temperatura, la paciente no ha consumido ningún medicamento porque según refiere sufre de una coagulopatía congénita. La historia clinica no refiere mas datos de interés. (fotos intraorales de piezas dentales ninguna lesión en particular)"
   },
   {
     "pregunta": "¿Qué tratamiento odontológico de urgencia llevaría a cabo?",
@@ -40033,7 +40033,7 @@
       }
     ],
     "numero": 1185,
-    "caso": "CASO 2. A su consulta acude una mujer de 50 años se aqueja de un dolor intenso en el 22, dicho dolor se acentúa a la percusión y con los cambios de temperatura, la paciente no ha consumido ningún medicamento porque según refiere sufre de una coagulopatía congénita. La historia clínica no refiere mas datos de interés. (fotos intraorales de piezas dentales ninguna lesión en particular)"
+    "caso": "CASO 2. A su consulta acude una mujer de 50 años se aqueja de un dolor intenso en el 22, dicho dolor se acentúa a la percusión y con los cambios de temperatura, la paciente no ha consumido ningún medicamento porque según refiere sufre de una coagulopatía congénita. La historia clinica no refiere mas datos de interés. (fotos intraorales de piezas dentales ninguna lesión en particular)"
   },
   {
     "pregunta": "Una vez solucionada la emergencia y asegurada la enfermedad de base, ¿en qué condiciones estaría indicado el tratamiento de las caries cervicales inferiores que padece?",
@@ -40064,7 +40064,7 @@
       }
     ],
     "numero": 1186,
-    "caso": "CASO 2. A su consulta acude una mujer de 50 años se aqueja de un dolor intenso en el 22, dicho dolor se acentúa a la percusión y con los cambios de temperatura, la paciente no ha consumido ningún medicamento porque según refiere sufre de una coagulopatía congénita. La historia clínica no refiere mas datos de interés. (fotos intraorales de piezas dentales ninguna lesión en particular)"
+    "caso": "CASO 2. A su consulta acude una mujer de 50 años se aqueja de un dolor intenso en el 22, dicho dolor se acentúa a la percusión y con los cambios de temperatura, la paciente no ha consumido ningún medicamento porque según refiere sufre de una coagulopatía congénita. La historia clinica no refiere mas datos de interés. (fotos intraorales de piezas dentales ninguna lesión en particular)"
   },
   {
     "pregunta": "Patología estable, ¿qué procedimiento le harías a ese diente con dolor a la percusión en la pieza 22?",
@@ -40095,7 +40095,7 @@
       }
     ],
     "numero": 1187,
-    "caso": "CASO 2. A su consulta acude una mujer de 50 años se aqueja de un dolor intenso en el 22, dicho dolor se acentúa a la percusión y con los cambios de temperatura, la paciente no ha consumido ningún medicamento porque según refiere sufre de una coagulopatía congénita. La historia clínica no refiere mas datos de interés. (fotos intraorales de piezas dentales ninguna lesión en particular)"
+    "caso": "CASO 2. A su consulta acude una mujer de 50 años se aqueja de un dolor intenso en el 22, dicho dolor se acentúa a la percusión y con los cambios de temperatura, la paciente no ha consumido ningún medicamento porque según refiere sufre de una coagulopatía congénita. La historia clinica no refiere mas datos de interés. (fotos intraorales de piezas dentales ninguna lesión en particular)"
   },
   {
     "pregunta": "¿Qué tipo de técnica anestésica sería la menos adecuada para tratar las caries cervicales inferiores?",
@@ -40126,7 +40126,7 @@
       }
     ],
     "numero": 1188,
-    "caso": "CASO 2. A su consulta acude una mujer de 50 años se aqueja de un dolor intenso en el 22, dicho dolor se acentúa a la percusión y con los cambios de temperatura, la paciente no ha consumido ningún medicamento porque según refiere sufre de una coagulopatía congénita. La historia clínica no refiere mas datos de interés. (fotos intraorales de piezas dentales ninguna lesión en particular)"
+    "caso": "CASO 2. A su consulta acude una mujer de 50 años se aqueja de un dolor intenso en el 22, dicho dolor se acentúa a la percusión y con los cambios de temperatura, la paciente no ha consumido ningún medicamento porque según refiere sufre de una coagulopatía congénita. La historia clinica no refiere mas datos de interés. (fotos intraorales de piezas dentales ninguna lesión en particular)"
   },
   {
     "pregunta": "[imagen referencial] De entre los fármacos, ¿cuál no podría emplear con seguridad en el paciente?",
@@ -40750,7 +40750,7 @@
       },
       {
         "letra": "B",
-        "texto": "Paciente con 5 stents cardíacos tras infarto agudo de miocardio hace 2 años",
+        "texto": "Paciente con 5 stents cardiacos tras infarto agudo de miocardio hace 2 años",
         "correcta": false
       },
       {
@@ -41800,7 +41800,7 @@
       },
       {
         "letra": "B",
-        "texto": "En exodoncias, se deberían legrar los alvéolos meticulosamente",
+        "texto": "En exodoncias, se deberían legrar los alveolos meticulosamente",
         "correcta": false
       },
       {
@@ -41997,7 +41997,7 @@
     "numero": 1250
   },
   {
-    "pregunta": "En una paciente con una enfermedad autoinmune que toma 7.5mg de prednisona al día por la mañana y precisa colocación de 4 implantes. ¿Cuál de las siguientes actuaciones no es necesaria?",
+    "pregunta": "En una paciente con una enfermedad autoinmune que toma 7.5mg de prednisona al dia por la mañana y precisa colocación de 4 implantes. ¿Cuál de las siguientes actuaciones no es necesaria?",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología endocrina",
     "anio": 0,
@@ -42267,7 +42267,7 @@
     "numero": 1259
   },
   {
-    "pregunta": "Ante qué patología pautaría una profilaxis antibiótica?",
+    "pregunta": "Ante qué patología pautaria una profilaxis antibiótica?",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -42275,7 +42275,7 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "Prótesis valvular cardíaca",
+        "texto": "Prótesis valvular cardiaca",
         "correcta": true
       },
       {
@@ -42290,7 +42290,7 @@
       },
       {
         "letra": "D",
-        "texto": "soplo cardíaco funcional",
+        "texto": "soplo cardiaco funcional",
         "correcta": false
       }
     ],
@@ -42410,7 +42410,7 @@
       },
       {
         "letra": "D",
-        "texto": "La pauta antibiótica adecuada para prevenirla ante un proceso cruento odontologico es: Amoxicilina/Clavulánico 2gr 12h durante 10 días+enjuague de clorhexidina al 0.12% o Clindamicina 300 mg 1 comprimido cada 8 h durante 10 días y ciprofloxacina 500mg/12h durante 10 días+enjuague de clorhexidina al 0.12%",
+        "texto": "La pauta antibiótica adecuada para prevenirla ante un proceso cruento odontologico es: Amoxicilina/Clavulánico 2gr 12h durante 10 dias+enjuague de clorhexidina al 0.12% o Clindamicina 300 mg 1 comprimido cada 8 h durante 10 días y ciprofloxacina 500mg/12h durante 10 dias+enjuague de clorhexidina al 0.12%",
         "correcta": false
       }
     ],
@@ -42465,7 +42465,7 @@
       },
       {
         "letra": "C",
-        "texto": "Debe realizarse un legrado correcto del alvéolo.",
+        "texto": "Debe realizarse un legrado correcto del alveolo.",
         "correcta": false
       },
       {
