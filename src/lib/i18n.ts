@@ -63,6 +63,7 @@ export interface Diccionario {
     modalAnio: string
     comenzarSimulacro: string
     fraseEtiqueta: string
+    bienvenidaEtiqueta: string
     racha: (n: number) => string
     verEstadisticas: string
   }
@@ -289,6 +290,7 @@ export const es: Diccionario = {
     modalAnio: 'Convocatoria',
     comenzarSimulacro: 'Comenzar simulacro',
     fraseEtiqueta: 'Frase del día',
+    bienvenidaEtiqueta: 'Bienvenido',
     racha: (n) => `${n} día${n === 1 ? '' : 's'} seguidos`,
     verEstadisticas: 'Ver estadísticas completas',
   },
@@ -542,6 +544,7 @@ export const en: Diccionario = {
     modalAnio: 'Exam year',
     comenzarSimulacro: 'Start mock exam',
     fraseEtiqueta: 'Quote of the day',
+    bienvenidaEtiqueta: 'Welcome',
     racha: (n) => `${n}-day streak`,
     verEstadisticas: 'View full statistics',
   },

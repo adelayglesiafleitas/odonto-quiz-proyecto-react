@@ -86,6 +86,18 @@ module.exports = {
           "50%": { transform: "translateX(20%) scaleX(1)" },
           "100%": { transform: "translateX(120%) scaleX(0.5)" },
         },
+        "bienvenida-in": {
+          "0%": { transform: "translateY(6px) scale(0.98)", opacity: "0" },
+          "100%": { transform: "translateY(0) scale(1)", opacity: "1" },
+        },
+        "bienvenida-out": {
+          "0%": { transform: "translateY(0) scale(1)", opacity: "1" },
+          "100%": { transform: "translateY(-6px) scale(0.98)", opacity: "0" },
+        },
+        "frase-in": {
+          "0%": { transform: "translateY(6px) scale(0.98)", opacity: "0" },
+          "100%": { transform: "translateY(0) scale(1)", opacity: "1" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -94,6 +106,9 @@ module.exports = {
         "float-up": "float-up 0.5s ease-out both",
         "logo-pop": "logo-pop 0.9s cubic-bezier(0.2,0.8,0.3,1) both",
         "progress-indeterminate": "progress-indeterminate 1.3s cubic-bezier(0.4,0,0.2,1) infinite",
+        "bienvenida-in": "bienvenida-in 0.6s ease-out both",
+        "bienvenida-out": "bienvenida-out 0.45s ease-in both",
+        "frase-in": "frase-in 0.6s ease-out both",
       },
     },
   },

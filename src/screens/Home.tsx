@@ -6,9 +6,10 @@ import { BottomNav } from '@/components/BottomNav'
 import { useAppSettings } from '@/context/AppSettings'
 import { getHistorialRemoto, calcularPromedio, getFechasIntentos, calcularRacha } from '@/lib/historial'
 import { getFrases, indiceFraseAleatoria } from '@/lib/frases'
+import { getBienvenida } from '@/lib/bienvenida'
 import { colorStrokePorcentaje } from '@/lib/utils'
 import type { CursoMeta } from '@/lib/cursos'
-import { LogOut, Trophy, TrendingUp, Quote, Flame, BarChart3, ChevronRight } from 'lucide-react'
+import { LogOut, Trophy, TrendingUp, Quote, Flame, BarChart3, ChevronRight, Sparkles } from 'lucide-react'
 import type { Pantalla } from '@/types'
 
 const PROMEDIO_CIRCUNFERENCIA = 2 * Math.PI * 32
@@ -29,6 +30,7 @@ export function Home({
   onLogout: () => void
 }) {
   const { t, idioma } = useAppSettings()
+  const nombreMostrado = nickname && nickname.trim().length > 0 ? nickname : t.home.estudiante
   const [mejor, setMejor] = useState(0)
   const [promedio, setPromedio] = useState(0)
   const [intentos, setIntentos] = useState(0)
@@ -36,6 +38,8 @@ export function Home({
   const [cargandoStats, setCargandoStats] = useState(true)
   const [indiceFrase] = useState(() => indiceFraseAleatoria(getFrases(idioma).length))
   const frase = getFrases(idioma)[indiceFrase]
+  const [bienvenida] = useState(() => getBienvenida(idioma, nombreMostrado))
+  const [mostrarBienvenida, setMostrarBienvenida] = useState(true)
 
   useEffect(() => {
     let cancelado = false
@@ -54,7 +58,11 @@ export function Home({
       cancelado = true
     }
   }, [userId, cursoId])
-  const nombreMostrado = nickname && nickname.trim().length > 0 ? nickname : t.home.estudiante
+
+  useEffect(() => {
+    const timer = setTimeout(() => setMostrarBienvenida(false), 3200)
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     <div className="app-shell bg-background pb-28">
@@ -138,13 +146,33 @@ export function Home({
       </div>
 
       <div className="mt-6 px-6">
-        <div className="card-elevated rounded-2xl bg-card p-4">
-          <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide text-accent">
-            <Quote className="h-3.5 w-3.5" />
-            {t.home.fraseEtiqueta}
+        <div className="card-elevated relative min-h-[132px] rounded-2xl bg-card">
+          <div
+            className={`absolute inset-0 flex flex-col justify-center overflow-hidden rounded-2xl border border-[#1fc6c633] bg-[linear-gradient(135deg,#123a3f_0%,#0d2233_100%)] p-4 ${
+              mostrarBienvenida ? 'animate-bienvenida-in' : 'pointer-events-none animate-bienvenida-out'
+            }`}
+          >
+            <div className="pointer-events-none absolute -right-10 -top-12 h-28 w-28 rounded-full bg-[radial-gradient(circle,rgba(31,198,198,0.5),transparent_70%)] blur-md" />
+            <div className="relative flex items-center gap-2 text-[11px] font-bold uppercase tracking-wide text-[#7fe9e2]">
+              <span className="flex h-[26px] w-[26px] items-center justify-center rounded-[9px] bg-gradient-to-br from-[#2dd8d8] to-[#12908f] shadow-[0_4px_10px_rgba(31,198,198,0.35)]">
+                <Sparkles className="h-3.5 w-3.5 text-white" />
+              </span>
+              {t.home.bienvenidaEtiqueta}
+            </div>
+            <p className="relative mt-2.5 text-[15.5px] font-semibold leading-relaxed text-white">{bienvenida}</p>
           </div>
-          <p className="mt-2.5 text-[15px] font-semibold leading-relaxed text-foreground">&ldquo;{frase.texto}&rdquo;</p>
-          {frase.autor && <p className="mt-2.5 text-xs font-medium text-muted-foreground">— {frase.autor}</p>}
+          <div
+            className={`absolute inset-0 flex flex-col justify-center rounded-2xl p-4 ${
+              mostrarBienvenida ? 'pointer-events-none opacity-0' : 'animate-frase-in'
+            }`}
+          >
+            <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide text-accent">
+              <Quote className="h-3.5 w-3.5" />
+              {t.home.fraseEtiqueta}
+            </div>
+            <p className="mt-2.5 text-[15px] font-semibold leading-relaxed text-foreground">&ldquo;{frase.texto}&rdquo;</p>
+            {frase.autor && <p className="mt-2.5 text-xs font-medium text-muted-foreground">— {frase.autor}</p>}
+          </div>
         </div>
       </div>
 
