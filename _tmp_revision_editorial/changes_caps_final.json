@@ -1,0 +1,860 @@
+[
+  {
+    "numero": 1,
+    "campo": "pregunta",
+    "antes": "LOS PACIENTES CON ENFERMEDAD CARDIOVASCULAR SON MAS SENSIBLES A LA ACCION DE LA ADRENALINA, EN ESTOS HAY QUE UTILIZAR SIEMPRE QUE NO ESTE CONTRAINDICADO, DOSIS MENORES DE ANESTESICOS CON VASOCONSTRICTOR Y A LA DILUCION MAS BAJA DE ADRENALIANA 1:200.000, NO SE PODRAN USAR MAS DE:",
+    "despues": "Los pacientes con enfermedad cardiovascular son mas sensibles a la accion de la adrenalina, en estos hay que utilizar siempre que no este contraindicado, dosis menores de anestesicos con vasoconstrictor y a la dilucion mas baja de adrenaliana 1:200.000, no se podran usar mas de:"
+  },
+  {
+    "numero": 2,
+    "campo": "pregunta",
+    "antes": "EN LA ANGINA DE PECHO, EL DOLOR PUEDE SER LEVE O INTENSO, ES FALSO:",
+    "despues": "En la angina de pecho, el dolor puede ser leve o intenso, es falso:"
+  },
+  {
+    "numero": 2,
+    "campo": "opcion A",
+    "antes": "EL DOLOR PUEDE IRRADIARSE AL HOMBRO IZQUIERDO HASTA EL DEDO INDICE Y MEDIO",
+    "despues": "El dolor puede irradiarse al hombro izquierdo hasta el dedo indice y medio"
+  },
+  {
+    "numero": 2,
+    "campo": "opcion B",
+    "antes": "EL DOLOR PUEDE IRRADIARSE A LOS DIENTES",
+    "despues": "El dolor puede irradiarse a los dientes"
+  },
+  {
+    "numero": 2,
+    "campo": "opcion C",
+    "antes": "EL DOLOR PUEDE IRRADIARSE AL PALADAR Y LENGUA",
+    "despues": "El dolor puede irradiarse al paladar y lengua"
+  },
+  {
+    "numero": 2,
+    "campo": "opcion D",
+    "antes": "EN CASOS TIPICOS EL DOLOR PUEDE IRRADIARSE AL HOMBRO DERECHO",
+    "despues": "En casos tipicos el dolor puede irradiarse al hombro derecho"
+  },
+  {
+    "numero": 2,
+    "campo": "opcion E",
+    "antes": "EL DOLOR PUEDE IRRADIARSE A LA ESPALDA",
+    "despues": "El dolor puede irradiarse a la espalda"
+  },
+  {
+    "numero": 3,
+    "campo": "pregunta",
+    "antes": "RESPECTO A LA ANGINA DE PECHO ES FALSO:",
+    "despues": "Respecto a la angina de pecho es falso:"
+  },
+  {
+    "numero": 3,
+    "campo": "opcion A",
+    "antes": "LOS NITRATOS SUBLINGULALES Y EL NIFEDIPINO, PROPORCIONAN ALIVIO RAPIDO",
+    "despues": "Los nitratos sublingulales y el nifedipino, proporcionan alivio rapido"
+  },
+  {
+    "numero": 3,
+    "campo": "opcion B",
+    "antes": "SI ESTOS PACIENTES SON PORTADORES DE BYPASS CORONARIOS NECESITAN PROTECCION ANTIBIOTICA CONTRA LA ENDOCARDITIS",
+    "despues": "Si estos pacientes son portadores de bypass coronarios necesitan proteccion antibiotica contra la endocarditis"
+  },
+  {
+    "numero": 3,
+    "campo": "opcion C",
+    "antes": "LA INTERVENCION DENTAL EXIGIRA LA COLABORACION DEL MÉDICO DEL PACIENTE",
+    "despues": "La intervencion dental exigira la colaboracion del médico del paciente"
+  },
+  {
+    "numero": 3,
+    "campo": "opcion D",
+    "antes": "LOS BARBITURICOS SON PELIGROSOS",
+    "despues": "Los barbituricos son peligrosos"
+  },
+  {
+    "numero": 3,
+    "campo": "opcion E",
+    "antes": "DEBEN SER SEDADOS CON BENZODIACEPINAS DESDE UN DIA ANTES DE LA CITA",
+    "despues": "Deben ser sedados con benzodiacepinas desde un dia antes de la cita"
+  },
+  {
+    "numero": 4,
+    "campo": "pregunta",
+    "antes": "INDIQUE LA ALTERNATIVA INCORRECTA:",
+    "despues": "Indique la alternativa incorrecta:"
+  },
+  {
+    "numero": 4,
+    "campo": "opcion A",
+    "antes": "EL DOLOR DEL INFARTO AL MIOCARDIO ES SIMILAR AL DE LA ANGINA PERO MAS GRAVE",
+    "despues": "El dolor del infarto al miocardio es similar al de la angina pero mas grave"
+  },
+  {
+    "numero": 4,
+    "campo": "opcion B",
+    "antes": "EN EL INFARTO A DIFERENCIA DE LA ANGINA NO SE CALMA CON NITRITOS NI CON REPOSO",
+    "despues": "En el infarto a diferencia de la angina no se calma con nitritos ni con reposo"
+  },
+  {
+    "numero": 4,
+    "campo": "opcion C",
+    "antes": "CLINICAMENTE EN EL INFARTO DE MIOCARDIO HAY HIPERTENSION",
+    "despues": "Clinicamente en el infarto de miocardio hay hipertension"
+  },
+  {
+    "numero": 4,
+    "campo": "opcion D",
+    "antes": "TODOS LOS ANTERIORES SON CORRECTOS",
+    "despues": "Todos los anteriores son correctos"
+  },
+  {
+    "numero": 5,
+    "campo": "pregunta",
+    "antes": "LOS VASOCONSTRICTORES ESTÁN CONTRAINDICADOS EN FORMA ABSOLUTA EN LAS SIGUIENTES PATOLOGÍAS EXCEPTO DE FORMA RELATIVA EN:",
+    "despues": "Los vasoconstrictores están contraindicados en forma absoluta en las siguientes patologías excepto de forma relativa en:"
+  },
+  {
+    "numero": 5,
+    "campo": "opcion A",
+    "antes": "ANGINA DE PECHO INESTABLE",
+    "despues": "Angina de pecho inestable"
+  },
+  {
+    "numero": 5,
+    "campo": "opcion B",
+    "antes": "INFARTO AL MIOCARDIO RECIENTE",
+    "despues": "Infarto al miocardio reciente"
+  },
+  {
+    "numero": 5,
+    "campo": "opcion C",
+    "antes": "COCAINOMANOS",
+    "despues": "Cocainomanos"
+  },
+  {
+    "numero": 5,
+    "campo": "opcion D",
+    "antes": "FEOCROMOCITOMA",
+    "despues": "Feocromocitoma"
+  },
+  {
+    "numero": 5,
+    "campo": "opcion E",
+    "antes": "DIABETES DESCONTROLADA",
+    "despues": "Diabetes descontrolada"
+  },
+  {
+    "numero": 6,
+    "campo": "pregunta",
+    "antes": "LOS VASOCONSTRICTORES ESTAN CONTRAINDICADOS EN FORMA ABSOLUTA EN LAS SIGUIENTES PATOLOGIAS EXCEPTO DE FORMA RELATIVA EN:",
+    "despues": "Los vasoconstrictores estan contraindicados en forma absoluta en las siguientes patologias excepto de forma relativa en:"
+  },
+  {
+    "numero": 6,
+    "campo": "opcion A",
+    "antes": "ARRITMIAS REFRACTARIAS",
+    "despues": "Arritmias refractarias"
+  },
+  {
+    "numero": 6,
+    "campo": "opcion B",
+    "antes": "BY PASS CORONARIO RECIENTE",
+    "despues": "By pass coronario reciente"
+  },
+  {
+    "numero": 6,
+    "campo": "opcion C",
+    "antes": "HIPERTENSION DESCONTROLADA O NO TRATADA",
+    "despues": "Hipertension descontrolada o no tratada"
+  },
+  {
+    "numero": 6,
+    "campo": "opcion D",
+    "antes": "PACIENTES CON TRATAMIENTO DE ANTIDEPRESIVOS TRICICLICOS - ADT",
+    "despues": "Pacientes con tratamiento de antidepresivos triciclicos - adt"
+  },
+  {
+    "numero": 6,
+    "campo": "opcion E",
+    "antes": "SENSIBILIDAD A LOS SULFITOS",
+    "despues": "Sensibilidad a los sulfitos"
+  },
+  {
+    "numero": 8,
+    "campo": "pregunta",
+    "antes": "MARQUE LA INCORRECTA. CUAL DE ESTAS PRECAUCIONES HACE FALTA TOMAR EN UN CARDIÓPATA",
+    "despues": "Marque la incorrecta. Cual de estas precauciones hace falta tomar en un cardiópata"
+  },
+  {
+    "numero": 9,
+    "campo": "pregunta",
+    "antes": "MARQUE LA CORRECTA. EN EL INFARTO AL MIOCARDIO",
+    "despues": "Marque la correcta. En el infarto al miocardio"
+  },
+  {
+    "numero": 28,
+    "campo": "pregunta",
+    "antes": "MARQUE LA INCORRECTA.",
+    "despues": "Marque la incorrecta."
+  },
+  {
+    "numero": 29,
+    "campo": "pregunta",
+    "antes": "MARQUE LA CORRECTA.",
+    "despues": "Marque la correcta."
+  },
+  {
+    "numero": 63,
+    "campo": "pregunta",
+    "antes": "LA AMIODARONA, ES EFECTIVO CONTRA LAS ARRITMIA AURICULARES Y VENTRICULARES, ES UN EFECTO ADVERSO DE SU USO:",
+    "despues": "La amiodarona, es efectivo contra las arritmia auriculares y ventriculares, es un efecto adverso de su uso:"
+  },
+  {
+    "numero": 63,
+    "campo": "opcion A",
+    "antes": "ANOMALIAS TIROIDEAS",
+    "despues": "Anomalias tiroideas"
+  },
+  {
+    "numero": 63,
+    "campo": "opcion B",
+    "antes": "DEPOSITOS CORNEALES",
+    "despues": "Depositos corneales"
+  },
+  {
+    "numero": 63,
+    "campo": "opcion C",
+    "antes": "TRASTORNOS PULMONARES",
+    "despues": "Trastornos pulmonares"
+  },
+  {
+    "numero": 63,
+    "campo": "opcion E",
+    "antes": "TODOS SON EFECTOS ADVERSOS",
+    "despues": "Todos son efectos adversos"
+  },
+  {
+    "numero": 64,
+    "campo": "opcion B",
+    "antes": "BRADICARDIA",
+    "despues": "Bradicardia"
+  },
+  {
+    "numero": 64,
+    "campo": "opcion C",
+    "antes": "DEPRESION",
+    "despues": "Depresion"
+  },
+  {
+    "numero": 64,
+    "campo": "opcion D",
+    "antes": "FATIGA",
+    "despues": "Fatiga"
+  },
+  {
+    "numero": 64,
+    "campo": "opcion E",
+    "antes": "EXTREMIDADES FRIAS",
+    "despues": "Extremidades frias"
+  },
+  {
+    "numero": 70,
+    "campo": "opcion D",
+    "antes": "EPOC.",
+    "despues": "EPOC."
+  },
+  {
+    "numero": 78,
+    "campo": "opcion D",
+    "antes": "EPOC.",
+    "despues": "EPOC."
+  },
+  {
+    "numero": 131,
+    "campo": "pregunta",
+    "antes": "EN UN PACIENTE CON TETRALOGIA DE FALLOT QUE CONSISTE EN UNA SEVERA ANOMALIA ANATOMICA, ES FALSO QUE PRESENTE:",
+    "despues": "En un paciente con tetralogia de Fallot que consiste en una severa anomalia anatomica, es falso que presente:"
+  },
+  {
+    "numero": 131,
+    "campo": "opcion A",
+    "antes": "COMUNICACIÓN INTERVENTRICULAR",
+    "despues": "Comunicación interventricular"
+  },
+  {
+    "numero": 131,
+    "campo": "opcion B",
+    "antes": "ESTENOSIS DE LA ARTERIA AORTA",
+    "despues": "Estenosis de la arteria aorta"
+  },
+  {
+    "numero": 131,
+    "campo": "opcion C",
+    "antes": "HIPERTROFIA DEL VENTRICULO DERECHO",
+    "despues": "Hipertrofia del ventriculo derecho"
+  },
+  {
+    "numero": 131,
+    "campo": "opcion D",
+    "antes": "SHUNT DERECHA-IZQUIERDA",
+    "despues": "Shunt derecha-izquierda"
+  },
+  {
+    "numero": 132,
+    "campo": "pregunta",
+    "antes": "LA CARDIPOATIA CONGENITA MÁS FRECUENTE ES:",
+    "despues": "La cardipoatia congenita más frecuente es:"
+  },
+  {
+    "numero": 132,
+    "campo": "opcion A",
+    "antes": "COMUNICACIÓN INTERAURICULAR",
+    "despues": "Comunicación interauricular"
+  },
+  {
+    "numero": 132,
+    "campo": "opcion B",
+    "antes": "COMUNICACIÓN INTERVENTRICULAR",
+    "despues": "Comunicación interventricular"
+  },
+  {
+    "numero": 132,
+    "campo": "opcion C",
+    "antes": "PERSISTENCIA DEL CONDUCTO ARTERIOSO",
+    "despues": "Persistencia del conducto arterioso"
+  },
+  {
+    "numero": 132,
+    "campo": "opcion D",
+    "antes": "DEFECTOS DEL CANAL AURICULOVENTRICULAR",
+    "despues": "Defectos del canal auriculoventricular"
+  },
+  {
+    "numero": 132,
+    "campo": "opcion E",
+    "antes": "TETRALOGIA DE FALLOT",
+    "despues": "Tetralogia de Fallot"
+  },
+  {
+    "numero": 133,
+    "campo": "pregunta",
+    "antes": "SE OBSERVA FRECUENTEMENTE EN NIÑOS CON SINDROME DE DOWN",
+    "despues": "Se observa frecuentemente en niños con sindrome de Down"
+  },
+  {
+    "numero": 133,
+    "campo": "opcion A",
+    "antes": "COMUNICACIÓN INTERAURICULAR",
+    "despues": "Comunicación interauricular"
+  },
+  {
+    "numero": 133,
+    "campo": "opcion B",
+    "antes": "COMUNICACIÓN INTERVENTRICULAR",
+    "despues": "Comunicación interventricular"
+  },
+  {
+    "numero": 133,
+    "campo": "opcion C",
+    "antes": "PERSISTENCIA DEL CONDUCTO ARTERIOSO",
+    "despues": "Persistencia del conducto arterioso"
+  },
+  {
+    "numero": 133,
+    "campo": "opcion D",
+    "antes": "DEFECTOS DEL CANAL AURICULOVENTRICULAR",
+    "despues": "Defectos del canal auriculoventricular"
+  },
+  {
+    "numero": 133,
+    "campo": "opcion E",
+    "antes": "TETRALOGIA DE FALLOT",
+    "despues": "Tetralogia de Fallot"
+  },
+  {
+    "numero": 134,
+    "campo": "pregunta",
+    "antes": "EN LAS ANOMALIAS ANATOMICAS, INCLUIDAS EN LA TETRALOGIA DE FALLOT NO ESTA INCLUIDA:",
+    "despues": "En las anomalias anatomicas, incluidas en la tetralogia de Fallot no esta incluida:"
+  },
+  {
+    "numero": 134,
+    "campo": "opcion A",
+    "antes": "COMUNICACIÓN INTERAURICULAR",
+    "despues": "Comunicación interauricular"
+  },
+  {
+    "numero": 134,
+    "campo": "opcion B",
+    "antes": "ESTENOSIS DE LA ARTERIA PULMONAR",
+    "despues": "Estenosis de la arteria pulmonar"
+  },
+  {
+    "numero": 134,
+    "campo": "opcion C",
+    "antes": "HIPERTROFIA DEL VENTRICULO DERECHO",
+    "despues": "Hipertrofia del ventriculo derecho"
+  },
+  {
+    "numero": 134,
+    "campo": "opcion D",
+    "antes": "SHUNT DERECHA - IZQUIERDA",
+    "despues": "Shunt derecha - izquierda"
+  },
+  {
+    "numero": 134,
+    "campo": "opcion E",
+    "antes": "COMUNICACIÓN INTERVENTRICULAR",
+    "despues": "Comunicación interventricular"
+  },
+  {
+    "numero": 135,
+    "campo": "pregunta",
+    "antes": "RESPECTO A LAS CONSIDERACIONES DENTALES EN LAS CARDIOPATIAS CONGENITAS ES INCORRECTO:",
+    "despues": "Respecto a las consideraciones dentales en las cardiopatias congenitas es incorrecto:"
+  },
+  {
+    "numero": 135,
+    "campo": "opcion A",
+    "antes": "SE PUEDEN ASOCIAR A UNA ERUPCION RETARSADA DE LADENTICION TEMPORAL Y PERMANENTE",
+    "despues": "Se pueden asociar a una erupcion retarsada de ladenticion temporal y permanente"
+  },
+  {
+    "numero": 135,
+    "campo": "opcion B",
+    "antes": "ALTERACIONES EN LA POSICION DE LOS DIENTES E HIPOPLASIA DEL ESMALTE",
+    "despues": "Alteraciones en la posicion de los dientes e hipoplasia del esmalte"
+  },
+  {
+    "numero": 135,
+    "campo": "opcion C",
+    "antes": "DIENTES COLOR BLANCO AZULADO O BLANQUESINO",
+    "despues": "Dientes color blanco azulado o blanquesino"
+  },
+  {
+    "numero": 135,
+    "campo": "opcion D",
+    "antes": "SE PUEDEN DESARROLLAR ABCESOS CEREBRALES DESPUES DE INFECCIONES DENTALES",
+    "despues": "Se pueden desarrollar abcesos cerebrales despues de infecciones dentales"
+  },
+  {
+    "numero": 135,
+    "campo": "opcion E",
+    "antes": "NINGUNO ES INCORRECTO",
+    "despues": "Ninguno es incorrecto"
+  },
+  {
+    "numero": 136,
+    "campo": "pregunta",
+    "antes": "CUAL DE LAS SIGUIENTES ALTERNATIVAS NO ES CIERTA RESPECTO A UN PACIENTE CON MARCAPASOS SOLAMENTE:",
+    "despues": "Cual de las siguientes alternativas no es cierta respecto a un paciente con marcapasos solamente:"
+  },
+  {
+    "numero": 136,
+    "campo": "opcion A",
+    "antes": "LA ELECTROCIRUGIA PUEDE AFECTAR EL NORMAL FUNCIONAMIENTO DEL MARCAPASO.",
+    "despues": "La electrocirugia puede afectar el normal funcionamiento del marcapaso."
+  },
+  {
+    "numero": 136,
+    "campo": "opcion B",
+    "antes": "LOS ULTRASONIDOS PUEDEN AFECTAR LOS MARCAPASOS",
+    "despues": "Los ultrasonidos pueden afectar los marcapasos"
+  },
+  {
+    "numero": 136,
+    "campo": "opcion C",
+    "antes": "LOSMEDIDORES DEL ESTADO PULPAR PUEDEN AFECTAR EL MARCAPASO",
+    "despues": "Losmedidores del estado pulpar pueden afectar el marcapaso"
+  },
+  {
+    "numero": 136,
+    "campo": "opcion D",
+    "antes": "NECESARIAMENTE HAY QUE PRESCRIBIR PROTECCION ANTIBIOTICA PARA LA ENDOCARDITIS",
+    "despues": "Necesariamente hay que prescribir proteccion antibiotica para la endocarditis"
+  },
+  {
+    "numero": 136,
+    "campo": "opcion E",
+    "antes": "LOS TRABAJOS HAY QUE REALIZARLOS EN POSICION SUPINA.",
+    "despues": "Los trabajos hay que realizarlos en posicion supina."
+  },
+  {
+    "numero": 140,
+    "campo": "opcion E",
+    "antes": "MN 2-2.5 INR 124/125",
+    "despues": "Mn 2-2.5 INR 124/125"
+  },
+  {
+    "numero": 158,
+    "campo": "opcion A",
+    "antes": "BOCIO MULTINODULAR TOXICO",
+    "despues": "Bocio multinodular toxico"
+  },
+  {
+    "numero": 158,
+    "campo": "opcion B",
+    "antes": "HIPERTIROIDISMO APATICO",
+    "despues": "Hipertiroidismo apatico"
+  },
+  {
+    "numero": 158,
+    "campo": "opcion C",
+    "antes": "ENF. DE GRAVES-BASEDOW",
+    "despues": "Enf. de Graves-Basedow"
+  },
+  {
+    "numero": 158,
+    "campo": "opcion D",
+    "antes": "TIROTOXICOSIS",
+    "despues": "Tirotoxicosis"
+  },
+  {
+    "numero": 158,
+    "campo": "opcion E",
+    "antes": "A Y B SON CORRECTAS",
+    "despues": "A y B son correctas"
+  },
+  {
+    "numero": 159,
+    "campo": "pregunta",
+    "antes": "CUAL DE ESTAS ETIOLOGIAS ES LA MAS FRECUENTE EN EL HIPOTIROIDISMO CONGETITO:",
+    "despues": "Cual de estas etiologias es la mas frecuente en el hipotiroidismo congetito:"
+  },
+  {
+    "numero": 159,
+    "campo": "opcion A",
+    "antes": "CAUSA PERMANENTE POR TRASTORNO DE LA BIOGENESIS PERMANENTE",
+    "despues": "Causa permanente por trastorno de la biogenesis permanente"
+  },
+  {
+    "numero": 159,
+    "campo": "opcion B",
+    "antes": "CAUSA PERMANENTE POR DISGENESIA TIROIDEA",
+    "despues": "Causa permanente por disgenesia tiroidea"
+  },
+  {
+    "numero": 159,
+    "campo": "opcion C",
+    "antes": "CAUSA TRANSITORIA POR ANTICUERPOS MATERNOS DURANTE EL EMBARAZO",
+    "despues": "Causa transitoria por anticuerpos maternos durante el embarazo"
+  },
+  {
+    "numero": 159,
+    "campo": "opcion D",
+    "antes": "CAUSA TRANSITORIA POR EXCESOS O DEFICIENCIA DE YODO DURANTE EL EMBARAZO",
+    "despues": "Causa transitoria por excesos o deficiencia de yodo durante el embarazo"
+  },
+  {
+    "numero": 159,
+    "campo": "opcion E",
+    "antes": "CAUSA PERMANENTE POR TRASTORNO A NIVEL HIPOFISIARIO",
+    "despues": "Causa permanente por trastorno a nivel hipofisiario"
+  },
+  {
+    "numero": 160,
+    "campo": "opcion A",
+    "antes": "LA OSCULTACION TIROIDEA SE EVIDENCIA UN SOPLO",
+    "despues": "La oscultacion tiroidea se evidencia un soplo"
+  },
+  {
+    "numero": 160,
+    "campo": "opcion B",
+    "antes": "ES PROBABLE QUE PADEZCA UN HIPERTIROIDISMO AUTOINMUNE",
+    "despues": "Es probable que padezca un hipertiroidismo autoinmune"
+  },
+  {
+    "numero": 160,
+    "campo": "opcion C",
+    "antes": "SOLICITARIA UNA TSH, T3 T4 LIBRES EN PLASMA",
+    "despues": "Solicitaria una TSH, T3 T4 libres en plasma"
+  },
+  {
+    "numero": 160,
+    "campo": "opcion D",
+    "antes": "SOLICITAR UNA PUNCION POR ASPIRACION DE GL. TIROIDES",
+    "despues": "Solicitar una puncion por aspiracion de gl. tiroides"
+  },
+  {
+    "numero": 160,
+    "campo": "opcion E",
+    "antes": "SOLICITARIA UNA GAMMAGRAFIA DE TIROIDES",
+    "despues": "Solicitaria una gammagrafia de tiroides"
+  },
+  {
+    "numero": 161,
+    "campo": "pregunta",
+    "antes": "ENTRE LAS ENF. DE LA HIPOFISIS POSTERIOR O NEUROHIPOFISIS ESTAN:",
+    "despues": "Entre las enf. de la hipofisis posterior o neurohipofisis estan:"
+  },
+  {
+    "numero": 161,
+    "campo": "opcion A",
+    "antes": "ACROMEGALIA",
+    "despues": "Acromegalia"
+  },
+  {
+    "numero": 161,
+    "campo": "opcion B",
+    "antes": "HIPERTIROIDISMO DE CAUSA HIPOFISIARIA",
+    "despues": "Hipertiroidismo de causa hipofisiaria"
+  },
+  {
+    "numero": 161,
+    "campo": "opcion C",
+    "antes": "DIABETES INSIPIDA",
+    "despues": "Diabetes insipida"
+  },
+  {
+    "numero": 161,
+    "campo": "opcion D",
+    "antes": "TODAS LAS ANTERIORES",
+    "despues": "Todas las anteriores"
+  },
+  {
+    "numero": 166,
+    "campo": "pregunta",
+    "antes": "MARQUE LA INCORRECTA. PACIENTE CON FEOCROMOCITOMA",
+    "despues": "Marque la incorrecta. Paciente con feocromocitoma"
+  },
+  {
+    "numero": 249,
+    "campo": "opcion A",
+    "antes": "EPOC",
+    "despues": "EPOC"
+  },
+  {
+    "numero": 282,
+    "campo": "opcion E",
+    "antes": "TODAS",
+    "despues": "Todas"
+  },
+  {
+    "numero": 294,
+    "campo": "pregunta",
+    "antes": "LAS ANOMALÍAS CELULARES DE LAS NEOPLASIAS SON CONSECUENCIA DE EXCEPTO:",
+    "despues": "Las anomalías celulares de las neoplasias son consecuencia de excepto:"
+  },
+  {
+    "numero": 437,
+    "campo": "pregunta",
+    "antes": "DENTRO DE LOS AGENTES HEMOSTÁTICOS PODEMOS USAR EN UNA EXODONCIA",
+    "despues": "Dentro de los agentes hemostáticos podemos usar en una exodoncia"
+  },
+  {
+    "numero": 438,
+    "campo": "pregunta",
+    "antes": "MARQUE LA INCORRECTA. EN TRATAMIENTO ODONTOLÓGICO EN PACIENTES CON COAGULOPATÍAS CONGÉNITAS:",
+    "despues": "Marque la incorrecta. En tratamiento odontológico en pacientes con coagulopatías congénitas:"
+  },
+  {
+    "numero": 439,
+    "campo": "pregunta",
+    "antes": "MARQUE LA RESPUESTA FALSA. EN UN PACIENTE CON ALTERACIONES DE LA HEMOSTASIA QUE ACUDE PARA TRATAMIENTO BUCODENTAL:",
+    "despues": "Marque la respuesta falsa. En un paciente con alteraciones de la hemostasia que acude para tratamiento bucodental:"
+  },
+  {
+    "numero": 440,
+    "campo": "pregunta",
+    "antes": "DENTRO DE LOS AGENTES HEMOSTÁTICOS PODEMOS USAR EN UNA EXODONCIA FALSO",
+    "despues": "Dentro de los agentes hemostáticos podemos usar en una exodoncia falso"
+  },
+  {
+    "numero": 444,
+    "campo": "pregunta",
+    "antes": "CUAL VALOR HEMATOLOGICO SE ENCUENTRA ALTERADO:",
+    "despues": "Cual valor hematologico se encuentra alterado:"
+  },
+  {
+    "numero": 445,
+    "campo": "pregunta",
+    "antes": "LA AGREGACION PLAQUETARIA EN EL COAGULO SE INICIA POR:",
+    "despues": "La agregacion plaquetaria en el coagulo se inicia por:"
+  },
+  {
+    "numero": 464,
+    "campo": "opcion A",
+    "antes": "DDAVP + EACA.",
+    "despues": "DDAVP + EACA."
+  },
+  {
+    "numero": 488,
+    "campo": "pregunta",
+    "antes": "RESPUESTA CIERTA: CONTROL DE PACIENTES CON TRATAMIENTO DE CUMARÍNICOS PARA UNA EXODONCIA:",
+    "despues": "Respuesta cierta: Control de pacientes con tratamiento de cumarínicos para una exodoncia:"
+  },
+  {
+    "numero": 493,
+    "campo": "pregunta",
+    "antes": "PACIENTE CON USO DE CUMARINICOS EN UNA EXODONCIA QUE TIENE UN INR DE 4.",
+    "despues": "Paciente con uso de cumarinicos en una exodoncia que tiene un INR de 4."
+  },
+  {
+    "numero": 493,
+    "campo": "opcion E",
+    "antes": "NINGUNA ES CORRECTA",
+    "despues": "Ninguna es correcta"
+  },
+  {
+    "numero": 519,
+    "campo": "pregunta",
+    "antes": "LA AGREGACIÓN PLAQUETARIA EN EL COÁGULO SE INICIA POR:",
+    "despues": "La agregación plaquetaria en el coágulo se inicia por:"
+  },
+  {
+    "numero": 520,
+    "campo": "opcion A",
+    "antes": "INR:(RAZÓN NORMALIZADA INTERNACIONAL)",
+    "despues": "INR:(razón normalizada internacional)"
+  },
+  {
+    "numero": 527,
+    "campo": "opcion B",
+    "antes": "PTTA",
+    "despues": "PTTA"
+  },
+  {
+    "numero": 527,
+    "campo": "opcion D",
+    "antes": "TIEMPO DE PROTROMBINA",
+    "despues": "Tiempo de protrombina"
+  },
+  {
+    "numero": 527,
+    "campo": "opcion E",
+    "antes": "XILUTENÓGENO……",
+    "despues": "Xilutenógeno……"
+  },
+  {
+    "numero": 592,
+    "campo": "opcion E",
+    "antes": "PUNA.",
+    "despues": "Puna."
+  },
+  {
+    "numero": 684,
+    "campo": "pregunta",
+    "antes": "IDENTIFICA CUAL DE LAS SIGUIENTES NO SE CONSIDERA COMO UNA COMPLICACION DE UNA HEPATITIS AGUDA VIRICA:",
+    "despues": "Identifica cual de las siguientes no se considera como una complicacion de una hepatitis aguda virica:"
+  },
+  {
+    "numero": 684,
+    "campo": "opcion A",
+    "antes": "CIRROSIS HEPATICA",
+    "despues": "Cirrosis hepatica"
+  },
+  {
+    "numero": 684,
+    "campo": "opcion B",
+    "antes": "PANCREATITIS CRONICA",
+    "despues": "Pancreatitis cronica"
+  },
+  {
+    "numero": 684,
+    "campo": "opcion C",
+    "antes": "INSUFICIENCIA HEPATICA",
+    "despues": "Insuficiencia hepatica"
+  },
+  {
+    "numero": 684,
+    "campo": "opcion D",
+    "antes": "CANCER DE HIGADO",
+    "despues": "Cancer de higado"
+  },
+  {
+    "numero": 685,
+    "campo": "pregunta",
+    "antes": "IDENTIFICA QUE PROCEDIMIENTO SON ADECUADOS PARA VALORAR LA EXISTENCIA DE ASCITIS EN UN PTE:",
+    "despues": "Identifica que procedimiento son adecuados para valorar la existencia de ascitis en un pte:"
+  },
+  {
+    "numero": 685,
+    "campo": "opcion A",
+    "antes": "AUSCULTACION DEL ABDOMEN EN BASE A LA AUSENCIA DE RUIDOS",
+    "despues": "Auscultacion del abdomen en base a la ausencia de ruidos"
+  },
+  {
+    "numero": 685,
+    "campo": "opcion B",
+    "antes": "PRESENCIA DEL SIGNO DE OLEADA, AL PERCUTIR EN UN LADO DEL ABDOMEN",
+    "despues": "Presencia del signo de oleada, al percutir en un lado del abdomen"
+  },
+  {
+    "numero": 685,
+    "campo": "opcion C",
+    "antes": "MEDIANTE LA PALPACION DEL HIGADO",
+    "despues": "Mediante la palpacion del higado"
+  },
+  {
+    "numero": 685,
+    "campo": "opcion D",
+    "antes": "TODOS LOS ANTERIORES SON ADECUADOS",
+    "despues": "Todos los anteriores son adecuados"
+  },
+  {
+    "numero": 767,
+    "campo": "opcion A",
+    "antes": "AINES",
+    "despues": "AINES"
+  },
+  {
+    "numero": 819,
+    "campo": "pregunta",
+    "antes": "MARQUE LA CORRECTA. EN PACIENTE CON HEMODIÁLISIS CRÓNICA",
+    "despues": "Marque la correcta. En paciente con hemodiálisis crónica"
+  },
+  {
+    "numero": 825,
+    "campo": "opcion B",
+    "antes": "AINES",
+    "despues": "AINES"
+  },
+  {
+    "numero": 829,
+    "campo": "pregunta",
+    "antes": "MARQUE LA CORRECTA. EN PACIENTE CON HEMODIÁLISIS CRONICA",
+    "despues": "Marque la correcta. En paciente con hemodiálisis cronica"
+  },
+  {
+    "numero": 904,
+    "campo": "opcion A",
+    "antes": "AINE",
+    "despues": "AINE"
+  },
+  {
+    "numero": 905,
+    "campo": "opcion C",
+    "antes": "AINES",
+    "despues": "AINES"
+  },
+  {
+    "numero": 955,
+    "campo": "opcion B",
+    "antes": "IMAO",
+    "despues": "IMAO"
+  },
+  {
+    "numero": 1194,
+    "campo": "opcion A",
+    "antes": "ERGE",
+    "despues": "ERGE"
+  },
+  {
+    "numero": 1194,
+    "campo": "opcion C",
+    "antes": "EPOC",
+    "despues": "EPOC"
+  },
+  {
+    "numero": 1197,
+    "campo": "opcion B",
+    "antes": "IECA",
+    "despues": "IECA"
+  },
+  {
+    "numero": 1268,
+    "campo": "opcion A",
+    "antes": "VIII",
+    "despues": "VIII"
+  }
+]

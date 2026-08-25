@@ -1,6 +1,6 @@
 [
   {
-    "pregunta": "LOS PACIENTES CON ENFERMEDAD CARDIOVASCULAR SON MAS SENSIBLES A LA ACCION DE LA ADRENALINA, EN ESTOS HAY QUE UTILIZAR SIEMPRE QUE NO ESTE CONTRAINDICADO, DOSIS MENORES DE ANESTESICOS CON VASOCONSTRICTOR Y A LA DILUCION MAS BAJA DE ADRENALIANA 1:200.000, NO SE PODRAN USAR MAS DE:",
+    "pregunta": "Los pacientes con enfermedad cardiovascular son mas sensibles a la accion de la adrenalina, en estos hay que utilizar siempre que no este contraindicado, dosis menores de anestesicos con vasoconstrictor y a la dilucion mas baja de adrenaliana 1:200.000, no se podran usar mas de:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -30,7 +30,7 @@
     "numero": 1
   },
   {
-    "pregunta": "EN LA ANGINA DE PECHO, EL DOLOR PUEDE SER LEVE O INTENSO, ES FALSO:",
+    "pregunta": "En la angina de pecho, el dolor puede ser leve o intenso, es falso:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -38,34 +38,34 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "EL DOLOR PUEDE IRRADIARSE AL HOMBRO IZQUIERDO HASTA EL DEDO INDICE Y MEDIO",
+        "texto": "El dolor puede irradiarse al hombro izquierdo hasta el dedo indice y medio",
         "correcta": false
       },
       {
         "letra": "B",
-        "texto": "EL DOLOR PUEDE IRRADIARSE A LOS DIENTES",
+        "texto": "El dolor puede irradiarse a los dientes",
         "correcta": false
       },
       {
         "letra": "C",
-        "texto": "EL DOLOR PUEDE IRRADIARSE AL PALADAR Y LENGUA",
+        "texto": "El dolor puede irradiarse al paladar y lengua",
         "correcta": false
       },
       {
         "letra": "D",
-        "texto": "EN CASOS TIPICOS EL DOLOR PUEDE IRRADIARSE AL HOMBRO DERECHO",
+        "texto": "En casos tipicos el dolor puede irradiarse al hombro derecho",
         "correcta": true
       },
       {
         "letra": "E",
-        "texto": "EL DOLOR PUEDE IRRADIARSE A LA ESPALDA",
+        "texto": "El dolor puede irradiarse a la espalda",
         "correcta": false
       }
     ],
     "numero": 2
   },
   {
-    "pregunta": "RESPECTO A LA ANGINA DE PECHO ES FALSO:",
+    "pregunta": "Respecto a la angina de pecho es falso:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -73,34 +73,34 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "LOS NITRATOS SUBLINGULALES Y EL NIFEDIPINO, PROPORCIONAN ALIVIO RAPIDO",
+        "texto": "Los nitratos sublingulales y el nifedipino, proporcionan alivio rapido",
         "correcta": false
       },
       {
         "letra": "B",
-        "texto": "SI ESTOS PACIENTES SON PORTADORES DE BYPASS CORONARIOS NECESITAN PROTECCION ANTIBIOTICA CONTRA LA ENDOCARDITIS",
+        "texto": "Si estos pacientes son portadores de bypass coronarios necesitan proteccion antibiotica contra la endocarditis",
         "correcta": true
       },
       {
         "letra": "C",
-        "texto": "LA INTERVENCION DENTAL EXIGIRA LA COLABORACION DEL MÉDICO DEL PACIENTE",
+        "texto": "La intervencion dental exigira la colaboracion del médico del paciente",
         "correcta": false
       },
       {
         "letra": "D",
-        "texto": "LOS BARBITURICOS SON PELIGROSOS",
+        "texto": "Los barbituricos son peligrosos",
         "correcta": false
       },
       {
         "letra": "E",
-        "texto": "DEBEN SER SEDADOS CON BENZODIACEPINAS DESDE UN DIA ANTES DE LA CITA",
+        "texto": "Deben ser sedados con benzodiacepinas desde un dia antes de la cita",
         "correcta": false
       }
     ],
     "numero": 3
   },
   {
-    "pregunta": "INDIQUE LA ALTERNATIVA INCORRECTA:",
+    "pregunta": "Indique la alternativa incorrecta:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -108,29 +108,29 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "EL DOLOR DEL INFARTO AL MIOCARDIO ES SIMILAR AL DE LA ANGINA PERO MAS GRAVE",
+        "texto": "El dolor del infarto al miocardio es similar al de la angina pero mas grave",
         "correcta": false
       },
       {
         "letra": "B",
-        "texto": "EN EL INFARTO A DIFERENCIA DE LA ANGINA NO SE CALMA CON NITRITOS NI CON REPOSO",
+        "texto": "En el infarto a diferencia de la angina no se calma con nitritos ni con reposo",
         "correcta": false
       },
       {
         "letra": "C",
-        "texto": "CLINICAMENTE EN EL INFARTO DE MIOCARDIO HAY HIPERTENSION",
+        "texto": "Clinicamente en el infarto de miocardio hay hipertension",
         "correcta": false
       },
       {
         "letra": "D",
-        "texto": "TODOS LOS ANTERIORES SON CORRECTOS",
+        "texto": "Todos los anteriores son correctos",
         "correcta": true
       }
     ],
     "numero": 4
   },
   {
-    "pregunta": "LOS VASOCONSTRICTORES ESTÁN CONTRAINDICADOS EN FORMA ABSOLUTA EN LAS SIGUIENTES PATOLOGÍAS EXCEPTO DE FORMA RELATIVA EN:",
+    "pregunta": "Los vasoconstrictores están contraindicados en forma absoluta en las siguientes patologías excepto de forma relativa en:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -138,34 +138,34 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "ANGINA DE PECHO INESTABLE",
+        "texto": "Angina de pecho inestable",
         "correcta": false
       },
       {
         "letra": "B",
-        "texto": "INFARTO AL MIOCARDIO RECIENTE",
+        "texto": "Infarto al miocardio reciente",
         "correcta": false
       },
       {
         "letra": "C",
-        "texto": "COCAINOMANOS",
+        "texto": "Cocainomanos",
         "correcta": true
       },
       {
         "letra": "D",
-        "texto": "FEOCROMOCITOMA",
+        "texto": "Feocromocitoma",
         "correcta": false
       },
       {
         "letra": "E",
-        "texto": "DIABETES DESCONTROLADA",
+        "texto": "Diabetes descontrolada",
         "correcta": false
       }
     ],
     "numero": 5
   },
   {
-    "pregunta": "LOS VASOCONSTRICTORES ESTAN CONTRAINDICADOS EN FORMA ABSOLUTA EN LAS SIGUIENTES PATOLOGIAS EXCEPTO DE FORMA RELATIVA EN:",
+    "pregunta": "Los vasoconstrictores estan contraindicados en forma absoluta en las siguientes patologias excepto de forma relativa en:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -173,27 +173,27 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "ARRITMIAS REFRACTARIAS",
+        "texto": "Arritmias refractarias",
         "correcta": false
       },
       {
         "letra": "B",
-        "texto": "BY PASS CORONARIO RECIENTE",
+        "texto": "By pass coronario reciente",
         "correcta": false
       },
       {
         "letra": "C",
-        "texto": "HIPERTENSION DESCONTROLADA O NO TRATADA",
+        "texto": "Hipertension descontrolada o no tratada",
         "correcta": false
       },
       {
         "letra": "D",
-        "texto": "PACIENTES CON TRATAMIENTO DE ANTIDEPRESIVOS TRICICLICOS - ADT",
+        "texto": "Pacientes con tratamiento de antidepresivos triciclicos - adt",
         "correcta": true
       },
       {
         "letra": "E",
-        "texto": "SENSIBILIDAD A LOS SULFITOS",
+        "texto": "Sensibilidad a los sulfitos",
         "correcta": false
       }
     ],
@@ -235,7 +235,7 @@
     "numero": 7
   },
   {
-    "pregunta": "MARQUE LA INCORRECTA. CUAL DE ESTAS PRECAUCIONES HACE FALTA TOMAR EN UN CARDIÓPATA",
+    "pregunta": "Marque la incorrecta. Cual de estas precauciones hace falta tomar en un cardiópata",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -270,7 +270,7 @@
     "numero": 8
   },
   {
-    "pregunta": "MARQUE LA CORRECTA. EN EL INFARTO AL MIOCARDIO",
+    "pregunta": "Marque la correcta. En el infarto al miocardio",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -930,7 +930,7 @@
     "numero": 27
   },
   {
-    "pregunta": "MARQUE LA INCORRECTA.",
+    "pregunta": "Marque la incorrecta.",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -965,7 +965,7 @@
     "numero": 28
   },
   {
-    "pregunta": "MARQUE LA CORRECTA.",
+    "pregunta": "Marque la correcta.",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -2110,7 +2110,7 @@
     "numero": 62
   },
   {
-    "pregunta": "LA AMIODARONA, ES EFECTIVO CONTRA LAS ARRITMIA AURICULARES Y VENTRICULARES, ES UN EFECTO ADVERSO DE SU USO:",
+    "pregunta": "La amiodarona, es efectivo contra las arritmia auriculares y ventriculares, es un efecto adverso de su uso:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -2118,17 +2118,17 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "ANOMALIAS TIROIDEAS",
+        "texto": "Anomalias tiroideas",
         "correcta": false
       },
       {
         "letra": "B",
-        "texto": "DEPOSITOS CORNEALES",
+        "texto": "Depositos corneales",
         "correcta": false
       },
       {
         "letra": "C",
-        "texto": "TRASTORNOS PULMONARES",
+        "texto": "Trastornos pulmonares",
         "correcta": false
       },
       {
@@ -2138,7 +2138,7 @@
       },
       {
         "letra": "E",
-        "texto": "TODOS SON EFECTOS ADVERSOS",
+        "texto": "Todos son efectos adversos",
         "correcta": true
       }
     ],
@@ -2158,22 +2158,22 @@
       },
       {
         "letra": "B",
-        "texto": "BRADICARDIA",
+        "texto": "Bradicardia",
         "correcta": false
       },
       {
         "letra": "C",
-        "texto": "DEPRESION",
+        "texto": "Depresion",
         "correcta": true
       },
       {
         "letra": "D",
-        "texto": "FATIGA",
+        "texto": "Fatiga",
         "correcta": false
       },
       {
         "letra": "E",
-        "texto": "EXTREMIDADES FRIAS",
+        "texto": "Extremidades frias",
         "correcta": false
       }
     ],
@@ -4425,7 +4425,7 @@
     "numero": 130
   },
   {
-    "pregunta": "EN UN PACIENTE CON TETRALOGIA DE FALLOT QUE CONSISTE EN UNA SEVERA ANOMALIA ANATOMICA, ES FALSO QUE PRESENTE:",
+    "pregunta": "En un paciente con tetralogia de Fallot que consiste en una severa anomalia anatomica, es falso que presente:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -4433,29 +4433,29 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "COMUNICACIÓN INTERVENTRICULAR",
+        "texto": "Comunicación interventricular",
         "correcta": false
       },
       {
         "letra": "B",
-        "texto": "ESTENOSIS DE LA ARTERIA AORTA",
+        "texto": "Estenosis de la arteria aorta",
         "correcta": true
       },
       {
         "letra": "C",
-        "texto": "HIPERTROFIA DEL VENTRICULO DERECHO",
+        "texto": "Hipertrofia del ventriculo derecho",
         "correcta": false
       },
       {
         "letra": "D",
-        "texto": "SHUNT DERECHA-IZQUIERDA",
+        "texto": "Shunt derecha-izquierda",
         "correcta": false
       }
     ],
     "numero": 131
   },
   {
-    "pregunta": "LA CARDIPOATIA CONGENITA MÁS FRECUENTE ES:",
+    "pregunta": "La cardipoatia congenita más frecuente es:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -4463,34 +4463,34 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "COMUNICACIÓN INTERAURICULAR",
+        "texto": "Comunicación interauricular",
         "correcta": true
       },
       {
         "letra": "B",
-        "texto": "COMUNICACIÓN INTERVENTRICULAR",
+        "texto": "Comunicación interventricular",
         "correcta": false
       },
       {
         "letra": "C",
-        "texto": "PERSISTENCIA DEL CONDUCTO ARTERIOSO",
+        "texto": "Persistencia del conducto arterioso",
         "correcta": false
       },
       {
         "letra": "D",
-        "texto": "DEFECTOS DEL CANAL AURICULOVENTRICULAR",
+        "texto": "Defectos del canal auriculoventricular",
         "correcta": false
       },
       {
         "letra": "E",
-        "texto": "TETRALOGIA DE FALLOT",
+        "texto": "Tetralogia de Fallot",
         "correcta": false
       }
     ],
     "numero": 132
   },
   {
-    "pregunta": "SE OBSERVA FRECUENTEMENTE EN NIÑOS CON SINDROME DE DOWN",
+    "pregunta": "Se observa frecuentemente en niños con sindrome de Down",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -4498,34 +4498,34 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "COMUNICACIÓN INTERAURICULAR",
+        "texto": "Comunicación interauricular",
         "correcta": false
       },
       {
         "letra": "B",
-        "texto": "COMUNICACIÓN INTERVENTRICULAR",
+        "texto": "Comunicación interventricular",
         "correcta": false
       },
       {
         "letra": "C",
-        "texto": "PERSISTENCIA DEL CONDUCTO ARTERIOSO",
+        "texto": "Persistencia del conducto arterioso",
         "correcta": false
       },
       {
         "letra": "D",
-        "texto": "DEFECTOS DEL CANAL AURICULOVENTRICULAR",
+        "texto": "Defectos del canal auriculoventricular",
         "correcta": true
       },
       {
         "letra": "E",
-        "texto": "TETRALOGIA DE FALLOT",
+        "texto": "Tetralogia de Fallot",
         "correcta": false
       }
     ],
     "numero": 133
   },
   {
-    "pregunta": "EN LAS ANOMALIAS ANATOMICAS, INCLUIDAS EN LA TETRALOGIA DE FALLOT NO ESTA INCLUIDA:",
+    "pregunta": "En las anomalias anatomicas, incluidas en la tetralogia de Fallot no esta incluida:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -4533,34 +4533,34 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "COMUNICACIÓN INTERAURICULAR",
+        "texto": "Comunicación interauricular",
         "correcta": true
       },
       {
         "letra": "B",
-        "texto": "ESTENOSIS DE LA ARTERIA PULMONAR",
+        "texto": "Estenosis de la arteria pulmonar",
         "correcta": false
       },
       {
         "letra": "C",
-        "texto": "HIPERTROFIA DEL VENTRICULO DERECHO",
+        "texto": "Hipertrofia del ventriculo derecho",
         "correcta": false
       },
       {
         "letra": "D",
-        "texto": "SHUNT DERECHA - IZQUIERDA",
+        "texto": "Shunt derecha - izquierda",
         "correcta": false
       },
       {
         "letra": "E",
-        "texto": "COMUNICACIÓN INTERVENTRICULAR",
+        "texto": "Comunicación interventricular",
         "correcta": false
       }
     ],
     "numero": 134
   },
   {
-    "pregunta": "RESPECTO A LAS CONSIDERACIONES DENTALES EN LAS CARDIOPATIAS CONGENITAS ES INCORRECTO:",
+    "pregunta": "Respecto a las consideraciones dentales en las cardiopatias congenitas es incorrecto:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -4568,34 +4568,34 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "SE PUEDEN ASOCIAR A UNA ERUPCION RETARSADA DE LADENTICION TEMPORAL Y PERMANENTE",
+        "texto": "Se pueden asociar a una erupcion retarsada de ladenticion temporal y permanente",
         "correcta": false
       },
       {
         "letra": "B",
-        "texto": "ALTERACIONES EN LA POSICION DE LOS DIENTES E HIPOPLASIA DEL ESMALTE",
+        "texto": "Alteraciones en la posicion de los dientes e hipoplasia del esmalte",
         "correcta": false
       },
       {
         "letra": "C",
-        "texto": "DIENTES COLOR BLANCO AZULADO O BLANQUESINO",
+        "texto": "Dientes color blanco azulado o blanquesino",
         "correcta": false
       },
       {
         "letra": "D",
-        "texto": "SE PUEDEN DESARROLLAR ABCESOS CEREBRALES DESPUES DE INFECCIONES DENTALES",
+        "texto": "Se pueden desarrollar abcesos cerebrales despues de infecciones dentales",
         "correcta": false
       },
       {
         "letra": "E",
-        "texto": "NINGUNO ES INCORRECTO",
+        "texto": "Ninguno es incorrecto",
         "correcta": true
       }
     ],
     "numero": 135
   },
   {
-    "pregunta": "CUAL DE LAS SIGUIENTES ALTERNATIVAS NO ES CIERTA RESPECTO A UN PACIENTE CON MARCAPASOS SOLAMENTE:",
+    "pregunta": "Cual de las siguientes alternativas no es cierta respecto a un paciente con marcapasos solamente:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología cardiovascular",
     "anio": 0,
@@ -4603,27 +4603,27 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "LA ELECTROCIRUGIA PUEDE AFECTAR EL NORMAL FUNCIONAMIENTO DEL MARCAPASO.",
+        "texto": "La electrocirugia puede afectar el normal funcionamiento del marcapaso.",
         "correcta": false
       },
       {
         "letra": "B",
-        "texto": "LOS ULTRASONIDOS PUEDEN AFECTAR LOS MARCAPASOS",
+        "texto": "Los ultrasonidos pueden afectar los marcapasos",
         "correcta": false
       },
       {
         "letra": "C",
-        "texto": "LOSMEDIDORES DEL ESTADO PULPAR PUEDEN AFECTAR EL MARCAPASO",
+        "texto": "Losmedidores del estado pulpar pueden afectar el marcapaso",
         "correcta": false
       },
       {
         "letra": "D",
-        "texto": "NECESARIAMENTE HAY QUE PRESCRIBIR PROTECCION ANTIBIOTICA PARA LA ENDOCARDITIS",
+        "texto": "Necesariamente hay que prescribir proteccion antibiotica para la endocarditis",
         "correcta": true
       },
       {
         "letra": "E",
-        "texto": "LOS TRABAJOS HAY QUE REALIZARLOS EN POSICION SUPINA.",
+        "texto": "Los trabajos hay que realizarlos en posicion supina.",
         "correcta": false
       }
     ],
@@ -4763,7 +4763,7 @@
       },
       {
         "letra": "E",
-        "texto": "MN 2-2.5 INR 124/125",
+        "texto": "Mn 2-2.5 INR 124/125",
         "correcta": false
       }
     ],
@@ -5353,34 +5353,34 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "BOCIO MULTINODULAR TOXICO",
+        "texto": "Bocio multinodular toxico",
         "correcta": false
       },
       {
         "letra": "B",
-        "texto": "HIPERTIROIDISMO APATICO",
+        "texto": "Hipertiroidismo apatico",
         "correcta": false
       },
       {
         "letra": "C",
-        "texto": "ENF. DE GRAVES-BASEDOW",
+        "texto": "Enf. de Graves-Basedow",
         "correcta": true
       },
       {
         "letra": "D",
-        "texto": "TIROTOXICOSIS",
+        "texto": "Tirotoxicosis",
         "correcta": false
       },
       {
         "letra": "E",
-        "texto": "A Y B SON CORRECTAS",
+        "texto": "A y B son correctas",
         "correcta": false
       }
     ],
     "numero": 158
   },
   {
-    "pregunta": "CUAL DE ESTAS ETIOLOGIAS ES LA MAS FRECUENTE EN EL HIPOTIROIDISMO CONGETITO:",
+    "pregunta": "Cual de estas etiologias es la mas frecuente en el hipotiroidismo congetito:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología endocrina",
     "anio": 0,
@@ -5388,27 +5388,27 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "CAUSA PERMANENTE POR TRASTORNO DE LA BIOGENESIS PERMANENTE",
+        "texto": "Causa permanente por trastorno de la biogenesis permanente",
         "correcta": false
       },
       {
         "letra": "B",
-        "texto": "CAUSA PERMANENTE POR DISGENESIA TIROIDEA",
+        "texto": "Causa permanente por disgenesia tiroidea",
         "correcta": true
       },
       {
         "letra": "C",
-        "texto": "CAUSA TRANSITORIA POR ANTICUERPOS MATERNOS DURANTE EL EMBARAZO",
+        "texto": "Causa transitoria por anticuerpos maternos durante el embarazo",
         "correcta": false
       },
       {
         "letra": "D",
-        "texto": "CAUSA TRANSITORIA POR EXCESOS O DEFICIENCIA DE YODO DURANTE EL EMBARAZO",
+        "texto": "Causa transitoria por excesos o deficiencia de yodo durante el embarazo",
         "correcta": false
       },
       {
         "letra": "E",
-        "texto": "CAUSA PERMANENTE POR TRASTORNO A NIVEL HIPOFISIARIO",
+        "texto": "Causa permanente por trastorno a nivel hipofisiario",
         "correcta": false
       }
     ],
@@ -5423,34 +5423,34 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "LA OSCULTACION TIROIDEA SE EVIDENCIA UN SOPLO",
+        "texto": "La oscultacion tiroidea se evidencia un soplo",
         "correcta": true
       },
       {
         "letra": "B",
-        "texto": "ES PROBABLE QUE PADEZCA UN HIPERTIROIDISMO AUTOINMUNE",
+        "texto": "Es probable que padezca un hipertiroidismo autoinmune",
         "correcta": false
       },
       {
         "letra": "C",
-        "texto": "SOLICITARIA UNA TSH, T3 T4 LIBRES EN PLASMA",
+        "texto": "Solicitaria una TSH, T3 T4 libres en plasma",
         "correcta": false
       },
       {
         "letra": "D",
-        "texto": "SOLICITAR UNA PUNCION POR ASPIRACION DE GL. TIROIDES",
+        "texto": "Solicitar una puncion por aspiracion de gl. tiroides",
         "correcta": false
       },
       {
         "letra": "E",
-        "texto": "SOLICITARIA UNA GAMMAGRAFIA DE TIROIDES",
+        "texto": "Solicitaria una gammagrafia de tiroides",
         "correcta": false
       }
     ],
     "numero": 160
   },
   {
-    "pregunta": "ENTRE LAS ENF. DE LA HIPOFISIS POSTERIOR O NEUROHIPOFISIS ESTAN:",
+    "pregunta": "Entre las enf. de la hipofisis posterior o neurohipofisis estan:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología endocrina",
     "anio": 0,
@@ -5458,22 +5458,22 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "ACROMEGALIA",
+        "texto": "Acromegalia",
         "correcta": false
       },
       {
         "letra": "B",
-        "texto": "HIPERTIROIDISMO DE CAUSA HIPOFISIARIA",
+        "texto": "Hipertiroidismo de causa hipofisiaria",
         "correcta": false
       },
       {
         "letra": "C",
-        "texto": "DIABETES INSIPIDA",
+        "texto": "Diabetes insipida",
         "correcta": true
       },
       {
         "letra": "D",
-        "texto": "TODAS LAS ANTERIORES",
+        "texto": "Todas las anteriores",
         "correcta": false
       }
     ],
@@ -5615,7 +5615,7 @@
     "numero": 165
   },
   {
-    "pregunta": "MARQUE LA INCORRECTA. PACIENTE CON FEOCROMOCITOMA",
+    "pregunta": "Marque la incorrecta. Paciente con feocromocitoma",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología endocrina",
     "anio": 0,
@@ -6569,7 +6569,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología endocrina",
     "anio": 0,
-    "bibliografia": "PAG 727 MACHUCA NUEVO, ACTH aumentada;  IA secundaria",
+    "bibliografia": "PAG 727 MACHUCA NUEVO, ACTH aumentada; IA secundaria",
     "opciones": [
       {
         "letra": "A",
@@ -6923,7 +6923,7 @@
       },
       {
         "letra": "C",
-        "texto": "pacientes menores de 12 años como  paciente normal",
+        "texto": "pacientes menores de 12 años como paciente normal",
         "correcta": false
       },
       {
@@ -8469,7 +8469,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología respiratoria",
     "anio": 0,
-    "bibliografia": "reseca  la mucosa",
+    "bibliografia": "reseca la mucosa",
     "opciones": [
       {
         "letra": "A",
@@ -9050,7 +9050,7 @@
     "numero": 269
   },
   {
-    "pregunta": "Los pacientes sometidos a quimioterapia antineoplásica suelen presentar xerostomia, este  síntoma incrementa los niveles de microbiota y subsiguientemente el riesgo; para ello pueden  utilizarse colutorios que deben cumplir algunas condiciones",
+    "pregunta": "Los pacientes sometidos a quimioterapia antineoplásica suelen presentar xerostomia, este síntoma incrementa los niveles de microbiota y subsiguientemente el riesgo; para ello pueden utilizarse colutorios que deben cumplir algunas condiciones",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología oncológica",
     "anio": 0,
@@ -9473,7 +9473,7 @@
       },
       {
         "letra": "E",
-        "texto": "TODAS",
+        "texto": "Todas",
         "correcta": true
       }
     ],
@@ -9484,7 +9484,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología oncológica",
     "anio": 0,
-    "bibliografia": "pag 609-610-1132 MACHUCA NUEVO.  osteonecrosis por bisfosfonatos 14 DIAS ANTES 7 DIAS DESPUES",
+    "bibliografia": "pag 609-610-1132 MACHUCA NUEVO. osteonecrosis por bisfosfonatos 14 DIAS ANTES 7 DIAS DESPUES",
     "opciones": [
       {
         "letra": "A",
@@ -9640,7 +9640,7 @@
     "numero": 287
   },
   {
-    "pregunta": "MARQUE LA RESPUESTA CIERTA: Con respecto a la osteorradionecrosis en las  exodoncias postoperatorias:",
+    "pregunta": "MARQUE LA RESPUESTA CIERTA: Con respecto a la osteorradionecrosis en las exodoncias postoperatorias:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología oncológica",
     "anio": 0,
@@ -9663,7 +9663,7 @@
       },
       {
         "letra": "D",
-        "texto": "el margen de seguridad y el tiempo transcurrido para realizar la exodoncia durante la  aplicación de la radioterapia es fijo",
+        "texto": "el margen de seguridad y el tiempo transcurrido para realizar la exodoncia durante la aplicación de la radioterapia es fijo",
         "correcta": false
       },
       {
@@ -9675,7 +9675,7 @@
     "numero": 288
   },
   {
-    "pregunta": "MARQUE LA RESPUESTA CIERTA. En un paciente oncológico sometido a radioterapia de  cabeza y cuello, antes de que se terminen las sesiones, el odontólogo debe:",
+    "pregunta": "MARQUE LA RESPUESTA CIERTA. En un paciente oncológico sometido a radioterapia de cabeza y cuello, antes de que se terminen las sesiones, el odontólogo debe:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología oncológica",
     "anio": 0,
@@ -9835,7 +9835,7 @@
     "numero": 293
   },
   {
-    "pregunta": "LAS ANOMALÍAS CELULARES DE LAS NEOPLASIAS SON CONSECUENCIA DE EXCEPTO:",
+    "pregunta": "Las anomalías celulares de las neoplasias son consecuencia de excepto:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología oncológica",
     "anio": 0,
@@ -11959,7 +11959,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología oncológica",
     "anio": 0,
-    "bibliografia": "PAG  586 MACHUCA NUEVO",
+    "bibliografia": "PAG 586 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -14680,7 +14680,7 @@
     "numero": 436
   },
   {
-    "pregunta": "DENTRO DE LOS AGENTES HEMOSTÁTICOS PODEMOS USAR EN UNA EXODONCIA",
+    "pregunta": "Dentro de los agentes hemostáticos podemos usar en una exodoncia",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hemorrágica",
     "anio": 0,
@@ -14715,7 +14715,7 @@
     "numero": 437
   },
   {
-    "pregunta": "MARQUE LA INCORRECTA. EN TRATAMIENTO ODONTOLÓGICO EN PACIENTES CON COAGULOPATÍAS CONGÉNITAS:",
+    "pregunta": "Marque la incorrecta. En tratamiento odontológico en pacientes con coagulopatías congénitas:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hemorrágica",
     "anio": 0,
@@ -14750,7 +14750,7 @@
     "numero": 438
   },
   {
-    "pregunta": "MARQUE LA RESPUESTA FALSA. EN UN PACIENTE CON ALTERACIONES DE LA HEMOSTASIA QUE ACUDE PARA TRATAMIENTO BUCODENTAL:",
+    "pregunta": "Marque la respuesta falsa. En un paciente con alteraciones de la hemostasia que acude para tratamiento bucodental:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hemorrágica",
     "anio": 0,
@@ -14785,7 +14785,7 @@
     "numero": 439
   },
   {
-    "pregunta": "DENTRO DE LOS AGENTES HEMOSTÁTICOS PODEMOS USAR EN UNA EXODONCIA FALSO",
+    "pregunta": "Dentro de los agentes hemostáticos podemos usar en una exodoncia falso",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hemorrágica",
     "anio": 0,
@@ -14920,7 +14920,7 @@
     "numero": 443
   },
   {
-    "pregunta": "CUAL VALOR HEMATOLOGICO SE ENCUENTRA ALTERADO:",
+    "pregunta": "Cual valor hematologico se encuentra alterado:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hemorrágica",
     "anio": 0,
@@ -14955,7 +14955,7 @@
     "numero": 444
   },
   {
-    "pregunta": "LA AGREGACION PLAQUETARIA EN EL COAGULO SE INICIA POR:",
+    "pregunta": "La agregacion plaquetaria en el coagulo se inicia por:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hemorrágica",
     "anio": 0,
@@ -16263,7 +16263,7 @@
       },
       {
         "letra": "C",
-        "texto": "El tiempo de tromboplastina parcial activada (TTP)  a está disminuido",
+        "texto": "El tiempo de tromboplastina parcial activada (TTP) a está disminuido",
         "correcta": true
       },
       {
@@ -16420,7 +16420,7 @@
     "numero": 487
   },
   {
-    "pregunta": "RESPUESTA CIERTA: CONTROL DE PACIENTES CON TRATAMIENTO DE CUMARÍNICOS PARA UNA EXODONCIA:",
+    "pregunta": "Respuesta cierta: Control de pacientes con tratamiento de cumarínicos para una exodoncia:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hemorrágica",
     "anio": 0,
@@ -16595,7 +16595,7 @@
     "numero": 492
   },
   {
-    "pregunta": "PACIENTE CON USO DE CUMARINICOS EN UNA EXODONCIA QUE TIENE UN INR DE 4.",
+    "pregunta": "Paciente con uso de cumarinicos en una exodoncia que tiene un INR de 4.",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hemorrágica",
     "anio": 0,
@@ -16623,7 +16623,7 @@
       },
       {
         "letra": "E",
-        "texto": "NINGUNA ES CORRECTA",
+        "texto": "Ninguna es correcta",
         "correcta": true
       }
     ],
@@ -16840,7 +16840,7 @@
     "numero": 499
   },
   {
-    "pregunta": "Recibe a un paciente al que se le ha de practicar una extracción.  Conducta a seguir",
+    "pregunta": "Recibe a un paciente al que se le ha de practicar una extracción. Conducta a seguir",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hemorrágica",
     "anio": 0,
@@ -17505,7 +17505,7 @@
     "numero": 518
   },
   {
-    "pregunta": "LA AGREGACIÓN PLAQUETARIA EN EL COÁGULO SE INICIA POR:",
+    "pregunta": "La agregación plaquetaria en el coágulo se inicia por:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hemorrágica",
     "anio": 0,
@@ -17548,7 +17548,7 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "INR:(RAZÓN NORMALIZADA INTERNACIONAL)",
+        "texto": "INR:(razón normalizada internacional)",
         "correcta": false
       },
       {
@@ -17808,12 +17808,12 @@
       },
       {
         "letra": "D",
-        "texto": "TIEMPO DE PROTROMBINA",
+        "texto": "Tiempo de protrombina",
         "correcta": false
       },
       {
         "letra": "E",
-        "texto": "XILUTENÓGENO……",
+        "texto": "Xilutenógeno……",
         "correcta": false
       }
     ],
@@ -18525,7 +18525,7 @@
     "numero": 548
   },
   {
-    "pregunta": "Marque la respuesta CIERTA. En pacientes con alteraciones hematológicas de la serie  blanca:",
+    "pregunta": "Marque la respuesta CIERTA. En pacientes con alteraciones hematológicas de la serie blanca:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Discrasias sanguíneas",
     "anio": 0,
@@ -18538,7 +18538,7 @@
       },
       {
         "letra": "B",
-        "texto": "Las infecciones orales no aparecen en las leucemias porque los recuentos de leucocitos  suelen ser superiores a los 20.000 cel./ml.",
+        "texto": "Las infecciones orales no aparecen en las leucemias porque los recuentos de leucocitos suelen ser superiores a los 20.000 cel./ml.",
         "correcta": false
       },
       {
@@ -18618,7 +18618,7 @@
       },
       {
         "letra": "D",
-        "texto": "En algunos pacientes VIH+ con trombocitopenias secundarias, a la administración de a. Ig  1g/kg/12h aumenta la tasa de plaquetas",
+        "texto": "En algunos pacientes VIH+ con trombocitopenias secundarias, a la administración de a. Ig 1g/kg/12h aumenta la tasa de plaquetas",
         "correcta": false
       },
       {
@@ -18874,7 +18874,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Discrasias sanguíneas",
     "anio": 0,
-    "bibliografia": "Pedro Diz  pag 283; 563 cap VIH machuca nuevo",
+    "bibliografia": "Pedro Diz pag 283; 563 cap VIH machuca nuevo",
     "opciones": [
       {
         "letra": "A",
@@ -18904,7 +18904,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Discrasias sanguíneas",
     "anio": 0,
-    "bibliografia": "comunes en todas las anemias pag 832  MACHUCA NUEVO",
+    "bibliografia": "comunes en todas las anemias pag 832 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -18939,7 +18939,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Discrasias sanguíneas",
     "anio": 0,
-    "bibliografia": "pag 575  MACHUCA NUEVO",
+    "bibliografia": "pag 575 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -19145,7 +19145,7 @@
     "numero": 566
   },
   {
-    "pregunta": "En la fase aguda, o de infección primaria, por infección del VIH, señale cual de estás  características es falsa.",
+    "pregunta": "En la fase aguda, o de infección primaria, por infección del VIH, señale cual de estás características es falsa.",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Enfermedades infecciosas",
     "anio": 0,
@@ -19295,7 +19295,7 @@
     "numero": 571
   },
   {
-    "pregunta": "Mujer de 39 años diagnosticada con VIH hace 5 años en tratamiento con TAAA con CD4  423mm3 y carga viral 1000 copias/mm3. Solicita reemplazar el 21 mediante implante. En la  actualidad es portadora de prótesis removible de aclírico que suple el defecto. ¿Cuál sería su  actuación?",
+    "pregunta": "Mujer de 39 años diagnosticada con VIH hace 5 años en tratamiento con TAAA con CD4 423mm3 y carga viral 1000 copias/mm3. Solicita reemplazar el 21 mediante implante. En la actualidad es portadora de prótesis removible de aclírico que suple el defecto. ¿Cuál sería su actuación?",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Enfermedades infecciosas",
     "anio": 0,
@@ -19953,7 +19953,7 @@
       },
       {
         "letra": "E",
-        "texto": "PUNA.",
+        "texto": "Puna.",
         "correcta": false
       }
     ],
@@ -20139,7 +20139,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Enfermedades infecciosas",
     "anio": 0,
-    "bibliografia": "lesiones menos comúnmente  asociadas a la infección por VIH",
+    "bibliografia": "lesiones menos comúnmente asociadas a la infección por VIH",
     "opciones": [
       {
         "letra": "A",
@@ -20165,11 +20165,11 @@
     "numero": 598
   },
   {
-    "pregunta": "De las siguientes lesiones indique cuál no està en el grupo Ill  de la clasificación",
+    "pregunta": "De las siguientes lesiones indique cuál no està en el grupo Ill de la clasificación",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Enfermedades infecciosas",
     "anio": 0,
-    "bibliografia": "lesiones probablemente  asociadas con la infección por VIH",
+    "bibliografia": "lesiones probablemente asociadas con la infección por VIH",
     "opciones": [
       {
         "letra": "A",
@@ -20500,7 +20500,7 @@
     "numero": 608
   },
   {
-    "pregunta": "Mujer de 39 años diagnosticada de VIH hace cinco años en \ntratamiento con TAAA con CD4 423 mm3 y carga viral de 1000 \ncopias/mm3. Solicita reemplazar el 21 mediante implante. En la actualidad es portadora de  prótesis removible acrílica que suple el defecto. ¿Cuál sería su actuación?",
+    "pregunta": "Mujer de 39 años diagnosticada de VIH hace cinco años en \ntratamiento con TAAA con CD4 423 mm3 y carga viral de 1000 \ncopias/mm3. Solicita reemplazar el 21 mediante implante. En la actualidad es portadora de prótesis removible acrílica que suple el defecto. ¿Cuál sería su actuación?",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Enfermedades infecciosas",
     "anio": 0,
@@ -22675,7 +22675,7 @@
     "numero": 671
   },
   {
-    "pregunta": "Los dentistas tienen un riesgo superior a otras profesiones de contraer la hepatitis B debido  a que:",
+    "pregunta": "Los dentistas tienen un riesgo superior a otras profesiones de contraer la hepatitis B debido a que:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
@@ -22688,7 +22688,7 @@
       },
       {
         "letra": "B",
-        "texto": "Porque el virus atraviesa el látex de los guantes ya que debido a su pequeño tamaño  atraviesa los poros nanométricos del material del que están hechos los guantes.",
+        "texto": "Porque el virus atraviesa el látex de los guantes ya que debido a su pequeño tamaño atraviesa los poros nanométricos del material del que están hechos los guantes.",
         "correcta": false
       },
       {
@@ -23060,7 +23060,7 @@
     "numero": 683
   },
   {
-    "pregunta": "IDENTIFICA CUAL DE LAS SIGUIENTES NO SE CONSIDERA COMO UNA COMPLICACION DE UNA HEPATITIS AGUDA VIRICA:",
+    "pregunta": "Identifica cual de las siguientes no se considera como una complicacion de una hepatitis aguda virica:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
@@ -23068,29 +23068,29 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "CIRROSIS HEPATICA",
+        "texto": "Cirrosis hepatica",
         "correcta": false
       },
       {
         "letra": "B",
-        "texto": "PANCREATITIS CRONICA",
+        "texto": "Pancreatitis cronica",
         "correcta": true
       },
       {
         "letra": "C",
-        "texto": "INSUFICIENCIA HEPATICA",
+        "texto": "Insuficiencia hepatica",
         "correcta": false
       },
       {
         "letra": "D",
-        "texto": "CANCER DE HIGADO",
+        "texto": "Cancer de higado",
         "correcta": false
       }
     ],
     "numero": 684
   },
   {
-    "pregunta": "IDENTIFICA QUE PROCEDIMIENTO SON ADECUADOS PARA VALORAR LA EXISTENCIA DE ASCITIS EN UN PTE:",
+    "pregunta": "Identifica que procedimiento son adecuados para valorar la existencia de ascitis en un pte:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
@@ -23098,22 +23098,22 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "AUSCULTACION DEL ABDOMEN EN BASE A LA AUSENCIA DE RUIDOS",
+        "texto": "Auscultacion del abdomen en base a la ausencia de ruidos",
         "correcta": false
       },
       {
         "letra": "B",
-        "texto": "PRESENCIA DEL SIGNO DE OLEADA, AL PERCUTIR EN UN LADO DEL ABDOMEN",
+        "texto": "Presencia del signo de oleada, al percutir en un lado del abdomen",
         "correcta": true
       },
       {
         "letra": "C",
-        "texto": "MEDIANTE LA PALPACION DEL HIGADO",
+        "texto": "Mediante la palpacion del higado",
         "correcta": false
       },
       {
         "letra": "D",
-        "texto": "TODOS LOS ANTERIORES SON ADECUADOS",
+        "texto": "Todos los anteriores son adecuados",
         "correcta": false
       }
     ],
@@ -24829,7 +24829,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
-    "bibliografia": "PAG 479-265  MACHUCA NUEVO.  precaución en machuca nuevo,bupivacaína",
+    "bibliografia": "PAG 479-265 MACHUCA NUEVO. precaución en machuca nuevo,bupivacaína",
     "opciones": [
       {
         "letra": "A",
@@ -25029,7 +25029,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
-    "bibliografia": "PAG 461  MACHUCA NUEVO",
+    "bibliografia": "PAG 461 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -25239,7 +25239,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
-    "bibliografia": "PAG 265  MACHUCA NUEVO",
+    "bibliografia": "PAG 265 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -25619,7 +25619,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
-    "bibliografia": "PAG 477  MACHUCA NUEVO",
+    "bibliografia": "PAG 477 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -25654,7 +25654,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
-    "bibliografia": "PAG 804-265  MACHUCA NUEVO",
+    "bibliografia": "PAG 804-265 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -27625,7 +27625,7 @@
     "numero": 818
   },
   {
-    "pregunta": "MARQUE LA CORRECTA. EN PACIENTE CON HEMODIÁLISIS CRÓNICA",
+    "pregunta": "Marque la correcta. En paciente con hemodiálisis crónica",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
@@ -27829,7 +27829,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
-    "bibliografia": "PAG 748  MACHUCA NUEVO",
+    "bibliografia": "PAG 748 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -27960,7 +27960,7 @@
     "numero": 828
   },
   {
-    "pregunta": "MARQUE LA CORRECTA. EN PACIENTE CON HEMODIÁLISIS CRONICA",
+    "pregunta": "Marque la correcta. En paciente con hemodiálisis cronica",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
@@ -28304,7 +28304,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
-    "bibliografia": "pag 748  MACHUCA NUEVO",
+    "bibliografia": "pag 748 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -28339,7 +28339,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
-    "bibliografia": "PAG 745  MACHUCA NUEVO",
+    "bibliografia": "PAG 745 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -28444,7 +28444,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
-    "bibliografia": "Pg 745-746  MACHUCA NUEVO",
+    "bibliografia": "Pg 745-746 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -28479,7 +28479,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
-    "bibliografia": "PAG 748  MACHUCA NUEVO",
+    "bibliografia": "PAG 748 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -28894,7 +28894,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
-    "bibliografia": "PAG 747  MACHUCA NUEVO",
+    "bibliografia": "PAG 747 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -29264,7 +29264,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
-    "bibliografia": "PAG 747  MACHUCA NUEVO",
+    "bibliografia": "PAG 747 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -29348,12 +29348,12 @@
       },
       {
         "letra": "D",
-        "texto": "aumento de potasio en sangre,alteraciones del metabolismo de calcio y excreción de  productos resultantes del catabolismo protéico",
+        "texto": "aumento de potasio en sangre,alteraciones del metabolismo de calcio y excreción de productos resultantes del catabolismo protéico",
         "correcta": false
       },
       {
         "letra": "E",
-        "texto": "acumulo de sustancias como los productos del catabolismo protéico que no pueden ser  eliminados por el riñón",
+        "texto": "acumulo de sustancias como los productos del catabolismo protéico que no pueden ser eliminados por el riñón",
         "correcta": true
       }
     ],
@@ -29394,7 +29394,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
-    "bibliografia": "PAG 747  MACHUCA NUEVO",
+    "bibliografia": "PAG 747 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -29519,7 +29519,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
-    "bibliografia": "antibiótico; penicilina. PAG  748 Y 1178 MACHUCA NUEVO. PAG 177 INMACULADA TOMAS",
+    "bibliografia": "antibiótico; penicilina. PAG 748 Y 1178 MACHUCA NUEVO. PAG 177 INMACULADA TOMAS",
     "opciones": [
       {
         "letra": "A",
@@ -29549,7 +29549,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
-    "bibliografia": "PAG 748  MACHUCA NUEVO",
+    "bibliografia": "PAG 748 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -29575,7 +29575,7 @@
     "numero": 876
   },
   {
-    "pregunta": "Marque la respuesta FALSA. En los pacientes con alteraciones de las glándulas  suprarrenales:",
+    "pregunta": "Marque la respuesta FALSA. En los pacientes con alteraciones de las glándulas suprarrenales:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología hepatorrenal",
     "anio": 0,
@@ -31504,7 +31504,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología neurológica",
     "anio": 0,
-    "bibliografia": "PAG 867  MACHUCA NUEVO",
+    "bibliografia": "PAG 867 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -31819,7 +31819,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología neurológica",
     "anio": 0,
-    "bibliografia": "PAG 1107  MACHUCA NUEVO",
+    "bibliografia": "PAG 1107 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -32469,7 +32469,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología neurológica",
     "anio": 0,
-    "bibliografia": "PAG 1012  MACHUCA NUEVO",
+    "bibliografia": "PAG 1012 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -32609,7 +32609,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Patología neurológica",
     "anio": 0,
-    "bibliografia": "PAG 1022-1023-1027  MACHUCA NUEVO",
+    "bibliografia": "PAG 1022-1023-1027 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -33599,7 +33599,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Otras situaciones especiales",
     "anio": 0,
-    "bibliografia": "nunca debe darse a pacientes  embarazadas; c y d",
+    "bibliografia": "nunca debe darse a pacientes embarazadas; c y d",
     "opciones": [
       {
         "letra": "A",
@@ -33735,7 +33735,7 @@
     "numero": 997
   },
   {
-    "pregunta": "¿Cuál de las siguientes normas debe observarse en el empleo de fármacos en mujeres  gestantes?",
+    "pregunta": "¿Cuál de las siguientes normas debe observarse en el empleo de fármacos en mujeres gestantes?",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Otras situaciones especiales",
     "anio": 0,
@@ -33753,12 +33753,12 @@
       },
       {
         "letra": "C",
-        "texto": "Administrar la mayor dosis eficaz de los medicamentos necesarios durante el mayor tiempo  posible.",
+        "texto": "Administrar la mayor dosis eficaz de los medicamentos necesarios durante el mayor tiempo posible.",
         "correcta": false
       },
       {
         "letra": "D",
-        "texto": "Durante el primer trimestre del embarazo se debe fomentar la prescripción de medicamentos  pues el feto apenas está formado y no \nnotará los efectos.",
+        "texto": "Durante el primer trimestre del embarazo se debe fomentar la prescripción de medicamentos pues el feto apenas está formado y no \nnotará los efectos.",
         "correcta": false
       },
       {
@@ -34195,7 +34195,7 @@
     "numero": 1011
   },
   {
-    "pregunta": "¿Cual de los siguientes fármacos puede utilizarse con más seguridad en una madre que  esta amamantando a su hijo?",
+    "pregunta": "¿Cual de los siguientes fármacos puede utilizarse con más seguridad en una madre que esta amamantando a su hijo?",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Otras situaciones especiales",
     "anio": 0,
@@ -34230,7 +34230,7 @@
     "numero": 1012
   },
   {
-    "pregunta": "¿Cual de los siguientes fármacos se considera categoría C, con respecto al riesgo de ser  suministrado en el embarazo?",
+    "pregunta": "¿Cual de los siguientes fármacos se considera categoría C, con respecto al riesgo de ser suministrado en el embarazo?",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Otras situaciones especiales",
     "anio": 0,
@@ -34859,7 +34859,7 @@
     "asignatura": "Pacientes Especiales",
     "capitulo": "Otras situaciones especiales",
     "anio": 0,
-    "bibliografia": "PAG  785 MACHUCA NUEVO",
+    "bibliografia": "PAG 785 MACHUCA NUEVO",
     "opciones": [
       {
         "letra": "A",
@@ -35570,7 +35570,7 @@
     "numero": 1051
   },
   {
-    "pregunta": "Paciente de 72 años, con antecedentes de consumo de bifosfonatos por vía  intravenosa durante 11 años, acude a la clínica para realizarse extracciones del 34 y 35. Qué se debe hacer?",
+    "pregunta": "Paciente de 72 años, con antecedentes de consumo de bifosfonatos por vía intravenosa durante 11 años, acude a la clínica para realizarse extracciones del 34 y 35. Qué se debe hacer?",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Otras situaciones especiales",
     "anio": 0,
@@ -35733,7 +35733,7 @@
       },
       {
         "letra": "E",
-        "texto": "tiempo  de exposición",
+        "texto": "tiempo de exposición",
         "correcta": false
       }
     ],
@@ -35940,7 +35940,7 @@
     "numero": 1062
   },
   {
-    "pregunta": "Paciente que durante la operatoria presenta dolor opresivo en base de cuello, hombros y  brazo izquierdo; acompañándose de signos vegetativos intensos y sin localidad  neurológica.",
+    "pregunta": "Paciente que durante la operatoria presenta dolor opresivo en base de cuello, hombros y brazo izquierdo; acompañándose de signos vegetativos intensos y sin localidad neurológica.",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Urgencias y alergias",
     "anio": 0,
@@ -37750,7 +37750,7 @@
     "numero": 1116
   },
   {
-    "pregunta": "Los procedimientos básicos a seguir ante las emergencias indican que el paso 3 consiste  en:",
+    "pregunta": "Los procedimientos básicos a seguir ante las emergencias indican que el paso 3 consiste en:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Urgencias y alergias",
     "anio": 0,
@@ -38575,7 +38575,7 @@
     "numero": 1140
   },
   {
-    "pregunta": "Paciente que durante la operación presenta dolor opresivo en base de cuello, hombros y  brazo izquierdo, acompañándose de signos vegetativos intensos y sin localización neurológica:",
+    "pregunta": "Paciente que durante la operación presenta dolor opresivo en base de cuello, hombros y brazo izquierdo, acompañándose de signos vegetativos intensos y sin localización neurológica:",
     "asignatura": "Pacientes Especiales",
     "capitulo": "Urgencias y alergias",
     "anio": 0,
@@ -38583,7 +38583,7 @@
     "opciones": [
       {
         "letra": "A",
-        "texto": "Suspensión de la operatoria, posición semisentado, administración de solunitrina  sublingual.",
+        "texto": "Suspensión de la operatoria, posición semisentado, administración de solunitrina sublingual.",
         "correcta": true
       },
       {
