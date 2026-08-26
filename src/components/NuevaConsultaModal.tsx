@@ -1,10 +1,17 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Spinner } from '@/components/Spinner'
 import { useAppSettings } from '@/context/AppSettings'
 import { crearTicket, type OrigenTicket } from '@/lib/tickets'
+import { Check, ChevronDown, CreditCard, MoreHorizontal, User, type LucideIcon } from 'lucide-react'
 
 const MOTIVOS: Exclude<OrigenTicket, 'pregunta'>[] = ['cuenta', 'pagos', 'otro']
+
+const ICONOS_MOTIVO: Record<(typeof MOTIVOS)[number], LucideIcon> = {
+  cuenta: User,
+  pagos: CreditCard,
+  otro: MoreHorizontal,
+}
 
 // Modal de "nueva consulta" para /ayuda/soporte — mismo patrón visual que
 // ReportarPregunta.tsx (bottom-sheet en mobile, card-elevated), pero crea un
@@ -23,6 +30,19 @@ export function NuevaConsultaModal({
   const [asunto, setAsunto] = useState('')
   const [mensaje, setMensaje] = useState('')
   const [estado, setEstado] = useState<'idle' | 'enviando' | 'error'>('idle')
+  const [motivoAbierto, setMotivoAbierto] = useState(false)
+  const motivoRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!motivoAbierto) return
+    function alClickAfuera(e: MouseEvent) {
+      if (motivoRef.current && !motivoRef.current.contains(e.target as Node)) {
+        setMotivoAbierto(false)
+      }
+    }
+    document.addEventListener('mousedown', alClickAfuera)
+    return () => document.removeEventListener('mousedown', alClickAfuera)
+  }, [motivoAbierto])
 
   function cerrar() {
     onClose()
@@ -31,6 +51,7 @@ export function NuevaConsultaModal({
       setAsunto('')
       setMensaje('')
       setEstado('idle')
+      setMotivoAbierto(false)
     }, 200)
   }
 
@@ -51,24 +72,67 @@ export function NuevaConsultaModal({
 
   if (!abierto) return null
 
+  const IconoElegido = motivo ? ICONOS_MOTIVO[motivo] : null
+
   return (
     <div className="safe-bottom fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-4 sm:items-center">
       <div className="card-elevated w-full max-w-sm rounded-3xl bg-card p-6">
         <h3 className="text-base font-bold text-foreground">{t.soporte.nuevoTitulo}</h3>
         <p className="mt-1.5 text-sm text-muted-foreground">{t.soporte.nuevoSubtitulo}</p>
 
-        <div className="mt-4 space-y-2">
-          {MOTIVOS.map((m) => (
-            <button
-              key={m}
-              onClick={() => setMotivo(m)}
-              className={`w-full rounded-xl border-2 px-3.5 py-2.5 text-left text-sm font-medium transition ${
-                motivo === m ? 'border-accent bg-accent/8 text-foreground' : 'border-transparent bg-secondary text-foreground'
+        <label className="mt-4 block text-xs font-semibold text-muted-foreground">{t.soporte.motivoLabel}</label>
+        <div ref={motivoRef} className="relative mt-1.5">
+          <button
+            type="button"
+            onClick={() => setMotivoAbierto((v) => !v)}
+            aria-haspopup="listbox"
+            aria-expanded={motivoAbierto}
+            className={`flex w-full items-center gap-2.5 rounded-xl border px-3.5 py-2.5 text-left text-sm transition focus:outline-none focus:ring-2 focus:ring-accent ${
+              motivoAbierto ? 'border-accent bg-secondary' : 'border-border bg-secondary/50'
+            }`}
+          >
+            {IconoElegido && <IconoElegido className="h-4 w-4 shrink-0 text-accent" />}
+            <span className={motivo ? 'font-medium text-foreground' : 'text-muted-foreground'}>
+              {motivo ? t.soporte.motivo[motivo] : t.soporte.motivoPlaceholder}
+            </span>
+            <ChevronDown
+              className={`ml-auto h-4 w-4 shrink-0 text-muted-foreground transition-transform ${
+                motivoAbierto ? 'rotate-180' : ''
               }`}
+            />
+          </button>
+
+          {motivoAbierto && (
+            <ul
+              role="listbox"
+              className="absolute left-0 right-0 top-[calc(100%+6px)] z-10 rounded-xl border border-border bg-popover p-1.5 shadow-lg"
             >
-              {t.soporte.motivo[m]}
-            </button>
-          ))}
+              {MOTIVOS.map((m) => {
+                const Icono = ICONOS_MOTIVO[m]
+                const seleccionado = motivo === m
+                return (
+                  <li key={m}>
+                    <button
+                      type="button"
+                      role="option"
+                      aria-selected={seleccionado}
+                      onClick={() => {
+                        setMotivo(m)
+                        setMotivoAbierto(false)
+                      }}
+                      className={`flex w-full items-center gap-2.5 rounded-lg px-3 py-2.5 text-left text-sm font-medium transition ${
+                        seleccionado ? 'text-accent' : 'text-foreground hover:bg-secondary'
+                      }`}
+                    >
+                      <Icono className="h-4 w-4 shrink-0" />
+                      <span>{t.soporte.motivo[m]}</span>
+                      {seleccionado && <Check className="ml-auto h-4 w-4 shrink-0" />}
+                    </button>
+                  </li>
+                )
+              })}
+            </ul>
+          )}
         </div>
 
         <label className="mt-3.5 block text-xs font-semibold text-muted-foreground">{t.soporte.asuntoLabel}</label>

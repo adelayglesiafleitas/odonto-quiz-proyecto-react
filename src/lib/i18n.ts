@@ -174,6 +174,8 @@ export interface Diccionario {
     vacioTexto: string
     estado: Record<'abierto' | 'en_progreso' | 'resuelto' | 'cerrado', string>
     motivo: Record<'cuenta' | 'pagos' | 'otro', string>
+    motivoLabel: string
+    motivoPlaceholder: string
     preguntaChip: (numero: number) => string
     nuevoTitulo: string
     nuevoSubtitulo: string
@@ -428,6 +430,8 @@ export const es: Diccionario = {
       pagos: 'Pagos y suscripción',
       otro: 'Otra consulta',
     },
+    motivoLabel: 'Motivo',
+    motivoPlaceholder: 'Elegí un motivo',
     preguntaChip: (numero) => `Pregunta N.º ${numero}`,
     nuevoTitulo: 'Nueva consulta',
     nuevoSubtitulo: 'Elegí el motivo y contanos qué necesitás',
@@ -682,6 +686,8 @@ export const en: Diccionario = {
       pagos: 'Payments and subscription',
       otro: 'Something else',
     },
+    motivoLabel: 'Reason',
+    motivoPlaceholder: 'Pick a reason',
     preguntaChip: (numero) => `Question No. ${numero}`,
     nuevoTitulo: 'New request',
     nuevoSubtitulo: "Pick a reason and tell us what you need",
