@@ -1,3 +1,4 @@
+import { Stethoscope, Brain, type LucideIcon } from 'lucide-react'
 import type { Idioma } from '@/lib/i18n'
 
 export interface Asignatura {
@@ -30,4 +31,13 @@ const ASIGNATURAS_EN: Asignatura[] = [
 
 export function getAsignaturas(idioma: Idioma): Asignatura[] {
   return idioma === 'en' ? ASIGNATURAS_EN : ASIGNATURAS_ES
+}
+
+// Ícono por curso, solo estético — Stethoscope para Odontología (el caso
+// original), Brain para Psicología. Una asignatura nueva sin entrada acá cae
+// en Stethoscope por defecto en vez de romper. Compartido entre
+// ElegirAsignatura y Estadisticas para no duplicar el mapa.
+export const ICONO_CURSO: Record<string, LucideIcon> = {
+  odontologia: Stethoscope,
+  psicologia: Brain,
 }

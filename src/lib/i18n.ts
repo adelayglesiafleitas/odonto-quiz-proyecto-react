@@ -225,6 +225,7 @@ export interface Diccionario {
     puntoDebil: string
     sinDatosTitulo: string
     sinDatosTexto: string
+    sinIntentos: string
   }
 }
 
@@ -481,6 +482,7 @@ export const es: Diccionario = {
     puntoDebil: 'Punto débil',
     sinDatosTitulo: 'Todavía no hay datos',
     sinDatosTexto: 'Completa tu primer simulacro para ver tus estadísticas acá.',
+    sinIntentos: 'Sin intentos',
   },
 }
 
@@ -737,6 +739,7 @@ export const en: Diccionario = {
     puntoDebil: 'Weak spot',
     sinDatosTitulo: 'No data yet',
     sinDatosTexto: 'Complete your first mock exam to see your statistics here.',
+    sinIntentos: 'No attempts yet',
   },
 }
 

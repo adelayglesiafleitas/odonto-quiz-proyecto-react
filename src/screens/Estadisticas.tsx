@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
-import { ArrowLeft, Trophy, BookOpen } from 'lucide-react'
+import { ArrowLeft, Trophy } from 'lucide-react'
 import { useAppSettings } from '@/context/AppSettings'
 import { Spinner } from '@/components/Spinner'
 import { BottomNav } from '@/components/BottomNav'
-import { getAsignaturas } from '@/lib/asignaturas'
+import { getAsignaturas, ICONO_CURSO } from '@/lib/asignaturas'
 import { colorBgPorcentaje, colorStrokePorcentaje, colorTextPorcentaje } from '@/lib/utils'
 import {
   getHistorialRemoto,
@@ -14,6 +14,11 @@ import {
   type EstadisticaCapitulo,
 } from '@/lib/historial'
 import type { Pantalla } from '@/types'
+
+interface ResumenAsignatura {
+  promedio: number
+  intentos: number
+}
 
 /**
  * Pantalla propia (no vive en un tab del menú inferior) con el detalle
@@ -31,19 +36,31 @@ import type { Pantalla } from '@/types'
  * (ver supabase/schema.sql): la suma se hace en el servidor sobre los
  * últimos intentos de este usuario, no trayendo todo el historial acá para
  * sumarlo en el navegador.
+ *
+ * Con más de una asignatura examinable (ver lib/asignaturas.ts), esta
+ * pantalla tiene un selector propio arriba de todo: `cursoIdInicial` solo
+ * define qué asignatura se ve al entrar (la que se venía examinando),
+ * después el usuario puede cambiarla acá sin salir de la pantalla. Todas
+ * las secciones de detalle (general, actividad, por capítulo) siguen al
+ * curso seleccionado; la sección "Por asignatura" es la excepción: siempre
+ * muestra el resumen de todas, sirve de selector alternativo y de
+ * comparación rápida entre asignaturas.
  */
 export function Estadisticas({
   userId,
-  cursoId,
+  cursoIdInicial,
   onBack,
   onNavigate,
 }: {
   userId: string
-  cursoId: string
+  cursoIdInicial: string
   onBack: () => void
   onNavigate: (p: Pantalla) => void
 }) {
   const { t, idioma } = useAppSettings()
+  const asignaturas = useMemo(() => getAsignaturas(idioma), [idioma])
+
+  const [cursoSel, setCursoSel] = useState(cursoIdInicial)
   const [cargando, setCargando] = useState(true)
   const [promedio, setPromedio] = useState(0)
   const [mejor, setMejor] = useState(0)
@@ -51,27 +68,46 @@ export function Estadisticas({
   const [actividad, setActividad] = useState<ActividadDia[]>([])
   const [porCapitulo, setPorCapitulo] = useState<EstadisticaCapitulo[]>([])
 
+  // Detalle de la asignatura seleccionada (general, actividad, por capítulo).
   useEffect(() => {
     let cancelado = false
-    Promise.all([getHistorialRemoto(userId, cursoId), getEstadisticasCapitulos(cursoId)]).then(([historial, capitulos]) => {
+    setCargando(true)
+    Promise.all([getHistorialRemoto(userId, cursoSel), getEstadisticasCapitulos(cursoSel)]).then(
+      ([historial, capitulos]) => {
+        if (cancelado) return
+        setPromedio(calcularPromedio(historial))
+        setMejor(historial.reduce((max, i) => Math.max(max, i.porcentaje), 0))
+        setIntentos(historial.length)
+        setActividad(calcularActividadSemanal(historial.map((i) => i.fecha)))
+        setPorCapitulo(capitulos)
+        setCargando(false)
+      },
+    )
+    return () => {
+      cancelado = true
+    }
+  }, [userId, cursoSel])
+
+  // Resumen liviano (promedio + cantidad de intentos) de TODAS las
+  // asignaturas para la sección "Por asignatura": es independiente de cuál
+  // esté seleccionada arriba, porque esa sección compara todas a la vez.
+  const [resumenAsignaturas, setResumenAsignaturas] = useState<Record<string, ResumenAsignatura>>({})
+
+  useEffect(() => {
+    let cancelado = false
+    Promise.all(asignaturas.map((a) => getHistorialRemoto(userId, a.cursoId))).then((resultados) => {
       if (cancelado) return
-      setPromedio(calcularPromedio(historial))
-      setMejor(historial.reduce((max, i) => Math.max(max, i.porcentaje), 0))
-      setIntentos(historial.length)
-      setActividad(calcularActividadSemanal(historial.map((i) => i.fecha)))
-      setPorCapitulo(capitulos)
-      setCargando(false)
+      const resumen: Record<string, ResumenAsignatura> = {}
+      asignaturas.forEach((a, i) => {
+        const historial = resultados[i]
+        resumen[a.cursoId] = { promedio: calcularPromedio(historial), intentos: historial.length }
+      })
+      setResumenAsignaturas(resumen)
     })
     return () => {
       cancelado = true
     }
-  }, [userId, cursoId])
-
-  // Por ahora solo hay una asignatura con banco de preguntas (ver
-  // lib/asignaturas.ts): cuando se sume una segunda, esta sección pasa a
-  // iterar sobre getAsignaturas() con su propio cursoId/estadísticas cada
-  // una, en vez de mostrar una sola fila fija.
-  const asignatura = getAsignaturas(idioma)[0]
+  }, [userId, asignaturas])
 
   const capitulosOrdenados = useMemo(
     () =>
@@ -92,6 +128,29 @@ export function Estadisticas({
         </button>
         <h1 className="text-lg font-extrabold text-foreground">{t.estadisticas.titulo}</h1>
       </div>
+
+      {asignaturas.length > 1 && (
+        <div className="mt-5 px-6">
+          <div className="flex gap-1.5 rounded-2xl bg-secondary p-1">
+            {asignaturas.map((a) => {
+              const Icono = ICONO_CURSO[a.cursoId] ?? ICONO_CURSO.odontologia
+              const seleccionada = a.cursoId === cursoSel
+              return (
+                <button
+                  key={a.cursoId}
+                  onClick={() => setCursoSel(a.cursoId)}
+                  className={`flex flex-1 items-center justify-center gap-1.5 rounded-xl px-2 py-2.5 text-xs font-bold transition-all ${
+                    seleccionada ? 'bg-card text-accent shadow-sm' : 'text-muted-foreground'
+                  }`}
+                >
+                  <Icono className="h-3.5 w-3.5 shrink-0" />
+                  <span className="truncate">{a.nombre}</span>
+                </button>
+              )
+            })}
+          </div>
+        </div>
+      )}
 
       {cargando ? (
         <div className="mt-16 flex justify-center">
@@ -184,21 +243,49 @@ export function Estadisticas({
               </div>
             </div>
           )}
-
-          <div className="mt-5 px-6">
-            <p className="px-1 text-xs font-bold uppercase tracking-wide text-muted-foreground">{t.estadisticas.porAsignatura}</p>
-            <div className="card-elevated mt-2 flex items-center justify-between gap-3 rounded-2xl bg-card p-4">
-              <div className="flex min-w-0 items-center gap-3">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <BookOpen className="h-4 w-4" />
-                </span>
-                <span className="truncate text-sm font-bold text-foreground">{asignatura?.nombre}</span>
-              </div>
-              <span className={`shrink-0 text-sm font-extrabold ${colorTextPorcentaje(promedio)}`}>{promedio}%</span>
-            </div>
-          </div>
         </>
       )}
+
+      <div className="mt-5 px-6">
+        <p className="px-1 text-xs font-bold uppercase tracking-wide text-muted-foreground">{t.estadisticas.porAsignatura}</p>
+        <div className="mt-2 space-y-2.5">
+          {asignaturas.map((a) => {
+            const Icono = ICONO_CURSO[a.cursoId] ?? ICONO_CURSO.odontologia
+            const resumen = resumenAsignaturas[a.cursoId]
+            const seleccionada = a.cursoId === cursoSel
+            return (
+              <button
+                key={a.cursoId}
+                onClick={() => setCursoSel(a.cursoId)}
+                className={`card-elevated flex w-full items-center justify-between gap-3 rounded-2xl bg-card p-4 text-left transition ${
+                  seleccionada ? 'ring-2 ring-accent/50' : ''
+                }`}
+              >
+                <div className="flex min-w-0 items-center gap-3">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <Icono className="h-4 w-4" />
+                  </span>
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-bold text-foreground">{a.nombre}</p>
+                    {resumen && (
+                      <p className="text-[11px] text-muted-foreground">{t.estadisticas.intentos(resumen.intentos)}</p>
+                    )}
+                  </div>
+                </div>
+                {resumen && (
+                  <span
+                    className={`shrink-0 text-sm font-extrabold ${
+                      resumen.intentos > 0 ? colorTextPorcentaje(resumen.promedio) : 'text-muted-foreground'
+                    }`}
+                  >
+                    {resumen.intentos > 0 ? `${resumen.promedio}%` : t.estadisticas.sinIntentos}
+                  </span>
+                )}
+              </button>
+            )
+          })}
+        </div>
+      </div>
 
       <BottomNav activo="home" onNavigate={onNavigate} />
     </div>

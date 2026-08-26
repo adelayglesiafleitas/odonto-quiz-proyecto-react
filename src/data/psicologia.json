@@ -10193,5 +10193,2945 @@
         "correcta": true
       }
     ]
+  },
+  {
+    "numero": 332,
+    "pregunta": "Según el DSM-5-TR, la característica esensial del trastorno por consumo de sustancias consiste en:",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Error tipográfico en el enunciado original: escribe 'esensial' con 's' en lugar de 'esencial' (ortografía). El reactivo está metodológicamente bien planteado.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La presencia obligatoria de tolerancia y abstinencia.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "La asociación de síntomas cognitivos, comportamentales y fisiológicos que indican que la persona continúa consumiendo la sustancia pese a los problemas significativos relacionados con ella.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "El consumo diario de una sustancia durante al menos seis meses.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "La aparición de intoxicaciones repetidas con cualquier sustancia.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 333,
+    "pregunta": "¿Cuál de las siguientes sustancias constituye una excepción respecto al diagnóstico de trastorno por consumo de sustancias en el DSM-5-TR?",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Clínicamente correcto. El DSM-5-TR no codifica el 'trastorno por consumo de cafeína' como diagnóstico clínico oficial (solo intoxicación y abstinencia).",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Cannabis.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Tabaco.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Cafeína.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Inhalantes.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 334,
+    "pregunta": "El criterio diagnóstico que hace referencia al deseo intenso o urgencia de consumir una sustancia (craving) pertenece al grupo de:",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía estética: El reactivo original tenía negrita aplicada de manera innecesaria e inconsistente con el resto del simulacro. El craving pertenece al grupo de Control Deficitario (criterio 4).",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Deterioro social.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Consumo de riesgo.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Control deficitario.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Criterios farmacológicos.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 335,
+    "pregunta": "¿Cuál de las siguientes situaciones corresponde al criterio de deterioro social?",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía estética: Enunciado originalmente escrito todo en negrita de forma inconsistente. El criterio de la opción B se asocia al Criterio 6 (Deterioro Social).",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Consumir una cantidad mayor de la prevista.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Continuar consumiendo pese a problemas sociales o interpersonales causados o agravados por la sustancia.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Consumir en situaciones físicamente peligrosas.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Necesitar dosis mayores para obtener el mismo efecto.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 336,
+    "pregunta": "Respecto al criterio de consumo de riesgo, señale la respuesta correcta.",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía estética: Enunciado originalmente escrito todo en negrita. La opción C es correcta y corresponde al Criterio 9 (Consumo de Riesgo).",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Incluye el deseo intenso de consumir.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Incluye el abandono de actividades recreativas.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Incluye continuar consumiendo a pesar de conocer la existencia de un problema físico o psicológico probablemente causado o agravado por la sustancia.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Incluye únicamente la tolerancia y la abstinencia.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 337,
+    "pregunta": "¿Cuál de las siguientes sustancias no presenta un síndrome de abstinencia clínicamente significativo descrito en el DSM-5-TR?",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía estética: Enunciado en negrita. Clínicamente correcto: los inhalantes carecen de un síndrome de abstinencia clínicamente significativo codificado en el DSM-5-TR.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Alcohol.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Cannabis.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Inhalantes.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Sedantes, hipnóticos o ansiolíticos.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 338,
+    "pregunta": "Según el DSM-5-TR, un trastorno por consumo de sustancias se considera grave cuando el individuo presenta:",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía estética: El enunciado tiene negrita aplicada inconsistente que se corta a mitad de frase ('cuando el' en adelante es texto normal). Conceptualmente correcto (Grave = 6 o más criterios).",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Dos o tres criterios.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Tres o cuatro criterios.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Cuatro o cinco criterios.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Seis o más criterios.",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 339,
+    "pregunta": "En relación con la intoxicación por sustancias, ¿cuál de las siguientes afirmaciones es correcta?",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Reactivo metodológicamente limpio. Redacción alineada con los criterios generales de intoxicación por sustancias del DSM-5-TR.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Los cambios conductuales aparecen exclusivamente tras eliminar completamente la sustancia.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Los síntomas deben explicarse mejor por otro trastorno mental.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Los cambios conductuales o psicológicos aparecen durante o poco después del consumo y se acompañan de signos y síntomas específicos de la sustancia.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "La intoxicación siempre produce alteración del nivel de conciencia.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 340,
+    "pregunta": "Respecto a la abstinencia por sustancias, señale la respuesta correcta.",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Pregunta bien construida. El criterio clínico general de abstinencia del DSM-5-TR está perfectamente representado en la opción B.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Se produce tras aumentar de forma brusca la dosis habitual.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Se caracteriza por cambios comportamentales, fisiológicos y cognitivos debidos al cese o reducción de un consumo prolongado y frecuente.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Solo puede diagnosticarse si existen alteraciones analíticas.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Siempre comienza durante la intoxicación.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 341,
+    "pregunta": "¿Cuál de las siguientes afirmaciones sobre los trastornos mentales inducidos por sustancias/medicamentos es correcta?",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Clínicamente preciso. Se requiere que la sustancia tenga plausibilidad biológica y farmacológica para inducir el cuadro psiquiátrico específico observando los tiempos lógicos de inicio/resolución.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La alteración debe aparecer exclusivamente durante un delirium.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "La sustancia implicada debe ser capaz de producir los síntomas observados.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Los síntomas deben persistir obligatoriamente más de un año.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Nunca es necesario realizar diagnóstico diferencial con un trastorno mental independiente.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 342,
+    "pregunta": "Respecto a los trastornos mentales inducidos por sustancias/medicamentos, señale la respuesta correcta.",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Clínicamente correcto. Los estimulantes (cocaína, anfetaminas) tienen alto potencial psicotizgénico y ansiogénico durante su fase de intoxicación aguda.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Las sustancias sedantes producen principalmente trastornos psicóticos durante la intoxicación.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Las sustancias estimulantes se asocian con mayor frecuencia a trastornos psicóticos y de ansiedad durante la intoxicación.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Todos los trastornos inducidos por sustancias requieren un tratamiento permanente.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Los síntomas nunca mejoran con la abstinencia.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 343,
+    "pregunta": "Respecto al desarrollo y curso del trastorno por consumo de alcohol, señale la respuesta correcta.",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía tipográfica: Negrita mal cerrada en el enunciado original ('...señale la respuesta** correcta'). El máximo de inicio del trastorno por consumo de alcohol se sitúa en la juventud.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El inicio más frecuente ocurre después de los 40 años.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El máximo de inicio del trastorno con dos o más criterios se sitúa en la adolescencia tardía o al inicio o mitad de la veintena.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "La mayoría de los casos comienzan tras la jubilación.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "El primer episodio de intoxicación suele producirse en la infancia.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 344,
+    "pregunta": "Según el apartado de marcadores diagnósticos del trastorno por consumo de alcohol, ¿qué combinación de pruebas biológicas se considera especialmente sensible para identificar un consumo grave y persistente?",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía tipográfica: Negrita mal cerrada en el enunciado original ('...¿qué** combinación'). Clínicamente impecable: la combinación de GGT y CDT (transferrina deficiente en carbohidratos) aumenta la especificidad diagnóstica.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "PCR y VSG.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "AST y ALT.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "GGT y CDT.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Creatinina y urea.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 345,
+    "pregunta": "Respecto a la abstinencia de alcohol, ¿cuál de las siguientes afirmaciones es correcta?",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía de maquetación: Enunciado completamente en negrita y seguido por una línea divisoria inusual ('#####'). Clínicamente preciso: el pico ocurre a las 24-48 horas del cese (segundo día).",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El pico de intensidad suele alcanzarse durante el segundo día.",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Siempre desaparece en menos de 24 horas.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Nunca persisten síntomas tras la fase aguda.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Las convulsiones aparecen en la mayoría de los pacientes.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 346,
+    "pregunta": "Para diagnosticar una intoxicación por cafeína, el DSM-5-TR exige habitualmente:",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía de maquetación: Enunciado en negrita y seguido por la línea divisoria '#####'. Clínicamente preciso: el criterio A exige consumo reciente de cafeína, habitualmente en exceso de 250 mg.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Consumo superior a 50 mg.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Consumo reciente que habitualmente supera ampliamente los 250 mg.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Consumo diario durante seis meses.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Consumo exclusivo mediante bebidas energéticas.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 347,
+    "pregunta": "¿Cuál del los siguientes síntomas forma parte de los criterios diagnósticos de intoxicación por cafeína?",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Error tipográfico en el enunciado: escribe 'del' en vez de 'de'. Negrita aplicada inconsistentemente en el enunciado original. El rubor facial (facial flushing) es uno de los 12 síntomas de intoxicación por cafeína.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Bradicardia.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Rubor facial.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Hipotermia.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Miosis.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 348,
+    "pregunta": "Respecto a la intoxicación por cannabis, ¿cuál de los siguientes signos físicos aparece entre los criterios diagnósticos?",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía de maquetación: Enunciado en negrita y seguido por la línea '#####'. Clínicamente correcto: la inyección conjuntival (enrojecimiento) es uno de los signos físicos clave (Criterio C1).",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Midriasis bilateral.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Conjuntivas enrojecidas.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Cianosis peribucal.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Hiporreflexia.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 349,
+    "pregunta": "Según el PDF, la intoxicación por cannabis suele acompañarse de:",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía de maquetación: Enunciado en negrita. Clínicamente correcto: el aumento de apetito y la sequedad de boca (xerostomía) son típicos tras el consumo de cannabis.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Disminución del apetito.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Aumento del apetito.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Hipersalivación intensa.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Anosmia.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 350,
+    "pregunta": "¿Qué característica distingue a los trastornos relacionados con los alucinógenos respecto a otras sustancias?",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía de maquetación: Enunciado en negrita y seguido por la línea '#####'. Clínicamente preciso: el DSM-5-TR explícitamente no codifica abstinencia para alucinógenos en humanos.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Existe un síndrome de abstinencia bien establecido.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "No se ha descrito un síndrome de abstinencia clínicamente significativo en humanos.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Siempre producen dependencia física intensa.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Requieren tolerancia para establecer el diagnóstico.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 351,
+    "pregunta": "El trastorno perceptivo persistente por alucinógenos se caracteriza por:",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía de maquetación: Enunciado en negrita. Describe con precisión los 'flashbacks' visuales recurrentes que persisten de manera patológica tras el cese del consumo.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Persistencia o reaparición de alteraciones perceptivas tras haber cesado el consumo.",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Aparición exclusiva durante la intoxicación aguda.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Presencia obligatoria de delirium.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Únicamente síntomas depresivos persistentes.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 352,
+    "pregunta": "Respecto a los inhalantes, señale la respuesta correcta.",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía de maquetación: Enunciado en negrita y seguido por la línea '#####'. Clínicamente correcto: no hay abstinencia de inhalantes codificada en el DSM-5-TR.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Existe un síndrome de abstinencia clínicamente significativo bien definido.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El DSM-5-TR no describe un síndrome de abstinencia clínicamente significativo en humanos.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "La abstinencia aparece en todos los consumidores crónicos.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "El diagnóstico exige la presencia de abstinencia.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 353,
+    "pregunta": "Según el apartado general del PDF, ¿qué grupo de sustancias comparte con los alucinógenos la ausencia de un síndrome de abstinencia clínicamente significativo descrito en humanos?",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía de maquetación: Enunciado en negrita. Inconsistencia de diseño: Esta pregunta es conceptualmente idéntica a la pregunta 6 y 21, generando una redundancia metodológica en el simulacro.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Alcohol.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Opiáceos.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Inhalantes.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Sedantes, hipnóticos y ansiolíticos.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 354,
+    "pregunta": "Respecto al desarrollo y curso del trastorno por consumo de opiáceos, señale la respuesta correcta:",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía de maquetación: Negrita mal cerrada en el enunciado original. Precedido en el PDF por comentarios informales del autor ('Perfecto... aquí tienes 2 preguntas tipo homologación...'), inusuales en un simulacro formal.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El trastorno comienza exclusivamente en la adolescencia.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "La mayoría de los casos aparecen por primera vez a finales de la adolescencia o principios de la veintena, aunque puede comenzar a cualquier edad.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "La abstinencia prolongada es la evolución más frecuente tras iniciar tratamiento.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "El consumo precoz se relaciona principalmente con enfermedades neurológicas.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 355,
+    "pregunta": "¿Cuál de las siguientes manifestaciones forma parte de los criterios diagnósticos de la abstinencia de opiáceos?",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía de maquetación: Enunciado en negrita. Clínicamente preciso: la abstinencia por opiáceos cursa con midriasis, diarrea, bostezos, piloerección, rinorrea y lagrimeo. La miosis y estreñimiento son típicos de la intoxicación.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Midriasis, diarrea y bostezos.",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Bradicardia, miosis y aumento del apetito.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Hipotermia, estreñimiento y euforia.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Hiporreflexia, hiperfagia y somnolencia.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 356,
+    "pregunta": "Respecto a la intoxicación por sedantes, hipnóticos o ansiolíticos, ¿cuál de las siguientes manifestaciones forma parte del criterio C del DSM-5-TR?",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía de maquetación: Enunciado en negrita. Precedido en el PDF por comentarios del autor. El nistagmo es uno de los signos clínicos característicos de la intoxicación por depresores del SNC (criterio C2).",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Midriasis bilateral.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Nistagmo.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Hiperactividad del sistema nervioso autónomo.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Piloerección.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 357,
+    "pregunta": "En relación con la abstinencia por sedantes, hipnóticos o ansiolíticos, señale la respuesta correcta.",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía de maquetación: Negrita mal cerrada en el enunciado original. Clínicamente correcto respecto al curso temporal de la abstinencia de benzodiazepinas de vida media corta.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "En las benzodiacepinas de semivida corta, el pico de intensidad suele producirse durante la segunda semana.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Las benzodiacepinas de semivida larga suelen iniciar la abstinencia entre las 6 y 8 horas tras suspender el tratamiento.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "En los fármacos de semivida corta, los síntomas pueden comenzar a las 6-8 horas, alcanzar su pico el segundo día y mejorar hacia el cuarto o quinto día.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "La abstinencia por sedantes comienza siempre más de una semana después del cese del consumo.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 358,
+    "pregunta": "Respecto al trastorno por consumo de estimulantes, ¿cuál de las siguientes afirmaciones es correcta?",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía de maquetación: Negrita mal cerrada en el enunciado original. Precedido por comentarios informales del autor. Clínicamente preciso sobre la abstinencia de estimulantes (fase de 'crash').",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La tolerancia solo aparece en consumidores de cocaína.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Independientemente de la vía de administración, el consumo repetido conduce a tolerancia y puede aparecer un síndrome de abstinencia caracterizado especialmente por hipersomnia, aumento del apetito y disforia.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "El consumo repetido disminuye el craving con el paso del tiempo.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Las sustancias tipo anfetamínico actúan durante menos tiempo que la cocaína.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 359,
+    "pregunta": "¿Cuál de los siguientes cambios fisiológicos forma parte de los criterios diagnósticos de la abstinencia por estimulantes?",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía de maquetación: Enunciado en negrita. Clínicamente correcto: los sueños vívidos e insoportables/desagradables son uno de los síntomas neurofisiológicos de la abstinencia por estimulantes.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Miosis intensa.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Disminución del apetito.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Sueños vívidos y desagradables.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Hipotermia.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 360,
+    "pregunta": "Respecto al trastorno por consumo de tabaco, señale la respuesta correcta.",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía de maquetación: Enunciado en negrita. Clínicamente correcto sobre el patrón epidemiológico de inicio del consumo de tabaco.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El inicio después de los 21 años es el más frecuente.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Los síntomas diagnósticos suelen aparecer años antes del inicio del consumo.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "El inicio suele producirse durante la adolescencia y la mayoría de los adolescentes que fuman terminan convirtiéndose en consumidores diarios.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "La mayoría de los fumadores desarrollan el trastorno únicamente después de los 40 años.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 361,
+    "pregunta": "¿Cuál de los siguientes síntomas forma parte de los criterios diagnósticos de la abstinencia de tabaco?",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía de maquetación: Enunciado en negrita. El aumento del apetito (o ganancia de peso) es un criterio del DSM-5-TR para la abstinencia de nicotina.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Midriasis.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Aumento del apetito.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Hipertermia.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Piloerección.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 362,
+    "pregunta": "Respecto a los trastornos relacionados con otras sustancias (o sustancias desconocidas), señale la respuesta correcta.",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía de maquetación: Enunciado en negrita. Clínicamente preciso: la clase 'otras sustancias' incluye fármacos o compuestos que no encajan en las categorías principales pero que causan problemas clínicos.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Incluyen únicamente sustancias inhaladas.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Solo se aplican cuando la sustancia pertenece a alguna de las nueve clases principales del DSM-5.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Incluyen sustancias no clasificadas en las nueve clases principales, como esteroides anabolizantes, corticosteroides, antihistamínicos, óxido nitroso, nitritos, nuez de areca o kava.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Se utilizan exclusivamente cuando la sustancia es completamente desconocida.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 363,
+    "pregunta": "Según los criterios diagnósticos del trastorno por juego, ¿cuál de las siguientes situaciones constituye un criterio diagnóstico?",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía de maquetación: Enunciado en negrita. Describe el criterio de 'chasing' o persecución de pérdidas, característico de la ludopatía o juego patológico (Criterio A6).",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Jugar únicamente durante fines de semana.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Apostar exclusivamente en juegos de casino.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Volver otro día para intentar recuperar el dinero perdido tras una apuesta.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Apostar cantidades pequeñas de dinero de forma ocasional.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 364,
+    "pregunta": "Respecto a la gravedad del trastorno por juego, señale la respuesta correcta.",
+    "asignatura": "Psicología general",
+    "capitulo": "Drogodependencias",
+    "anio": 0,
+    "bibliografia": "Anomalía de maquetación: Enunciado en negrita. Clínicamente correcto: el trastorno por juego en el DSM-5 requiere al menos 4 de los 9 criterios, clasificándose como Leve: 4-5, Moderado: 6-7, y Grave: 8-9.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Leve: 2–3 criterios; Moderado: 4–5; Grave: ≥6.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Leve: 4–5 criterios; Moderado: 6–7; Grave: 8–9 criterios.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Leve: 3–4 criterios; Moderado: 5–6; Grave: ≥7 criterios.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "La gravedad depende exclusivamente de la cantidad de dinero apostada.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 365,
+    "pregunta": "Según Losada (2015), ¿qué es la conciencia?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Una función psíquica fundamental que permite al individuo darse cuenta de sí mismo y del mundo",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Un órgano del sistema nervioso periférico",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Un tipo de memoria a largo plazo",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Un reflejo involuntario del tronco encefálico",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 366,
+    "pregunta": "La conciencia integra la percepción del mundo exterior con:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El sistema inmunológico",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "La experiencia del mundo interior (pensamientos, emociones, recuerdos, sensaciones corporales)",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Únicamente los estímulos visuales",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "La actividad muscular voluntaria",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 367,
+    "pregunta": "¿Qué permite la conciencia además de la orientación en tiempo, espacio y persona?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La adaptación al medio y la conducta voluntaria",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "La producción de melatonina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La regulación de la temperatura corporal",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "La contracción muscular refleja",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 368,
+    "pregunta": "El nivel de conciencia (arousal) se define como:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El conjunto de recuerdos almacenados",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El grado de activación del sistema nervioso central que determina el estado de alerta",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "La identidad propia del individuo",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "El mecanismo de atención selectiva",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 369,
+    "pregunta": "El contenido de la conciencia (awareness) hace referencia a:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El ciclo circadiano",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El conjunto de experiencias, pensamientos, percepciones y recuerdos presentes en el campo consciente",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "La formación reticular",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "La corteza parietal",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 370,
+    "pregunta": "La \"conciencia del yo\" se refiere a:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El reconocimiento de uno mismo como entidad separada, con identidad propia y continuidad en el tiempo",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "El conocimiento del lugar y la situación en la que nos encontramos",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "El mecanismo selectivo que regula qué información entra en la conciencia",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "La activación del sistema nervioso central",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 371,
+    "pregunta": "¿Cuál de los siguientes es un componente de la conciencia según la ficha?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La atención",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "La glándula tiroides",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "El sistema digestivo",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "La médula ósea",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 372,
+    "pregunta": "En la escala de estados y niveles de conciencia, ¿cuál representa un exceso de alerta y activación?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Letargia",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Hipervigilancia",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Estupor",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Obnubilación",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 373,
+    "pregunta": "La vigilia normal se caracteriza por:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Ausencia de conciencia y de respuesta voluntaria",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Estado normal de conciencia, alerta, orientado y responde adecuadamente",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Confusión y desorientación",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Respuesta solo a estímulos dolorosos",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 374,
+    "pregunta": "La somnolencia se define como:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "Contradicción clínica: Definir la somnolencia con 'respuesta rápida a estímulos' es inexacto, ya que la somnolencia cursa habitualmente con un enlentecimiento psicomotor y cognitivo, aunque el despertar sea fácil.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Tendencia al sueño, con disminución de la atención y respuesta rápida a estímulos",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Sueño profundo con despertar difícil",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Disminución importante de la claridad mental",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ausencia total de respuesta",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 375,
+    "pregunta": "¿Qué nivel de conciencia implica sueño profundo o somnolencia intensa, con despertar difícil y respuesta lenta y breve?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Obnubilación",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Letargia",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Coma",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Vigilia normal",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 376,
+    "pregunta": "La obnubilación se caracteriza por:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Aumento anormal del nivel de atención",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Disminución importante de la claridad mental, confusión y desorientación",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Respuesta adecuada a estímulos ambientales",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Movimientos oculares rápidos",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 377,
+    "pregunta": "El estupor se define como un estado en el que el paciente:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Responde adecuadamente a cualquier estímulo",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Solo responde a estímulos intensos o dolorosos",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Presenta hiperactividad motora",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Mantiene una atención normal",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 378,
+    "pregunta": "El coma se define como:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Ausencia de conciencia y de respuesta voluntaria",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Un estado de alerta excesiva",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Una fase del sueño REM",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Una alteración cualitativa del contenido de la conciencia",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 379,
+    "pregunta": "¿Qué estructura regula los ritmos circadianos del sueño?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La corteza parietal",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El núcleo supraquiasmático del hipotálamo",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "El cerebelo",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "La médula espinal",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 380,
+    "pregunta": "¿Qué hormona, producida por la glándula pineal, facilita el inicio del sueño?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Cortisol",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Adrenalina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Melatonina",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Serotonina",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 381,
+    "pregunta": "Un ciclo completo de sueño dura aproximadamente:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "30-40 minutos y se repite 10 veces",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "90-110 minutos y se repite de 4 a 6 veces por noche",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "5 horas y se repite una vez",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "15 minutos y se repite 20 veces",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 382,
+    "pregunta": "¿Qué etapa del sueño corresponde a la transición vigilia-sueño con relajación muscular y sacudidas hipnagógicas?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "N1",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "N3",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "REM",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "N4",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 383,
+    "pregunta": "Durante la etapa N2 del sueño aparecen:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Movimientos oculares rápidos",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Husos del sueño y complejos K en el EEG",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Ondas delta muy lentas y de gran amplitud",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Alta actividad cerebral similar a la vigilia",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 384,
+    "pregunta": "Las etapas N3 y N4 (sueño profundo) se caracterizan por:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Atonía muscular y sueños vívidos",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Ondas delta de alta amplitud y baja frecuencia, con función de recuperación física y regeneración celular",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Aumento anormal del nivel de atención",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Desconexión progresiva del entorno únicamente",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 385,
+    "pregunta": "La fase REM (sueño paradójico) se caracteriza por:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Ausencia total de actividad cerebral",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Alta actividad cerebral, sueños vívidos, atonía muscular y movimientos oculares rápidos",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Ondas delta de gran amplitud",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Disminución de la frecuencia cardiaca sin actividad cerebral",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 386,
+    "pregunta": "¿Qué consecuencias produce la privación de sueño según la ficha?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Mejora de la memoria y del estado de ánimo",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Irritabilidad, fallos de atención, alteraciones de la memoria y mayor riesgo de accidentes",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Aumento de la producción de melatonina",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ninguna consecuencia significativa",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 387,
+    "pregunta": "El Sistema Reticular Activador Ascendente (SRAA) es esencial para:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "Error tipográfico menor: En el documento original, la opción C presenta un signo de dos puntos superfluo ('C): La memoria...').",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Mantener la vigilia y el nivel de alerta",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "La orientación espacial",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La memoria a corto plazo únicamente",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "El procesamiento del lenguaje",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 388,
+    "pregunta": "El tálamo actúa como:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Estación de relevo que filtra e integra la información sensorial antes de llegar a la corteza",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Centro exclusivo de la memoria emocional",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Regulador de la temperatura corporal",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Estructura responsable del habla",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 389,
+    "pregunta": "¿Qué estructura regula los ciclos sueño-vigilia y funciones vitales automáticas como la respiración y la frecuencia cardiaca?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Corteza prefrontal",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Formación reticular (tronco encefálico)",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Corteza parietal",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Corteza cerebral (lóbulos)",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 390,
+    "pregunta": "La corteza prefrontal está relacionada principalmente con:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Funciones ejecutivas, planificación, toma de decisiones, juicio y autoconciencia",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "La orientación espacial y el esquema corporal",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La generación de husos del sueño",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "El control del ritmo cardiaco exclusivamente",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 391,
+    "pregunta": "Según la función fisiológica de la conciencia, ¿cuál de las siguientes NO es una función que cumple?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "Distractor no clínico: La opción C ('Producir directamente insulina en el páncreas') es una opción humorística y biológicamente ajena a la psicopatología que rompe la seriedad académica del examen.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Integrar la información interna y externa",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Permitir la atención y la concentración",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Producir directamente insulina en el páncreas",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Regular la conducta voluntaria y el control inhibitorio",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 392,
+    "pregunta": "La hipervigilancia, como alteración cuantitativa, puede observarse clínicamente en:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Manía, ansiedad intensa e intoxicación por cocaína o anfetaminas",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Delirium leve y fiebre alta",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Depresión profunda y catatonía",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Traumatismo craneoencefálico severo",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 393,
+    "pregunta": "¿Qué alteración cuantitativa se asocia clínicamente a encefalopatías, infecciones graves e intoxicación medicamentosa?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Somnolencia",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Letargia",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Hipervigilancia",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Estupor",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 394,
+    "pregunta": "¿Cuál de las siguientes es una alteración CUALITATIVA del contenido de la conciencia?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Coma",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Hipervigilancia",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Delirium",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Estupor",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 395,
+    "pregunta": "La despersonalización se define como:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Sensación de extrañeza o irrealidad respecto a uno mismo",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Sensación de irrealidad del entorno",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Presencia de dos o más identidades",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Creencia delirante de estar muerto",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 396,
+    "pregunta": "El síndrome de Cotard se caracteriza por:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La negación de una enfermedad o déficit físico",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "La creencia delirante de estar muerto, no existir o tener órganos que dejaron de funcionar",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "La sensación de que una extremidad amputada sigue presente",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "La presencia de dos o más identidades que toman el control del individuo",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 397,
+    "pregunta": "¿Qué autor relacionó la conciencia con las emociones y la construcción del yo, destacando el papel del cuerpo en la toma de decisiones?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "William James",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Sigmund Freud",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Antonio Damasio",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Gerald Edelman",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 398,
+    "pregunta": "Un paciente está alerta, orientado en tiempo, espacio y persona, y responde adecuadamente a las preguntas. Según la escala de estados de conciencia, ¿en qué nivel se encuentra?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Hipervigilancia",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Vigilia normal",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Somnolencia",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Letargia",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 399,
+    "pregunta": "Si un paciente solo responde a estímulos dolorosos intensos y no reacciona a la voz ni a estímulos leves, ¿qué alteración cuantitativa presenta?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Obnubilación",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Somnolencia",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Estupor",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Letargia",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 400,
+    "pregunta": "La diferencia esencial entre \"nivel de conciencia (arousal)\" y \"contenido de la conciencia (awareness)\" es que el primero se refiere a:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La identidad personal, mientras que el segundo se refiere a la orientación espacial",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El grado de activación del sistema nervioso, mientras que el segundo se refiere al conjunto de experiencias y percepciones presentes",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Los ciclos de sueño, mientras que el segundo se refiere a la atención selectiva",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "No existe diferencia relevante entre ambos conceptos",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 401,
+    "pregunta": "Un paciente presenta confusión, desorientación y dificultad para mantener la claridad mental, pero aún responde a estímulos verbales, aunque de forma inadecuada. ¿Qué alteración cuantitativa es más probable?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Obnubilación",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Coma",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Obnubilación",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Vigilia normal",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 402,
+    "pregunta": "Un individuo consume cocaína y presenta un aumento anormal del nivel de atención junto con ansiedad intensa. ¿Qué alteración cuantitativa del nivel de conciencia refleja mejor este cuadro?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Letargia",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Hipervigilancia",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Estupor",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Obnubilación",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 403,
+    "pregunta": "¿Cuál de las siguientes secuencias ordena correctamente los niveles de conciencia de mayor a menor activación según la escala presentada?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Coma → Estupor → Vigilia normal → Hipervigilancia",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Hipervigilancia → Vigilia normal → Somnolencia → Coma",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Somnolencia → Hipervigilancia → Letargia → Estupor",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Vigilia normal → Coma → Letargia → Hipervigilancia",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 404,
+    "pregunta": "Un paciente muestra sensación de irrealidad respecto al entorno que lo rodea, pero mantiene intacta la percepción de sí mismo. ¿Qué alteración cualitativa describe mejor este caso?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Despersonalización",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Desrealización",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Estado crepuscular",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Automatismo",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 405,
+    "pregunta": "Un paciente cree firmemente que está muerto y que sus órganos han dejado de funcionar, a pesar de estar consciente y hablando. Este cuadro corresponde a:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Asomatognosia",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Síndrome de Cotard",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Trastorno de identidad disociativa",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Anosognosia (falta de conciencia de la propia enfermedad)",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 406,
+    "pregunta": "Un paciente epiléptico presenta un episodio breve de reducción del campo de conciencia, con enlentecimiento y confusión, seguido de recuperación. ¿Qué alteración cualitativa describe este episodio?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Estado crepuscular",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Delirium",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Coma",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Hipervigilancia",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 407,
+    "pregunta": "Un anciano hospitalizado desarrolla, en cuestión de horas, confusión fluctuante, desorientación y alucinaciones tras una infección. ¿Qué alteración cualitativa es más compatible con este cuadro agudo?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Despersonalización",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Delirium",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Desrealización",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Automatismo",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 408,
+    "pregunta": "La diferencia principal entre las alteraciones cuantitativas y las cualitativas de la conciencia es que las primeras afectan a:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El contenido de la conciencia, y las segundas al nivel de alerta",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El nivel de alerta (arousal), y las segundas al contenido de la conciencia",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "La memoria únicamente, y las segundas a la atención únicamente",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ambas afectan exactamente a lo mismo",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 409,
+    "pregunta": "Durante el sueño, ¿en qué etapa es más difícil despertar a una persona debido a la presencia de ondas delta muy lentas y de gran amplitud?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "Nomenclatura obsoleta: El manual moderno clasifica el sueño no-REM en tres etapas (N1, N2, N3). La denominación de N4 corresponde a la clasificación antigua de Rechtschaffen y Kales, la cual ha sido unificada junto con la N3 en el sueño de ondas lentas.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "N1",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "N2",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "REM",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "N4",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 410,
+    "pregunta": "Si una persona es despertada durante la fase REM, es más probable que refiera:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Que no recuerda nada porque no soñó",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Sueños vívidos, coincidiendo con la atonía muscular y los movimientos oculares rápidos",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Sensación de estar completamente descansada por la actividad cerebral mínima",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Recuperación de husos del sueño",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 411,
+    "pregunta": "¿Qué relación existe entre las etapas N3/N4 y la fase REM en cuanto a su función?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "N3/N4 se asocian a recuperación física y regeneración celular, mientras que REM se asocia a procesamiento emocional y consolidación de memoria",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Ambas cumplen exactamente la misma función restauradora",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "N3/N4 procesan la memoria emocional y REM regenera los tejidos",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ninguna de las dos tiene una función fisiológica definida",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 412,
+    "pregunta": "Si una persona duerme 7,5 horas y cada ciclo de sueño dura entre 90 y 110 minutos, ¿aproximadamente cuántos ciclos completos habrá atravesado?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "1 o 2",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "4 a 6",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "8 a 10",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ninguno, porque un ciclo dura toda la noche",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 413,
+    "pregunta": "Una persona con privación crónica de sueño presenta irritabilidad, fallos de atención y mayor riesgo de accidentes. Esto se explica principalmente porque el sueño:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "No tiene relación con el funcionamiento cognitivo diurno",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Es un estado fisiológico reversible y cíclico esencial para la vida, cuya alteración afecta a la memoria y la atención",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Solo afecta al sistema inmunológico, no a la cognición",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Depende exclusivamente de la corteza parietal",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 414,
+    "pregunta": "¿Qué estructura sería más probable que estuviera dañada en un paciente que, pese a tener la corteza cerebral intacta, permanece en coma y no logra mantener la vigilia?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La corteza parietal",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El Sistema Reticular Activador Ascendente (SRAA)",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "La corteza prefrontal exclusivamente",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "El lóbulo occipital",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 415,
+    "pregunta": "Un paciente con una lesión en el tálamo presenta alteraciones en la integración de la información sensorial antes de que esta llegue a la corteza. Esto es coherente con la función del tálamo como:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Regulador de los ciclos sueño-vigilia únicamente",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Estación de relevo que filtra e integra la información sensorial",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Centro exclusivo de las funciones ejecutivas",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Estructura responsable de la memoria procedimental",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 416,
+    "pregunta": "Si un paciente muestra alteraciones en la planificación, la toma de decisiones, el juicio y la autoconciencia, pero conserva la orientación espacial, ¿qué área cerebral es más probable que esté afectada?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Corteza parietal",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Formación reticular",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Corteza prefrontal",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Tálamo",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 417,
+    "pregunta": "Un paciente con daño en el tronco encefálico presenta alteraciones en la respiración y en la frecuencia cardiaca. ¿Qué estructura relacionada con la conciencia explica mejor esta afectación?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Corteza prefrontal",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Formación reticular",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Corteza parietal",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Lóbulos cerebrales en general",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 418,
+    "pregunta": "¿Por qué se dice que la conciencia \"integra ambos mundos\" (exterior e interior)?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Porque procesa exclusivamente estímulos externos, ignorando pensamientos y emociones",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Porque combina la percepción de personas, objetos y estímulos ambientales con pensamientos, emociones, recuerdos y sensaciones corporales",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Porque depende únicamente del sistema inmunológico",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Porque solo interviene en la conducta involuntaria",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 419,
+    "pregunta": "La atención, como componente de la conciencia, cumple la función de:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Regular la temperatura corporal",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Actuar como mecanismo selectivo que regula qué información entra en la conciencia",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Producir melatonina",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Generar los ciclos de sueño REM",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 420,
+    "pregunta": "Un paciente realiza conductas motoras complejas (como caminar) sin conciencia ni control voluntario de ellas, y no las recuerda después. Esto es característico de:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Despersonalización",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Automatismos",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Hipervigilancia",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Síndrome de Cotard",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 421,
+    "pregunta": "La sensación de que un miembro amputado sigue presente o realiza movimientos, se relaciona con un trastorno de la conciencia:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "Clasificación imprecisa: El 'miembro fantasma' es una alteración del esquema corporal y de la somatosensibilidad periférica y central, más que un 'trastorno de la conciencia del cuerpo' en sentido psicopatológico estricto.",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Del contenido emocional",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Del cuerpo (miembro fantasma)",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Del nivel de alerta",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Del ciclo circadiano",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 422,
+    "pregunta": "Comparando el trastorno de identidad disociativa con la despersonalización, la diferencia clave es que en el primero existe:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Una sensación pasajera de extrañeza hacia uno mismo, mientras que la despersonalización implica varias identidades",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Presencia de dos o más identidades o estados de personalidad que toman el control, mientras que la despersonalización es una sensación de extrañeza respecto a uno mismo sin cambio de identidad",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Ausencia total de conciencia, mientras que la despersonalización implica coma",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "No hay ninguna diferencia relevante entre ambos",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 423,
+    "pregunta": "William James definió la conciencia como una \"corriente\" continua y cambiante de experiencias. Esta idea enfatiza principalmente:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Que la conciencia es un estado fijo e inmutable",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El carácter dinámico y fluido de la conciencia a lo largo del tiempo",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Que la conciencia depende exclusivamente del inconsciente",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Que la conciencia se limita a los procesos sensoriales",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 424,
+    "pregunta": "Antonio Damasio (1999) relacionó la conciencia con las emociones y la construcción del yo, destacando especialmente:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El papel del cuerpo en la toma de decisiones",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Los tres niveles de conciencia (consciente, preconsciente, inconsciente)",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La teoría de la selección de grupos neuronales",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "El estudio pionero y científico de la conciencia sin relación con las emociones",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 425,
+    "pregunta": "¿Qué autor propuso los tres niveles de conciencia: consciente, preconsciente e inconsciente?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Gerald Edelman",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Antonio Damasio",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "William James",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Sigmund Freud",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 426,
+    "pregunta": "La Teoría de la Selección de Grupos Neuronales (Teoría Neuronal de la Conciencia) fue propuesta por:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Gerald Edelman",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Sigmund Freud",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "William James",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Antonio Damasio",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 427,
+    "pregunta": "Un paciente presenta simultáneamente confusión, desorientación temporoespacial y una disminución marcada de la claridad mental, sin llegar a la ausencia total de respuesta. Ordenando de menor a mayor gravedad las alteraciones cuantitativas, este cuadro se situaría entre:",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Hipervigilancia y vigilia normal",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Somnolencia y letargia",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Obnubilación y estupor",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Vigilia normal e hipervigilancia",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 428,
+    "pregunta": "¿Por qué se considera que las alteraciones del nivel de conciencia (cuantitativas) suelen tener causas orgánicas o tóxicas más evidentes (traumatismos, intoxicaciones, hipoxia), mientras que las alteraciones cualitativas se asocian también a cuadros disociativos o de ansiedad?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Porque las cuantitativas afectan al grado de activación del sistema nervioso central, mientras que las cualitativas afectan al contenido y la experiencia subjetiva de la conciencia, pudiendo originarse en procesos psicológicos además de orgánicos",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Porque no existe ninguna diferencia real entre ambos tipos de alteración",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Porque las alteraciones cualitativas siempre implican pérdida total de conciencia",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Porque las alteraciones cuantitativas nunca tienen causa orgánica",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 429,
+    "pregunta": "Integrando el esquema general de la ficha, ¿qué relación lógica se establece entre el SRAA, los estados de conciencia y el sueño?",
+    "asignatura": "Psicología general",
+    "capitulo": "Conciencia (dificultad media)",
+    "anio": 0,
+    "bibliografia": "",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El SRAA no tiene relación con el sueño ni con los estados de conciencia",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El SRAA, al mantener la vigilia y el nivel de alerta, es la base fisiológica que permite transitar entre los distintos estados de conciencia (vigilia, somnolencia, sueño) y sus alteraciones",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "El SRAA regula exclusivamente la fase REM sin intervenir en la vigilia",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "El SRAA sustituye la función de la corteza prefrontal en la toma de decisiones",
+        "correcta": false
+      }
+    ]
   }
 ]

@@ -349,7 +349,7 @@ function App() {
             element={
               <Protegida sesionLista={sesionLista} autenticado={autenticado}>
                 {userId && (
-                  <Estadisticas userId={userId} cursoId={CURSO_ID} onBack={() => navigate(RUTA.home)} onNavigate={irA} />
+                  <Estadisticas userId={userId} cursoIdInicial={CURSO_ID} onBack={() => navigate(RUTA.home)} onNavigate={irA} />
                 )}
               </Protegida>
             }

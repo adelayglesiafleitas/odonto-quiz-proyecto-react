@@ -1,18 +1,10 @@
-import { Stethoscope, Brain, Plus, ChevronRight, type LucideIcon } from 'lucide-react'
+import { Stethoscope, Plus, ChevronRight } from 'lucide-react'
 import { useAppSettings } from '@/context/AppSettings'
 import { SettingsToggle } from '@/components/SettingsToggle'
 import { LogoMark } from '@/components/Logo'
 import { BottomNav } from '@/components/BottomNav'
-import { getAsignaturas } from '@/lib/asignaturas'
+import { getAsignaturas, ICONO_CURSO } from '@/lib/asignaturas'
 import type { Pantalla } from '@/types'
-
-// Ícono por curso, solo estético — Stethoscope para Odontología (el caso
-// original), Brain para Psicología. Una asignatura nueva sin entrada acá
-// cae en Stethoscope por defecto en vez de romper.
-const ICONO_CURSO: Record<string, LucideIcon> = {
-  odontologia: Stethoscope,
-  psicologia: Brain,
-}
 
 /**
  * Paso previo a "Configurar examen": elegís la asignatura que vas a
