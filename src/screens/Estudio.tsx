@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { ArrowLeft } from 'lucide-react'
 import { getCapitulos, getPreguntas } from '@/lib/data'
+import { CURSO_ID } from '@/lib/cursos'
 import { useAppSettings } from '@/context/AppSettings'
 import { BottomNav } from '@/components/BottomNav'
 import type { Pantalla } from '@/types'
@@ -10,8 +11,10 @@ import type { Pantalla } from '@/types'
 // "academia" queda marcada como activa porque es de donde se llega acá.
 export function Estudio({ onBack, onNavigate }: { onBack: () => void; onNavigate: (p: Pantalla) => void }) {
   const { t } = useAppSettings()
-  const todasPreguntas = useMemo(() => getPreguntas(), [])
-  const capitulos = useMemo(() => ['todos', ...getCapitulos()], [])
+  // Estudio libre sigue mostrando siempre Odontología (mismo alcance que
+  // Home/Estadísticas/Ayuda) — no pasa por ElegirAsignatura.
+  const todasPreguntas = useMemo(() => getPreguntas(CURSO_ID), [])
+  const capitulos = useMemo(() => ['todos', ...getCapitulos(CURSO_ID)], [])
   const [capitulo, setCapitulo] = useState('todos')
 
   const preguntas = useMemo(

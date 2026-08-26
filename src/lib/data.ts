@@ -1,36 +1,50 @@
 import type { Pregunta } from '../types'
 
-// El banco de preguntas pesa ~1.1MB en JSON. En vez de incluirlo en el bundle
-// principal (que retrasaría la primera pintura de la app), se carga como un
-// chunk aparte mediante import() dinámico. `cargarBanco()` se dispara al
-// montar App y se espera antes de entrar a 'home', así que para cuando se
-// usan los getters síncronos de abajo el banco ya está en caché.
-let cache: Pregunta[] = []
-let cargaPromise: Promise<Pregunta[]> | null = null
+// Un banco de preguntas por curso (~1.1MB Odontología, ~340KB Psicología en
+// JSON). Cada uno se carga como su propio chunk mediante import() dinámico,
+// y solo cuando se pide — así alguien que solo rinde Psicología nunca
+// descarga el JSON de Odontología, y viceversa. `cargarBanco(cursoId)` se
+// dispara al montar App (para el curso por defecto, ver lib/cursos.ts) y al
+// elegir una asignatura en ElegirAsignatura; se espera antes de entrar a la
+// pantalla que lo necesita, así que para cuando se usan los getters
+// síncronos de abajo el banco pedido ya está en caché.
+const BANCOS: Record<string, () => Promise<{ default: Pregunta[] }>> = {
+  odontologia: () => import('../data/odontologia.json'),
+  psicologia: () => import('../data/psicologia.json'),
+}
 
-export function cargarBanco(): Promise<Pregunta[]> {
-  if (!cargaPromise) {
-    cargaPromise = import('../data/odontologia.json').then((mod) => {
-      cache = mod.default as Pregunta[]
-      return cache
-    })
+const cache: Record<string, Pregunta[]> = {}
+const cargaPromises: Record<string, Promise<Pregunta[]>> = {}
+
+export function cargarBanco(cursoId: string): Promise<Pregunta[]> {
+  if (!cargaPromises[cursoId]) {
+    const cargar = BANCOS[cursoId]
+    if (!cargar) {
+      console.error(`No hay banco de preguntas registrado para el curso "${cursoId}"`)
+      cargaPromises[cursoId] = Promise.resolve([])
+    } else {
+      cargaPromises[cursoId] = cargar().then((mod) => {
+        cache[cursoId] = mod.default
+        return cache[cursoId]
+      })
+    }
   }
-  return cargaPromise
+  return cargaPromises[cursoId]
 }
 
-export function getPreguntas(): Pregunta[] {
-  return cache
+export function getPreguntas(cursoId: string): Pregunta[] {
+  return cache[cursoId] ?? []
 }
 
-export function getCapitulos(): string[] {
-  const set = new Set(getPreguntas().map((p) => p.capitulo))
+export function getCapitulos(cursoId: string): string[] {
+  const set = new Set(getPreguntas(cursoId).map((p) => p.capitulo))
   return Array.from(set).sort()
 }
 
-export function getAnios(): number[] {
+export function getAnios(cursoId: string): number[] {
   // anio = 0 significa "banco temático sin convocatoria real verificada"
   // (ver cursos.ts); no se muestra como opción de convocatoria seleccionable.
-  const set = new Set(getPreguntas().map((p) => p.anio))
+  const set = new Set(getPreguntas(cursoId).map((p) => p.anio))
   set.delete(0)
   return Array.from(set).sort((a, b) => b - a)
 }
@@ -50,15 +64,16 @@ export function shuffle<T>(arr: T[]): T[] {
 // respuesta correcta (ej. A y E correctas a la vez) — el recorte al azar de
 // las incorrectas podía dejar una combinación rara para ese tipo de
 // pregunta. Se sacó el recorte por completo: ahora el examen siempre
-// muestra TODAS las opciones de cada pregunta tal como están en
-// odontologia.json, sin importar si son 4, 5 o cualquier otra cantidad.
+// muestra TODAS las opciones de cada pregunta tal como están en el banco,
+// sin importar si son 2, 3, 4, 5 o cualquier otra cantidad.
 
 export function seleccionarPreguntas(
+  cursoId: string,
   cantidad: number,
   capitulos: string[],
   anio: number | 'todos' = 'todos',
 ): Pregunta[] {
-  let pool = getPreguntas()
+  let pool = getPreguntas(cursoId)
   // Array vacío = todos los capítulos; con elementos, cualquier pregunta de
   // cualquiera de los capítulos elegidos entra en el pool (combinación, no
   // intersección).

@@ -3,7 +3,7 @@ import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-
 import type { Session } from '@supabase/supabase-js'
 import type { Pantalla, Pregunta } from '@/types'
 import { cargarBanco, seleccionarPreguntas } from '@/lib/data'
-import { CURSO, CURSO_ID } from '@/lib/cursos'
+import { CURSO, CURSO_ID, CURSOS } from '@/lib/cursos'
 import { supabase } from '@/lib/supabase'
 import { verificarDispositivo, cerrarSesionOtrosDispositivos, liberarDispositivoActual } from '@/lib/dispositivos'
 import { RUTA, RUTA_SOPORTE, RUTA_SOPORTE_DETALLE } from '@/lib/rutas'
@@ -80,14 +80,19 @@ function App() {
   const [resultado, setResultado] = useState<ResultadoExamen>({ respuestas: {}, tiempoUsadoSeg: 0, agotoTiempo: false })
   const [verifDispositivo, setVerifDispositivo] = useState<'pendiente' | 'ok' | 'bloqueado'>('pendiente')
   const [dispositivosActivos, setDispositivosActivos] = useState(0)
-  // Por ahora hay un solo banco de preguntas (CURSO_ID), así que esto no
-  // filtra nada todavía; queda listo para cuando haya más de una asignatura.
-  const [, setAsignaturaId] = useState<string | null>(null)
+  // cursoId de la asignatura elegida en ElegirAsignatura — gobierna qué
+  // banco de preguntas y qué CursoMeta usan Configurar/Examen/Resultados de
+  // ahí en adelante. Arranca en CURSO_ID (Odontología) por si algo navegara
+  // directo a /simulacro/configurar sin pasar por ElegirAsignatura primero.
+  const [cursoIdExamen, setCursoIdExamen] = useState<string>(CURSO_ID)
 
   useEffect(() => {
     // Se dispara en paralelo a la pantalla de carga inicial, así que para
-    // cuando se necesita ya está resuelto en la mayoría de los casos.
-    cargarBanco()
+    // cuando se necesita ya está resuelto en la mayoría de los casos. Solo
+    // precarga el curso por defecto (Home/Estudio/Estadísticas/Ayuda lo
+    // necesitan sin pasar por ElegirAsignatura) — el banco de otra
+    // asignatura se pide recién al elegirla, ver onSeleccionar más abajo.
+    cargarBanco(CURSO_ID)
     supabase.auth.getSession().then(({ data }) => {
       setSession(data.session)
       setSesionLista(true)
@@ -136,7 +141,7 @@ function App() {
   useEffect(() => {
     if (location.pathname !== RUTA.splash || !sesionLista || !tiempoMinimoListo) return
     if (autenticado) {
-      cargarBanco().then(() => navigate(RUTA.home, { replace: true }))
+      cargarBanco(CURSO_ID).then(() => navigate(RUTA.home, { replace: true }))
     } else {
       navigate(RUTA.login, { replace: true })
     }
@@ -168,7 +173,12 @@ function App() {
     tiempoLimiteMinutos: number | null,
     anio: number | 'todos',
   ) {
-    setSesionExamen({ preguntas: seleccionarPreguntas(cantidad, capitulos, anio), capitulos, anio, tiempoLimiteMinutos })
+    setSesionExamen({
+      preguntas: seleccionarPreguntas(cursoIdExamen, cantidad, capitulos, anio),
+      capitulos,
+      anio,
+      tiempoLimiteMinutos,
+    })
     navigate(RUTA.examen)
   }
 
@@ -212,7 +222,7 @@ function App() {
               ) : autenticado ? (
                 <Navigate to={RUTA.home} replace />
               ) : (
-                <Login onLogin={() => cargarBanco().then(() => navigate(RUTA.home, { replace: true }))} />
+                <Login onLogin={() => cargarBanco(CURSO_ID).then(() => navigate(RUTA.home, { replace: true }))} />
               )
             }
           />
@@ -240,9 +250,13 @@ function App() {
             element={
               <Protegida sesionLista={sesionLista} autenticado={autenticado}>
                 <ElegirAsignatura
-                  onSeleccionar={(id) => {
-                    setAsignaturaId(id)
-                    navigate(RUTA.configurar)
+                  onSeleccionar={(cursoId) => {
+                    setCursoIdExamen(cursoId)
+                    // Espera a que el banco de esa asignatura esté cargado
+                    // antes de entrar a Configurar examen — si no, la
+                    // primera vez que se elige una asignatura nueva (banco
+                    // todavía no pedido) Configurar vería 0 capítulos.
+                    cargarBanco(cursoId).then(() => navigate(RUTA.configurar))
                   }}
                   onNavigate={irA}
                 />
@@ -257,8 +271,8 @@ function App() {
                 {userId && (
                   <ConfigurarExamen
                     userId={userId}
-                    cursoId={CURSO_ID}
-                    cursoMeta={CURSO}
+                    cursoId={cursoIdExamen}
+                    cursoMeta={CURSOS[cursoIdExamen]}
                     onBack={() => navigate(RUTA.asignaturas)}
                     onNavigate={irA}
                     onIniciar={iniciarExamen}
@@ -294,13 +308,13 @@ function App() {
                 {userId && sesionExamen ? (
                   <Resultados
                     userId={userId}
-                    cursoId={CURSO_ID}
+                    cursoId={cursoIdExamen}
                     preguntas={sesionExamen.preguntas}
                     respuestas={resultado.respuestas}
                     capitulos={sesionExamen.capitulos}
                     anio={sesionExamen.anio}
-                    umbralAprobado={CURSO.porcentajeAprobado}
-                    mostrarConvocatoria={CURSO.tieneConvocatorias}
+                    umbralAprobado={CURSOS[cursoIdExamen].porcentajeAprobado}
+                    mostrarConvocatoria={CURSOS[cursoIdExamen].tieneConvocatorias}
                     tiempoLimiteMinutos={sesionExamen.tiempoLimiteMinutos}
                     tiempoUsadoSeg={resultado.tiempoUsadoSeg}
                     agotoTiempo={resultado.agotoTiempo}

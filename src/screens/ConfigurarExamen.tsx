@@ -41,9 +41,9 @@ export function ConfigurarExamen({
   onIniciar: (cantidad: number, capitulos: string[], tiempoLimiteMinutos: number | null, anio: number | 'todos') => void
 }) {
   const { t } = useAppSettings()
-  const preguntas = getPreguntas()
-  const todosLosCapitulos = getCapitulos()
-  const anios = getAnios()
+  const preguntas = getPreguntas(cursoId)
+  const todosLosCapitulos = getCapitulos(cursoId)
+  const anios = getAnios(cursoId)
   const [cantidad, setCantidad] = useState(cursoMeta.cantidadOficial)
   // Array vacío = "todos los capítulos"; con elementos, el examen combina
   // las preguntas de todos los capítulos elegidos (no es excluyente como

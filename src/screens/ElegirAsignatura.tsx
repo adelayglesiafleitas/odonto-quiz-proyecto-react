@@ -1,4 +1,4 @@
-import { Stethoscope, Plus, ChevronRight } from 'lucide-react'
+import { Stethoscope, Brain, Plus, ChevronRight, type LucideIcon } from 'lucide-react'
 import { useAppSettings } from '@/context/AppSettings'
 import { SettingsToggle } from '@/components/SettingsToggle'
 import { LogoMark } from '@/components/Logo'
@@ -6,16 +6,23 @@ import { BottomNav } from '@/components/BottomNav'
 import { getAsignaturas } from '@/lib/asignaturas'
 import type { Pantalla } from '@/types'
 
+// Ícono por curso, solo estético — Stethoscope para Odontología (el caso
+// original), Brain para Psicología. Una asignatura nueva sin entrada acá
+// cae en Stethoscope por defecto en vez de romper.
+const ICONO_CURSO: Record<string, LucideIcon> = {
+  odontologia: Stethoscope,
+  psicologia: Brain,
+}
+
 /**
  * Paso previo a "Configurar examen": elegís la asignatura que vas a
- * examinar. Por ahora solo hay una disponible (Pacientes especiales); esta
- * pantalla ya queda lista para cuando se sumen más (ver lib/asignaturas.ts).
+ * examinar (ver lib/asignaturas.ts para la lista y cómo sumar una nueva).
  */
 export function ElegirAsignatura({
   onSeleccionar,
   onNavigate,
 }: {
-  onSeleccionar: (asignaturaId: string) => void
+  onSeleccionar: (cursoId: string) => void
   onNavigate: (p: Pantalla) => void
 }) {
   const { t, idioma } = useAppSettings()
@@ -34,19 +41,22 @@ export function ElegirAsignatura({
       </div>
 
       <div className="mt-5 space-y-3">
-        {asignaturas.map((asig) => (
-          <button
-            key={asig.id}
-            onClick={() => onSeleccionar(asig.id)}
-            className="card-elevated flex w-full items-center gap-4 rounded-2xl bg-card p-4 text-left transition active:scale-[0.98]"
-          >
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-accent/12 text-accent">
-              <Stethoscope className="h-5 w-5" />
-            </span>
-            <span className="min-w-0 flex-1 text-[15px] font-bold text-foreground">{asig.nombre}</span>
-            <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
-          </button>
-        ))}
+        {asignaturas.map((asig) => {
+          const Icono = ICONO_CURSO[asig.cursoId] ?? Stethoscope
+          return (
+            <button
+              key={asig.id}
+              onClick={() => onSeleccionar(asig.cursoId)}
+              className="card-elevated flex w-full items-center gap-4 rounded-2xl bg-card p-4 text-left transition active:scale-[0.98]"
+            >
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-accent/12 text-accent">
+                <Icono className="h-5 w-5" />
+              </span>
+              <span className="min-w-0 flex-1 text-[15px] font-bold text-foreground">{asig.nombre}</span>
+              <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
+            </button>
+          )
+        })}
 
         <div className="flex items-center gap-4 rounded-2xl border border-dashed border-border p-4 text-muted-foreground">
           <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-secondary">
