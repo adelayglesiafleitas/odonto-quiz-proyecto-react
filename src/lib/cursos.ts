@@ -30,6 +30,16 @@ export const CURSOS: Record<string, CursoMeta> = {
     tieneConvocatorias: false,
     cantidadesDisponibles: [10, 20, 30, 40],
   },
+  ortodoncia: {
+    // Mismos valores que odontología/psicología (mismo formato de examen de
+    // homologación) — decisión del usuario al agregar esta asignatura
+    // (2026-08-27), no un dato propio de Ortodoncia verificado aparte.
+    duracionOficialMinutos: 40,
+    cantidadOficial: 30,
+    porcentajeAprobado: 70,
+    tieneConvocatorias: false,
+    cantidadesDisponibles: [10, 20, 30, 40],
+  },
 }
 
 // CURSO_ID/CURSO son el curso "por defecto": todavía los usan Home,

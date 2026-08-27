@@ -11,6 +11,7 @@ import type { Pregunta } from '../types'
 const BANCOS: Record<string, () => Promise<{ default: Pregunta[] }>> = {
   odontologia: () => import('../data/odontologia.json'),
   psicologia: () => import('../data/psicologia.json'),
+  ortodoncia: () => import('../data/ortodoncia.json'),
 }
 
 const cache: Record<string, Pregunta[]> = {}
