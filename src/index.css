@@ -28,6 +28,34 @@
     --input: 205 15% 55%;
     --ring: 187 80% 30%;
     --radius: 1.1rem;
+
+    /* Paleta de las cards "hero" de Home (bienvenida / frase del día / CTA
+       "empezá ya"): son intencionalmente independientes del claro/oscuro
+       (siempre un degradé teal oscuro por diseño), así que viven en sus
+       propias variables en vez de las semánticas de arriba. Un estilo nuevo
+       solo necesita redefinir este bloque bajo su propia clase .estilo-*. */
+    --home-hero-bg: linear-gradient(135deg, #123a3f 0%, #0d2233 100%);
+    --home-hero-border: rgba(31, 198, 198, 0.2);
+    --home-hero-glow: radial-gradient(circle, rgba(31, 198, 198, 0.55), transparent 70%);
+    --home-hero-ink: #ffffff;
+    --home-hero-ink-muted: rgba(255, 255, 255, 0.7);
+    --home-hero-kicker: #7fe9e2;
+    --home-hero-badge-bg: linear-gradient(135deg, #2dd8d8, #12908f);
+    --home-hero-btn-bg: #7fe9e2;
+    --home-hero-btn-ink: #0d2233;
+    --home-hero-ring: #7fe9e2;
+    --home-hero-shadow: 0 1px 2px rgba(9, 41, 54, 0.04), 0 12px 28px -12px rgba(9, 41, 54, 0.18);
+    --home-hero-transform: none;
+
+    /* Franja "de marca" (header de Home + FAB central de la barra inferior,
+       también reutilizada por Login/Splash/carga vía .brand-gradient): a
+       propósito UN solo valor por estilo, no uno por claro/oscuro — es una
+       banda de color saturado adrede, para que el texto blanco de encima
+       siga siendo legible sin tener que retemizar cada bg-white/NN suelto
+       del header. */
+    --brand-bg: radial-gradient(130% 70% at 100% 0%, hsl(187 80% 55% / 0.22) 0%, transparent 60%),
+      linear-gradient(160deg, #0a3547 0%, #0f5c6e 55%, #12879a 100%);
+    --brand-accent-bg: linear-gradient(135deg, hsl(193 72% 22%) 0%, hsl(187 82% 30%) 100%);
   }
 
   .dark {
@@ -54,6 +82,327 @@
     --border: 204 22% 24%;
     --input: 205 12% 45%;
     --ring: 187 80% 52%;
+    --home-hero-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 12px 28px -12px rgba(0, 0, 0, 0.55);
+  }
+
+  /* Estilo "Acqua": paleta celeste/glass alternativa, seleccionable desde
+     Ayuda. Se define después de .dark a propósito para que sus valores
+     ganen sin importar si el modo oscuro también está activo — Acqua es
+     un estilo claro por diseño, independiente del toggle claro/oscuro. */
+  .estilo-acqua {
+    --brand-bg: radial-gradient(130% 70% at 100% 0%, hsl(190 90% 65% / 0.25) 0%, transparent 60%), linear-gradient(160deg, #0a4a5c 0%, #0d7f96 55%, #1fb6cf 100%);
+    --brand-accent-bg: linear-gradient(135deg, #0d7f96 0%, #1fb6cf 100%);
+    --background: 200 60% 96%;
+    --foreground: 205 55% 17%;
+    --card: 0 0% 100%;
+    --card-foreground: 205 55% 17%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 205 55% 17%;
+    --primary: 192 82% 32%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 200 60% 95%;
+    --secondary-foreground: 205 45% 20%;
+    --muted: 200 30% 95%;
+    --muted-foreground: 205 20% 45%;
+    --accent: 189 74% 45%;
+    --accent-foreground: 0 0% 100%;
+    --border: 198 45% 87%;
+    --input: 205 15% 55%;
+    --ring: 189 74% 45%;
+
+    --home-hero-bg: linear-gradient(135deg, #eaf9fc 0%, #d3eef8 100%);
+    --home-hero-border: rgba(31, 182, 207, 0.25);
+    --home-hero-glow: radial-gradient(circle, rgba(31, 182, 207, 0.45), transparent 70%);
+    --home-hero-ink: #123449;
+    --home-hero-ink-muted: #5c7a8a;
+    --home-hero-kicker: #0d7f96;
+    --home-hero-badge-bg: linear-gradient(135deg, #38c7dc, #0d7f96);
+    --home-hero-btn-bg: linear-gradient(90deg, #0d7f96, #1fb6cf);
+    --home-hero-btn-ink: #ffffff;
+    --home-hero-ring: #1fb6cf;
+  }
+
+  /* Estilo "Electrico": Eléctrico: neón violeta/cian sobre negro (oscuro) o blanco (claro), glow tipo cartel de recital. Igual que Acqua, cada uno
+     redefine los tokens semánticos globales + las --home-hero-*. A diferencia
+     de Acqua, este SÍ respeta el toggle claro/oscuro: el bloque de abajo cubre
+     el modo claro, y .dark.estilo-electrico (mayor especificidad que .dark solo)
+     cubre el oscuro. */
+
+  .estilo-electrico {
+    --brand-bg: radial-gradient(130% 70% at 100% 0%, hsl(187 100% 55% / 0.3) 0%, transparent 60%), linear-gradient(160deg, #1d0b3d 0%, #5b1fb0 55%, #b026ff 100%);
+    --brand-accent-bg: linear-gradient(135deg, #7b2ff7 0%, #00c2d1 100%);
+    --background: 255 60% 98%;
+    --foreground: 262 55% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 262 55% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 262 55% 15%;
+    --primary: 271 85% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 255 55% 95%;
+    --secondary-foreground: 262 45% 20%;
+    --muted: 255 40% 95%;
+    --muted-foreground: 258 20% 45%;
+    --accent: 187 100% 41%;
+    --accent-foreground: 0 0% 100%;
+    --border: 258 50% 90%;
+    --ring: 187 100% 41%;
+    --home-hero-bg: linear-gradient(135deg, #ffffff 0%, #f3f0ff 100%);
+    --home-hero-border: rgba(123, 47, 247, 0.35);
+    --home-hero-shadow: 4px 4px 0 rgba(0, 194, 209, 0.35);
+    --home-hero-transform: none;
+    --home-hero-glow: radial-gradient(circle, rgba(0, 194, 209, 0.25), transparent 70%);
+    --home-hero-ink: #160a33;
+    --home-hero-ink-muted: #5c5480;
+    --home-hero-kicker: #7b2ff7;
+    --home-hero-badge-bg: linear-gradient(135deg, #7b2ff7, #00c2d1);
+    --home-hero-btn-bg: linear-gradient(90deg, #7b2ff7, #00c2d1);
+    --home-hero-btn-ink: #ffffff;
+    --home-hero-ring: #7b2ff7;
+  }
+
+  .dark.estilo-electrico {
+    --background: 248 55% 9%;
+    --foreground: 255 40% 92%;
+    --card: 262 50% 12%;
+    --card-foreground: 255 40% 92%;
+    --popover: 262 50% 12%;
+    --popover-foreground: 255 40% 92%;
+    --primary: 187 100% 50%;
+    --primary-foreground: 248 55% 9%;
+    --secondary: 260 35% 18%;
+    --secondary-foreground: 255 30% 88%;
+    --muted: 260 30% 16%;
+    --muted-foreground: 255 15% 62%;
+    --accent: 271 100% 60%;
+    --accent-foreground: 0 0% 100%;
+    --border: 260 35% 24%;
+    --ring: 271 100% 60%;
+    --home-hero-bg: linear-gradient(135deg, #150a30 0%, #050510 100%);
+    --home-hero-border: rgba(0, 229, 255, 0.35);
+    --home-hero-shadow: 0 0 22px rgba(176, 38, 255, 0.25);
+    --home-hero-transform: none;
+    --home-hero-glow: radial-gradient(circle, rgba(176, 38, 255, 0.45), transparent 70%);
+    --home-hero-ink: #ffffff;
+    --home-hero-ink-muted: rgba(255, 255, 255, 0.7);
+    --home-hero-kicker: #00e5ff;
+    --home-hero-badge-bg: linear-gradient(135deg, #b026ff, #00e5ff);
+    --home-hero-btn-bg: #eaff00;
+    --home-hero-btn-ink: #0a0e27;
+    --home-hero-ring: #eaff00;
+  }
+
+
+  /* Estilo "Rockpop": Rock Pop Friki: negro/blanco con rosa chicle y amarillo, cards "sticker" con rotación y sombra dura. Igual que Acqua, cada uno
+     redefine los tokens semánticos globales + las --home-hero-*. A diferencia
+     de Acqua, este SÍ respeta el toggle claro/oscuro: el bloque de abajo cubre
+     el modo claro, y .dark.estilo-rockpop (mayor especificidad que .dark solo)
+     cubre el oscuro. */
+
+  .estilo-rockpop {
+    --brand-bg: radial-gradient(130% 70% at 100% 0%, hsl(50 100% 61% / 0.25) 0%, transparent 60%), linear-gradient(160deg, #0d0d0d 0%, #3a0d1c 55%, #ff2e63 100%);
+    --brand-accent-bg: linear-gradient(135deg, #ff2e63 0%, #c9184a 100%);
+    --background: 40 30% 98%;
+    --foreground: 0 0% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 20% 94%;
+    --secondary-foreground: 0 0% 15%;
+    --muted: 40 15% 93%;
+    --muted-foreground: 0 0% 35%;
+    --accent: 344 100% 60%;
+    --accent-foreground: 0 0% 100%;
+    --border: 0 0% 80%;
+    --ring: 344 100% 60%;
+    --home-hero-bg: #ffffff;
+    --home-hero-border: rgba(22, 22, 22, 0.7);
+    --home-hero-shadow: 5px 5px 0 #ff2e63;
+    --home-hero-transform: rotate(-1deg);
+    --home-hero-glow: none;
+    --home-hero-ink: #161616;
+    --home-hero-ink-muted: #5c5c5c;
+    --home-hero-kicker: #c9184a;
+    --home-hero-badge-bg: #ff2e63;
+    --home-hero-btn-bg: #ffcf33;
+    --home-hero-btn-ink: #161616;
+    --home-hero-ring: #161616;
+  }
+
+  .dark.estilo-rockpop {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 50 100% 61%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 0 0% 13%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 344 100% 60%;
+    --accent-foreground: 0 0% 100%;
+    --border: 0 0% 20%;
+    --ring: 344 100% 60%;
+    --home-hero-bg: #161616;
+    --home-hero-border: rgba(255, 46, 99, 0.7);
+    --home-hero-shadow: 5px 5px 0 #ffe93a;
+    --home-hero-transform: rotate(-1deg);
+    --home-hero-glow: none;
+    --home-hero-ink: #ffffff;
+    --home-hero-ink-muted: #c9c9c9;
+    --home-hero-kicker: #ffe93a;
+    --home-hero-badge-bg: #ff2e63;
+    --home-hero-btn-bg: #ffe93a;
+    --home-hero-btn-ink: #161616;
+    --home-hero-ring: #ffe93a;
+  }
+
+
+  /* Estilo "Fresita": Fresita Corazón: rosa pastel de día, marrón-rojizo brillante de noche. Igual que Acqua, cada uno
+     redefine los tokens semánticos globales + las --home-hero-*. A diferencia
+     de Acqua, este SÍ respeta el toggle claro/oscuro: el bloque de abajo cubre
+     el modo claro, y .dark.estilo-fresita (mayor especificidad que .dark solo)
+     cubre el oscuro. */
+
+  .estilo-fresita {
+    --brand-bg: radial-gradient(130% 70% at 100% 0%, hsl(345 100% 80% / 0.3) 0%, transparent 60%), linear-gradient(160deg, #7a0f2e 0%, #c9184a 55%, #ff4d6d 100%);
+    --brand-accent-bg: linear-gradient(135deg, #ff4d6d 0%, #c9184a 100%);
+    --background: 345 100% 97%;
+    --foreground: 340 55% 30%;
+    --card: 0 0% 100%;
+    --card-foreground: 340 55% 30%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 55% 30%;
+    --primary: 346 100% 65%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 345 100% 95%;
+    --secondary-foreground: 340 50% 25%;
+    --muted: 345 60% 95%;
+    --muted-foreground: 340 25% 55%;
+    --accent: 340 90% 55%;
+    --accent-foreground: 0 0% 100%;
+    --border: 345 100% 90%;
+    --ring: 340 90% 55%;
+    --home-hero-bg: linear-gradient(135deg, #ffffff 0%, #ffe9ef 100%);
+    --home-hero-border: rgba(255, 179, 198, 0.6);
+    --home-hero-shadow: 0 8px 20px rgba(255, 77, 109, 0.18);
+    --home-hero-transform: none;
+    --home-hero-glow: radial-gradient(circle, rgba(255, 143, 163, 0.4), transparent 70%);
+    --home-hero-ink: #7a2039;
+    --home-hero-ink-muted: #a85c72;
+    --home-hero-kicker: #e8305a;
+    --home-hero-badge-bg: linear-gradient(135deg, #ff8fa3, #ff4d6d);
+    --home-hero-btn-bg: linear-gradient(90deg, #ff4d6d, #ff8fa3);
+    --home-hero-btn-ink: #ffffff;
+    --home-hero-ring: #ff4d6d;
+  }
+
+  .dark.estilo-fresita {
+    --background: 335 60% 8%;
+    --foreground: 345 100% 90%;
+    --card: 335 50% 12%;
+    --card-foreground: 345 100% 90%;
+    --popover: 335 50% 12%;
+    --popover-foreground: 345 100% 90%;
+    --primary: 340 100% 70%;
+    --primary-foreground: 335 60% 8%;
+    --secondary: 335 40% 16%;
+    --secondary-foreground: 345 60% 85%;
+    --muted: 335 35% 15%;
+    --muted-foreground: 340 25% 65%;
+    --accent: 340 90% 65%;
+    --accent-foreground: 0 0% 100%;
+    --border: 335 40% 22%;
+    --ring: 340 90% 65%;
+    --home-hero-bg: linear-gradient(135deg, #2a0f1c 0%, #1a0510 100%);
+    --home-hero-border: rgba(255, 143, 163, 0.3);
+    --home-hero-shadow: 0 0 18px rgba(255, 77, 109, 0.25);
+    --home-hero-transform: none;
+    --home-hero-glow: radial-gradient(circle, rgba(255, 77, 109, 0.35), transparent 70%);
+    --home-hero-ink: #ffe9ef;
+    --home-hero-ink-muted: #c98a9c;
+    --home-hero-kicker: #ff8fa3;
+    --home-hero-badge-bg: linear-gradient(135deg, #ff8fa3, #c9184a);
+    --home-hero-btn-bg: linear-gradient(90deg, #c9184a, #ff4d6d);
+    --home-hero-btn-ink: #ffffff;
+    --home-hero-ring: #ff8fa3;
+  }
+
+
+  /* Estilo "Galaxia": Galaxia: cielo nocturno con estrellas (oscuro) o cosmos pastel de día (claro). Igual que Acqua, cada uno
+     redefine los tokens semánticos globales + las --home-hero-*. A diferencia
+     de Acqua, este SÍ respeta el toggle claro/oscuro: el bloque de abajo cubre
+     el modo claro, y .dark.estilo-galaxia (mayor especificidad que .dark solo)
+     cubre el oscuro. */
+
+  .estilo-galaxia {
+    --brand-bg: radial-gradient(130% 70% at 100% 0%, hsl(330 81% 60% / 0.3) 0%, transparent 60%), linear-gradient(160deg, #0b0033 0%, #4c1d95 55%, #8b5cf6 100%);
+    --brand-accent-bg: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+    --background: 258 100% 97%;
+    --foreground: 258 55% 22%;
+    --card: 0 0% 100%;
+    --card-foreground: 258 55% 22%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 258 55% 22%;
+    --primary: 262 83% 66%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 270 100% 96%;
+    --secondary-foreground: 258 45% 25%;
+    --muted: 265 60% 96%;
+    --muted-foreground: 258 25% 50%;
+    --accent: 330 81% 60%;
+    --accent-foreground: 0 0% 100%;
+    --border: 265 60% 90%;
+    --ring: 262 83% 66%;
+    --home-hero-bg: linear-gradient(135deg, #ffffff 0%, #fbeefc 100%);
+    --home-hero-border: rgba(139, 92, 246, 0.3);
+    --home-hero-shadow: 0 8px 20px rgba(139, 92, 246, 0.18);
+    --home-hero-transform: none;
+    --home-hero-glow: radial-gradient(circle, rgba(236, 72, 153, 0.25), transparent 70%);
+    --home-hero-ink: #241452;
+    --home-hero-ink-muted: #6b5b95;
+    --home-hero-kicker: #7c3aed;
+    --home-hero-badge-bg: linear-gradient(135deg, #8b5cf6, #ec4899);
+    --home-hero-btn-bg: linear-gradient(90deg, #8b5cf6, #22d3ee);
+    --home-hero-btn-ink: #ffffff;
+    --home-hero-ring: #8b5cf6;
+  }
+
+  .dark.estilo-galaxia {
+    --background: 258 100% 10%;
+    --foreground: 255 60% 92%;
+    --card: 258 55% 16%;
+    --card-foreground: 255 60% 92%;
+    --popover: 258 55% 16%;
+    --popover-foreground: 255 60% 92%;
+    --primary: 262 83% 66%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 258 40% 20%;
+    --secondary-foreground: 255 40% 88%;
+    --muted: 258 35% 18%;
+    --muted-foreground: 255 20% 65%;
+    --accent: 330 81% 60%;
+    --accent-foreground: 0 0% 100%;
+    --border: 258 40% 26%;
+    --ring: 262 83% 66%;
+    --home-hero-bg: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(30, 10, 60, 0.6));
+    --home-hero-border: rgba(139, 92, 246, 0.45);
+    --home-hero-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+    --home-hero-transform: none;
+    --home-hero-glow: radial-gradient(circle, rgba(236, 72, 153, 0.35), transparent 70%);
+    --home-hero-ink: #ffffff;
+    --home-hero-ink-muted: #c9c3ee;
+    --home-hero-kicker: #c4b5fd;
+    --home-hero-badge-bg: linear-gradient(135deg, #8b5cf6, #ec4899);
+    --home-hero-btn-bg: linear-gradient(90deg, #8b5cf6, #22d3ee);
+    --home-hero-btn-ink: #ffffff;
+    --home-hero-ring: #8b5cf6;
   }
 }
 
@@ -106,13 +455,11 @@
 }
 
 .brand-gradient {
-  background:
-    radial-gradient(130% 70% at 100% 0%, hsl(187 80% 55% / 0.22) 0%, transparent 60%),
-    linear-gradient(160deg, #0a3547 0%, #0f5c6e 55%, #12879a 100%);
+  background: var(--brand-bg);
 }
 
 .accent-gradient {
-  background: linear-gradient(135deg, hsl(193 72% 22%) 0%, hsl(187 82% 30%) 100%);
+  background: var(--brand-accent-bg);
 }
 
 .card-elevated {

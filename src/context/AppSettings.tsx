@@ -1,6 +1,17 @@
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react'
 import { getDiccionario, type Idioma, type Diccionario } from '@/lib/i18n'
-import { getTemaGuardado, guardarTema, getIdiomaGuardado, guardarIdioma, type Tema } from '@/lib/settings'
+import {
+  getTemaGuardado,
+  guardarTema,
+  getIdiomaGuardado,
+  guardarIdioma,
+  getEstiloGuardado,
+  guardarEstilo,
+  type Tema,
+  type Estilo,
+} from '@/lib/settings'
+
+const ESTILOS_CON_CLASE: Exclude<Estilo, 'clasico'>[] = ['acqua', 'electrico', 'rockpop', 'fresita', 'galaxia']
 import { Moon, Sun } from 'lucide-react'
 
 interface AppSettingsValue {
@@ -9,6 +20,8 @@ interface AppSettingsValue {
   t: Diccionario
   toggleTema: () => void
   setIdioma: (idioma: Idioma) => void
+  estilo: Estilo
+  setEstilo: (estilo: Estilo) => void
 }
 
 const AppSettingsContext = createContext<AppSettingsValue | null>(null)
@@ -22,6 +35,7 @@ export function useAppSettings(): AppSettingsValue {
 export function AppSettingsProvider({ children }: { children: ReactNode }) {
   const [tema, setTema] = useState<Tema>(() => getTemaGuardado())
   const [idioma, setIdiomaState] = useState<Idioma>(() => getIdiomaGuardado())
+  const [estilo, setEstiloState] = useState<Estilo>(() => getEstiloGuardado())
   const [toast, setToast] = useState<{ visible: boolean; mensaje: string; modo: Tema }>({
     visible: false,
     mensaje: '',
@@ -34,6 +48,18 @@ export function AppSettingsProvider({ children }: { children: ReactNode }) {
     if (tema === 'dark') root.classList.add('dark')
     else root.classList.remove('dark')
   }, [tema])
+
+  // El estilo (paleta/skin visual) es independiente del modo claro/oscuro:
+  // se aplica como una clase `estilo-<nombre>` aparte de `dark`, para que
+  // cada estilo nuevo sea solo otro bloque de variables CSS en index.css
+  // (`.estilo-<nombre>` para el modo claro, `.dark.estilo-<nombre>` para el
+  // oscuro). 'clasico' no necesita clase: es el look por defecto de
+  // `:root`/`.dark`.
+  useEffect(() => {
+    const root = document.documentElement
+    ESTILOS_CON_CLASE.forEach((nombre) => root.classList.remove(`estilo-${nombre}`))
+    if (estilo !== 'clasico') root.classList.add(`estilo-${estilo}`)
+  }, [estilo])
 
   const t = getDiccionario(idioma)
 
@@ -58,8 +84,13 @@ export function AppSettingsProvider({ children }: { children: ReactNode }) {
     guardarIdioma(nuevoIdioma)
   }
 
+  function setEstilo(nuevoEstilo: Estilo) {
+    setEstiloState(nuevoEstilo)
+    guardarEstilo(nuevoEstilo)
+  }
+
   return (
-    <AppSettingsContext.Provider value={{ tema, idioma, t, toggleTema, setIdioma }}>
+    <AppSettingsContext.Provider value={{ tema, idioma, t, toggleTema, setIdioma, estilo, setEstilo }}>
       {children}
       <div
         className={`pointer-events-none fixed inset-x-0 top-4 z-[100] flex justify-center transition-all duration-300 ${

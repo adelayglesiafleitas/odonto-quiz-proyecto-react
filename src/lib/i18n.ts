@@ -64,6 +64,7 @@ export interface Diccionario {
     comenzarSimulacro: string
     fraseEtiqueta: string
     bienvenidaEtiqueta: string
+    ctaKicker: string
     racha: (n: number) => string
     verEstadisticas: string
   }
@@ -154,6 +155,23 @@ export interface Diccionario {
     misConsultasTitulo: string
     misConsultasResumen: (total: number, sinLeer: number) => string
     proximamente: string
+    estiloTitulo: string
+    estiloSubtitulo: string
+    estiloClasicoNombre: string
+    estiloClasicoDesc: string
+    estiloAcquaNombre: string
+    estiloAcquaDesc: string
+    estiloElectricoNombre: string
+    estiloElectricoDesc: string
+    estiloRockpopNombre: string
+    estiloRockpopDesc: string
+    estiloFresitaNombre: string
+    estiloFresitaDesc: string
+    estiloGalaxiaNombre: string
+    estiloGalaxiaDesc: string
+    estiloMasEstilos: string
+    estiloMasEstilosDesc: string
+    estiloNuevo: string
   }
   reportarPregunta: {
     abrir: string
@@ -294,6 +312,7 @@ export const es: Diccionario = {
     comenzarSimulacro: 'Comenzar simulacro',
     fraseEtiqueta: 'Frase del día',
     bienvenidaEtiqueta: 'Bienvenido',
+    ctaKicker: 'Tu próxima prueba te espera',
     racha: (n) => `${n} día${n === 1 ? '' : 's'} seguidos`,
     verEstadisticas: 'Ver estadísticas completas',
   },
@@ -397,6 +416,23 @@ export const es: Diccionario = {
       return `${total} conversación${total === 1 ? '' : 'es'} · ${sinLeer} sin leer`
     },
     proximamente: 'Próximamente',
+    estiloTitulo: 'Estilo de la app',
+    estiloSubtitulo: 'Elegí cómo se ve tu app',
+    estiloClasicoNombre: 'Clásico',
+    estiloClasicoDesc: 'El estilo teal oscuro de siempre',
+    estiloAcquaNombre: 'Acqua',
+    estiloAcquaDesc: 'Celeste claro, estilo "glass"',
+    estiloElectricoNombre: 'Eléctrico',
+    estiloElectricoDesc: 'Neón violeta y cian, glow de recital',
+    estiloRockpopNombre: 'Rock Pop Friki',
+    estiloRockpopDesc: 'Rosa chicle y amarillo, estilo sticker',
+    estiloFresitaNombre: 'Fresita Corazón',
+    estiloFresitaDesc: 'Rosa dulce con corazones',
+    estiloGalaxiaNombre: 'Galaxia',
+    estiloGalaxiaDesc: 'Cósmico, violeta con estrellas',
+    estiloMasEstilos: 'Más estilos',
+    estiloMasEstilosDesc: 'Nuevos estilos en camino',
+    estiloNuevo: 'Nuevo',
   },
   reportarPregunta: {
     abrir: 'Reportar esta pregunta',
@@ -551,6 +587,7 @@ export const en: Diccionario = {
     comenzarSimulacro: 'Start mock exam',
     fraseEtiqueta: 'Quote of the day',
     bienvenidaEtiqueta: 'Welcome',
+    ctaKicker: 'Your next quiz is waiting',
     racha: (n) => `${n}-day streak`,
     verEstadisticas: 'View full statistics',
   },
@@ -654,6 +691,23 @@ export const en: Diccionario = {
       return `${total} conversation${total === 1 ? '' : 's'} · ${sinLeer} unread`
     },
     proximamente: 'Coming soon',
+    estiloTitulo: 'App style',
+    estiloSubtitulo: 'Choose how your app looks',
+    estiloClasicoNombre: 'Classic',
+    estiloClasicoDesc: 'The classic dark teal look',
+    estiloAcquaNombre: 'Acqua',
+    estiloAcquaDesc: 'Light blue, glass style',
+    estiloElectricoNombre: 'Electric',
+    estiloElectricoDesc: 'Neon violet and cyan, rave-flyer glow',
+    estiloRockpopNombre: 'Rock Pop Geek',
+    estiloRockpopDesc: 'Hot pink and yellow, sticker style',
+    estiloFresitaNombre: 'Strawberry Heart',
+    estiloFresitaDesc: 'Sweet pink with hearts',
+    estiloGalaxiaNombre: 'Galaxy',
+    estiloGalaxiaDesc: 'Cosmic violet with stars',
+    estiloMasEstilos: 'More styles',
+    estiloMasEstilosDesc: 'New styles on the way',
+    estiloNuevo: 'New',
   },
   reportarPregunta: {
     abrir: 'Report this question',

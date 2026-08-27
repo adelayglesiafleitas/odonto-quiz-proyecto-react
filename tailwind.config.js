@@ -5,6 +5,15 @@ module.exports = {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  // El "estilo" (skin visual) se aplica como clase `estilo-<nombre>` armada
+  // dinámicamente en tiempo de ejecución (`estilo-${estilo}` en
+  // AppSettings.tsx), así que el string literal completo nunca aparece en
+  // ningún archivo fuente. Tailwind purga por default cualquier selector de
+  // @layer base que no encuentre como texto literal al escanear `content` —
+  // sin este safelist, las reglas .estilo-acqua/.estilo-electrico/etc. de
+  // index.css desaparecen del CSS compilado (se comprobó armando un repro
+  // mínimo) y elegir esos estilos en Ayuda no cambiaría nada visualmente.
+  safelist: ["estilo-acqua", "estilo-electrico", "estilo-rockpop", "estilo-fresita", "estilo-galaxia"],
   theme: {
     extend: {
       colors: {
@@ -98,6 +107,18 @@ module.exports = {
           "0%": { transform: "translateY(6px) scale(0.98)", opacity: "0" },
           "100%": { transform: "translateY(0) scale(1)", opacity: "1" },
         },
+        "cta-glow-pulse": {
+          "0%, 100%": { opacity: "0.55", transform: "scale(1)" },
+          "50%": { opacity: "1", transform: "scale(1.18)" },
+        },
+        "cta-bounce": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-3px)" },
+        },
+        "cta-arrow": {
+          "0%, 100%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(3px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -109,6 +130,9 @@ module.exports = {
         "bienvenida-in": "bienvenida-in 0.6s ease-out both",
         "bienvenida-out": "bienvenida-out 0.45s ease-in both",
         "frase-in": "frase-in 0.6s ease-out both",
+        "cta-glow-pulse": "cta-glow-pulse 2.4s ease-in-out infinite",
+        "cta-bounce": "cta-bounce 2s ease-in-out infinite",
+        "cta-arrow": "cta-arrow 1s ease-in-out infinite",
       },
     },
   },

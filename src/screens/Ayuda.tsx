@@ -14,6 +14,7 @@ import {
   ChevronRight,
   MessageCircleQuestion,
   Inbox,
+  Palette,
 } from 'lucide-react'
 import { useAppSettings } from '@/context/AppSettings'
 import { SettingsToggle } from '@/components/SettingsToggle'
@@ -32,7 +33,7 @@ export function Ayuda({
   userId: string | null
   onNavigate: (p: Pantalla) => void
 }) {
-  const { t } = useAppSettings()
+  const { t, estilo, setEstilo } = useAppSettings()
   const navigate = useNavigate()
   const formatoOficial = t.ayuda.formatoOficial
 
@@ -76,6 +77,216 @@ export function Ayuda({
       </div>
 
       <h1 className="mt-6 text-lg font-extrabold text-foreground">{t.ayuda.titulo}</h1>
+
+      {/* Sección 0: apariencia. Comparte el mismo acordeón "un solo abierto a
+          la vez" que las tarjetas de abajo (id 'estilo'), para no sumar otro
+          estado de UI. Pensada para crecer: un estilo nuevo es una fila más
+          acá y un bloque de variables CSS bajo .estilo-<nombre> en index.css
+          (ver claude/cta-empieza-ya-home.md y el tema Acqua en Home.tsx). */}
+      <div className="mt-5 space-y-2">
+        <div className="card-elevated overflow-hidden rounded-2xl bg-card">
+          <button
+            onClick={() => setAbierto(abierto === 'estilo' ? null : 'estilo')}
+            className="flex w-full items-center gap-3 p-4 text-left"
+            aria-expanded={abierto === 'estilo'}
+          >
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+              <Palette className="h-5 w-5" />
+            </span>
+            <div className="flex-1">
+              <p className="text-[15px] font-bold text-foreground">{t.ayuda.estiloTitulo}</p>
+              <p className="text-xs text-muted-foreground">{t.ayuda.estiloSubtitulo}</p>
+            </div>
+            <ChevronDown
+              className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 ${
+                abierto === 'estilo' ? 'rotate-180' : ''
+              }`}
+            />
+          </button>
+          {abierto === 'estilo' && (
+            <div className="space-y-1 border-t border-border p-2">
+              <button
+                onClick={() => setEstilo('clasico')}
+                className={`flex w-full items-center gap-3 rounded-xl p-2.5 text-left transition ${
+                  estilo === 'clasico' ? 'bg-secondary' : ''
+                }`}
+              >
+                <span
+                  className="h-9 w-9 shrink-0 rounded-lg"
+                  style={{ background: 'linear-gradient(135deg, #123a3f, #0d2233)' }}
+                />
+                <div className="flex-1">
+                  <p className="text-sm font-bold text-foreground">{t.ayuda.estiloClasicoNombre}</p>
+                  <p className="text-xs text-muted-foreground">{t.ayuda.estiloClasicoDesc}</p>
+                </div>
+                <span
+                  className={`flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full border-2 ${
+                    estilo === 'clasico' ? 'border-accent' : 'border-border'
+                  }`}
+                >
+                  {estilo === 'clasico' && <span className="h-2.5 w-2.5 rounded-full bg-accent" />}
+                </span>
+              </button>
+
+              <button
+                onClick={() => setEstilo('acqua')}
+                className={`flex w-full items-center gap-3 rounded-xl p-2.5 text-left transition ${
+                  estilo === 'acqua' ? 'bg-secondary' : ''
+                }`}
+              >
+                <span
+                  className="h-9 w-9 shrink-0 rounded-lg"
+                  style={{ background: 'linear-gradient(135deg, #8fe3f2, #1fb6cf 60%, #0d7f96)' }}
+                />
+                <div className="flex-1">
+                  <p className="flex items-center gap-1.5 text-sm font-bold text-foreground">
+                    {t.ayuda.estiloAcquaNombre}
+                    <span className="rounded-md bg-accent/15 px-1.5 py-[1px] text-[9px] font-extrabold uppercase text-accent">
+                      {t.ayuda.estiloNuevo}
+                    </span>
+                  </p>
+                  <p className="text-xs text-muted-foreground">{t.ayuda.estiloAcquaDesc}</p>
+                </div>
+                <span
+                  className={`flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full border-2 ${
+                    estilo === 'acqua' ? 'border-accent' : 'border-border'
+                  }`}
+                >
+                  {estilo === 'acqua' && <span className="h-2.5 w-2.5 rounded-full bg-accent" />}
+                </span>
+              </button>
+
+              <button
+                onClick={() => setEstilo('electrico')}
+                className={`flex w-full items-center gap-3 rounded-xl p-2.5 text-left transition ${
+                  estilo === 'electrico' ? 'bg-secondary' : ''
+                }`}
+              >
+                <span
+                  className="h-9 w-9 shrink-0 rounded-lg"
+                  style={{ background: 'linear-gradient(135deg, #b026ff, #00e5ff)' }}
+                />
+                <div className="flex-1">
+                  <p className="flex items-center gap-1.5 text-sm font-bold text-foreground">
+                    {t.ayuda.estiloElectricoNombre}
+                    <span className="rounded-md bg-accent/15 px-1.5 py-[1px] text-[9px] font-extrabold uppercase text-accent">
+                      {t.ayuda.estiloNuevo}
+                    </span>
+                  </p>
+                  <p className="text-xs text-muted-foreground">{t.ayuda.estiloElectricoDesc}</p>
+                </div>
+                <span
+                  className={`flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full border-2 ${
+                    estilo === 'electrico' ? 'border-accent' : 'border-border'
+                  }`}
+                >
+                  {estilo === 'electrico' && <span className="h-2.5 w-2.5 rounded-full bg-accent" />}
+                </span>
+              </button>
+              <button
+                onClick={() => setEstilo('rockpop')}
+                className={`flex w-full items-center gap-3 rounded-xl p-2.5 text-left transition ${
+                  estilo === 'rockpop' ? 'bg-secondary' : ''
+                }`}
+              >
+                <span
+                  className="h-9 w-9 shrink-0 rounded-lg"
+                  style={{ background: 'linear-gradient(135deg, #161616 0%, #161616 45%, #ff2e63 45%, #ff2e63 72%, #ffe93a 72%)' }}
+                />
+                <div className="flex-1">
+                  <p className="flex items-center gap-1.5 text-sm font-bold text-foreground">
+                    {t.ayuda.estiloRockpopNombre}
+                    <span className="rounded-md bg-accent/15 px-1.5 py-[1px] text-[9px] font-extrabold uppercase text-accent">
+                      {t.ayuda.estiloNuevo}
+                    </span>
+                  </p>
+                  <p className="text-xs text-muted-foreground">{t.ayuda.estiloRockpopDesc}</p>
+                </div>
+                <span
+                  className={`flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full border-2 ${
+                    estilo === 'rockpop' ? 'border-accent' : 'border-border'
+                  }`}
+                >
+                  {estilo === 'rockpop' && <span className="h-2.5 w-2.5 rounded-full bg-accent" />}
+                </span>
+              </button>
+              <button
+                onClick={() => setEstilo('fresita')}
+                className={`flex w-full items-center gap-3 rounded-xl p-2.5 text-left transition ${
+                  estilo === 'fresita' ? 'bg-secondary' : ''
+                }`}
+              >
+                <span
+                  className="h-9 w-9 shrink-0 rounded-lg"
+                  style={{ background: 'linear-gradient(135deg, #ff8fa3, #ff4d6d, #c9184a)' }}
+                />
+                <div className="flex-1">
+                  <p className="flex items-center gap-1.5 text-sm font-bold text-foreground">
+                    {t.ayuda.estiloFresitaNombre}
+                    <span className="rounded-md bg-accent/15 px-1.5 py-[1px] text-[9px] font-extrabold uppercase text-accent">
+                      {t.ayuda.estiloNuevo}
+                    </span>
+                  </p>
+                  <p className="text-xs text-muted-foreground">{t.ayuda.estiloFresitaDesc}</p>
+                </div>
+                <span
+                  className={`flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full border-2 ${
+                    estilo === 'fresita' ? 'border-accent' : 'border-border'
+                  }`}
+                >
+                  {estilo === 'fresita' && <span className="h-2.5 w-2.5 rounded-full bg-accent" />}
+                </span>
+              </button>
+              <button
+                onClick={() => setEstilo('galaxia')}
+                className={`flex w-full items-center gap-3 rounded-xl p-2.5 text-left transition ${
+                  estilo === 'galaxia' ? 'bg-secondary' : ''
+                }`}
+              >
+                <span
+                  className="h-9 w-9 shrink-0 rounded-lg"
+                  style={{ background: 'linear-gradient(135deg, #8b5cf6, #ec4899 60%, #22d3ee)' }}
+                />
+                <div className="flex-1">
+                  <p className="flex items-center gap-1.5 text-sm font-bold text-foreground">
+                    {t.ayuda.estiloGalaxiaNombre}
+                    <span className="rounded-md bg-accent/15 px-1.5 py-[1px] text-[9px] font-extrabold uppercase text-accent">
+                      {t.ayuda.estiloNuevo}
+                    </span>
+                  </p>
+                  <p className="text-xs text-muted-foreground">{t.ayuda.estiloGalaxiaDesc}</p>
+                </div>
+                <span
+                  className={`flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full border-2 ${
+                    estilo === 'galaxia' ? 'border-accent' : 'border-border'
+                  }`}
+                >
+                  {estilo === 'galaxia' && <span className="h-2.5 w-2.5 rounded-full bg-accent" />}
+                </span>
+              </button>
+
+              <div className="flex w-full items-center gap-3 rounded-xl p-2.5 text-left opacity-50">
+                <span
+                  className="h-9 w-9 shrink-0 rounded-lg"
+                  style={{
+                    background:
+                      'repeating-linear-gradient(45deg, hsl(var(--muted)), hsl(var(--muted)) 6px, hsl(var(--border)) 6px, hsl(var(--border)) 12px)',
+                  }}
+                />
+                <div className="flex-1">
+                  <p className="flex items-center gap-1.5 text-sm font-bold text-foreground">
+                    {t.ayuda.estiloMasEstilos}
+                    <span className="rounded-md bg-muted px-1.5 py-[1px] text-[9px] font-extrabold uppercase text-muted-foreground">
+                      {t.ayuda.proximamente}
+                    </span>
+                  </p>
+                  <p className="text-xs text-muted-foreground">{t.ayuda.estiloMasEstilosDesc}</p>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
 
       {/* Sección 1: guía de uso, colapsada por defecto (2026-08-22). Antes eran
           8 tarjetas siempre abiertas de golpe; ahora cada una se despliega al

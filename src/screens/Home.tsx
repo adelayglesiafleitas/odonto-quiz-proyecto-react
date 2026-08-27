@@ -7,9 +7,11 @@ import { useAppSettings } from '@/context/AppSettings'
 import { getHistorialRemoto, calcularPromedio, getFechasIntentos, calcularRacha } from '@/lib/historial'
 import { getFrases, indiceFraseAleatoria } from '@/lib/frases'
 import { getBienvenida } from '@/lib/bienvenida'
+import { getCtaEmpezar } from '@/lib/ctaEmpezar'
+import { ICONO_BIENVENIDA, ICONO_CTA } from '@/lib/temaIconos'
 import { colorStrokePorcentaje } from '@/lib/utils'
 import type { CursoMeta } from '@/lib/cursos'
-import { LogOut, Trophy, TrendingUp, Quote, Flame, BarChart3, ChevronRight, Sparkles } from 'lucide-react'
+import { LogOut, Trophy, TrendingUp, Quote, Flame, BarChart3, ChevronRight } from 'lucide-react'
 import type { Pantalla } from '@/types'
 
 const PROMEDIO_CIRCUNFERENCIA = 2 * Math.PI * 32
@@ -29,7 +31,7 @@ export function Home({
   onNavigate: (p: Pantalla) => void
   onLogout: () => void
 }) {
-  const { t, idioma } = useAppSettings()
+  const { t, idioma, estilo } = useAppSettings()
   const nombreMostrado = nickname && nickname.trim().length > 0 ? nickname : t.home.estudiante
   const [mejor, setMejor] = useState(0)
   const [promedio, setPromedio] = useState(0)
@@ -40,6 +42,9 @@ export function Home({
   const frase = getFrases(idioma)[indiceFrase]
   const [bienvenida] = useState(() => getBienvenida(idioma, nombreMostrado))
   const [mostrarBienvenida, setMostrarBienvenida] = useState(true)
+  const [cta] = useState(() => getCtaEmpezar(idioma))
+  const IconoBienvenida = ICONO_BIENVENIDA[estilo]
+  const IconoCta = ICONO_CTA[estilo]
 
   useEffect(() => {
     let cancelado = false
@@ -148,18 +153,35 @@ export function Home({
       <div className="mt-6 px-6">
         <div className="card-elevated relative min-h-[132px] rounded-2xl bg-card">
           <div
-            className={`absolute inset-0 flex flex-col justify-center overflow-hidden rounded-2xl border border-[#1fc6c633] bg-[linear-gradient(135deg,#123a3f_0%,#0d2233_100%)] p-4 ${
+            className={`absolute inset-0 flex flex-col justify-center overflow-hidden rounded-2xl border p-4 ${
               mostrarBienvenida ? 'animate-bienvenida-in' : 'pointer-events-none animate-bienvenida-out'
             }`}
+            style={{
+              borderColor: 'var(--home-hero-border)',
+              background: 'var(--home-hero-bg)',
+              boxShadow: 'var(--home-hero-shadow)',
+              transform: 'var(--home-hero-transform)',
+            }}
           >
-            <div className="pointer-events-none absolute -right-10 -top-12 h-28 w-28 rounded-full bg-[radial-gradient(circle,rgba(31,198,198,0.5),transparent_70%)] blur-md" />
-            <div className="relative flex items-center gap-2 text-[11px] font-bold uppercase tracking-wide text-[#7fe9e2]">
-              <span className="flex h-[26px] w-[26px] items-center justify-center rounded-[9px] bg-gradient-to-br from-[#2dd8d8] to-[#12908f] shadow-[0_4px_10px_rgba(31,198,198,0.35)]">
-                <Sparkles className="h-3.5 w-3.5 text-white" />
+            <div
+              className="pointer-events-none absolute -right-10 -top-12 h-28 w-28 rounded-full blur-md"
+              style={{ background: 'var(--home-hero-glow)' }}
+            />
+            <div
+              className="relative flex items-center gap-2 text-[11px] font-bold uppercase tracking-wide"
+              style={{ color: 'var(--home-hero-kicker)' }}
+            >
+              <span
+                className="flex h-[26px] w-[26px] items-center justify-center rounded-[9px] shadow-[0_4px_10px_rgba(31,198,198,0.35)]"
+                style={{ background: 'var(--home-hero-badge-bg)' }}
+              >
+                <IconoBienvenida className="h-3.5 w-3.5 text-white" />
               </span>
               {t.home.bienvenidaEtiqueta}
             </div>
-            <p className="relative mt-2.5 text-[15.5px] font-semibold leading-relaxed text-white">{bienvenida}</p>
+            <p className="relative mt-2.5 text-[15.5px] font-semibold leading-relaxed" style={{ color: 'var(--home-hero-ink)' }}>
+              {bienvenida}
+            </p>
           </div>
           <div
             className={`absolute inset-0 flex flex-col justify-center rounded-2xl p-4 ${
@@ -174,6 +196,58 @@ export function Home({
             {frase.autor && <p className="mt-2.5 text-xs font-medium text-muted-foreground">— {frase.autor}</p>}
           </div>
         </div>
+      </div>
+
+      <div className="mt-4 px-6">
+        <button
+          type="button"
+          onClick={() => onNavigate('asignaturas')}
+          className={`card-elevated relative w-full overflow-hidden rounded-2xl border p-4 text-left transition active:scale-[0.98] ${
+            estilo === 'rockpop' ? '-rotate-1' : ''
+          }`}
+          style={{
+            borderColor: 'var(--home-hero-border)',
+            background: 'var(--home-hero-bg)',
+            boxShadow: 'var(--home-hero-shadow)',
+          }}
+        >
+          <div
+            className="pointer-events-none absolute -right-8 -top-10 h-28 w-28 animate-cta-glow-pulse rounded-full blur-md"
+            style={{ background: 'var(--home-hero-glow)' }}
+          />
+          <div
+            className="relative flex items-center gap-2 text-[11px] font-bold uppercase tracking-wide"
+            style={{ color: 'var(--home-hero-kicker)' }}
+          >
+            <span
+              className="flex h-[26px] w-[26px] items-center justify-center rounded-[9px] shadow-[0_4px_10px_rgba(31,198,198,0.35)]"
+              style={{ background: 'var(--home-hero-badge-bg)' }}
+            >
+              <IconoCta className="h-3.5 w-3.5 text-white" />
+            </span>
+            {t.home.ctaKicker}
+          </div>
+          <p
+            className="relative mt-2.5 animate-cta-bounce text-[19px] font-extrabold leading-snug"
+            style={{ color: 'var(--home-hero-ink)' }}
+          >
+            {cta.headline}
+          </p>
+          <p className="relative mt-1 text-[12.5px] font-medium" style={{ color: 'var(--home-hero-ink-muted)' }}>
+            {cta.sub}
+          </p>
+          <div
+            className="relative mt-3.5 inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-extrabold"
+            style={{ background: 'var(--home-hero-btn-bg)', color: 'var(--home-hero-btn-ink)' }}
+          >
+            <span
+              className="pointer-events-none absolute inset-0 rounded-full border-2 animate-pulse-ring"
+              style={{ borderColor: 'var(--home-hero-ring)' }}
+            />
+            {t.home.empezar}
+            <ChevronRight className="h-3.5 w-3.5 animate-cta-arrow" />
+          </div>
+        </button>
       </div>
 
       <BottomNav activo="home" onNavigate={onNavigate} />
