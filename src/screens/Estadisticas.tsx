@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { ArrowLeft, Trophy } from 'lucide-react'
+import { ArrowLeft, BookOpen, Check, ChevronDown, Trophy } from 'lucide-react'
 import { useAppSettings } from '@/context/AppSettings'
 import { Spinner } from '@/components/Spinner'
 import { BottomNav } from '@/components/BottomNav'
@@ -61,6 +61,7 @@ export function Estadisticas({
   const asignaturas = useMemo(() => getAsignaturas(idioma), [idioma])
 
   const [cursoSel, setCursoSel] = useState(cursoIdInicial)
+  const [asignaturaAbierta, setAsignaturaAbierta] = useState(false)
   const [cargando, setCargando] = useState(true)
   const [promedio, setPromedio] = useState(0)
   const [mejor, setMejor] = useState(0)
@@ -131,23 +132,62 @@ export function Estadisticas({
 
       {asignaturas.length > 1 && (
         <div className="mt-5 px-6">
-          <div className="flex gap-1.5 rounded-2xl bg-secondary p-1">
-            {asignaturas.map((a) => {
-              const Icono = ICONO_CURSO[a.cursoId] ?? ICONO_CURSO.odontologia
-              const seleccionada = a.cursoId === cursoSel
-              return (
-                <button
-                  key={a.cursoId}
-                  onClick={() => setCursoSel(a.cursoId)}
-                  className={`flex flex-1 items-center justify-center gap-1.5 rounded-xl px-2 py-2.5 text-xs font-bold transition-all ${
-                    seleccionada ? 'bg-card text-accent shadow-sm' : 'text-muted-foreground'
-                  }`}
-                >
-                  <Icono className="h-3.5 w-3.5 shrink-0" />
-                  <span className="truncate">{a.nombre}</span>
-                </button>
-              )
-            })}
+          {/* Selector desplegable (mismo patrón "acordeón" que el picker de
+              estilo en Ayuda.tsx: botón + ChevronDown que rota + lista que
+              se abre debajo) en vez del segmentado de 3 pestañas de ancho
+              fijo: ese repartía el ancho a partes iguales y "Pacientes
+              especiales" quedaba cortado a "Pacient..." en cualquier
+              celular en cuanto se sumó una tercera asignatura (con 2 entraba
+              entero). Acá cada opción tiene todo el ancho de la pantalla
+              para su nombre, así que nunca se corta y escala sin problema
+              si se suma una cuarta asignatura el día de mañana. */}
+          <div className="card-elevated overflow-hidden rounded-2xl bg-card">
+            <button
+              onClick={() => setAsignaturaAbierta((v) => !v)}
+              className="flex w-full items-center gap-2.5 px-4 py-3 text-left"
+              aria-expanded={asignaturaAbierta}
+            >
+              {/* Ícono genérico (no el de la asignatura actual) porque el
+                  texto de al lado ya no indica cuál está elegida — ver nota
+                  de abajo. */}
+              <BookOpen className="h-4 w-4 shrink-0 text-accent" />
+              {/* Texto fijo "Escoge asignatura" en vez del nombre de la
+                  asignatura actual: a pedido del usuario, el botón cerrado
+                  funciona como una llamada a la acción genérica ("elegí
+                  acá") y no como indicador de selección — la que está
+                  elegida se ve igual con el check adentro de la lista al
+                  abrir. */}
+              <span className="flex-1 text-sm font-bold text-foreground">{t.estadisticas.escogeAsignatura}</span>
+              <ChevronDown
+                className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 ${
+                  asignaturaAbierta ? 'rotate-180' : ''
+                }`}
+              />
+            </button>
+            {asignaturaAbierta && (
+              <div className="space-y-1 border-t border-border p-2">
+                {asignaturas.map((a) => {
+                  const Icono = ICONO_CURSO[a.cursoId] ?? ICONO_CURSO.odontologia
+                  const seleccionada = a.cursoId === cursoSel
+                  return (
+                    <button
+                      key={a.cursoId}
+                      onClick={() => {
+                        setCursoSel(a.cursoId)
+                        setAsignaturaAbierta(false)
+                      }}
+                      className={`flex w-full items-center gap-2.5 rounded-xl px-3 py-2.5 text-left text-sm font-bold transition ${
+                        seleccionada ? 'bg-secondary text-accent' : 'text-foreground'
+                      }`}
+                    >
+                      <Icono className="h-4 w-4 shrink-0" />
+                      <span className="flex-1">{a.nombre}</span>
+                      {seleccionada && <Check className="h-4 w-4 shrink-0 text-accent" />}
+                    </button>
+                  )
+                })}
+              </div>
+            )}
           </div>
         </div>
       )}

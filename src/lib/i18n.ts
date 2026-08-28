@@ -234,6 +234,7 @@ export interface Diccionario {
   }
   estadisticas: {
     titulo: string
+    escogeAsignatura: string
     general: string
     promedioGeneral: string
     intentos: (n: number) => string
@@ -509,6 +510,7 @@ export const es: Diccionario = {
   },
   estadisticas: {
     titulo: 'Estadísticas',
+    escogeAsignatura: 'Escoge asignatura',
     general: 'General',
     promedioGeneral: 'Promedio general',
     intentos: (n) => `${n} simulacro${n === 1 ? '' : 's'} realizados`,
@@ -784,6 +786,7 @@ export const en: Diccionario = {
   },
   estadisticas: {
     titulo: 'Statistics',
+    escogeAsignatura: 'Choose subject',
     general: 'Overall',
     promedioGeneral: 'Overall average',
     intentos: (n) => `${n} mock exam${n === 1 ? '' : 's'} taken`,
