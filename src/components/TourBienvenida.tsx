@@ -14,7 +14,7 @@
 // color fijo como en las cards de Home (que sí usan un gradiente fijo
 // propio, no `.brand-gradient`).
 
-import { useState } from 'react';
+import { useState, type ReactElement } from 'react';
 import { Sparkles, Flame, Rocket, BookOpen, Trophy, ChevronRight } from 'lucide-react';
 import { getSlidesTour, type IconoTour } from '@/lib/tourBienvenida';
 
@@ -31,7 +31,7 @@ function IconoSemaforo() {
   );
 }
 
-const ICONOS: Record<IconoTour, () => JSX.Element> = {
+const ICONOS: Record<IconoTour, () => ReactElement> = {
   bienvenida: () => <Sparkles size={40} strokeWidth={1.6} />,
   racha: () => <Flame size={40} strokeWidth={1.6} />,
   simulacro: () => <Rocket size={40} strokeWidth={1.6} />,
