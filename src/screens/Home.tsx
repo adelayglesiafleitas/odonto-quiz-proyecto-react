@@ -6,7 +6,7 @@ import { BottomNav } from '@/components/BottomNav'
 import { useAppSettings } from '@/context/AppSettings'
 import { getHistorialRemoto, calcularPromedio, getFechasIntentos, calcularRacha } from '@/lib/historial'
 import { getFrases, indiceFraseAleatoria } from '@/lib/frases'
-import { getBienvenida } from '@/lib/bienvenida'
+import { getBienvenida, getBienvenidaPrimeraVisita } from '@/lib/bienvenida'
 import { getCtaEmpezar } from '@/lib/ctaEmpezar'
 import TourBienvenida from '@/components/TourBienvenida'
 import { getVioTourBienvenida, marcarTourBienvenidaVisto } from '@/lib/tourBienvenidaRemoto'
@@ -46,8 +46,13 @@ export function Home({
   const [mostrarBienvenida, setMostrarBienvenida] = useState(true)
   const [cta] = useState(() => getCtaEmpezar(idioma))
   const [mostrarTour, setMostrarTour] = useState(false)
+  const [primeraVisita, setPrimeraVisita] = useState(false)
   const IconoBienvenida = ICONO_BIENVENIDA[estilo]
   const IconoCta = ICONO_CTA[estilo]
+  // Primera vez en la vida de la cuenta: en vez del mensaje que cambia por
+  // día de la semana, se muestra un texto de bienvenida fijo (ver
+  // src/lib/bienvenida.ts). Se dispara junto con el tour de 6 pantallas.
+  const mensajeBienvenida = primeraVisita ? getBienvenidaPrimeraVisita(idioma, nombreMostrado) : bienvenida
 
   useEffect(() => {
     let cancelado = false
@@ -74,7 +79,10 @@ export function Home({
 
   useEffect(() => {
     getVioTourBienvenida().then((visto) => {
-      if (!visto) setMostrarTour(true)
+      if (!visto) {
+        setMostrarTour(true)
+        setPrimeraVisita(true)
+      }
     })
   }, [])
 
@@ -194,7 +202,7 @@ export function Home({
               {t.home.bienvenidaEtiqueta}
             </div>
             <p className="relative mt-2.5 text-[15.5px] font-semibold leading-relaxed" style={{ color: 'var(--home-hero-ink)' }}>
-              {bienvenida}
+              {mensajeBienvenida}
             </p>
           </div>
           <div

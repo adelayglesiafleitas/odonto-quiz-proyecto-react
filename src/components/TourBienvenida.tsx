@@ -17,6 +17,7 @@
 import { useState, type ReactElement } from 'react';
 import { Sparkles, Flame, Rocket, BookOpen, Trophy, ChevronRight } from 'lucide-react';
 import { getSlidesTour, type IconoTour } from '@/lib/tourBienvenida';
+import { LogoMark } from '@/components/Logo';
 
 function IconoSemaforo() {
   // No hay un ícono de lucide-react para esto — se dibuja a mano, usando
@@ -72,7 +73,7 @@ export default function TourBienvenida({ idioma, onCerrar }: TourBienvenidaProps
   return (
     <div className="fixed inset-0 z-50 mx-auto w-full max-w-md brand-gradient flex flex-col animate-bienvenida-in">
       <div className="flex items-center justify-between px-6 pt-7 min-h-[44px]">
-        <span className="text-[11px] font-bold tracking-[2px] text-white/45">ODONTO QUIZ</span>
+        <LogoMark className="h-8 w-auto" />
         {!esUltimo && (
           <button onClick={onCerrar} className="text-white/60 text-sm font-semibold py-3 px-1">
             {idioma === 'en' ? 'Skip' : 'Saltar'}

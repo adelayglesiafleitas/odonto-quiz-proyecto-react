@@ -82,6 +82,19 @@ const MENSAJES_GENERICOS_EN: MensajeFn[] = [
   (n) => `This is your space to prepare at your own pace, ${n}.`,
 ]
 
+/**
+ * Mensaje especial mostrado una sola vez en la vida de la cuenta: la primera
+ * vez que el usuario entra a Home (se dispara junto con el tour de 6
+ * pantallas, ver tourBienvenidaRemoto.ts). No es aleatorio ni depende del
+ * día de la semana como getBienvenida — es un texto fijo de bienvenida real
+ * a la app, usado en vez del mensaje-del-día solo esa primera vez.
+ */
+export function getBienvenidaPrimeraVisita(idioma: Idioma, nombre: string): string {
+  return idioma === 'en'
+    ? `Welcome to DentiQuiz, ${nombre}! From now on, this is your place to get ready for the exam.`
+    : `¡Bienvenido a DentiQuiz, ${nombre}! A partir de ahora este es tu lugar para prepararte para el examen.`
+}
+
 export function getBienvenida(idioma: Idioma, nombre: string): string {
   const dia = new Date().getDay()
   const porDia = idioma === 'en' ? MENSAJES_DIA_EN[dia] : MENSAJES_DIA_ES[dia]
