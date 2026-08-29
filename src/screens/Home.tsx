@@ -10,9 +10,8 @@ import { getBienvenida, getBienvenidaPrimeraVisita } from '@/lib/bienvenida'
 import { getCtaEmpezar } from '@/lib/ctaEmpezar'
 import TourBienvenida from '@/components/TourBienvenida'
 import { getVioTourBienvenida, marcarTourBienvenidaVisto } from '@/lib/tourBienvenidaRemoto'
-import { getMensajePendiente, descartarMensaje, type MensajeAdmin } from '@/lib/mensajesAdminRemoto'
+import { getMensajesPendientes, descartarMensaje, type MensajeAdmin } from '@/lib/mensajesAdminRemoto'
 import { MensajeAdminBanner } from '@/components/MensajeAdminBanner'
-import { MensajeAdminVideo } from '@/components/MensajeAdminVideo'
 import { ICONO_BIENVENIDA, ICONO_CTA } from '@/lib/temaIconos'
 import { colorStrokePorcentaje } from '@/lib/utils'
 import type { CursoMeta } from '@/lib/cursos'
@@ -50,7 +49,7 @@ export function Home({
   const [cta] = useState(() => getCtaEmpezar(idioma))
   const [mostrarTour, setMostrarTour] = useState(false)
   const [primeraVisita, setPrimeraVisita] = useState(false)
-  const [mensajeAdmin, setMensajeAdmin] = useState<MensajeAdmin | null>(null)
+  const [colaMensajes, setColaMensajes] = useState<MensajeAdmin[]>([])
   const IconoBienvenida = ICONO_BIENVENIDA[estilo]
   const IconoCta = ICONO_CTA[estilo]
   // Primera vez en la vida de la cuenta: en vez del mensaje que cambia por
@@ -91,7 +90,7 @@ export function Home({
   }, [])
 
   useEffect(() => {
-    getMensajePendiente().then(setMensajeAdmin)
+    getMensajesPendientes().then(setColaMensajes)
   }, [])
 
   const cerrarTour = () => {
@@ -100,8 +99,9 @@ export function Home({
   }
 
   const cerrarMensajeAdmin = () => {
-    if (mensajeAdmin) descartarMensaje(mensajeAdmin.id)
-    setMensajeAdmin(null)
+    const actual = colaMensajes[0]
+    if (actual) descartarMensaje(actual.id)
+    setColaMensajes((cola) => cola.slice(1))
   }
 
   return (
@@ -185,9 +185,9 @@ export function Home({
         </div>
       </div>
 
-      {mensajeAdmin && mensajeAdmin.tipo !== 'video' && (
+      {colaMensajes[0] && (
         <div className="mt-4 px-6">
-          <MensajeAdminBanner mensaje={mensajeAdmin} onCerrar={cerrarMensajeAdmin} />
+          <MensajeAdminBanner mensaje={colaMensajes[0]} onCerrar={cerrarMensajeAdmin} />
         </div>
       )}
 
@@ -293,9 +293,6 @@ export function Home({
 
       <BottomNav activo="home" onNavigate={onNavigate} />
       {mostrarTour && <TourBienvenida idioma={idioma} onCerrar={cerrarTour} />}
-      {!mostrarTour && mensajeAdmin && mensajeAdmin.tipo === 'video' && (
-        <MensajeAdminVideo mensaje={mensajeAdmin} onCerrar={cerrarMensajeAdmin} />
-      )}
     </div>
   )
 }
