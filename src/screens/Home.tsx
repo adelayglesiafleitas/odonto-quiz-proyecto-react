@@ -8,6 +8,8 @@ import { getHistorialRemoto, calcularPromedio, getFechasIntentos, calcularRacha 
 import { getFrases, indiceFraseAleatoria } from '@/lib/frases'
 import { getBienvenida } from '@/lib/bienvenida'
 import { getCtaEmpezar } from '@/lib/ctaEmpezar'
+import TourBienvenida from '@/components/TourBienvenida'
+import { getVioTourBienvenida, marcarTourBienvenidaVisto } from '@/lib/tourBienvenidaRemoto'
 import { ICONO_BIENVENIDA, ICONO_CTA } from '@/lib/temaIconos'
 import { colorStrokePorcentaje } from '@/lib/utils'
 import type { CursoMeta } from '@/lib/cursos'
@@ -43,6 +45,7 @@ export function Home({
   const [bienvenida] = useState(() => getBienvenida(idioma, nombreMostrado))
   const [mostrarBienvenida, setMostrarBienvenida] = useState(true)
   const [cta] = useState(() => getCtaEmpezar(idioma))
+  const [mostrarTour, setMostrarTour] = useState(false)
   const IconoBienvenida = ICONO_BIENVENIDA[estilo]
   const IconoCta = ICONO_CTA[estilo]
 
@@ -68,6 +71,17 @@ export function Home({
     const timer = setTimeout(() => setMostrarBienvenida(false), 3200)
     return () => clearTimeout(timer)
   }, [])
+
+  useEffect(() => {
+    getVioTourBienvenida().then((visto) => {
+      if (!visto) setMostrarTour(true)
+    })
+  }, [])
+
+  const cerrarTour = () => {
+    marcarTourBienvenidaVisto()
+    setMostrarTour(false)
+  }
 
   return (
     <div className="app-shell bg-background pb-28">
@@ -251,6 +265,7 @@ export function Home({
       </div>
 
       <BottomNav activo="home" onNavigate={onNavigate} />
+      {mostrarTour && <TourBienvenida idioma={idioma} onCerrar={cerrarTour} />}
     </div>
   )
 }

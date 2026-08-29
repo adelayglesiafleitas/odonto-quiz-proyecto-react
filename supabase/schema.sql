@@ -293,3 +293,54 @@ $$;
 
 revoke all on function public.obtener_estadisticas_capitulos(text, int) from public;
 grant execute on function public.obtener_estadisticas_capitulos(text, int) to authenticated;
+
+-- 9) Perfiles: flags de producto por usuario (primero: si ya vio el tour de
+--    bienvenida en Home). No existía ninguna tabla de "perfil" en este
+--    esquema (el nickname vive en auth.users.raw_user_meta_data, no en una
+--    tabla propia), así que esta es nueva.
+--
+--    No hay backfill ni trigger de alta en el signup: no hay fila por
+--    usuario hasta que se necesita. Por eso el cliente hace upsert al
+--    marcar el tour como visto (ver getVioTourBienvenida /
+--    marcarTourBienvenidaVisto en src/lib/tourBienvenidaRemoto.ts), no
+--    update — así funciona igual para cuentas nuevas y para las ya
+--    existentes de la beta cerrada.
+create table if not exists public.perfiles (
+  user_id uuid primary key references auth.users(id) on delete cascade,
+  vio_tour_bienvenida boolean not null default false
+);
+
+alter table public.perfiles enable row level security;
+
+create policy "Los usuarios ven su propio perfil"
+  on public.perfiles for select
+  using (auth.uid() = user_id);
+
+create policy "Los usuarios crean su propio perfil"
+  on public.perfiles for insert
+  with check (auth.uid() = user_id);
+
+create policy "Los usuarios actualizan su propio perfil"
+  on public.perfiles for update
+  using (auth.uid() = user_id)
+  with check (auth.uid() = user_id);
+
+-- Para el switch "Tour visto" por usuario que se agregará más adelante en
+-- el panel de admin (pendiente, ver claude/tour-bienvenida-diseno.md).
+create policy "Los admins ven todos los perfiles"
+  on public.perfiles for select
+  using (exists (select 1 from public.admins a where a.user_id = auth.uid()));
+
+create policy "Los admins actualizan cualquier perfil"
+  on public.perfiles for update
+  using (exists (select 1 from public.admins a where a.user_id = auth.uid()))
+  with check (exists (select 1 from public.admins a where a.user_id = auth.uid()));
+
+-- 10) El panel de admin (odonto-quiz-admin) necesita poder marcar "vio el
+--     tour" para un usuario que todavía no tiene fila en perfiles (el caso
+--     de casi todos hoy — la tabla es nueva, sin backfill). Sin esta policy,
+--     el upsert que hace lib/usuarios.ts ahí sería rechazado por RLS la
+--     primera vez (ya existían las de select/update para admins, sección 9).
+create policy "Los admins crean cualquier perfil"
+  on public.perfiles for insert
+  with check (exists (select 1 from public.admins a where a.user_id = auth.uid()));

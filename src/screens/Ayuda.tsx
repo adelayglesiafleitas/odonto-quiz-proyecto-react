@@ -15,11 +15,13 @@ import {
   MessageCircleQuestion,
   Inbox,
   Palette,
+  RotateCcw,
 } from 'lucide-react'
 import { useAppSettings } from '@/context/AppSettings'
 import { SettingsToggle } from '@/components/SettingsToggle'
 import { LogoMark } from '@/components/Logo'
 import { BottomNav } from '@/components/BottomNav'
+import TourBienvenida from '@/components/TourBienvenida'
 import { RUTA_SOPORTE } from '@/lib/rutas'
 import { listarMisTickets, contarNoLeidos, type Ticket } from '@/lib/tickets'
 import type { Pantalla } from '@/types'
@@ -33,7 +35,7 @@ export function Ayuda({
   userId: string | null
   onNavigate: (p: Pantalla) => void
 }) {
-  const { t, estilo, setEstilo } = useAppSettings()
+  const { t, idioma, estilo, setEstilo } = useAppSettings()
   const navigate = useNavigate()
   const formatoOficial = t.ayuda.formatoOficial
 
@@ -57,6 +59,7 @@ export function Ayuda({
   // evita que dos tarjetas largas queden abiertas juntas y la pantalla vuelva
   // a sentirse cargada. null = todo colapsado, que es el estado inicial.
   const [abierto, setAbierto] = useState<string | null>(null)
+  const [mostrarTourManual, setMostrarTourManual] = useState(false)
 
   const items = [
     { id: 'navegacion', icon: Compass, titulo: t.ayuda.navegacionTitulo, texto: t.ayuda.navegacionTexto },
@@ -286,6 +289,18 @@ export function Ayuda({
             </div>
           )}
         </div>
+        <button
+          onClick={() => setMostrarTourManual(true)}
+          className="card-elevated flex w-full items-center gap-3 rounded-2xl bg-card p-4 text-left"
+        >
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+            <RotateCcw className="h-5 w-5" />
+          </span>
+          <p className="flex-1 text-[15px] font-bold text-foreground">
+            {idioma === 'en' ? 'Watch welcome tour again' : 'Ver tour de bienvenida de nuevo'}
+          </p>
+          <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
+        </button>
       </div>
 
       {/* Sección 1: guía de uso, colapsada por defecto (2026-08-22). Antes eran
@@ -386,6 +401,9 @@ export function Ayuda({
         <p className="text-xs leading-relaxed text-muted-foreground">{t.ayuda.footer}</p>
       </div>
 
+      {mostrarTourManual && (
+        <TourBienvenida idioma={idioma} onCerrar={() => setMostrarTourManual(false)} />
+      )}
       <BottomNav activo="ayuda" onNavigate={onNavigate} />
     </div>
   )
