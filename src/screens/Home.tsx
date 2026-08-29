@@ -10,6 +10,9 @@ import { getBienvenida, getBienvenidaPrimeraVisita } from '@/lib/bienvenida'
 import { getCtaEmpezar } from '@/lib/ctaEmpezar'
 import TourBienvenida from '@/components/TourBienvenida'
 import { getVioTourBienvenida, marcarTourBienvenidaVisto } from '@/lib/tourBienvenidaRemoto'
+import { getMensajePendiente, descartarMensaje, type MensajeAdmin } from '@/lib/mensajesAdminRemoto'
+import { MensajeAdminBanner } from '@/components/MensajeAdminBanner'
+import { MensajeAdminVideo } from '@/components/MensajeAdminVideo'
 import { ICONO_BIENVENIDA, ICONO_CTA } from '@/lib/temaIconos'
 import { colorStrokePorcentaje } from '@/lib/utils'
 import type { CursoMeta } from '@/lib/cursos'
@@ -47,6 +50,7 @@ export function Home({
   const [cta] = useState(() => getCtaEmpezar(idioma))
   const [mostrarTour, setMostrarTour] = useState(false)
   const [primeraVisita, setPrimeraVisita] = useState(false)
+  const [mensajeAdmin, setMensajeAdmin] = useState<MensajeAdmin | null>(null)
   const IconoBienvenida = ICONO_BIENVENIDA[estilo]
   const IconoCta = ICONO_CTA[estilo]
   // Primera vez en la vida de la cuenta: en vez del mensaje que cambia por
@@ -86,9 +90,18 @@ export function Home({
     })
   }, [])
 
+  useEffect(() => {
+    getMensajePendiente().then(setMensajeAdmin)
+  }, [])
+
   const cerrarTour = () => {
     marcarTourBienvenidaVisto()
     setMostrarTour(false)
+  }
+
+  const cerrarMensajeAdmin = () => {
+    if (mensajeAdmin) descartarMensaje(mensajeAdmin.id)
+    setMensajeAdmin(null)
   }
 
   return (
@@ -171,6 +184,12 @@ export function Home({
           </button>
         </div>
       </div>
+
+      {mensajeAdmin && mensajeAdmin.tipo !== 'video' && (
+        <div className="mt-4 px-6">
+          <MensajeAdminBanner mensaje={mensajeAdmin} onCerrar={cerrarMensajeAdmin} />
+        </div>
+      )}
 
       <div className="mt-6 px-6">
         <div className="card-elevated relative min-h-[132px] rounded-2xl bg-card">
@@ -274,6 +293,9 @@ export function Home({
 
       <BottomNav activo="home" onNavigate={onNavigate} />
       {mostrarTour && <TourBienvenida idioma={idioma} onCerrar={cerrarTour} />}
+      {!mostrarTour && mensajeAdmin && mensajeAdmin.tipo === 'video' && (
+        <MensajeAdminVideo mensaje={mensajeAdmin} onCerrar={cerrarMensajeAdmin} />
+      )}
     </div>
   )
 }

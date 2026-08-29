@@ -68,6 +68,13 @@ export interface Diccionario {
     racha: (n: number) => string
     verEstadisticas: string
   }
+  mensajesAdmin: {
+    etiqueta: string
+    etiquetaVideo: string
+    cerrar: string
+    activarSonido: string
+    silenciar: string
+  }
   configurar: {
     titulo: string
     asignatura: string
@@ -316,6 +323,13 @@ export const es: Diccionario = {
     ctaKicker: 'Tu próxima prueba te espera',
     racha: (n) => `${n} día${n === 1 ? '' : 's'} seguidos`,
     verEstadisticas: 'Ver estadísticas completas',
+  },
+  mensajesAdmin: {
+    etiqueta: 'Mensaje del equipo',
+    etiquetaVideo: 'Video del equipo',
+    cerrar: 'Cerrar',
+    activarSonido: 'Activar sonido',
+    silenciar: 'Silenciar',
   },
   configurar: {
     titulo: 'Configurar examen',
@@ -592,6 +606,13 @@ export const en: Diccionario = {
     ctaKicker: 'Your next quiz is waiting',
     racha: (n) => `${n}-day streak`,
     verEstadisticas: 'View full statistics',
+  },
+  mensajesAdmin: {
+    etiqueta: 'Team message',
+    etiquetaVideo: 'Team video',
+    cerrar: 'Close',
+    activarSonido: 'Unmute',
+    silenciar: 'Mute',
   },
   configurar: {
     titulo: 'Configure exam',
