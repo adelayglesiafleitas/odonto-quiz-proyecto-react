@@ -156,7 +156,9 @@ export interface Diccionario {
     formatoOficial: { titulo: string; texto: string; enlace?: { texto: string; url: string } }
     footer: string
     seccionUsarApp: string
+    usarAppSubtitulo: (n: number) => string
     seccionAtencionCliente: string
+    cerrar: string
     escribirSoporteTitulo: string
     escribirSoporteTexto: string
     misConsultasTitulo: string
@@ -422,7 +424,9 @@ export const es: Diccionario = {
     footer:
       'Tu cuenta y tu historial de puntuaciones se guardan de forma segura en tu perfil, así que los tienes disponibles en cualquier dispositivo en el que inicies sesión. Tus preferencias de tema e idioma se guardan solo en este navegador.',
     seccionUsarApp: 'Usar la app',
+    usarAppSubtitulo: (n) => `${n} guía${n === 1 ? '' : 's'} rápida${n === 1 ? '' : 's'}`,
     seccionAtencionCliente: 'Atención al cliente',
+    cerrar: 'Cerrar',
     escribirSoporteTitulo: 'Escribir a soporte',
     escribirSoporteTexto: 'Contanos qué pasó y te respondemos por acá.',
     misConsultasTitulo: 'Mis consultas',
@@ -706,7 +710,9 @@ export const en: Diccionario = {
     footer:
       "Your account and score history are saved securely in your profile, so they're available on any device you sign in from. Your theme and language preferences are saved only in this browser.",
     seccionUsarApp: 'Using the app',
+    usarAppSubtitulo: (n) => `${n} quick guide${n === 1 ? '' : 's'}`,
     seccionAtencionCliente: 'Customer support',
+    cerrar: 'Close',
     escribirSoporteTitulo: 'Contact support',
     escribirSoporteTexto: "Tell us what happened and we'll reply right here.",
     misConsultasTitulo: 'My requests',
