@@ -273,27 +273,42 @@ function PantallaLibro({
       <p className="mt-4 px-6 text-sm leading-relaxed text-muted-foreground">{t.academia.libroDescripcion}</p>
 
       <div className="mt-4 space-y-2.5 px-6">
-        {CAPITULOS_INMACULADA.filter(
-          // Un capítulo sin contenido real todavía ni siquiera aparece en la
-          // lista hasta que se gana su lugar completando el anterior — nada
-          // de mostrarlo bloqueado/atenuado de entrada.
-          (cap) => cap.listo || capituloAnteriorCompletado(cap.numero - 1, cap1Completo),
-        ).map((cap) => {
-          const handleClick = cap.listo ? onAbrirCapitulo : onAbrirProximo
+        {CAPITULOS_INMACULADA.map((cap) => {
+          const desbloqueadoPorProgreso = !cap.listo && capituloAnteriorCompletado(cap.numero - 1, cap1Completo)
+          const disponible = cap.listo || desbloqueadoPorProgreso
+          const handleClick = cap.listo ? onAbrirCapitulo : desbloqueadoPorProgreso ? onAbrirProximo : undefined
+          // Candado con motivo específico ("Termina el Cap. 1") solo para el
+          // capítulo inmediato siguiente a uno con progreso real — el resto
+          // usa el "próximamente" genérico de siempre.
+          const bloqueadoPorCapAnterior = !disponible && cap.numero - 1 === 1
           return (
             <button
               key={cap.numero}
               onClick={handleClick}
-              className="card-elevated flex w-full items-center gap-3 rounded-2xl bg-card p-3.5 text-left transition active:scale-[0.99]"
+              disabled={!disponible}
+              className={`card-elevated flex w-full items-center gap-3 rounded-2xl p-3.5 text-left transition ${
+                disponible ? 'bg-card active:scale-[0.99]' : 'bg-card/60 opacity-60'
+              }`}
             >
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent/12 text-sm font-extrabold text-accent">
+              <span
+                className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-sm font-extrabold ${
+                  disponible ? 'bg-accent/12 text-accent' : 'bg-secondary text-muted-foreground'
+                }`}
+              >
                 {cap.numero}
               </span>
               <span className="min-w-0 flex-1">
                 <span className="block text-sm font-bold text-foreground">{cap.titulo}</span>
                 {cap.subtitulo && <span className="mt-0.5 block truncate text-xs text-muted-foreground">{cap.subtitulo}</span>}
               </span>
-              <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
+              {disponible ? (
+                <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
+              ) : (
+                <span className="flex shrink-0 items-center gap-1 rounded-full bg-secondary px-2 py-0.5 text-[10px] font-bold text-muted-foreground">
+                  <Lock className="h-3 w-3" />
+                  {bloqueadoPorCapAnterior ? t.academia.libroBloqueadoPorAnterior(cap.numero - 1) : t.academia.libroProximamente}
+                </span>
+              )}
             </button>
           )
         })}

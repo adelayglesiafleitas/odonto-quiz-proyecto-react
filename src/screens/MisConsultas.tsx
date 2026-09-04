@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { ArrowLeft, Plus, Inbox } from 'lucide-react'
 import { useAppSettings } from '@/context/AppSettings'
+import { SettingsToggle } from '@/components/SettingsToggle'
+import { LogoMark } from '@/components/Logo'
 import { Spinner } from '@/components/Spinner'
 import { NuevaConsultaModal } from '@/components/NuevaConsultaModal'
 import { BottomNav } from '@/components/BottomNav'
@@ -43,7 +45,12 @@ export function MisConsultas({ userId, onNavigate }: { userId: string; onNavigat
 
   return (
     <div className="app-shell bg-background px-6 pb-28 pt-6">
-      <div className="flex items-center gap-3">
+      <div className="flex items-center justify-between gap-3">
+        <LogoMark className="h-8 w-auto" />
+        <SettingsToggle />
+      </div>
+
+      <div className="mt-4 flex items-center gap-3">
         <button
           onClick={() => navigate(RUTA.ayuda)}
           className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-card shadow-sm"

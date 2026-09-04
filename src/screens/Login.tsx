@@ -111,7 +111,7 @@ export function Login({ onLogin }: { onLogin: () => void }) {
       </div>
 
       <div className="mb-8 flex flex-col items-center gap-3 animate-float-up">
-        <LogoMark className="h-16 w-auto" />
+        <LogoMark className="h-16 w-auto" variante="oscuro" />
         <div className="text-center">
           <h1 className="text-xl font-extrabold tracking-tight text-white">{t.comun.nombreApp}</h1>
           <p className="text-xs font-medium text-white/60">{esRegistro ? t.login.subtituloRegistro : t.login.subtituloLogin}</p>

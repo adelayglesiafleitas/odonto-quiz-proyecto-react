@@ -23,7 +23,7 @@ export function LoadingScreen({ label }: { label?: string }) {
 
       <div className="relative flex h-28 w-28 items-center justify-center">
         <span className="absolute inset-0 animate-spin rounded-full border-[3px] border-white/15 border-t-[#1fc6c6]" />
-        <LogoMark className="relative h-10 w-auto drop-shadow-[0_8px_24px_rgba(0,0,0,0.35)]" />
+        <LogoMark className="relative h-10 w-auto drop-shadow-[0_8px_24px_rgba(0,0,0,0.35)]" variante="oscuro" />
       </div>
 
       {texto && (

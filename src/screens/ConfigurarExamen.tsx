@@ -19,6 +19,8 @@ import {
 import { getAnios, getCapitulos, getPreguntas } from '@/lib/data'
 import { getConfigExamenRemota, guardarConfigExamenRemota } from '@/lib/configExamen'
 import { useAppSettings } from '@/context/AppSettings'
+import { SettingsToggle } from '@/components/SettingsToggle'
+import { LogoMark } from '@/components/Logo'
 import { BottomNav } from '@/components/BottomNav'
 import type { CursoMeta } from '@/lib/cursos'
 import type { Pantalla } from '@/types'
@@ -106,7 +108,12 @@ export function ConfigurarExamen({
 
   return (
     <div className="app-shell bg-background px-6 pb-56 pt-6">
-      <div className="flex items-center gap-3">
+      <div className="flex items-center justify-between gap-3">
+        <LogoMark className="h-8 w-auto" />
+        <SettingsToggle />
+      </div>
+
+      <div className="mt-4 flex items-center gap-3">
         <button
           onClick={onBack}
           className="flex h-9 w-9 items-center justify-center rounded-full bg-secondary text-foreground"

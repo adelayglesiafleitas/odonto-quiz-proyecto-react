@@ -33,7 +33,7 @@ export function DispositivoBloqueado({
       </div>
 
       <div className="mb-8 flex flex-col items-center gap-3 animate-float-up">
-        <LogoMark className="h-16 w-auto" />
+        <LogoMark className="h-16 w-auto" variante="oscuro" />
         <h1 className="text-xl font-extrabold tracking-tight text-white">{t.comun.nombreApp}</h1>
       </div>
 

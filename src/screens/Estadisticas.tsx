@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 import { ArrowLeft, BookOpen, Check, ChevronDown, Trophy } from 'lucide-react'
 import { useAppSettings } from '@/context/AppSettings'
+import { SettingsToggle } from '@/components/SettingsToggle'
+import { LogoMark } from '@/components/Logo'
 import { Spinner } from '@/components/Spinner'
 import { BottomNav } from '@/components/BottomNav'
 import { getAsignaturas, ICONO_CURSO } from '@/lib/asignaturas'
@@ -123,7 +125,12 @@ export function Estadisticas({
 
   return (
     <div className="app-shell bg-background pb-28 pt-6">
-      <div className="flex items-center gap-3 px-6">
+      <div className="flex items-center justify-between gap-3 px-6">
+        <LogoMark className="h-8 w-auto" />
+        <SettingsToggle />
+      </div>
+
+      <div className="mt-4 flex items-center gap-3 px-6">
         <button onClick={onBack} className="flex h-9 w-9 items-center justify-center rounded-full bg-secondary text-foreground">
           <ArrowLeft className="h-4 w-4" />
         </button>

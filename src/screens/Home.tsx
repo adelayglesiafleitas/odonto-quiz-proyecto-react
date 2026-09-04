@@ -108,7 +108,7 @@ export function Home({
     <div className="app-shell bg-background pb-28">
       <div className="brand-gradient rounded-b-[32px] px-6 pb-8 pt-6 text-white">
         <div className="flex items-center justify-between">
-          <LogoMark className="h-10 w-auto" />
+          <LogoMark className="h-10 w-auto" variante="oscuro" />
           <div className="flex items-center gap-2">
             <SettingsToggle variante="oscuro" />
             <button

@@ -221,8 +221,6 @@ export interface Diccionario {
     libroDescripcion: string
     libroCapituloLabel: (n: number) => string
     libroProximamente: string
-    proximoCapMensaje: string
-    proximoCapVolverCap1: string
     rutaBloqueado: string
     rutaEmpezar: string
     rutaCompletados: (completados: number, total: number) => string
@@ -539,8 +537,6 @@ export const es: Diccionario = {
     libroDescripcion: 'Manual de referencia para el manejo odontológico de pacientes con necesidades especiales. Por ahora solo el Capítulo 1 tiene contenido armado; el resto del índice real se va a ir sumando.',
     libroCapituloLabel: (n) => `Capítulo ${n}`,
     libroProximamente: 'Próximamente',
-    proximoCapMensaje: 'Estamos preparando este capítulo. Mientras tanto, podés repasar el Capítulo 1 o seguir practicando en el banco de preguntas.',
-    proximoCapVolverCap1: 'Volver al Capítulo 1',
     rutaBloqueado: 'Completá el nodo anterior para desbloquear este.',
     rutaEmpezar: 'Empezar',
     rutaCompletados: (completados, total) => `${completados} de ${total} completados`,
@@ -857,8 +853,6 @@ export const en: Diccionario = {
     libroDescripcion: "Reference manual for the dental management of patients with special needs. For now only Chapter 1 has content built — the rest of the real index will be added over time.",
     libroCapituloLabel: (n) => `Chapter ${n}`,
     libroProximamente: 'Coming soon',
-    proximoCapMensaje: "We're preparing this chapter. In the meantime, you can review Chapter 1 or keep practicing in the question bank.",
-    proximoCapVolverCap1: 'Back to Chapter 1',
     rutaBloqueado: 'Finish the previous node to unlock this one.',
     rutaEmpezar: 'Start',
     rutaCompletados: (completados, total) => `${completados} of ${total} completed`,

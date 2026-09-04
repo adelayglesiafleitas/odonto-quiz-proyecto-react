@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, Send, Clock } from 'lucide-react'
 import { useAppSettings } from '@/context/AppSettings'
+import { SettingsToggle } from '@/components/SettingsToggle'
+import { LogoMark } from '@/components/Logo'
 import { Spinner } from '@/components/Spinner'
 import { RUTA, RUTA_SOPORTE } from '@/lib/rutas'
 import {
@@ -97,6 +99,11 @@ export function HiloConsulta({ userId }: { userId: string }) {
 
   return (
     <div className="app-shell flex h-screen max-h-screen flex-col bg-background">
+      <div className="flex shrink-0 items-center justify-between gap-3 px-5 pt-4">
+        <LogoMark className="h-8 w-auto" />
+        <SettingsToggle />
+      </div>
+
       <div className="flex shrink-0 items-center gap-2.5 border-b border-border px-5 py-4">
         <button
           onClick={() => navigate(RUTA_SOPORTE)}

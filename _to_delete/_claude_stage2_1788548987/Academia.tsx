@@ -47,7 +47,7 @@ import {
  * admin todavía pendiente.
  */
 
-type VistaAcademia = 'home' | 'libro' | 'ruta' | 'nodo' | 'proximo'
+type VistaAcademia = 'home' | 'libro' | 'ruta' | 'nodo'
 type EstadoNodo = 'bloqueado' | 'disponible' | 'completado'
 interface ProgresoNodo {
   estado: EstadoNodo
@@ -110,13 +110,6 @@ export function Academia({ onNavigate }: { onNavigate: (p: Pantalla) => void }) 
   useEffect(() => guardar(CLAVE_PROGRESO, progreso), [progreso])
   useEffect(() => guardar(CLAVE_RESPUESTAS, respuestas), [respuestas])
 
-  // Piloto: solo el Capítulo 1 tiene seguimiento de progreso real todavía
-  // (ver src/data/academiaInmaculada.ts). Esto habilita únicamente al
-  // Capítulo 2 a mostrarse "desbloqueado por progreso" en PantallaLibro en
-  // cuanto se termina — los capítulos 3 en adelante siguen con el candado
-  // genérico de "próximamente" hasta que tengan su propio contenido.
-  const cap1Completo = NODOS_CAP1.every((n) => progreso[n.id]?.estado === 'completado')
-
   function siguienteNodoId(id: string): string | null {
     const i = NODOS_CAP1.findIndex((n) => n.id === id)
     return i >= 0 && i < NODOS_CAP1.length - 1 ? NODOS_CAP1[i + 1].id : null
@@ -154,16 +147,8 @@ export function Academia({ onNavigate }: { onNavigate: (p: Pantalla) => void }) 
       {vista === 'home' && <PantallaHome t={t} onAbrirLibro={() => setVista('libro')} />}
 
       {vista === 'libro' && (
-        <PantallaLibro
-          t={t}
-          cap1Completo={cap1Completo}
-          onVolver={() => setVista('home')}
-          onAbrirCapitulo={() => setVista('ruta')}
-          onAbrirProximo={() => setVista('proximo')}
-        />
+        <PantallaLibro t={t} onVolver={() => setVista('home')} onAbrirCapitulo={() => setVista('ruta')} />
       )}
-
-      {vista === 'proximo' && <PantallaProximoCapitulo t={t} onVolver={() => setVista('libro')} onIrACap1={() => setVista('ruta')} />}
 
       {vista === 'ruta' && (
         <PantallaRuta t={t} progreso={progreso} onVolver={() => setVista('libro')} onAbrirNodo={abrirNodo} />
@@ -227,31 +212,14 @@ function PantallaHome({ t, onAbrirLibro }: { t: Diccionario; onAbrirLibro: () =>
   )
 }
 
-/**
- * Piloto: solo el Capítulo 1 tiene contenido y seguimiento de progreso real
- * (ver src/data/academiaInmaculada.ts). Esta función decide, para un
- * capítulo SIN contenido todavía, si ya "se ganó" mostrarse desbloqueado por
- * haber terminado el capítulo anterior — hoy eso solo puede ser cierto para
- * el Capítulo 2 (el único cuyo capítulo anterior, el 1, tiene progreso
- * real). El resto sigue con el candado genérico de "próximamente" hasta que
- * tengan su propio contenido y su propio seguimiento.
- */
-function capituloAnteriorCompletado(numeroAnterior: number, cap1Completo: boolean): boolean {
-  return numeroAnterior === 1 && cap1Completo
-}
-
 function PantallaLibro({
   t,
-  cap1Completo,
   onVolver,
   onAbrirCapitulo,
-  onAbrirProximo,
 }: {
   t: Diccionario
-  cap1Completo: boolean
   onVolver: () => void
   onAbrirCapitulo: () => void
-  onAbrirProximo: () => void
 }) {
   return (
     <div className="pt-6">
@@ -273,73 +241,39 @@ function PantallaLibro({
       <p className="mt-4 px-6 text-sm leading-relaxed text-muted-foreground">{t.academia.libroDescripcion}</p>
 
       <div className="mt-4 space-y-2.5 px-6">
-        {CAPITULOS_INMACULADA.filter(
-          // Un capítulo sin contenido real todavía ni siquiera aparece en la
-          // lista hasta que se gana su lugar completando el anterior — nada
-          // de mostrarlo bloqueado/atenuado de entrada.
-          (cap) => cap.listo || capituloAnteriorCompletado(cap.numero - 1, cap1Completo),
-        ).map((cap) => {
-          const handleClick = cap.listo ? onAbrirCapitulo : onAbrirProximo
+        {CAPITULOS_INMACULADA.map((cap) => {
+          const disponible = cap.listo
           return (
             <button
               key={cap.numero}
-              onClick={handleClick}
-              className="card-elevated flex w-full items-center gap-3 rounded-2xl bg-card p-3.5 text-left transition active:scale-[0.99]"
+              onClick={disponible ? onAbrirCapitulo : undefined}
+              disabled={!disponible}
+              className={`card-elevated flex w-full items-center gap-3 rounded-2xl p-3.5 text-left transition ${
+                disponible ? 'bg-card active:scale-[0.99]' : 'bg-card/60 opacity-60'
+              }`}
             >
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent/12 text-sm font-extrabold text-accent">
+              <span
+                className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-sm font-extrabold ${
+                  disponible ? 'bg-accent/12 text-accent' : 'bg-secondary text-muted-foreground'
+                }`}
+              >
                 {cap.numero}
               </span>
               <span className="min-w-0 flex-1">
                 <span className="block text-sm font-bold text-foreground">{cap.titulo}</span>
                 {cap.subtitulo && <span className="mt-0.5 block truncate text-xs text-muted-foreground">{cap.subtitulo}</span>}
               </span>
-              <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
+              {disponible ? (
+                <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
+              ) : (
+                <span className="flex shrink-0 items-center gap-1 rounded-full bg-secondary px-2 py-0.5 text-[10px] font-bold text-muted-foreground">
+                  <Lock className="h-3 w-3" />
+                  {t.academia.libroProximamente}
+                </span>
+              )}
             </button>
           )
         })}
-      </div>
-    </div>
-  )
-}
-
-function PantallaProximoCapitulo({
-  t,
-  onVolver,
-  onIrACap1,
-}: {
-  t: Diccionario
-  onVolver: () => void
-  onIrACap1: () => void
-}) {
-  const cap2 = CAPITULOS_INMACULADA.find((c) => c.numero === 2)
-  return (
-    <div className="pt-6">
-      <div className="flex items-center justify-between gap-3 px-6">
-        <LogoMark className="h-8 w-auto" />
-        <SettingsToggle />
-      </div>
-
-      <div className="mt-4 flex items-center gap-3 px-6">
-        <button onClick={onVolver} className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-secondary text-foreground">
-          <ArrowLeft className="h-4 w-4" />
-        </button>
-        <div className="min-w-0">
-          <h1 className="truncate text-lg font-extrabold text-foreground">
-            {t.academia.libroCapituloLabel(cap2?.numero ?? 2)}
-          </h1>
-          {cap2 && <p className="truncate text-xs font-medium text-muted-foreground">{cap2.titulo}</p>}
-        </div>
-      </div>
-
-      <div className="mt-8 flex flex-col items-center px-6 text-center">
-        <span className="flex h-14 w-14 items-center justify-center rounded-full bg-accent/12 text-accent">
-          <Sparkles className="h-6 w-6" />
-        </span>
-        <h2 className="mt-3 text-base font-bold text-foreground">{t.academia.libroProximamente}</h2>
-        <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{t.academia.proximoCapMensaje}</p>
-        <Button onClick={onIrACap1} className="mt-5 h-11 rounded-2xl px-6 font-bold">
-          {t.academia.proximoCapVolverCap1}
-        </Button>
       </div>
     </div>
   )

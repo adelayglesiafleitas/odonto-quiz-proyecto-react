@@ -77,7 +77,7 @@ export function Splash({ onFinish }: { onFinish: () => void }) {
     <div className="fixed inset-0 z-50 flex flex-col items-center justify-end overflow-hidden bg-[#04141c] text-white">
       {!listo ? (
         <div className="brand-gradient absolute inset-0 flex items-center justify-center">
-          <LogoMark className="h-20 w-20 animate-pulse" />
+          <LogoMark className="h-20 w-20 animate-pulse" variante="oscuro" />
         </div>
       ) : (
         <>
@@ -101,7 +101,7 @@ export function Splash({ onFinish }: { onFinish: () => void }) {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#04141c]/60 to-transparent" />
 
       <div className="relative z-10 flex flex-col items-center pb-12">
-        <LogoMark className="h-12 w-12 animate-float-up drop-shadow-[0_8px_24px_rgba(0,0,0,0.35)]" />
+        <LogoMark className="h-12 w-12 animate-float-up drop-shadow-[0_8px_24px_rgba(0,0,0,0.35)]" variante="oscuro" />
         <h1
           className="mt-3 text-2xl font-extrabold tracking-tight animate-float-up"
           style={{ animationDelay: '0.1s' }}

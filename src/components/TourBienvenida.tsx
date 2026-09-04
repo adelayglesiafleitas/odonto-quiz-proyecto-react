@@ -73,7 +73,7 @@ export default function TourBienvenida({ idioma, onCerrar }: TourBienvenidaProps
   return (
     <div className="fixed inset-0 z-50 mx-auto w-full max-w-md brand-gradient flex flex-col animate-bienvenida-in">
       <div className="flex items-center justify-between px-6 pt-7 min-h-[44px]">
-        <LogoMark className="h-8 w-auto" />
+        <LogoMark className="h-8 w-auto" variante="oscuro" />
         {!esUltimo && (
           <button onClick={onCerrar} className="text-white/60 text-sm font-semibold py-3 px-1">
             {idioma === 'en' ? 'Skip' : 'Saltar'}

@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
 import { ReportarPregunta } from '@/components/ReportarPregunta'
 import { useAppSettings } from '@/context/AppSettings'
+import { SettingsToggle } from '@/components/SettingsToggle'
+import { LogoMark } from '@/components/Logo'
 import { ArrowLeft, ArrowRight, X, Timer, AlertTriangle } from 'lucide-react'
 
 export type RespuestaUsuario = Record<number, string[]>
@@ -95,6 +97,11 @@ export function Examen({
 
   return (
     <div className="app-shell flex flex-col bg-background">
+      <div className="flex items-center justify-between gap-3 px-5 pt-4">
+        <LogoMark className="h-8 w-auto" />
+        <SettingsToggle />
+      </div>
+
       <div className="border-b border-border px-5 pb-4 pt-5">
         <div className="flex items-center justify-between gap-2">
           <button

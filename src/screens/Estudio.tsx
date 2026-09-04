@@ -3,6 +3,8 @@ import { ArrowLeft } from 'lucide-react'
 import { getCapitulos, getPreguntas } from '@/lib/data'
 import { CURSO_ID } from '@/lib/cursos'
 import { useAppSettings } from '@/context/AppSettings'
+import { SettingsToggle } from '@/components/SettingsToggle'
+import { LogoMark } from '@/components/Logo'
 import { BottomNav } from '@/components/BottomNav'
 import type { Pantalla } from '@/types'
 
@@ -24,7 +26,12 @@ export function Estudio({ onBack, onNavigate }: { onBack: () => void; onNavigate
 
   return (
     <div className="app-shell bg-background pb-28 pt-6">
-      <div className="flex items-center gap-3 px-6">
+      <div className="flex items-center justify-between gap-3 px-6">
+        <LogoMark className="h-8 w-auto" />
+        <SettingsToggle />
+      </div>
+
+      <div className="mt-4 flex items-center gap-3 px-6">
         <button onClick={onBack} className="flex h-9 w-9 items-center justify-center rounded-full bg-secondary text-foreground">
           <ArrowLeft className="h-4 w-4" />
         </button>

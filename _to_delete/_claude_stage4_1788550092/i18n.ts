@@ -221,6 +221,7 @@ export interface Diccionario {
     libroDescripcion: string
     libroCapituloLabel: (n: number) => string
     libroProximamente: string
+    libroBloqueadoPorAnterior: (n: number) => string
     proximoCapMensaje: string
     proximoCapVolverCap1: string
     rutaBloqueado: string
@@ -539,6 +540,7 @@ export const es: Diccionario = {
     libroDescripcion: 'Manual de referencia para el manejo odontológico de pacientes con necesidades especiales. Por ahora solo el Capítulo 1 tiene contenido armado; el resto del índice real se va a ir sumando.',
     libroCapituloLabel: (n) => `Capítulo ${n}`,
     libroProximamente: 'Próximamente',
+    libroBloqueadoPorAnterior: (n) => `Termina el Cap. ${n}`,
     proximoCapMensaje: 'Estamos preparando este capítulo. Mientras tanto, podés repasar el Capítulo 1 o seguir practicando en el banco de preguntas.',
     proximoCapVolverCap1: 'Volver al Capítulo 1',
     rutaBloqueado: 'Completá el nodo anterior para desbloquear este.',
@@ -857,6 +859,7 @@ export const en: Diccionario = {
     libroDescripcion: "Reference manual for the dental management of patients with special needs. For now only Chapter 1 has content built — the rest of the real index will be added over time.",
     libroCapituloLabel: (n) => `Chapter ${n}`,
     libroProximamente: 'Coming soon',
+    libroBloqueadoPorAnterior: (n) => `Finish Ch. ${n}`,
     proximoCapMensaje: "We're preparing this chapter. In the meantime, you can review Chapter 1 or keep practicing in the question bank.",
     proximoCapVolverCap1: 'Back to Chapter 1',
     rutaBloqueado: 'Finish the previous node to unlock this one.',
