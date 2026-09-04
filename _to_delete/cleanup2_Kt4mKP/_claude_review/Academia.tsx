@@ -116,25 +116,6 @@ export function Academia({ onNavigate }: { onNavigate: (p: Pantalla) => void }) 
   useEffect(() => guardar(CLAVE_PROGRESO, progreso), [progreso])
   useEffect(() => guardar(CLAVE_RESPUESTAS, respuestas), [respuestas])
 
-  // "Restablecer estadísticas" (Configuracion.tsx) borra estas mismas
-  // claves de localStorage. Si esta pantalla ya estaba abierta en OTRA
-  // pestaña/ventana en el momento del borrado, el evento 'storage' del
-  // navegador (que solo dispara en las pestañas que NO hicieron el cambio)
-  // avisa acá para recargar el progreso en memoria — si no, el próximo
-  // `guardar` de esta pestaña reescribiría el progreso viejo encima del
-  // borrado recién hecho.
-  useEffect(() => {
-    function alCambiarStorage(e: StorageEvent) {
-      // e.key === null pasa con localStorage.clear() (no lo usamos acá,
-      // pero cubre el caso igual); si no, solo nos importan estas dos claves.
-      if (e.key !== null && e.key !== CLAVE_PROGRESO && e.key !== CLAVE_RESPUESTAS) return
-      setProgreso(cargarProgreso())
-      setRespuestas(cargarRespuestas())
-    }
-    window.addEventListener('storage', alCambiarStorage)
-    return () => window.removeEventListener('storage', alCambiarStorage)
-  }, [])
-
   // Piloto: solo el Capítulo 1 tiene seguimiento de progreso real todavía
   // (ver src/data/academiaInmaculada.ts). Esto habilita únicamente al
   // Capítulo 2 a mostrarse "desbloqueado por progreso" en PantallaLibro en

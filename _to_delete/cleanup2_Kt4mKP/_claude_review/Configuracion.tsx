@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { Check, ChevronDown, LogOut, Palette, RotateCcw, User } from 'lucide-react'
 import { useAppSettings } from '@/context/AppSettings'
 import { SettingsToggle } from '@/components/SettingsToggle'
@@ -7,7 +7,6 @@ import { BottomNav } from '@/components/BottomNav'
 import { ModalConfirmacion } from '@/components/ModalConfirmacion'
 import { eliminarHistorialPropio } from '@/lib/historial'
 import { borrarProgresoAcademiaLocal } from '@/lib/academiaProgresoLocal'
-import { getAcademiaHabilitada } from '@/lib/academiaAccesoRemoto'
 import type { Pantalla } from '@/types'
 
 /**
@@ -31,37 +30,12 @@ export function Configuracion({
   const [estiloAbierto, setEstiloAbierto] = useState(false)
 
   // "Restablecer estadísticas": borra el historial de simulacros (Supabase,
-  // cruza dispositivos) y, si además tiene Academia habilitada, su progreso
-  // ahí (localStorage, solo este dispositivo) — ver claude/restablecer-
-  // estadisticas-academia-estadisticas-diseno.md. No toca config_examen,
-  // nickname, tema ni idioma: el pedido fue "estadísticas", no "toda mi
-  // cuenta". Se consulta el acceso a Academia solo para que la copia (fila +
-  // modal) no le prometa a alguien sin acceso que le va a borrar algo ahí.
-  const [academiaHabilitada, setAcademiaHabilitada] = useState(false)
+  // cruza dispositivos) y el progreso de Academia (localStorage, solo este
+  // dispositivo) — ver claude/restablecer-estadisticas-academia-estadisticas-diseno.md.
+  // No toca config_examen, nickname, tema ni idioma: el pedido fue
+  // "estadísticas", no "toda mi cuenta".
   const [modalAbierto, setModalAbierto] = useState(false)
   const [estadoRestablecer, setEstadoRestablecer] = useState<'idle' | 'borrando' | 'hecho' | 'error'>('idle')
-  const timeoutToastRef = useRef<ReturnType<typeof setTimeout> | null>(null)
-
-  useEffect(() => {
-    let cancelado = false
-    getAcademiaHabilitada().then((habilitada) => {
-      if (!cancelado) setAcademiaHabilitada(habilitada)
-    })
-    return () => {
-      cancelado = true
-    }
-  }, [])
-
-  // Los timeouts que reponen el botón/toast a su estado normal no se
-  // cancelaban al salir de esta pantalla antes de que dispararan: si el
-  // usuario navegaba a otra pestaña justo después de restablecer, React
-  // intentaba actualizar estado de un componente ya desmontado. Se limpian
-  // acá al desmontar, y también antes de programar uno nuevo.
-  useEffect(() => {
-    return () => {
-      if (timeoutToastRef.current) clearTimeout(timeoutToastRef.current)
-    }
-  }, [])
 
   async function restablecerEstadisticas() {
     if (!userId) return
@@ -70,19 +44,9 @@ export function Configuracion({
     if (ok) {
       borrarProgresoAcademiaLocal()
       setModalAbierto(false)
-      setEstadoRestablecer('hecho')
-      if (timeoutToastRef.current) clearTimeout(timeoutToastRef.current)
-      timeoutToastRef.current = setTimeout(() => setEstadoRestablecer('idle'), 2500)
-    } else {
-      // El modal se queda abierto a propósito: así el error se ve adentro,
-      // no tapado detrás (antes quedaba invisible hasta cerrar el modal).
-      setEstadoRestablecer('error')
     }
-  }
-
-  function cancelarModal() {
-    setModalAbierto(false)
-    if (estadoRestablecer === 'error') setEstadoRestablecer('idle')
+    setEstadoRestablecer(ok ? 'hecho' : 'error')
+    setTimeout(() => setEstadoRestablecer('idle'), 2500)
   }
 
   return (
@@ -325,9 +289,7 @@ export function Configuracion({
           </span>
           <div className="min-w-0 flex-1">
             <p className="text-[15px] font-bold text-foreground">{t.config.restablecerTitulo}</p>
-            <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
-              {academiaHabilitada ? t.config.restablecerDesc : t.config.restablecerDescSinAcademia}
-            </p>
+            <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">{t.config.restablecerDesc}</p>
           </div>
         </div>
         <button
@@ -335,8 +297,18 @@ export function Configuracion({
           disabled={!userId}
           className="mt-3 w-full rounded-xl bg-secondary py-2.5 text-xs font-bold text-secondary-foreground transition active:scale-[0.98] disabled:opacity-50"
         >
-          {t.config.restablecerBoton}
+          {estadoRestablecer === 'hecho' ? (
+            <span className="flex items-center justify-center gap-1.5">
+              <Check className="h-3.5 w-3.5" />
+              {t.config.restablecerExito}
+            </span>
+          ) : (
+            t.config.restablecerBoton
+          )}
         </button>
+        {estadoRestablecer === 'error' && (
+          <p className="mt-2 text-center text-[11px] font-semibold text-destructive">{t.config.restablecerError}</p>
+        )}
       </div>
 
       <button
@@ -350,38 +322,15 @@ export function Configuracion({
       <ModalConfirmacion
         abierto={modalAbierto}
         titulo={t.config.restablecerModalTitulo}
-        items={
-          academiaHabilitada
-            ? [t.config.restablecerModalItemHistorial, t.config.restablecerModalItemAcademia]
-            : [t.config.restablecerModalItemHistorial]
-        }
+        items={[t.config.restablecerModalItemHistorial, t.config.restablecerModalItemAcademia]}
         advertencia={t.config.restablecerModalAdvertencia}
-        error={estadoRestablecer === 'error' ? t.config.restablecerError : undefined}
         confirmarLabel={t.config.restablecerModalConfirmar}
         cargando={estadoRestablecer === 'borrando'}
         onConfirmar={restablecerEstadisticas}
-        onCancelar={cancelarModal}
+        onCancelar={() => setModalAbierto(false)}
       />
 
-      <BottomNav
-        activo="config"
-        onNavigate={onNavigate}
-        accesorio={
-          estadoRestablecer === 'hecho' ? (
-            // Mismo lugar que ya usa el botón central de "Comenzar examen"
-            // (ver BottomNav.tsx) para apilar algo justo arriba de la barra
-            // sin que esta desaparezca — acá, un toast breve en vez de
-            // cambiar el texto del botón de la fila (que quedaba tapado
-            // apenas se cerraba el modal).
-            <div className="flex justify-center px-6 pb-3">
-              <div className="animate-in fade-in slide-in-from-bottom-2 flex items-center gap-2 rounded-2xl bg-foreground px-4 py-2.5 text-xs font-bold text-background shadow-lg duration-200">
-                <Check className="h-3.5 w-3.5" />
-                {t.config.restablecerExito}
-              </div>
-            </div>
-          ) : undefined
-        }
-      />
+      <BottomNav activo="config" onNavigate={onNavigate} />
     </div>
   )
 }

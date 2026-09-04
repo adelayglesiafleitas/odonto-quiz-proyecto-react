@@ -130,7 +130,6 @@ export function Estadisticas({
   // Supabase) — ver claude/restablecer-estadisticas-academia-estadisticas-diseno.md.
   const [academiaHabilitada, setAcademiaHabilitada] = useState(false)
   const resumenAcademia = useMemo(() => calcularResumenAcademia(cargarProgresoAcademia()), [])
-  const porcentajeAcademia = Math.round((resumenAcademia.temasCompletados / resumenAcademia.temasTotal) * 100)
 
   useEffect(() => {
     let cancelado = false
@@ -320,7 +319,7 @@ export function Estadisticas({
           <p className="flex items-center gap-1.5 px-1 text-xs font-bold uppercase tracking-wide text-muted-foreground">
             {t.estadisticas.academiaTitulo}
             <span className="rounded-md bg-accent/15 px-1.5 py-[1px] text-[9px] font-extrabold uppercase text-accent">
-              {t.estadisticas.academiaNuevo}
+              {t.config.estiloNuevo}
             </span>
           </p>
           <div className="card-elevated mt-2 rounded-2xl bg-card p-4">
@@ -340,14 +339,17 @@ export function Estadisticas({
               </span>
             </div>
             <div className="mt-2.5 h-1.5 w-full overflow-hidden rounded-full bg-primary/10">
-              <div className="h-full rounded-full bg-accent transition-all" style={{ width: `${porcentajeAcademia}%` }} />
+              <div
+                className="h-full rounded-full bg-accent transition-all"
+                style={{ width: `${Math.round((resumenAcademia.temasCompletados / resumenAcademia.temasTotal) * 100)}%` }}
+              />
             </div>
             {resumenAcademia.empezado && (
               <div className="mt-2 flex items-center justify-between text-[11px] font-bold text-muted-foreground">
                 <span className="flex items-center gap-1 text-[hsl(var(--amber))]">
                   ★ {t.estadisticas.academiaEstrellas(resumenAcademia.estrellas, resumenAcademia.estrellasMax)}
                 </span>
-                <span>{porcentajeAcademia}%</span>
+                <span>{Math.round((resumenAcademia.temasCompletados / resumenAcademia.temasTotal) * 100)}%</span>
               </div>
             )}
             <button

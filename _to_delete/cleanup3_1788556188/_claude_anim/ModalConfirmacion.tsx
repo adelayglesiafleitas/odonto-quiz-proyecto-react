@@ -61,9 +61,9 @@ export function ModalConfirmacion({
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-confirmacion-titulo"
-      className="safe-bottom animate-in fade-in fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-4 duration-200 sm:items-center"
+      className="safe-bottom fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-4 sm:items-center"
     >
-      <div className="card-elevated animate-in fade-in slide-in-from-bottom-4 w-full max-w-sm rounded-3xl bg-card p-6 duration-300">
+      <div className="card-elevated w-full max-w-sm rounded-3xl bg-card p-6">
         <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-destructive/12 text-destructive">
           <AlertTriangle className="h-5 w-5" />
         </span>

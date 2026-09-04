@@ -75,8 +75,8 @@ export function NuevaConsultaModal({
   const IconoElegido = motivo ? ICONOS_MOTIVO[motivo] : null
 
   return (
-    <div className="safe-bottom animate-in fade-in fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-4 duration-200 sm:items-center">
-      <div className="card-elevated animate-in fade-in slide-in-from-bottom-4 w-full max-w-sm rounded-3xl bg-card p-6 duration-300">
+    <div className="safe-bottom fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-4 sm:items-center">
+      <div className="card-elevated w-full max-w-sm rounded-3xl bg-card p-6">
         <h3 className="text-base font-bold text-foreground">{t.soporte.nuevoTitulo}</h3>
         <p className="mt-1.5 text-sm text-muted-foreground">{t.soporte.nuevoSubtitulo}</p>
 

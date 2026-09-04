@@ -55,8 +55,8 @@ export function ReportarPregunta({ userId, pregunta }: { userId: string; pregunt
       </button>
 
       {abierto && (
-        <div className="safe-bottom animate-in fade-in fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-4 duration-200 sm:items-center">
-          <div className="card-elevated animate-in fade-in slide-in-from-bottom-4 w-full max-w-sm rounded-3xl bg-card p-6 duration-300">
+        <div className="safe-bottom fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-4 sm:items-center">
+          <div className="card-elevated w-full max-w-sm rounded-3xl bg-card p-6">
             {estado === 'enviado' ? (
               <div className="flex flex-col items-center py-2 text-center">
                 <CheckCircle2 className="h-10 w-10 text-success" />

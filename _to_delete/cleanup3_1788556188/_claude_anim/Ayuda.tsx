@@ -167,11 +167,11 @@ export function Ayuda({
 
       {modalUsarApp && (
         <div
-          className="safe-bottom animate-in fade-in fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-4 duration-200 sm:items-center"
+          className="safe-bottom fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-4 sm:items-center"
           onClick={cerrarModalUsarApp}
         >
           <div
-            className="card-elevated animate-in fade-in slide-in-from-bottom-4 flex w-full max-w-sm flex-col overflow-hidden rounded-3xl bg-card duration-300"
+            className="card-elevated flex w-full max-w-sm flex-col overflow-hidden rounded-3xl bg-card"
             style={{ maxHeight: '85vh' }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -232,11 +232,11 @@ export function Ayuda({
 
       {modalAtencion && (
         <div
-          className="safe-bottom animate-in fade-in fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-4 duration-200 sm:items-center"
+          className="safe-bottom fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-4 sm:items-center"
           onClick={() => setModalAtencion(false)}
         >
           <div
-            className="card-elevated animate-in fade-in slide-in-from-bottom-4 w-full max-w-sm overflow-hidden rounded-3xl bg-card duration-300"
+            className="card-elevated w-full max-w-sm overflow-hidden rounded-3xl bg-card"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between border-b border-border px-5 py-4">

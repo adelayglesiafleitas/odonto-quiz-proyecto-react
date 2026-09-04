@@ -274,6 +274,7 @@ export interface Diccionario {
     estiloNuevo: string
     restablecerTitulo: string
     restablecerDesc: string
+    restablecerDescSinAcademia: string
     restablecerBoton: string
     restablecerModalTitulo: string
     restablecerModalItemHistorial: string
@@ -301,6 +302,7 @@ export interface Diccionario {
     sinDatosTexto: string
     sinIntentos: string
     academiaTitulo: string
+    academiaNuevo: string
     academiaDispositivo: string
     academiaTemasCompletados: (completados: number, total: number) => string
     academiaSinEmpezar: string
@@ -612,6 +614,7 @@ export const es: Diccionario = {
     estiloNuevo: 'Nuevo',
     restablecerTitulo: 'Restablecer estadísticas',
     restablecerDesc: 'Borra tu historial de simulacros y tu progreso en Academia en este dispositivo',
+    restablecerDescSinAcademia: 'Borra tu historial de simulacros',
     restablecerBoton: 'Restablecer',
     restablecerModalTitulo: '¿Restablecer todas tus estadísticas?',
     restablecerModalItemHistorial: 'Todo tu historial de simulacros — todas las asignaturas, en todos tus dispositivos',
@@ -639,6 +642,7 @@ export const es: Diccionario = {
     sinDatosTexto: 'Completa tu primer simulacro para ver tus estadísticas acá.',
     sinIntentos: 'Sin intentos',
     academiaTitulo: 'Academia',
+    academiaNuevo: 'Nuevo',
     academiaDispositivo: 'Este dispositivo',
     academiaTemasCompletados: (completados, total) => `${completados} de ${total} temas completados`,
     academiaSinEmpezar: 'Todavía no empezaste',
@@ -950,6 +954,7 @@ export const en: Diccionario = {
     estiloNuevo: 'New',
     restablecerTitulo: 'Reset statistics',
     restablecerDesc: 'Deletes your mock exam history and your Academia progress on this device',
+    restablecerDescSinAcademia: 'Deletes your mock exam history',
     restablecerBoton: 'Reset',
     restablecerModalTitulo: 'Reset all your statistics?',
     restablecerModalItemHistorial: 'All your mock exam history — every subject, on every one of your devices',
@@ -977,6 +982,7 @@ export const en: Diccionario = {
     sinDatosTexto: 'Complete your first mock exam to see your statistics here.',
     sinIntentos: 'No attempts yet',
     academiaTitulo: 'Academia',
+    academiaNuevo: 'New',
     academiaDispositivo: 'This device',
     academiaTemasCompletados: (completados, total) => `${completados} of ${total} topics completed`,
     academiaSinEmpezar: "Haven't started yet",
