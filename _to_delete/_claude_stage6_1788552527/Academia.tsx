@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import {
   ArrowLeft,
   BookOpen,
@@ -114,7 +114,6 @@ function claveRespuesta(nodoId: string, qi: number): string {
 
 export function Academia({ onNavigate }: { onNavigate: (p: Pantalla) => void }) {
   const { t } = useAppSettings()
-  const { key: navegacionKey } = useLocation()
   const [vista, setVista] = useState<VistaAcademia>('home')
   const [nodoActivoId, setNodoActivoId] = useState<string | null>(null)
   const [progreso, setProgreso] = useState<ProgresoCap1>(() => cargarProgreso())
@@ -122,18 +121,6 @@ export function Academia({ onNavigate }: { onNavigate: (p: Pantalla) => void }) 
   // null mientras se consulta el perfil — evita el parpadeo de mostrar el
   // cartel de "sin acceso" un instante antes de confirmar que sí lo tiene.
   const [academiaHabilitada, setAcademiaHabilitada] = useState<boolean | null>(null)
-
-  // Academia no tiene rutas propias para libro/ruta/nodo (todo vive en el
-  // estado `vista` de acá adentro) — así que si el usuario ya está adentro
-  // (por ejemplo viendo un nodo) y vuelve a tocar la pestaña "Academia" de
-  // la barra inferior, React Router navega a la misma URL y el componente
-  // ni se entera. `location.key` sí cambia en cada navegación aunque la URL
-  // sea idéntica, así que lo usamos como señal de "se tocó la pestaña de
-  // nuevo" para volver siempre al inicio, en vez de quedarse donde estaba.
-  useEffect(() => {
-    setVista('home')
-    setNodoActivoId(null)
-  }, [navegacionKey])
 
   useEffect(() => {
     let cancelado = false
