@@ -1,5 +1,4 @@
 import { useEffect, useState, type ReactNode } from 'react'
-import { useNavigate } from 'react-router-dom'
 import {
   ArrowLeft,
   BookOpen,
@@ -15,10 +14,7 @@ import { useAppSettings } from '@/context/AppSettings'
 import { SettingsToggle } from '@/components/SettingsToggle'
 import { LogoMark } from '@/components/Logo'
 import { BottomNav } from '@/components/BottomNav'
-import { Spinner } from '@/components/Spinner'
 import { Button } from '@/components/ui/button'
-import { RUTA_SOPORTE } from '@/lib/rutas'
-import { getAcademiaHabilitada } from '@/lib/academiaAccesoRemoto'
 import type { Diccionario } from '@/lib/i18n'
 import type { Pantalla } from '@/types'
 import {
@@ -47,16 +43,8 @@ import {
  * pausada a pedido explícito — no se implementa acá todavía.
  *
  * El progreso se guarda en localStorage (por dispositivo/navegador, no en
- * Supabase): alcanza para el piloto y es independiente de la llave de
- * acceso admin-only (ver más abajo, `getAcademiaHabilitada`) — una vez
- * adentro, el progreso sigue siendo local.
- *
- * Acceso: toda la pestaña queda detrás de `perfiles.academia_habilitada`
- * (boolean, default false), controlado únicamente por un admin desde
- * odonto-quiz-admin (Usuarios.tsx) — ver claude/academia-control-acceso-
- * admin-diseno.md. El botón de la barra inferior sigue siempre visible;
- * sin acceso, lo que cambia es que `PantallaHome` se reemplaza por
- * `PantallaSinAcceso`.
+ * Supabase): alcanza para el piloto y no depende de la llave de acceso
+ * admin todavía pendiente.
  */
 
 type VistaAcademia = 'home' | 'libro' | 'ruta' | 'nodo' | 'proximo'
@@ -118,19 +106,6 @@ export function Academia({ onNavigate }: { onNavigate: (p: Pantalla) => void }) 
   const [nodoActivoId, setNodoActivoId] = useState<string | null>(null)
   const [progreso, setProgreso] = useState<ProgresoCap1>(() => cargarProgreso())
   const [respuestas, setRespuestas] = useState<Record<string, number>>(() => cargarRespuestas())
-  // null mientras se consulta el perfil — evita el parpadeo de mostrar el
-  // cartel de "sin acceso" un instante antes de confirmar que sí lo tiene.
-  const [academiaHabilitada, setAcademiaHabilitada] = useState<boolean | null>(null)
-
-  useEffect(() => {
-    let cancelado = false
-    getAcademiaHabilitada().then((habilitada) => {
-      if (!cancelado) setAcademiaHabilitada(habilitada)
-    })
-    return () => {
-      cancelado = true
-    }
-  }, [])
 
   useEffect(() => guardar(CLAVE_PROGRESO, progreso), [progreso])
   useEffect(() => guardar(CLAVE_RESPUESTAS, respuestas), [respuestas])
@@ -176,77 +151,37 @@ export function Academia({ onNavigate }: { onNavigate: (p: Pantalla) => void }) 
 
   return (
     <div className="app-shell bg-background pb-28">
-      {academiaHabilitada === null && (
-        <div className="flex justify-center pt-32">
-          <Spinner className="h-8 w-8 text-muted-foreground" />
-        </div>
+      {vista === 'home' && <PantallaHome t={t} onAbrirLibro={() => setVista('libro')} />}
+
+      {vista === 'libro' && (
+        <PantallaLibro
+          t={t}
+          cap1Completo={cap1Completo}
+          onVolver={() => setVista('home')}
+          onAbrirCapitulo={() => setVista('ruta')}
+          onAbrirProximo={() => setVista('proximo')}
+        />
       )}
 
-      {academiaHabilitada === false && <PantallaSinAcceso t={t} />}
+      {vista === 'proximo' && <PantallaProximoCapitulo t={t} onVolver={() => setVista('libro')} onIrACap1={() => setVista('ruta')} />}
 
-      {academiaHabilitada === true && (
-        <>
-          {vista === 'home' && <PantallaHome t={t} onAbrirLibro={() => setVista('libro')} />}
+      {vista === 'ruta' && (
+        <PantallaRuta t={t} progreso={progreso} onVolver={() => setVista('libro')} onAbrirNodo={abrirNodo} />
+      )}
 
-          {vista === 'libro' && (
-            <PantallaLibro
-              t={t}
-              cap1Completo={cap1Completo}
-              onVolver={() => setVista('home')}
-              onAbrirCapitulo={() => setVista('ruta')}
-              onAbrirProximo={() => setVista('proximo')}
-            />
-          )}
-
-          {vista === 'proximo' && (
-            <PantallaProximoCapitulo t={t} onVolver={() => setVista('libro')} onIrACap1={() => setVista('ruta')} />
-          )}
-
-          {vista === 'ruta' && (
-            <PantallaRuta t={t} progreso={progreso} onVolver={() => setVista('libro')} onAbrirNodo={abrirNodo} />
-          )}
-
-          {vista === 'nodo' && nodoActivoId && (
-            <PantallaNodo
-              t={t}
-              nodoId={nodoActivoId}
-              progreso={progreso}
-              respuestas={respuestas}
-              onResponder={responder}
-              onCompletar={completarNodo}
-              onVolver={volverARuta}
-            />
-          )}
-        </>
+      {vista === 'nodo' && nodoActivoId && (
+        <PantallaNodo
+          t={t}
+          nodoId={nodoActivoId}
+          progreso={progreso}
+          respuestas={respuestas}
+          onResponder={responder}
+          onCompletar={completarNodo}
+          onVolver={volverARuta}
+        />
       )}
 
       <BottomNav activo="academia" onNavigate={onNavigate} />
-    </div>
-  )
-}
-
-function PantallaSinAcceso({ t }: { t: Diccionario }) {
-  const navigate = useNavigate()
-  return (
-    <div className="px-6 pt-6">
-      <div className="flex items-center justify-between gap-3">
-        <LogoMark className="h-8 w-auto" />
-        <SettingsToggle />
-      </div>
-
-      <div className="mt-16 flex flex-col items-center px-4 text-center">
-        <span className="flex h-14 w-14 items-center justify-center rounded-full bg-secondary text-muted-foreground">
-          <Lock className="h-6 w-6" />
-        </span>
-        <h2 className="mt-4 text-base font-bold text-foreground">{t.academia.sinAccesoTitulo}</h2>
-        <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{t.academia.sinAccesoTexto}</p>
-        <Button
-          onClick={() => navigate(RUTA_SOPORTE, { state: { abrirNuevo: true } })}
-          className="mt-5 h-11 rounded-2xl px-6 font-bold"
-        >
-          {t.academia.sinAccesoBoton}
-        </Button>
-      </div>
     </div>
   )
 }

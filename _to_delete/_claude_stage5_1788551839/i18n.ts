@@ -217,9 +217,6 @@ export interface Diccionario {
     homeKicker: string
     homeSubtitulo: string
     homeCapDisponibles: (n: number) => string
-    sinAccesoTitulo: string
-    sinAccesoTexto: string
-    sinAccesoBoton: string
     libroAutor: string
     libroDescripcion: string
     libroCapituloLabel: (n: number) => string
@@ -538,9 +535,6 @@ export const es: Diccionario = {
     homeKicker: 'Tu espacio para aprender',
     homeSubtitulo: 'Elegí un libro para estudiar',
     homeCapDisponibles: (n) => `${n} capítulo${n === 1 ? '' : 's'} disponible${n === 1 ? '' : 's'}`,
-    sinAccesoTitulo: 'Academia todavía no está habilitada para tu cuenta',
-    sinAccesoTexto: 'Pedile a un administrador que te dé acceso.',
-    sinAccesoBoton: 'Escribir a soporte',
     libroAutor: 'Inmaculada Tomás (coord.) · Universidad de Santiago de Compostela · 2022',
     libroDescripcion: 'Manual de referencia para el manejo odontológico de pacientes con necesidades especiales. Por ahora solo el Capítulo 1 tiene contenido armado; el resto del índice real se va a ir sumando.',
     libroCapituloLabel: (n) => `Capítulo ${n}`,
@@ -859,9 +853,6 @@ export const en: Diccionario = {
     homeKicker: 'Your space to learn',
     homeSubtitulo: 'Choose a book to study',
     homeCapDisponibles: (n) => `${n} chapter${n === 1 ? '' : 's'} available`,
-    sinAccesoTitulo: "Academia isn't enabled for your account yet",
-    sinAccesoTexto: 'Ask an administrator to give you access.',
-    sinAccesoBoton: 'Contact support',
     libroAutor: 'Inmaculada Tomás (ed.) · University of Santiago de Compostela · 2022',
     libroDescripcion: "Reference manual for the dental management of patients with special needs. For now only Chapter 1 has content built — the rest of the real index will be added over time.",
     libroCapituloLabel: (n) => `Chapter ${n}`,
