@@ -272,16 +272,6 @@ export interface Diccionario {
     estiloMasEstilos: string
     estiloMasEstilosDesc: string
     estiloNuevo: string
-    restablecerTitulo: string
-    restablecerDesc: string
-    restablecerBoton: string
-    restablecerModalTitulo: string
-    restablecerModalItemHistorial: string
-    restablecerModalItemAcademia: string
-    restablecerModalAdvertencia: string
-    restablecerModalConfirmar: string
-    restablecerExito: string
-    restablecerError: string
   }
   asignaturas: {
     titulo: string
@@ -300,13 +290,6 @@ export interface Diccionario {
     sinDatosTitulo: string
     sinDatosTexto: string
     sinIntentos: string
-    academiaTitulo: string
-    academiaDispositivo: string
-    academiaTemasCompletados: (completados: number, total: number) => string
-    academiaSinEmpezar: string
-    academiaEstrellas: (obtenidas: number, total: number) => string
-    academiaSeguir: string
-    academiaEmpezar: string
   }
 }
 
@@ -610,16 +593,6 @@ export const es: Diccionario = {
     estiloMasEstilos: 'Más estilos',
     estiloMasEstilosDesc: 'Nuevos estilos en camino',
     estiloNuevo: 'Nuevo',
-    restablecerTitulo: 'Restablecer estadísticas',
-    restablecerDesc: 'Borra tu historial de simulacros y tu progreso en Academia en este dispositivo',
-    restablecerBoton: 'Restablecer',
-    restablecerModalTitulo: '¿Restablecer todas tus estadísticas?',
-    restablecerModalItemHistorial: 'Todo tu historial de simulacros — todas las asignaturas, en todos tus dispositivos',
-    restablecerModalItemAcademia: 'Tu progreso en Academia — solo en este dispositivo',
-    restablecerModalAdvertencia: 'Esta acción no se puede deshacer',
-    restablecerModalConfirmar: 'Sí, restablecer',
-    restablecerExito: 'Estadísticas restablecidas',
-    restablecerError: 'No se pudo restablecer. Probá de nuevo.',
   },
   asignaturas: {
     titulo: '¿Qué vas a examinar?',
@@ -638,13 +611,6 @@ export const es: Diccionario = {
     sinDatosTitulo: 'Todavía no hay datos',
     sinDatosTexto: 'Completa tu primer simulacro para ver tus estadísticas acá.',
     sinIntentos: 'Sin intentos',
-    academiaTitulo: 'Academia',
-    academiaDispositivo: 'Este dispositivo',
-    academiaTemasCompletados: (completados, total) => `${completados} de ${total} temas completados`,
-    academiaSinEmpezar: 'Todavía no empezaste',
-    academiaEstrellas: (obtenidas, total) => `${obtenidas}/${total} estrellas`,
-    academiaSeguir: 'Seguir en Academia',
-    academiaEmpezar: 'Empezar Academia',
   },
 }
 
@@ -948,16 +914,6 @@ export const en: Diccionario = {
     estiloMasEstilos: 'More styles',
     estiloMasEstilosDesc: 'New styles on the way',
     estiloNuevo: 'New',
-    restablecerTitulo: 'Reset statistics',
-    restablecerDesc: 'Deletes your mock exam history and your Academia progress on this device',
-    restablecerBoton: 'Reset',
-    restablecerModalTitulo: 'Reset all your statistics?',
-    restablecerModalItemHistorial: 'All your mock exam history — every subject, on every one of your devices',
-    restablecerModalItemAcademia: 'Your Academia progress — only on this device',
-    restablecerModalAdvertencia: 'This action cannot be undone',
-    restablecerModalConfirmar: 'Yes, reset',
-    restablecerExito: 'Statistics reset',
-    restablecerError: "Couldn't reset it. Try again.",
   },
   asignaturas: {
     titulo: 'What are you testing on?',
@@ -976,13 +932,6 @@ export const en: Diccionario = {
     sinDatosTitulo: 'No data yet',
     sinDatosTexto: 'Complete your first mock exam to see your statistics here.',
     sinIntentos: 'No attempts yet',
-    academiaTitulo: 'Academia',
-    academiaDispositivo: 'This device',
-    academiaTemasCompletados: (completados, total) => `${completados} of ${total} topics completed`,
-    academiaSinEmpezar: "Haven't started yet",
-    academiaEstrellas: (obtenidas, total) => `${obtenidas}/${total} stars`,
-    academiaSeguir: 'Continue in Academia',
-    academiaEmpezar: 'Start Academia',
   },
 }
 

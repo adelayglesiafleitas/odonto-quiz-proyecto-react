@@ -1,53 +1,27 @@
 import { useState } from 'react'
-import { Check, ChevronDown, LogOut, Palette, RotateCcw, User } from 'lucide-react'
+import { ChevronDown, LogOut, Palette, User } from 'lucide-react'
 import { useAppSettings } from '@/context/AppSettings'
 import { SettingsToggle } from '@/components/SettingsToggle'
 import { LogoMark } from '@/components/Logo'
 import { BottomNav } from '@/components/BottomNav'
-import { ModalConfirmacion } from '@/components/ModalConfirmacion'
-import { eliminarHistorialPropio } from '@/lib/historial'
-import { borrarProgresoAcademiaLocal } from '@/lib/academiaProgresoLocal'
 import type { Pantalla } from '@/types'
 
 /**
- * Pestaña "Config": cuenta, preferencias (tema/idioma), restablecer
- * estadísticas y cerrar sesión — el equivalente al ícono de engranaje del
- * nav de LinkedIn.
+ * Pestaña "Config": cuenta, preferencias (tema/idioma) y cerrar sesión —
+ * el equivalente al ícono de engranaje del nav de LinkedIn.
  */
 export function Configuracion({
   nickname,
-  userId,
   onNavigate,
   onLogout,
 }: {
   nickname: string | null
-  userId: string | null
   onNavigate: (p: Pantalla) => void
   onLogout: () => void
 }) {
   const { t, estilo, setEstilo } = useAppSettings()
   const nombreMostrado = nickname && nickname.trim().length > 0 ? nickname : t.home.estudiante
   const [estiloAbierto, setEstiloAbierto] = useState(false)
-
-  // "Restablecer estadísticas": borra el historial de simulacros (Supabase,
-  // cruza dispositivos) y el progreso de Academia (localStorage, solo este
-  // dispositivo) — ver claude/restablecer-estadisticas-academia-estadisticas-diseno.md.
-  // No toca config_examen, nickname, tema ni idioma: el pedido fue
-  // "estadísticas", no "toda mi cuenta".
-  const [modalAbierto, setModalAbierto] = useState(false)
-  const [estadoRestablecer, setEstadoRestablecer] = useState<'idle' | 'borrando' | 'hecho' | 'error'>('idle')
-
-  async function restablecerEstadisticas() {
-    if (!userId) return
-    setEstadoRestablecer('borrando')
-    const { ok } = await eliminarHistorialPropio(userId)
-    if (ok) {
-      borrarProgresoAcademiaLocal()
-      setModalAbierto(false)
-    }
-    setEstadoRestablecer(ok ? 'hecho' : 'error')
-    setTimeout(() => setEstadoRestablecer('idle'), 2500)
-  }
 
   return (
     <div className="app-shell bg-background px-6 pb-28 pt-6">
@@ -282,35 +256,6 @@ export function Configuracion({
         )}
       </div>
 
-      <div className="card-elevated mt-3 rounded-2xl bg-card p-4">
-        <div className="flex items-start gap-3">
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-muted text-muted-foreground">
-            <RotateCcw className="h-5 w-5" />
-          </span>
-          <div className="min-w-0 flex-1">
-            <p className="text-[15px] font-bold text-foreground">{t.config.restablecerTitulo}</p>
-            <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">{t.config.restablecerDesc}</p>
-          </div>
-        </div>
-        <button
-          onClick={() => setModalAbierto(true)}
-          disabled={!userId}
-          className="mt-3 w-full rounded-xl bg-secondary py-2.5 text-xs font-bold text-secondary-foreground transition active:scale-[0.98] disabled:opacity-50"
-        >
-          {estadoRestablecer === 'hecho' ? (
-            <span className="flex items-center justify-center gap-1.5">
-              <Check className="h-3.5 w-3.5" />
-              {t.config.restablecerExito}
-            </span>
-          ) : (
-            t.config.restablecerBoton
-          )}
-        </button>
-        {estadoRestablecer === 'error' && (
-          <p className="mt-2 text-center text-[11px] font-semibold text-destructive">{t.config.restablecerError}</p>
-        )}
-      </div>
-
       <button
         onClick={onLogout}
         className="card-elevated mt-3 flex w-full items-center justify-center gap-2 rounded-2xl bg-destructive/10 p-4 text-sm font-bold text-destructive transition active:scale-[0.98]"
@@ -318,17 +263,6 @@ export function Configuracion({
         <LogOut className="h-4 w-4" />
         {t.home.cerrarSesion}
       </button>
-
-      <ModalConfirmacion
-        abierto={modalAbierto}
-        titulo={t.config.restablecerModalTitulo}
-        items={[t.config.restablecerModalItemHistorial, t.config.restablecerModalItemAcademia]}
-        advertencia={t.config.restablecerModalAdvertencia}
-        confirmarLabel={t.config.restablecerModalConfirmar}
-        cargando={estadoRestablecer === 'borrando'}
-        onConfirmar={restablecerEstadisticas}
-        onCancelar={() => setModalAbierto(false)}
-      />
 
       <BottomNav activo="config" onNavigate={onNavigate} />
     </div>

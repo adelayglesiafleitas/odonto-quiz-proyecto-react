@@ -19,15 +19,6 @@ import { Spinner } from '@/components/Spinner'
 import { Button } from '@/components/ui/button'
 import { RUTA_SOPORTE } from '@/lib/rutas'
 import { getAcademiaHabilitada } from '@/lib/academiaAccesoRemoto'
-import {
-  cargarProgresoAcademia as cargarProgreso,
-  cargarRespuestasAcademia as cargarRespuestas,
-  CLAVE_PROGRESO_ACADEMIA as CLAVE_PROGRESO,
-  CLAVE_RESPUESTAS_ACADEMIA as CLAVE_RESPUESTAS,
-  guardarAcademia as guardar,
-  type EstadoNodo,
-  type ProgresoCap1,
-} from '@/lib/academiaProgresoLocal'
 import type { Diccionario } from '@/lib/i18n'
 import type { Pantalla } from '@/types'
 import {
@@ -69,12 +60,53 @@ import {
  */
 
 type VistaAcademia = 'home' | 'libro' | 'ruta' | 'nodo' | 'proximo'
+type EstadoNodo = 'bloqueado' | 'disponible' | 'completado'
+interface ProgresoNodo {
+  estado: EstadoNodo
+  estrellas?: number
+}
+type ProgresoCap1 = Record<string, ProgresoNodo>
 
-// ProgresoCap1/EstadoNodo y las funciones de carga/guardado de localStorage
-// se movieron a src/lib/academiaProgresoLocal.ts (importadas arriba, con
-// alias para no tocar el resto de este archivo) — así Estadisticas.tsx y
-// Configuracion.tsx pueden leer y borrar el mismo progreso sin duplicar el
-// parseo acá.
+const CLAVE_PROGRESO = 'academia_progreso_inmaculada_cap1_v1'
+const CLAVE_RESPUESTAS = 'academia_respuestas_inmaculada_cap1_v1'
+
+function progresoInicial(): ProgresoCap1 {
+  return {
+    intro: { estado: 'disponible' },
+    pc: { estado: 'bloqueado' },
+    epi: { estado: 'bloqueado' },
+    dm: { estado: 'bloqueado' },
+    repaso: { estado: 'bloqueado' },
+  }
+}
+
+function cargarProgreso(): ProgresoCap1 {
+  try {
+    const guardado = localStorage.getItem(CLAVE_PROGRESO)
+    if (guardado) return { ...progresoInicial(), ...(JSON.parse(guardado) as ProgresoCap1) }
+  } catch {
+    // localStorage no disponible (modo privado, etc.): seguimos con el estado inicial.
+  }
+  return progresoInicial()
+}
+
+function cargarRespuestas(): Record<string, number> {
+  try {
+    const guardado = localStorage.getItem(CLAVE_RESPUESTAS)
+    if (guardado) return JSON.parse(guardado) as Record<string, number>
+  } catch {
+    // ignorar
+  }
+  return {}
+}
+
+function guardar(clave: string, valor: unknown) {
+  try {
+    localStorage.setItem(clave, JSON.stringify(valor))
+  } catch {
+    // ignorar — el progreso simplemente no persiste esta sesión.
+  }
+}
 
 function claveRespuesta(nodoId: string, qi: number): string {
   return `${nodoId}-${qi}`

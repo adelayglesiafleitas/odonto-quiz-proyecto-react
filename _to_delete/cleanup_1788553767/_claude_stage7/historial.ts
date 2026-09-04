@@ -74,19 +74,6 @@ export async function guardarIntentoRemoto(userId: string, intento: IntentoExame
   if (error) console.error('Error al guardar el intento:', error.message)
 }
 
-// Usado por "Restablecer estadísticas" en Configuracion.tsx. Requiere la
-// policy de DELETE "Los usuarios eliminan su propio historial" (migración
-// permitir_borrar_historial_propio) — sin ella RLS deniega por defecto y
-// esto no borra nada, sin siquiera devolver error.
-export async function eliminarHistorialPropio(userId: string): Promise<{ ok: boolean }> {
-  const { error } = await supabase.from('historial_intentos').delete().eq('user_id', userId)
-  if (error) {
-    console.error('Error al restablecer el historial:', error.message)
-    return { ok: false }
-  }
-  return { ok: true }
-}
-
 export interface EstadisticaCapitulo {
   capitulo: string
   correctas: number

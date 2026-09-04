@@ -391,7 +391,7 @@ function App() {
             path={RUTA.config}
             element={
               <Protegida sesionLista={sesionLista} autenticado={autenticado}>
-                <Configuracion nickname={nickname} userId={userId} onNavigate={irA} onLogout={irALogin} />
+                <Configuracion nickname={nickname} onNavigate={irA} onLogout={irALogin} />
               </Protegida>
             }
           />

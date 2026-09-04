@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { ArrowLeft, BookOpen, Check, ChevronDown, GraduationCap, Trophy } from 'lucide-react'
+import { ArrowLeft, BookOpen, Check, ChevronDown, Trophy } from 'lucide-react'
 import { useAppSettings } from '@/context/AppSettings'
 import { SettingsToggle } from '@/components/SettingsToggle'
 import { LogoMark } from '@/components/Logo'
@@ -15,9 +15,6 @@ import {
   type ActividadDia,
   type EstadisticaCapitulo,
 } from '@/lib/historial'
-import { getAcademiaHabilitada } from '@/lib/academiaAccesoRemoto'
-import { cargarProgresoAcademia, calcularResumenAcademia } from '@/lib/academiaProgresoLocal'
-import { CAPITULOS_INMACULADA } from '@/data/academiaInmaculada'
 import type { Pantalla } from '@/types'
 
 interface ResumenAsignatura {
@@ -122,24 +119,6 @@ export function Estadisticas({
         .sort((a, b) => a.porcentaje - b.porcentaje),
     [porCapitulo],
   )
-
-  // Sección "Academia": independiente de `cursoSel` (el progreso de Academia
-  // no tiene asignatura), por eso no depende de ese estado ni se recalcula
-  // con él — solo se pide una vez, igual que el resumen "Por asignatura" de
-  // más abajo. El progreso en sí sale de localStorage (síncrono, sin
-  // Supabase) — ver claude/restablecer-estadisticas-academia-estadisticas-diseno.md.
-  const [academiaHabilitada, setAcademiaHabilitada] = useState(false)
-  const resumenAcademia = useMemo(() => calcularResumenAcademia(cargarProgresoAcademia()), [])
-
-  useEffect(() => {
-    let cancelado = false
-    getAcademiaHabilitada().then((habilitada) => {
-      if (!cancelado) setAcademiaHabilitada(habilitada)
-    })
-    return () => {
-      cancelado = true
-    }
-  }, [])
 
   const circunferencia = 2 * Math.PI * 42
   const maxActividad = Math.max(1, ...actividad.map((d) => d.cantidad))
@@ -312,55 +291,6 @@ export function Estadisticas({
             </div>
           )}
         </>
-      )}
-
-      {academiaHabilitada && (
-        <div className="mt-5 px-6">
-          <p className="flex items-center gap-1.5 px-1 text-xs font-bold uppercase tracking-wide text-muted-foreground">
-            {t.estadisticas.academiaTitulo}
-            <span className="rounded-md bg-accent/15 px-1.5 py-[1px] text-[9px] font-extrabold uppercase text-accent">
-              {t.config.estiloNuevo}
-            </span>
-          </p>
-          <div className="card-elevated mt-2 rounded-2xl bg-card p-4">
-            <div className="flex items-start justify-between gap-2">
-              <div className="min-w-0">
-                <p className="truncate text-sm font-bold text-foreground">
-                  Cap. {CAPITULOS_INMACULADA[0].numero} · {CAPITULOS_INMACULADA[0].titulo}
-                </p>
-                <p className="mt-0.5 text-xs text-muted-foreground">
-                  {resumenAcademia.empezado
-                    ? t.estadisticas.academiaTemasCompletados(resumenAcademia.temasCompletados, resumenAcademia.temasTotal)
-                    : t.estadisticas.academiaSinEmpezar}
-                </p>
-              </div>
-              <span className="shrink-0 rounded-full bg-muted px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide text-muted-foreground">
-                {t.estadisticas.academiaDispositivo}
-              </span>
-            </div>
-            <div className="mt-2.5 h-1.5 w-full overflow-hidden rounded-full bg-primary/10">
-              <div
-                className="h-full rounded-full bg-accent transition-all"
-                style={{ width: `${Math.round((resumenAcademia.temasCompletados / resumenAcademia.temasTotal) * 100)}%` }}
-              />
-            </div>
-            {resumenAcademia.empezado && (
-              <div className="mt-2 flex items-center justify-between text-[11px] font-bold text-muted-foreground">
-                <span className="flex items-center gap-1 text-[hsl(var(--amber))]">
-                  ★ {t.estadisticas.academiaEstrellas(resumenAcademia.estrellas, resumenAcademia.estrellasMax)}
-                </span>
-                <span>{Math.round((resumenAcademia.temasCompletados / resumenAcademia.temasTotal) * 100)}%</span>
-              </div>
-            )}
-            <button
-              onClick={() => onNavigate('academia')}
-              className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-xl bg-accent/12 py-2 text-xs font-bold text-accent transition active:scale-[0.98]"
-            >
-              <GraduationCap className="h-3.5 w-3.5" />
-              {resumenAcademia.empezado ? t.estadisticas.academiaSeguir : t.estadisticas.academiaEmpezar}
-            </button>
-          </div>
-        </div>
       )}
 
       <div className="mt-5 px-6">
