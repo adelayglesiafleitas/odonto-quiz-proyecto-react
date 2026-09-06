@@ -2,7 +2,7 @@ import { getCookie, setCookie } from './cookies'
 
 export type Tema = 'dark' | 'light'
 export type Idioma = 'es' | 'en'
-export type Estilo = 'clasico' | 'acqua' | 'electrico' | 'rockpop' | 'fresita' | 'galaxia'
+export type Estilo = 'clasico' | 'acqua' | 'electrico' | 'rockpop' | 'fresita' | 'galaxia' | 'academia'
 
 const TEMA_COOKIE = 'examprep_tema'
 const IDIOMA_COOKIE = 'examprep_idioma'
@@ -26,7 +26,7 @@ export function guardarIdioma(idioma: Idioma) {
   setCookie(IDIOMA_COOKIE, idioma)
 }
 
-const ESTILOS_VALIDOS: Estilo[] = ['clasico', 'acqua', 'electrico', 'rockpop', 'fresita', 'galaxia']
+const ESTILOS_VALIDOS: Estilo[] = ['clasico', 'acqua', 'electrico', 'rockpop', 'fresita', 'galaxia', 'academia']
 
 export function getEstiloGuardado(): Estilo {
   const valor = getCookie(ESTILO_COOKIE)

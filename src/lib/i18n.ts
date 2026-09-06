@@ -269,6 +269,8 @@ export interface Diccionario {
     estiloFresitaDesc: string
     estiloGalaxiaNombre: string
     estiloGalaxiaDesc: string
+    estiloAcademiaNombre: string
+    estiloAcademiaDesc: string
     estiloMasEstilos: string
     estiloMasEstilosDesc: string
     estiloNuevo: string
@@ -609,6 +611,8 @@ export const es: Diccionario = {
     estiloFresitaDesc: 'Rosa dulce con corazones',
     estiloGalaxiaNombre: 'Galaxia',
     estiloGalaxiaDesc: 'Cósmico, violeta con estrellas',
+    estiloAcademiaNombre: 'Academia',
+    estiloAcademiaDesc: 'Atlas científico, papel y tinta',
     estiloMasEstilos: 'Más estilos',
     estiloMasEstilosDesc: 'Nuevos estilos en camino',
     estiloNuevo: 'Nuevo',
@@ -949,6 +953,8 @@ export const en: Diccionario = {
     estiloFresitaDesc: 'Sweet pink with hearts',
     estiloGalaxiaNombre: 'Galaxy',
     estiloGalaxiaDesc: 'Cosmic violet with stars',
+    estiloAcademiaNombre: 'Academia',
+    estiloAcademiaDesc: 'Scientific atlas, paper and ink',
     estiloMasEstilos: 'More styles',
     estiloMasEstilosDesc: 'New styles on the way',
     estiloNuevo: 'New',

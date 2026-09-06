@@ -1,4 +1,4 @@
-import { Sparkles, Rocket, Zap, Flame, Heart, type LucideIcon } from 'lucide-react'
+import { Sparkles, Rocket, Zap, Flame, Heart, BookOpen, type LucideIcon } from 'lucide-react'
 import type { Estilo } from '@/lib/settings'
 
 /**
@@ -14,6 +14,7 @@ export const ICONO_BIENVENIDA: Record<Estilo, LucideIcon> = {
   rockpop: Flame,
   fresita: Heart,
   galaxia: Sparkles,
+  academia: BookOpen,
 }
 
 export const ICONO_CTA: Record<Estilo, LucideIcon> = {
@@ -23,4 +24,5 @@ export const ICONO_CTA: Record<Estilo, LucideIcon> = {
   rockpop: Flame,
   fresita: Heart,
   galaxia: Rocket,
+  academia: BookOpen,
 }

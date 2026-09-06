@@ -455,6 +455,7 @@ function PantallaRuta({
   onVolver: () => void
   onAbrirNodo: (id: string) => void
 }) {
+  const { estilo } = useAppSettings()
   const capitulo = CAPITULOS_INMACULADA[0]
   const puntos = NODOS_CAP1.map((_, i) => NODOS_POS_RUTA[i] ?? { x: 50, y: 86 + i * 150 })
   const completados = NODOS_CAP1.filter((n) => progreso[n.id]?.estado === 'completado').length
@@ -494,7 +495,27 @@ function PantallaRuta({
         </span>
       </div>
 
-      <div className="academia-path-wrap relative mx-6 mt-2" style={{ height: RUTA_ALTO_PX }}>
+      <div className="academia-path-wrap relative mx-6 mt-2 overflow-hidden" style={{ height: RUTA_ALTO_PX }}>
+        {/* Fondo ilustrado del estilo Academia (atlas cientifico papel y
+            tinta) — ver claude/academia-propuesta-cientifico-ilustrado-cap1.md.
+            Solo se muestra con este estilo activo; el resto usa el punteado
+            generico de .academia-path-wrap. */}
+        {estilo === 'academia' && (
+          <>
+            <img
+              src="/estilos/academia/cerebro.jpg"
+              alt=""
+              aria-hidden="true"
+              className="pointer-events-none absolute -right-[8%] top-0 w-[46%] max-w-[220px] opacity-90"
+            />
+            <img
+              src="/estilos/academia/silla-ruedas.jpg"
+              alt=""
+              aria-hidden="true"
+              className="pointer-events-none absolute -left-[6%] bottom-2 w-[42%] max-w-[200px] opacity-90"
+            />
+          </>
+        )}
         <svg
           className="absolute inset-0"
           width="100%"

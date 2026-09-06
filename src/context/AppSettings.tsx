@@ -11,7 +11,7 @@ import {
   type Estilo,
 } from '@/lib/settings'
 
-const ESTILOS_CON_CLASE: Exclude<Estilo, 'clasico'>[] = ['acqua', 'electrico', 'rockpop', 'fresita', 'galaxia']
+const ESTILOS_CON_CLASE: Exclude<Estilo, 'clasico'>[] = ['acqua', 'electrico', 'rockpop', 'fresita', 'galaxia', 'academia']
 import { Moon, Sun } from 'lucide-react'
 
 interface AppSettingsValue {

@@ -192,54 +192,6 @@ export function Home({
       )}
 
       <div className="mt-6 px-6">
-        <div className="card-elevated relative min-h-[132px] rounded-2xl bg-card">
-          <div
-            className={`absolute inset-0 flex flex-col justify-center overflow-hidden rounded-2xl border p-4 ${
-              mostrarBienvenida ? 'animate-bienvenida-in' : 'pointer-events-none animate-bienvenida-out'
-            }`}
-            style={{
-              borderColor: 'var(--home-hero-border)',
-              background: 'var(--home-hero-bg)',
-              boxShadow: 'var(--home-hero-shadow)',
-              transform: 'var(--home-hero-transform)',
-            }}
-          >
-            <div
-              className="pointer-events-none absolute -right-10 -top-12 h-28 w-28 rounded-full blur-md"
-              style={{ background: 'var(--home-hero-glow)' }}
-            />
-            <div
-              className="relative flex items-center gap-2 text-[11px] font-bold uppercase tracking-wide"
-              style={{ color: 'var(--home-hero-kicker)' }}
-            >
-              <span
-                className="flex h-[26px] w-[26px] items-center justify-center rounded-[9px] shadow-[0_4px_10px_rgba(31,198,198,0.35)]"
-                style={{ background: 'var(--home-hero-badge-bg)' }}
-              >
-                <IconoBienvenida className="h-3.5 w-3.5 text-white" />
-              </span>
-              {t.home.bienvenidaEtiqueta}
-            </div>
-            <p className="relative mt-2.5 text-[15.5px] font-semibold leading-relaxed" style={{ color: 'var(--home-hero-ink)' }}>
-              {mensajeBienvenida}
-            </p>
-          </div>
-          <div
-            className={`absolute inset-0 flex flex-col justify-center rounded-2xl p-4 ${
-              mostrarBienvenida ? 'pointer-events-none opacity-0' : 'animate-frase-in'
-            }`}
-          >
-            <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide text-accent">
-              <Quote className="h-3.5 w-3.5" />
-              {t.home.fraseEtiqueta}
-            </div>
-            <p className="mt-2.5 text-[15px] font-semibold leading-relaxed text-foreground">&ldquo;{frase.texto}&rdquo;</p>
-            {frase.autor && <p className="mt-2.5 text-xs font-medium text-muted-foreground">— {frase.autor}</p>}
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-4 px-6">
         <button
           type="button"
           onClick={() => onNavigate('asignaturas')}
@@ -289,6 +241,54 @@ export function Home({
             <ChevronRight className="h-3.5 w-3.5 animate-cta-arrow" />
           </div>
         </button>
+      </div>
+
+      <div className="mt-4 px-6">
+        <div className="card-elevated relative min-h-[132px] rounded-2xl bg-card">
+          <div
+            className={`absolute inset-0 flex flex-col justify-center overflow-hidden rounded-2xl border p-4 ${
+              mostrarBienvenida ? 'animate-bienvenida-in' : 'pointer-events-none animate-bienvenida-out'
+            }`}
+            style={{
+              borderColor: 'var(--home-hero-border)',
+              background: 'var(--home-hero-bg)',
+              boxShadow: 'var(--home-hero-shadow)',
+              transform: 'var(--home-hero-transform)',
+            }}
+          >
+            <div
+              className="pointer-events-none absolute -right-10 -top-12 h-28 w-28 rounded-full blur-md"
+              style={{ background: 'var(--home-hero-glow)' }}
+            />
+            <div
+              className="relative flex items-center gap-2 text-[11px] font-bold uppercase tracking-wide"
+              style={{ color: 'var(--home-hero-kicker)' }}
+            >
+              <span
+                className="flex h-[26px] w-[26px] items-center justify-center rounded-[9px] shadow-[0_4px_10px_rgba(31,198,198,0.35)]"
+                style={{ background: 'var(--home-hero-badge-bg)' }}
+              >
+                <IconoBienvenida className="h-3.5 w-3.5 text-white" />
+              </span>
+              {t.home.bienvenidaEtiqueta}
+            </div>
+            <p className="relative mt-2.5 text-[15.5px] font-semibold leading-relaxed" style={{ color: 'var(--home-hero-ink)' }}>
+              {mensajeBienvenida}
+            </p>
+          </div>
+          <div
+            className={`absolute inset-0 flex flex-col justify-center rounded-2xl p-4 ${
+              mostrarBienvenida ? 'pointer-events-none opacity-0' : 'animate-frase-in'
+            }`}
+          >
+            <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide text-accent">
+              <Quote className="h-3.5 w-3.5" />
+              {t.home.fraseEtiqueta}
+            </div>
+            <p className="mt-2.5 text-[15px] font-semibold leading-relaxed text-foreground">&ldquo;{frase.texto}&rdquo;</p>
+            {frase.autor && <p className="mt-2.5 text-xs font-medium text-muted-foreground">— {frase.autor}</p>}
+          </div>
+        </div>
       </div>
 
       <BottomNav activo="home" onNavigate={onNavigate} />

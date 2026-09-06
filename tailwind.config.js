@@ -13,7 +13,7 @@ module.exports = {
   // sin este safelist, las reglas .estilo-acqua/.estilo-electrico/etc. de
   // index.css desaparecen del CSS compilado (se comprobó armando un repro
   // mínimo) y elegir esos estilos en Ayuda no cambiaría nada visualmente.
-  safelist: ["estilo-acqua", "estilo-electrico", "estilo-rockpop", "estilo-fresita", "estilo-galaxia"],
+  safelist: ["estilo-acqua", "estilo-electrico", "estilo-rockpop", "estilo-fresita", "estilo-galaxia", "estilo-academia"],
   theme: {
     extend: {
       colors: {

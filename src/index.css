@@ -127,6 +127,45 @@
     --home-hero-ring: #1fb6cf;
   }
 
+  /* Estilo "Academia": atlas cientifico ilustrado, papel y tinta verde-teal.
+     Igual que Acqua, es un estilo claro por diseno (sin variante oscura
+     propia) — se define despues de .dark para que gane sin importar el
+     toggle. Nace del concepto Cientifico Ilustrado explorado para la Ruta
+     de Academia, ver claude/academia-propuesta-cientifico-ilustrado-cap1.md
+     y claude/academia-skin-selector-config-diseno.md. */
+  .estilo-academia {
+    --brand-bg: radial-gradient(130% 70% at 100% 0%, hsl(38 70% 60% / 0.18) 0%, transparent 60%), linear-gradient(160deg, #12312c 0%, #1f4d47 55%, #3d8078 100%);
+    --brand-accent-bg: linear-gradient(135deg, #1f4d47 0%, #2f6f68 100%);
+    --background: 41 44% 92%;
+    --foreground: 171 37% 14%;
+    --card: 46 62% 96%;
+    --card-foreground: 171 37% 14%;
+    --popover: 46 62% 96%;
+    --popover-foreground: 171 37% 14%;
+    --primary: 172 43% 21%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 44 35% 85%;
+    --secondary-foreground: 45 12% 32%;
+    --muted: 44 35% 87%;
+    --muted-foreground: 46 11% 43%;
+    --accent: 173 41% 31%;
+    --accent-foreground: 0 0% 100%;
+    --border: 43 34% 80%;
+    --input: 40 11% 56%;
+    --ring: 173 41% 31%;
+
+    --home-hero-bg: linear-gradient(135deg, #f8f2e2 0%, #eee4c9 100%);
+    --home-hero-border: rgba(47, 111, 104, 0.25);
+    --home-hero-glow: radial-gradient(circle, rgba(47, 111, 104, 0.25), transparent 70%);
+    --home-hero-ink: #16302c;
+    --home-hero-ink-muted: #5c6b62;
+    --home-hero-kicker: #1f4d47;
+    --home-hero-badge-bg: linear-gradient(135deg, #3d8078, #1f4d47);
+    --home-hero-btn-bg: linear-gradient(90deg, #2f6f68, #1f4d47);
+    --home-hero-btn-ink: #ffffff;
+    --home-hero-ring: #2f6f68;
+  }
+
   /* Estilo "Electrico": Eléctrico: neón violeta/cian sobre negro (oscuro) o blanco (claro), glow tipo cartel de recital. Igual que Acqua, cada uno
      redefine los tokens semánticos globales + las --home-hero-*. A diferencia
      de Acqua, este SÍ respeta el toggle claro/oscuro: el bloque de abajo cubre

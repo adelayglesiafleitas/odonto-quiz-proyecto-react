@@ -296,6 +296,34 @@ export function Configuracion({
               </span>
             </button>
 
+            <button
+              onClick={() => setEstilo('academia')}
+              className={`flex w-full items-center gap-3 rounded-xl p-2.5 text-left transition ${
+                estilo === 'academia' ? 'bg-secondary' : ''
+              }`}
+            >
+              <span
+                className="h-9 w-9 shrink-0 rounded-lg"
+                style={{ background: 'linear-gradient(135deg, #f5edd6, #2f6f68)' }}
+              />
+              <div className="flex-1">
+                <p className="flex items-center gap-1.5 text-sm font-bold text-foreground">
+                  {t.config.estiloAcademiaNombre}
+                  <span className="rounded-md bg-accent/15 px-1.5 py-[1px] text-[9px] font-extrabold uppercase text-accent">
+                    {t.config.estiloNuevo}
+                  </span>
+                </p>
+                <p className="text-xs text-muted-foreground">{t.config.estiloAcademiaDesc}</p>
+              </div>
+              <span
+                className={`flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full border-2 ${
+                  estilo === 'academia' ? 'border-accent' : 'border-border'
+                }`}
+              >
+                {estilo === 'academia' && <span className="h-2.5 w-2.5 rounded-full bg-accent" />}
+              </span>
+            </button>
+
             <div className="flex w-full items-center gap-3 rounded-xl p-2.5 text-left opacity-50">
               <span
                 className="h-9 w-9 shrink-0 rounded-lg"
