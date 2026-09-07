@@ -43,7 +43,7 @@ export const CURSOS: Record<string, CursoMeta> = {
   materiales: {
     // Mismos valores que odontología/psicología/ortodoncia (mismo formato de
     // examen de homologación) — decisión del usuario al agregar esta
-    // asignatura (2026-09-07), no un dato propio de Materiales Dentales
+    // asignatura (2026-09-07), no un dato propio de Materiales Odontológicos
     // verificado aparte. tieneConvocatorias queda en false como en el resto
     // de asignaturas, aunque el anio sí varía en el banco (igual que en
     // odontología/psicología, donde también varía y el selector está

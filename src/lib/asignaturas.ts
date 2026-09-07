@@ -23,7 +23,7 @@ const ASIGNATURAS_ES: Asignatura[] = [
   { id: 'pacientes-especiales', cursoId: 'odontologia', nombre: 'Pacientes especiales', disponible: true },
   { id: 'psicologia', cursoId: 'psicologia', nombre: 'Psicología', disponible: true },
   { id: 'ortodoncia', cursoId: 'ortodoncia', nombre: 'Ortodoncia', disponible: true },
-  { id: 'materiales', cursoId: 'materiales', nombre: 'Materiales Dentales', disponible: true },
+  { id: 'materiales', cursoId: 'materiales', nombre: 'Materiales Odontológicos', disponible: true },
 ]
 
 const ASIGNATURAS_EN: Asignatura[] = [
