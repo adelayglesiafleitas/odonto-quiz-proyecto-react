@@ -1,4 +1,4 @@
-import { Stethoscope, Brain, SmilePlus, type LucideIcon } from 'lucide-react'
+import { Stethoscope, Brain, SmilePlus, FlaskConical, type LucideIcon } from 'lucide-react'
 import type { Idioma } from '@/lib/i18n'
 
 export interface Asignatura {
@@ -23,12 +23,14 @@ const ASIGNATURAS_ES: Asignatura[] = [
   { id: 'pacientes-especiales', cursoId: 'odontologia', nombre: 'Pacientes especiales', disponible: true },
   { id: 'psicologia', cursoId: 'psicologia', nombre: 'Psicología', disponible: true },
   { id: 'ortodoncia', cursoId: 'ortodoncia', nombre: 'Ortodoncia', disponible: true },
+  { id: 'materiales', cursoId: 'materiales', nombre: 'Materiales Dentales', disponible: true },
 ]
 
 const ASIGNATURAS_EN: Asignatura[] = [
   { id: 'pacientes-especiales', cursoId: 'odontologia', nombre: 'Special-Needs Patients', disponible: true },
   { id: 'psicologia', cursoId: 'psicologia', nombre: 'Psychology', disponible: true },
   { id: 'ortodoncia', cursoId: 'ortodoncia', nombre: 'Orthodontics', disponible: true },
+  { id: 'materiales', cursoId: 'materiales', nombre: 'Dental Materials', disponible: true },
 ]
 
 export function getAsignaturas(idioma: Idioma): Asignatura[] {
@@ -43,4 +45,5 @@ export const ICONO_CURSO: Record<string, LucideIcon> = {
   odontologia: Stethoscope,
   psicologia: Brain,
   ortodoncia: SmilePlus,
+  materiales: FlaskConical,
 }

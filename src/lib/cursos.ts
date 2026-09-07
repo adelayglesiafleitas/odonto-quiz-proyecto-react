@@ -40,6 +40,20 @@ export const CURSOS: Record<string, CursoMeta> = {
     tieneConvocatorias: false,
     cantidadesDisponibles: [10, 20, 30, 40],
   },
+  materiales: {
+    // Mismos valores que odontología/psicología/ortodoncia (mismo formato de
+    // examen de homologación) — decisión del usuario al agregar esta
+    // asignatura (2026-09-07), no un dato propio de Materiales Dentales
+    // verificado aparte. tieneConvocatorias queda en false como en el resto
+    // de asignaturas, aunque el anio sí varía en el banco (igual que en
+    // odontología/psicología, donde también varía y el selector está
+    // desactivado).
+    duracionOficialMinutos: 40,
+    cantidadOficial: 30,
+    porcentajeAprobado: 70,
+    tieneConvocatorias: false,
+    cantidadesDisponibles: [10, 20, 30, 40],
+  },
 }
 
 // CURSO_ID/CURSO son el curso "por defecto": todavía los usan Home,
