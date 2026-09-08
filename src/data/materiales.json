@@ -22313,5 +22313,6705 @@
         "correcta": false
       }
     ]
+  },
+  {
+    "numero": 737,
+    "pregunta": "Sobre el taburete del operador es falso que:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "No debe ser móvil.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "La base del asiento debe ser más ancha que el asiento para mantener la estabilidad adecuada durante el traslado.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "El asiento debe tener una forma anatómica adecuada para permitir la relajación de los muslos.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "El taburete del operador debe tener un mecanismo para modificar la altura a voluntad",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 738,
+    "pregunta": "Señale la respuesta correcta:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "No es necesario retirar los instrumentos de la bandeja y de la bancada de trabajo.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "No es necesario limpiar con papel y solución desinfectante el cabezal, el sillón, el reposabrazos, la lámpara y sus asas.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Se debe aspirar un vaso de agua limpia con el sistema de aspiración entre paciente y paciente.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Todas las respuestas son ciertas.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 739,
+    "pregunta": "Señale la afirmación falsa:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Los microorganismos patógenos pueden transmitirse por contacto directo con objetos contaminados.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "La American Dental Association (A.D.A) recomienda no considerar a todos los pacientes que acuden a la consulta dental como portadores de agentes infecciosos.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Los microorganismos patógenos pueden transmitirse por contacto de la mucosa conjuntival, nasal u oral con salpicaduras de sangre o saliva contaminadas.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Los microorganismos patógenos pueden transmitirse por inhalación de microgotas en suspensión en el aire.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 740,
+    "pregunta": "Señale la respuesta correcta sobre la vía de transmisión de los microorganismos patógenos en la consulta odontológica:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Desde el paciente al personal odontológico.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Desde el personal odontológico al paciente.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Desde el paciente a otros pacientes.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Todas las respuestas son correctas.",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 741,
+    "pregunta": "Cuál de los siguientes métodos es el más fiable y utilizado para la esterilización del material odontológico:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Glutaraldehido",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Calor seco",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Autoclave",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Gas de óxido de etileno",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 742,
+    "pregunta": "Señale la afirmación falsa sobre la actuación ante un pinchazo o corte con un instrumento contaminado:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Retirar el objeto punzante, limpiar la herida con agua, permitiendo a la sangre fluir durante 2 o 3 minutos o inducir el sangrado, desinfectar con antiséptico y cubrir la herida con un apósito impermeable.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Limpiar la herida con agua, permitiendo que fluya la sangre y aplicar hipoclorito de sodio y administrarse terapia antirretroviral.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Tras curar la herida, comunicar el accidente, declarándolo en el servicio de medicina preventiva o laboral o en cualquier centro asistencial para su tipificación a efectos clínicos y laborales.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Mantener la calma y actuar según el protocolo establecido.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 743,
+    "pregunta": "Cuando hablamos de la parte activa de un instrumento de corte nos referimos a:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La parte que se utiliza para realizar la función para la que ha sido diseñado el instrumento.",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "La parte donde se une el mango a la zona cortante del instrumento.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La parte por donde se coge el instrumento para manipularlo.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ninguna respuesta es correcta.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 744,
+    "pregunta": "Sobre las posiciones de trabajo en el sillón dental señala la respuesta correcta.",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El operador y el ayudante deben posicionarse en un círculo de trabajo alrededor de la cabeza del paciente.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El área de trabajo del dentista debe permitir un fácil acceso a la boca del paciente.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "El área de trabajo del ayudante debe incluir todos los instrumentos y suministros necesitados para el tratamiento, también debe permitir el acceso a la zona de transferencia, para traer los artículos necesarios.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Todas las respuestas son correctas.",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 745,
+    "pregunta": "La simplificación de trabajo en Odontología está basada en los siguientes principios:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Reubicar y eliminar.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Reubicar, combinar y simplificar.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Reubicar, eliminar, combinar, simplificar.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Combinar y simplificar.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 746,
+    "pregunta": "Señale la respuesta falsa:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El manejo del instrumental requiere de la aplicación de diferentes gradientes de fuerza según el instrumento de que se trate y de su función.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "En el manejo del instrumental no se requiere ningún tipo de apoyo de la mano que manipula el instrumento.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Se pueden distinguir distintos tipos de agarre del instrumento: prensión en lápiz y prensión palmar.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "La prensión en lápiz se utiliza para instrumentos de exploración, de corte dentario manual, o instrumentos de modelado dental.????",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 747,
+    "pregunta": "Cada vez que tomamos algo caliente o frío, tanto el diente como el material de obturación expanden o contraen en distintas magnitudes, produciéndose la separación de las interfaces con el frío, o bien la compresión contra las paredes cavitarias con el calor, por ello deben tener:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Diferente coeficiente de expansión térmica.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Parecido coeficiente de expansión térmica.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "La misma conductividad.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Diferente conductividad.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 748,
+    "pregunta": "Señala la respuesta correcta:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Las impresiones de alginato una vez retiradas de boca deben dejarse sumergidas en agua.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Las impresiones de alginato una vez retiradas de boca se pueden dejar sobre la mesa de trabajo una hora.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Las impresiones de alginato una vez retiradas de boca deberían vaciarse inmediatamente.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Antes de realizar una impresión de alginato deben secarse los dientes.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 749,
+    "pregunta": "Señale cuál de estos materiales no es termoplástico:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Plancha de truwax",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Rodete de cera",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Godiva",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Alginato",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 750,
+    "pregunta": "Si tras el grabado ácido, durante la realización de un sellado de fosas y fisuras, se moja la superficie tratada con saliva, el procedimiento a seguir consiste en:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Lavar y secar con la jeringa de triple función y aplicar el sellador.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Lavar y secar con la jeringa de triple función y volver a grabar 10 segundos.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Lavar y secar con la jeringa de triple función y volver a grabar 20 segundos.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Lavar y secar con la jeringa de triple función y polimerizar.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 751,
+    "pregunta": "Para toma de impresiones preliminares de modelos de estudio y modelos antagonistas, el material de impresión que se utiliza es:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Alginato",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Polisulfuro",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Silicona",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Godiva",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 752,
+    "pregunta": "Indique cuál de los siguientes materiales puede ser empleado como cemento de obturación provisional:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Agregado de trióxido mineral.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Cemento de fraguado rápido (cavit, fermin, proclinic).",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Adhesivo dentinario",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Cemento de fosfato de zinc",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 753,
+    "pregunta": "Las matrices usadas en odontología conservadora sirven para:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Crear un encofrado que ayude a reconstruir el tejido dentario.",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Llevar el material de impresión a la cavidad oral.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Polimerizar el material de obturación.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Pulir el material de obturación.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 754,
+    "pregunta": "Cuál de estos factores no se considera de riesgo para el desarrollo de un trastorno musculoesquelético:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Área de trabajo relativamente elevada.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Falta de soporte de los antebrazos durante la empuñadura repetitiva de los instrumentos.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "El manejo de instrumentos vibratorios.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Evitar las posturas estáticas mantenidas.",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 755,
+    "pregunta": "Cuál de éstos materiales de impresión se consideran No elásticos:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Alginatos",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Ceras",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Polisulfuros",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Siliconas",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 756,
+    "pregunta": "¿Cómo influye en su comportamiento y características que un material de impresión tenga mayor cantidad de relleno?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Es más exacto",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Es menos exacto",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Mayor reproducción de detalle",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Mayores cambios dimensionales",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 757,
+    "pregunta": "¿Cuál es el material de uso odontológico que presenta el mayor CETL más alto:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El composite",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Las aleaciones líquidas de galio",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Las ceras",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "El compuesto de modelar",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 758,
+    "pregunta": "Cuanto tiempo debe transcurrir antes de poder pulir con instrumentos rotatorios una amalgama de plata:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "25 minutos",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Se puede pulir inmediatamente tras su aplicación",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "24 horas",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "1 semana",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 759,
+    "pregunta": "Qué material se ha propuesto como alternativa para sustituir el mercurio de las amalgamas de Plata:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Teflón",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Cobre",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Galio",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Zinc",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 760,
+    "pregunta": "Señale la afirmación falsa sobre las propiedades del titanio:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Presenta una alta conductividad térmica.",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Presenta un módulo de elasticidad menor que los aceros",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Presenta buena memoria elástica",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Presenta buena resistencia a la corrosión",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 761,
+    "pregunta": "Señale la afirmación falsa sobre la adhesión a esmalte:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Es necesario crear una superficie porosa sobre el esmalte para que la adhesión sea adecuada.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El ácido más eficaz es el ácido maléico.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Los adhesivos autograbadores prescinden del paso previo del grabado ácido.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "El adhesivo más utilizado es la resina de Bis-GMA o UDMA.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 762,
+    "pregunta": "Dentro de las diferentes generaciones de adhesivos creados a lo largo de la historia, los adhesivos autograbantes pertenecen a la:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "4ª generación",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "5ª generación",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "6ª generación",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "7ª generación",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 763,
+    "pregunta": "El grabado más eficaz para preparar la superficie cerámica de una carilla, antes de unirla al diente se realiza con:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Fosfórico",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Fluorhídrico",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Maléico",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Tartárico",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 764,
+    "pregunta": "Las canforoquinonas se encuentran con frecuencia en la composición de las resinas:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Termopolimerizables",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Autopolimerizables",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Fotopolimerizables",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Quimiopolimerizables",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 765,
+    "pregunta": "Cuál de los siguientes cementos no puede ser usado como fondo cavitario bajo un composite:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Fosfato de zinc",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Óxido de zinc – eugenol",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Hidóxido de calcio fraguable",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ácido etoxibenzóico (EBA)",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 766,
+    "pregunta": "Señale cuál de estos cementos presenta propiedades cariostáticas:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Policarboxilato de zinc",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Fosfato de zinc",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Ionómeros de vídrio",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Basados en resinas",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 767,
+    "pregunta": "Señale la respuesta incorrecta: Las cerámicas para la confección de coronas y puentes se pueden clasificar según su composición química en:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Cerámicas feldespáticas",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Cerámicas resinosas",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Cerámicas aluminosas",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Cerámicas zirconiosas",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 768,
+    "pregunta": "El cemento sellador endodóncico AHPlus es un cemento a base de:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Policarboxilato de zinc",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Fosfato de zinc",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Ionómeros de vidrio",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Resinas",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 769,
+    "pregunta": "Para retirar la gutapercha de un conducto, en caso de necesidad de retratamiento, se utiliza:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Cloroformo",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Ácido fosfórico",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Hidróxido de calcio puro",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Alcanfor",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 770,
+    "pregunta": "A la unión directa entre el hueso vivo y la superficie del implante dental cargado funcionalmente, sin interposición del tejido conjuntivo, se denomina:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Osteoinducción",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Osteoconducción",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Osteoimplante",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Osteointegración",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 771,
+    "pregunta": "Para el mejorar la cicatrización o la inflamación por bioestimulación tisular se puede utilizar:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_S1.xlsx (Examen Materiales S1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El láser duro",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El láser blando",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "El bisturí eléctrico",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "El ultrasonidos",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 772,
+    "pregunta": "El paso directo del estado gaseoso al líquido se conoce como…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Condensación",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Licuefacción",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Sublimación",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ebullición",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Las respuestas A y B son correctas",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 773,
+    "pregunta": "¿Cuál será la densidad absoluta del agua a 1atm de presión y 4ºC?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "1000 Kg/L",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "1 Kg/m3",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "1000 Kg/m3",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "10 Kg/m3",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 774,
+    "pregunta": "¿Qué modos de cristalización conoce?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Nucleación",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Precipitación",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Sublimación",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Las respuestas A y B son correctas",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Las respuestas B y C son correctas",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 775,
+    "pregunta": "Las disoluciones, cuando las dimensiones de las partículas del soluto están entre 1 y 10Å, se denominan…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Disoluciones",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Coloides",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Suspensiones",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Mezclas heterogéneas",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 776,
+    "pregunta": "¿Cómo se denomina un coloide producido mediante la disolución de un líquido en un líquido?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Espuma",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Aerosol líquido",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Sal",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Emulsión",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 777,
+    "pregunta": "Cuando en una disolución la cantidad de soluto es mayor que la máxima admitida por el disolvente hablamos de una disolución…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Insaturada",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Sobresaturada",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Subsaturada",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Saturada",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 778,
+    "pregunta": "¿Qué es la absorción?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Entrada de una sustancia química a un material, al organismo, a una célula, o a los fluidos del organismo pasando a través de una membrana o por otros medios",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Los átomos, iones o moléculas son atrapados o retenidos en la superficie de un material",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Se forma una película líquida o gaseosa en la superficie del sólido o el líquido",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Las respuestas B y C son correctas",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 779,
+    "pregunta": "Los polímeros isotácticos tienden a ser…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Amorfos",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Cristalinos",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Solubles",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Termoestables",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 780,
+    "pregunta": "La energía superficial…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Es la energía necesaria para romper los enlaces intermoleculares de los líquidos",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Es la energía necesaria para romper los enlaces intermoleculares de los sólidos",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Se ve aumentada por la pasivación",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Consume la energía que la produce",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Ninguna de las respuestas anteriores es cierta",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 781,
+    "pregunta": "El esquema de átomos de un material que se muestra ¿a qué tipo de dislocación cree que corresponde?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Átomo substitucional",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Átomo intersticial",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Dislocación",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Vacancia",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Fluencia",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 782,
+    "pregunta": "Si la estructura interna de un material no existe, el material será…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Alotrópico",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Anisotrópico",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Isotrópico",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 783,
+    "pregunta": "El módulo de Young (E) es directamente proporcional a…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La superficie dónde se aplica la fuerza",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El incremento de longitud de la muestra",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La longitud inicial",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "La deformación",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 784,
+    "pregunta": "En las curvas de tensión/deformación típicas, la deformación…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Es proporcional al estrés en el tramo elástico",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Antes de la deformación máxima aumenta con el estrés",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Es adimensional",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Todas las respuestas anteriores son ciertas",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 785,
+    "pregunta": "El Megapascal (MPa) es una unidad de medida de…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Estrés",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Presión",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Tensión",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Todas las respuestas anteriores son correctas",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Ninguna de las respuestas anteriores es correcta",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 786,
+    "pregunta": "¿Cuáles de las siguientes podrían ser unidades del módulo de Young (E)?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "MPa",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "psi",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "atm",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Todas las respuestas anteriores son correctas",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 787,
+    "pregunta": "¿A qué tipo de material cree que representa esta gráfica de tensión/deformación?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Plástico",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Rígido",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Dúctil",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Elástico",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 788,
+    "pregunta": "La deformación de un material ¿es siempre proporcional a la tensión aplicada?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "No, solo hasta el límite elástico",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Sí",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Sólo en cargas bajas",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Todas las respuestas anteriores son correctas",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todas las respuestas anteriores son incorrectas",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 789,
+    "pregunta": "Si el módulo de Young del óxido de Zn-Eugenol es de 22.4 unidades y el de una resina compuesta de 15, ¿cuál de los dos es más rígido?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El óxido de Zn-Eugenol",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "La resina compuesta",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "No puede saberse",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 790,
+    "pregunta": "Indique la afirmación correcta:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Un material frágil es el que se raya fácilmente",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Un material tenaz es el que presenta alta resistencia a la fractura",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Un material duro es el que presenta alta resistencia a la rotura",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ninguna de las respuestas anteriores es correcta",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 791,
+    "pregunta": "Si el ángulo de contacto entre un sólido y un líquido es de 70º…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El líquido moja bien la superficie",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "El líquido NO moja bien la superficie",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 792,
+    "pregunta": "¿Cuál de las siguientes circunstancias NO es habitualmente causa de corrosión?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Tensiones",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Presencia de impurezas en el material",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Fatiga",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Soldaduras de aporte",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todas las circunstancias anteriores son habitualmente causa de corrosión",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 793,
+    "pregunta": "Marque la continuación incorrecta de la frase: “Respecto a la degradación y envejecimiento de los polímeros…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "A mayor PM o entrecruzamiento de los monómeros, menor solubilidad”",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "La oxidación disminuye la dureza”",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "La radiación produce cracking”",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "La oxidación puede aumentar el entrecruzamiento interno”",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Ninguna de las continuaciones de la frase produce una afirmación incorrecta",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 794,
+    "pregunta": "Un valor de fracture toughness (K) alto de un material supone…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Que es elástico",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Que se romperá fácilmente",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Que tenderá a tener una fractura dúctil",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Que tenderá a tener una fractura frágil",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 795,
+    "pregunta": "Los polímeros con mucho entrecruzamiento tenderán a tener una fractura",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Frágil",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Dúctil",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 796,
+    "pregunta": "La resistencia que opone un material a romperse debido a un esfuerzo se conoce como…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Maleabilidad",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Capilaridad",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Ductilidad",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Tenacidad",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 797,
+    "pregunta": "La norma de la ADA #19 sobre materiales de impresión dice que deben poder reproducir detalles de, al menos…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "10μ",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "15μ",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "20μ",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "25μ",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "30μ",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 798,
+    "pregunta": "La resistencia al desplazamiento de un fluido cuando existe una diferencia de presión se conoce como…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Elasticidad",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Viscosidad",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Flotabilidad",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Osmosis",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 799,
+    "pregunta": "A la restauración que se modela en cera, en las fases iniciales del proceso de colado, se le llama…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Vaciado",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Patrón",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Jito",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 800,
+    "pregunta": "El desgaste que produce en los dientes una pasta de dientes al ser usada con un cepillo…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Es una erosión",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Es una abrasión de dos cuerpos",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Es una abrasión de tres cuerpos",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 801,
+    "pregunta": "¿Cuál de los siguientes NO es un iniciador de la fotopolimerización?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Canforoquinona (CQ)",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Fenilpropanodiona (PPD)",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Lucerina (TPO)",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Tri-n-butil borano (TBB)",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Irgacure 819",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 802,
+    "pregunta": "El peróxido de benzoilo (BPO) es…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Un iniciador de la fotopolimerización",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Un iniciador de la quimiopolimerización",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Un iniciador de la Termopolimerización",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Las respuestas A y B son correctas",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Las respuestas B y C son correctas",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 803,
+    "pregunta": "La vida de fatiga disminuye cuando aumenta…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 1)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La temperatura",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "La frecuencia",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "El estrés del medio",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Todas las respuestas anteriores son correctas",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Ninguna de las respuestas anteriores es correcta",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 804,
+    "pregunta": "¿Qué diferencia a las cerámicas de los vidrios?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La opacidad",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "La sinterización",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "En la composición de las cerámicas entran metales y en la de los vidrios no",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Las respuestas A y B son correctas",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "Ninguna de las respuestas anteriores es correcta",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 805,
+    "pregunta": "¿Cuántas moléculas de agua se necesitan para producir 3 moléculas de yeso a partir de 3 de escayola?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "3",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "3 ½",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "4",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "4 ½",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "5",
+        "correcta": false
+      },
+      {
+        "letra": "F",
+        "texto": "5 ½",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 806,
+    "pregunta": "La escayola tipo (ISO) 2 se usa para…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Impresiones",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Modelos",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Modelos de alta resistencia",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 807,
+    "pregunta": "El cemento de policarboxilato se forma a partir de ácidos policarboxílicos y…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Vidrios",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Siloranos",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Sílice",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Óxido de Zn",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 808,
+    "pregunta": "El cemento de fosfato de Zn tiene un pH",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Alto",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Bajo",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 809,
+    "pregunta": "Indique como se puede aumentar el tiempo de trabajo del fosfato de zinc",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Espatulando lentamente",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Disminuyendo la temperatura de la loseta de mezcla",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Añadiendo más líquido",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Añadiendo más polvo",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Las respuestas B y C son correctas",
+        "correcta": false
+      },
+      {
+        "letra": "F",
+        "texto": "Ninguna de las respuestas anteriores es correcta",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 810,
+    "pregunta": "¿Cuál de las siguientes características es propia del cemento de vidrio ionómero?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Opaco",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Sella bien preparaciones cavitarias",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Adherente",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Todas las respuestas anteriores son correctas",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Sólo las respuestas B y C son correctas",
+        "correcta": false
+      },
+      {
+        "letra": "F",
+        "texto": "Ninguna de las respuestas anteriores es correcta",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 811,
+    "pregunta": "Una resina compuesta microfill tendrá un relleno de (en promedio)…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "1 a 10μ",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "0.6 a 1μ",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "0.04 – 0.05μ",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 812,
+    "pregunta": "Las amalgamas de plata…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Son tenaces",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Son frágiles",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Son inoxidables",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Tienen baja supervivencia",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 813,
+    "pregunta": "En los cementos de vidrio ionómero se incluyen los siguientes ácidos:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Tartárico",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Fluorhídrico",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Policarboxílicos",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Las respuestas A y B son correctas",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Las respuestas A y C son correctas",
+        "correcta": true
+      },
+      {
+        "letra": "F",
+        "texto": "Las respuestas B y C son correctas",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 814,
+    "pregunta": "¿Qué cementos de vidrio ionómero (CVI) precisan de adhesivo?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Los cerment",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Los CVI modificados con resina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Los compómeros",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Todos ellos",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Ninguno de ellos",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 815,
+    "pregunta": "Respecto a los cementos a base de óxido de Zn-Eugenol…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Precisan adhesivo para su uso",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "NO precisa adhesivo para su uso",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Contiene ácido acético",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Las respuestas A y C son correctas",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Las respuestas B y C son correctas",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 816,
+    "pregunta": "El hidróxido de Ca fraguable…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Se presenta siempre como pasta/pasta",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Tiene agua en su composición",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Puede presentarse como una sola pasta",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 817,
+    "pregunta": "¿Con qué material NO se precisa un enfriamiento lento?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Cerámicas",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Porcelanas",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Vidrios",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "En todos ellos se precisa",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 818,
+    "pregunta": "Las cerámicas con baja temperatura de procesado (<850º) son adecuadas para…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Dientes artificiales",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Su uso con Ti",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Carillas",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Revestimiento de cofias de Au",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 819,
+    "pregunta": "Cuando de procesan cerámicas sobre un soporte, ¿en cuál de los métodos dicho soporte NO permanecerá en la restauración, una vez terminada?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Procesado sobre matriz de pt",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Procesado sobre modelo refractario",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Procesado sobre cofia metálica",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Procesado sobre otra cerámica",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Las respuestas A y B son correctas",
+        "correcta": false
+      },
+      {
+        "letra": "F",
+        "texto": "Las respuestas A y C son correctas",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 820,
+    "pregunta": "A la fusión parcial de los componentes de una cerámica, y su unión posterior formando una masa, se denomina…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Glaseado",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Sinterización",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Horneado",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Bizcocho",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Ninguna de las respuestas anteriores es correcta",
+        "correcta": false
+      },
+      {
+        "letra": "F",
+        "texto": "Las respuestas A, B, C y D son correctas",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 821,
+    "pregunta": "Respecto a los granos de los metales…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La nucleación es preferentemente en el eje mayor de los cristales",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Su tamaño medio es mayor cuanto menor es el ritmo de enfriamiento",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "En ellos los cristales crecen en todas direcciones",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Las respuestas A y B son correctas",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Las respuestas B y C son correctas",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 822,
+    "pregunta": "¿Cuál de las siguientes es una consecuencia del trabajo en frio de los metales?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La capacidad de deformación plástica aumenta",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Los materiales dúctiles se convierten en frágiles",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Los materiales se ablandan",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "La tenacidad aumenta",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Disminuyen las dislocaciones",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 823,
+    "pregunta": "Respecto a las fases de una aleación: ¿Qué afirmación es incorrecta?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Los átomos que forman la fase tienen la misma estructura o disposición atómica",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "La composición química varía según la zona",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Tiene las mismas propiedades físicas",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Tiene una interfase definida con su entorno",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Ninguna es incorrecta",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 824,
+    "pregunta": "¿Qué característica NO es propia de los metales?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Estructura cristalina",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Sólidos (menos Hg y Ga)",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Electronegativos",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Ceden electrones",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Conducen calor y electricidad",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 825,
+    "pregunta": "Respecto a la temperatura de fusión de una aleación dada…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Todas tienen un rango de fusión",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Siempre es más alta que la de sus componentes",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Siempre es intermedia a la da sus componentes",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Solo los eutécticos tienen un punto de fusión",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 826,
+    "pregunta": "Respecto a las fases de una aleación…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Los materiales puros pueden tener 2 o más fases",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Los materiales puros solo tienen 1 fase",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Las aleaciones no pueden poseer 2 o más fases presentes al mismo tiempo",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Las respuestas A y C son correctas",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Las respuestas B y C son correctas",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 827,
+    "pregunta": "Si 2 o más elementos de una aleación tienen entre si solubilidad ilimitada…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Habrá 1 sola fase en estado sólido",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "El número de fases en estado sólido depende del número de elementos",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Al menos 1 de los componente podrá disolverse sólo hasta cierto límite en los otros",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 828,
+    "pregunta": "¿Qué caracteriza a la estructura de los compuestos intermetálicos?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Está claramente definida",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Se define por precipitación a una temperatura dad, no en un rango",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Varía según la zona",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 829,
+    "pregunta": "¿Qué efectos tiene la segregación sobre las fases de una aleación?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Las diferentes fases van creándose secuencialmente",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "La composición del sólido que se forma primero es diferente a la de los posteriores",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 830,
+    "pregunta": "¿Es cierto que la mezcla de 2 materiales en cantidades diferentes produce aleaciones diferentes las cuales tienen propiedades diferentes entre sí?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Sí",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "No",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 831,
+    "pregunta": "¿Cuál es el componente de la fase gamma 2 (ɣ2) de la amalgama de plata?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Ag2Hg3",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Sn7.8Hg",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Ag3Sn",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ninguna de las respuestas anteriores es correcta",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 832,
+    "pregunta": "Según la clasificación de la ADA de las aleaciones según su composición, las aleaciones de alta nobleza deben tener al menos un porcentaje de Au del…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "30%",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "40%",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "50%",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "60%",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 833,
+    "pregunta": "Según la clasificación de la ADA de las aleaciones según su composición, las aleaciones de alta nobleza deben tener al menos un porcentaje de metales nobles del…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "30%",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "40%",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "50%",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "60%",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 834,
+    "pregunta": "Según la clasificación de la ADA de las aleaciones según su composición, las aleaciones de Ti deben tener al menos un porcentaje de Ti del…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "70%",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "75%",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "80%",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "85%",
+        "correcta": true
+      },
+      {
+        "letra": "E",
+        "texto": "90%",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 835,
+    "pregunta": "Siguiendo la clasificación de la ANSI/ADA de las aleaciones según sus propiedades mecánicas, las del tipo II están indicadas para…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Coronas",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Veneer",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Inlays",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Prótesis fija de tramo corto",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 836,
+    "pregunta": "La hidroxiapatita puede tener un origen…",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Final_Biomateriales_1415_enero_2.xlsx (Tipo Test - Parcial 2)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Natural",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Sintético",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Las respuestas A y B son correctas",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 837,
+    "pregunta": "Trasplante, osteoblastos…hueso contribuye para que se forme nuevo hueso:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "2o_Parcial_Biomateriales_14122015.xlsx (Tipo Test)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Osteointegración",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Osteoinducción",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Osteoconducción",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "osteogénesis",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 838,
+    "pregunta": "Tipo de escayola usado para modelos de trabajo",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "2o_Parcial_Biomateriales_14122015.xlsx (Tipo Test)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Tipo I",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Tipo II",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "tipo III",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "tipo IV",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "tipo V",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 839,
+    "pregunta": "Cuál de estas características no es propia de las apatitas como material de implante:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "2o_Parcial_Biomateriales_14122015.xlsx (Tipo Test)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Excelente biocompatibilidad y sintética",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "baja conductividad térmica",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "elasticidad similar al hueso",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "barrera para evitar degradación metal",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "unión al metal estable (es degradable/inestable)",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 840,
+    "pregunta": "El fosfato de cinc polimeriza gracias a una activación de forma:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "2o_Parcial_Biomateriales_14122015.xlsx (Tipo Test)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Química",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Luz",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "reacción ácido-base",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "no polimeriza nunca",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 841,
+    "pregunta": "Cuál de las características no es de la gutapercha",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "2o_Parcial_Biomateriales_14122015.xlsx (Tipo Test)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Adherente",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "todas son características",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "levemente antiséptica",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "sella bien conductos",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "expansión térmica estable",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 842,
+    "pregunta": "Cual delas siguientes características no es propia de las ceras que se usan en odontología",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "2o_Parcial_Biomateriales_14122015.xlsx (Tipo Test)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "mala estabilidad dimensional",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "baja expansión térmica (tiene alta)",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "baja trasmisión de electricidad",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "conductividad térmica baja",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 843,
+    "pregunta": "Función del extremo falciforme de una sonda:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_2018_v2.xlsx (Examen Materiales 2018)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "detección de caries",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "localización de conductos en endodoncia",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "exploración en zonas de difícil acceso",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "exploración periodontal",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "medición bolsas periodontales",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 844,
+    "pregunta": "El alginato",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Examen_Materiales_2018_v2.xlsx (Examen Materiales 2018)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Tiene estabilidad dimensional durante 72 horas",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Pasa de estado sol a gel sin enfriamiento",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Pasa del gel a sol con calor",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "El tiempo de mezcla es de 2 minutos",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Es menos elástico que el agar-agar",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 845,
+    "pregunta": "El exceso de agua que se incorpora en el espatulado de los yesos persigue ...",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Preguntas_Parcial_2_Biomateriales.xlsx (Parcial 2 Biomateriales)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Aumentar la fluidez",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Aumentar la viscosidad",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Disminuir la porosidad",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Disminuir la contracción volumétrica",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 846,
+    "pregunta": "Si estamos fabricando una corona totalmente cerámica deberemos prepararla sobre una escayola tipo ...",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Preguntas_Parcial_2_Biomateriales.xlsx (Parcial 2 Biomateriales)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "I",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "II",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "III",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "V",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Refractaria",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 847,
+    "pregunta": "Seleccione cuál de las siguientes presentaciones de metales NO está semielaborada:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Preguntas_Parcial_2_Biomateriales.xlsx (Parcial 2 Biomateriales)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Un bracket",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Una amalgama de Ag",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Ninguna de las demás respuestas es correcta",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Un implante osteointegrado",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Un alambre",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 848,
+    "pregunta": "¿Cuál de las siguientes cerámicas tiene menor contenido cristalino?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Preguntas_Parcial_2_Biomateriales.xlsx (Parcial 2 Biomateriales)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Vitrocerámicas",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Porcelanas",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Cerámicas policristalinas",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Todas ellas tienen contenido cristalino similar",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 849,
+    "pregunta": "Para adherir a él, un cemento de vidrio ionómero podrá ser grabado con ...",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Preguntas_Parcial_2_Biomateriales.xlsx (Parcial 2 Biomateriales)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Ácido fosfórico",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Ninguna de las demás respuestas es correcta",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Ácido policarboxílico",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ácido fluorhídrico",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 850,
+    "pregunta": "En la fatiga ...",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Preguntas_Parcial_2_Biomateriales.xlsx (Parcial 2 Biomateriales)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El estrés medio siempre es positivo",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Los estreses y las frecuencias son constantes",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Ninguna de las demás respuestas es correcta",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "El rango del estrés es siempre menor que el límite elástico",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 851,
+    "pregunta": "Si le donases hueso a un amigo, se trataría de un ...",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Preguntas_Parcial_2_Biomateriales.xlsx (Parcial 2 Biomateriales)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Xenoinjerto",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Aloinjerto",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Aloplastia",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Isoinjerto",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Ninguna de las demás respuestas es correcta",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 852,
+    "pregunta": "El estrés de contracción aparece...",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Preguntas_Parcial_2_Biomateriales.xlsx (Parcial 2 Biomateriales)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "...siempre que polimeriza un polímero",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "...si el polímero que polimeriza tiene partes adheridas",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Ninguna de las demás respuestas es correcta",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "...si el polímero que polimeriza está libre",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "...si el polímero que polimeriza tiene carga (relleno)",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 853,
+    "pregunta": "Ordene de mayor a menor los siguientes sistemas de iniciación de la polimerización según la homogeneidad de su polimerización",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Preguntas_Parcial_2_Biomateriales.xlsx (Parcial 2 Biomateriales)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Termopolimerización - Quimiopolimerización – Fotopolimerización",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Quimiopolimerización- Fotopolimerización – Termopolimerización",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Fotopolimerización – Quimiopolimerización – Termopolimerización",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Termopolimerización - Fotopolimerización – Quimiopolimerización",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Quimiopolimerización – Termopolimerización – Fotopolimerización",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 854,
+    "pregunta": "Las aleaciones para colar de alta nobleza tienen Au, por lo menos en un porcentaje del ....",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Preguntas_Parcial_2_Biomateriales.xlsx (Parcial 2 Biomateriales)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "20%",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "30%",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "40%",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "50%",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "60%",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 855,
+    "pregunta": "En las cerámicas, la humedad ...",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Preguntas_Parcial_2_Biomateriales.xlsx (Parcial 2 Biomateriales)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Ninguna de las demás respuestas es correcta",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Tiende a romper los enlaces entre redes",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Ayuda a que se pasiven",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Tiende a oxidarlas",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 856,
+    "pregunta": "Suponga que está empleando un adhesivo de grabado y lavado (etch & rinse) de tres pasos para adherir una restauración de resina compuesta a la dentina. Seleccione los pasos ordenados que daría:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Preguntas_Parcial_2_Biomateriales.xlsx (Parcial 2 Biomateriales)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Grabado – Lavado – Secado – Imprimación – Colocación del adhesivo",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Grabado – Lavado – Imprimación – Colocación del adhesivo",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Primer autograbante – Lavado - Colocación del adhesivo",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Autoimprimación – Lavado - Colocación del adhesivo",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Grabado – Lavado – Colocación del adhesivo",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 857,
+    "pregunta": "¿Cuál de los siguientes tipos de yesos tiene más expansión de fraguado?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Preguntas_Parcial_2_Biomateriales.xlsx (Parcial 2 Biomateriales)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "I",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "II",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "III",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "IV",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Todos ellos tienen una expansión de fraguado similar",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 858,
+    "pregunta": "El que un compuesto esté formado por enlaces iónicos ...",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Preguntas_Parcial_2_Biomateriales.xlsx (Parcial 2 Biomateriales)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Ninguna de las demás respuestas es correcta",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Los vuelve menos maleables",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Los vuelve más deformables plásticamente",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Mejora su maleabilidad o su ductilidad",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Facilita el movimiento de las dislocaciones",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 859,
+    "pregunta": "Los polímeros más extendidos, para su uso como adhesivos en la odontología, son ...",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Preguntas_Parcial_2_Biomateriales.xlsx (Parcial 2 Biomateriales)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Lineales o ramificados, porque son más solubles",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Ninguna de las demás respuestas es correcta",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Entrecruzados, porque aportan más resistencia",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Lineales o ramificados, porque son menos solubles",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 860,
+    "pregunta": "La oxidación de los polímeros ...",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Preguntas_Parcial_2_Biomateriales.xlsx (Parcial 2 Biomateriales)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Aumenta su rigidez",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Ninguna de las demás respuestas es correcta",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Ioniza sus monómeros, rompiendo las cadenas o los enlaces entre ellas",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Produce craquelado",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 861,
+    "pregunta": "La acción de los solventes sobre los polímeros...",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Preguntas_Parcial_2_Biomateriales.xlsx (Parcial 2 Biomateriales)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Es más grave en los termoestables",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Es más grave cuanto mayor sea el Pm de los monómeros",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Es más grave en los termoplásticos",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Ninguna de las demás respuestas es correcta",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 862,
+    "pregunta": "En la transformación martensítica de las cerámicas ...",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Preguntas_Parcial_2_Biomateriales.xlsx (Parcial 2 Biomateriales)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Se modifica la composición química",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "En las cerámicas no hay transformación martensítica",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Las redes se distorsionan",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ninguna de las demás respuestas es correcta",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 863,
+    "pregunta": "Durante una adhesión genérica, si el adhesivo es un polímero ...",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Preguntas_Parcial_2_Biomateriales.xlsx (Parcial 2 Biomateriales)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Debe polimerizarse antes de colocar el adherente 2°",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Debe activarse químicamente la polimerización, si el adherente 2° es traslúcido",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Ninguna de las demás respuestas es correcta",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Debe añadirse un primer",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 864,
+    "pregunta": "Durante una adhesión genérica, en el caso de que el adherente 2 esté en estado rígido, ...",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Preguntas_Parcial_2_Biomateriales.xlsx (Parcial 2 Biomateriales)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "...el adherente 2° debe preparase previamente",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "...el adherente 2° puede no precisar adhesivo",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "...el adhesivo debe colocarse simultáneamente",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ninguna de las demás respuestas es correcta",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "...el adhesivo debe polimerizarse previamente",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 865,
+    "pregunta": "Si se va a utilizar un andamio (scaffold) para un injerto, dicho andamio NO debe ...",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Preguntas_Parcial_2_Biomateriales.xlsx (Parcial 2 Biomateriales)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Tener una porosidad interna lo menor posible",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Poder recortarse y remodelarse espacialmente",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Ser biodegradable",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ser mecánicamente consistente con la del tejido en cuestión",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 866,
+    "pregunta": "Un polímero isotáctico, respecto a uno atáctico, tendrá probablemente ...",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Preguntas_Parcial_2_Biomateriales.xlsx (Parcial 2 Biomateriales)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Menos tenacidad",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Menos cristalinidad",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Ninguna de las demás respuestas es correcta",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Más tenacidad",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 867,
+    "pregunta": "Suponga que está preparando la superficie vestibular de un incisivo sano para fijar (mediante adhesión) un bracket ortodóncico. ¿Qué preparación química de la superficie del esmalte será preferible?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Preguntas_Parcial_2_Biomateriales.xlsx (Parcial 2 Biomateriales)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La combinación de ácido fosfórico y un primer",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Ácido policarboxílico",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Ácido fosfórico",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "La combinación de ácido policarboxílico y un primer",
+        "correcta": false
+      },
+      {
+        "letra": "E",
+        "texto": "Cualquiera de las otras respuestas es válida",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 868,
+    "pregunta": "Cuál de los organismos que se enumeran no es necesario para justificar la calidad de los materiales dentales",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "ADA",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "COE",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "FDA",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "ISO",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 869,
+    "pregunta": "En los materiales cerámicos cual de la siguientes afirmaciones es falsa",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Los materiales cerámicos están unidos por enlaces iónicos y covalentes.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Se utilizan en brackets para ortodoncia.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Se rigen por la fuerza de van der w. Estos son los ceramo -metálicos.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Se utilizan para incrustaciones.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 870,
+    "pregunta": "La hoja de oro no cohesiva se convierte en cohesiva por",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Electrólisis",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Pasivación",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "De sorción",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Acuñación",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 871,
+    "pregunta": "Cuál de las siguientes afirmaciones es correcta con respecto al fosfato de cinc",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La contaminación aumenta la resistencia a la compresión",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Reducir la proporción – líquido aumenta el espesor de la película",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Aumentar la velocidad de adición de polvo aumenta el espesor de la película",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "La contaminación acuosa disminuye la acidez inicial",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 872,
+    "pregunta": "Cítelo correcto con respecto a las pastas cinquenólicas",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Suelen contener óxido de cinc y eugenol",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Su problema es que tiene muy poca estabilidad dimensional. NO",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "No pueden desinfectarse",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Su principal problema es que son difíciles de manejar.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 873,
+    "pregunta": "Que es el trípoli .La capital de libia jajaja",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Una pasta cinquenólicas",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Una silicona",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Un abrasivo derivado del diamante",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Un abrasivo derivado de rocas silíceas.",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 874,
+    "pregunta": "Cuál de los siguientes materiales tienen más resistencia al cizallamiento",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Dentina",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Esmalte",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Amalgama",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Porcelana",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 875,
+    "pregunta": "Los ingredientes cristalinos fundamentales de la porcelana dental son :",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Sílice, feldespato t mica",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Sílice, feldespato y alúmina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Sílice, feldespato, alúmina y caolín",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Sílice, feldespato, alúmina, óxidos metálicos diversos para la coloración",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 876,
+    "pregunta": "Las materiales de impresión ordenados de mayor a menor flexibilidad durante la extracción",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Siliconas de condensación-polisulfuros-siliconas de adición-poliéteres.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Polisulfuros-siliconas de condensación-siliconas de adición- poliéteres.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Polisulfuros-siliconas de condensación-poliéteres-siliconas de adición",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Siliconas de condensación-silicona de adición-polisulfuros-poliéteres.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 877,
+    "pregunta": "Respeto a los yesos dentales cuál de las siguientes afirmaciones es falsa",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Los agentes humectantes (lignosulfatos) son propios de los yesos tipo IV",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Los agentes retardadores y aceleradores modifican la resistencia del yeso",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "El bórax es un agente anti expansivo",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "La expansión del fraguado se produce por la interferencia en el crecimiento de los cristales.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 878,
+    "pregunta": "Respecto de las siguientes afirmaciones delas ceras cuál es falsa",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Tienen un elevado coeficiente de expansión térmica",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Tiene una baja conductividad térmica",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Tiene un punto de fusión definido",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Los patrones de cera mantienen una tensión residual",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 879,
+    "pregunta": "Las composición clásica de la cerámica de uso en odontología no incluye",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Caolín",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Alúmina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Feldespato",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Sílice",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 880,
+    "pregunta": "Cuál de los siguientes metales puede producir alergia:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Níquel",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Paladio",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Oro",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Cualquiera de los anteriores",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 881,
+    "pregunta": "Cuál de las siguientes propiedades es falsa respecto de las resinas acrílicas",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Tienen una cierta porosidad",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El coeficiente de expansión térmica es inferior al del diente. (Superior)",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Tiene baja conductividad eléctrica",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Cuanto mayor sea el entrecruzamiento, menos será la solubilidad",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 882,
+    "pregunta": "Cuál de las siguientes estructuras metálicas ofrece mayor ductilidad",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Cúbica a cara centrada",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Hexagonal compacta",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Cúbica a cuerpo centrado",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Triangular descentrada",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 883,
+    "pregunta": "Cuál de las siguientes afirmaciones es cierta respecto de las aleaciones de base de cobre:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Están indicadas en prótesis fija metal –resina",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Están indicadas en prótesis fija metal-cerámica",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Están indicadas en prótesis removibles",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "No deben emplearse en odontología",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 884,
+    "pregunta": "Cuál de las siguientes afirmaciones es cierta con respecto a la interacción de ciertas sustancias con los tejidos",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El 90% de las personas son alérgicas al látex (FDA)",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El 100% de los pacientes alérgicos al paladio los son al níquel.",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "El 33% de los pacientes alérgicos al níquel lo son al paladio",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 885,
+    "pregunta": "Que se entiende por calor latente de fusión:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Al calor que reciben un hidrocoloide al ser calentado",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Al calor que se produce en una deformación plástica.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La liberación de energía cinética en forma de calor.",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Ninguna de ellas.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 886,
+    "pregunta": "Cuáles de los siguientes no es un retardador del fraguado del yeso:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Acetatos",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Aumento dela temperatura por encima de 50 grados Celsius",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Cloruro sódico por debajo del 2%",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Sulfato sódico a concentraciones superiores al 4%",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 887,
+    "pregunta": "Cuál de los siguientes adhesivos tiene un menor grado de conversión:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Autograbante de dos componentes",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "No autograbante (requiere ácido previo) monocomponente.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Autograbante de un componente",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "No autograbante de varios componentes",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 888,
+    "pregunta": "El factor principal para la osteointegración es:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La respuesta de hueso al material implantado",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "La biocompatibilidad del material",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Si el material sea bioactivo y bioestable",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Que se forme una capa óptima de glicoproteínas.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 889,
+    "pregunta": "Las erosión o desgaste la podemos definir como :",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Pérdida en la superficie del material provocada por acción mecánica",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Pérdida en la superficie del material provocada por la combinación de una acción química y mecánica",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Pérdida en la superficie del material provocada por una acción química",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Las respuesta a y b son correctas",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 890,
+    "pregunta": "Qué afirmación se considera correcta:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Las aleaciones nobles empleadas en clínica son estables químicamente, por lo que no sufren corrosión significativa en el tiempo.",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Las aleaciones nobles empleadas en clínica no son estables químicamente aunque aguantan bien la corrosión",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Las aleaciones nobles empleadas en clínica son estables químicamente aunque a la larga se corroen de forma significativa",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Las aleaciones nobles empleadas en clínica son estables químicamente por lo que no tiene corrosión.",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 891,
+    "pregunta": "En la gráfica de tensión deformación, el punto P es (limite proporcional)",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Límite elástico. E",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Limite a la fluencia.R",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Límite a la rotura. P",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ninguna de las anteriores es correcta",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 892,
+    "pregunta": "Delos métodos empleados para medir la fuerza, cuál es el que se utiliza como indentador una bola de acero",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Vickers",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Knoop",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Rockwell",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Brinell",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 893,
+    "pregunta": "Cuál de estas afirmaciones es falsa:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Los cementos de ionómero de vidrio carecen de la resistencia necesaria para resistir altas concentraciones de carga.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Los cementos de ionómero de vidrio se pueden reforzar con la incorporación física de partículas de aleación platino",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Los cementos de ionómero de vidrio se pueden reforzar mediante la fusión de polvo de vidrio y partículas de plata gracias al sinterizado",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Existen cementos de ionómero de vidrio reforzados con metal a base de oro",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 894,
+    "pregunta": "Porque el cemento de policarboxilato de zinc es menos lesivo que el fosfato de zinc siendo el primero más ácido:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Porque el cemento de poli tiene fluoruro de estaño",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Porque libera flúor",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Porque las moléculas del ácido poliacrílico son mayores que las de ácido fosfórico",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Porque el ácido poliacrílico tiene adhesión química a la estructura dentinaria",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 895,
+    "pregunta": "Qué componentes de los composites Bis-GMA podrían actuar de igual manera que lo hacen los estrógenos en el cuerpo humano:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Vinil siloxano",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Componente cetónico",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Bis fenol",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Estrogenol",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 896,
+    "pregunta": "Qué presión hidrostática mantiene la pulpa para que los líquidos y bacterias fluyan hacia el surco amelo-dentinario",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "30 nm de Hg",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "50 nm de Hg",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "10 nm de Hg",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "500 nm de Hg",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 897,
+    "pregunta": "Cuál es la principal indicación de los poliéteres:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Toma de impresión para prótesis fija y sobre implantes",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Toma de impresión en pacientes edéntulos",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Registro de mordidas",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ninguna delas anteriores",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 898,
+    "pregunta": "El polvo de oro para atomización se suministra en forma de:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Hoja de oro No.4",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Láminas no cohesivas",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Aglomerados",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Cilindros d hoja No.4",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 899,
+    "pregunta": "Cuál es el tiempo de aplicación de ácido ortofosfórico en esmalte y dentina",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "15 s en esmalte y 10 s en dentina",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "35 s en esmalte y 5 s en dentina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "20 s en esmalte y 15 s en dentina",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "40s en esmalte y 30 s en dentina",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 900,
+    "pregunta": "El valor es una propiedad física que está basada en las leyes de",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Térmica",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Atómicas",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Ópticas",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Eléctricas",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 901,
+    "pregunta": "Cuálde estas premisas no es correcta con respecto a las aplicaciones del yeso en general",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Toma de impresiones de un desdentado",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Aglutinante en revestimientos",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Confección de modelos para inlays y coronas",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Toma de impresiones para prótesis fija",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 902,
+    "pregunta": "Cuáles son los signos y síntomas más característicos de un envenenamiento por metil-mercurio",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Anorexia, pérdida de peso, insomnio",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Diarreas, vómitos, mareos",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Parestesias, ataxias, visión n túnel",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Pérdida de peso, debilitamiento, aumento de hematocrito",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 903,
+    "pregunta": "Cuál de las siguientes afirmaciones es cierta con respecto a la amalgama de cinc",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Es responsable de la expansión inmediata",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Presenta mucha expansión",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Es mucho más tóxica",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Están contraindicadas en apiceptomías",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 904,
+    "pregunta": "Elmétodo de rockwell utiliza como indentador",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Una bola de acero",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Una pirámide de diamante de base romboidal",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Una punta de diamante redonda",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Una punta de diamante cónica",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 905,
+    "pregunta": "Qué producto se forma en el fraguado del óxido de cinc y eugenol",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Aluminio fosfato de cinc y agua",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Eugenolato de cinc y agua",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Bisfenolato de cinc y agua",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ninguna de las anteriores",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 906,
+    "pregunta": "Cuál es el tamaño promedio de partículas inorgánicas de los composites de",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Microrrelleno.",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "1-15 micras.",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "0.04-0.4 micras",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "0.6-1 micras 25 nm",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 907,
+    "pregunta": "La reactividad interatómica depende principalmente de",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "De los electrones",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "De las órbitas elípticas",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "De los positrones",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ninguna de ellas",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 908,
+    "pregunta": "Dentro delas pruebas de biocompatibilidad, las pruebas de genotoxicidad se encuentran dentro de las",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Pruebas de sensibilización intradérmica",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Pruebas primarias",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Pruebas de citotoxicidad",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Pruebas endodóncicas",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 909,
+    "pregunta": "Cuál es la fase no deseable en una amalgama",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Fase alfa y beta",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Fase beta",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Fase gamma 2",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Fase n y e",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 910,
+    "pregunta": "En los cementos IV los ácidos itacónico y maléico se utilizan para",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Aumentar la viscosidad",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Reducir la tendencia a transformarse en gel",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Dar Radiopacidad al material",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Disminuir la reactividad del líquido",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 911,
+    "pregunta": "Los grupos carboxilos del cemento IV reaccionan",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Con el calcio de la dentina",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Con el colágeno",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Con el calcio de esmalte y dentina",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Con los iones de calcio y sodio de esmalte y dentina",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 912,
+    "pregunta": "Cuáles delas siguientes materiales realiza una polimerización por adición",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Poliéteres",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Mercaptanos",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Elastómeros",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ninguna de las anteriores",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 913,
+    "pregunta": "En los hidrocoloides que afirmación es falsa",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Son compuestos formados por polisacáridos",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Tiene poca resistencia al desgarro",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Son mucocompresivos",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Son hidrófilos",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 914,
+    "pregunta": "Qué se entiende por polimerización iónica",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Es similar a la condensación pero sin formación de subproductos (apertura de anillos)",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Se produce por un mecanismo de apertura de anillos",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Es un tipo de polimerización por adición que se da por mecanismo de tipo iónico",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Produce siempre subproducto de bajo peso molecular",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 915,
+    "pregunta": "Cuál es el activador de las resinas compuesta fotopolimerizables",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Amina terciaria",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Luz halógena con longitud de onda de 900 a1500 nm",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Luz halógena con longitud de onda de 460 a 485 nm",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Diacetonas",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 916,
+    "pregunta": "Cuál de los siguiente materiales metálicos tiene un mayor potencial alergizante",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Oro",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Paladio",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Níquel",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Cromo",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 917,
+    "pregunta": "De los materiales de sustitución ósea , cuál es el diámetro ideal que deben tener los poros",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "50-100 micras",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "200-250 micras",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Inferiores a 50 micras",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "500-1000 micras",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 918,
+    "pregunta": "Que es un ADMIX",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Es un IV modificado con resina",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Es un IV mezclado con amalgama",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Es un IV con partículas de metal en su composición",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Es un IV con partículas de sílice en su composición",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 919,
+    "pregunta": "Mediante el análisis termogravimétrico no tenemos datos de",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "De la descomposición térmica de los materiales",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "La densidad",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Medición de los cambios de peso del material dependiendo de la temp. y medio ambiente.",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "De la estabilidad de un material en diferentes medios",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 920,
+    "pregunta": "El aumento de longitud de una barra de cualquier material depende de",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Ductilidad",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Coeficiente de expansión",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Del peso del material",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Todas son correctas",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 921,
+    "pregunta": "Cuál es el medio de elección actual para el sellado de los conductos radiculares",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Puntas de gutapercha",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Puntas de resina",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Puntas de resina cubiertas de gutapercha",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Puntas de plata recubiertas con gutapercha",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 922,
+    "pregunta": "El método de Vickers, utiliza como indentador",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Una pirámide de diamante de base cuadrada",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "La punta de diamante cónica",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La punta de diamante redonda",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Una pirámide de base romboidal",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 923,
+    "pregunta": "Si en el interior de la muestra se produce una burbuja esto conlleva a",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Imperfecciones en la superficie del material",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Aumento de la elasticidad",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Concentración de tensiones",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Rotura del material",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 924,
+    "pregunta": "Que entendemos por resiliencia",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Es la energía absorbida por un material cuando se somete a tensión sin exceder su límite elástico",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "La energía absorbida por un material cuando se someterá a tensión al exceder su límite elástico",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La energía absorbida de un material hasta q se fractura",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ninguna es correcta",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 925,
+    "pregunta": "A la primera dimensión del color se le conoce como",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Valor",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Intensidad",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Luminosidad",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Tono",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 926,
+    "pregunta": "Los IV son materiales",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Resistentes a la compresión",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Vulnerables a los componentes del agua",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Liberan lentamente iones calcio",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Todas son correctas",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 927,
+    "pregunta": "En el polvo de ionómero de vidrio no entra como componente",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Fluoruro de aluminio",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Fluoruro de calcio",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Fluoruro de sodio",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Cloruro de aluminio",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 928,
+    "pregunta": "La pasta de Walchoff es",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Una pasta alcalina lentamente reabsorbible",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Una pasta alcalina rápidamente reabsorbible",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Una pasta antiséptica rápidamente reabsorbible",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Una pasta antiséptica lentamente reabsorbible",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 929,
+    "pregunta": "Qué se entiende por tensión tangencial",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "La producida por una carga q tiene a alargar un cuerpo",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "La producida por una carga que tiene a comprimir un cuerpo",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "La producida por la resistencia a la torsión",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 930,
+    "pregunta": "Que se entiende por difracción",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El paso de luz a través de un prisma donde hay presentes partículas",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El paso de la luz a través del vacío, chocando con un material",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "El paso de un haz de un prisma descomponiéndose",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "El paso de la luz a través de una pequeña rendija impidiéndose en una parte corpuscular y otra ondularia",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 931,
+    "pregunta": "El sistema munsell es",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Una técnica instrumental de medición de color",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Un espectrofotómetro",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Un método de clasificación de los colores",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Un método visual de medición de color",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 932,
+    "pregunta": "El término de corrimiento define",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Deformación plástica q experimenta un material bajo una tensión mantenida cíclica",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Deformación plástica q experimenta un material bajo una tensión mantenida inferior al límite elástico",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Deformación plástica bajo una tensión mantenida cíclica superior al límite elástico",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Deformación plástica bajo tensión mantenida o cíclica inferiores al límite elástico",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 933,
+    "pregunta": "Qué requisitos no debe cumplir un material de obturación en endodoncia",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Debe permitir la desobstrucción posterior del conducto",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Debe ser moderadamente radiopaco",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Permeabilidad",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Que no sufra de cambios de coloración",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 934,
+    "pregunta": "Respecto a la gutapercha diga cuál de las siguientes afirmaciones es falsa",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Existen tres formas: alfa, beta y gamma",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Permite la elaboración de conos híbridos con estructura interna metálica",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Alta rigidez conductos estrechos",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Radiopacidad",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 935,
+    "pregunta": "El método para el desarrollo de las técnicas de spray de plasma de titanio consiste en",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Irrigar la superficie a recubrir con un spray de polvo de titanio a 18.000 grados Celsius mediante arco voltáico de argón",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Irrigar la superficie a recubrir con un spray de polvo de titanio a 10.000 grados Celsius mediante corrientes eléctricas",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Irrigar la superficie a recubrir con un spray de polvo de titanio a 6000 grados Celsius mediante arco voltáico de neón argón",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 936,
+    "pregunta": "El revestimiento superficial de spray de plasma de titanio aumenta el área superficial en contacto en",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "2 veces",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "4 veces",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "6 veces",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "8 veces",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 937,
+    "pregunta": "La cantidad de calor , en calorías por segundo, que pasa a través de un cuerpo de 1cm de espesor y con un área de sección transversal de 1cm2 , cuando la diferencia",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "de temp. es de 1C se define como",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Calor específico",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Conductividad térmica",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Difusividad térmica Coeficiente de expansión térmica",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 938,
+    "pregunta": "El término inversor a dúctil es (frágil)",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Flexible",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Rígido",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Maleable",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Todas son incorrectas",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 939,
+    "pregunta": "La pérdida de propiedades físicas y químicas de un material en superficie determina (corrosión electroquímica)",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El potencial de electrodo de los materiales",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Gran capacidad de oxidación",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Aumento de potencial z",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Ninguna es correcta",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 940,
+    "pregunta": "En las porcelanas ceramo-metálicas en las que el metal es el titanio la temp. de fusión es de:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Alta fusión",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Baja fusión",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Muy baja fusión",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Media fusión",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 941,
+    "pregunta": "Cuál de los siguientes no es un polímero amorfo pesado",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Termoplástico",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Caucho",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Termofraguable",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Termofijo",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 942,
+    "pregunta": "Cuál de los siguientes no es un activador de la polimerización por adición",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (462 Preguntas)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Calor",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Laser",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Canforoquinona",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Amina terciaria",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 943,
+    "pregunta": "Respecto a los Mercaptanos, cual de las siguientes afirmaciones es falsa",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (Materiales Odontológicos 2005)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Se produce una polimerización por condensación",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "El subproducto eliminado es el agua",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Una sal de Platino actúa como catalizador",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Son hidrofílicos",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 944,
+    "pregunta": "¿Qué aleación para prótesis parciales tiene mayor dureza?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (Examen 24/11/08)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Cr-Co-Ni",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Ti-6V-4Al",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Cr-Co",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Oro tipo IV",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 945,
+    "pregunta": "¿Qué aleación para fabricar alambres de ortodoncia cite la que tiene mayor resistencia a la tracción?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (Examen 24/11/08)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Titanio-beta",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Niquel-titanio",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Cobalto-cromo-niquel",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Acero inoxidable",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 946,
+    "pregunta": "Cite lo correcto referente al producto de composición de los hidrocoloides irreversibles",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (Examen 24/11/08)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El fosfato de sodio es un acelerador",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "La tierra de diatomeas favorece la función de solubilidad",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "El óxido de cinc actúa de relleno",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "El sulfato de calcio es un reactivo",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 947,
+    "pregunta": "En una resina acrílica le parece correcto:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (Examen 24/11/08)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "El polimetacrilato puro es un líquido transparente",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "El polimetacrilato es un material para la confección de prótesis dentales que se utilizó mucho en los años 30 pero que ahora no se utiliza",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Es un material de fácil procesado",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Son materiales que se pueden colorear con dificultad para su uso odontológico",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 948,
+    "pregunta": "¿Qué material de restauración tiene mayor resistencia a la compresión?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (Examen 24/11/08)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Cemento de fosfato de zinc",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Resina de composite",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Cemento piedra de alta resistencia",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Hidróxido de calcio",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 949,
+    "pregunta": "¿Qué se añade a la composición de una silicona para conferirla hidrofilia superficial?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (Materiales Odontológicos 2005-2006)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Polidimetil siloxano",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Ortosilicato tetraetilico",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Surfactante no anionico",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Sal de platino",
+        "correcta": true
+      }
+    ]
+  },
+  {
+    "numero": 950,
+    "pregunta": "¿Quién fue el primer investigador en emplear la técnica del grabado ácido del esmalte?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (Materiales Odontológicos 2005-2006)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Black",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "Bowen",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Buonocore",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Woher",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 951,
+    "pregunta": "¿Cuál es el tamaño promedio de partícula del relleno inorgánico en los composites híbridos?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (Materiales Odontológicos 2005-2006)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "1,5 a 3 micras",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "0,4 a 1 micras",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "0.04 s 0,4 micras",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "10 a 15 micras",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 952,
+    "pregunta": "¿Cual es el rango de longitud de onda capaz de activar la canforoquinona en los composites fotopolimerizables?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (Materiales Odontológicos 2005-2006)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "300-400 nm",
+        "correcta": true
+      },
+      {
+        "letra": "B",
+        "texto": "400-500 nm",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "350-400 nm",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "550-600 nm",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 953,
+    "pregunta": "¿Qué modificaciones sufren los implantes en su superficie para que se produzca una implantación óptima?",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (Materiales Odontológicos 2005-2006)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Pasivacion y anodizacion",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Implantacion ionica",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Texturizacion",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Cualquiera de las anteriores puede ser cierta",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 954,
+    "pregunta": "los implantes recubiertos de hidroxiapatita se consideran:",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (Materiales Odontológicos 2005-2006)",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Los óptimos porque estimulan el crecimiento óseo",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "los óptimos por presentar una mayor integración entre hueso e implante",
+        "correcta": true
+      },
+      {
+        "letra": "C",
+        "texto": "Existe controversia en este tipo de implantes",
+        "correcta": false
+      },
+      {
+        "letra": "D",
+        "texto": "Las respuestas a y b son correctas",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "numero": 955,
+    "pregunta": "Cite lo correcto con respecto a las diferentes amalgamas",
+    "asignatura": "Materiales Odontológicos",
+    "capitulo": "Otros Exámenes",
+    "anio": 0,
+    "bibliografia": "Monton_de_Preguntas_462.xlsx (Materiales Odontológicos (05))",
+    "opciones": [
+      {
+        "letra": "A",
+        "texto": "Las mixtas tienen mayor resistencia a la compresión que las de composición única",
+        "correcta": false
+      },
+      {
+        "letra": "B",
+        "texto": "Las mixtas tienen mayor porcentaje de escurrimiento que las de bajo contenido en cobre",
+        "correcta": false
+      },
+      {
+        "letra": "C",
+        "texto": "Las de bajo contenido en cobre tienen menor resistencia a la tracción que las mixtas",
+        "correcta": true
+      },
+      {
+        "letra": "D",
+        "texto": "Las de composición única tienen menor porcentaje de escurrimiento que las de bajo contenido encobre",
+        "correcta": false
+      }
+    ]
   }
 ]
