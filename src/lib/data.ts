@@ -65,6 +65,13 @@ export function cargarBanco(cursoId: string): Promise<Pregunta[]> {
   if (!cargaPromises[cursoId]) {
     cargaPromises[cursoId] = traerCursoCompleto(cursoId).then((filas) => {
       cache[cursoId] = filas
+      // Un curso real nunca debería volver vacío (RLS exige sesión iniciada,
+      // y todo curso registrado en CURSOS tiene preguntas cargadas). Si pasa,
+      // lo más probable es que la consulta se haya disparado antes de que la
+      // sesión estuviera lista. No se cachea ese resultado como si fuera
+      // válido: así, la próxima vez que se pida este curso, reintenta en vez
+      // de quedar en 0 preguntas para el resto de la sesión del navegador.
+      if (filas.length === 0) delete cargaPromises[cursoId]
       return filas
     })
   }

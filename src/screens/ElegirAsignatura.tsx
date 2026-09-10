@@ -9,12 +9,15 @@ import type { Pantalla } from '@/types'
 /**
  * Paso previo a "Configurar examen": elegís la asignatura que vas a
  * examinar (ver lib/asignaturas.ts para la lista y cómo sumar una nueva).
+ * Se manda también el nombre (no solo el cursoId) porque quien llama lo usa
+ * para el texto de la pantalla de carga ("Cargando preguntas de Ortodoncia…")
+ * mientras se trae el banco de Supabase.
  */
 export function ElegirAsignatura({
   onSeleccionar,
   onNavigate,
 }: {
-  onSeleccionar: (cursoId: string) => void
+  onSeleccionar: (cursoId: string, nombre: string) => void
   onNavigate: (p: Pantalla) => void
 }) {
   const { t, idioma } = useAppSettings()
@@ -38,7 +41,7 @@ export function ElegirAsignatura({
           return (
             <button
               key={asig.id}
-              onClick={() => onSeleccionar(asig.cursoId)}
+              onClick={() => onSeleccionar(asig.cursoId, asig.nombre)}
               className="card-elevated flex w-full items-center gap-4 rounded-2xl bg-card p-4 text-left transition active:scale-[0.98]"
             >
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-accent/12 text-accent">

@@ -289,6 +289,9 @@ export interface Diccionario {
   asignaturas: {
     titulo: string
     subtitulo: string
+    // Pantalla de carga a pantalla completa mientras se trae de Supabase el
+    // banco de preguntas de la asignatura recién elegida (ver App.tsx).
+    cargandoBanco: (nombre: string) => string
   }
   estadisticas: {
     titulo: string
@@ -631,6 +634,7 @@ export const es: Diccionario = {
   asignaturas: {
     titulo: '¿Qué vas a examinar?',
     subtitulo: 'Elige la asignatura para configurar tu simulacro.',
+    cargandoBanco: (nombre) => `Cargando preguntas de ${nombre}…`,
   },
   estadisticas: {
     titulo: 'Estadísticas',
@@ -973,6 +977,7 @@ export const en: Diccionario = {
   asignaturas: {
     titulo: 'What are you testing on?',
     subtitulo: 'Choose a subject to set up your mock exam.',
+    cargandoBanco: (nombre) => `Loading ${nombre} questions…`,
   },
   estadisticas: {
     titulo: 'Statistics',

@@ -90,7 +90,13 @@ export function ConfigurarExamen({
   // Atajo del modo "oficial": arranca siempre con los valores de la ley
   // (cantidad y duración oficiales, todos los capítulos), sin tocar ni
   // pisar la configuración personalizada que el usuario tenga guardada.
+  // El chequeo de `preguntas.length` es una defensa contra que el banco
+  // todavía no haya cargado (o haya fallado) — antes esto nunca hacía falta
+  // porque el banco venía embebido en JSON y siempre tenía datos; ahora que
+  // depende de una consulta a Supabase, arrancar un examen sin preguntas
+  // rompía la pantalla de Examen más adelante.
   function iniciarOficial() {
+    if (preguntas.length === 0) return
     onIniciar(cursoMeta.cantidadOficial, [], cursoMeta.duracionOficialMinutos, 'todos')
   }
 
@@ -353,6 +359,7 @@ export function ConfigurarExamen({
             {!personalizando ? (
               <Button
                 onClick={iniciarOficial}
+                disabled={preguntas.length === 0}
                 className="h-12 w-full rounded-2xl bg-primary text-[15px] font-bold hover:bg-primary/90"
               >
                 <Play className="mr-2 h-4 w-4" />

@@ -8,6 +8,7 @@ import { supabase } from '@/lib/supabase'
 import { verificarDispositivo, cerrarSesionOtrosDispositivos, liberarDispositivoActual } from '@/lib/dispositivos'
 import { RUTA, RUTA_SOPORTE, RUTA_SOPORTE_DETALLE } from '@/lib/rutas'
 import { LoadingScreen } from '@/components/LoadingScreen'
+import { useAppSettings } from '@/context/AppSettings'
 import { DispositivoBloqueado } from '@/screens/DispositivoBloqueado'
 import { Login } from '@/screens/Login'
 import type { RespuestaUsuario } from '@/screens/Examen'
@@ -85,15 +86,25 @@ function App() {
   // ahí en adelante. Arranca en CURSO_ID (Odontología) por si algo navegara
   // directo a /simulacro/configurar sin pasar por ElegirAsignatura primero.
   const [cursoIdExamen, setCursoIdExamen] = useState<string>(CURSO_ID)
+  // Nombre de la asignatura mientras se trae su banco desde Supabase (no
+  // null = mostrar la pantalla de carga en vez de ElegirAsignatura). Ver
+  // claude/preguntas-tabla-editor-admin.md — antes el banco era JSON local y
+  // esto no hacía falta; ahora Ortodoncia (17k+ preguntas) puede tardar unos
+  // segundos y la app no puede quedarse muda mientras tanto.
+  const [cargandoAsignatura, setCargandoAsignatura] = useState<string | null>(null)
+  const { t } = useAppSettings()
 
   useEffect(() => {
-    // Se dispara en paralelo a la pantalla de carga inicial, así que para
-    // cuando se necesita ya está resuelto en la mayoría de los casos. Solo
-    // precarga el curso por defecto (Home/Estudio/Estadísticas/Ayuda lo
-    // necesitan sin pasar por ElegirAsignatura) — el banco de otra
-    // asignatura se pide recién al elegirla, ver onSeleccionar más abajo.
-    cargarBanco(CURSO_ID)
     supabase.auth.getSession().then(({ data }) => {
+      // El banco de preguntas vive en Supabase (antes era un JSON local que
+      // no necesitaba sesión) — RLS exige un usuario autenticado para leer
+      // `preguntas`, así que recién acá, con la sesión ya resuelta, tiene
+      // sentido precargar el curso por defecto. Dispararlo antes, en
+      // paralelo a esto (como se hacía cuando era JSON), llegaba a Supabase
+      // sin sesión todavía, RLS lo rechazaba con 0 filas en silencio, y esa
+      // respuesta vacía quedaba en caché para el resto de la sesión del
+      // navegador.
+      if (data.session) cargarBanco(CURSO_ID)
       setSession(data.session)
       setSesionLista(true)
     })
@@ -249,17 +260,27 @@ function App() {
             path={RUTA.asignaturas}
             element={
               <Protegida sesionLista={sesionLista} autenticado={autenticado}>
-                <ElegirAsignatura
-                  onSeleccionar={(cursoId) => {
-                    setCursoIdExamen(cursoId)
-                    // Espera a que el banco de esa asignatura esté cargado
-                    // antes de entrar a Configurar examen — si no, la
-                    // primera vez que se elige una asignatura nueva (banco
-                    // todavía no pedido) Configurar vería 0 capítulos.
-                    cargarBanco(cursoId).then(() => navigate(RUTA.configurar))
-                  }}
-                  onNavigate={irA}
-                />
+                {cargandoAsignatura ? (
+                  <LoadingScreen label={t.asignaturas.cargandoBanco(cargandoAsignatura)} />
+                ) : (
+                  <ElegirAsignatura
+                    onSeleccionar={(cursoId, nombre) => {
+                      setCursoIdExamen(cursoId)
+                      // Muestra la pantalla de carga de inmediato (en vez de
+                      // navegar recién cuando cargarBanco resuelve) — si no,
+                      // la primera vez que se elige una asignatura nueva
+                      // (banco todavía no pedido) la app parece no responder
+                      // mientras espera a Supabase, sobre todo con Ortodoncia
+                      // (17k+ preguntas).
+                      setCargandoAsignatura(nombre)
+                      cargarBanco(cursoId).then(() => {
+                        navigate(RUTA.configurar)
+                        setCargandoAsignatura(null)
+                      })
+                    }}
+                    onNavigate={irA}
+                  />
+                )}
               </Protegida>
             }
           />
