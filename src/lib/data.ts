@@ -1,35 +1,72 @@
+import { supabase } from './supabase'
 import type { Pregunta } from '../types'
 
-// Un banco de preguntas por curso (~1.1MB Odontología, ~340KB Psicología en
-// JSON). Cada uno se carga como su propio chunk mediante import() dinámico,
-// y solo cuando se pide — así alguien que solo rinde Psicología nunca
-// descarga el JSON de Odontología, y viceversa. `cargarBanco(cursoId)` se
-// dispara al montar App (para el curso por defecto, ver lib/cursos.ts) y al
-// elegir una asignatura en ElegirAsignatura; se espera antes de entrar a la
-// pantalla que lo necesita, así que para cuando se usan los getters
-// síncronos de abajo el banco pedido ya está en caché.
-const BANCOS: Record<string, () => Promise<{ default: Pregunta[] }>> = {
-  odontologia: () => import('../data/odontologia.json'),
-  psicologia: () => import('../data/psicologia.json'),
-  ortodoncia: () => import('../data/ortodoncia.json'),
-  materiales: () => import('../data/materiales.json'),
-}
+// Banco de preguntas: antes vivía como JSON estático embebido en el bundle
+// (un import() dinámico por curso — ver el historial de este archivo). Ahora
+// vive en la tabla `preguntas` de Supabase (columna `curso_id`, misma clave
+// que usa CURSOS en lib/cursos.ts y BANCOS acá antes), así se puede corregir
+// una pregunta desde el panel admin sin tocar código ni redeployar la app.
+// Ver claude/preguntas-tabla-editor-admin.md.
+//
+// La forma de usarlo no cambió para el resto de la app: `cargarBanco(cursoId)`
+// se llama una vez (al montar App para el curso por defecto, y al elegir
+// asignatura en ElegirAsignatura) y se espera antes de entrar a la pantalla
+// que lo necesita; para cuando se usan los getters síncronos de abajo el
+// banco pedido ya está en caché. Ninguna otra pantalla necesitó cambiar.
 
 const cache: Record<string, Pregunta[]> = {}
 const cargaPromises: Record<string, Promise<Pregunta[]>> = {}
 
+// PostgREST no devuelve más de 1000 filas por pedido aunque no se pida
+// límite explícito — Ortodoncia sola tiene más de 17 mil preguntas, así que
+// hay que paginar con `.range()` hasta juntar el curso completo. Se pide una
+// sola vez por curso (igual que antes se descargaba el JSON entero una sola
+// vez) y no en cada examen, así que no afecta cómo de "liviana" se siente la
+// carga de un examen.
+const TAMANO_PAGINA = 1000
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function mapPregunta(fila: any): Pregunta {
+  return {
+    numero: fila.numero,
+    pregunta: fila.pregunta,
+    asignatura: fila.asignatura,
+    capitulo: fila.capitulo,
+    anio: fila.anio,
+    bibliografia: fila.bibliografia,
+    opciones: fila.opciones ?? [],
+    caso: fila.caso ?? undefined,
+  }
+}
+
+async function traerCursoCompleto(cursoId: string): Promise<Pregunta[]> {
+  const filas: Pregunta[] = []
+  let desde = 0
+  for (;;) {
+    const { data, error } = await supabase
+      .from('preguntas')
+      .select('numero, pregunta, asignatura, capitulo, anio, bibliografia, opciones, caso')
+      .eq('curso_id', cursoId)
+      .order('numero', { ascending: true })
+      .range(desde, desde + TAMANO_PAGINA - 1)
+    if (error) {
+      console.error(`Error al cargar el banco de preguntas de "${cursoId}":`, error.message)
+      break
+    }
+    const pagina = (data ?? []).map(mapPregunta)
+    filas.push(...pagina)
+    if (pagina.length < TAMANO_PAGINA) break
+    desde += TAMANO_PAGINA
+  }
+  return filas
+}
+
 export function cargarBanco(cursoId: string): Promise<Pregunta[]> {
   if (!cargaPromises[cursoId]) {
-    const cargar = BANCOS[cursoId]
-    if (!cargar) {
-      console.error(`No hay banco de preguntas registrado para el curso "${cursoId}"`)
-      cargaPromises[cursoId] = Promise.resolve([])
-    } else {
-      cargaPromises[cursoId] = cargar().then((mod) => {
-        cache[cursoId] = mod.default
-        return cache[cursoId]
-      })
-    }
+    cargaPromises[cursoId] = traerCursoCompleto(cursoId).then((filas) => {
+      cache[cursoId] = filas
+      return filas
+    })
   }
   return cargaPromises[cursoId]
 }
