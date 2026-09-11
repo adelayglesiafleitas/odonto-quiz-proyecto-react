@@ -1,8 +1,8 @@
 import { lazy, Suspense, useEffect, useState, type ReactNode } from 'react'
 import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom'
 import type { Session } from '@supabase/supabase-js'
-import type { Pantalla, Pregunta } from '@/types'
-import { cargarBanco, seleccionarPreguntas } from '@/lib/data'
+import type { Pantalla, Pregunta, IntentoExamen } from '@/types'
+import { cargarBanco, seleccionarPreguntas, obtenerPreguntasPorNumero } from '@/lib/data'
 import { CURSO, CURSO_ID, CURSOS } from '@/lib/cursos'
 import { supabase } from '@/lib/supabase'
 import { verificarDispositivo, cerrarSesionOtrosDispositivos, liberarDispositivoActual } from '@/lib/dispositivos'
@@ -30,6 +30,7 @@ const Ayuda = lazy(() => import('@/screens/Ayuda').then((m) => ({ default: m.Ayu
 const Academia = lazy(() => import('@/screens/Academia').then((m) => ({ default: m.Academia })))
 const Configuracion = lazy(() => import('@/screens/Configuracion').then((m) => ({ default: m.Configuracion })))
 const Estadisticas = lazy(() => import('@/screens/Estadisticas').then((m) => ({ default: m.Estadisticas })))
+const Historial = lazy(() => import('@/screens/Historial').then((m) => ({ default: m.Historial })))
 const MisConsultas = lazy(() => import('@/screens/MisConsultas').then((m) => ({ default: m.MisConsultas })))
 const HiloConsulta = lazy(() => import('@/screens/HiloConsulta').then((m) => ({ default: m.HiloConsulta })))
 
@@ -205,6 +206,42 @@ function App() {
     navigate(RUTA.examen)
   }
 
+  // "Repetir" desde el Historial (distinto del "Repetir" de Resultados, que
+  // siempre re-arma al azar con la misma config): si el intento tiene
+  // preguntasNumeros guardado, arma el examen con exactamente esas preguntas
+  // en el mismo orden. Los intentos de antes de que existiera esa columna
+  // llegan con el array vacío — para esos no hay otra opción que caer a la
+  // misma config con preguntas nuevas al azar (ver Historial.tsx, que avisa
+  // esto en el diálogo de confirmación).
+  //
+  // No se llama a iniciarExamen() acá a propósito: esa función lee
+  // cursoIdExamen del estado del componente, que setCursoIdExamen recién
+  // actualiza en el próximo render — llamarla en el mismo tick podría usar
+  // todavía el curso anterior. Se arma la sesión directo con el cursoId del
+  // intento en vez de depender de ese estado.
+  async function repetirIntento(intento: IntentoExamen) {
+    setCursoIdExamen(intento.cursoId)
+    if (intento.preguntasNumeros.length > 0) {
+      const preguntas = await obtenerPreguntasPorNumero(intento.cursoId, intento.preguntasNumeros)
+      if (preguntas.length === 0) return
+      setSesionExamen({
+        preguntas,
+        capitulos: intento.capitulos,
+        anio: intento.anio,
+        tiempoLimiteMinutos: intento.tiempoLimiteMinutos,
+      })
+    } else {
+      await cargarBanco(intento.cursoId)
+      setSesionExamen({
+        preguntas: seleccionarPreguntas(intento.cursoId, intento.totalPreguntas, intento.capitulos, intento.anio),
+        capitulos: intento.capitulos,
+        anio: intento.anio,
+        tiempoLimiteMinutos: intento.tiempoLimiteMinutos,
+      })
+    }
+    navigate(RUTA.examen)
+  }
+
   if (userId && verifDispositivo === 'bloqueado') {
     return (
       <div className="mx-auto min-h-screen w-full max-w-md bg-background font-sans">
@@ -371,6 +408,17 @@ function App() {
               <Protegida sesionLista={sesionLista} autenticado={autenticado}>
                 {userId && (
                   <Estadisticas userId={userId} cursoIdInicial={CURSO_ID} onBack={() => navigate(RUTA.home)} onNavigate={irA} />
+                )}
+              </Protegida>
+            }
+          />
+
+          <Route
+            path={RUTA.historial}
+            element={
+              <Protegida sesionLista={sesionLista} autenticado={autenticado}>
+                {userId && (
+                  <Historial userId={userId} onBack={() => navigate(RUTA.estadisticas)} onNavigate={irA} onRepetir={repetirIntento} />
                 )}
               </Protegida>
             }

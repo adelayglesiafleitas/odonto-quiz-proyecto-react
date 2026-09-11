@@ -14,7 +14,11 @@ interface FilaHistorial {
   tiempo_usado_seg: number
   agoto_tiempo: boolean
   desglose_capitulos: Record<string, ConteoCapitulo> | null
+  preguntas_numeros: number[] | null
 }
+
+const COLUMNAS_HISTORIAL =
+  'curso_id, fecha, total_preguntas, correctas, porcentaje, aprobado, capitulos, anio, tiempo_limite_minutos, tiempo_usado_seg, agoto_tiempo, desglose_capitulos, preguntas_numeros'
 
 function filaAIntento(fila: FilaHistorial): IntentoExamen {
   return {
@@ -30,6 +34,7 @@ function filaAIntento(fila: FilaHistorial): IntentoExamen {
     tiempoUsadoSeg: fila.tiempo_usado_seg,
     agotoTiempo: fila.agoto_tiempo,
     desgloseCapitulos: fila.desglose_capitulos ?? {},
+    preguntasNumeros: fila.preguntas_numeros ?? [],
   }
 }
 
@@ -38,9 +43,7 @@ const HISTORIAL_MAX = 30
 export async function getHistorialRemoto(userId: string, cursoId?: string): Promise<IntentoExamen[]> {
   let consulta = supabase
     .from('historial_intentos')
-    .select(
-      'curso_id, fecha, total_preguntas, correctas, porcentaje, aprobado, capitulos, anio, tiempo_limite_minutos, tiempo_usado_seg, agoto_tiempo, desglose_capitulos',
-    )
+    .select(COLUMNAS_HISTORIAL)
     .eq('user_id', userId)
     .order('fecha', { ascending: false })
     .limit(HISTORIAL_MAX)
@@ -50,6 +53,25 @@ export async function getHistorialRemoto(userId: string, cursoId?: string): Prom
   const { data, error } = await consulta
   if (error) {
     console.error('Error al leer el historial:', error.message)
+    return []
+  }
+  return (data ?? []).map(filaAIntento)
+}
+
+// Usado por la pantalla Historial (todas las asignaturas mezcladas, a
+// diferencia de getHistorialRemoto que puede filtrar por curso): un límite
+// propio y más chico que HISTORIAL_MAX porque ahí solo se muestran los
+// últimos intentos "para volver a hacerlos", no para promediar estadísticas.
+export async function getUltimosIntentos(userId: string, limite = 10): Promise<IntentoExamen[]> {
+  const { data, error } = await supabase
+    .from('historial_intentos')
+    .select(COLUMNAS_HISTORIAL)
+    .eq('user_id', userId)
+    .order('fecha', { ascending: false })
+    .limit(limite)
+
+  if (error) {
+    console.error('Error al leer los últimos intentos:', error.message)
     return []
   }
   return (data ?? []).map(filaAIntento)
@@ -70,6 +92,7 @@ export async function guardarIntentoRemoto(userId: string, intento: IntentoExame
     tiempo_usado_seg: intento.tiempoUsadoSeg,
     agoto_tiempo: intento.agotoTiempo,
     desglose_capitulos: intento.desgloseCapitulos,
+    preguntas_numeros: intento.preguntasNumeros,
   })
   if (error) console.error('Error al guardar el intento:', error.message)
 }

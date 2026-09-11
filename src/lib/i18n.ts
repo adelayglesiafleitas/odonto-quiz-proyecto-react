@@ -314,6 +314,26 @@ export interface Diccionario {
     academiaEstrellas: (obtenidas: number, total: number) => string
     academiaSeguir: string
     academiaEmpezar: string
+    historialTitulo: string
+    historialDesc: string
+  }
+  historial: {
+    titulo: string
+    subtitulo: string
+    vacioTitulo: string
+    vacioTexto: string
+    examenCompleto: string
+    preguntas: (n: number) => string
+    agotoTiempoCorto: string
+    repetirBoton: string
+    repetirTitulo: string
+    repetirDescExacta: string
+    repetirDescConfig: string
+    asignaturaLabel: string
+    alcanceLabel: string
+    preguntasLabel: string
+    limiteLabel: string
+    empezarAhora: string
   }
 }
 
@@ -657,6 +677,28 @@ export const es: Diccionario = {
     academiaEstrellas: (obtenidas, total) => `${obtenidas}/${total} estrellas`,
     academiaSeguir: 'Seguir en Academia',
     academiaEmpezar: 'Empezar Academia',
+    historialTitulo: 'Historial',
+    historialDesc: 'Tus últimas 10 pruebas — repetí cualquiera',
+  },
+  historial: {
+    titulo: 'Historial',
+    subtitulo: 'Tus últimos 10 simulacros',
+    vacioTitulo: 'Todavía no hay simulacros',
+    vacioTexto: 'Completa tu primer simulacro para verlo acá.',
+    examenCompleto: 'Examen completo',
+    preguntas: (n) => `${n} pregunta${n === 1 ? '' : 's'}`,
+    agotoTiempoCorto: 'Se agotó el tiempo',
+    repetirBoton: 'Repetir',
+    repetirTitulo: 'Repetir simulacro',
+    repetirDescExacta:
+      'Se arma con exactamente las mismas preguntas de esa prueba, en el mismo orden, para que puedas comparar cómo te fue.',
+    repetirDescConfig:
+      'Este intento es de antes de esta función: se arma con la misma configuración (asignatura, capítulos y tiempo), pero con preguntas nuevas al azar.',
+    asignaturaLabel: 'Asignatura',
+    alcanceLabel: 'Alcance',
+    preguntasLabel: 'Preguntas',
+    limiteLabel: 'Límite de tiempo',
+    empezarAhora: 'Empezar ahora',
   },
 }
 
@@ -1000,6 +1042,28 @@ export const en: Diccionario = {
     academiaEstrellas: (obtenidas, total) => `${obtenidas}/${total} stars`,
     academiaSeguir: 'Continue in Academia',
     academiaEmpezar: 'Start Academia',
+    historialTitulo: 'History',
+    historialDesc: 'Your last 10 attempts — retry any of them',
+  },
+  historial: {
+    titulo: 'History',
+    subtitulo: 'Your last 10 mock exams',
+    vacioTitulo: 'No mock exams yet',
+    vacioTexto: 'Complete your first mock exam to see it here.',
+    examenCompleto: 'Full exam',
+    preguntas: (n) => `${n} question${n === 1 ? '' : 's'}`,
+    agotoTiempoCorto: 'Time ran out',
+    repetirBoton: 'Retry',
+    repetirTitulo: 'Retry mock exam',
+    repetirDescExacta:
+      "It's built with exactly the same questions from that attempt, in the same order, so you can compare how you did.",
+    repetirDescConfig:
+      'This attempt predates this feature: it will use the same setup (subject, chapters and time limit), but with new random questions.',
+    asignaturaLabel: 'Subject',
+    alcanceLabel: 'Scope',
+    preguntasLabel: 'Questions',
+    limiteLabel: 'Time limit',
+    empezarAhora: 'Start now',
   },
 }
 

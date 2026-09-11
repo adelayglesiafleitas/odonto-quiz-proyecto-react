@@ -46,6 +46,13 @@ export interface IntentoExamen {
   tiempoUsadoSeg: number
   agotoTiempo: boolean
   desgloseCapitulos: Record<string, ConteoCapitulo>
+  // Números (Pregunta.numero, no el uuid de la tabla) de las preguntas
+  // exactas que vio el usuario en este intento, en el orden en que se
+  // mostraron — permite "Repetir" desde el Historial con el mismo examen en
+  // vez de uno nuevo al azar. Array vacío en intentos guardados antes de
+  // esta columna (no hay forma de reconstruirlos con exactitud): ver
+  // repetirIntento en App.tsx para el fallback que usan esos casos.
+  preguntasNumeros: number[]
 }
 
 export type Pantalla =
@@ -61,3 +68,4 @@ export type Pantalla =
   | 'academia'
   | 'config'
   | 'estadisticas'
+  | 'historial'

@@ -47,6 +47,11 @@ async function traerCursoCompleto(cursoId: string): Promise<Pregunta[]> {
       .from('preguntas')
       .select('numero, pregunta, asignatura, capitulo, anio, bibliografia, opciones, caso')
       .eq('curso_id', cursoId)
+      // Una pregunta oculta desde el admin (columna `oculta`, migración
+      // agregar_oculta_preguntas) sigue en la tabla pero no debe llegar nunca
+      // a un examen — de ahí este filtro. Default false, así que no afecta a
+      // ninguna pregunta que no haya sido ocultada explícitamente.
+      .eq('oculta', false)
       .order('numero', { ascending: true })
       .range(desde, desde + TAMANO_PAGINA - 1)
     if (error) {
@@ -93,6 +98,30 @@ export function getAnios(cursoId: string): number[] {
   const set = new Set(getPreguntas(cursoId).map((p) => p.anio))
   set.delete(0)
   return Array.from(set).sort((a, b) => b - a)
+}
+
+// Recupera un set puntual de preguntas por su `numero` dentro de un curso,
+// en vez de todo el banco — usado por "Repetir" en Historial para reconstruir
+// exactamente el mismo examen de un intento pasado sin tener que cargar
+// (o tener en caché) el curso entero, que en Ortodoncia son 17k+ filas para
+// repetir apenas 20-45 preguntas.
+export async function obtenerPreguntasPorNumero(cursoId: string, numeros: number[]): Promise<Pregunta[]> {
+  if (numeros.length === 0) return []
+  const { data, error } = await supabase
+    .from('preguntas')
+    .select('numero, pregunta, asignatura, capitulo, anio, bibliografia, opciones, caso')
+    .eq('curso_id', cursoId)
+    .in('numero', numeros)
+    .eq('oculta', false)
+  if (error) {
+    console.error(`Error al recuperar las preguntas para repetir el intento de "${cursoId}":`, error.message)
+    return []
+  }
+  const porNumero = new Map((data ?? []).map(mapPregunta).map((p) => [p.numero, p]))
+  // Se preserva el orden guardado (el mismo que vio el usuario en el intento
+  // original). Si alguna pregunta ya no existe o fue ocultada desde el admin
+  // entre medio, simplemente se omite en vez de romper el repetir.
+  return numeros.map((n) => porNumero.get(n)).filter((p): p is Pregunta => p !== undefined)
 }
 
 export function shuffle<T>(arr: T[]): T[] {

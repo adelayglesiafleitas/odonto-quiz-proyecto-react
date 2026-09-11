@@ -18,6 +18,7 @@ export const RUTA: Record<Pantalla, string> = {
   academia: '/academia',
   config: '/config',
   estadisticas: '/estadisticas',
+  historial: '/historial',
 }
 
 // Atención al cliente: no son "pantallas lógicas" del enum Pantalla porque

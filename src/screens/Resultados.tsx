@@ -107,6 +107,7 @@ export function Resultados({
           tiempoUsadoSeg,
           agotoTiempo,
           desgloseCapitulos,
+          preguntasNumeros: preguntas.map((p) => p.numero),
         })
     guardar
       .then(() => getHistorialRemoto(userId, cursoId))

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { ArrowLeft, BookOpen, Check, ChevronDown, GraduationCap, Trophy } from 'lucide-react'
+import { ArrowLeft, BookOpen, Check, ChevronDown, ChevronRight, GraduationCap, History, Trophy } from 'lucide-react'
 import { useAppSettings } from '@/context/AppSettings'
 import { SettingsToggle } from '@/components/SettingsToggle'
 import { LogoMark } from '@/components/Logo'
@@ -220,6 +220,22 @@ export function Estadisticas({
           </div>
         </div>
       )}
+
+      <div className="mt-5 px-6">
+        <button
+          onClick={() => onNavigate('historial')}
+          className="card-elevated flex w-full items-center gap-3 rounded-2xl bg-card p-4 text-left transition active:scale-[0.98]"
+        >
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+            <History className="h-5 w-5" />
+          </span>
+          <div className="min-w-0 flex-1">
+            <p className="text-sm font-bold text-foreground">{t.estadisticas.historialTitulo}</p>
+            <p className="text-xs text-muted-foreground">{t.estadisticas.historialDesc}</p>
+          </div>
+          <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
+        </button>
+      </div>
 
       {cargando ? (
         <div className="mt-16 flex justify-center">
