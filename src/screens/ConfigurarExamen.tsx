@@ -28,6 +28,23 @@ import { BottomNav } from '@/components/BottomNav'
 import type { CursoMeta } from '@/lib/cursos'
 import type { Pantalla } from '@/types'
 
+// Nombre corto para mostrar cada libro en dos líneas dentro del selector de
+// capítulo: autora primero (es bibliografía para examinarse, lo que importa
+// es de quién es el libro) y el tema debajo, más chico. Sin esto el título
+// completo de `libro` (ej. "Odontología en Pacientes con Necesidades
+// Especiales (Inmaculada Tomás)") se corta con "…" antes de llegar al
+// nombre de la autora.
+const NOMBRES_CORTOS_LIBRO: Record<string, { autor: string; tema: string }> = {
+  'Odontología en Pacientes con Necesidades Especiales (Inmaculada Tomás)': {
+    autor: 'Inmaculada Tomás',
+    tema: 'Necesidades Especiales',
+  },
+}
+
+function formatearLibro(libro: string): { autor: string; tema: string } {
+  return NOMBRES_CORTOS_LIBRO[libro] ?? { autor: libro, tema: '' }
+}
+
 const DURACIONES = [15, 30, 40, 45, 60, 90]
 
 export function ConfigurarExamen({
@@ -503,18 +520,30 @@ export function ConfigurarExamen({
                       (p) => p.libro === libro && (anio === 'todos' || p.anio === anio),
                     ).length
                     const activo = capitulosDelLibro.length > 0 && capitulosDelLibro.every((c) => capitulos.includes(c))
+                    const { autor, tema } = formatearLibro(libro)
                     return (
                       <button
                         key={libro}
                         onClick={() => toggleLibroCompleto(libro)}
-                        className={`card-elevated flex w-full items-center justify-between rounded-2xl px-4 py-3.5 text-left text-sm font-semibold transition ${
+                        className={`card-elevated flex w-full items-center justify-between gap-2 rounded-2xl px-4 py-3.5 text-left text-sm font-semibold transition ${
                           activo ? 'bg-primary text-primary-foreground' : 'bg-card text-foreground'
                         }`}
                       >
-                        <span className="flex min-w-0 items-center gap-2 truncate pr-2">
+                        <span className="flex min-w-0 items-center gap-2 pr-2">
                           {activo && <Check className="h-4 w-4 shrink-0" />}
                           <Library className="h-4 w-4 shrink-0" />
-                          <span className="truncate">{libro}</span>
+                          <span className="flex min-w-0 flex-col">
+                            <span className="truncate">{autor}</span>
+                            {tema && (
+                              <span
+                                className={`truncate text-xs font-medium ${
+                                  activo ? 'text-white/70' : 'text-muted-foreground'
+                                }`}
+                              >
+                                {tema}
+                              </span>
+                            )}
+                          </span>
                         </span>
                         <span className={`shrink-0 ${activo ? 'text-white/70' : 'text-muted-foreground'}`}>{n}</span>
                       </button>
