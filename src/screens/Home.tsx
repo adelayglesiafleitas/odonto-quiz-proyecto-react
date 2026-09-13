@@ -15,7 +15,7 @@ import { MensajeAdminBanner } from '@/components/MensajeAdminBanner'
 import { ICONO_BIENVENIDA, ICONO_CTA } from '@/lib/temaIconos'
 import { colorStrokePorcentaje } from '@/lib/utils'
 import type { CursoMeta } from '@/lib/cursos'
-import { LogOut, Trophy, TrendingUp, Quote, Flame, BarChart3, ChevronRight } from 'lucide-react'
+import { LogOut, Trophy, TrendingUp, Quote, Flame, BarChart3, ChevronRight, X } from 'lucide-react'
 import type { Pantalla } from '@/types'
 
 const PROMEDIO_CIRCUNFERENCIA = 2 * Math.PI * 32
@@ -49,13 +49,15 @@ export function Home({
   const [cta] = useState(() => getCtaEmpezar(idioma))
   const [mostrarTour, setMostrarTour] = useState(false)
   const [primeraVisita, setPrimeraVisita] = useState(false)
+  // Cartel de bienvenida de primera visita: ahora vive apilado junto con los
+  // mensajes del admin (ver más abajo), no en la tarjeta de frase-del-día.
+  // Se cierra con su propia ✕, sin flag nueva en la base — como `vio_tour_bienvenida`
+  // ya no vuelve a poner `primeraVisita` en true, alcanza con estado local.
+  const [bienvenidaPrimeraVisitaCerrada, setBienvenidaPrimeraVisitaCerrada] = useState(false)
+  const [textoBienvenidaPrimeraVisita] = useState(() => getBienvenidaPrimeraVisita(idioma, nombreMostrado))
   const [colaMensajes, setColaMensajes] = useState<MensajeAdmin[]>([])
   const IconoBienvenida = ICONO_BIENVENIDA[estilo]
   const IconoCta = ICONO_CTA[estilo]
-  // Primera vez en la vida de la cuenta: en vez del mensaje que cambia por
-  // día de la semana, se muestra un texto de bienvenida fijo (ver
-  // src/lib/bienvenida.ts). Se dispara junto con el tour de 6 pantallas.
-  const mensajeBienvenida = primeraVisita ? getBienvenidaPrimeraVisita(idioma, nombreMostrado) : bienvenida
 
   useEffect(() => {
     let cancelado = false
@@ -98,10 +100,9 @@ export function Home({
     setMostrarTour(false)
   }
 
-  const cerrarMensajeAdmin = () => {
-    const actual = colaMensajes[0]
-    if (actual) descartarMensaje(actual.id)
-    setColaMensajes((cola) => cola.slice(1))
+  const cerrarMensajeAdmin = (id: string) => {
+    descartarMensaje(id)
+    setColaMensajes((cola) => cola.filter((m) => m.id !== id))
   }
 
   return (
@@ -185,11 +186,57 @@ export function Home({
         </div>
       </div>
 
-      {colaMensajes[0] && (
-        <div className="mt-4 px-6">
-          <MensajeAdminBanner mensaje={colaMensajes[0]} onCerrar={cerrarMensajeAdmin} />
+      {(primeraVisita && !bienvenidaPrimeraVisitaCerrada) || colaMensajes.length > 0 ? (
+        <div className="mt-4 flex flex-col gap-3 px-6">
+          {primeraVisita && !bienvenidaPrimeraVisitaCerrada && (
+            <div
+              className="card-elevated relative overflow-hidden rounded-2xl border p-4"
+              style={{
+                borderColor: 'var(--home-hero-border)',
+                background: 'var(--home-hero-bg)',
+                boxShadow: 'var(--home-hero-shadow)',
+              }}
+            >
+              <div
+                className="pointer-events-none absolute -right-8 -top-10 h-24 w-24 rounded-full blur-md"
+                style={{ background: 'var(--home-hero-glow)' }}
+              />
+              <div className="relative flex items-start gap-2.5">
+                <span
+                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg"
+                  style={{ background: 'var(--home-hero-badge-bg)' }}
+                >
+                  <IconoBienvenida className="h-3.5 w-3.5 text-white" />
+                </span>
+                <div className="min-w-0 flex-1">
+                  <p className="text-[10px] font-bold uppercase tracking-wide" style={{ color: 'var(--home-hero-kicker)' }}>
+                    {t.home.bienvenidaEtiqueta}
+                  </p>
+                  <p
+                    className="mt-1 text-[13px] font-semibold leading-relaxed"
+                    style={{ color: 'var(--home-hero-ink)' }}
+                  >
+                    {textoBienvenidaPrimeraVisita}
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setBienvenidaPrimeraVisitaCerrada(true)}
+                  aria-label={t.mensajesAdmin.cerrar}
+                  className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-black/10 transition hover:bg-black/20"
+                  style={{ color: 'var(--home-hero-ink)' }}
+                >
+                  <X className="h-3 w-3" />
+                </button>
+              </div>
+            </div>
+          )}
+
+          {colaMensajes.map((mensaje) => (
+            <MensajeAdminBanner key={mensaje.id} mensaje={mensaje} onCerrar={() => cerrarMensajeAdmin(mensaje.id)} />
+          ))}
         </div>
-      )}
+      ) : null}
 
       <div className="mt-6 px-6">
         <button
@@ -273,7 +320,7 @@ export function Home({
               {t.home.bienvenidaEtiqueta}
             </div>
             <p className="relative mt-2.5 text-[15.5px] font-semibold leading-relaxed" style={{ color: 'var(--home-hero-ink)' }}>
-              {mensajeBienvenida}
+              {bienvenida}
             </p>
           </div>
           <div

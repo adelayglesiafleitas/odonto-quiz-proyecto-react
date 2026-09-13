@@ -10,9 +10,9 @@
 // los 6 estilos) para que un comunicado del equipo se lea siempre igual.
 //
 // Al cerrar (✕) o al terminar el video (`onEnded`), se llama a `onCerrar` —
-// Home descarta este mensaje y muestra automáticamente el siguiente
-// pendiente en el mismo lugar, sin que el usuario tenga que volver a entrar
-// a Home ni hacer nada más.
+// Home descarta este mensaje puntual y lo saca de la lista apilada. Los
+// demás mensajes visibles no se ven afectados (cada tarjeta es independiente
+// — ver [[mensajes-home-apilados-diseno]]).
 
 import { useRef, useState } from 'react'
 import { Megaphone, Volume2, VolumeX, X } from 'lucide-react'

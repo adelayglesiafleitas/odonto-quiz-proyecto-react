@@ -4,8 +4,8 @@
 // el panel de admin (tabla `mensajes_admin`), mostrados en Home. Un usuario
 // nunca vuelve a ver un mensaje que ya cerró (tabla `mensajes_admin_descartados`),
 // esté activo o no — mismo criterio que `tourBienvenidaRemoto.ts` para el
-// tour, pero acá puede haber varios mensajes en cola: se muestra siempre el
-// más viejo entre los que todavía no se cerraron.
+// tour. Se muestran todos apilados a la vez (no de a uno), ordenados del
+// más nuevo al más viejo — ver [[mensajes-home-apilados-diseno]].
 
 import { supabase } from './supabase'
 
@@ -23,10 +23,8 @@ export interface MensajeAdmin {
 }
 
 // Trae TODOS los mensajes pendientes (los que todavía no se descartaron),
-// más viejo primero — no solo el primero. Home los muestra de a uno en la
-// misma tarjeta chica; al cerrar uno (o al terminar un video) se saca de la
-// lista en memoria y el siguiente aparece ahí mismo, sin recargar la
-// pantalla ni volver a pedirle nada al usuario.
+// más nuevo primero. Home los muestra todos apilados a la vez, cada uno con
+// su propia ✕ — cerrar uno no afecta a los demás.
 export async function getMensajesPendientes(): Promise<MensajeAdmin[]> {
   const {
     data: { user },
@@ -39,7 +37,7 @@ export async function getMensajesPendientes(): Promise<MensajeAdmin[]> {
       .select('id, tipo, texto, media_url, mostrar_siempre')
       .eq('activo', true)
       .or(`destinatario_user_id.is.null,destinatario_user_id.eq.${user.id}`)
-      .order('creado_en', { ascending: true }),
+      .order('creado_en', { ascending: false }),
     supabase.from('mensajes_admin_descartados').select('mensaje_id').eq('user_id', user.id),
   ])
 
