@@ -15,9 +15,12 @@ import {
   ChevronUp,
   SlidersHorizontal,
   RotateCcw,
+  Library,
+  FileText,
 } from 'lucide-react'
-import { getAnios, getCapitulos, getPreguntas } from '@/lib/data'
+import { getAnios, getCapitulos, getLibros, getPreguntas } from '@/lib/data'
 import { getConfigExamenRemota, guardarConfigExamenRemota } from '@/lib/configExamen'
+import { getLibroPacientesEspecialesHabilitado } from '@/lib/fuenteLibroAccesoRemoto'
 import { useAppSettings } from '@/context/AppSettings'
 import { SettingsToggle } from '@/components/SettingsToggle'
 import { LogoMark } from '@/components/Logo'
@@ -44,12 +47,24 @@ export function ConfigurarExamen({
 }) {
   const { t } = useAppSettings()
   const preguntas = getPreguntas(cursoId)
-  const todosLosCapitulos = getCapitulos(cursoId)
+  const libros = cursoMeta.tieneLibros ? getLibros(cursoId) : []
   const anios = getAnios(cursoId)
+  // Elegir Fuente "Libro" para ir capítulo por capítulo del libro es una
+  // función reservada para una futura versión de pago: se activa por
+  // usuario desde la columna `perfiles.libro_pacientes_especiales_habilitado`
+  // (mismo patrón que `academia_habilitada`, ver fuenteLibroAccesoRemoto.ts
+  // — de solo lectura acá, solo un admin la puede prender). Mientras esté en
+  // false (el default para todo el mundo) las preguntas del libro se siguen
+  // pudiendo sumar enteras desde Fuente "Exámenes" (la fila con el nombre
+  // del libro en la lista de capítulos, más abajo) — lo único que depende
+  // de este flag es la posibilidad de elegir sus capítulos sueltos.
+  const [mostrarSelectorFuenteLibro, setMostrarSelectorFuenteLibro] = useState(false)
   const [cantidad, setCantidad] = useState(cursoMeta.cantidadOficial)
   // Array vacío = "todos los capítulos"; con elementos, el examen combina
   // las preguntas de todos los capítulos elegidos (no es excluyente como
-  // antes, que solo dejaba elegir uno o todos).
+  // antes, que solo dejaba elegir uno o todos). Los capítulos son siempre
+  // relativos a la Fuente activa (ver más abajo): cambiar de Fuente o de
+  // libro reinicia esta selección.
   const [capitulos, setCapitulos] = useState<string[]>([])
   const [anio, setAnio] = useState<number | 'todos'>('todos')
   const [conTiempo, setConTiempo] = useState(false)
@@ -59,32 +74,112 @@ export function ConfigurarExamen({
   // haya quedado guardado la última vez — personalizando solo se activa
   // cuando el usuario toca "Personalizar" en esta visita.
   const [personalizando, setPersonalizando] = useState(false)
+  // Fuente de las preguntas dentro del modo personalizado: "examenes" (banco
+  // de siempre) o "libro" (preguntas cargadas desde un libro de texto, solo
+  // si cursoMeta.tieneLibros). No existe como concepto en la base de datos:
+  // se infiere/guarda a través de qué capítulos quedan elegidos, ver el
+  // useEffect de carga y iniciar() más abajo.
+  const [fuente, setFuente] = useState<'examenes' | 'libro'>('examenes')
+  const [libroSeleccionado, setLibroSeleccionado] = useState<string | null>(null)
 
   useEffect(() => {
     let cancelado = false
     setCargandoConfig(true)
-    getConfigExamenRemota(userId, cursoId, cursoMeta.cantidadOficial, cursoMeta.duracionOficialMinutos).then((guardada) => {
+    ;(async () => {
+      // El flag se resuelve ANTES de decidir la Fuente inferida más abajo:
+      // si se usara el estado `mostrarSelectorFuenteLibro` directamente ahí,
+      // podría llegar todavía en su valor inicial (false) por la carrera
+      // entre esta promesa y el render — se guarda en una variable local en
+      // vez de depender del estado.
+      const libroHabilitado = cursoMeta.tieneLibros ? await getLibroPacientesEspecialesHabilitado() : false
+      if (cancelado) return
+      setMostrarSelectorFuenteLibro(libroHabilitado)
+
+      const guardada = await getConfigExamenRemota(
+        userId,
+        cursoId,
+        cursoMeta.cantidadOficial,
+        cursoMeta.duracionOficialMinutos,
+      )
       if (cancelado) return
       setCantidad(guardada.cantidad)
       setCapitulos(guardada.capitulos)
       setAnio(cursoMeta.tieneConvocatorias ? guardada.anio : 'todos')
       setConTiempo(guardada.conTiempo)
       setDuracion(guardada.duracion)
+      // La config guardada solo tiene `capitulos` (no un campo de fuente
+      // propio): se reconstruye a partir del libro de la primera pregunta
+      // encontrada en ese capítulo. Un capítulo de Exámenes nunca coincide
+      // con un capítulo de libro (nombres siempre distintos), así que esto
+      // es inambiguo. Array vacío = Exámenes (comportamiento de siempre).
+      // Con el selector de Fuente "Libro" deshabilitado (usuario sin el
+      // flag), esta inferencia queda desactivada a propósito: aunque la
+      // config guardada tenga capítulos de un libro (por ej. elegidos con
+      // la fila-atajo de Fuente Exámenes), la pantalla se queda en Fuente
+      // "Exámenes".
+      if (libroHabilitado) {
+        const primerCapitulo = guardada.capitulos[0]
+        const libroDelPrimero = primerCapitulo
+          ? preguntas.find((p) => p.capitulo === primerCapitulo)?.libro
+          : undefined
+        setFuente(libroDelPrimero ? 'libro' : 'examenes')
+        setLibroSeleccionado(libroDelPrimero ?? null)
+      } else {
+        setFuente('examenes')
+        setLibroSeleccionado(null)
+      }
       setCargandoConfig(false)
-    })
+    })()
     return () => {
       cancelado = true
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId, cursoId])
 
-  const disponibles = preguntas.filter(
+  // Preguntas de la fuente activa. Con Fuente "Libro" se restringe a las del
+  // libro elegido (para poder elegir sus capítulos sin mezclarlos con otro
+  // libro futuro). Con Fuente "Exámenes" es el banco completo del curso: acá
+  // no se descartan las preguntas de libro, así "Todos los capítulos" suma
+  // también las 307 preguntas del libro sin que sus 16 capítulos aparezcan
+  // como opciones sueltas en esta lista (eso solo pasa al elegir Fuente
+  // "Libro") — el filtro por nombre de capítulo (Exámenes CRADO/Otros
+  // Exámenes) ya las deja afuera de esos dos conteos igual.
+  const preguntasDeFuente =
+    fuente === 'libro' && libroSeleccionado ? preguntas.filter((p) => p.libro === libroSeleccionado) : preguntas
+  const todosLosCapitulos =
+    fuente === 'libro' && libroSeleccionado ? getCapitulos(cursoId, libroSeleccionado) : getCapitulos(cursoId, null)
+
+  const disponibles = preguntasDeFuente.filter(
     (p) => (capitulos.length === 0 || capitulos.includes(p.capitulo)) && (anio === 'todos' || p.anio === anio),
   ).length
 
+  // "Todos los capítulos" en Fuente Libro tiene que resolverse a la lista
+  // concreta de capítulos de ESE libro antes de guardar/arrancar: un array
+  // vacío en seleccionarPreguntas() trae el curso entero (exámenes + todos
+  // los libros), que es lo que se quiere para Fuente Exámenes pero no para
+  // Fuente Libro cuando el usuario quiso acotarse a un libro puntual.
+  function capitulosParaIniciar(): string[] {
+    if (fuente === 'libro' && libroSeleccionado && capitulos.length === 0) {
+      return getCapitulos(cursoId, libroSeleccionado)
+    }
+    return capitulos
+  }
+
+  function elegirFuente(nueva: 'examenes' | 'libro') {
+    setFuente(nueva)
+    setLibroSeleccionado(nueva === 'libro' ? libros[0] ?? null : null)
+    setCapitulos([])
+  }
+
+  function elegirLibro(libro: string) {
+    setLibroSeleccionado(libro)
+    setCapitulos([])
+  }
+
   function iniciar() {
-    guardarConfigExamenRemota(userId, cursoId, { cantidad, capitulos, anio, conTiempo, duracion })
-    onIniciar(cantidad, capitulos, conTiempo ? duracion : null, anio)
+    const capitulosFinal = capitulosParaIniciar()
+    guardarConfigExamenRemota(userId, cursoId, { cantidad, capitulos: capitulosFinal, anio, conTiempo, duracion })
+    onIniciar(cantidad, capitulosFinal, conTiempo ? duracion : null, anio)
   }
 
   // Atajo del modo "oficial": arranca siempre con los valores de la ley
@@ -106,10 +201,27 @@ export function ConfigurarExamen({
     setAnio('todos')
     setConTiempo(true)
     setDuracion(cursoMeta.duracionOficialMinutos)
+    setFuente('examenes')
+    setLibroSeleccionado(null)
   }
 
   function toggleCapitulo(cap: string) {
     setCapitulos((prev) => (prev.includes(cap) ? prev.filter((c) => c !== cap) : [...prev, cap]))
+  }
+
+  // Fila "atajo" que aparece en Fuente Exámenes junto a Exámenes CRADO/Otros
+  // Exámenes: un libro entero como si fuera un único capítulo más. Activarla
+  // agrega de una todos los capítulos reales de ese libro a la selección (se
+  // combinan con lo que ya esté elegido, igual que combinar dos capítulos de
+  // examen); desactivarla los saca a todos juntos.
+  function toggleLibroCompleto(libro: string) {
+    const capitulosDelLibro = getCapitulos(cursoId, libro)
+    const yaCompleto = capitulosDelLibro.length > 0 && capitulosDelLibro.every((c) => capitulos.includes(c))
+    setCapitulos((prev) =>
+      yaCompleto
+        ? prev.filter((c) => !capitulosDelLibro.includes(c))
+        : [...prev.filter((c) => !capitulosDelLibro.includes(c)), ...capitulosDelLibro],
+    )
   }
 
   return (
@@ -200,6 +312,53 @@ export function ConfigurarExamen({
             </span>
             <ChevronUp className="h-4 w-4 text-muted-foreground" />
           </button>
+
+          {mostrarSelectorFuenteLibro && cursoMeta.tieneLibros && (
+            <div className="mt-7 space-y-3">
+              <div className="flex items-center gap-2 px-1 text-xs font-bold uppercase tracking-wide text-muted-foreground">
+                <Library className="h-3.5 w-3.5" />
+                {t.configurar.fuente}
+              </div>
+              <p className="px-1 text-xs font-medium text-muted-foreground">{t.configurar.fuenteAyuda}</p>
+              <div className="grid grid-cols-2 gap-2.5">
+                <button
+                  onClick={() => elegirFuente('examenes')}
+                  className={`card-elevated flex items-center justify-center gap-2 rounded-2xl py-3.5 text-sm font-bold transition ${
+                    fuente === 'examenes' ? 'bg-primary text-primary-foreground' : 'bg-card text-foreground'
+                  }`}
+                >
+                  <FileText className="h-4 w-4" />
+                  {t.configurar.fuenteExamenes}
+                </button>
+                <button
+                  onClick={() => elegirFuente('libro')}
+                  className={`card-elevated flex items-center justify-center gap-2 rounded-2xl py-3.5 text-sm font-bold transition ${
+                    fuente === 'libro' ? 'bg-primary text-primary-foreground' : 'bg-card text-foreground'
+                  }`}
+                >
+                  <Library className="h-4 w-4" />
+                  {t.configurar.fuenteLibro}
+                </button>
+              </div>
+
+              {fuente === 'libro' && libros.length > 0 && (
+                <div className="animate-float-up space-y-2 pt-1">
+                  {libros.map((libro) => (
+                    <button
+                      key={libro}
+                      onClick={() => elegirLibro(libro)}
+                      className={`card-elevated flex w-full items-center gap-2.5 rounded-2xl px-4 py-3.5 text-left text-sm font-semibold transition ${
+                        libroSeleccionado === libro ? 'bg-primary text-primary-foreground' : 'bg-card text-foreground'
+                      }`}
+                    >
+                      {libroSeleccionado === libro && <Check className="h-4 w-4 shrink-0" />}
+                      <span className="min-w-0 truncate">{libro}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
 
           <div className="mt-7 space-y-3">
             <div className="flex items-center gap-2 px-1 text-xs font-bold uppercase tracking-wide text-muted-foreground">
@@ -312,12 +471,14 @@ export function ConfigurarExamen({
               >
                 {t.configurar.todosCapitulos}
                 <span className={capitulos.length === 0 ? 'text-white/70' : 'text-muted-foreground'}>
-                  {preguntas.filter((p) => anio === 'todos' || p.anio === anio).length} {t.configurar.preguntas}
+                  {preguntasDeFuente.filter((p) => anio === 'todos' || p.anio === anio).length} {t.configurar.preguntas}
                 </span>
               </button>
               <div className="max-h-64 space-y-2 overflow-y-auto pr-1">
                 {todosLosCapitulos.map((cap) => {
-                  const n = preguntas.filter((p) => p.capitulo === cap && (anio === 'todos' || p.anio === anio)).length
+                  const n = preguntasDeFuente.filter(
+                    (p) => p.capitulo === cap && (anio === 'todos' || p.anio === anio),
+                  ).length
                   const activo = capitulos.includes(cap)
                   return (
                     <button
@@ -335,6 +496,30 @@ export function ConfigurarExamen({
                     </button>
                   )
                 })}
+                {fuente === 'examenes' &&
+                  libros.map((libro) => {
+                    const capitulosDelLibro = getCapitulos(cursoId, libro)
+                    const n = preguntas.filter(
+                      (p) => p.libro === libro && (anio === 'todos' || p.anio === anio),
+                    ).length
+                    const activo = capitulosDelLibro.length > 0 && capitulosDelLibro.every((c) => capitulos.includes(c))
+                    return (
+                      <button
+                        key={libro}
+                        onClick={() => toggleLibroCompleto(libro)}
+                        className={`card-elevated flex w-full items-center justify-between rounded-2xl px-4 py-3.5 text-left text-sm font-semibold transition ${
+                          activo ? 'bg-primary text-primary-foreground' : 'bg-card text-foreground'
+                        }`}
+                      >
+                        <span className="flex min-w-0 items-center gap-2 truncate pr-2">
+                          {activo && <Check className="h-4 w-4 shrink-0" />}
+                          <Library className="h-4 w-4 shrink-0" />
+                          <span className="truncate">{libro}</span>
+                        </span>
+                        <span className={`shrink-0 ${activo ? 'text-white/70' : 'text-muted-foreground'}`}>{n}</span>
+                      </button>
+                    )
+                  })}
               </div>
             </div>
           </div>

@@ -4,6 +4,11 @@ export interface CursoMeta {
   porcentajeAprobado: number
   tieneConvocatorias: boolean
   cantidadesDisponibles: number[]
+  // true si este curso tiene (además de los exámenes normales) preguntas
+  // cargadas desde uno o más libros de texto — habilita el selector de
+  // Fuente (Exámenes/Libro) en ConfigurarExamen.tsx. false en todos los
+  // cursos que todavía no tienen ningún libro cargado.
+  tieneLibros: boolean
 }
 
 // Un CursoMeta por curso disponible (ver también lib/asignaturas.ts y
@@ -19,6 +24,7 @@ export const CURSOS: Record<string, CursoMeta> = {
     // convocatoria/año): se desactiva el selector de convocatoria.
     tieneConvocatorias: false,
     cantidadesDisponibles: [10, 20, 30, 40],
+    tieneLibros: true,
   },
   psicologia: {
     // Mismos valores que odontología (mismo formato de examen de
@@ -29,6 +35,7 @@ export const CURSOS: Record<string, CursoMeta> = {
     porcentajeAprobado: 70,
     tieneConvocatorias: false,
     cantidadesDisponibles: [10, 20, 30, 40],
+    tieneLibros: false,
   },
   ortodoncia: {
     // Mismos valores que odontología/psicología (mismo formato de examen de
@@ -39,6 +46,7 @@ export const CURSOS: Record<string, CursoMeta> = {
     porcentajeAprobado: 70,
     tieneConvocatorias: false,
     cantidadesDisponibles: [10, 20, 30, 40],
+    tieneLibros: false,
   },
   materiales: {
     // Mismos valores que odontología/psicología/ortodoncia (mismo formato de
@@ -53,6 +61,7 @@ export const CURSOS: Record<string, CursoMeta> = {
     porcentajeAprobado: 70,
     tieneConvocatorias: false,
     cantidadesDisponibles: [10, 20, 30, 40],
+    tieneLibros: false,
   },
 }
 

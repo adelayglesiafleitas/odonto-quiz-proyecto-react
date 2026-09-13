@@ -85,6 +85,10 @@ export interface Diccionario {
     conTiempo: string
     duracion: string
     duracionOficial: string
+    fuente: string
+    fuenteAyuda: string
+    fuenteExamenes: string
+    fuenteLibro: string
     capitulo: string
     capituloAyuda: string
     todosCapitulos: string
@@ -423,6 +427,10 @@ export const es: Diccionario = {
     conTiempo: 'Con tiempo',
     duracion: 'Duración del examen',
     duracionOficial: 'oficial',
+    fuente: 'Fuente',
+    fuenteAyuda: 'Elegí si querés preguntas de los exámenes o de un libro de texto',
+    fuenteExamenes: 'Exámenes',
+    fuenteLibro: 'Libro',
     capitulo: 'Capítulo',
     capituloAyuda: 'Podés elegir más de uno',
     todosCapitulos: 'Todos los capítulos',
@@ -788,6 +796,10 @@ export const en: Diccionario = {
     conTiempo: 'Timed',
     duracion: 'Exam duration',
     duracionOficial: 'official',
+    fuente: 'Source',
+    fuenteAyuda: 'Choose whether you want questions from the exams or from a textbook',
+    fuenteExamenes: 'Exams',
+    fuenteLibro: 'Book',
     capitulo: 'Chapter',
     capituloAyuda: 'You can pick more than one',
     todosCapitulos: 'All chapters',

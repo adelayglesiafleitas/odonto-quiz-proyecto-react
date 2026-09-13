@@ -18,6 +18,12 @@ export interface Pregunta {
   // pregunta del caso (no una sola vez) porque el examen baraja el banco
   // pregunta por pregunta — cada una tiene que ser autocontenida.
   caso?: string
+  // Nombre del libro de texto del que sale esta pregunta (ej. "Odontología
+  // en Pacientes con Necesidades Especiales (Inmaculada Tomás)"). Opcional:
+  // ausente en toda pregunta de examen "normal" (CRADO u otro), presente
+  // solo en preguntas cargadas desde un libro como fuente adicional. Ver
+  // Fuente en ConfigurarExamen.tsx y CursoMeta.tieneLibros en lib/cursos.ts.
+  libro?: string
 }
 
 // Aciertos/total de un capítulo dentro de un único intento. Se guarda un

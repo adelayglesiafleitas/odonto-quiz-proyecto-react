@@ -17,6 +17,24 @@ import type { Pregunta } from '../types'
 const cache: Record<string, Pregunta[]> = {}
 const cargaPromises: Record<string, Promise<Pregunta[]>> = {}
 
+// Un cursoId de la app puede corresponder a más de un curso_id en la tabla
+// `preguntas`. Se usa para el banco del libro "Odontología en Pacientes con
+// Necesidades Especiales": mientras se prueba, sus preguntas viven bajo
+// curso_id='odontologia_libro' (separado de 'odontologia', el curso_id real
+// que ya sirve a los usuarios) para que ningún código ya desplegado pueda
+// verlas por accidente. Esta app SÍ las conoce (por eso está en este mapa) y
+// las trae en la misma consulta que el resto del curso, distinguiéndolas
+// después por la columna `libro` (ver mapPregunta/seleccionarPreguntas). El
+// día que se decida "publicarlas" de verdad no hace falta tocar la base de
+// datos: alcanza con que este mapa siga como está (ya las incluye).
+const CURSO_ID_DB: Record<string, string[]> = {
+  odontologia: ['odontologia', 'odontologia_libro'],
+}
+
+function dbIdsPara(cursoId: string): string[] {
+  return CURSO_ID_DB[cursoId] ?? [cursoId]
+}
+
 // PostgREST no devuelve más de 1000 filas por pedido aunque no se pida
 // límite explícito — Ortodoncia sola tiene más de 17 mil preguntas, así que
 // hay que paginar con `.range()` hasta juntar el curso completo. Se pide una
@@ -36,6 +54,7 @@ function mapPregunta(fila: any): Pregunta {
     bibliografia: fila.bibliografia,
     opciones: fila.opciones ?? [],
     caso: fila.caso ?? undefined,
+    libro: fila.libro ?? undefined,
   }
 }
 
@@ -45,8 +64,8 @@ async function traerCursoCompleto(cursoId: string): Promise<Pregunta[]> {
   for (;;) {
     const { data, error } = await supabase
       .from('preguntas')
-      .select('numero, pregunta, asignatura, capitulo, anio, bibliografia, opciones, caso')
-      .eq('curso_id', cursoId)
+      .select('numero, pregunta, asignatura, capitulo, anio, bibliografia, opciones, caso, libro')
+      .in('curso_id', dbIdsPara(cursoId))
       // Una pregunta oculta desde el admin (columna `oculta`, migración
       // agregar_oculta_preguntas) sigue en la tabla pero no debe llegar nunca
       // a un examen — de ahí este filtro. Default false, así que no afecta a
@@ -87,8 +106,26 @@ export function getPreguntas(cursoId: string): Pregunta[] {
   return cache[cursoId] ?? []
 }
 
-export function getCapitulos(cursoId: string): string[] {
-  const set = new Set(getPreguntas(cursoId).map((p) => p.capitulo))
+// `libro` opcional filtra a los capítulos de una fuente concreta:
+// - null (default) = capítulos de "Exámenes", es decir preguntas sin `libro`
+//   (mismo resultado que antes de que existiera esta columna, para todo
+//   curso que no tenga ningún libro cargado).
+// - un nombre de libro = capítulos de ese libro únicamente.
+// Ver Fuente en ConfigurarExamen.tsx.
+export function getCapitulos(cursoId: string, libro: string | null = null): string[] {
+  const preguntas = getPreguntas(cursoId).filter((p) => (p.libro ?? null) === libro)
+  const set = new Set(preguntas.map((p) => p.capitulo))
+  return Array.from(set).sort()
+}
+
+// Nombres de los libros cargados para este curso (fuente "Libro" en
+// ConfigurarExamen.tsx). Vacío en todo curso sin ninguna pregunta de libro.
+export function getLibros(cursoId: string): string[] {
+  const set = new Set(
+    getPreguntas(cursoId)
+      .map((p) => p.libro)
+      .filter((l): l is string => !!l),
+  )
   return Array.from(set).sort()
 }
 
@@ -109,8 +146,8 @@ export async function obtenerPreguntasPorNumero(cursoId: string, numeros: number
   if (numeros.length === 0) return []
   const { data, error } = await supabase
     .from('preguntas')
-    .select('numero, pregunta, asignatura, capitulo, anio, bibliografia, opciones, caso')
-    .eq('curso_id', cursoId)
+    .select('numero, pregunta, asignatura, capitulo, anio, bibliografia, opciones, caso, libro')
+    .in('curso_id', dbIdsPara(cursoId))
     .in('numero', numeros)
     .eq('oculta', false)
   if (error) {
@@ -149,9 +186,15 @@ export function seleccionarPreguntas(
   anio: number | 'todos' = 'todos',
 ): Pregunta[] {
   let pool = getPreguntas(cursoId)
-  // Array vacío = todos los capítulos; con elementos, cualquier pregunta de
-  // cualquiera de los capítulos elegidos entra en el pool (combinación, no
-  // intersección).
+  // Array vacío = todos los capítulos, del curso entero (exámenes + libro,
+  // si tiene): con elementos, cualquier pregunta de cualquiera de los
+  // capítulos elegidos entra en el pool (combinación, no intersección). Ver
+  // Fuente en ConfigurarExamen.tsx: elegir Fuente "Libro" con "todos los
+  // capítulos" resuelve ahí mismo a la lista concreta de capítulos de ese
+  // libro antes de llegar acá (para no mezclarlo con otro libro futuro),
+  // pero Fuente "Exámenes" con "todos los capítulos" sí trae también las
+  // preguntas de libro a propósito — es una única fuente de preguntas más
+  // dentro del mismo curso, no algo aparte.
   if (capitulos.length > 0) pool = pool.filter((p) => capitulos.includes(p.capitulo))
   if (anio !== 'todos') pool = pool.filter((p) => p.anio === anio)
   const barajadas = shuffle(pool)
