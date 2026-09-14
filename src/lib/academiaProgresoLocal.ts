@@ -25,16 +25,19 @@ export const CLAVE_PROGRESO_ACADEMIA = 'academia_progreso_inmaculada_cap1_v1'
 export const CLAVE_RESPUESTAS_ACADEMIA = 'academia_respuestas_inmaculada_cap1_v1'
 
 // Máximo de estrellas posibles por nodo con quiz (ver BloqueQuiz en
-// Academia.tsx): 3 por nodo. "intro" no tiene quiz, así que no suma acá.
+// Academia.tsx): 3 por nodo. Solo los nodos tipo "prueba" tienen quiz —
+// "intro" y "video" no suman acá.
 const ESTRELLAS_MAX_POR_NODO = 3
 
 export function progresoInicialAcademia(): ProgresoCap1 {
   return {
     intro: { estado: 'disponible' },
-    pc: { estado: 'bloqueado' },
-    epi: { estado: 'bloqueado' },
-    dm: { estado: 'bloqueado' },
-    repaso: { estado: 'bloqueado' },
+    video1: { estado: 'bloqueado' },
+    prueba1: { estado: 'bloqueado' },
+    video2: { estado: 'bloqueado' },
+    prueba2: { estado: 'bloqueado' },
+    video3: { estado: 'bloqueado' },
+    pruebaFinal: { estado: 'bloqueado' },
   }
 }
 
@@ -91,7 +94,7 @@ export interface ResumenAcademia {
 // mostrar, en vez de que la pantalla tenga que conocer la forma de
 // ProgresoCap1 o los ids de los nodos.
 export function calcularResumenAcademia(progreso: ProgresoCap1): ResumenAcademia {
-  const nodosConQuiz = NODOS_CAP1.filter((n) => n.tipo !== 'intro')
+  const nodosConQuiz = NODOS_CAP1.filter((n) => n.tipo === 'prueba')
   const temasCompletados = NODOS_CAP1.filter((n) => progreso[n.id]?.estado === 'completado').length
   const estrellas = nodosConQuiz.reduce((total, n) => total + (progreso[n.id]?.estrellas ?? 0), 0)
 

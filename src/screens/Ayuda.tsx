@@ -15,6 +15,7 @@ import {
   MessageCircleQuestion,
   Inbox,
   RotateCcw,
+  Mail,
   X,
 } from 'lucide-react'
 import { useAppSettings } from '@/context/AppSettings'
@@ -25,6 +26,8 @@ import TourBienvenida from '@/components/TourBienvenida'
 import { RUTA_SOPORTE } from '@/lib/rutas'
 import { listarMisTickets, contarNoLeidos, type Ticket } from '@/lib/tickets'
 import type { Pantalla } from '@/types'
+
+const CORREO_CONTACTO = 'tuttiplay.prod@gmail.com'
 
 export function Ayuda({
   umbralAprobado,
@@ -155,6 +158,20 @@ export function Ayuda({
           )}
           <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
         </button>
+
+        <a
+          href={`mailto:${CORREO_CONTACTO}`}
+          className="card-elevated flex w-full items-center gap-3 rounded-2xl bg-card p-4 text-left"
+        >
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+            <Mail className="h-5 w-5" />
+          </span>
+          <div className="flex-1">
+            <p className="text-[15px] font-bold text-foreground">{t.ayuda.contactanosTitulo}</p>
+            <p className="mt-1 text-xs text-muted-foreground">{CORREO_CONTACTO}</p>
+          </div>
+          <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
+        </a>
       </div>
 
       <div className="card-elevated mt-4 rounded-2xl bg-secondary p-4">

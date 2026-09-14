@@ -167,6 +167,8 @@ export interface Diccionario {
     escribirSoporteTexto: string
     misConsultasTitulo: string
     misConsultasResumen: (total: number, sinLeer: number) => string
+    contactanosTitulo: string
+    contactanosTexto: string
     proximamente: string
   }
   reportarPregunta: {
@@ -234,25 +236,19 @@ export interface Diccionario {
     rutaEmpezar: string
     rutaCompletados: (completados: number, total: number) => string
     nodoResumen: string
-    nodoConceptos: string
-    nodoClasificacion: string
-    nodoMnemo: string
-    nodoMnemoEtiqueta: string
-    nodoFiguras: string
-    nodoFiguraTemporal: string
-    nodoCaso: string
-    nodoCasoEtiqueta: string
-    nodoRespuestaEtiqueta: string
     nodoAutoevaluacion: string
-    nodoTerminar: string
     nodoYaCompletado: string
     nodoContinuar: string
-    repasoTitulo: string
-    repasoBloqueadoTitulo: string
-    repasoBloqueadoTexto: string
-    repasoTerminar: string
-    resultadoTitulo: (estrellas: number) => string
-    resultadoVolver: string
+    pantallaCompleta: string
+    videoBloqueadoTexto: string
+    continuarA: (etiqueta: string) => string
+    pruebaNecesitas: string
+    pruebaNoAprobadaTitulo: string
+    pruebaNoAprobadaTexto: (correctas: number, total: number) => string
+    pruebaReintentar: string
+    capituloCompletadoTitulo: string
+    capituloCompletadoTexto: string
+    capituloCompletadoBoton: string
   }
   config: {
     titulo: string
@@ -522,6 +518,8 @@ export const es: Diccionario = {
       if (sinLeer === 0) return `${total} conversación${total === 1 ? '' : 'es'}`
       return `${total} conversación${total === 1 ? '' : 'es'} · ${sinLeer} sin leer`
     },
+    contactanosTitulo: 'Contacta con nosotros',
+    contactanosTexto: 'Escríbenos directamente a tuttiplay.prod@gmail.com',
     proximamente: 'Próximamente',
   },
   reportarPregunta: {
@@ -603,25 +601,19 @@ export const es: Diccionario = {
     rutaEmpezar: 'Empezar',
     rutaCompletados: (completados, total) => `${completados} de ${total} completados`,
     nodoResumen: 'Resumen ejecutivo',
-    nodoConceptos: 'Conceptos clave',
-    nodoClasificacion: 'Clasificación rápida',
-    nodoMnemo: 'Mnemotecnia',
-    nodoMnemoEtiqueta: 'Para no olvidarlo',
-    nodoFiguras: 'Imágenes del libro',
-    nodoFiguraTemporal: 'Foto provisoria del libro — se reemplaza antes de publicar',
-    nodoCaso: 'Caso clínico comentado',
-    nodoCasoEtiqueta: 'Caso',
-    nodoRespuestaEtiqueta: 'Cómo se aborda',
     nodoAutoevaluacion: 'Autoevaluación',
-    nodoTerminar: 'Terminar lección',
     nodoYaCompletado: 'Ya completado — volver',
     nodoContinuar: 'Continuar',
-    repasoTitulo: 'Repaso del capítulo',
-    repasoBloqueadoTitulo: 'Completá los 3 temas primero',
-    repasoBloqueadoTexto: 'El repaso final mezcla preguntas de Parálisis Cerebral, Epilepsia y Distrofia Muscular.',
-    repasoTerminar: 'Terminar repaso',
-    resultadoTitulo: (estrellas) => `¡Bien hecho! ${estrellas} de 3 estrellas`,
-    resultadoVolver: 'Volver a la ruta',
+    pantallaCompleta: 'Pantalla completa',
+    videoBloqueadoTexto: 'Mirá el video completo para continuar',
+    continuarA: (etiqueta) => `Continuar a ${etiqueta}`,
+    pruebaNecesitas: 'Necesitás las 5 preguntas bien para continuar',
+    pruebaNoAprobadaTitulo: 'Todavía no',
+    pruebaNoAprobadaTexto: (correctas, total) => `${correctas} de ${total} correctas. Repasá el video y volvé a intentar.`,
+    pruebaReintentar: 'Reintentar',
+    capituloCompletadoTitulo: '¡Capítulo completado!',
+    capituloCompletadoTexto: 'Terminaste los 3 videos y sus pruebas del Capítulo 1.',
+    capituloCompletadoBoton: 'Volver a la ruta',
   },
   config: {
     titulo: 'Configuración',
@@ -891,6 +883,8 @@ export const en: Diccionario = {
       if (sinLeer === 0) return `${total} conversation${total === 1 ? '' : 's'}`
       return `${total} conversation${total === 1 ? '' : 's'} · ${sinLeer} unread`
     },
+    contactanosTitulo: 'Contact us',
+    contactanosTexto: 'Email us directly at tuttiplay.prod@gmail.com',
     proximamente: 'Coming soon',
   },
   reportarPregunta: {
@@ -972,25 +966,19 @@ export const en: Diccionario = {
     rutaEmpezar: 'Start',
     rutaCompletados: (completados, total) => `${completados} of ${total} completed`,
     nodoResumen: 'Executive summary',
-    nodoConceptos: 'Key concepts',
-    nodoClasificacion: 'Quick classification',
-    nodoMnemo: 'Mnemonic',
-    nodoMnemoEtiqueta: "So you don't forget it",
-    nodoFiguras: 'Images from the book',
-    nodoFiguraTemporal: 'Temporary photo from the book — to be replaced before release',
-    nodoCaso: 'Discussed clinical case',
-    nodoCasoEtiqueta: 'Case',
-    nodoRespuestaEtiqueta: 'How to approach it',
     nodoAutoevaluacion: 'Self-check',
-    nodoTerminar: 'Finish lesson',
     nodoYaCompletado: 'Already completed — go back',
     nodoContinuar: 'Continue',
-    repasoTitulo: 'Chapter review',
-    repasoBloqueadoTitulo: 'Finish the 3 topics first',
-    repasoBloqueadoTexto: 'The final review mixes questions from Cerebral Palsy, Epilepsy and Muscular Dystrophy.',
-    repasoTerminar: 'Finish review',
-    resultadoTitulo: (estrellas) => `Nice work! ${estrellas} of 3 stars`,
-    resultadoVolver: 'Back to the path',
+    pantallaCompleta: 'Fullscreen',
+    videoBloqueadoTexto: 'Watch the full video to continue',
+    continuarA: (etiqueta) => `Continue to ${etiqueta}`,
+    pruebaNecesitas: 'You need all 5 questions right to continue',
+    pruebaNoAprobadaTitulo: 'Not yet',
+    pruebaNoAprobadaTexto: (correctas, total) => `${correctas} of ${total} correct. Review the video and try again.`,
+    pruebaReintentar: 'Try again',
+    capituloCompletadoTitulo: 'Chapter completed!',
+    capituloCompletadoTexto: 'You finished all 3 videos and their quizzes in Chapter 1.',
+    capituloCompletadoBoton: 'Back to the path',
   },
   config: {
     titulo: 'Settings',

@@ -7,16 +7,31 @@
  * El resto del índice se muestra en la pantalla del libro como "próximamente"
  * para dar sensación de escala, pero no tiene datos todavía.
  *
- * IMPORTANTE — derechos de autor (decisión tomada con el usuario):
- * - El texto de abajo (resumen, conceptos, mnemotecnias, casos, preguntas) es
- *   una reescritura propia a partir de la información del libro, no una
- *   transcripción ni un parafraseo cercano. Mantiene el contenido, cambia la
- *   redacción.
- * - Las 3 fotos (`figuras` en PARALISIS_CEREBRAL) son recortes reales del
- *   libro físico, usados SOLO para este piloto/prueba interna. Antes de que
- *   este capítulo llegue a usuarios reales hay que reemplazarlas por
- *   ilustraciones propias, licenciadas o encargadas — no se pueden publicar
- *   las fotos del libro en producción. Quedan marcadas como `temporal: true`.
+ * REDISEÑO 2026-09-14 — video + prueba (reemplaza el formato anterior de
+ * "lección + autoevaluación de 2 preguntas" por tema): cada tema del
+ * capítulo ahora es un video real (`VIDEOS_CAP1`) seguido de una prueba de 5
+ * preguntas (`PRUEBAS_CAP1`) que hay que aprobar 5/5 para desbloquear el
+ * siguiente paso — ver claude/academia-rediseno-capitulo1-videos.md en el
+ * proyecto de Claude para el diseño completo.
+ *
+ * - Los 3 videos son reales (subidos por el usuario), servidos como
+ *   archivos estáticos desde `public/academia/pacientes-especiales/cap-1/`.
+ * - Las 15 preguntas de `PRUEBAS_CAP1` vienen tal cual del documento
+ *   "Examen de Odontología Especial" que pasó el usuario (3 opciones por
+ *   pregunta, con justificación clínica) — no son una reescritura, es el
+ *   examen real que armó para este capítulo.
+ * - `TEMAS_CAP1` (resumen/conceptos/tabla/mnemo/caso/figuras) es el
+ *   contenido del formato ANTERIOR. Se conserva solo el campo `resumen` de
+ *   cada tema, reutilizado como texto de acompañamiento debajo de cada
+ *   video — el resto (figuras del libro, casos, mnemotecnias, quiz viejo de
+ *   2 preguntas) queda sin usar en la ruta nueva, pero no se borra por si
+ *   sirve más adelante para una sección de repaso aparte.
+ *
+ * IMPORTANTE — derechos de autor: las 3 fotos de `figuras` (en
+ * TEMAS_CAP1.pc) son recortes reales del libro físico, usados solo en el
+ * piloto anterior y HOY NO SE MUESTRAN en ningún lado de la ruta nueva. Si
+ * se reutilizan en el futuro, siguen sin poder publicarse en producción tal
+ * cual — hay que reemplazarlas por ilustraciones propias o licenciadas.
  */
 
 export interface PreguntaAcademia {
@@ -52,6 +67,7 @@ export interface TemaAcademia {
   figuras?: FiguraAcademia[]
   caso: string
   respuesta: string
+  /** Quiz corto del formato anterior — sin uso en la ruta actual (ver PRUEBAS_CAP1). */
   quiz: PreguntaAcademia[]
 }
 
@@ -161,9 +177,6 @@ export const TEMAS_CAP1: Record<TemaId, TemaAcademia> = {
   },
 }
 
-/** Preguntas del repaso final del capítulo: mezcla una de cada tema. */
-export const REPASO_CAP1_PREGUNTAS: PreguntaAcademia[] = [TEMAS_CAP1.pc.quiz[0], TEMAS_CAP1.epi.quiz[1], TEMAS_CAP1.dm.quiz[0]]
-
 export const INTRO_CAP1 = {
   titulo: 'Introducción',
   bloques: [
@@ -177,25 +190,211 @@ export const INTRO_CAP1 = {
       texto:
         'Reconocer la clasificación de cada condición, elegir la técnica anestésica y la posición en el sillón según el caso, anticipar los hallazgos orales típicos, y reaccionar correctamente ante una crisis epiléptica en el gabinete.',
     },
+    {
+      titulo: 'Cómo está armado',
+      texto:
+        'Un video corto por tema (Parálisis Cerebral, Epilepsia y Distrofias Musculares) seguido de una prueba de 5 preguntas. Hay que responder las 5 bien para desbloquear el siguiente video — si alguna sale mal, se puede repasar el video y volver a intentar.',
+    },
   ],
 }
 
-export type TipoNodo = 'intro' | 'leccion' | 'repaso'
+/**
+ * Los 3 videos reales del capítulo, servidos como archivos estáticos desde
+ * `public/` (ver claude/academia-rediseno-capitulo1-videos.md — no van a
+ * YouTube por ahora). `duracionSeg` es solo informativo (se muestra en la
+ * ruta); el desbloqueo real depende del evento `ended` del <video>, no de
+ * este número.
+ */
+export type VideoId = 'v1' | 'v2' | 'v3'
+
+export interface VideoAcademia {
+  id: VideoId
+  temaId: TemaId
+  titulo: string
+  /** Ruta pública del archivo (carpeta /public). */
+  src: string
+  duracionSeg: number
+}
+
+export const VIDEOS_CAP1: VideoAcademia[] = [
+  { id: 'v1', temaId: 'pc', titulo: 'Parálisis Cerebral', src: '/academia/pacientes-especiales/cap-1/video1.mp4', duracionSeg: 255 },
+  { id: 'v2', temaId: 'epi', titulo: 'Epilepsia', src: '/academia/pacientes-especiales/cap-1/video2.mp4', duracionSeg: 259 },
+  { id: 'v3', temaId: 'dm', titulo: 'Distrofias Musculares', src: '/academia/pacientes-especiales/cap-1/video3.mp4', duracionSeg: 206 },
+]
+
+/**
+ * Las 3 pruebas del capítulo (5 preguntas cada una), tal como vienen del
+ * documento "Examen de Odontología Especial" que pasó el usuario — 3
+ * opciones por pregunta, con la justificación clínica ya integrada como
+ * feedback. Hay que responder las 5 bien para aprobar (ver `quizCompleto`/
+ * lógica de aprobación en Academia.tsx) — no es un puntaje parcial.
+ *
+ * Nota: la pregunta 10 (dentro de `prueba2`) es sobre Distrofia Muscular,
+ * no Epilepsia — así está agrupada en el documento original ("Tramo 2:
+ * Epilepsia y Comorbilidades Sistémicas", preguntas 6 a 10), se mantiene
+ * fiel a la fuente.
+ */
+export type PruebaId = 'prueba1' | 'prueba2' | 'pruebaFinal'
+
+export const PRUEBAS_CAP1: Record<PruebaId, PreguntaAcademia[]> = {
+  prueba1: [
+    {
+      pregunta:
+        '¿Qué porcentaje de pacientes con Parálisis Cerebral presenta el fenotipo de tipo espástico, caracterizado clínicamente por hipertonía muscular, contracturas e hiperreflexia tendinosa?',
+      opciones: ['5% al 10%', '15%', '50% al 75%'],
+      correcta: 2,
+      feedback:
+        'El fenotipo espástico es el más prevalente en la parálisis cerebral, afectando a un 50-75% de los pacientes, mientras que la atetosis representa el 15% y la ataxia un 5-10%.',
+    },
+    {
+      pregunta: 'En el marco de la odontología preventiva para niños con Parálisis Cerebral, ¿por qué se recomienda la aplicación de flúor en barniz en lugar de flúor en gel?',
+      opciones: [
+        'Porque el gel destruye las restauraciones de amalgama previamente colocadas.',
+        'Porque el barniz implica una menor cantidad de flúor ingerido en comparación con la aplicación en gel.',
+        'Porque el gel de flúor induce espasmos musculares inmediatos al contacto oral.',
+      ],
+      correcta: 1,
+      feedback: 'Se indica la aplicación de barniz de flúor para reducir la cantidad de flúor ingerido por el paciente al presentar reflejos de deglución alterados.',
+    },
+    {
+      pregunta: 'Durante la atención de un paciente con Parálisis Cerebral en el sillón dental, ¿cuál es la inclinación máxima del asiento recomendada para prevenir aspiraciones?',
+      opciones: ['Posición en decúbito supino completo a 0°.', 'Mantener una postura en torno a los 40°.', 'Posición vertical estricta a 90°.'],
+      correcta: 1,
+      feedback: 'No se debe inclinar en exceso el sillón dental; es necesario mantener al paciente en una postura cercana a los 40° para evitar la aparición de estertores y neumonías por aspiración.',
+    },
+    {
+      pregunta: 'Ante la presencia confirmada del reflejo anormal de deglución y tos en un paciente con Parálisis Cerebral, ¿cuál es la medida de aislamiento u operativa de uso obligatorio?',
+      opciones: ['El empleo del dique de goma.', 'La realización exclusiva de enjuagues con clorhexidina.', 'El uso de abrebocas de goma rígida únicamente.'],
+      correcta: 0,
+      feedback: 'El reflejo anormal de morder exige el uso de abrebocas, mientras que el reflejo anormal de deglución y tos requiere obligatoriamente el uso del dique de goma.',
+    },
+    {
+      pregunta: 'Para el control clínico de la sialorrea (babeo excesivo) en pacientes con Parálisis Cerebral, ¿cuál de los siguientes tratamientos invasivos/farmacológicos se encuentra descrito?',
+      opciones: [
+        'La aplicación de inyecciones de toxina botulínica en la glándula submaxilar guiada por ecografía.',
+        'La administración prolongada de jarabes antiepilépticos hiperconcentrados en azúcar.',
+        'La exodoncia preventiva de todos los molares inferiores.',
+      ],
+      correcta: 0,
+      feedback:
+        'Entre los tratamientos descritos para la sialorrea se incluye la terapia de biofeedback, anticolinérgicos (escopolamina), cirugía salival y la inyección ecoguiada de toxina botulínica en glándulas submaxilares.',
+    },
+  ],
+  prueba2: [
+    {
+      pregunta:
+        'Para considerar que una epilepsia se encuentra en "fase estable" y poder realizar el tratamiento dental ambulatorio con seguridad, ¿cuánto tiempo debe haber transcurrido sin que el paciente presente crisis convulsivas?',
+      opciones: ['Más de 6 meses.', 'Más de 1 año.', 'Más de 2 años.'],
+      correcta: 2,
+      feedback: 'La condición se considera activa si el último ataque ocurrió en los 2 años previos; se debe efectuar consulta médica y tratar en "fase estable" (más de 2 años sin crisis).',
+    },
+    {
+      pregunta:
+        '¿Por qué el uso de AINEs (como el ácido acetilsalicílico o ibuprofeno) se encuentra desaconsejado o contraindicado en pacientes epilépticos tratados con valproato sódico o carbamazepina?',
+      opciones: [
+        'Porque desencadenan de forma inmediata una crisis de falta de atención o "petit mal".',
+        'Porque incrementan el riesgo de hemorragia al sumarse a la alteración de la agregación plaquetaria o trombocitopenia causada por estos fármacos.',
+        'Porque inactivan de manera irreversible el efecto anticonvulsivante de la medicación.',
+      ],
+      correcta: 1,
+      feedback:
+        'El valproato sódico y la carbamazepina pueden causar trombocitopenia y alterar la agregación plaquetaria; el uso concomitante de AINEs eleva sustancialmente el riesgo de sangrado gingival o quirúrgico.',
+    },
+    {
+      pregunta: 'En pacientes con epilepsia severa de tipo "gran mal", ¿cuál es la indicación protésica de elección y la contraindicación absoluta descrita?',
+      opciones: [
+        'Elección: prótesis removible de acrílico; contraindicación: prótesis fija de metal-porcelana.',
+        'Elección: prótesis fija en dientes anteriores con caras palatinas metálicas; contraindicación: prótesis removible.',
+        'Elección: prótesis removible parcial metálica; contraindicación: implantes osteointegrados.',
+      ],
+      correcta: 1,
+      feedback:
+        'En epilepsia severa ("gran mal"), la prótesis removible está contraindicada por riesgo de fractura e impacto/obstrucción de la vía aérea en una crisis; la elección es prótesis fija con caras palatinas metálicas.',
+    },
+    {
+      pregunta: 'Durante la fase ictal o convulsiva activa de un ataque epiléptico "gran mal" en el gabinete, ¿cuál de las siguientes acciones representa una contraindicación estricta?',
+      opciones: [
+        'Girar suavemente al paciente hacia un lado para evitar la aspiración de secreciones.',
+        'Introducir objetos duros entre los dientes o contener con fuerza los movimientos del paciente.',
+        'Desaflojar la ropa apretada o ceñida y retirar objetos peligrosos del entorno.',
+      ],
+      correcta: 1,
+      feedback: 'Ante una crisis convulsiva, jamás deben introducirse objetos duros en la boca ni intentar contener o agarrar al paciente con fuerza.',
+    },
+    {
+      pregunta:
+        'Antes de iniciar un tratamiento odontológico en un paciente con Distrofia Muscular, ¿qué pruebas de evaluación médica previa se deben requerir obligatoriamente debido a sus comorbilidades sistémicas?',
+      opciones: ['Tests de función pulmonar, electrocardiograma (ECG) y radiografía de tórax.', 'Electroencefalograma de 24 horas y tomografía de cráneo.', 'Prueba de tolerancia a la glucosa y perfil tiroideo completo.'],
+      correcta: 0,
+      feedback: 'Debido al riesgo de cardiomiopatía, arritmias y fallo respiratorio, la interconsulta médica en distrofias musculares exige test de función pulmonar, ECG y radiografía de tórax.',
+    },
+  ],
+  pruebaFinal: [
+    {
+      pregunta:
+        'En la sedación consciente de un paciente con Distrofia Muscular, ¿qué grupo farmacológico se encuentra estrictamente prohibido debido a la posibilidad de desencadenar una depresión respiratoria letal?',
+      opciones: ['Los anestésicos locales con vasoconstrictor tipo adrenalina.', 'Los fármacos opioides y las benzodiacepinas.', 'Los antisépticos bucales con clorhexidina.'],
+      correcta: 1,
+      feedback: 'En la sedación consciente de pacientes con distrofia muscular deben evitarse los opioides y las benzodiacepinas, ya que provocan una severa depresión respiratoria.',
+    },
+    {
+      pregunta:
+        '¿Cuál de las siguientes complicaciones anestésicas de máxima gravedad y riesgo vital se encuentra asociada a la anestesia general con agentes bloqueantes neuromusculares en pacientes con Distrofia Muscular?',
+      opciones: ['Hipertermia maligna.', 'Hiperplasia gingival aguda.', 'Sialorrea masiva postoperatoria.'],
+      correcta: 0,
+      feedback: 'La anestesia general en distrofias musculares presenta riesgo de intubación difícil, depresión respiratoria, regurgitación y desarrollo de hipertermia maligna.',
+    },
+    {
+      pregunta: '¿Cuál es la inclinación recomendada para el sillón dental y la modalidad de trabajo requerida para atender a un paciente con Distrofia Muscular?',
+      opciones: [
+        'Inclinación a 0° (horizontal) y sesiones extensas de más de 2 horas.',
+        'Inclinación en torno a los 45° y sesiones cortas debido a la rápida fatiga muscular.',
+        'Inclinación vertical a 90° sin uso de dique de goma ni aspiración.',
+      ],
+      correcta: 1,
+      feedback: 'El sillón dental debe posicionarse a 45° para proteger la vía aérea y se deben programar citas cortas debido a la rápida fatiga producida por la debilidad muscular.',
+    },
+    {
+      pregunta: '¿Por qué el tratamiento de ortodoncia en pacientes con Distrofias Musculares presenta un pronóstico impredecible?',
+      opciones: [
+        'Debido al desarrollo progresivo e ininterrumpido de las alteraciones dentofaciales y musculares.',
+        'Por la imposibilidad absoluta de conseguir adhesión sobre el esmalte dental.',
+        'Porque la medicación anticonvulsivante disuelve los aditamentos ortodóncicos.',
+      ],
+      correcta: 0,
+      feedback: 'En la distrofia muscular, el tratamiento de ortodoncia es de pronóstico impredecible a causa de la evolución progresiva de las alteraciones dentofaciales y la miopatía facial.',
+    },
+    {
+      pregunta: 'De acuerdo con la Matriz Maestra de Riesgos Clínicos, ¿cuál es la inclinación del sillón dental estandarizada para Parálisis Cerebral y Distrofia Muscular respectivamente?',
+      opciones: ['10° en Parálisis Cerebral y 20° en Distrofia Muscular.', '40° en Parálisis Cerebral y 45° en Distrofia Muscular.', '80° en Parálisis Cerebral y 90° en Distrofia Muscular.'],
+      correcta: 1,
+      feedback: 'La postura estandarizada de prevención de aspiración en Parálisis Cerebral se fija en torno a los 40°, mientras que para las Distrofias Musculares se establece exactamente en 45°.',
+    },
+  ],
+}
+
+export type TipoNodo = 'intro' | 'video' | 'prueba'
 
 export interface NodoRuta {
   id: string
   tipo: TipoNodo
   titulo: string
   temaId?: TemaId
+  videoId?: VideoId
+  pruebaId?: PruebaId
+  /** true = es la prueba final del capítulo (nodo "jefe": squircle grande, ámbar, trofeo). */
+  esFinal?: boolean
 }
 
-/** Ruta del Capítulo 1: 5 nodos en orden fijo. */
+/** Ruta del Capítulo 1: 7 nodos en orden fijo — Intro, 3× (Video + Prueba), Prueba final. */
 export const NODOS_CAP1: NodoRuta[] = [
   { id: 'intro', tipo: 'intro', titulo: 'Introducción' },
-  { id: 'pc', tipo: 'leccion', titulo: 'Parálisis Cerebral', temaId: 'pc' },
-  { id: 'epi', tipo: 'leccion', titulo: 'Epilepsia', temaId: 'epi' },
-  { id: 'dm', tipo: 'leccion', titulo: 'Distrofia Muscular', temaId: 'dm' },
-  { id: 'repaso', tipo: 'repaso', titulo: 'Repaso del capítulo' },
+  { id: 'video1', tipo: 'video', titulo: 'Parálisis Cerebral', temaId: 'pc', videoId: 'v1' },
+  { id: 'prueba1', tipo: 'prueba', titulo: 'Prueba 1', temaId: 'pc', pruebaId: 'prueba1' },
+  { id: 'video2', tipo: 'video', titulo: 'Epilepsia', temaId: 'epi', videoId: 'v2' },
+  { id: 'prueba2', tipo: 'prueba', titulo: 'Prueba 2', temaId: 'epi', pruebaId: 'prueba2' },
+  { id: 'video3', tipo: 'video', titulo: 'Distrofias Musculares', temaId: 'dm', videoId: 'v3' },
+  { id: 'pruebaFinal', tipo: 'prueba', titulo: 'Prueba final', pruebaId: 'pruebaFinal', esFinal: true },
 ]
 
 export interface CapituloLibro {

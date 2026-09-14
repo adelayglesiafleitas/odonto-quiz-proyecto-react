@@ -1,0 +1,19 @@
+Estos 3 videos son versiones COMPRIMIDAS (640x360, ~15 MB cada uno) de los
+originales que subiste (1280x720, 85-111 MB cada uno).
+
+Por qué: la herramienta que uso para escribir archivos en tu compu tiene un
+límite de 20 MB por archivo, y tus videos originales pesan mucho más que
+eso — así que no pude copiarlos tal cual.
+
+Qué hacer: reemplazá estos 3 archivos por tus videos originales (los que
+adjuntaste en la conversación) cuando puedas, manteniendo exactamente estos
+nombres:
+  video1.mp4  (Parálisis Cerebral)
+  video2.mp4  (Epilepsia)
+  video3.mp4  (Distrofias Musculares — el que se llamaba "video 3.mp4")
+
+El código ya apunta a esta carpeta y a estos nombres exactos
+(public/academia/pacientes-especiales/cap-1/), así que simplemente
+sobrescribir estos 3 archivos alcanza — no hace falta tocar nada más.
+
+Podés borrar este archivo LEEME cuando termines.

@@ -1,11 +1,13 @@
-import { useEffect, useState, type ReactNode } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import {
   ArrowLeft,
   BookOpen,
   Check,
   ChevronRight,
+  ListChecks,
   Lock,
+  Maximize2,
   Play,
   Sparkles,
   Star,
@@ -35,10 +37,13 @@ import {
   INTRO_CAP1,
   LIBRO_INMACULADA,
   NODOS_CAP1,
-  REPASO_CAP1_PREGUNTAS,
+  PRUEBAS_CAP1,
   TEMAS_CAP1,
+  VIDEOS_CAP1,
   type NodoRuta,
   type PreguntaAcademia,
+  type TemaAcademia,
+  type VideoAcademia,
 } from '@/data/academiaInmaculada'
 
 /**
@@ -46,11 +51,12 @@ import {
  * banco de preguntas de Simulacro/Estudio. Navegación interna en 4 niveles
  * (sin rutas nuevas, mismo patrón que el filtro de capítulo de Estudio.tsx):
  * Home (lista de libros) → Libro (índice real de 16 capítulos) → Ruta
- * (nodos del Capítulo 1) → Nodo (contenido + autoevaluación).
+ * (nodos del Capítulo 1) → Nodo (video o prueba).
  *
  * Por ahora solo el Capítulo 1 ("Discapacitado Físico") tiene contenido
- * real armado — ver src/data/academiaInmaculada.ts para el porqué y las
- * salvedades de derechos de autor sobre las fotos.
+ * real armado, con el formato video + prueba (rediseño 2026-09-14) — ver
+ * src/data/academiaInmaculada.ts para el contenido y las salvedades de
+ * derechos de autor.
  *
  * La gamificación (racha/gemas/corazones) que se diseñó en el mockup queda
  * pausada a pedido explícito — no se implementa acá todavía.
@@ -162,6 +168,17 @@ export function Academia({ onNavigate }: { onNavigate: (p: Pantalla) => void }) 
     setRespuestas((prev) => (prev[clave] !== undefined ? prev : { ...prev, [clave]: opcionIdx }))
   }
 
+  // Prueba no aprobada (no todas las respuestas correctas): se limpian las
+  // respuestas de esa prueba para que el usuario pueda volver a intentarla
+  // desde cero, en vez de quedar con las opciones ya bloqueadas.
+  function reintentarPrueba(nodoId: string, totalPreguntas: number) {
+    setRespuestas((prev) => {
+      const next = { ...prev }
+      for (let qi = 0; qi < totalPreguntas; qi++) delete next[claveRespuesta(nodoId, qi)]
+      return next
+    })
+  }
+
   function completarNodo(id: string, estrellas?: number) {
     setProgreso((prev) => {
       const siguiente = siguienteNodoId(id)
@@ -213,6 +230,7 @@ export function Academia({ onNavigate }: { onNavigate: (p: Pantalla) => void }) 
               progreso={progreso}
               respuestas={respuestas}
               onResponder={responder}
+              onReintentar={reintentarPrueba}
               onCompletar={completarNodo}
               onVolver={volverARuta}
             />
@@ -412,7 +430,8 @@ function PantallaProximoCapitulo({
 
 /**
  * Geometría de la "ruta" del Capítulo 1 (rediseño aprobado por el usuario a
- * partir del concepto visual `ruta-concepto.html`): un camino curvo conecta
+ * partir del concepto visual `ruta-concepto.html`, extendido en 2026-09-14
+ * de 5 a 7 nodos para el formato video + prueba): un camino curvo conecta
  * los nodos en zigzag, en vez de la grilla suelta original.
  *
  * x en % del ancho del contenedor (no px) para que funcione en cualquier
@@ -428,9 +447,11 @@ const NODOS_POS_RUTA: { x: number; y: number }[] = [
   { x: 25, y: 236 },
   { x: 75, y: 386 },
   { x: 25, y: 536 },
-  { x: 50, y: 706 },
+  { x: 75, y: 686 },
+  { x: 25, y: 836 },
+  { x: 50, y: 986 },
 ]
-const RUTA_ALTO_PX = 760
+const RUTA_ALTO_PX = 1046
 
 function construirCurvaRuta(puntos: { x: number; y: number }[]): string {
   if (puntos.length === 0) return ''
@@ -442,6 +463,15 @@ function construirCurvaRuta(puntos: { x: number; y: number }[]): string {
     d += ` C ${p0.x} ${midY}, ${p1.x} ${midY}, ${p1.x} ${p1.y}`
   }
   return d
+}
+
+function iconoNodo(nodo: NodoRuta, estado: EstadoNodo) {
+  if (estado === 'completado') return <Check className="h-7 w-7" strokeWidth={2.5} />
+  if (estado === 'bloqueado') return <Lock className="h-6 w-6" />
+  if (nodo.esFinal) return <Trophy className="h-7 w-7" />
+  if (nodo.tipo === 'video') return <Play className="h-6 w-6" fill="currentColor" />
+  if (nodo.tipo === 'prueba') return <ListChecks className="h-6 w-6" />
+  return <BookOpen className="h-6 w-6" />
 }
 
 function PantallaRuta({
@@ -531,7 +561,7 @@ function PantallaRuta({
         {NODOS_CAP1.map((nodo, i) => {
           const prog = progreso[nodo.id] ?? { estado: 'bloqueado' as EstadoNodo }
           const punto = puntos[i]
-          const esJefe = nodo.tipo === 'repaso'
+          const esJefe = Boolean(nodo.esFinal)
           const bloqueado = prog.estado === 'bloqueado'
           const actual = prog.estado === 'disponible'
           const completado = prog.estado === 'completado'
@@ -552,17 +582,7 @@ function PantallaRuta({
                 }`}
               >
                 {actual && <span className="academia-bubble">{t.academia.rutaEmpezar}</span>}
-                <span className="academia-face">
-                  {completado ? (
-                    <Check className="h-7 w-7" strokeWidth={2.5} />
-                  ) : bloqueado ? (
-                    <Lock className="h-6 w-6" />
-                  ) : esJefe ? (
-                    <Trophy className="h-7 w-7" />
-                  ) : (
-                    <Play className="h-6 w-6" fill="currentColor" />
-                  )}
-                </span>
+                <span className="academia-face">{iconoNodo(nodo, prog.estado)}</span>
               </button>
               <span
                 className={`max-w-[112px] text-center text-[11px] font-extrabold leading-tight ${
@@ -704,12 +724,92 @@ function quizCompleto(preguntas: PreguntaAcademia[], nodoId: string, respuestas:
   return preguntas.every((_, qi) => respuestas[claveRespuesta(nodoId, qi)] !== undefined)
 }
 
+function contarCorrectas(preguntas: PreguntaAcademia[], nodoId: string, respuestas: Record<string, number>): number {
+  return preguntas.filter((q, qi) => respuestas[claveRespuesta(nodoId, qi)] === q.correcta).length
+}
+
+/**
+ * Reproductor del nodo "video". `<video controls playsInline>` nativo del
+ * navegador — ya incluye su propio botón de pantalla completa en todos los
+ * navegadores modernos; se suma además un botón propio (esquina superior
+ * derecha) que llama a la Fullscreen API estándar o, en iOS Safari (que no
+ * la soporta en <video>), a `webkitEnterFullscreen()`. El fullscreen nativo
+ * ya rota a horizontal solo al girar el dispositivo — no hace falta forzar
+ * la orientación a mano. El evento `ended` sigue disparando igual estando
+ * en pantalla completa, así que el desbloqueo de la prueba no se ve
+ * afectado por esto.
+ *
+ * `key={nodoId}` en el `PantallaNodo` que renderiza este componente fuerza
+ * que se remonte (y por lo tanto reinicie `terminado`) al cambiar de video.
+ */
+function NodoVideo({
+  t,
+  video,
+  tema,
+  soloLectura,
+  etiquetaSiguiente,
+  onContinuar,
+}: {
+  t: Diccionario
+  video: VideoAcademia
+  tema: TemaAcademia
+  soloLectura: boolean
+  etiquetaSiguiente: string | null
+  onContinuar: () => void
+}) {
+  const [terminado, setTerminado] = useState(soloLectura)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const puedeContinuar = soloLectura || terminado
+
+  function entrarPantallaCompleta() {
+    const el = videoRef.current as (HTMLVideoElement & { webkitEnterFullscreen?: () => void }) | null
+    if (!el) return
+    if (el.requestFullscreen) el.requestFullscreen().catch(() => {})
+    else if (el.webkitEnterFullscreen) el.webkitEnterFullscreen()
+  }
+
+  return (
+    <>
+      <div className="relative overflow-hidden rounded-2xl bg-black">
+        {/* eslint-disable-next-line jsx-a11y/media-has-caption -- son videos propios sin pista de subtítulos todavía */}
+        <video ref={videoRef} src={video.src} controls playsInline className="aspect-video w-full" onEnded={() => setTerminado(true)} />
+        <button
+          type="button"
+          onClick={entrarPantallaCompleta}
+          aria-label={t.academia.pantallaCompleta}
+          title={t.academia.pantallaCompleta}
+          className="absolute right-2 top-2 flex h-8 w-8 items-center justify-center rounded-lg bg-black/45 text-white backdrop-blur-sm"
+        >
+          <Maximize2 className="h-4 w-4" />
+        </button>
+      </div>
+
+      <TarjetaContenido titulo={t.academia.nodoResumen}>
+        <p className="text-sm leading-relaxed text-foreground/85">{tema.resumen}</p>
+      </TarjetaContenido>
+
+      <BotonContinuar
+        disabled={!puedeContinuar}
+        texto={
+          soloLectura
+            ? t.academia.nodoYaCompletado
+            : puedeContinuar && etiquetaSiguiente
+              ? t.academia.continuarA(etiquetaSiguiente)
+              : t.academia.videoBloqueadoTexto
+        }
+        onClick={onContinuar}
+      />
+    </>
+  )
+}
+
 function PantallaNodo({
   t,
   nodoId,
   progreso,
   respuestas,
   onResponder,
+  onReintentar,
   onCompletar,
   onVolver,
 }: {
@@ -718,6 +818,7 @@ function PantallaNodo({
   progreso: ProgresoCap1
   respuestas: Record<string, number>
   onResponder: (clave: string, opcionIdx: number) => void
+  onReintentar: (nodoId: string, totalPreguntas: number) => void
   onCompletar: (nodoId: string, estrellas?: number) => void
   onVolver: () => void
 }) {
@@ -726,6 +827,8 @@ function PantallaNodo({
   const prog = progreso[nodoId] ?? { estado: 'bloqueado' as EstadoNodo }
   const soloLectura = prog.estado === 'completado'
   const subtituloCap1 = 'Capítulo 1 · Discapacitado Físico'
+  const idx = NODOS_CAP1.findIndex((n) => n.id === nodoId)
+  const siguienteNodo = idx >= 0 ? NODOS_CAP1[idx + 1] : undefined
 
   if (nodo.tipo === 'intro') {
     return (
@@ -736,133 +839,45 @@ function PantallaNodo({
           </TarjetaContenido>
         ))}
         <BotonContinuar
-          onClick={() => onCompletar(nodoId)}
+          onClick={() => (soloLectura ? onVolver() : onCompletar(nodoId))}
           texto={soloLectura ? t.academia.nodoYaCompletado : t.academia.nodoContinuar}
         />
       </NodoLayout>
     )
   }
 
-  if (nodo.tipo === 'repaso') {
-    if (prog.estado === 'bloqueado') {
-      return (
-        <NodoLayout titulo={t.academia.repasoTitulo} onVolver={onVolver}>
-          <div className="mt-6 flex flex-col items-center px-2 text-center">
-            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-secondary text-muted-foreground">
-              <Lock className="h-6 w-6" />
-            </span>
-            <h2 className="mt-3 text-base font-bold text-foreground">{t.academia.repasoBloqueadoTitulo}</h2>
-            <p className="mt-1.5 text-sm text-muted-foreground">{t.academia.repasoBloqueadoTexto}</p>
-          </div>
-        </NodoLayout>
-      )
-    }
-    const preguntas = REPASO_CAP1_PREGUNTAS
-    const completo = quizCompleto(preguntas, 'repaso', respuestas)
+  if (nodo.tipo === 'video') {
+    const video = VIDEOS_CAP1.find((v) => v.id === nodo.videoId)
+    const tema = nodo.temaId ? TEMAS_CAP1[nodo.temaId] : undefined
+    if (!video || !tema) return null
     return (
-      <NodoLayout titulo={t.academia.repasoTitulo} subtitulo={CAPITULOS_INMACULADA[0].titulo} onVolver={onVolver}>
-        <TarjetaContenido titulo={t.academia.nodoAutoevaluacion}>
-          {preguntas.map((q, qi) => (
-            <BloqueQuiz
-              key={qi}
-              pregunta={q}
-              qi={qi}
-              clave={claveRespuesta('repaso', qi)}
-              respuestas={respuestas}
-              soloLectura={soloLectura}
-              onResponder={onResponder}
-            />
-          ))}
-        </TarjetaContenido>
-        <BotonContinuar
-          disabled={!completo && !soloLectura}
-          texto={soloLectura ? t.academia.nodoYaCompletado : t.academia.repasoTerminar}
-          onClick={() => {
-            if (soloLectura) {
-              onVolver()
-              return
-            }
-            onCompletar('repaso', calcularEstrellas(preguntas, 'repaso', respuestas))
-          }}
+      <NodoLayout titulo={tema.nombre} subtitulo={subtituloCap1} onVolver={onVolver}>
+        <NodoVideo
+          key={nodoId}
+          t={t}
+          video={video}
+          tema={tema}
+          soloLectura={soloLectura}
+          etiquetaSiguiente={siguienteNodo?.titulo ?? null}
+          onContinuar={() => (soloLectura ? onVolver() : onCompletar(nodoId))}
         />
       </NodoLayout>
     )
   }
 
-  // tipo === 'leccion'
-  const tema = TEMAS_CAP1[nodo.temaId!]
-  const completo = quizCompleto(tema.quiz, nodoId, respuestas)
+  // tipo === 'prueba'
+  const preguntas = nodo.pruebaId ? PRUEBAS_CAP1[nodo.pruebaId] : undefined
+  if (!preguntas) return null
+  const completo = quizCompleto(preguntas, nodoId, respuestas)
+  const correctas = contarCorrectas(preguntas, nodoId, respuestas)
+  const aprobada = completo && correctas === preguntas.length
+  const esUltima = !siguienteNodo
+  const temaLabel = nodo.temaId ? TEMAS_CAP1[nodo.temaId].nombre : CAPITULOS_INMACULADA[0].titulo
+
   return (
-    <NodoLayout titulo={tema.nombre} subtitulo={subtituloCap1} onVolver={onVolver}>
-      <TarjetaContenido titulo={t.academia.nodoResumen}>
-        <p className="text-sm leading-relaxed text-foreground/85">{tema.resumen}</p>
-      </TarjetaContenido>
-
-      <TarjetaContenido titulo={t.academia.nodoConceptos}>
-        <div className="flex flex-wrap gap-1.5">
-          {tema.conceptos.map((c) => (
-            <span key={c} className="rounded-full bg-secondary px-2.5 py-1 text-[11px] font-bold text-foreground/80">
-              {c}
-            </span>
-          ))}
-        </div>
-      </TarjetaContenido>
-
-      <TarjetaContenido titulo={t.academia.nodoClasificacion}>
-        <div className="overflow-hidden rounded-xl border border-border">
-          {tema.tabla.map(([a, b], i) => (
-            <div key={a} className={`flex gap-3 px-3 py-2 text-xs ${i % 2 === 1 ? 'bg-secondary/50' : ''}`}>
-              <span className="w-[38%] shrink-0 font-bold text-foreground">{a}</span>
-              <span className="text-muted-foreground">{b}</span>
-            </div>
-          ))}
-        </div>
-      </TarjetaContenido>
-
-      <TarjetaContenido titulo={t.academia.nodoMnemo}>
-        <div className="rounded-xl bg-accent/8 p-3">
-          <p className="text-[10px] font-bold uppercase tracking-wide text-accent">{t.academia.nodoMnemoEtiqueta}</p>
-          <p className="mt-1 text-sm leading-relaxed text-foreground/85">{tema.mnemo}</p>
-        </div>
-      </TarjetaContenido>
-
-      {tema.figuras && (
-        <TarjetaContenido titulo={t.academia.nodoFiguras}>
-          <div className="space-y-3">
-            {tema.figuras.map((f) => (
-              <figure key={f.src}>
-                <div className="relative overflow-hidden rounded-xl">
-                  <img src={f.src} alt={f.caption} className="w-full object-cover" />
-                  {f.temporal && (
-                    <span className="absolute right-2 top-2 rounded-full bg-black/60 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide text-white">
-                      {t.academia.nodoFiguraTemporal}
-                    </span>
-                  )}
-                </div>
-                <figcaption className="mt-1.5 text-[11px] italic leading-snug text-muted-foreground">{f.caption}</figcaption>
-              </figure>
-            ))}
-          </div>
-        </TarjetaContenido>
-      )}
-
-      <div className="card-elevated rounded-2xl bg-card p-4">
-        <h3 className="flex items-center gap-2 text-sm font-bold text-foreground">
-          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-          {t.academia.nodoCaso}
-        </h3>
-        <span className="mt-2 inline-block rounded-full bg-accent/12 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-accent">
-          {t.academia.nodoCasoEtiqueta}
-        </span>
-        <p className="mt-2 text-sm font-medium leading-snug text-foreground">{tema.caso}</p>
-        <div className="mt-3 rounded-xl bg-secondary/60 p-3">
-          <p className="text-[10px] font-bold uppercase tracking-wide text-muted-foreground">{t.academia.nodoRespuestaEtiqueta}</p>
-          <p className="mt-1 text-[13px] leading-snug text-foreground/80">{tema.respuesta}</p>
-        </div>
-      </div>
-
+    <NodoLayout titulo={nodo.titulo} subtitulo={temaLabel} onVolver={onVolver}>
       <TarjetaContenido titulo={t.academia.nodoAutoevaluacion}>
-        {tema.quiz.map((q, qi) => (
+        {preguntas.map((q, qi) => (
           <BloqueQuiz
             key={qi}
             pregunta={q}
@@ -875,15 +890,40 @@ function PantallaNodo({
         ))}
       </TarjetaContenido>
 
+      {completo && !soloLectura && !aprobada && (
+        <div className="card-elevated rounded-2xl bg-destructive/10 p-4 text-center">
+          <p className="text-sm font-bold text-destructive">{t.academia.pruebaNoAprobadaTitulo}</p>
+          <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{t.academia.pruebaNoAprobadaTexto(correctas, preguntas.length)}</p>
+          <Button onClick={() => onReintentar(nodoId, preguntas.length)} className="mt-3 h-10 rounded-xl px-5 font-bold">
+            {t.academia.pruebaReintentar}
+          </Button>
+        </div>
+      )}
+
+      {aprobada && esUltima && !soloLectura && (
+        <div className="card-elevated rounded-2xl bg-success/10 p-4 text-center">
+          <p className="text-sm font-bold text-success">{t.academia.capituloCompletadoTitulo}</p>
+          <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{t.academia.capituloCompletadoTexto}</p>
+        </div>
+      )}
+
       <BotonContinuar
-        disabled={!completo && !soloLectura}
-        texto={soloLectura ? t.academia.nodoYaCompletado : t.academia.nodoTerminar}
+        disabled={!soloLectura && !aprobada}
+        texto={
+          soloLectura
+            ? t.academia.nodoYaCompletado
+            : aprobada
+              ? siguienteNodo
+                ? t.academia.continuarA(siguienteNodo.titulo)
+                : t.academia.capituloCompletadoBoton
+              : t.academia.pruebaNecesitas
+        }
         onClick={() => {
           if (soloLectura) {
             onVolver()
             return
           }
-          onCompletar(nodoId, calcularEstrellas(tema.quiz, nodoId, respuestas))
+          onCompletar(nodoId, calcularEstrellas(preguntas, nodoId, respuestas))
         }}
       />
     </NodoLayout>
