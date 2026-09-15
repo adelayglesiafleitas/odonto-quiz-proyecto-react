@@ -24,10 +24,22 @@ export function BottomNav({
   activo,
   onNavigate,
   accesorio,
+  avisosAyuda,
 }: {
   activo: TabActivo
   onNavigate: (p: Pantalla) => void
   accesorio?: ReactNode
+  // Sin-leídos de Atención al cliente, ya calculado por la pantalla que
+  // renderiza la barra (Home/Ayuda) — a propósito NO se busca acá adentro:
+  // las dos pantallas que usan BottomNav ya traen sus propios tickets
+  // (Home con suscripción Realtime, Ayuda con un fetch puntual), y si
+  // BottomNav abriera su propia suscripción en paralelo con el mismo
+  // canal (`tickets-usuario-<id>`) Supabase revienta con "cannot add
+  // postgres_changes callbacks ... after subscribe()" al intentar
+  // suscribirse dos veces al mismo canal desde Home + BottomNav a la vez.
+  // Ver claude/atencion-cliente-diseno.md, sección del aviso en Home +
+  // badge de la barra.
+  avisosAyuda?: number
 }) {
   const { t } = useAppSettings()
 
@@ -40,7 +52,7 @@ export function BottomNav({
     { id: 'config', icon: UserCog, label: t.nav.config },
   ]
 
-  function Item({ tab }: { tab: { id: TabPlana; icon: typeof Gauge; label: string } }) {
+  function Item({ tab, badge }: { tab: { id: TabPlana; icon: typeof Gauge; label: string }; badge?: number }) {
     const Icon = tab.icon
     const esActivo = activo === tab.id
     return (
@@ -52,7 +64,14 @@ export function BottomNav({
         }`}
       >
         {esActivo && <span className="absolute -top-[7px] h-[3px] w-6 rounded-full bg-accent" />}
-        <Icon className="h-5 w-5" />
+        <span className="relative">
+          <Icon className="h-5 w-5" />
+          {typeof badge === 'number' && badge > 0 && (
+            <span className="absolute -right-2 -top-1.5 flex h-[15px] min-w-[15px] items-center justify-center rounded-full border-2 border-card bg-accent px-[3px] text-[9px] font-extrabold leading-none text-accent-foreground">
+              {badge > 9 ? '9+' : badge}
+            </span>
+          )}
+        </span>
         <span className="text-[10px] font-bold">{tab.label}</span>
       </button>
     )
@@ -78,7 +97,7 @@ export function BottomNav({
         </button>
 
         {derecha.map((tab) => (
-          <Item key={tab.id} tab={tab} />
+          <Item key={tab.id} tab={tab} badge={tab.id === 'ayuda' ? avisosAyuda : undefined} />
         ))}
       </div>
     </nav>

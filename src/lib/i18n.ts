@@ -67,6 +67,10 @@ export interface Diccionario {
     ctaKicker: string
     racha: (n: number) => string
     verEstadisticas: string
+    avisoSoporteEtiquetaSingular: string
+    avisoSoporteEtiquetaPlural: string
+    avisoSoporteTextoSingular: (asunto: string) => string
+    avisoSoporteTextoPlural: (n: number) => string
   }
   mensajesAdmin: {
     etiqueta: string
@@ -405,6 +409,10 @@ export const es: Diccionario = {
     ctaKicker: 'Tu próxima prueba te espera',
     racha: (n) => `${n} día${n === 1 ? '' : 's'} seguidos`,
     verEstadisticas: 'Ver estadísticas completas',
+    avisoSoporteEtiquetaSingular: 'Respuesta de soporte',
+    avisoSoporteEtiquetaPlural: 'Respuestas de soporte',
+    avisoSoporteTextoSingular: (asunto) => `Te respondieron: «${asunto}»`,
+    avisoSoporteTextoPlural: (n) => `Tenés ${n} respuestas nuevas de soporte.`,
   },
   mensajesAdmin: {
     etiqueta: 'Mensaje del equipo',
@@ -770,6 +778,10 @@ export const en: Diccionario = {
     ctaKicker: 'Your next quiz is waiting',
     racha: (n) => `${n}-day streak`,
     verEstadisticas: 'View full statistics',
+    avisoSoporteEtiquetaSingular: 'Support reply',
+    avisoSoporteEtiquetaPlural: 'Support replies',
+    avisoSoporteTextoSingular: (asunto) => `You got a reply: "${asunto}"`,
+    avisoSoporteTextoPlural: (n) => `You have ${n} new replies from support.`,
   },
   mensajesAdmin: {
     etiqueta: 'Team message',

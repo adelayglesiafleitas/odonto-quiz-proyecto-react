@@ -306,7 +306,7 @@ export function Ayuda({
         </div>
       )}
 
-      <BottomNav activo="ayuda" onNavigate={onNavigate} />
+      <BottomNav activo="ayuda" onNavigate={onNavigate} avisosAyuda={tickets ? contarNoLeidos(tickets) : 0} />
     </div>
   )
 }

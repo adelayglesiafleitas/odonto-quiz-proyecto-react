@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { LogoMark } from '@/components/Logo'
 import { Spinner } from '@/components/Spinner'
 import { SettingsToggle } from '@/components/SettingsToggle'
@@ -12,10 +13,12 @@ import TourBienvenida from '@/components/TourBienvenida'
 import { getVioTourBienvenida, marcarTourBienvenidaVisto } from '@/lib/tourBienvenidaRemoto'
 import { getMensajesPendientes, descartarMensaje, type MensajeAdmin } from '@/lib/mensajesAdminRemoto'
 import { MensajeAdminBanner } from '@/components/MensajeAdminBanner'
+import { listarMisTickets, suscribirseAMisTickets, type Ticket } from '@/lib/tickets'
+import { RUTA_SOPORTE, rutaSoporteDetalle } from '@/lib/rutas'
 import { ICONO_BIENVENIDA, ICONO_CTA } from '@/lib/temaIconos'
 import { colorStrokePorcentaje } from '@/lib/utils'
 import type { CursoMeta } from '@/lib/cursos'
-import { LogOut, Trophy, TrendingUp, Quote, Flame, BarChart3, ChevronRight, X } from 'lucide-react'
+import { LogOut, Trophy, TrendingUp, Quote, Flame, BarChart3, ChevronRight, MessageCircleQuestion, X } from 'lucide-react'
 import type { Pantalla } from '@/types'
 
 const PROMEDIO_CIRCUNFERENCIA = 2 * Math.PI * 32
@@ -36,6 +39,7 @@ export function Home({
   onLogout: () => void
 }) {
   const { t, idioma, estilo } = useAppSettings()
+  const navigate = useNavigate()
   const nombreMostrado = nickname && nickname.trim().length > 0 ? nickname : t.home.estudiante
   const [mejor, setMejor] = useState(0)
   const [promedio, setPromedio] = useState(0)
@@ -56,6 +60,15 @@ export function Home({
   const [bienvenidaPrimeraVisitaCerrada, setBienvenidaPrimeraVisitaCerrada] = useState(false)
   const [textoBienvenidaPrimeraVisita] = useState(() => getBienvenidaPrimeraVisita(idioma, nombreMostrado))
   const [colaMensajes, setColaMensajes] = useState<MensajeAdmin[]>([])
+  // Aviso de "te respondieron" (ver claude/atencion-cliente-diseno.md): se
+  // recalcula acá con la misma fuente que ya usa el badge de BottomNav
+  // (`no_leido_usuario`), no una cola de "descartados" aparte como la de
+  // mensajes del admin. Cerrar con la ✕ solo lo saca de esta visita a Home
+  // (`avisoTicketCerrado`, estado local) — como el ticket sigue "sin leer"
+  // en la base, el badge de la barra no se mueve y la tarjeta vuelve a
+  // aparecer si se vuelve a entrar a Home, hasta que se abra el hilo.
+  const [ticketsSinLeer, setTicketsSinLeer] = useState<Ticket[]>([])
+  const [avisoTicketCerrado, setAvisoTicketCerrado] = useState(false)
   const IconoBienvenida = ICONO_BIENVENIDA[estilo]
   const IconoCta = ICONO_CTA[estilo]
 
@@ -95,6 +108,21 @@ export function Home({
     getMensajesPendientes().then(setColaMensajes)
   }, [])
 
+  useEffect(() => {
+    let cancelado = false
+    const cargarTickets = () => {
+      listarMisTickets(userId).then((tickets) => {
+        if (!cancelado) setTicketsSinLeer(tickets.filter((ticket) => ticket.noLeidoUsuario))
+      })
+    }
+    cargarTickets()
+    const desuscribir = suscribirseAMisTickets(userId, cargarTickets)
+    return () => {
+      cancelado = true
+      desuscribir()
+    }
+  }, [userId])
+
   const cerrarTour = () => {
     marcarTourBienvenidaVisto()
     setMostrarTour(false)
@@ -103,6 +131,14 @@ export function Home({
   const cerrarMensajeAdmin = (id: string) => {
     descartarMensaje(id)
     setColaMensajes((cola) => cola.filter((m) => m.id !== id))
+  }
+
+  const irAConsultaSinLeer = () => {
+    if (ticketsSinLeer.length === 1) {
+      navigate(rutaSoporteDetalle(ticketsSinLeer[0].id))
+    } else {
+      navigate(RUTA_SOPORTE)
+    }
   }
 
   return (
@@ -186,7 +222,9 @@ export function Home({
         </div>
       </div>
 
-      {(primeraVisita && !bienvenidaPrimeraVisitaCerrada) || colaMensajes.length > 0 ? (
+      {(primeraVisita && !bienvenidaPrimeraVisitaCerrada) ||
+      (ticketsSinLeer.length > 0 && !avisoTicketCerrado) ||
+      colaMensajes.length > 0 ? (
         <div className="mt-4 flex flex-col gap-3 px-6">
           {primeraVisita && !bienvenidaPrimeraVisitaCerrada && (
             <div
@@ -225,6 +263,36 @@ export function Home({
                   aria-label={t.mensajesAdmin.cerrar}
                   className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-black/10 transition hover:bg-black/20"
                   style={{ color: 'var(--home-hero-ink)' }}
+                >
+                  <X className="h-3 w-3" />
+                </button>
+              </div>
+            </div>
+          )}
+
+          {ticketsSinLeer.length > 0 && !avisoTicketCerrado && (
+            <div className="card-elevated relative overflow-hidden rounded-2xl border border-accent/30 bg-card p-4 animate-bienvenida-in">
+              <div className="flex items-start gap-2.5">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                  <MessageCircleQuestion className="h-3.5 w-3.5" />
+                </span>
+                <button type="button" onClick={irAConsultaSinLeer} className="min-w-0 flex-1 text-left">
+                  <p className="text-[10px] font-bold uppercase tracking-wide text-accent">
+                    {ticketsSinLeer.length === 1
+                      ? t.home.avisoSoporteEtiquetaSingular
+                      : t.home.avisoSoporteEtiquetaPlural}
+                  </p>
+                  <p className="mt-1 text-[13px] leading-relaxed text-foreground">
+                    {ticketsSinLeer.length === 1
+                      ? t.home.avisoSoporteTextoSingular(ticketsSinLeer[0].asunto)
+                      : t.home.avisoSoporteTextoPlural(ticketsSinLeer.length)}
+                  </p>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setAvisoTicketCerrado(true)}
+                  aria-label={t.mensajesAdmin.cerrar}
+                  className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-secondary text-muted-foreground transition hover:bg-secondary/70"
                 >
                   <X className="h-3 w-3" />
                 </button>
@@ -338,7 +406,7 @@ export function Home({
         </div>
       </div>
 
-      <BottomNav activo="home" onNavigate={onNavigate} />
+      <BottomNav activo="home" onNavigate={onNavigate} avisosAyuda={ticketsSinLeer.length} />
       {mostrarTour && <TourBienvenida idioma={idioma} onCerrar={cerrarTour} />}
     </div>
   )
