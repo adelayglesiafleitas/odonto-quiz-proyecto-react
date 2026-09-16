@@ -6,7 +6,7 @@ import { LogoMark } from '@/components/Logo'
 import { BottomNav } from '@/components/BottomNav'
 import { ModalConfirmacion } from '@/components/ModalConfirmacion'
 import { eliminarHistorialPropio } from '@/lib/historial'
-import { borrarProgresoAcademiaLocal } from '@/lib/academiaProgresoLocal'
+import { borrarProgresoAcademiaRemoto } from '@/lib/academiaProgresoRemoto'
 import { getAcademiaHabilitada } from '@/lib/academiaAccesoRemoto'
 import type { Pantalla } from '@/types'
 
@@ -30,9 +30,9 @@ export function Configuracion({
   const nombreMostrado = nickname && nickname.trim().length > 0 ? nickname : t.home.estudiante
   const [estiloAbierto, setEstiloAbierto] = useState(false)
 
-  // "Restablecer estadísticas": borra el historial de simulacros (Supabase,
-  // cruza dispositivos) y, si además tiene Academia habilitada, su progreso
-  // ahí (localStorage, solo este dispositivo) — ver claude/restablecer-
+  // "Restablecer estadísticas": borra el historial de simulacros y, si
+  // además tiene Academia habilitada, su progreso ahí — ambos en Supabase,
+  // por user_id, cruzan dispositivos — ver claude/restablecer-
   // estadisticas-academia-estadisticas-diseno.md. No toca config_examen,
   // nickname, tema ni idioma: el pedido fue "estadísticas", no "toda mi
   // cuenta". Se consulta el acceso a Academia solo para que la copia (fila +
@@ -68,7 +68,7 @@ export function Configuracion({
     setEstadoRestablecer('borrando')
     const { ok } = await eliminarHistorialPropio(userId)
     if (ok) {
-      borrarProgresoAcademiaLocal()
+      await borrarProgresoAcademiaRemoto(userId)
       setModalAbierto(false)
       setEstadoRestablecer('hecho')
       if (timeoutToastRef.current) clearTimeout(timeoutToastRef.current)

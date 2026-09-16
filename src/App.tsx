@@ -451,7 +451,7 @@ function App() {
             path={RUTA.academia}
             element={
               <Protegida sesionLista={sesionLista} autenticado={autenticado}>
-                <Academia onNavigate={irA} />
+                {userId && <Academia userId={userId} onNavigate={irA} />}
               </Protegida>
             }
           />

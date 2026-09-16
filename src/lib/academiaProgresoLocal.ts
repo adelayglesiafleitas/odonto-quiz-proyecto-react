@@ -1,14 +1,18 @@
 // src/lib/academiaProgresoLocal.ts
 //
-// Progreso de Academia (Capítulo 1 de Inmaculada), guardado únicamente en
-// `localStorage` — nunca se mandó a Supabase, así que es información propia
-// de este dispositivo, no de la cuenta. Antes vivía como funciones privadas
-// adentro de Academia.tsx; se movió acá para poder leerlo también desde
-// Estadisticas.tsx (sección "Academia") y borrarlo desde Configuracion.tsx
-// ("Restablecer estadísticas") sin duplicar el parseo en cada pantalla.
+// Progreso de Academia (Capítulo 1 de Inmaculada): la fuente de verdad pasó
+// a ser Supabase (ver academiaProgresoRemoto.ts) porque localStorage es por
+// dispositivo/navegador, no por cuenta, y eso mezclaba el progreso de dos
+// cuentas usadas en el mismo celular. Lo que queda acá (tipos, estado
+// inicial, cálculo del resumen) se sigue usando igual porque `progreso` en
+// memoria mantiene la misma forma ProgresoCap1 venga de donde venga; las
+// funciones de lectura/escritura de localStorage (`cargarProgresoAcademia`,
+// `guardarAcademia`, `borrarProgresoAcademiaLocal`) solo se usan hoy para
+// migrar una vez el progreso viejo de quien ya lo tenía guardado en este
+// dispositivo de antes de este cambio — ver Academia.tsx.
 //
-// Ver claude/restablecer-estadisticas-academia-estadisticas-diseno.md para
-// el diseño completo de ambas pantallas.
+// Ver claude/restablecer-estadisticas-academia-estadisticas-diseno.md y
+// claude/academia-progreso-supabase-diseno.md.
 
 import { NODOS_CAP1 } from '@/data/academiaInmaculada'
 

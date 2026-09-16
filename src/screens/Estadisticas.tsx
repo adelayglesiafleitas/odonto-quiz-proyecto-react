@@ -16,7 +16,8 @@ import {
   type EstadisticaCapitulo,
 } from '@/lib/historial'
 import { getAcademiaHabilitada } from '@/lib/academiaAccesoRemoto'
-import { cargarProgresoAcademia, calcularResumenAcademia } from '@/lib/academiaProgresoLocal'
+import { progresoInicialAcademia, calcularResumenAcademia, type ResumenAcademia } from '@/lib/academiaProgresoLocal'
+import { getProgresoAcademiaRemoto } from '@/lib/academiaProgresoRemoto'
 import { CAPITULOS_INMACULADA } from '@/data/academiaInmaculada'
 import type { Pantalla } from '@/types'
 
@@ -126,10 +127,11 @@ export function Estadisticas({
   // Sección "Academia": independiente de `cursoSel` (el progreso de Academia
   // no tiene asignatura), por eso no depende de ese estado ni se recalcula
   // con él — solo se pide una vez, igual que el resumen "Por asignatura" de
-  // más abajo. El progreso en sí sale de localStorage (síncrono, sin
-  // Supabase) — ver claude/restablecer-estadisticas-academia-estadisticas-diseno.md.
+  // más abajo. El progreso sale de Supabase (por user_id, cruza dispositivos)
+  // — ver claude/restablecer-estadisticas-academia-estadisticas-diseno.md y
+  // claude/academia-progreso-supabase-diseno.md.
   const [academiaHabilitada, setAcademiaHabilitada] = useState(false)
-  const resumenAcademia = useMemo(() => calcularResumenAcademia(cargarProgresoAcademia()), [])
+  const [resumenAcademia, setResumenAcademia] = useState<ResumenAcademia>(() => calcularResumenAcademia(progresoInicialAcademia()))
   const porcentajeAcademia = Math.round((resumenAcademia.temasCompletados / resumenAcademia.temasTotal) * 100)
 
   useEffect(() => {
@@ -141,6 +143,16 @@ export function Estadisticas({
       cancelado = true
     }
   }, [])
+
+  useEffect(() => {
+    let cancelado = false
+    getProgresoAcademiaRemoto(userId).then((remoto) => {
+      if (!cancelado && remoto) setResumenAcademia(calcularResumenAcademia(remoto))
+    })
+    return () => {
+      cancelado = true
+    }
+  }, [userId])
 
   const circunferencia = 2 * Math.PI * 42
   const maxActividad = Math.max(1, ...actividad.map((d) => d.cantidad))

@@ -21,13 +21,8 @@ import { Spinner } from '@/components/Spinner'
 import { Button } from '@/components/ui/button'
 import { RUTA_SOPORTE } from '@/lib/rutas'
 import { getAcademiaHabilitada } from '@/lib/academiaAccesoRemoto'
-import {
-  cargarProgresoAcademia as cargarProgreso,
-  CLAVE_PROGRESO_ACADEMIA as CLAVE_PROGRESO,
-  guardarAcademia as guardar,
-  type EstadoNodo,
-  type ProgresoCap1,
-} from '@/lib/academiaProgresoLocal'
+import { cargarProgresoAcademia, progresoInicialAcademia, type EstadoNodo, type ProgresoCap1 } from '@/lib/academiaProgresoLocal'
+import { getProgresoAcademiaRemoto, guardarProgresoAcademiaRemoto } from '@/lib/academiaProgresoRemoto'
 import type { Diccionario } from '@/lib/i18n'
 import type { Pantalla } from '@/types'
 import {
@@ -77,10 +72,12 @@ import {
  * diseñó en mockups anteriores queda pausada a pedido explícito — no se
  * implementa acá todavía.
  *
- * El progreso se guarda en localStorage (por dispositivo/navegador, no en
- * Supabase): alcanza para el piloto y es independiente de la llave de
- * acceso admin-only (ver más abajo, `getAcademiaHabilitada`) — una vez
- * adentro, el progreso sigue siendo local.
+ * El progreso se guarda en Supabase (tabla `academia_progreso`, por
+ * user_id — ver academiaProgresoRemoto.ts), no en localStorage: así el
+ * mismo usuario ve su progreso en cualquier dispositivo, y dos cuentas
+ * distintas usadas en el mismo celular no se pisan entre sí. Es
+ * independiente de la llave de acceso admin-only (ver más abajo,
+ * `getAcademiaHabilitada`).
  *
  * Acceso: toda la pestaña queda detrás de `perfiles.academia_habilitada`
  * (boolean, default false), controlado únicamente por un admin desde
@@ -98,12 +95,16 @@ type VistaAcademia = 'home' | 'libro' | 'ruta' | 'nodo' | 'proximo'
 // Configuracion.tsx pueden leer y borrar el mismo progreso sin duplicar el
 // parseo acá.
 
-export function Academia({ onNavigate }: { onNavigate: (p: Pantalla) => void }) {
+export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (p: Pantalla) => void }) {
   const { t } = useAppSettings()
   const { key: navegacionKey } = useLocation()
   const [vista, setVista] = useState<VistaAcademia>('home')
   const [nodoActivoId, setNodoActivoId] = useState<string | null>(null)
-  const [progreso, setProgreso] = useState<ProgresoCap1>(() => cargarProgreso())
+  const [progreso, setProgreso] = useState<ProgresoCap1>(() => progresoInicialAcademia())
+  // false hasta que termina la carga inicial desde Supabase — evita que el
+  // efecto de guardado de abajo pise la base con el estado inicial (todo
+  // bloqueado) antes de haber leído el progreso real de este usuario.
+  const [progresoCargado, setProgresoCargado] = useState(false)
   // null mientras se consulta el perfil — evita el parpadeo de mostrar el
   // cartel de "sin acceso" un instante antes de confirmar que sí lo tiene.
   const [academiaHabilitada, setAcademiaHabilitada] = useState<boolean | null>(null)
@@ -130,24 +131,38 @@ export function Academia({ onNavigate }: { onNavigate: (p: Pantalla) => void }) 
     }
   }, [])
 
-  useEffect(() => guardar(CLAVE_PROGRESO, progreso), [progreso])
-
-  // "Restablecer estadísticas" (Configuracion.tsx) borra esta misma clave de
-  // localStorage. Si esta pantalla ya estaba abierta en OTRA pestaña/ventana
-  // en el momento del borrado, el evento 'storage' del navegador (que solo
-  // dispara en las pestañas que NO hicieron el cambio) avisa acá para
-  // recargar el progreso en memoria — si no, el próximo `guardar` de esta
-  // pestaña reescribiría el progreso viejo encima del borrado recién hecho.
+  // Carga el progreso real de este usuario desde Supabase al entrar (o si
+  // cambia de cuenta sin recargar la página — userId en las dependencias).
+  // Si todavía no tiene fila en la base pero sí progreso viejo guardado en
+  // este dispositivo de antes de este cambio (localStorage), lo migra una
+  // sola vez a su cuenta en vez de perderlo.
   useEffect(() => {
-    function alCambiarStorage(e: StorageEvent) {
-      // e.key === null pasa con localStorage.clear() (no lo usamos acá,
-      // pero cubre el caso igual); si no, solo nos importa esta clave.
-      if (e.key !== null && e.key !== CLAVE_PROGRESO) return
-      setProgreso(cargarProgreso())
+    let cancelado = false
+    setProgresoCargado(false)
+    getProgresoAcademiaRemoto(userId).then(async (remoto) => {
+      if (cancelado) return
+      if (remoto) {
+        setProgreso({ ...progresoInicialAcademia(), ...remoto })
+      } else {
+        const local = cargarProgresoAcademia()
+        const tieneAvanceLocal = Object.values(local).some((n) => n.estado === 'completado')
+        if (tieneAvanceLocal) {
+          await guardarProgresoAcademiaRemoto(userId, local)
+          if (cancelado) return
+          setProgreso(local)
+        }
+      }
+      if (!cancelado) setProgresoCargado(true)
+    })
+    return () => {
+      cancelado = true
     }
-    window.addEventListener('storage', alCambiarStorage)
-    return () => window.removeEventListener('storage', alCambiarStorage)
-  }, [])
+  }, [userId])
+
+  useEffect(() => {
+    if (!progresoCargado) return
+    guardarProgresoAcademiaRemoto(userId, progreso)
+  }, [progreso, progresoCargado, userId])
 
   // Piloto: solo el Capítulo 1 tiene seguimiento de progreso real todavía
   // (ver src/data/academiaInmaculada.ts). Esto habilita únicamente al
@@ -186,7 +201,7 @@ export function Academia({ onNavigate }: { onNavigate: (p: Pantalla) => void }) 
 
   return (
     <div className="app-shell bg-background pb-28">
-      {academiaHabilitada === null && (
+      {(academiaHabilitada === null || (academiaHabilitada === true && !progresoCargado)) && (
         <div className="flex justify-center pt-32">
           <Spinner className="h-8 w-8 text-muted-foreground" />
         </div>
@@ -194,7 +209,7 @@ export function Academia({ onNavigate }: { onNavigate: (p: Pantalla) => void }) 
 
       {academiaHabilitada === false && <PantallaSinAcceso t={t} />}
 
-      {academiaHabilitada === true && (
+      {academiaHabilitada === true && progresoCargado && (
         <>
           {vista === 'home' && <PantallaHome t={t} onAbrirLibro={() => setVista('libro')} />}
 
