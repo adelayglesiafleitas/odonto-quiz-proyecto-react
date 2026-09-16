@@ -359,10 +359,7 @@ export function Estadisticas({
               <div className="h-full rounded-full bg-accent transition-all" style={{ width: `${porcentajeAcademia}%` }} />
             </div>
             {resumenAcademia.empezado && (
-              <div className="mt-2 flex items-center justify-between text-[11px] font-bold text-muted-foreground">
-                <span className="flex items-center gap-1 text-[hsl(var(--amber))]">
-                  ★ {t.estadisticas.academiaEstrellas(resumenAcademia.estrellas, resumenAcademia.estrellasMax)}
-                </span>
+              <div className="mt-2 flex items-center justify-end text-[11px] font-bold text-muted-foreground">
                 <span>{porcentajeAcademia}%</span>
               </div>
             )}

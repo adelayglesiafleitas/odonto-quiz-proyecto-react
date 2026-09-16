@@ -234,6 +234,8 @@ export interface Diccionario {
     libroDescripcion: string
     libroCapituloLabel: (n: number) => string
     libroProximamente: string
+    libroAbrirCapitulo: string
+    libroCerrarSheet: string
     proximoCapMensaje: string
     proximoCapVolverCap1: string
     rutaBloqueado: string
@@ -248,8 +250,11 @@ export interface Diccionario {
     continuarA: (etiqueta: string) => string
     pruebaNecesitas: string
     pruebaNoAprobadaTitulo: string
-    pruebaNoAprobadaTexto: (correctas: number, total: number) => string
+    pruebaNoAprobadaTexto: string
     pruebaReintentar: string
+    pruebaAprobadaTitulo: string
+    pruebaAprobadaTexto: (intentos: number) => string
+    pruebaYaCompletadaTexto: string
     capituloCompletadoTitulo: string
     capituloCompletadoTexto: string
     capituloCompletadoBoton: string
@@ -315,7 +320,6 @@ export interface Diccionario {
     academiaDispositivo: string
     academiaTemasCompletados: (completados: number, total: number) => string
     academiaSinEmpezar: string
-    academiaEstrellas: (obtenidas: number, total: number) => string
     academiaSeguir: string
     academiaEmpezar: string
     historialTitulo: string
@@ -603,6 +607,8 @@ export const es: Diccionario = {
     libroDescripcion: 'Manual de referencia para el manejo odontológico de pacientes con necesidades especiales. Por ahora solo el Capítulo 1 tiene contenido armado; el resto del índice real se va a ir sumando.',
     libroCapituloLabel: (n) => `Capítulo ${n}`,
     libroProximamente: 'Próximamente',
+    libroAbrirCapitulo: 'Abrir capítulo',
+    libroCerrarSheet: 'Cerrar',
     proximoCapMensaje: 'Estamos preparando este capítulo. Mientras tanto, podés repasar el Capítulo 1 o seguir practicando en el banco de preguntas.',
     proximoCapVolverCap1: 'Volver al Capítulo 1',
     rutaBloqueado: 'Completá el nodo anterior para desbloquear este.',
@@ -615,10 +621,13 @@ export const es: Diccionario = {
     pantallaCompleta: 'Pantalla completa',
     videoBloqueadoTexto: 'Mirá el video completo para continuar',
     continuarA: (etiqueta) => `Continuar a ${etiqueta}`,
-    pruebaNecesitas: 'Necesitás las 5 preguntas bien para continuar',
+    pruebaNecesitas: 'Respondé para continuar',
     pruebaNoAprobadaTitulo: 'Todavía no',
-    pruebaNoAprobadaTexto: (correctas, total) => `${correctas} de ${total} correctas. Repasá el video y volvé a intentar.`,
+    pruebaNoAprobadaTexto: 'Repasá el tema y volvé a intentar — te va a tocar otra pregunta.',
     pruebaReintentar: 'Reintentar',
+    pruebaAprobadaTitulo: '¡Bien!',
+    pruebaAprobadaTexto: (intentos) => `Respondiste en ${intentos} ${intentos === 1 ? 'intento' : 'intentos'}.`,
+    pruebaYaCompletadaTexto: 'Ya completaste esta prueba.',
     capituloCompletadoTitulo: '¡Capítulo completado!',
     capituloCompletadoTexto: 'Terminaste los 3 videos y sus pruebas del Capítulo 1.',
     capituloCompletadoBoton: 'Volver a la ruta',
@@ -682,7 +691,6 @@ export const es: Diccionario = {
     academiaDispositivo: 'Este dispositivo',
     academiaTemasCompletados: (completados, total) => `${completados} de ${total} temas completados`,
     academiaSinEmpezar: 'Todavía no empezaste',
-    academiaEstrellas: (obtenidas, total) => `${obtenidas}/${total} estrellas`,
     academiaSeguir: 'Seguir en Academia',
     academiaEmpezar: 'Empezar Academia',
     historialTitulo: 'Historial',
@@ -972,6 +980,8 @@ export const en: Diccionario = {
     libroDescripcion: "Reference manual for the dental management of patients with special needs. For now only Chapter 1 has content built — the rest of the real index will be added over time.",
     libroCapituloLabel: (n) => `Chapter ${n}`,
     libroProximamente: 'Coming soon',
+    libroAbrirCapitulo: 'Open chapter',
+    libroCerrarSheet: 'Close',
     proximoCapMensaje: "We're preparing this chapter. In the meantime, you can review Chapter 1 or keep practicing in the question bank.",
     proximoCapVolverCap1: 'Back to Chapter 1',
     rutaBloqueado: 'Finish the previous node to unlock this one.',
@@ -984,10 +994,13 @@ export const en: Diccionario = {
     pantallaCompleta: 'Fullscreen',
     videoBloqueadoTexto: 'Watch the full video to continue',
     continuarA: (etiqueta) => `Continue to ${etiqueta}`,
-    pruebaNecesitas: 'You need all 5 questions right to continue',
+    pruebaNecesitas: 'Answer to continue',
     pruebaNoAprobadaTitulo: 'Not yet',
-    pruebaNoAprobadaTexto: (correctas, total) => `${correctas} of ${total} correct. Review the video and try again.`,
+    pruebaNoAprobadaTexto: "Review the topic and try again — you'll get a different question.",
     pruebaReintentar: 'Try again',
+    pruebaAprobadaTitulo: 'Nice!',
+    pruebaAprobadaTexto: (intentos) => `You answered in ${intentos} attempt${intentos === 1 ? '' : 's'}.`,
+    pruebaYaCompletadaTexto: 'You already completed this quiz.',
     capituloCompletadoTitulo: 'Chapter completed!',
     capituloCompletadoTexto: 'You finished all 3 videos and their quizzes in Chapter 1.',
     capituloCompletadoBoton: 'Back to the path',
@@ -1051,7 +1064,6 @@ export const en: Diccionario = {
     academiaDispositivo: 'This device',
     academiaTemasCompletados: (completados, total) => `${completados} of ${total} topics completed`,
     academiaSinEmpezar: "Haven't started yet",
-    academiaEstrellas: (obtenidas, total) => `${obtenidas}/${total} stars`,
     academiaSeguir: 'Continue in Academia',
     academiaEmpezar: 'Start Academia',
     historialTitulo: 'History',

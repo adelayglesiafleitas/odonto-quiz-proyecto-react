@@ -16,18 +16,17 @@ export type EstadoNodo = 'bloqueado' | 'disponible' | 'completado'
 
 export interface ProgresoNodo {
   estado: EstadoNodo
-  estrellas?: number
 }
 
 export type ProgresoCap1 = Record<string, ProgresoNodo>
 
 export const CLAVE_PROGRESO_ACADEMIA = 'academia_progreso_inmaculada_cap1_v1'
-export const CLAVE_RESPUESTAS_ACADEMIA = 'academia_respuestas_inmaculada_cap1_v1'
-
-// Máximo de estrellas posibles por nodo con quiz (ver BloqueQuiz en
-// Academia.tsx): 3 por nodo. Solo los nodos tipo "prueba" tienen quiz —
-// "intro" y "video" no suman acá.
-const ESTRELLAS_MAX_POR_NODO = 3
+// Clave vieja de localStorage (rediseño 2026-09-16: cada prueba pasó a
+// mostrar 1 sola pregunta al azar en vez de un set fijo, así que dejó de
+// tener sentido persistir "qué opción se eligió" por pregunta). Se sigue
+// borrando acá para limpiar el localStorage de quien ya la tenía guardada
+// de una versión anterior — nada más la escribe ni la lee.
+const CLAVE_RESPUESTAS_ACADEMIA_VIEJA = 'academia_respuestas_inmaculada_cap1_v1'
 
 export function progresoInicialAcademia(): ProgresoCap1 {
   return {
@@ -51,16 +50,6 @@ export function cargarProgresoAcademia(): ProgresoCap1 {
   return progresoInicialAcademia()
 }
 
-export function cargarRespuestasAcademia(): Record<string, number> {
-  try {
-    const guardado = localStorage.getItem(CLAVE_RESPUESTAS_ACADEMIA)
-    if (guardado) return JSON.parse(guardado) as Record<string, number>
-  } catch {
-    // ignorar
-  }
-  return {}
-}
-
 export function guardarAcademia(clave: string, valor: unknown) {
   try {
     localStorage.setItem(clave, JSON.stringify(valor))
@@ -75,7 +64,7 @@ export function guardarAcademia(clave: string, valor: unknown) {
 export function borrarProgresoAcademiaLocal() {
   try {
     localStorage.removeItem(CLAVE_PROGRESO_ACADEMIA)
-    localStorage.removeItem(CLAVE_RESPUESTAS_ACADEMIA)
+    localStorage.removeItem(CLAVE_RESPUESTAS_ACADEMIA_VIEJA)
   } catch {
     // ignorar
   }
@@ -84,8 +73,6 @@ export function borrarProgresoAcademiaLocal() {
 export interface ResumenAcademia {
   temasCompletados: number
   temasTotal: number
-  estrellas: number
-  estrellasMax: number
   empezado: boolean
 }
 
@@ -94,15 +81,11 @@ export interface ResumenAcademia {
 // mostrar, en vez de que la pantalla tenga que conocer la forma de
 // ProgresoCap1 o los ids de los nodos.
 export function calcularResumenAcademia(progreso: ProgresoCap1): ResumenAcademia {
-  const nodosConQuiz = NODOS_CAP1.filter((n) => n.tipo === 'prueba')
   const temasCompletados = NODOS_CAP1.filter((n) => progreso[n.id]?.estado === 'completado').length
-  const estrellas = nodosConQuiz.reduce((total, n) => total + (progreso[n.id]?.estrellas ?? 0), 0)
 
   return {
     temasCompletados,
     temasTotal: NODOS_CAP1.length,
-    estrellas,
-    estrellasMax: nodosConQuiz.length * ESTRELLAS_MAX_POR_NODO,
     empezado: temasCompletados > 0,
   }
 }
