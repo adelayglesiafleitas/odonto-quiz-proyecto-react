@@ -241,6 +241,8 @@ export interface Diccionario {
     rutaBloqueado: string
     rutaEmpezar: string
     rutaCompletados: (completados: number, total: number) => string
+    /** Frase del globo de Muelín (mascota) junto al nodo "actual" de la Ruta. */
+    muelinFrase: string
     nodoResumen: string
     nodoAutoevaluacion: string
     nodoYaCompletado: string
@@ -614,6 +616,7 @@ export const es: Diccionario = {
     rutaBloqueado: 'Completá el nodo anterior para desbloquear este.',
     rutaEmpezar: 'Empezar',
     rutaCompletados: (completados, total) => `${completados} de ${total} completados`,
+    muelinFrase: '¡Vamos, ya casi terminás el capítulo!',
     nodoResumen: 'Resumen ejecutivo',
     nodoAutoevaluacion: 'Autoevaluación',
     nodoYaCompletado: 'Ya completado — volver',
@@ -987,6 +990,7 @@ export const en: Diccionario = {
     rutaBloqueado: 'Finish the previous node to unlock this one.',
     rutaEmpezar: 'Start',
     rutaCompletados: (completados, total) => `${completados} of ${total} completed`,
+    muelinFrase: "Come on, you're almost done with the chapter!",
     nodoResumen: 'Executive summary',
     nodoAutoevaluacion: 'Self-check',
     nodoYaCompletado: 'Already completed — go back',

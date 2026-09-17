@@ -14,6 +14,15 @@
  * siguiente paso — ver claude/academia-rediseno-capitulo1-videos.md en el
  * proyecto de Claude para el diseño completo.
  *
+ * REDISEÑO 2026-09-17 — prueba1/prueba2 pasan de nodos propios de la ruta a
+ * una ventana modal que se abre sola al terminar video1/video2 (evento
+ * `ended`): la ruta baja de 7 a 5 nodos (intro, video1, video2, video3,
+ * pruebaFinal). `PRUEBAS_CAP1.prueba1`/`.prueba2` NO cambiaron (mismos pools
+ * de 5 preguntas) — lo que cambia es cómo se consumen, ver `VideoAcademia.
+ * pruebaId` acá abajo y `ModalPruebaVideo` en Academia.tsx. video3 sigue
+ * igual que antes (botón "Continuar a Prueba final", sin modal) porque no
+ * tiene prueba intermedia asociada.
+ *
  * - Los 3 videos son reales (subidos por el usuario), servidos como
  *   archivos estáticos desde `public/academia/pacientes-especiales/cap-1/`.
  * - Las 15 preguntas de `PRUEBAS_CAP1` vienen tal cual del documento
@@ -214,11 +223,19 @@ export interface VideoAcademia {
   /** Ruta pública del archivo (carpeta /public). */
   src: string
   duracionSeg: number
+  /**
+   * Si está presente, al terminar el video (evento `ended`) se abre
+   * automáticamente una ventana modal con 1 pregunta al azar de
+   * `PRUEBAS_CAP1[pruebaId]` — ver `ModalPruebaVideo` en Academia.tsx. Sin
+   * este campo (caso de v3) el nodo se comporta como antes: botón
+   * "Continuar" normal, sin modal.
+   */
+  pruebaId?: PruebaId
 }
 
 export const VIDEOS_CAP1: VideoAcademia[] = [
-  { id: 'v1', temaId: 'pc', titulo: 'Parálisis Cerebral', src: '/academia/pacientes-especiales/cap-1/video1.mp4', duracionSeg: 255 },
-  { id: 'v2', temaId: 'epi', titulo: 'Epilepsia', src: '/academia/pacientes-especiales/cap-1/video2.mp4', duracionSeg: 259 },
+  { id: 'v1', temaId: 'pc', titulo: 'Parálisis Cerebral', src: '/academia/pacientes-especiales/cap-1/video1.mp4', duracionSeg: 255, pruebaId: 'prueba1' },
+  { id: 'v2', temaId: 'epi', titulo: 'Epilepsia', src: '/academia/pacientes-especiales/cap-1/video2.mp4', duracionSeg: 259, pruebaId: 'prueba2' },
   { id: 'v3', temaId: 'dm', titulo: 'Distrofias Musculares', src: '/academia/pacientes-especiales/cap-1/video3.mp4', duracionSeg: 206 },
 ]
 
@@ -386,13 +403,19 @@ export interface NodoRuta {
   esFinal?: boolean
 }
 
-/** Ruta del Capítulo 1: 7 nodos en orden fijo — Intro, 3× (Video + Prueba), Prueba final. */
+/**
+ * Ruta del Capítulo 1: 5 nodos en orden fijo — Intro, Video 1, Video 2,
+ * Video 3, Prueba final. prueba1/prueba2 dejaron de ser nodos propios
+ * (rediseño 2026-09-17): viven ahora como ventana modal dentro de video1/
+ * video2 — ver `VideoAcademia.pruebaId` arriba y `ModalPruebaVideo` en
+ * Academia.tsx. video1/video2 solo se marcan `completado` cuando el video
+ * se vio Y la pregunta del modal se acertó (ver `avanzarSinVolver` en
+ * Academia.tsx), no con solo terminar el video.
+ */
 export const NODOS_CAP1: NodoRuta[] = [
   { id: 'intro', tipo: 'intro', titulo: 'Introducción' },
   { id: 'video1', tipo: 'video', titulo: 'Parálisis Cerebral', temaId: 'pc', videoId: 'v1' },
-  { id: 'prueba1', tipo: 'prueba', titulo: 'Prueba 1', temaId: 'pc', pruebaId: 'prueba1' },
   { id: 'video2', tipo: 'video', titulo: 'Epilepsia', temaId: 'epi', videoId: 'v2' },
-  { id: 'prueba2', tipo: 'prueba', titulo: 'Prueba 2', temaId: 'epi', pruebaId: 'prueba2' },
   { id: 'video3', tipo: 'video', titulo: 'Distrofias Musculares', temaId: 'dm', videoId: 'v3' },
   { id: 'pruebaFinal', tipo: 'prueba', titulo: 'Prueba final', pruebaId: 'pruebaFinal', esFinal: true },
 ]

@@ -32,13 +32,18 @@ export const CLAVE_PROGRESO_ACADEMIA = 'academia_progreso_inmaculada_cap1_v1'
 // de una versión anterior — nada más la escribe ni la lee.
 const CLAVE_RESPUESTAS_ACADEMIA_VIEJA = 'academia_respuestas_inmaculada_cap1_v1'
 
+// Rediseño 2026-09-17: prueba1/prueba2 dejaron de ser nodos propios (ver
+// NODOS_CAP1 en academiaInmaculada.ts) — ahora son una ventana modal dentro
+// de video1/video2, así que ya no tienen su propia entrada de progreso acá.
+// Un `progreso` remoto viejo que todavía tenga esas claves no rompe nada:
+// simplemente quedan como llaves sueltas sin uso, ya que todo lo que lee
+// este objeto (calcularResumenAcademia, cap1Completo, etc.) solo mira los
+// ids presentes en NODOS_CAP1.
 export function progresoInicialAcademia(): ProgresoCap1 {
   return {
     intro: { estado: 'disponible' },
     video1: { estado: 'bloqueado' },
-    prueba1: { estado: 'bloqueado' },
     video2: { estado: 'bloqueado' },
-    prueba2: { estado: 'bloqueado' },
     video3: { estado: 'bloqueado' },
     pruebaFinal: { estado: 'bloqueado' },
   }

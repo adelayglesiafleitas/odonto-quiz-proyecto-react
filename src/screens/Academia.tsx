@@ -9,6 +9,7 @@ import {
   Lock,
   Maximize2,
   Play,
+  Smartphone,
   Sparkles,
   Trophy,
   X,
@@ -72,6 +73,19 @@ import {
  * diseñó en mockups anteriores queda pausada a pedido explícito — no se
  * implementa acá todavía.
  *
+ * REDISEÑO 2026-09-17 (chispa visual + flujo video/prueba en modal, ver
+ * claude/academia-diseno-visual-brainstorm.md): la Ruta y el Mapa de
+ * capítulos ganan color de acento propio por capítulo (derivado de los
+ * tokens --accent/--primary/--amber existentes, nunca un color fijo nuevo —
+ * ver .academia-accent-N en index.css), textura de fondo (ya existía en
+ * .academia-path-wrap), la mascota "Muelín" (ver componente `Muelin` más
+ * abajo) y una celebración puntual (confetti + "pop") sobre el nodo recién
+ * completado. Además, prueba1/prueba2 dejan de ser nodos propios de la ruta:
+ * ahora video1/video2 abren solos una ventana modal con 1 pregunta al
+ * terminar (ver `ModalPruebaVideo`), sin volver al mapa entre video y video
+ * — video3 sigue igual que antes (botón "Continuar a Prueba final", sin
+ * modal, esa prueba sigue siendo un nodo aparte).
+ *
  * El progreso se guarda en Supabase (tabla `academia_progreso`, por
  * user_id — ver academiaProgresoRemoto.ts), no en localStorage: así el
  * mismo usuario ve su progreso en cualquier dispositivo, y dos cuentas
@@ -108,6 +122,12 @@ export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (
   // null mientras se consulta el perfil — evita el parpadeo de mostrar el
   // cartel de "sin acceso" un instante antes de confirmar que sí lo tiene.
   const [academiaHabilitada, setAcademiaHabilitada] = useState<boolean | null>(null)
+  // Id del nodo que se acaba de completar (intro/video3/pruebaFinal, los que
+  // vuelven al mapa) — dispara el confetti/pop de celebración alrededor de
+  // ese nodo en PantallaRuta y se limpia solo a los pocos segundos. video1/
+  // video2 no pasan por acá: su celebración es el estado "¡Bien!" de Muelín
+  // adentro del modal (ver ModalPruebaVideo), no vuelven al mapa.
+  const [recienCompletadoId, setRecienCompletadoId] = useState<string | null>(null)
 
   // Academia no tiene rutas propias para libro/ruta/nodo (todo vive en el
   // estado `vista` de acá adentro) — así que si el usuario ya está adentro
@@ -164,6 +184,12 @@ export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (
     guardarProgresoAcademiaRemoto(userId, progreso)
   }, [progreso, progresoCargado, userId])
 
+  useEffect(() => {
+    if (!recienCompletadoId) return
+    const timer = setTimeout(() => setRecienCompletadoId(null), 2400)
+    return () => clearTimeout(timer)
+  }, [recienCompletadoId])
+
   // Piloto: solo el Capítulo 1 tiene seguimiento de progreso real todavía
   // (ver src/data/academiaInmaculada.ts). Esto habilita únicamente al
   // Capítulo 2 a mostrarse "desbloqueado por progreso" en PantallaLibro en
@@ -196,7 +222,29 @@ export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (
       }
       return next
     })
+    setRecienCompletadoId(id)
     volverARuta()
+  }
+
+  /**
+   * Variante de `completarNodo` para video1/video2 (rediseño 2026-09-17):
+   * marca `id` completado y desbloquea `siguienteId` igual que siempre, pero
+   * en vez de volver al mapa se queda en la vista "nodo" y salta directo al
+   * siguiente video — es lo que permite el flujo continuo video1→pregunta→
+   * video2→pregunta→video3 sin pasar por el mapa entre medio. El
+   * `key={nodoId}` de NodoVideo hace el resto: al cambiar `nodoActivoId`
+   * remonta el componente con el video nuevo, lo que también reinicia su
+   * animación de entrada (ver NodoVideo más abajo).
+   */
+  function avanzarSinVolver(id: string, siguienteId: string) {
+    setProgreso((prev) => {
+      const next: ProgresoCap1 = { ...prev, [id]: { estado: 'completado' } }
+      if (next[siguienteId]?.estado === 'bloqueado') {
+        next[siguienteId] = { ...next[siguienteId], estado: 'disponible' }
+      }
+      return next
+    })
+    setNodoActivoId(siguienteId)
   }
 
   return (
@@ -228,11 +276,24 @@ export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (
           )}
 
           {vista === 'ruta' && (
-            <PantallaRuta t={t} progreso={progreso} onVolver={() => setVista('libro')} onAbrirNodo={abrirNodo} />
+            <PantallaRuta
+              t={t}
+              progreso={progreso}
+              recienCompletadoId={recienCompletadoId}
+              onVolver={() => setVista('libro')}
+              onAbrirNodo={abrirNodo}
+            />
           )}
 
           {vista === 'nodo' && nodoActivoId && (
-            <PantallaNodo t={t} nodoId={nodoActivoId} progreso={progreso} onCompletar={completarNodo} onVolver={volverARuta} />
+            <PantallaNodo
+              t={t}
+              nodoId={nodoActivoId}
+              progreso={progreso}
+              onCompletar={completarNodo}
+              onAvanzarSinVolver={avanzarSinVolver}
+              onVolver={volverARuta}
+            />
           )}
         </>
       )}
@@ -443,7 +504,12 @@ function PantallaLibro({
           return (
             <div
               key={cap.numero}
-              className="absolute flex w-[118px] -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5"
+              // Cada capítulo tiene su propio color de acento (chispa visual
+              // 2026-09-17) — la clase solo define la variable --academia-accent
+              // que leen las reglas [data-status] de .academia-node-btn en
+              // index.css; un capítulo bloqueado la ignora y se ve gris
+              // neutro igual que antes hasta desbloquearse.
+              className={`academia-accent-${(cap.numero - 1) % 4} absolute flex w-[118px] -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5`}
               style={{ left: `${punto.x}%`, top: `${punto.y}px` }}
             >
               <button
@@ -571,8 +637,10 @@ function PantallaProximoCapitulo({
 /**
  * Geometría de la "ruta" del Capítulo 1 (rediseño aprobado por el usuario a
  * partir del concepto visual `ruta-concepto.html`, extendido en 2026-09-14
- * de 5 a 7 nodos para el formato video + prueba): un camino curvo conecta
- * los nodos en zigzag, en vez de la grilla suelta original.
+ * de 5 a 7 nodos para el formato video + prueba, y reducido en 2026-09-17 de
+ * vuelta a 5 al pasar prueba1/prueba2 a ventana modal dentro de video1/
+ * video2 — ver NODOS_CAP1 en academiaInmaculada.ts): un camino curvo
+ * conecta los nodos en zigzag, en vez de la grilla suelta original.
  *
  * x en % del ancho del contenedor (no px) para que funcione en cualquier
  * ancho de pantalla — el SVG usa viewBox="0 0 100 <alto>" con
@@ -587,11 +655,9 @@ const NODOS_POS_RUTA: { x: number; y: number }[] = [
   { x: 25, y: 236 },
   { x: 75, y: 386 },
   { x: 25, y: 536 },
-  { x: 75, y: 686 },
-  { x: 25, y: 836 },
-  { x: 50, y: 986 },
+  { x: 50, y: 686 },
 ]
-const RUTA_ALTO_PX = 1046
+const RUTA_ALTO_PX = 746
 
 function construirCurvaRuta(puntos: { x: number; y: number }[]): string {
   if (puntos.length === 0) return ''
@@ -617,16 +683,19 @@ function iconoNodo(nodo: NodoRuta, estado: EstadoNodo) {
 function PantallaRuta({
   t,
   progreso,
+  recienCompletadoId,
   onVolver,
   onAbrirNodo,
 }: {
   t: Diccionario
   progreso: ProgresoCap1
+  recienCompletadoId: string | null
   onVolver: () => void
   onAbrirNodo: (id: string) => void
 }) {
   const { estilo } = useAppSettings()
   const capitulo = CAPITULOS_INMACULADA[0]
+  const acentoCapitulo = `academia-accent-${(capitulo.numero - 1) % 4}`
   const puntos = NODOS_CAP1.map((_, i) => NODOS_POS_RUTA[i] ?? { x: 50, y: 86 + i * 150 })
   const completados = NODOS_CAP1.filter((n) => progreso[n.id]?.estado === 'completado').length
   const ultimoCompletadoIdx = NODOS_CAP1.reduce(
@@ -635,6 +704,10 @@ function PantallaRuta({
   )
   const dFondo = construirCurvaRuta(puntos)
   const dHecho = ultimoCompletadoIdx > 0 ? construirCurvaRuta(puntos.slice(0, ultimoCompletadoIdx + 1)) : ''
+  // Nodo "actual" (disponible, no completado) — junto a él se para Muelín
+  // con su globo de aliento, ver más abajo. -1 si el capítulo ya está
+  // completo del todo (no hay ningún nodo "actual" en ese caso).
+  const actualIdx = NODOS_CAP1.findIndex((n) => progreso[n.id]?.estado === 'disponible')
 
   return (
     <div className="pt-6">
@@ -653,16 +726,41 @@ function PantallaRuta({
         </div>
       </div>
 
-      <div className="mt-4 flex items-center gap-2.5 px-6">
-        <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-secondary">
+      {/* Banner de capítulo con color de acento propio (chispa visual
+          2026-09-17) — reemplaza la barra de progreso plana sobre
+          bg-background por una tarjeta de color, derivado del estilo/skin
+          activo vía --academia-accent (ver .academia-accent-N en
+          index.css), nunca un color fijo nuevo. */}
+      <div
+        className={`${acentoCapitulo} mx-6 mt-4 overflow-hidden rounded-3xl px-5 py-4`}
+        style={{ background: 'var(--academia-accent, hsl(var(--accent)))' }}
+      >
+        <p
+          className="text-[10.5px] font-extrabold uppercase tracking-wide"
+          style={{ color: 'var(--academia-accent-ink, hsl(var(--accent-foreground)))', opacity: 0.85 }}
+        >
+          {t.academia.libroCapituloLabel(capitulo.numero)}
+        </p>
+        <p className="mt-0.5 text-base font-extrabold" style={{ color: 'var(--academia-accent-ink, hsl(var(--accent-foreground)))' }}>
+          {capitulo.titulo}
+        </p>
+        <div className="mt-3 flex items-center gap-2.5">
           <div
-            className="h-full rounded-full bg-success transition-[width] duration-500"
-            style={{ width: `${(completados / NODOS_CAP1.length) * 100}%` }}
-          />
+            className="h-1.5 flex-1 overflow-hidden rounded-full"
+            style={{ background: 'color-mix(in srgb, var(--academia-accent-ink, white) 28%, transparent)' }}
+          >
+            <div
+              className="h-full rounded-full transition-[width] duration-500"
+              style={{ width: `${(completados / NODOS_CAP1.length) * 100}%`, background: 'var(--academia-accent-ink, white)' }}
+            />
+          </div>
+          <span
+            className="shrink-0 whitespace-nowrap text-[10.5px] font-bold"
+            style={{ color: 'var(--academia-accent-ink, hsl(var(--accent-foreground)))', opacity: 0.85 }}
+          >
+            {t.academia.rutaCompletados(completados, NODOS_CAP1.length)}
+          </span>
         </div>
-        <span className="shrink-0 whitespace-nowrap text-[10.5px] font-bold text-muted-foreground">
-          {t.academia.rutaCompletados(completados, NODOS_CAP1.length)}
-        </span>
       </div>
 
       <div className="academia-path-wrap relative mx-6 mt-2 overflow-hidden" style={{ height: RUTA_ALTO_PX }}>
@@ -704,12 +802,33 @@ function PantallaRuta({
           const esJefe = Boolean(nodo.esFinal)
           const bloqueado = prog.estado === 'bloqueado'
           const actual = prog.estado === 'disponible'
+          // Celebración puntual (confetti + "pop" del propio nodo) sobre el
+          // nodo que se acaba de completar — en el nodo jefe (cofre/trofeo
+          // de la prueba final) el mismo pop hace de animación de apertura.
+          const celebrando = recienCompletadoId === nodo.id
           return (
             <div
               key={nodo.id}
               className="absolute flex w-[118px] -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5"
               style={{ left: `${punto.x}%`, top: `${punto.y}px` }}
             >
+              {celebrando && (
+                <svg
+                  className="academia-confetti"
+                  width="120"
+                  height="120"
+                  viewBox="0 0 120 120"
+                  style={{ left: -1, top: -22 }}
+                  aria-hidden="true"
+                >
+                  <circle cx="14" cy="24" r="4" fill="hsl(var(--amber))" />
+                  <circle cx="104" cy="16" r="3" fill="hsl(var(--accent))" />
+                  <circle cx="10" cy="76" r="3" fill="hsl(var(--success))" />
+                  <circle cx="108" cy="82" r="4" fill="hsl(var(--amber))" />
+                  <rect x="50" y="4" width="6" height="6" rx="1.5" fill="hsl(var(--accent))" transform="rotate(18 53 7)" />
+                  <rect x="82" y="94" width="6" height="6" rx="1.5" fill="hsl(var(--success))" transform="rotate(-12 85 97)" />
+                </svg>
+              )}
               <button
                 onClick={() => onAbrirNodo(nodo.id)}
                 disabled={bloqueado}
@@ -718,7 +837,7 @@ function PantallaRuta({
                 data-status={actual ? 'actual' : prog.estado}
                 className={`academia-node-btn relative transition ${esJefe ? 'is-boss h-24 w-24' : 'h-[76px] w-[76px]'} ${
                   bloqueado ? '' : 'active:scale-95'
-                }`}
+                } ${celebrando ? 'academia-celebrando' : ''}`}
               >
                 {actual && <span className="academia-bubble">{t.academia.rutaEmpezar}</span>}
                 <span className="academia-face">{iconoNodo(nodo, prog.estado)}</span>
@@ -733,9 +852,59 @@ function PantallaRuta({
             </div>
           )
         })}
+
+        {/* Muelín, mascota junto al nodo "actual" — se para al costado con
+            menos aire libre según la x del nodo, para no salirse del
+            contenedor. Solo aliento textual (chispa visual 2026-09-17); no
+            interactúa ni bloquea nada. */}
+        {actualIdx >= 0 && (() => {
+          const p = puntos[actualIdx]
+          const haciaLaDerecha = p.x <= 50
+          return (
+            <div
+              className="absolute z-10 flex w-[172px] items-start gap-2"
+              style={{
+                top: p.y - 34,
+                // min(...) evita que el globo se salga del contenedor (y lo
+                // corte el overflow-hidden de .academia-path-wrap) cuando el
+                // nodo está cerca del centro/borde — sin esto, un nodo con
+                // x:50 empujaba el globo ~45px fuera del ancho disponible.
+                left: haciaLaDerecha ? `min(calc(${p.x}% + 44px), calc(100% - 172px))` : undefined,
+                right: haciaLaDerecha ? undefined : `min(calc(${100 - p.x}% + 44px), calc(100% - 172px))`,
+              }}
+            >
+              <Muelin expresion="neutral" className="h-12 w-12 shrink-0" />
+              <div className="academia-muelin-globo relative rounded-2xl border-2 border-foreground bg-card px-2.5 py-2 text-[11px] font-bold leading-snug text-foreground">
+                {t.academia.muelinFrase}
+              </div>
+            </div>
+          )
+        })()}
       </div>
     </div>
   )
+}
+
+// Assets reales de "Muelín" (recorte de referencia del usuario, 2026-09-17
+// — reemplaza al SVG dibujado a mano que había antes). Vive en public/ como
+// los videos/imágenes de academiaInmaculada.ts, así que se referencia por
+// ruta absoluta, no por import.
+const MUELIN_SRC: Record<'neutral' | 'feliz' | 'de-nuevo', string> = {
+  neutral: '/academia/muelin/neutral.png',
+  feliz: '/academia/muelin/feliz.png',
+  'de-nuevo': '/academia/muelin/de-nuevo.png',
+}
+
+/**
+ * Mascota "Muelín": ahora una imagen real (recorte de referencia que pasó
+ * el usuario, 2026-09-17) en vez del SVG placeholder de la primera versión.
+ * Al ser una imagen con colores propios, a diferencia del SVG anterior ya
+ * NO se acomoda sola a cada estilo/skin ni al modo oscuro — mismo PNG
+ * siempre. `className` sigue fijando el tamaño de la caja (ej. "h-12
+ * w-12"); la imagen entra en contain para no deformarse.
+ */
+function Muelin({ expresion, className }: { expresion: 'neutral' | 'feliz' | 'de-nuevo'; className?: string }) {
+  return <img src={MUELIN_SRC[expresion]} alt="" aria-hidden="true" className={`${className ?? ''} object-contain`} />
 }
 
 function NodoLayout({
@@ -932,24 +1101,102 @@ function NodoPrueba({
  * `key={nodoId}` en el `PantallaNodo` que renderiza este componente fuerza
  * que se remonte (y por lo tanto reinicie `terminado`) al cambiar de video.
  */
+// Aviso "girá tu celular" (diseño aprobado 2026-09-17, variante "ventana"):
+// se guarda por video, no por sesión, para que sea de verdad "la primera
+// vez que se abre ese video" y no reaparezca cada vez que se reabre la
+// app. Mismo patrón try/catch que el resto de localStorage en Academia.
+const CLAVE_GIRAR_CELULAR_VISTOS = 'academia_girar_celular_visto_v1'
+
+function yaVioAvisoGirarCelular(videoId: string): boolean {
+  try {
+    const guardado = localStorage.getItem(CLAVE_GIRAR_CELULAR_VISTOS)
+    const vistos: unknown = guardado ? JSON.parse(guardado) : []
+    return Array.isArray(vistos) && vistos.includes(videoId)
+  } catch {
+    // Sin localStorage (modo privado, etc.): no insistimos con el aviso.
+    return true
+  }
+}
+
+function marcarAvisoGirarCelularVisto(videoId: string) {
+  try {
+    const guardado = localStorage.getItem(CLAVE_GIRAR_CELULAR_VISTOS)
+    const vistos: unknown = guardado ? JSON.parse(guardado) : []
+    const lista = Array.isArray(vistos) ? (vistos as string[]) : []
+    if (!lista.includes(videoId)) localStorage.setItem(CLAVE_GIRAR_CELULAR_VISTOS, JSON.stringify([...lista, videoId]))
+  } catch {
+    // ignorar — el aviso simplemente puede volver a aparecer esta sesión.
+  }
+}
+
 function NodoVideo({
   t,
   video,
   tema,
   soloLectura,
   etiquetaSiguiente,
+  preguntasModal,
   onContinuar,
+  onAprobarModal,
+  onSalirModal,
 }: {
   t: Diccionario
   video: VideoAcademia
   tema: TemaAcademia
   soloLectura: boolean
   etiquetaSiguiente: string | null
+  /** Pool de preguntas para el modal que se abre solo al terminar el video (video1/video2). null = comportamiento de siempre (botón "Continuar", video3 y modo solo-lectura). */
+  preguntasModal: PreguntaAcademia[] | null
   onContinuar: () => void
+  /** Se llama cuando se acierta la pregunta del modal — avanza al siguiente video sin volver al mapa. */
+  onAprobarModal?: () => void
+  /** Se llama al cerrar el modal con la "X" sin haber acertado — vuelve al mapa. */
+  onSalirModal?: () => void
 }) {
   const [terminado, setTerminado] = useState(soloLectura)
+  const [modalAbierto, setModalAbierto] = useState(false)
+  const [avisoGirarVisible, setAvisoGirarVisible] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
   const puedeContinuar = soloLectura || terminado
+  const requierePrueba = Boolean(preguntasModal && preguntasModal.length > 0)
+
+  // Aviso "girá tu celular": solo mobile (heurística: puntero "coarse", o
+  // sea touch), solo mientras no se completó todavía este video, y solo la
+  // primera vez que se abre — ver helpers arriba. No corre en SSR/tests sin
+  // matchMedia por las dudas.
+  useEffect(() => {
+    if (soloLectura) return
+    if (typeof window === 'undefined' || !window.matchMedia) return
+    const esMobile = window.matchMedia('(pointer: coarse)').matches
+    if (esMobile && !yaVioAvisoGirarCelular(video.id)) setAvisoGirarVisible(true)
+  }, [video.id, soloLectura])
+
+  function cerrarAvisoGirar() {
+    setAvisoGirarVisible(false)
+    marcarAvisoGirarCelularVisto(video.id)
+  }
+
+  // Si ya está visible y el celular pasa a horizontal solo, se cierra
+  // solo — para eso está el aviso, no hace falta que el usuario lo cierre
+  // a mano si ya hizo caso.
+  useEffect(() => {
+    if (!avisoGirarVisible || typeof window === 'undefined' || !window.matchMedia) return
+    const mq = window.matchMedia('(orientation: landscape)')
+    const alCambiarOrientacion = () => {
+      if (mq.matches) cerrarAvisoGirar()
+    }
+    mq.addEventListener('change', alCambiarOrientacion)
+    return () => mq.removeEventListener('change', alCambiarOrientacion)
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- cerrarAvisoGirar depende de video.id, no de sí misma
+  }, [avisoGirarVisible, video.id])
+
+  function alTerminarVideo() {
+    setTerminado(true)
+    // video1/video2 (rediseño 2026-09-17): en vez de mostrar el botón
+    // "Continuar a Prueba N", se abre sola la ventana con 1 pregunta al
+    // azar — ver ModalPruebaVideo más abajo.
+    if (requierePrueba) setModalAbierto(true)
+  }
 
   function entrarPantallaCompleta() {
     const el = videoRef.current as (HTMLVideoElement & { webkitEnterFullscreen?: () => void }) | null
@@ -962,7 +1209,15 @@ function NodoVideo({
     <>
       <div className="relative overflow-hidden rounded-2xl bg-black">
         {/* eslint-disable-next-line jsx-a11y/media-has-caption -- son videos propios sin pista de subtítulos todavía */}
-        <video ref={videoRef} src={video.src} controls playsInline className="aspect-video w-full" onEnded={() => setTerminado(true)} />
+        <video
+          ref={videoRef}
+          src={video.src}
+          controls
+          playsInline
+          className="aspect-video w-full"
+          onEnded={alTerminarVideo}
+          onPlay={avisoGirarVisible ? cerrarAvisoGirar : undefined}
+        />
         <button
           type="button"
           onClick={entrarPantallaCompleta}
@@ -972,24 +1227,205 @@ function NodoVideo({
         >
           <Maximize2 className="h-4 w-4" />
         </button>
+
+        {/* Aviso "girá tu celular" (diseño: variante "ventana", aprobada
+            2026-09-17) — tocar en cualquier lado lo cierra, así "tocá play
+            para empezar igual" funciona de verdad: debajo queda el video
+            con sus controles nativos de siempre. */}
+        {avisoGirarVisible && (
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={cerrarAvisoGirar}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') cerrarAvisoGirar()
+            }}
+            className="academia-aviso-girar absolute inset-0 z-10 flex flex-col items-center justify-center gap-2 bg-black/70 px-5 text-center"
+          >
+            <Smartphone className="academia-aviso-girar-icono h-11 w-11 text-white" aria-hidden="true" />
+            <p className="text-[13.5px] font-extrabold leading-snug text-white">{t.academia.girarCelularTitulo}</p>
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation()
+                cerrarAvisoGirar()
+              }}
+              className="mt-0.5 rounded-full border border-white/50 bg-white/15 px-4 py-1.5 text-xs font-extrabold text-white"
+            >
+              {t.academia.girarCelularBoton}
+            </button>
+            <p className="text-[10px] font-semibold text-white/60">{t.academia.girarCelularAyuda}</p>
+          </div>
+        )}
       </div>
 
       <TarjetaContenido titulo={t.academia.nodoResumen}>
         <p className="text-sm leading-relaxed text-foreground/85">{tema.resumen}</p>
       </TarjetaContenido>
 
-      <BotonContinuar
-        disabled={!puedeContinuar}
-        texto={
-          soloLectura
-            ? t.academia.nodoYaCompletado
-            : puedeContinuar && etiquetaSiguiente
-              ? t.academia.continuarA(etiquetaSiguiente)
-              : t.academia.videoBloqueadoTexto
-        }
-        onClick={onContinuar}
-      />
+      {!requierePrueba && (
+        <BotonContinuar
+          disabled={!puedeContinuar}
+          texto={
+            soloLectura
+              ? t.academia.nodoYaCompletado
+              : puedeContinuar && etiquetaSiguiente
+                ? t.academia.continuarA(etiquetaSiguiente)
+                : t.academia.videoBloqueadoTexto
+          }
+          onClick={onContinuar}
+        />
+      )}
+
+      {requierePrueba && !terminado && (
+        <p className="px-1 pb-2 pt-1 text-center text-xs font-semibold text-muted-foreground">{t.academia.videoBloqueadoTexto}</p>
+      )}
+
+      {requierePrueba && preguntasModal && (
+        <ModalPruebaVideo
+          t={t}
+          abierto={modalAbierto}
+          preguntas={preguntasModal}
+          onAprobado={() => {
+            setModalAbierto(false)
+            onAprobarModal?.()
+          }}
+          onCerrar={() => {
+            setModalAbierto(false)
+            onSalirModal?.()
+          }}
+        />
+      )}
     </>
+  )
+}
+
+/**
+ * Ventana modal con 1 pregunta al azar de `preguntas` (mismo mecanismo que
+ * `NodoPrueba`: nunca repite la que se acaba de fallar) — reemplaza el nodo
+ * "Prueba 1"/"Prueba 2" de antes, abierta sola al terminar video1/video2
+ * (rediseño 2026-09-17, ver NodoVideo arriba). Mismo patrón visual de
+ * bottom-sheet que NuevaConsultaModal/ReportarPregunta.tsx. Muelín cambia de
+ * cara según el estado: neutral antes de responder, contenta si acierta,
+ * "de nuevo" si falla.
+ */
+function ModalPruebaVideo({
+  t,
+  abierto,
+  preguntas,
+  onAprobado,
+  onCerrar,
+}: {
+  t: Diccionario
+  abierto: boolean
+  preguntas: PreguntaAcademia[]
+  onAprobado: () => void
+  onCerrar: () => void
+}) {
+  const [qIndex, setQIndex] = useState(() => Math.floor(Math.random() * preguntas.length))
+  const [seleccion, setSeleccion] = useState<number | null>(null)
+  const [saliendo, setSaliendo] = useState(false)
+
+  if (!abierto) return null
+
+  const pregunta = preguntas[qIndex]
+  const respondido = seleccion !== null
+  const acertada = respondido && seleccion === pregunta.correcta
+  const expresionMuelin: 'neutral' | 'feliz' | 'de-nuevo' = !respondido ? 'neutral' : acertada ? 'feliz' : 'de-nuevo'
+
+  function elegir(oi: number) {
+    if (seleccion !== null) return
+    setSeleccion(oi)
+  }
+
+  function reintentar() {
+    let siguiente = Math.floor(Math.random() * preguntas.length)
+    if (preguntas.length > 1 && siguiente === qIndex) siguiente = (siguiente + 1) % preguntas.length
+    setQIndex(siguiente)
+    setSeleccion(null)
+  }
+
+  // Sale con transición (desliza hacia abajo + fade) antes de avisarle al
+  // padre — el siguiente video entra con la transición inversa gracias al
+  // remount por `key={nodoId}` en NodoVideo (mismas clases animate-in de
+  // siempre, no hace falta plumbing extra).
+  function confirmarAprobado() {
+    setSaliendo(true)
+    setTimeout(onAprobado, 260)
+  }
+
+  return (
+    <div
+      className={`safe-bottom fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-4 duration-200 sm:items-center ${
+        saliendo ? 'animate-out fade-out' : 'animate-in fade-in'
+      }`}
+    >
+      <div
+        role="dialog"
+        aria-modal="true"
+        className={`card-elevated w-full max-w-sm rounded-3xl bg-card p-6 duration-300 ${
+          saliendo ? 'animate-out fade-out slide-out-to-bottom-4' : 'animate-in fade-in slide-in-from-bottom-4'
+        }`}
+      >
+        <div className="flex items-start justify-between gap-3">
+          <h3 className="text-base font-bold text-foreground">{t.academia.nodoAutoevaluacion}</h3>
+          <button
+            onClick={onCerrar}
+            aria-label={t.academia.libroCerrarSheet}
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-secondary text-foreground"
+          >
+            <X className="h-3.5 w-3.5" />
+          </button>
+        </div>
+
+        <div className="mt-3 flex items-start gap-3">
+          <Muelin expresion={expresionMuelin} className="h-14 w-14 shrink-0" />
+          <p className="min-w-0 flex-1 pt-1 text-[13px] font-bold leading-snug text-foreground">{pregunta.pregunta}</p>
+        </div>
+
+        <div className="mt-3 space-y-1.5">
+          {pregunta.opciones.map((op, oi) => {
+            let estilo = 'bg-secondary text-foreground/80'
+            if (respondido) {
+              if (oi === pregunta.correcta) estilo = 'bg-success/12 text-success'
+              else if (oi === seleccion) estilo = 'bg-destructive/12 text-destructive'
+              else estilo = 'bg-secondary/50 text-muted-foreground'
+            }
+            return (
+              <button
+                key={oi}
+                disabled={respondido}
+                onClick={() => elegir(oi)}
+                className={`w-full rounded-xl px-3 py-2 text-left text-xs font-medium transition ${estilo}`}
+              >
+                {op}
+              </button>
+            )
+          })}
+        </div>
+
+        {respondido && <p className="mt-2 text-[11px] leading-snug text-muted-foreground">{pregunta.feedback}</p>}
+
+        {respondido && !acertada && (
+          <div className="mt-3 rounded-2xl bg-destructive/10 p-3 text-center">
+            <p className="text-sm font-bold text-destructive">{t.academia.pruebaNoAprobadaTitulo}</p>
+            <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{t.academia.pruebaNoAprobadaTexto}</p>
+            <Button onClick={reintentar} className="mt-3 h-10 rounded-xl px-5 font-bold">
+              {t.academia.pruebaReintentar}
+            </Button>
+          </div>
+        )}
+
+        {respondido && acertada && (
+          <div className="mt-3 rounded-2xl bg-success/10 p-3 text-center">
+            <p className="text-sm font-bold text-success">{t.academia.pruebaAprobadaTitulo}</p>
+            <Button onClick={confirmarAprobado} className="mt-3 h-10 w-full rounded-xl font-bold">
+              {t.academia.nodoContinuar}
+            </Button>
+          </div>
+        )}
+      </div>
+    </div>
   )
 }
 
@@ -998,12 +1434,14 @@ function PantallaNodo({
   nodoId,
   progreso,
   onCompletar,
+  onAvanzarSinVolver,
   onVolver,
 }: {
   t: Diccionario
   nodoId: string
   progreso: ProgresoCap1
   onCompletar: (nodoId: string) => void
+  onAvanzarSinVolver: (nodoId: string, siguienteId: string) => void
   onVolver: () => void
 }) {
   const nodo: NodoRuta | undefined = NODOS_CAP1.find((n) => n.id === nodoId)
@@ -1034,6 +1472,12 @@ function PantallaNodo({
     const video = VIDEOS_CAP1.find((v) => v.id === nodo.videoId)
     const tema = nodo.temaId ? TEMAS_CAP1[nodo.temaId] : undefined
     if (!video || !tema) return null
+    // Solo video1/video2 tienen `pruebaId` (ver VIDEOS_CAP1 en
+    // academiaInmaculada.ts) — eso es lo que decide si al terminar el video
+    // se abre el modal en vez del botón "Continuar" de siempre. En modo
+    // solo-lectura (revisitar un video ya completado) no se vuelve a exigir
+    // la prueba: se deja el botón simple de "Ya completado — volver".
+    const preguntasModal = !soloLectura && video.pruebaId ? PRUEBAS_CAP1[video.pruebaId] : null
     return (
       <NodoLayout titulo={tema.nombre} subtitulo={subtituloCap1} onVolver={onVolver}>
         <NodoVideo
@@ -1043,7 +1487,10 @@ function PantallaNodo({
           tema={tema}
           soloLectura={soloLectura}
           etiquetaSiguiente={siguienteNodo?.titulo ?? null}
+          preguntasModal={preguntasModal}
           onContinuar={() => (soloLectura ? onVolver() : onCompletar(nodoId))}
+          onAprobarModal={siguienteNodo ? () => onAvanzarSinVolver(nodoId, siguienteNodo.id) : undefined}
+          onSalirModal={onVolver}
         />
       </NodoLayout>
     )

@@ -595,11 +595,11 @@ button.card-elevated:focus-visible {
 }
 
 .academia-node-btn[data-status="actual"] .academia-face {
-  background: linear-gradient(165deg, hsl(var(--accent)) 0%, hsl(var(--primary)) 100%);
+  background: linear-gradient(165deg, var(--academia-accent, hsl(var(--accent))) 0%, hsl(var(--primary)) 100%);
   color: hsl(var(--accent-foreground));
   box-shadow:
     inset 0 -3px 5px hsl(0 0% 0% / 0.16),
-    0 0 0 6px hsl(var(--accent) / 0.14),
+    0 0 0 6px color-mix(in srgb, var(--academia-accent, hsl(var(--accent))) 14%, transparent),
     0 10px 20px -8px hsl(var(--primary) / 0.55);
 }
 .academia-node-btn[data-status="actual"] .academia-face::after {
@@ -607,7 +607,7 @@ button.card-elevated:focus-visible {
   position: absolute;
   inset: -8px;
   border-radius: inherit;
-  border: 2px solid hsl(var(--accent) / 0.5);
+  border: 2px solid color-mix(in srgb, var(--academia-accent, hsl(var(--accent))) 50%, transparent);
   animation: academia-pulse 2.2s ease-out infinite;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -620,11 +620,11 @@ button.card-elevated:focus-visible {
 }
 
 .academia-node-btn[data-status="completado"] .academia-face {
-  background: linear-gradient(165deg, hsl(var(--success)) 0%, color-mix(in srgb, hsl(var(--success)) 100%, black 18%) 100%);
+  background: linear-gradient(165deg, var(--academia-accent, hsl(var(--success))) 0%, color-mix(in srgb, var(--academia-accent, hsl(var(--success))) 100%, black 18%) 100%);
   color: hsl(var(--success-foreground));
   box-shadow:
     inset 0 -3px 5px hsl(0 0% 0% / 0.16),
-    0 8px 16px -8px color-mix(in srgb, hsl(var(--success)) 100%, black 30%);
+    0 8px 16px -8px color-mix(in srgb, var(--academia-accent, hsl(var(--success))) 100%, black 30%);
 }
 
 .academia-node-btn.is-boss[data-status="disponible"] .academia-face,
@@ -644,6 +644,7 @@ button.card-elevated:focus-visible {
   position: absolute;
   top: -38px;
   left: 50%;
+  z-index: 2;
   transform: translateX(-50%);
   background: hsl(var(--foreground));
   color: hsl(var(--background));
@@ -662,5 +663,98 @@ button.card-elevated:focus-visible {
   transform: translateX(-50%);
   border: 5px solid transparent;
   border-top-color: hsl(var(--foreground));
+}
+
+/* "Chispa visual" (rediseño 2026-09-17, ver claude/academia-diseno-visual-
+   brainstorm.md): cada capítulo del Mapa (y el banner de `PantallaRuta` de
+   un capítulo) recibe un acento de color propio en vez de que todo se vea
+   siempre del mismo verde/celeste. A propósito NO son colores nuevos: cada
+   variante mezcla los tokens semánticos que ya existen (--accent/--primary/
+   --amber) con color-mix(), así que cambia solo con el estilo/skin activo
+   (Acqua, Eléctrico, Rock Pop, etc.), nunca con un hex fijo. Se aplica
+   poniendo una de estas 4 clases en un ancestro (la cascada de variables CSS
+   hace el resto) — [data-status="bloqueado"] arriba a propósito no lee
+   --academia-accent, así que un capítulo bloqueado se ve siempre gris
+   neutro hasta desbloquearse, sin importar qué color le toque. */
+.academia-accent-0 {
+  --academia-accent: hsl(var(--accent));
+  --academia-accent-ink: hsl(var(--accent-foreground));
+}
+.academia-accent-1 {
+  --academia-accent: hsl(var(--primary));
+  --academia-accent-ink: hsl(var(--primary-foreground));
+}
+.academia-accent-2 {
+  --academia-accent: color-mix(in srgb, hsl(var(--accent)) 55%, hsl(var(--amber)) 45%);
+  --academia-accent-ink: hsl(var(--accent-foreground));
+}
+.academia-accent-3 {
+  --academia-accent: color-mix(in srgb, hsl(var(--primary)) 55%, hsl(var(--amber)) 45%);
+  --academia-accent-ink: hsl(var(--primary-foreground));
+}
+
+/* Celebración puntual sobre el nodo recién completado (confetti SVG + un
+   "pop" en el propio nodo) — ver `recienCompletadoId` en Academia.tsx. En el
+   nodo "cofre" (prueba final) el mismo pop de escala/rotación hace de
+   animación de apertura, sin necesitar un ilustración de cofre aparte. */
+@keyframes academia-confetti-pop {
+  0% { transform: scale(0.4) rotate(0deg); opacity: 0; }
+  35% { transform: scale(1.05) rotate(8deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 0; }
+}
+.academia-confetti {
+  position: absolute;
+  pointer-events: none;
+  animation: academia-confetti-pop 1.4s ease-out forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .academia-confetti { animation: none; opacity: 0; }
+}
+
+@keyframes academia-node-celebrar {
+  0% { transform: scale(1) rotate(0deg); }
+  30% { transform: scale(1.18) rotate(-6deg); }
+  55% { transform: scale(0.94) rotate(4deg); }
+  75% { transform: scale(1.08) rotate(-2deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+.academia-node-btn.academia-celebrando .academia-face {
+  animation: academia-node-celebrar 0.9s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .academia-node-btn.academia-celebrando .academia-face { animation: none; }
+}
+
+/* Globo de texto de Muelín (mascota junto al nodo "actual" en la Ruta) —
+   mismo patrón que .academia-bubble de arriba pero apuntando hacia el
+   costado (Muelín siempre queda a la izquierda del globo). */
+.academia-muelin-globo::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: -7px;
+  border: 6px solid transparent;
+  border-right-color: hsl(var(--foreground));
+}
+
+/* Aviso "girá tu celular" sobre el reproductor de video (rediseño
+   2026-09-17, variante "ventana" — ver NodoVideo en Academia.tsx). */
+@keyframes academia-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes academia-girar-icono {
+  0%, 18% { transform: rotate(0deg); }
+  55%, 100% { transform: rotate(-90deg); }
+}
+.academia-aviso-girar {
+  animation: academia-fade-in 0.25s ease-out;
+}
+.academia-aviso-girar-icono {
+  animation: academia-girar-icono 2.6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .academia-aviso-girar { animation: none; }
+  .academia-aviso-girar-icono { animation: none; }
 }
 
