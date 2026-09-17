@@ -243,6 +243,10 @@ export interface Diccionario {
     rutaCompletados: (completados: number, total: number) => string
     /** Frase del globo de Muelín (mascota) junto al nodo "actual" de la Ruta. */
     muelinFrase: string
+    /** Aviso "girá tu celular" que se muestra antes de reproducir un video en mobile. */
+    girarCelularTitulo: string
+    girarCelularBoton: string
+    girarCelularAyuda: string
     nodoResumen: string
     nodoAutoevaluacion: string
     nodoYaCompletado: string
@@ -617,6 +621,9 @@ export const es: Diccionario = {
     rutaEmpezar: 'Empezar',
     rutaCompletados: (completados, total) => `${completados} de ${total} completados`,
     muelinFrase: '¡Vamos, ya casi terminás el capítulo!',
+    girarCelularTitulo: 'Para ver mejor, girá tu celular',
+    girarCelularBoton: 'Entendido',
+    girarCelularAyuda: '(o tocá play para empezar igual)',
     nodoResumen: 'Resumen ejecutivo',
     nodoAutoevaluacion: 'Autoevaluación',
     nodoYaCompletado: 'Ya completado — volver',
@@ -991,6 +998,9 @@ export const en: Diccionario = {
     rutaEmpezar: 'Start',
     rutaCompletados: (completados, total) => `${completados} of ${total} completed`,
     muelinFrase: "Come on, you're almost done with the chapter!",
+    girarCelularTitulo: 'Rotate your phone for a better view',
+    girarCelularBoton: 'Got it',
+    girarCelularAyuda: '(or tap play to start anyway)',
     nodoResumen: 'Executive summary',
     nodoAutoevaluacion: 'Self-check',
     nodoYaCompletado: 'Already completed — go back',
