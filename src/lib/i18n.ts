@@ -261,6 +261,10 @@ export interface Diccionario {
     pruebaAprobadaTitulo: string
     pruebaAprobadaTexto: (intentos: number) => string
     pruebaYaCompletadaTexto: string
+    /** Pantalla de transición antes de la prueba final (tras el último video, sin volver a la lista) — ver NodoPrueba en Academia.tsx. */
+    pruebaFinalIntroTitulo: string
+    pruebaFinalIntroTexto: string
+    pruebaComenzar: string
     capituloCompletadoTitulo: string
     capituloCompletadoTexto: string
     capituloCompletadoBoton: string
@@ -638,6 +642,9 @@ export const es: Diccionario = {
     pruebaAprobadaTitulo: '¡Bien!',
     pruebaAprobadaTexto: (intentos) => `Respondiste en ${intentos} ${intentos === 1 ? 'intento' : 'intentos'}.`,
     pruebaYaCompletadaTexto: 'Ya completaste esta prueba.',
+    pruebaFinalIntroTitulo: '¡Muy bien! Ahora una prueba',
+    pruebaFinalIntroTexto: 'Para cerrar el capítulo, respondé esta prueba final.',
+    pruebaComenzar: 'Comenzar prueba',
     capituloCompletadoTitulo: '¡Capítulo completado!',
     capituloCompletadoTexto: 'Terminaste los 3 videos y sus pruebas del Capítulo 1.',
     capituloCompletadoBoton: 'Volver a la ruta',
@@ -1015,6 +1022,9 @@ export const en: Diccionario = {
     pruebaAprobadaTitulo: 'Nice!',
     pruebaAprobadaTexto: (intentos) => `You answered in ${intentos} attempt${intentos === 1 ? '' : 's'}.`,
     pruebaYaCompletadaTexto: 'You already completed this quiz.',
+    pruebaFinalIntroTitulo: 'Nice work! One more test',
+    pruebaFinalIntroTexto: 'To wrap up the chapter, answer this final test.',
+    pruebaComenzar: 'Start test',
     capituloCompletadoTitulo: 'Chapter completed!',
     capituloCompletadoTexto: 'You finished all 3 videos and their quizzes in Chapter 1.',
     capituloCompletadoBoton: 'Back to the path',

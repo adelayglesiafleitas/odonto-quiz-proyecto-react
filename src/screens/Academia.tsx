@@ -4,14 +4,13 @@ import {
   ArrowLeft,
   BookOpen,
   Check,
+  ChevronDown,
   ChevronRight,
-  ListChecks,
   Lock,
   Maximize2,
   Play,
   Smartphone,
   Sparkles,
-  Trophy,
   X,
 } from 'lucide-react'
 import { useAppSettings } from '@/context/AppSettings'
@@ -43,11 +42,49 @@ import {
 
 /**
  * Pestaña "Academia": biblioteca de estudio por libro/capítulo, separada del
- * banco de preguntas de Simulacro/Estudio. Navegación interna en 4 niveles
+ * banco de preguntas de Simulacro/Estudio. Navegación interna en 3 niveles
  * (sin rutas nuevas, mismo patrón que el filtro de capítulo de Estudio.tsx):
- * Home (lista de libros) → Libro (mapa con el índice real de 16 capítulos,
- * camino de nodos) → Ruta (mapa con los 7 nodos del Capítulo 1) → Nodo
- * (video o prueba).
+ * Home (lista de libros) → Libro (lista desplegable con el índice real de 16
+ * capítulos — el capítulo con contenido se abre in situ mostrando sus nodos)
+ * → Nodo (video o prueba).
+ *
+ * REDISEÑO 2026-09-18 (lista desplegable, reemplaza el mapa en zigzag —
+ * concepto aprobado en el canvas "Academia — copia fiel del diseño + flujo
+ * de Parálisis Cerebral"): `PantallaLibro` fusiona los antiguos Nivel 1
+ * (mapa de 16 capítulos) y Nivel 2 (ruta de 5 nodos del Capítulo 1) en una
+ * sola lista: cada capítulo listo (`cap.listo`) se expande/colapsa in situ
+ * mostrando sus `NODOS_CAP1` como filas con check/candado, en vez de navegar
+ * a una pantalla de "Ruta" aparte — `PantallaRuta` (el camino curvo con
+ * SVG) se elimina, junto con `construirCurvaRuta`/`NODOS_POS_RUTA`/
+ * `CAPITULOS_POS_MAPA`/`MAPA_*`, todos sin otro uso. Los capítulos sin
+ * contenido (`!cap.listo`) siguen exactamente igual que antes: fila simple,
+ * toca abrir la hoja de confirmación → `PantallaProximoCapitulo`. Nivel 3
+ * (`PantallaNodo`/`NodoVideo`/`ModalPruebaVideo`/`NodoPrueba`) NO cambia —
+ * ya hace el mecanismo real (video → pregunta de corte → video → … → prueba
+ * final), solo cambia cómo se llega a él. Se dejó afuera el panel lateral
+ * fijo del mockup de referencia (dos columnas): la app entera vive siempre
+ * en la columna centrada de ancho fijo del `app-shell` (ver
+ * claude/desktop-layout-opcion-a-implementada.md), así que esta lista ya
+ * funciona igual en mobile/tablet/PC sin layout aparte — no hace falta un
+ * segundo panel para eso.
+ *
+ * CORRECCIÓN 2026-09-18 (mismo día, sobre lo de arriba) — el capítulo 1
+ * expandido ya NO lista los 5 `NODOS_CAP1` sueltos: el usuario aclaró que
+ * video1/video2/video3 son las 3 partes de UN solo tema (Parálisis
+ * Cerebral, ver corrección en academiaInmaculada.ts), no un video por tema.
+ * Ahora la fila de "Parálisis Cerebral" es la única con contenido real
+ * (toca resumir/continuar los 5 nodos de siempre puertas adentro, sin
+ * cambios en `PantallaNodo`), y Epilepsia/Distrofia Muscular se muestran
+ * como filas con candado + "Próximamente" — `iconoTemaChico` se elimina
+ * (ya no hace falta un ícono por nodo en esta lista). También se corrige
+ * `NodoVideo`: si el video termina en pantalla completa, se sale de
+ * pantalla completa antes de abrir `ModalPruebaVideo` — la API de
+ * Fullscreen nativa pinta el elemento fullscreen por encima de cualquier
+ * otro nodo del DOM (aunque tenga z-index alto), así que sin este fix la
+ * pregunta quedaba tapada detrás del video congelado en su último cuadro
+ * si el usuario lo había puesto en pantalla completa (típico al girar el
+ * celular a horizontal para ver mejor) — pedido explícito del usuario:
+ * "si rotás el celular, la pregunta tiene que salir siempre delante".
  *
  * Rediseño 2026-09-16 (aprobado sobre el mockup del canvas de diseño
  * "Academia — Mapa de capítulos"): `PantallaLibro` pasa de lista plana a
@@ -101,7 +138,7 @@ import {
  * `PantallaSinAcceso`.
  */
 
-type VistaAcademia = 'home' | 'libro' | 'ruta' | 'nodo' | 'proximo'
+type VistaAcademia = 'home' | 'libro' | 'nodo' | 'proximo'
 
 // ProgresoCap1/EstadoNodo y las funciones de carga/guardado de localStorage
 // se movieron a src/lib/academiaProgresoLocal.ts (importadas arriba, con
@@ -123,10 +160,10 @@ export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (
   // cartel de "sin acceso" un instante antes de confirmar que sí lo tiene.
   const [academiaHabilitada, setAcademiaHabilitada] = useState<boolean | null>(null)
   // Id del nodo que se acaba de completar (intro/video3/pruebaFinal, los que
-  // vuelven al mapa) — dispara el confetti/pop de celebración alrededor de
-  // ese nodo en PantallaRuta y se limpia solo a los pocos segundos. video1/
-  // video2 no pasan por acá: su celebración es el estado "¡Bien!" de Muelín
-  // adentro del modal (ver ModalPruebaVideo), no vuelven al mapa.
+  // vuelven a la lista) — resalta brevemente esa fila dentro del capítulo
+  // desplegado en PantallaLibro y se limpia solo a los pocos segundos.
+  // video1/video2 no pasan por acá: su celebración es el estado "¡Bien!" de
+  // Muelín adentro del modal (ver ModalPruebaVideo), no vuelven a la lista.
   const [recienCompletadoId, setRecienCompletadoId] = useState<string | null>(null)
 
   // Academia no tiene rutas propias para libro/ruta/nodo (todo vive en el
@@ -208,8 +245,8 @@ export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (
     setVista('nodo')
   }
 
-  function volverARuta() {
-    setVista('ruta')
+  function volverALibro() {
+    setVista('libro')
     setNodoActivoId(null)
   }
 
@@ -223,7 +260,7 @@ export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (
       return next
     })
     setRecienCompletadoId(id)
-    volverARuta()
+    volverALibro()
   }
 
   /**
@@ -265,24 +302,16 @@ export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (
             <PantallaLibro
               t={t}
               cap1Completo={cap1Completo}
+              progreso={progreso}
+              recienCompletadoId={recienCompletadoId}
               onVolver={() => setVista('home')}
-              onAbrirCapitulo={() => setVista('ruta')}
+              onAbrirNodo={abrirNodo}
               onAbrirProximo={() => setVista('proximo')}
             />
           )}
 
           {vista === 'proximo' && (
-            <PantallaProximoCapitulo t={t} onVolver={() => setVista('libro')} onIrACap1={() => setVista('ruta')} />
-          )}
-
-          {vista === 'ruta' && (
-            <PantallaRuta
-              t={t}
-              progreso={progreso}
-              recienCompletadoId={recienCompletadoId}
-              onVolver={() => setVista('libro')}
-              onAbrirNodo={abrirNodo}
-            />
+            <PantallaProximoCapitulo t={t} onVolver={() => setVista('libro')} onIrACap1={() => setVista('libro')} />
           )}
 
           {vista === 'nodo' && nodoActivoId && (
@@ -292,7 +321,7 @@ export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (
               progreso={progreso}
               onCompletar={completarNodo}
               onAvanzarSinVolver={avanzarSinVolver}
-              onVolver={volverARuta}
+              onVolver={volverALibro}
             />
           )}
         </>
@@ -399,56 +428,43 @@ function estadoCapitulo(cap: CapituloLibro, cap1Completo: boolean): EstadoCapitu
   return 'bloqueado'
 }
 
-/**
- * Geometría del mapa de los 16 capítulos del libro — mismo patrón de
- * camino en zigzag que `NODOS_POS_RUTA`/`construirCurvaRuta` más abajo
- * (rediseño 2026-09-16, aprobado sobre el mockup `Main.dc.html`). A
- * diferencia de la ruta interna de un capítulo, acá TODOS los nodos quedan
- * siempre visibles (los bloqueados se atenúan con candado, nunca se
- * ocultan) para que se vea el índice completo del libro desde el principio.
- *
- * `MAPA_Y_START` quedó en 100 (no 68) para darle lugar arriba a la burbuja
- * "Empezar" del primer nodo: esa burbuja es `position: absolute; top: -38px`
- * respecto del botón (`.academia-bubble` en index.css) y el nodo entero se
- * centra verticalmente con `-translate-y-1/2` sobre su fila completa
- * (botón + etiqueta) — con 68 quedaba recortada por el `overflow-hidden`
- * del contenedor `.academia-path-wrap`.
- */
-const MAPA_Y_START = 100
-const MAPA_Y_STEP = 128
-const CAPITULOS_POS_MAPA: { x: number; y: number }[] = (() => {
-  const xPattern = [50, 25, 75, 25, 75, 25, 75, 25, 75, 25, 75, 25, 75, 25, 75, 50]
-  return CAPITULOS_INMACULADA.map((_, i) => ({ x: xPattern[i] ?? 50, y: MAPA_Y_START + i * MAPA_Y_STEP }))
-})()
-const MAPA_ALTO_PX = MAPA_Y_START + (CAPITULOS_INMACULADA.length - 1) * MAPA_Y_STEP + 90
-
 function PantallaLibro({
   t,
   cap1Completo,
+  progreso,
+  recienCompletadoId,
   onVolver,
-  onAbrirCapitulo,
+  onAbrirNodo,
   onAbrirProximo,
 }: {
   t: Diccionario
   cap1Completo: boolean
+  progreso: ProgresoCap1
+  recienCompletadoId: string | null
   onVolver: () => void
-  onAbrirCapitulo: () => void
+  onAbrirNodo: (id: string) => void
   onAbrirProximo: () => void
 }) {
   const [capSeleccionado, setCapSeleccionado] = useState<CapituloLibro | null>(null)
+  // El Capítulo 1 arranca desplegado (es el único con contenido real hoy),
+  // igual que en el diseño de referencia. Un solo capítulo desplegado a la
+  // vez — tocar el chevron de otro listo cerraría este, aunque hoy solo hay
+  // uno (`cap.listo`).
+  const [expandidoNumero, setExpandidoNumero] = useState<number | null>(1)
   const completados = CAPITULOS_INMACULADA.filter((cap) => estadoCapitulo(cap, cap1Completo) === 'completado').length
-  const ultimoCompletadoIdx = CAPITULOS_INMACULADA.reduce(
-    (acc, cap, i) => (estadoCapitulo(cap, cap1Completo) === 'completado' ? i : acc),
-    -1,
-  )
-  const dFondo = construirCurvaRuta(CAPITULOS_POS_MAPA)
-  const dHecho = ultimoCompletadoIdx > 0 ? construirCurvaRuta(CAPITULOS_POS_MAPA.slice(0, ultimoCompletadoIdx + 1)) : ''
+  const completadosCap1 = NODOS_CAP1.filter((n) => progreso[n.id]?.estado === 'completado').length
+  const siguienteNodoCap1 = NODOS_CAP1.find((n) => progreso[n.id]?.estado === 'disponible')
+  // A dónde navega la fila "Parálisis Cerebral": retoma en el próximo nodo
+  // sin completar, o vuelve a 'intro' si ya se completaron los 5 (repaso).
+  const nodoDestinoCap1 = siguienteNodoCap1 ?? NODOS_CAP1[0]
+  // Resalta la fila "Parálisis Cerebral" (no un nodo suelto — ya no se
+  // listan por separado) apenas se vuelve a la lista tras completar
+  // cualquiera de sus 5 nodos internos.
+  const pcRecienCompletado = recienCompletadoId !== null && NODOS_CAP1.some((n) => n.id === recienCompletadoId)
 
   function confirmarApertura() {
-    if (!capSeleccionado) return
-    const handler = capSeleccionado.listo ? onAbrirCapitulo : onAbrirProximo
     setCapSeleccionado(null)
-    handler()
+    onAbrirProximo()
   }
 
   return (
@@ -482,65 +498,177 @@ function PantallaLibro({
         </span>
       </div>
 
-      <div className="academia-path-wrap relative mx-6 mt-4 overflow-hidden" style={{ height: MAPA_ALTO_PX }}>
-        <svg
-          className="absolute inset-0"
-          width="100%"
-          height={MAPA_ALTO_PX}
-          viewBox={`0 0 100 ${MAPA_ALTO_PX}`}
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <path d={dFondo} fill="none" stroke="hsl(var(--border))" strokeWidth={5} strokeDasharray="1 15" strokeLinecap="round" />
-          {dHecho && <path d={dHecho} fill="none" stroke="hsl(var(--success))" strokeWidth={5.5} strokeLinecap="round" />}
-        </svg>
+      {/* Lista desplegable (rediseño 2026-09-18, reemplaza el mapa en
+          zigzag): una línea vertical fina conecta los círculos numerados,
+          igual función que el camino curvo de antes pero sin SVG — cada
+          capítulo es una fila; el que tiene contenido (`cap.listo`) se
+          expande in situ mostrando sus nodos reales en vez de navegar a otra
+          pantalla. */}
+      <div className="relative mx-6 mt-5">
+        <div className="absolute bottom-6 left-[21px] top-6 w-px bg-border" aria-hidden="true" />
 
-        {CAPITULOS_INMACULADA.map((cap, i) => {
-          const estado = estadoCapitulo(cap, cap1Completo)
-          const punto = CAPITULOS_POS_MAPA[i]
-          const bloqueado = estado === 'bloqueado'
-          const actual = estado === 'disponible'
-          const completado = estado === 'completado'
-          return (
-            <div
-              key={cap.numero}
-              // Cada capítulo tiene su propio color de acento (chispa visual
-              // 2026-09-17) — la clase solo define la variable --academia-accent
-              // que leen las reglas [data-status] de .academia-node-btn en
-              // index.css; un capítulo bloqueado la ignora y se ve gris
-              // neutro igual que antes hasta desbloquearse.
-              className={`academia-accent-${(cap.numero - 1) % 4} absolute flex w-[118px] -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5`}
-              style={{ left: `${punto.x}%`, top: `${punto.y}px` }}
-            >
+        <div className="relative flex flex-col gap-2.5">
+          {CAPITULOS_INMACULADA.map((cap) => {
+            const estado = estadoCapitulo(cap, cap1Completo)
+            const bloqueado = estado === 'bloqueado'
+            const completado = estado === 'completado'
+            // Corrección 2026-09-19 (copia exacta del mockup de referencia):
+            // binario fijo, no la rotación de 4 acentos de index.css (esa es
+            // para el mapa en zigzag viejo) — teal para el único capítulo con
+            // contenido real, violeta para el resto, sin importar si está
+            // bloqueado o "disponible" sin contenido (cap.2 tras completar
+            // el 1). Colores puntuales del mockup, no del skin activo — ver
+            // .academia-color-activo/.academia-color-bloqueado en index.css.
+            const acento = cap.listo ? 'academia-color-activo' : 'academia-color-bloqueado'
+            const expandido = expandidoNumero === cap.numero
+            const pctCap1 = NODOS_CAP1.length > 0 ? (completadosCap1 / NODOS_CAP1.length) * 100 : 0
+
+            const circulo = (
+              <span
+                className="relative z-[1] flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[15px] font-extrabold"
+                style={{ background: 'var(--academia-accent, hsl(var(--accent)))', color: 'var(--academia-accent-ink, hsl(var(--accent-foreground)))' }}
+              >
+                {bloqueado ? (
+                  <Lock className="h-[18px] w-[18px]" />
+                ) : completado ? (
+                  <Check className="h-5 w-5" strokeWidth={2.5} />
+                ) : (
+                  cap.numero
+                )}
+              </span>
+            )
+
+            if (cap.listo) {
+              return (
+                // Corrección 2026-09-19 (copia exacta del mockup de
+                // referencia, comparado lado a lado con la app real): dos
+                // ajustes — 1) el círculo numerado va POR ENCIMA de la
+                // tarjeta, superpuesto a su borde izquierdo (como en el
+                // timeline), no metido adentro del padding — por eso sale de
+                // este `relative` envoltorio con position absolute, y la
+                // tarjeta gana `pl-14` para dejarle el hueco; antes el
+                // círculo quedaba empujado por el padding de la tarjeta y no
+                // alineaba con la línea vertical del timeline. 2) la tarjeta
+                // pasa de "borde brillante + fondo plano" a "fondo con un
+                // toque de color + borde casi invisible" (el mockup no tiene
+                // un contorno marcado, es el fondo el que se ve teñido).
+                <div key={cap.numero} className="relative">
+                  <span
+                    className={`${acento} absolute left-0 top-3.5 z-10 flex h-11 w-11 items-center justify-center rounded-full text-[15px] font-extrabold`}
+                    style={{ background: 'var(--academia-accent, hsl(var(--accent)))', color: 'var(--academia-accent-ink, hsl(var(--accent-foreground)))' }}
+                  >
+                    {completado ? <Check className="h-5 w-5" strokeWidth={2.5} /> : cap.numero}
+                  </span>
+                  <div
+                    className={`${acento} rounded-[22px] border p-3.5 pl-14`}
+                    style={{
+                      borderColor: 'color-mix(in srgb, var(--academia-accent, hsl(var(--accent))) 14%, transparent)',
+                      background: 'color-mix(in srgb, hsl(var(--card)) 85%, var(--academia-accent, hsl(var(--accent))) 15%)',
+                    }}
+                  >
+                    <button
+                      onClick={() => setExpandidoNumero(expandido ? null : cap.numero)}
+                      aria-expanded={expandido}
+                      className="flex w-full items-center gap-4 text-left"
+                    >
+                      <span className="min-w-0 flex-1">
+                        <span className="block truncate text-[15px] font-extrabold text-foreground">{cap.titulo}</span>
+                        {cap.subtitulo && <span className="mt-0.5 block truncate text-xs text-muted-foreground">{cap.subtitulo}</span>}
+                      </span>
+                      <span
+                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full"
+                        style={{ background: `conic-gradient(var(--academia-accent, hsl(var(--accent))) ${pctCap1 * 3.6}deg, hsl(var(--secondary)) 0deg)` }}
+                      >
+                        <span
+                          className="flex h-[34px] w-[34px] items-center justify-center rounded-full bg-card text-[11px] font-extrabold"
+                          style={{ color: 'var(--academia-accent, hsl(var(--accent)))' }}
+                        >
+                          {Math.round(pctCap1)}%
+                        </span>
+                      </span>
+                      <ChevronDown className={`h-4 w-4 shrink-0 text-muted-foreground transition-transform ${expandido ? '' : '-rotate-90'}`} />
+                    </button>
+
+                    {expandido && (
+                    <div className="mt-2.5 flex flex-col gap-0.5 border-t border-border/60 pt-2.5">
+                      {/* "Parálisis Cerebral" es el único tema con contenido
+                          real del capítulo: sus 5 nodos (intro, 3 videos,
+                          prueba final) no se listan sueltos acá — tocar la
+                          fila retoma o repasa esa ruta completa puertas
+                          adentro (PantallaNodo, sin cambios). */}
+                      <button
+                        onClick={() => onAbrirNodo(nodoDestinoCap1.id)}
+                        className={`flex items-center gap-3 rounded-xl px-2 py-2.5 text-left transition-colors duration-700 ${
+                          pcRecienCompletado ? 'bg-success/10' : ''
+                        }`}
+                      >
+                        <span
+                          className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${
+                            cap1Completo ? 'bg-success text-success-foreground' : 'border-2 text-foreground'
+                          }`}
+                          style={
+                            !cap1Completo
+                              ? { borderColor: 'var(--academia-accent, hsl(var(--accent)))', color: 'var(--academia-accent, hsl(var(--accent)))' }
+                              : undefined
+                          }
+                        >
+                          {cap1Completo ? (
+                            <Check className="h-4 w-4" strokeWidth={2.5} />
+                          ) : (
+                            <Play className="h-[13px] w-[13px]" fill="currentColor" />
+                          )}
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span className="block truncate text-[13.5px] font-semibold text-foreground">{TEMAS_CAP1.pc.nombre}</span>
+                          <span className="block text-[11px] font-medium text-muted-foreground">
+                            {cap1Completo ? t.academia.nodoYaCompletado : `${completadosCap1}/${NODOS_CAP1.length}`}
+                          </span>
+                        </span>
+                        <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground/70" />
+                      </button>
+
+                      {/* Epilepsia y Distrofia Muscular: sin video propio
+                          todavía (ver corrección 2026-09-18 en
+                          academiaInmaculada.ts) — filas informativas, no
+                          clicables. */}
+                      {(['epi', 'dm'] as const).map((temaId) => (
+                        <div key={temaId} className="flex items-center gap-3 rounded-xl px-2 py-2.5 opacity-60">
+                          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-secondary text-muted-foreground/70">
+                            <Lock className="h-[13px] w-[13px]" />
+                          </span>
+                          <span className="min-w-0 flex-1">
+                            <span className="block truncate text-[13.5px] font-semibold text-muted-foreground/70">{TEMAS_CAP1[temaId].nombre}</span>
+                            <span className="block text-[11px] font-medium text-muted-foreground/60">{t.academia.libroProximamente}</span>
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                    )}
+                  </div>
+                </div>
+              )
+            }
+
+            return (
               <button
+                key={cap.numero}
                 onClick={() => setCapSeleccionado(cap)}
                 disabled={bloqueado}
                 aria-label={cap.titulo}
                 title={bloqueado ? t.academia.rutaBloqueado : cap.titulo}
-                data-status={actual ? 'actual' : estado}
-                className={`academia-node-btn relative h-[68px] w-[68px] transition ${bloqueado ? '' : 'active:scale-95'}`}
+                className={`${acento} flex items-center gap-4 rounded-2xl px-2.5 py-2.5 text-left`}
               >
-                {actual && <span className="academia-bubble">{t.academia.rutaEmpezar}</span>}
-                <span className="academia-face">
-                  {completado ? (
-                    <Check className="h-7 w-7" strokeWidth={2.5} />
-                  ) : bloqueado ? (
-                    <Lock className="h-6 w-6" />
-                  ) : (
-                    <span className="text-xl font-extrabold">{cap.numero}</span>
-                  )}
+                {circulo}
+                <span className="min-w-0 flex-1">
+                  <span className={`block truncate text-[14.5px] font-bold ${bloqueado ? 'text-muted-foreground/70' : 'text-foreground'}`}>{cap.titulo}</span>
+                  {cap.subtitulo && <span className="mt-0.5 block truncate text-xs text-muted-foreground/80">{cap.subtitulo}</span>}
                 </span>
+                <span className="shrink-0 text-xs font-bold text-muted-foreground/70">0%</span>
+                <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground/70" />
               </button>
-              <span
-                className={`max-w-[112px] text-center text-[11px] font-extrabold leading-tight ${
-                  bloqueado ? 'text-muted-foreground/70' : 'text-foreground'
-                }`}
-              >
-                {cap.titulo}
-              </span>
-            </div>
-          )
-        })}
+            )
+          })}
+        </div>
       </div>
 
       {capSeleccionado && (
@@ -629,257 +757,6 @@ function PantallaProximoCapitulo({
         <Button onClick={onIrACap1} className="mt-5 h-11 rounded-2xl px-6 font-bold">
           {t.academia.proximoCapVolverCap1}
         </Button>
-      </div>
-    </div>
-  )
-}
-
-/**
- * Geometría de la "ruta" del Capítulo 1 (rediseño aprobado por el usuario a
- * partir del concepto visual `ruta-concepto.html`, extendido en 2026-09-14
- * de 5 a 7 nodos para el formato video + prueba, y reducido en 2026-09-17 de
- * vuelta a 5 al pasar prueba1/prueba2 a ventana modal dentro de video1/
- * video2 — ver NODOS_CAP1 en academiaInmaculada.ts): un camino curvo
- * conecta los nodos en zigzag, en vez de la grilla suelta original.
- *
- * x en % del ancho del contenedor (no px) para que funcione en cualquier
- * ancho de pantalla — el SVG usa viewBox="0 0 100 <alto>" con
- * preserveAspectRatio="none" y width:100%, así 1 unidad de x = 1% del ancho
- * real, igual que el x% de los nodos posicionados en HTML. y sí está en px
- * (altura del contenedor es fija), así 1 unidad de y = 1px real tanto en el
- * SVG como en los nodos — ambos quedan sincronizados sin importar el ancho
- * del dispositivo.
- */
-const NODOS_POS_RUTA: { x: number; y: number }[] = [
-  { x: 50, y: 86 },
-  { x: 25, y: 236 },
-  { x: 75, y: 386 },
-  { x: 25, y: 536 },
-  { x: 50, y: 686 },
-]
-const RUTA_ALTO_PX = 746
-
-function construirCurvaRuta(puntos: { x: number; y: number }[]): string {
-  if (puntos.length === 0) return ''
-  let d = `M ${puntos[0].x} ${puntos[0].y}`
-  for (let i = 1; i < puntos.length; i++) {
-    const p0 = puntos[i - 1]
-    const p1 = puntos[i]
-    const midY = (p0.y + p1.y) / 2
-    d += ` C ${p0.x} ${midY}, ${p1.x} ${midY}, ${p1.x} ${p1.y}`
-  }
-  return d
-}
-
-function iconoNodo(nodo: NodoRuta, estado: EstadoNodo) {
-  if (estado === 'completado') return <Check className="h-7 w-7" strokeWidth={2.5} />
-  if (estado === 'bloqueado') return <Lock className="h-6 w-6" />
-  if (nodo.esFinal) return <Trophy className="h-7 w-7" />
-  if (nodo.tipo === 'video') return <Play className="h-6 w-6" fill="currentColor" />
-  if (nodo.tipo === 'prueba') return <ListChecks className="h-6 w-6" />
-  return <BookOpen className="h-6 w-6" />
-}
-
-function PantallaRuta({
-  t,
-  progreso,
-  recienCompletadoId,
-  onVolver,
-  onAbrirNodo,
-}: {
-  t: Diccionario
-  progreso: ProgresoCap1
-  recienCompletadoId: string | null
-  onVolver: () => void
-  onAbrirNodo: (id: string) => void
-}) {
-  const { estilo } = useAppSettings()
-  const capitulo = CAPITULOS_INMACULADA[0]
-  const acentoCapitulo = `academia-accent-${(capitulo.numero - 1) % 4}`
-  const puntos = NODOS_CAP1.map((_, i) => NODOS_POS_RUTA[i] ?? { x: 50, y: 86 + i * 150 })
-  const completados = NODOS_CAP1.filter((n) => progreso[n.id]?.estado === 'completado').length
-  const ultimoCompletadoIdx = NODOS_CAP1.reduce(
-    (acc, n, i) => (progreso[n.id]?.estado === 'completado' ? i : acc),
-    -1,
-  )
-  const dFondo = construirCurvaRuta(puntos)
-  const dHecho = ultimoCompletadoIdx > 0 ? construirCurvaRuta(puntos.slice(0, ultimoCompletadoIdx + 1)) : ''
-  // Nodo "actual" (disponible, no completado) — junto a él se para Muelín
-  // con su globo de aliento, ver más abajo. -1 si el capítulo ya está
-  // completo del todo (no hay ningún nodo "actual" en ese caso).
-  const actualIdx = NODOS_CAP1.findIndex((n) => progreso[n.id]?.estado === 'disponible')
-
-  return (
-    <div className="pt-6">
-      <div className="flex items-center justify-between gap-3 px-6">
-        <LogoMark className="h-8 w-auto" />
-        <SettingsToggle />
-      </div>
-
-      <div className="mt-4 flex items-center gap-3 px-6">
-        <button onClick={onVolver} className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-secondary text-foreground">
-          <ArrowLeft className="h-4 w-4" />
-        </button>
-        <div className="min-w-0">
-          <h1 className="truncate text-lg font-extrabold text-foreground">{t.academia.libroCapituloLabel(capitulo.numero)}</h1>
-          <p className="truncate text-xs font-medium text-muted-foreground">{capitulo.titulo}</p>
-        </div>
-      </div>
-
-      {/* Banner de capítulo con color de acento propio (chispa visual
-          2026-09-17) — reemplaza la barra de progreso plana sobre
-          bg-background por una tarjeta de color, derivado del estilo/skin
-          activo vía --academia-accent (ver .academia-accent-N en
-          index.css), nunca un color fijo nuevo. */}
-      <div
-        className={`${acentoCapitulo} mx-6 mt-4 overflow-hidden rounded-3xl px-5 py-4`}
-        style={{ background: 'var(--academia-accent, hsl(var(--accent)))' }}
-      >
-        <p
-          className="text-[10.5px] font-extrabold uppercase tracking-wide"
-          style={{ color: 'var(--academia-accent-ink, hsl(var(--accent-foreground)))', opacity: 0.85 }}
-        >
-          {t.academia.libroCapituloLabel(capitulo.numero)}
-        </p>
-        <p className="mt-0.5 text-base font-extrabold" style={{ color: 'var(--academia-accent-ink, hsl(var(--accent-foreground)))' }}>
-          {capitulo.titulo}
-        </p>
-        <div className="mt-3 flex items-center gap-2.5">
-          <div
-            className="h-1.5 flex-1 overflow-hidden rounded-full"
-            style={{ background: 'color-mix(in srgb, var(--academia-accent-ink, white) 28%, transparent)' }}
-          >
-            <div
-              className="h-full rounded-full transition-[width] duration-500"
-              style={{ width: `${(completados / NODOS_CAP1.length) * 100}%`, background: 'var(--academia-accent-ink, white)' }}
-            />
-          </div>
-          <span
-            className="shrink-0 whitespace-nowrap text-[10.5px] font-bold"
-            style={{ color: 'var(--academia-accent-ink, hsl(var(--accent-foreground)))', opacity: 0.85 }}
-          >
-            {t.academia.rutaCompletados(completados, NODOS_CAP1.length)}
-          </span>
-        </div>
-      </div>
-
-      <div className="academia-path-wrap relative mx-6 mt-2 overflow-hidden" style={{ height: RUTA_ALTO_PX }}>
-        {/* Fondo ilustrado del estilo Academia (atlas cientifico papel y
-            tinta) — ver claude/academia-propuesta-cientifico-ilustrado-cap1.md.
-            Solo se muestra con este estilo activo; el resto usa el punteado
-            generico de .academia-path-wrap. */}
-        {estilo === 'academia' && (
-          <>
-            <img
-              src="/estilos/academia/cerebro.jpg"
-              alt=""
-              aria-hidden="true"
-              className="pointer-events-none absolute -right-[8%] top-0 w-[46%] max-w-[220px] opacity-90"
-            />
-            <img
-              src="/estilos/academia/silla-ruedas.jpg"
-              alt=""
-              aria-hidden="true"
-              className="pointer-events-none absolute -left-[6%] bottom-2 w-[42%] max-w-[200px] opacity-90"
-            />
-          </>
-        )}
-        <svg
-          className="absolute inset-0"
-          width="100%"
-          height={RUTA_ALTO_PX}
-          viewBox={`0 0 100 ${RUTA_ALTO_PX}`}
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <path d={dFondo} fill="none" stroke="hsl(var(--border))" strokeWidth={5} strokeDasharray="1 15" strokeLinecap="round" />
-          {dHecho && <path d={dHecho} fill="none" stroke="hsl(var(--success))" strokeWidth={5.5} strokeLinecap="round" />}
-        </svg>
-
-        {NODOS_CAP1.map((nodo, i) => {
-          const prog = progreso[nodo.id] ?? { estado: 'bloqueado' as EstadoNodo }
-          const punto = puntos[i]
-          const esJefe = Boolean(nodo.esFinal)
-          const bloqueado = prog.estado === 'bloqueado'
-          const actual = prog.estado === 'disponible'
-          // Celebración puntual (confetti + "pop" del propio nodo) sobre el
-          // nodo que se acaba de completar — en el nodo jefe (cofre/trofeo
-          // de la prueba final) el mismo pop hace de animación de apertura.
-          const celebrando = recienCompletadoId === nodo.id
-          return (
-            <div
-              key={nodo.id}
-              className="absolute flex w-[118px] -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1.5"
-              style={{ left: `${punto.x}%`, top: `${punto.y}px` }}
-            >
-              {celebrando && (
-                <svg
-                  className="academia-confetti"
-                  width="120"
-                  height="120"
-                  viewBox="0 0 120 120"
-                  style={{ left: -1, top: -22 }}
-                  aria-hidden="true"
-                >
-                  <circle cx="14" cy="24" r="4" fill="hsl(var(--amber))" />
-                  <circle cx="104" cy="16" r="3" fill="hsl(var(--accent))" />
-                  <circle cx="10" cy="76" r="3" fill="hsl(var(--success))" />
-                  <circle cx="108" cy="82" r="4" fill="hsl(var(--amber))" />
-                  <rect x="50" y="4" width="6" height="6" rx="1.5" fill="hsl(var(--accent))" transform="rotate(18 53 7)" />
-                  <rect x="82" y="94" width="6" height="6" rx="1.5" fill="hsl(var(--success))" transform="rotate(-12 85 97)" />
-                </svg>
-              )}
-              <button
-                onClick={() => onAbrirNodo(nodo.id)}
-                disabled={bloqueado}
-                aria-label={nodo.titulo}
-                title={bloqueado ? t.academia.rutaBloqueado : nodo.titulo}
-                data-status={actual ? 'actual' : prog.estado}
-                className={`academia-node-btn relative transition ${esJefe ? 'is-boss h-24 w-24' : 'h-[76px] w-[76px]'} ${
-                  bloqueado ? '' : 'active:scale-95'
-                } ${celebrando ? 'academia-celebrando' : ''}`}
-              >
-                {actual && <span className="academia-bubble">{t.academia.rutaEmpezar}</span>}
-                <span className="academia-face">{iconoNodo(nodo, prog.estado)}</span>
-              </button>
-              <span
-                className={`max-w-[112px] text-center text-[11px] font-extrabold leading-tight ${
-                  bloqueado ? 'text-muted-foreground/70' : 'text-foreground'
-                }`}
-              >
-                {nodo.titulo}
-              </span>
-            </div>
-          )
-        })}
-
-        {/* Muelín, mascota junto al nodo "actual" — se para al costado con
-            menos aire libre según la x del nodo, para no salirse del
-            contenedor. Solo aliento textual (chispa visual 2026-09-17); no
-            interactúa ni bloquea nada. */}
-        {actualIdx >= 0 && (() => {
-          const p = puntos[actualIdx]
-          const haciaLaDerecha = p.x <= 50
-          return (
-            <div
-              className="absolute z-10 flex w-[172px] items-start gap-2"
-              style={{
-                top: p.y - 34,
-                // min(...) evita que el globo se salga del contenedor (y lo
-                // corte el overflow-hidden de .academia-path-wrap) cuando el
-                // nodo está cerca del centro/borde — sin esto, un nodo con
-                // x:50 empujaba el globo ~45px fuera del ancho disponible.
-                left: haciaLaDerecha ? `min(calc(${p.x}% + 44px), calc(100% - 172px))` : undefined,
-                right: haciaLaDerecha ? undefined : `min(calc(${100 - p.x}% + 44px), calc(100% - 172px))`,
-              }}
-            >
-              <Muelin expresion="neutral" className="h-12 w-12 shrink-0" />
-              <div className="academia-muelin-globo relative rounded-2xl border-2 border-foreground bg-card px-2.5 py-2 text-[11px] font-bold leading-snug text-foreground">
-                {t.academia.muelinFrase}
-              </div>
-            </div>
-          )
-        })()}
       </div>
     </div>
   )
@@ -975,12 +852,20 @@ function BotonContinuar({ onClick, texto, disabled }: { onClick: () => void; tex
  * tenga una sola). Si acierta, queda habilitado continuar — sin sistema de
  * estrellas (pausado a pedido explícito, ver comentario arriba del
  * archivo).
+ *
+ * Corrección 2026-09-18 — la prueba final (`esFinal`) muestra primero una
+ * tarjeta de intro ("¡Muy bien! Ahora una prueba") con un botón "Comenzar
+ * prueba" antes de la pregunta en sí: se llega acá directo desde video3 sin
+ * volver a la lista (ver `onContinuar` de los nodos de video en
+ * `PantallaNodo`), así que hace falta ese aviso — antes se entraba
+ * directo a la pregunta sin transición.
  */
 function NodoPrueba({
   t,
   preguntas,
   soloLectura,
   esUltima,
+  esFinal,
   etiquetaSiguiente,
   onContinuar,
 }: {
@@ -988,12 +873,30 @@ function NodoPrueba({
   preguntas: PreguntaAcademia[]
   soloLectura: boolean
   esUltima: boolean
+  esFinal: boolean
   etiquetaSiguiente: string | null
   onContinuar: () => void
 }) {
+  // Arranca "comenzada" si es solo-lectura (repaso) o si no es la prueba
+  // final (hoy no hay otro caso de nodo "prueba" standalone, pero por las
+  // dudas no le mostramos intro a algo que no sea el cierre del capítulo).
+  const [comenzada, setComenzada] = useState(soloLectura || !esFinal)
   const [qIndex, setQIndex] = useState(() => Math.floor(Math.random() * preguntas.length))
   const [seleccion, setSeleccion] = useState<number | null>(null)
   const [intentos, setIntentos] = useState(0)
+
+  if (!comenzada) {
+    return (
+      <div className="card-elevated flex flex-col items-center gap-3 rounded-2xl bg-card p-6 text-center">
+        <Muelin expresion="feliz" className="h-16 w-16" />
+        <p className="text-base font-extrabold text-foreground">{t.academia.pruebaFinalIntroTitulo}</p>
+        <p className="text-sm leading-relaxed text-muted-foreground">{t.academia.pruebaFinalIntroTexto}</p>
+        <Button onClick={() => setComenzada(true)} className="mt-1 h-12 w-full rounded-2xl font-bold">
+          {t.academia.pruebaComenzar}
+        </Button>
+      </div>
+    )
+  }
 
   const pregunta = preguntas[qIndex]
   const respondido = seleccion !== null
@@ -1096,7 +999,10 @@ function NodoPrueba({
  * ya rota a horizontal solo al girar el dispositivo — no hace falta forzar
  * la orientación a mano. El evento `ended` sigue disparando igual estando
  * en pantalla completa, así que el desbloqueo de la prueba no se ve
- * afectado por esto.
+ * afectado por esto — pero la VISIBILIDAD del modal de la pregunta sí: por
+ * eso `alTerminarVideo` sale de pantalla completa antes de abrirlo (ver
+ * corrección 2026-09-18 ahí mismo), para que nunca quede tapado detrás del
+ * video.
  *
  * `key={nodoId}` en el `PantallaNodo` que renderiza este componente fuerza
  * que se remonte (y por lo tanto reinicie `terminado`) al cambiar de video.
@@ -1192,6 +1098,18 @@ function NodoVideo({
 
   function alTerminarVideo() {
     setTerminado(true)
+    // Corrección 2026-09-18: si el video terminó en pantalla completa (el
+    // botón propio de acá abajo, o el nativo de los controles), hay que
+    // salir antes de abrir el modal — la Fullscreen API pinta el elemento
+    // fullscreen en una capa por encima de TODO el resto del DOM (aunque
+    // tenga z-index alto), así que sin este exit la pregunta quedaba
+    // invisible detrás del video congelado en su último cuadro. Es
+    // justamente el caso típico de girar el celular a horizontal para ver
+    // mejor: "la pregunta tiene que salir siempre delante" (pedido
+    // explícito del usuario). webkitExitFullscreen cubre Safari/iOS viejo.
+    const doc = document as Document & { webkitExitFullscreen?: () => void; webkitFullscreenElement?: Element | null }
+    if (doc.fullscreenElement) doc.exitFullscreen?.().catch(() => {})
+    else if (doc.webkitFullscreenElement) doc.webkitExitFullscreen?.()
     // video1/video2 (rediseño 2026-09-17): en vez de mostrar el botón
     // "Continuar a Prueba N", se abre sola la ventana con 1 pregunta al
     // azar — ver ModalPruebaVideo más abajo.
@@ -1488,7 +1406,16 @@ function PantallaNodo({
           soloLectura={soloLectura}
           etiquetaSiguiente={siguienteNodo?.titulo ?? null}
           preguntasModal={preguntasModal}
-          onContinuar={() => (soloLectura ? onVolver() : onCompletar(nodoId))}
+          onContinuar={() => {
+            if (soloLectura) return onVolver()
+            // Corrección 2026-09-18: video3 no tiene pruebaId (sin modal),
+            // pero igual sigue directo a la prueba final sin volver a la
+            // lista — mismo mecanismo que usa el modal al aprobar (ver
+            // onAprobarModal más abajo), pedido explícito del usuario ("al
+            // finalizar [video 3] se pasa a la prueba sin tener que salir").
+            if (!video.pruebaId && siguienteNodo) return onAvanzarSinVolver(nodoId, siguienteNodo.id)
+            return onCompletar(nodoId)
+          }}
           onAprobarModal={siguienteNodo ? () => onAvanzarSinVolver(nodoId, siguienteNodo.id) : undefined}
           onSalirModal={onVolver}
         />
@@ -1510,6 +1437,7 @@ function PantallaNodo({
         preguntas={preguntas}
         soloLectura={soloLectura}
         esUltima={esUltima}
+        esFinal={Boolean(nodo.esFinal)}
         etiquetaSiguiente={siguienteNodo?.titulo ?? null}
         onContinuar={() => (soloLectura ? onVolver() : onCompletar(nodoId))}
       />

@@ -41,6 +41,22 @@
  * piloto anterior y HOY NO SE MUESTRAN en ningún lado de la ruta nueva. Si
  * se reutilizan en el futuro, siguen sin poder publicarse en producción tal
  * cual — hay que reemplazarlas por ilustraciones propias o licenciadas.
+ *
+ * CORRECCIÓN 2026-09-18 — los 3 videos son en realidad las 3 partes de UN
+ * solo tema (Parálisis Cerebral), no un video por tema como decía el
+ * comentario de más arriba: `VIDEOS_CAP1`/`NODOS_CAP1` etiquetaban video2 y
+ * video3 con `temaId: 'epi'`/`'dm'` por error, cuando el usuario confirmó
+ * que Epilepsia y Distrofia Muscular todavía NO tienen video propio grabado
+ * — quedan como temas "próximamente" del Capítulo 1 hasta que se filmen.
+ * Se corrige `temaId`/`titulo` de v2/v3 a Parálisis Cerebral (parte 2/3) —
+ * así el título de pantalla y el texto de acompañamiento (`TEMAS_CAP1.pc.
+ * resumen`) que se ven mientras se mira el video coinciden con lo que
+ * realmente se está mostrando. OJO: las preguntas de `PRUEBAS_CAP1.prueba2`
+ * y `.pruebaFinal` siguen siendo las reales del documento fuente y ya
+ * cubrían temáticamente Epilepsia/Distrofia Muscular (ver nota de la
+ * pregunta 10 más abajo) — por ahora se dejan tal cual como cierre general
+ * del capítulo aunque el video que las precede sea de Parálisis Cerebral;
+ * se pueden re-vincular a sus propios videos el día que existan.
  */
 
 export interface PreguntaAcademia {
@@ -202,7 +218,7 @@ export const INTRO_CAP1 = {
     {
       titulo: 'Cómo está armado',
       texto:
-        'Un video corto por tema (Parálisis Cerebral, Epilepsia y Distrofias Musculares) seguido de una prueba de 5 preguntas. Hay que responder las 5 bien para desbloquear el siguiente video — si alguna sale mal, se puede repasar el video y volver a intentar.',
+        'Por ahora el capítulo tiene el video de Parálisis Cerebral, dividido en 3 partes. Al terminar cada parte aparece una pregunta y hay que responderla bien para pasar a la siguiente — si sale mal, se puede reintentar. Al final de las 3 partes hay una prueba que cierra el capítulo. Epilepsia y Distrofias Musculares se van a sumar más adelante.',
     },
   ],
 }
@@ -235,8 +251,8 @@ export interface VideoAcademia {
 
 export const VIDEOS_CAP1: VideoAcademia[] = [
   { id: 'v1', temaId: 'pc', titulo: 'Parálisis Cerebral', src: '/academia/pacientes-especiales/cap-1/video1.mp4', duracionSeg: 255, pruebaId: 'prueba1' },
-  { id: 'v2', temaId: 'epi', titulo: 'Epilepsia', src: '/academia/pacientes-especiales/cap-1/video2.mp4', duracionSeg: 259, pruebaId: 'prueba2' },
-  { id: 'v3', temaId: 'dm', titulo: 'Distrofias Musculares', src: '/academia/pacientes-especiales/cap-1/video3.mp4', duracionSeg: 206 },
+  { id: 'v2', temaId: 'pc', titulo: 'Parálisis Cerebral (parte 2)', src: '/academia/pacientes-especiales/cap-1/video2.mp4', duracionSeg: 259, pruebaId: 'prueba2' },
+  { id: 'v3', temaId: 'pc', titulo: 'Parálisis Cerebral (parte 3)', src: '/academia/pacientes-especiales/cap-1/video3.mp4', duracionSeg: 206 },
 ]
 
 /**
@@ -415,8 +431,8 @@ export interface NodoRuta {
 export const NODOS_CAP1: NodoRuta[] = [
   { id: 'intro', tipo: 'intro', titulo: 'Introducción' },
   { id: 'video1', tipo: 'video', titulo: 'Parálisis Cerebral', temaId: 'pc', videoId: 'v1' },
-  { id: 'video2', tipo: 'video', titulo: 'Epilepsia', temaId: 'epi', videoId: 'v2' },
-  { id: 'video3', tipo: 'video', titulo: 'Distrofias Musculares', temaId: 'dm', videoId: 'v3' },
+  { id: 'video2', tipo: 'video', titulo: 'Parálisis Cerebral (parte 2)', temaId: 'pc', videoId: 'v2' },
+  { id: 'video3', tipo: 'video', titulo: 'Parálisis Cerebral (parte 3)', temaId: 'pc', videoId: 'v3' },
   { id: 'pruebaFinal', tipo: 'prueba', titulo: 'Prueba final', pruebaId: 'pruebaFinal', esFinal: true },
 ]
 

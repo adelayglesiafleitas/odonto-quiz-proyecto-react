@@ -693,6 +693,22 @@ button.card-elevated:focus-visible {
   --academia-accent-ink: hsl(var(--primary-foreground));
 }
 
+/* Corrección 2026-09-19 — lista desplegable de PantallaLibro: acá NO se usa
+   la rotación de 4 acentos de arriba (pensada para el mapa en zigzag viejo).
+   El diseño de referencia que pasó el usuario usa un binario fijo — teal
+   para el capítulo con contenido real (hoy solo el 1) y violeta para el
+   resto — y son colores puntuales del mockup, no derivados de --accent/
+   --primary del skin activo (que en Acqua/Clásico no tienen nada violeta):
+   por eso van en hex fijo, iguales en cualquier estilo/modo. */
+.academia-color-activo {
+  --academia-accent: hsl(175 77% 54%);
+  --academia-accent-ink: hsl(200 60% 10%);
+}
+.academia-color-bloqueado {
+  --academia-accent: hsl(252 88% 67%);
+  --academia-accent-ink: hsl(0 0% 100%);
+}
+
 /* Celebración puntual sobre el nodo recién completado (confetti SVG + un
    "pop" en el propio nodo) — ver `recienCompletadoId` en Academia.tsx. En el
    nodo "cofre" (prueba final) el mismo pop de escala/rotación hace de
