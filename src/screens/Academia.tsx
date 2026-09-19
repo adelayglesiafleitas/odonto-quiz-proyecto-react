@@ -11,6 +11,7 @@ import {
   Play,
   Smartphone,
   Sparkles,
+  Star,
   X,
 } from 'lucide-react'
 import { useAppSettings } from '@/context/AppSettings'
@@ -22,6 +23,19 @@ import { Button } from '@/components/ui/button'
 import { RUTA_SOPORTE } from '@/lib/rutas'
 import { getAcademiaHabilitada } from '@/lib/academiaAccesoRemoto'
 import { cargarProgresoAcademia, progresoInicialAcademia, porcentajeCap1, type EstadoNodo, type ProgresoCap1 } from '@/lib/academiaProgresoLocal'
+import {
+  NODOS_PREGUNTA_CAP1,
+  PUNTOS_CAPITULOS,
+  PUNTOS_LECCION_CAP1,
+  PUNTOS_POR_CAPITULO,
+  PUNTOS_PRUEBA_LIBRO,
+  PUNTOS_TOTAL,
+  calcularPuntuacion,
+  estrellasIntentos,
+  estrellasLeccion,
+  fmtPuntos,
+  puntosPregunta,
+} from '@/lib/academiaPuntuacion'
 import { getProgresoAcademiaRemoto, guardarProgresoAcademiaRemoto } from '@/lib/academiaProgresoRemoto'
 import type { Diccionario } from '@/lib/i18n'
 import type { Pantalla } from '@/types'
@@ -138,7 +152,7 @@ import {
  * `PantallaSinAcceso`.
  */
 
-type VistaAcademia = 'home' | 'libro' | 'nodo' | 'proximo'
+type VistaAcademia = 'home' | 'libro' | 'nodo' | 'proximo' | 'resumen'
 
 // ProgresoCap1/EstadoNodo y las funciones de carga/guardado de localStorage
 // se movieron a src/lib/academiaProgresoLocal.ts (importadas arriba, con
@@ -256,16 +270,38 @@ export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (
     setNodoActivoId(null)
   }
 
-  function completarNodo(id: string) {
+  /**
+   * Marca `id` como completado y fija su marca de puntuación (`intentos` de
+   * la primera vez que se respondió). Si el nodo ya tenía marca, no se toca:
+   * repetir la lección es práctica y no cambia la nota (ver
+   * academiaPuntuacion.ts). Un nodo completado antes de que existiera la
+   * puntuación no tiene marca, así que la primera repetición queda como la
+   * oficial.
+   */
+  function conMarca(prev: ProgresoCap1, id: string, intentos?: number): ProgresoCap1 {
+    const actual = prev[id]
+    const marca = actual?.intentos ?? (intentos && intentos > 0 ? intentos : undefined)
+    return { ...prev, [id]: { ...actual, estado: 'completado', ...(marca ? { intentos: marca } : {}) } }
+  }
+
+  function completarNodo(id: string, intentos?: number) {
     setProgreso((prev) => {
       const siguiente = siguienteNodoId(id)
-      const next: ProgresoCap1 = { ...prev, [id]: { estado: 'completado' } }
+      const next: ProgresoCap1 = conMarca(prev, id, intentos)
       if (siguiente && next[siguiente]?.estado === 'bloqueado') {
         next[siguiente] = { ...next[siguiente], estado: 'disponible' }
       }
       return next
     })
     setRecienCompletadoId(id)
+    // Al cerrar el tema (prueba final) se muestra el resumen con las estrellas;
+    // el resto de los nodos vuelve al libro como siempre.
+    if (!siguienteNodoId(id)) {
+      setRepitiendo(false)
+      setNodoActivoId(null)
+      setVista('resumen')
+      return
+    }
     volverALibro()
   }
 
@@ -279,9 +315,9 @@ export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (
    * remonta el componente con el video nuevo, lo que también reinicia su
    * animación de entrada (ver NodoVideo más abajo).
    */
-  function avanzarSinVolver(id: string, siguienteId: string) {
+  function avanzarSinVolver(id: string, siguienteId: string, intentos?: number) {
     setProgreso((prev) => {
-      const next: ProgresoCap1 = { ...prev, [id]: { estado: 'completado' } }
+      const next: ProgresoCap1 = conMarca(prev, id, intentos)
       if (next[siguienteId]?.estado === 'bloqueado') {
         next[siguienteId] = { ...next[siguienteId], estado: 'disponible' }
       }
@@ -319,6 +355,8 @@ export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (
           {vista === 'proximo' && (
             <PantallaProximoCapitulo t={t} onVolver={() => setVista('libro')} onIrACap1={() => setVista('libro')} />
           )}
+
+          {vista === 'resumen' && <PantallaResumenTema t={t} progreso={progreso} onVolver={volverALibro} />}
 
           {vista === 'nodo' && nodoActivoId && (
             <PantallaNodo
@@ -460,6 +498,7 @@ function PantallaLibro({
   const [expandidoNumero, setExpandidoNumero] = useState<number | null>(1)
   const completados = CAPITULOS_INMACULADA.filter((cap) => estadoCapitulo(cap, cap1Completo) === 'completado').length
   const completadosCap1 = NODOS_CAP1.filter((n) => progreso[n.id]?.estado === 'completado').length
+  const punt = calcularPuntuacion(progreso)
   const siguienteNodoCap1 = NODOS_CAP1.find((n) => progreso[n.id]?.estado === 'disponible')
   // A dónde navega la fila "Parálisis Cerebral": retoma en el próximo nodo
   // sin completar, o vuelve a 'intro' si ya se completaron los 5 (repaso).
@@ -505,15 +544,45 @@ function PantallaLibro({
         </span>
       </div>
 
+      <div className="mx-6 mt-4 rounded-2xl bg-foreground p-4 text-background">
+        <div className="flex items-end justify-between gap-3">
+          <div>
+            <p className="text-xs font-bold opacity-70">{t.academia.puntTuNota}</p>
+            <p className="text-3xl font-extrabold leading-tight">
+              {fmtPuntos(punt.notaTotal)} <span className="text-base font-bold opacity-70">/ {PUNTOS_TOTAL}</span>
+            </p>
+          </div>
+          <div className="text-right">
+            <p className="flex items-center justify-end gap-1.5 text-sm font-extrabold">
+              <Star className="h-4 w-4" style={{ color: COLOR_ESTRELLA }} fill="currentColor" aria-hidden="true" />
+              {punt.estrellas} / {punt.estrellasMax}
+            </p>
+            <p className="text-[11px] font-bold opacity-70">{t.academia.puntEstrellasGanadas}</p>
+          </div>
+        </div>
+        <div className="mt-3 h-2 overflow-hidden rounded-full bg-background/20">
+          <div className="h-full rounded-full" style={{ width: `${Math.max(punt.notaTotal, 0)}%`, minWidth: punt.notaTotal > 0 ? 6 : 0, background: COLOR_ESTRELLA }} />
+        </div>
+        <div className="mt-2 flex justify-between text-[11px] font-bold opacity-70">
+          <span>
+            {t.academia.puntCapitulos}: {fmtPuntos(punt.notaTotal)} / {PUNTOS_CAPITULOS}
+          </span>
+          <span>
+            {t.academia.puntPruebaLibro}: 0 / {PUNTOS_PRUEBA_LIBRO}
+          </span>
+        </div>
+      </div>
+
       {/* Lista desplegable (rediseño 2026-09-18, reemplaza el mapa en
           zigzag): una línea vertical fina conecta los círculos numerados,
           igual función que el camino curvo de antes pero sin SVG — cada
           capítulo es una fila; el que tiene contenido (`cap.listo`) se
           expande in situ mostrando sus nodos reales en vez de navegar a otra
           pantalla. */}
-      <div className="relative mx-6 mt-5">
-        <div className="absolute bottom-6 left-[21px] top-6 w-px bg-border" aria-hidden="true" />
-
+      {/* Diseño "Opción B" (2026-09-19): todas las tarjetas de capítulo al
+          mismo ancho que la tarjeta de nota (mx-6), con el círculo adentro;
+          sin la línea vertical del camino ni círculos que sobresalgan. */}
+      <div className="relative mx-6 mt-4">
         <div className="relative flex flex-col gap-2.5">
           {CAPITULOS_INMACULADA.map((cap) => {
             const estado = estadoCapitulo(cap, cap1Completo)
@@ -560,14 +629,8 @@ function PantallaLibro({
                 // toque de color + borde casi invisible" (el mockup no tiene
                 // un contorno marcado, es el fondo el que se ve teñido).
                 <div key={cap.numero} className="relative">
-                  <span
-                    className={`${acento} absolute left-0 top-3.5 z-10 flex h-11 w-11 items-center justify-center rounded-full text-[15px] font-extrabold`}
-                    style={{ background: 'var(--academia-accent, hsl(var(--accent)))', color: 'var(--academia-accent-ink, hsl(var(--accent-foreground)))' }}
-                  >
-                    {completado ? <Check className="h-5 w-5" strokeWidth={2.5} /> : cap.numero}
-                  </span>
                   <div
-                    className={`${acento} rounded-[22px] border p-3.5 pl-14`}
+                    className={`${acento} rounded-[22px] border p-3.5`}
                     style={{
                       borderColor: 'color-mix(in srgb, var(--academia-accent, hsl(var(--accent))) 14%, transparent)',
                       background: 'color-mix(in srgb, hsl(var(--card)) 85%, var(--academia-accent, hsl(var(--accent))) 15%)',
@@ -576,8 +639,14 @@ function PantallaLibro({
                     <button
                       onClick={() => setExpandidoNumero(expandido ? null : cap.numero)}
                       aria-expanded={expandido}
-                      className="flex w-full items-center gap-4 text-left"
+                      className="flex w-full items-center gap-3.5 text-left"
                     >
+                      <span
+                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[15px] font-extrabold"
+                        style={{ background: 'var(--academia-accent, hsl(var(--accent)))', color: 'var(--academia-accent-ink, hsl(var(--accent-foreground)))' }}
+                      >
+                        {completado ? <Check className="h-5 w-5" strokeWidth={2.5} /> : cap.numero}
+                      </span>
                       <span className="min-w-0 flex-1">
                         <span className="block truncate text-[15px] font-extrabold text-foreground">{cap.titulo}</span>
                         {cap.subtitulo && <span className="mt-0.5 block truncate text-xs text-muted-foreground">{cap.subtitulo}</span>}
@@ -631,6 +700,14 @@ function PantallaLibro({
                             {cap1Completo ? t.academia.nodoRepetir : `${completadosCap1}/${NODOS_CAP1.length}`}
                           </span>
                         </span>
+                        {punt.preguntasRespondidas > 0 && (
+                          <span className="shrink-0 text-right">
+                            <Estrellas t={t} n={estrellasLeccion(punt)} size={14} />
+                            <span className="block text-[11px] font-extrabold text-muted-foreground">
+                              {fmtPuntos(punt.notaCap1)} / {fmtPuntos(PUNTOS_LECCION_CAP1)}
+                            </span>
+                          </span>
+                        )}
                         <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground/70" />
                       </button>
 
@@ -663,14 +740,14 @@ function PantallaLibro({
                 disabled={bloqueado}
                 aria-label={cap.titulo}
                 title={bloqueado ? t.academia.rutaBloqueado : cap.titulo}
-                className={`${acento} flex items-center gap-4 rounded-2xl px-2.5 py-2.5 text-left`}
+                className={`${acento} flex items-center gap-3.5 rounded-[18px] border border-border/60 bg-card px-3.5 py-3 text-left`}
               >
                 {circulo}
                 <span className="min-w-0 flex-1">
                   <span className={`block truncate text-[14.5px] font-bold ${bloqueado ? 'text-muted-foreground/70' : 'text-foreground'}`}>{cap.titulo}</span>
                   {cap.subtitulo && <span className="mt-0.5 block truncate text-xs text-muted-foreground/80">{cap.subtitulo}</span>}
                 </span>
-                <span className="shrink-0 text-xs font-bold text-muted-foreground/70">0%</span>
+                <span className="shrink-0 text-xs font-bold text-muted-foreground/70">0 / {PUNTOS_POR_CAPITULO}</span>
                 <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground/70" />
               </button>
             )
@@ -835,6 +912,123 @@ function TarjetaContenido({ titulo, children }: { titulo: string; children: Reac
   )
 }
 
+const COLOR_ESTRELLA = '#f4b400'
+
+/** Fila de 3 estrellas (llenas hasta `n`). `apagadas` = gris, para el modo práctica. */
+function Estrellas({ t, n, size = 16, apagadas = false }: { t: Diccionario; n: number; size?: number; apagadas?: boolean }) {
+  return (
+    <span className="inline-flex items-center gap-0.5" role="img" aria-label={t.academia.puntEstrellasAria(n)}>
+      {[0, 1, 2].map((i) => {
+        const llena = i < n
+        return (
+          <Star
+            key={i}
+            width={size}
+            height={size}
+            aria-hidden="true"
+            strokeWidth={1.5}
+            className={llena && apagadas ? 'text-muted-foreground/50' : !llena ? 'text-muted-foreground/30' : undefined}
+            style={llena && !apagadas ? { color: COLOR_ESTRELLA } : undefined}
+            fill={llena ? 'currentColor' : 'none'}
+          />
+        )
+      })}
+    </span>
+  )
+}
+
+/**
+ * Resultado de puntuación de una pregunta acertada. Si el nodo todavía no
+ * tenía marca (`marcaPrevia === undefined`) esta vez cuenta: muestra las
+ * estrellas y los puntos ganados. Si ya la tenía es modo práctica: estrellas
+ * apagadas con la marca oficial y "sin puntos esta vez".
+ */
+function ResultadoPuntos({ t, intentos, marcaPrevia }: { t: Diccionario; intentos: number; marcaPrevia?: number }) {
+  if (marcaPrevia !== undefined) {
+    return (
+      <div className="mt-2 flex flex-col items-center gap-1.5">
+        <span className="rounded-full bg-secondary px-3 py-0.5 text-[10px] font-extrabold uppercase tracking-wide text-muted-foreground">
+          {t.academia.puntPracticaTitulo}
+        </span>
+        <Estrellas t={t} n={3} size={30} apagadas />
+        <p className="text-sm font-extrabold text-muted-foreground">{t.academia.puntSinPuntos}</p>
+        <p className="text-[11px] leading-snug text-muted-foreground">{t.academia.puntPracticaTexto}</p>
+        <p className="flex items-center gap-2 text-[11px] font-bold text-muted-foreground">
+          {t.academia.puntMarcaOficial} <Estrellas t={t} n={estrellasIntentos(marcaPrevia)} size={13} />
+        </p>
+      </div>
+    )
+  }
+  return (
+    <div className="mt-2 flex flex-col items-center gap-1.5">
+      <Estrellas t={t} n={estrellasIntentos(intentos)} size={34} />
+      <p className="rounded-full bg-amber-100 px-3 py-0.5 text-base font-extrabold text-amber-800">
+        {t.academia.puntSumaPts(fmtPuntos(puntosPregunta(intentos)))}
+      </p>
+      <p className="text-[11px] leading-snug text-muted-foreground">
+        {intentos <= 1 ? t.academia.puntPrimerIntento : t.academia.puntTrasFallar}
+      </p>
+    </div>
+  )
+}
+
+/**
+ * Resumen que se abre al terminar la prueba final: estrellas por pregunta,
+ * puntos del tema, nota total y la insignia "Sin fallos".
+ */
+function PantallaResumenTema({ t, progreso, onVolver }: { t: Diccionario; progreso: ProgresoCap1; onVolver: () => void }) {
+  const punt = calcularPuntuacion(progreso)
+  return (
+    <NodoLayout titulo={t.academia.puntResumenTitulo} subtitulo="Capítulo 1 · Discapacitado Físico" onVolver={onVolver}>
+      <div className="rounded-3xl bg-primary p-5 text-center text-primary-foreground">
+        <p className="text-[13px] font-bold opacity-80">{t.academia.puntTemaCompletada(TEMAS_CAP1.pc.nombre)}</p>
+        <div className="mt-2 flex justify-center">
+          <Estrellas t={t} n={estrellasLeccion(punt)} size={40} />
+        </div>
+        <p className="mt-2 text-4xl font-extrabold leading-none">
+          {fmtPuntos(punt.notaCap1)} <span className="text-base font-bold opacity-80">/ {fmtPuntos(PUNTOS_LECCION_CAP1)} pts</span>
+        </p>
+        <p className="mt-2 text-xs font-bold opacity-80">
+          {t.academia.puntTuNota}: {fmtPuntos(punt.notaTotal)} / {PUNTOS_TOTAL}
+        </p>
+      </div>
+
+      <div className="space-y-2">
+        {NODOS_PREGUNTA_CAP1.map((n, i) => {
+          const intentos = progreso[n.id]?.intentos
+          return (
+            <div key={n.id} className="card-elevated flex items-center gap-3 rounded-2xl bg-card px-4 py-3">
+              <div className="min-w-0 flex-1">
+                <p className="truncate text-sm font-bold text-foreground">{n.titulo}</p>
+                <p className="text-xs font-medium text-muted-foreground">
+                  {t.academia.puntPreguntaN(i + 1)}
+                  {intentos ? ` · ${t.academia.puntIntentoTexto(intentos)}` : ''}
+                </p>
+              </div>
+              <Estrellas t={t} n={intentos ? estrellasIntentos(intentos) : 0} size={18} />
+            </div>
+          )
+        })}
+      </div>
+
+      <div className="flex items-center gap-3 rounded-2xl border border-dashed border-border bg-secondary/40 px-4 py-3">
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-secondary text-muted-foreground">
+          {punt.sinFallos ? <Star className="h-4 w-4" style={{ color: COLOR_ESTRELLA }} fill="currentColor" /> : <Lock className="h-4 w-4" />}
+        </span>
+        <div>
+          <p className="text-[13px] font-bold text-foreground">
+            {punt.sinFallos ? t.academia.puntInsigniaSinFallosGanada : t.academia.puntInsigniaSinFallos}
+          </p>
+          <p className="text-xs font-medium text-muted-foreground">{t.academia.puntInsigniaSinFallosDesc}</p>
+        </div>
+      </div>
+
+      <p className="px-1 text-center text-xs font-medium text-muted-foreground">{t.academia.puntPracticaAviso}</p>
+      <BotonContinuar onClick={onVolver} texto={t.academia.puntVolverLibro} />
+    </NodoLayout>
+  )
+}
+
 function BotonContinuar({ onClick, texto, disabled }: { onClick: () => void; texto: string; disabled?: boolean }) {
   return (
     <div className="pb-2 pt-1">
@@ -874,6 +1068,7 @@ function NodoPrueba({
   esUltima,
   esFinal,
   etiquetaSiguiente,
+  marcaPrevia,
   onContinuar,
 }: {
   t: Diccionario
@@ -882,7 +1077,9 @@ function NodoPrueba({
   esUltima: boolean
   esFinal: boolean
   etiquetaSiguiente: string | null
-  onContinuar: () => void
+  /** Intentos de la marca oficial que ya tiene este nodo (undefined = todavía no tiene: esta vez cuenta). */
+  marcaPrevia?: number
+  onContinuar: (intentos: number) => void
 }) {
   // Arranca "comenzada" si es solo-lectura (repaso) o si no es la prueba
   // final (hoy no hay otro caso de nodo "prueba" standalone, pero por las
@@ -960,6 +1157,9 @@ function NodoPrueba({
         <div className="card-elevated rounded-2xl bg-destructive/10 p-4 text-center">
           <p className="text-sm font-bold text-destructive">{t.academia.pruebaNoAprobadaTitulo}</p>
           <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{t.academia.pruebaNoAprobadaTexto}</p>
+          {marcaPrevia === undefined && (
+            <p className="mt-1 text-[11px] font-semibold leading-snug text-destructive">{t.academia.puntAvisoFallo}</p>
+          )}
           <Button onClick={reintentar} className="mt-3 h-10 rounded-xl px-5 font-bold">
             {t.academia.pruebaReintentar}
           </Button>
@@ -969,7 +1169,7 @@ function NodoPrueba({
       {!soloLectura && acertada && !esUltima && (
         <div className="card-elevated rounded-2xl bg-success/10 p-4 text-center">
           <p className="text-sm font-bold text-success">{t.academia.pruebaAprobadaTitulo}</p>
-          <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{t.academia.pruebaAprobadaTexto(intentos)}</p>
+          <ResultadoPuntos t={t} intentos={intentos} marcaPrevia={marcaPrevia} />
         </div>
       )}
 
@@ -977,6 +1177,7 @@ function NodoPrueba({
         <div className="card-elevated rounded-2xl bg-success/10 p-4 text-center">
           <p className="text-sm font-bold text-success">{t.academia.capituloCompletadoTitulo}</p>
           <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{t.academia.capituloCompletadoTexto}</p>
+          <ResultadoPuntos t={t} intentos={intentos} marcaPrevia={marcaPrevia} />
         </div>
       )}
 
@@ -991,7 +1192,7 @@ function NodoPrueba({
                 : t.academia.capituloCompletadoBoton
               : t.academia.pruebaNecesitas
         }
-        onClick={onContinuar}
+        onClick={() => onContinuar(intentos)}
       />
     </>
   )
@@ -1052,6 +1253,7 @@ function NodoVideo({
   onContinuar,
   onAprobarModal,
   onSalirModal,
+  marcaPrevia,
 }: {
   t: Diccionario
   video: VideoAcademia
@@ -1062,7 +1264,9 @@ function NodoVideo({
   preguntasModal: PreguntaAcademia[] | null
   onContinuar: () => void
   /** Se llama cuando se acierta la pregunta del modal — avanza al siguiente video sin volver al mapa. */
-  onAprobarModal?: () => void
+  onAprobarModal?: (intentos: number) => void
+  /** Intentos de la marca oficial que ya tiene este nodo (undefined = todavía no tiene: esta vez cuenta). */
+  marcaPrevia?: number
   /** Se llama al cerrar el modal con la "X" sin haber acertado — vuelve al mapa. */
   onSalirModal?: () => void
 }) {
@@ -1211,9 +1415,10 @@ function NodoVideo({
           t={t}
           abierto={modalAbierto}
           preguntas={preguntasModal}
-          onAprobado={() => {
+          marcaPrevia={marcaPrevia}
+          onAprobado={(intentos) => {
             setModalAbierto(false)
-            onAprobarModal?.()
+            onAprobarModal?.(intentos)
           }}
           onCerrar={() => {
             setModalAbierto(false)
@@ -1238,18 +1443,21 @@ function ModalPruebaVideo({
   t,
   abierto,
   preguntas,
+  marcaPrevia,
   onAprobado,
   onCerrar,
 }: {
   t: Diccionario
   abierto: boolean
   preguntas: PreguntaAcademia[]
-  onAprobado: () => void
+  marcaPrevia?: number
+  onAprobado: (intentos: number) => void
   onCerrar: () => void
 }) {
   const [qIndex, setQIndex] = useState(() => Math.floor(Math.random() * preguntas.length))
   const [seleccion, setSeleccion] = useState<number | null>(null)
   const [saliendo, setSaliendo] = useState(false)
+  const [intentos, setIntentos] = useState(0)
 
   if (!abierto) return null
 
@@ -1261,6 +1469,7 @@ function ModalPruebaVideo({
   function elegir(oi: number) {
     if (seleccion !== null) return
     setSeleccion(oi)
+    setIntentos((n) => n + 1)
   }
 
   function reintentar() {
@@ -1276,7 +1485,7 @@ function ModalPruebaVideo({
   // siempre, no hace falta plumbing extra).
   function confirmarAprobado() {
     setSaliendo(true)
-    setTimeout(onAprobado, 260)
+    setTimeout(() => onAprobado(intentos), 260)
   }
 
   return (
@@ -1335,6 +1544,9 @@ function ModalPruebaVideo({
           <div className="mt-3 rounded-2xl bg-destructive/10 p-3 text-center">
             <p className="text-sm font-bold text-destructive">{t.academia.pruebaNoAprobadaTitulo}</p>
             <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{t.academia.pruebaNoAprobadaTexto}</p>
+            {marcaPrevia === undefined && (
+              <p className="mt-1 text-[11px] font-semibold leading-snug text-destructive">{t.academia.puntAvisoFallo}</p>
+            )}
             <Button onClick={reintentar} className="mt-3 h-10 rounded-xl px-5 font-bold">
               {t.academia.pruebaReintentar}
             </Button>
@@ -1344,6 +1556,7 @@ function ModalPruebaVideo({
         {respondido && acertada && (
           <div className="mt-3 rounded-2xl bg-success/10 p-3 text-center">
             <p className="text-sm font-bold text-success">{t.academia.pruebaAprobadaTitulo}</p>
+            <ResultadoPuntos t={t} intentos={intentos} marcaPrevia={marcaPrevia} />
             <Button onClick={confirmarAprobado} className="mt-3 h-10 w-full rounded-xl font-bold">
               {t.academia.nodoContinuar}
             </Button>
@@ -1367,8 +1580,8 @@ function PantallaNodo({
   nodoId: string
   progreso: ProgresoCap1
   repitiendo: boolean
-  onCompletar: (nodoId: string) => void
-  onAvanzarSinVolver: (nodoId: string, siguienteId: string) => void
+  onCompletar: (nodoId: string, intentos?: number) => void
+  onAvanzarSinVolver: (nodoId: string, siguienteId: string, intentos?: number) => void
   onVolver: () => void
 }) {
   const nodo: NodoRuta | undefined = NODOS_CAP1.find((n) => n.id === nodoId)
@@ -1432,7 +1645,8 @@ function PantallaNodo({
             if (!video.pruebaId && siguienteNodo) return onAvanzarSinVolver(nodoId, siguienteNodo.id)
             return onCompletar(nodoId)
           }}
-          onAprobarModal={siguienteNodo ? () => onAvanzarSinVolver(nodoId, siguienteNodo.id) : undefined}
+          marcaPrevia={prog.intentos}
+          onAprobarModal={siguienteNodo ? (intentos) => onAvanzarSinVolver(nodoId, siguienteNodo.id, intentos) : undefined}
           onSalirModal={onVolver}
         />
       </NodoLayout>
@@ -1455,7 +1669,8 @@ function PantallaNodo({
         esUltima={esUltima}
         esFinal={Boolean(nodo.esFinal)}
         etiquetaSiguiente={siguienteNodo?.titulo ?? null}
-        onContinuar={() => (soloLectura ? onVolver() : onCompletar(nodoId))}
+        marcaPrevia={prog.intentos}
+        onContinuar={(intentos) => (soloLectura ? onVolver() : onCompletar(nodoId, intentos))}
       />
     </NodoLayout>
   )

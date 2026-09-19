@@ -371,7 +371,11 @@ export function Estadisticas({
               <div className="h-full rounded-full bg-accent transition-all" style={{ width: `${porcentajeAcademia}%` }} />
             </div>
             {resumenAcademia.empezado && (
-              <div className="mt-2 flex items-center justify-end text-[11px] font-bold text-muted-foreground">
+              <div className="mt-2 flex items-center justify-between gap-2 text-[11px] font-bold text-muted-foreground">
+                <span>
+                  {t.academia.puntTuNota}: {resumenAcademia.nota.toFixed(2).replace('.', ',')} / 100
+                  {resumenAcademia.estrellasMax > 0 && ` · ★ ${resumenAcademia.estrellas}/${resumenAcademia.estrellasMax}`}
+                </span>
                 <span>{porcentajeAcademia}%</span>
               </div>
             )}

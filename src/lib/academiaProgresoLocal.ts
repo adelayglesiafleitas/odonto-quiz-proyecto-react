@@ -15,11 +15,21 @@
 // claude/academia-progreso-supabase-diseno.md.
 
 import { NODOS_CAP1 } from '@/data/academiaInmaculada'
+import { TEMAS_TOTAL_CAP1, calcularPuntuacion } from './academiaPuntuacion'
+
+export { TEMAS_TOTAL_CAP1 }
 
 export type EstadoNodo = 'bloqueado' | 'disponible' | 'completado'
 
 export interface ProgresoNodo {
   estado: EstadoNodo
+  /**
+   * Intentos que hicieron falta la PRIMERA vez que se respondió la pregunta
+   * de este nodo (solo video1, video2 y pruebaFinal). Se fija una sola vez y
+   * no se sobrescribe: repetir la lección es práctica y no cambia la nota.
+   * Ver academiaPuntuacion.ts.
+   */
+  intentos?: number
 }
 
 export type ProgresoCap1 = Record<string, ProgresoNodo>
@@ -85,6 +95,10 @@ export interface ResumenAcademia {
   empezado: boolean
   /** % real del capítulo (0-100), ver porcentajeCap1. */
   porcentaje: number
+  /** Nota total sobre 100 (ver academiaPuntuacion.ts). */
+  nota: number
+  estrellas: number
+  estrellasMax: number
 }
 
 // Corrección 2026-09-19: los nodos de NODOS_CAP1 (intro, 3 videos, prueba
@@ -94,8 +108,6 @@ export interface ResumenAcademia {
 // Ahora el porcentaje del capítulo = (nodos completados / nodos de la ruta)
 // repartido entre los 3 temas del capítulo. Cuando se carguen los otros
 // temas, sumar su progreso acá.
-export const TEMAS_TOTAL_CAP1 = 3
-
 export function porcentajeCap1(progreso: ProgresoCap1): number {
   if (NODOS_CAP1.length === 0) return 0
   const completados = NODOS_CAP1.filter((n) => progreso[n.id]?.estado === 'completado').length
@@ -107,6 +119,7 @@ export function porcentajeCap1(progreso: ProgresoCap1): number {
 // mostrar, en vez de que la pantalla tenga que conocer la forma de
 // ProgresoCap1 o los ids de los nodos.
 export function calcularResumenAcademia(progreso: ProgresoCap1): ResumenAcademia {
+  const puntuacion = calcularPuntuacion(progreso)
   const temasCompletados = NODOS_CAP1.filter((n) => progreso[n.id]?.estado === 'completado').length
 
   return {
@@ -114,5 +127,8 @@ export function calcularResumenAcademia(progreso: ProgresoCap1): ResumenAcademia
     temasTotal: NODOS_CAP1.length,
     empezado: temasCompletados > 0,
     porcentaje: Math.round(porcentajeCap1(progreso)),
+    nota: puntuacion.notaTotal,
+    estrellas: puntuacion.estrellas,
+    estrellasMax: puntuacion.estrellasMax,
   }
 }

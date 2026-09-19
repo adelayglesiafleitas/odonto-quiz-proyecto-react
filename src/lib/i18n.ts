@@ -255,6 +255,28 @@ export interface Diccionario {
     nodoAutoevaluacion: string
     nodoYaCompletado: string
     nodoRepetir: string
+    puntAvisoFallo: string
+    puntPrimerIntento: string
+    puntTrasFallar: string
+    puntSumaPts: (pts: string) => string
+    puntPracticaTitulo: string
+    puntPracticaTexto: string
+    puntSinPuntos: string
+    puntMarcaOficial: string
+    puntTuNota: string
+    puntEstrellasGanadas: string
+    puntCapitulos: string
+    puntPruebaLibro: string
+    puntEstrellasAria: (n: number) => string
+    puntResumenTitulo: string
+    puntTemaCompletada: (tema: string) => string
+    puntIntentoTexto: (intentos: number) => string
+    puntInsigniaSinFallos: string
+    puntInsigniaSinFallosGanada: string
+    puntInsigniaSinFallosDesc: string
+    puntPracticaAviso: string
+    puntVolverLibro: string
+    puntPreguntaN: (n: number) => string
     nodoContinuar: string
     pantallaCompleta: string
     videoBloqueadoTexto: string
@@ -641,6 +663,28 @@ export const es: Diccionario = {
     nodoAutoevaluacion: 'Autoevaluación',
     nodoYaCompletado: 'Ya completado — volver',
     nodoRepetir: 'Completado — toca para repetir',
+    puntAvisoFallo: 'Ojo: al fallar, el máximo de esta pregunta ya no se puede alcanzar.',
+    puntPrimerIntento: 'A la primera: puntuación máxima para esta pregunta.',
+    puntTrasFallar: 'Fallaste antes, así que el máximo de esta pregunta ya no se puede alcanzar. Esta marca queda guardada en tu nota.',
+    puntSumaPts: (pts) => `+${pts} pts`,
+    puntPracticaTitulo: 'Modo práctica',
+    puntPracticaTexto: 'Ya tienes tu marca oficial en esta pregunta. Repetir sirve para estudiar: no la sube ni la baja.',
+    puntSinPuntos: 'Sin puntos esta vez',
+    puntMarcaOficial: 'Tu marca oficial',
+    puntTuNota: 'Tu nota',
+    puntEstrellasGanadas: 'estrellas ganadas',
+    puntCapitulos: 'Capítulos',
+    puntPruebaLibro: 'Prueba final del libro',
+    puntEstrellasAria: (n) => `${n} de 3 estrellas`,
+    puntResumenTitulo: 'Resumen del tema',
+    puntTemaCompletada: (tema) => `${tema} completada`,
+    puntIntentoTexto: (i) => (i <= 1 ? 'A la primera' : i === 2 ? 'Segundo intento' : `Intento ${i}`),
+    puntInsigniaSinFallos: 'Insignia «Sin fallos»',
+    puntInsigniaSinFallosGanada: '¡Insignia «Sin fallos» conseguida!',
+    puntInsigniaSinFallosDesc: 'Se logra con 3 estrellas en todas las preguntas.',
+    puntPracticaAviso: 'Si repites la lección será modo práctica: no cambia tu nota.',
+    puntVolverLibro: 'Volver al libro',
+    puntPreguntaN: (n) => `Pregunta ${n}`,
     nodoContinuar: 'Continuar',
     pantallaCompleta: 'Pantalla completa',
     videoBloqueadoTexto: 'Mirá el video completo para continuar',
@@ -1026,6 +1070,28 @@ export const en: Diccionario = {
     nodoAutoevaluacion: 'Self-check',
     nodoYaCompletado: 'Already completed — go back',
     nodoRepetir: 'Completed — tap to repeat',
+    puntAvisoFallo: 'Heads up: once you miss, the maximum for this question is no longer reachable.',
+    puntPrimerIntento: 'First try: full marks for this question.',
+    puntTrasFallar: 'You missed earlier, so the maximum for this question is no longer reachable. This result is saved in your score.',
+    puntSumaPts: (pts) => `+${pts} pts`,
+    puntPracticaTitulo: 'Practice mode',
+    puntPracticaTexto: 'You already have your official result for this question. Repeating is for studying: it will not raise or lower it.',
+    puntSinPuntos: 'No points this time',
+    puntMarcaOficial: 'Your official result',
+    puntTuNota: 'Your score',
+    puntEstrellasGanadas: 'stars earned',
+    puntCapitulos: 'Chapters',
+    puntPruebaLibro: 'Final book exam',
+    puntEstrellasAria: (n) => `${n} of 3 stars`,
+    puntResumenTitulo: 'Topic summary',
+    puntTemaCompletada: (tema) => `${tema} completed`,
+    puntIntentoTexto: (i) => (i <= 1 ? 'First try' : i === 2 ? 'Second try' : `Attempt ${i}`),
+    puntInsigniaSinFallos: '"No mistakes" badge',
+    puntInsigniaSinFallosGanada: '"No mistakes" badge earned!',
+    puntInsigniaSinFallosDesc: 'Earned with 3 stars on every question.',
+    puntPracticaAviso: 'If you repeat the lesson it is practice mode: your score does not change.',
+    puntVolverLibro: 'Back to the book',
+    puntPreguntaN: (n) => `Question ${n}`,
     nodoContinuar: 'Continue',
     pantallaCompleta: 'Fullscreen',
     videoBloqueadoTexto: 'Watch the full video to continue',
