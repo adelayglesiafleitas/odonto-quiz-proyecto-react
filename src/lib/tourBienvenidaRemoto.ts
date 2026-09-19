@@ -10,29 +10,22 @@
 
 import { supabase } from './supabase';
 
-export async function getVioTourBienvenida(): Promise<boolean> {
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  if (!user) return false;
-
+// userId como parámetro en vez de un supabase.auth.getUser() propio (que
+// revalida contra el servidor en cada llamada, a diferencia de la sesión ya
+// resuelta en App.tsx) — mismo criterio que academiaAccesoRemoto.ts.
+export async function getVioTourBienvenida(userId: string): Promise<boolean> {
   const { data, error } = await supabase
     .from('perfiles')
     .select('vio_tour_bienvenida')
-    .eq('user_id', user.id)
+    .eq('user_id', userId)
     .maybeSingle();
 
   if (error || !data) return false;
   return Boolean(data.vio_tour_bienvenida);
 }
 
-export async function marcarTourBienvenidaVisto(): Promise<void> {
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  if (!user) return;
-
+export async function marcarTourBienvenidaVisto(userId: string): Promise<void> {
   await supabase
     .from('perfiles')
-    .upsert({ user_id: user.id, vio_tour_bienvenida: true }, { onConflict: 'user_id' });
+    .upsert({ user_id: userId, vio_tour_bienvenida: true }, { onConflict: 'user_id' });
 }

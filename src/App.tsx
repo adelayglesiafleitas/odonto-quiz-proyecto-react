@@ -219,30 +219,32 @@ function App() {
   // actualiza en el próximo render — llamarla en el mismo tick podría usar
   // todavía el curso anterior. Se arma la sesión directo con el cursoId del
   // intento en vez de depender de ese estado.
+  //
+  // Guarda en ambas ramas: si el banco actual ya no tiene ninguna pregunta
+  // que encaje (capítulo renombrado, preguntas ocultadas/borradas desde el
+  // admin desde que se guardó este intento), preguntas queda en [] y no se
+  // navega — antes solo la rama de preguntasNumeros se cuidaba de esto; la
+  // rama de abajo navegaba igual a /examen con un array vacío, y Examen.tsx
+  // no tiene forma de mostrar una pregunta que no existe (revienta al leer
+  // preguntas[indice]).
   async function repetirIntento(intento: IntentoExamen) {
     setCursoIdExamen(intento.cursoId)
+    let preguntas: Pregunta[]
     if (intento.preguntasNumeros.length > 0) {
-      const preguntas = await obtenerPreguntasPorNumero(intento.cursoId, intento.preguntasNumeros)
-      if (preguntas.length === 0) return
-      setSesionExamen({
-        preguntas,
-        capitulos: intento.capitulos,
-        anio: intento.anio,
-        tiempoLimiteMinutos: intento.tiempoLimiteMinutos,
-      })
+      preguntas = await obtenerPreguntasPorNumero(intento.cursoId, intento.preguntasNumeros)
     } else {
       await cargarBanco(intento.cursoId)
-      setSesionExamen({
-        preguntas: seleccionarPreguntas(intento.cursoId, intento.totalPreguntas, intento.capitulos, intento.anio),
-        capitulos: intento.capitulos,
-        anio: intento.anio,
-        tiempoLimiteMinutos: intento.tiempoLimiteMinutos,
-      })
+      preguntas = seleccionarPreguntas(intento.cursoId, intento.totalPreguntas, intento.capitulos, intento.anio)
     }
+    if (preguntas.length === 0) return
+    setSesionExamen({
+      preguntas,
+      capitulos: intento.capitulos,
+      anio: intento.anio,
+      tiempoLimiteMinutos: intento.tiempoLimiteMinutos,
+    })
     navigate(RUTA.examen)
   }
-
-  //
 
   if (userId && verifDispositivo === 'bloqueado') {
     return (

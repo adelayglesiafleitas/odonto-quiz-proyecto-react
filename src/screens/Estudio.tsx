@@ -8,6 +8,16 @@ import { LogoMark } from '@/components/Logo'
 import { BottomNav } from '@/components/BottomNav'
 import type { Pantalla } from '@/types'
 
+// Cuántas preguntas se muestran de entrada (y cuántas más se suman por cada
+// toque de "Ver más"). El banco de Odontología tiene más de mil preguntas:
+// montar todas sus tarjetas de una sola vez (cada una con su enunciado y
+// todas las opciones) generaba una pantalla larguísima y notoriamente lenta
+// de abrir/scrollear en mobile, que es donde vive la mayoría del uso de esta
+// pantalla. Paginar en el cliente (en vez de traer de a poco desde Supabase)
+// alcanza acá porque `todasPreguntas` ya está completo en memoria de todos
+// modos (lo cargó App.tsx de entrada) — no hace falta una consulta nueva.
+const TAMANO_PAGINA = 30
+
 // La barra de navegación inferior nunca debe faltar en ninguna pantalla
 // principal: el usuario no debe quedar "varado" sin forma de navegar.
 // "academia" queda marcada como activa porque es de donde se llega acá.
@@ -18,11 +28,31 @@ export function Estudio({ onBack, onNavigate }: { onBack: () => void; onNavigate
   const todasPreguntas = useMemo(() => getPreguntas(CURSO_ID), [])
   const capitulos = useMemo(() => ['todos', ...getCapitulos(CURSO_ID)], [])
   const [capitulo, setCapitulo] = useState('todos')
+  const [cantidadVisible, setCantidadVisible] = useState(TAMANO_PAGINA)
 
-  const preguntas = useMemo(
+  // Cambiar de capítulo vuelve a arrancar la paginación desde el principio —
+  // si no, elegir un capítulo con menos preguntas que `cantidadVisible`
+  // simplemente las mostraba todas igual (inofensivo), pero volver a "todos"
+  // después arrastraba una cantidadVisible ya crecida sin que el usuario
+  // hubiera tocado "Ver más" en ese capítulo. Se ajusta durante el render
+  // (patrón recomendado por React para "resetear estado cuando cambia un
+  // valor relacionado") en vez de un useEffect, que sumaría un render extra
+  // de más — ver https://react.dev/learn/you-might-not-need-an-effect.
+  const [capituloAnterior, setCapituloAnterior] = useState(capitulo)
+  if (capitulo !== capituloAnterior) {
+    setCapituloAnterior(capitulo)
+    setCantidadVisible(TAMANO_PAGINA)
+  }
+
+  const preguntasDelCapitulo = useMemo(
     () => (capitulo === 'todos' ? todasPreguntas : todasPreguntas.filter((p) => p.capitulo === capitulo)),
     [capitulo, todasPreguntas],
   )
+  const preguntas = useMemo(
+    () => preguntasDelCapitulo.slice(0, cantidadVisible),
+    [preguntasDelCapitulo, cantidadVisible],
+  )
+  const quedanMas = preguntas.length < preguntasDelCapitulo.length
 
   return (
     <div className="app-shell bg-background pb-28 pt-6">
@@ -52,7 +82,9 @@ export function Estudio({ onBack, onNavigate }: { onBack: () => void; onNavigate
         ))}
       </div>
 
-      <p className="mt-3 px-7 text-xs font-semibold text-muted-foreground">{t.estudio.totalPreguntas(preguntas.length)}</p>
+      <p className="mt-3 px-7 text-xs font-semibold text-muted-foreground">
+        {t.estudio.totalPreguntas(preguntasDelCapitulo.length)}
+      </p>
 
       <div className="mt-3 space-y-3 px-6">
         {preguntas.map((p) => (
@@ -91,6 +123,17 @@ export function Estudio({ onBack, onNavigate }: { onBack: () => void; onNavigate
           </div>
         ))}
       </div>
+
+      {quedanMas && (
+        <div className="mt-3 px-6">
+          <button
+            onClick={() => setCantidadVisible((c) => c + TAMANO_PAGINA)}
+            className="card-elevated w-full rounded-2xl bg-card py-3 text-xs font-bold text-primary"
+          >
+            {t.estudio.verMas(Math.min(TAMANO_PAGINA, preguntasDelCapitulo.length - preguntas.length))}
+          </button>
+        </div>
+      )}
 
       <BottomNav activo="academia" onNavigate={onNavigate} />
     </div>

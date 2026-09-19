@@ -43,14 +43,15 @@ export function Configuracion({
   const timeoutToastRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
+    if (!userId) return
     let cancelado = false
-    getAcademiaHabilitada().then((habilitada) => {
+    getAcademiaHabilitada(userId).then((habilitada) => {
       if (!cancelado) setAcademiaHabilitada(habilitada)
     })
     return () => {
       cancelado = true
     }
-  }, [])
+  }, [userId])
 
   // Los timeouts que reponen el botón/toast a su estado normal no se
   // cancelaban al salir de esta pantalla antes de que dispararan: si el

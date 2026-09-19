@@ -83,6 +83,23 @@ export interface ResumenAcademia {
   temasCompletados: number
   temasTotal: number
   empezado: boolean
+  /** % real del capítulo (0-100), ver porcentajeCap1. */
+  porcentaje: number
+}
+
+// Corrección 2026-09-19: los nodos de NODOS_CAP1 (intro, 3 videos, prueba
+// final) son todos del tema Parálisis Cerebral. Epilepsia y Distrofia
+// Muscular todavía no tienen contenido, así que terminar la ruta actual
+// mostraba 100% del capítulo cuando en realidad es solo 1 de sus 3 temas.
+// Ahora el porcentaje del capítulo = (nodos completados / nodos de la ruta)
+// repartido entre los 3 temas del capítulo. Cuando se carguen los otros
+// temas, sumar su progreso acá.
+export const TEMAS_TOTAL_CAP1 = 3
+
+export function porcentajeCap1(progreso: ProgresoCap1): number {
+  if (NODOS_CAP1.length === 0) return 0
+  const completados = NODOS_CAP1.filter((n) => progreso[n.id]?.estado === 'completado').length
+  return (completados / NODOS_CAP1.length / TEMAS_TOTAL_CAP1) * 100
 }
 
 // Usado por la sección "Academia" de Estadisticas.tsx: reduce el progreso
@@ -96,5 +113,6 @@ export function calcularResumenAcademia(progreso: ProgresoCap1): ResumenAcademia
     temasCompletados,
     temasTotal: NODOS_CAP1.length,
     empezado: temasCompletados > 0,
+    porcentaje: Math.round(porcentajeCap1(progreso)),
   }
 }

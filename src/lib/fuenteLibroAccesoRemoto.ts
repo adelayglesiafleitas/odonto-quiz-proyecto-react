@@ -17,16 +17,14 @@
 
 import { supabase } from './supabase';
 
-export async function getLibroPacientesEspecialesHabilitado(): Promise<boolean> {
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  if (!user) return false;
-
+// userId como parámetro en vez de un supabase.auth.getUser() propio (que
+// revalida contra el servidor en cada llamada, a diferencia de la sesión ya
+// resuelta en App.tsx) — mismo criterio que academiaAccesoRemoto.ts.
+export async function getLibroPacientesEspecialesHabilitado(userId: string): Promise<boolean> {
   const { data, error } = await supabase
     .from('perfiles')
     .select('libro_pacientes_especiales_habilitado')
-    .eq('user_id', user.id)
+    .eq('user_id', userId)
     .maybeSingle();
 
   if (error || !data) return false;

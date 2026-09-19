@@ -96,17 +96,28 @@ export function Home({
   }, [])
 
   useEffect(() => {
-    getVioTourBienvenida().then((visto) => {
+    let cancelado = false
+    getVioTourBienvenida(userId).then((visto) => {
+      if (cancelado) return
       if (!visto) {
         setMostrarTour(true)
         setPrimeraVisita(true)
       }
     })
-  }, [])
+    return () => {
+      cancelado = true
+    }
+  }, [userId])
 
   useEffect(() => {
-    getMensajesPendientes().then(setColaMensajes)
-  }, [])
+    let cancelado = false
+    getMensajesPendientes(userId).then((mensajes) => {
+      if (!cancelado) setColaMensajes(mensajes)
+    })
+    return () => {
+      cancelado = true
+    }
+  }, [userId])
 
   useEffect(() => {
     let cancelado = false
@@ -124,12 +135,12 @@ export function Home({
   }, [userId])
 
   const cerrarTour = () => {
-    marcarTourBienvenidaVisto()
+    marcarTourBienvenidaVisto(userId)
     setMostrarTour(false)
   }
 
   const cerrarMensajeAdmin = (id: string) => {
-    descartarMensaje(id)
+    descartarMensaje(id, userId)
     setColaMensajes((cola) => cola.filter((m) => m.id !== id))
   }
 

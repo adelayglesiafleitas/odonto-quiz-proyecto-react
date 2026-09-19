@@ -12,6 +12,9 @@ export interface Diccionario {
     bienvenidoClaro: string
     cancelar: string
     cargando: string
+    errorTitulo: string
+    errorTexto: string
+    errorBoton: string
   }
   login: {
     tituloLogin: string
@@ -144,6 +147,7 @@ export interface Diccionario {
     preguntaContador: (a: number, b: number) => string
     tocaVer: string
     totalPreguntas: (n: number) => string
+    verMas: (n: number) => string
   }
   ayuda: {
     titulo: string
@@ -250,6 +254,7 @@ export interface Diccionario {
     nodoResumen: string
     nodoAutoevaluacion: string
     nodoYaCompletado: string
+    nodoRepetir: string
     nodoContinuar: string
     pantallaCompleta: string
     videoBloqueadoTexto: string
@@ -367,6 +372,9 @@ export const es: Diccionario = {
     bienvenidoClaro: 'Bienvenido a la luz',
     cancelar: 'Cancelar',
     cargando: 'Cargando...',
+    errorTitulo: 'Algo salió mal',
+    errorTexto: 'Encontramos un error inesperado. Volvé al inicio e intentá de nuevo.',
+    errorBoton: 'Volver al inicio',
   },
   login: {
     tituloLogin: 'Bienvenido de nuevo',
@@ -501,6 +509,7 @@ export const es: Diccionario = {
     preguntaContador: (a, b) => `Pregunta ${a} de ${b}`,
     tocaVer: 'Toca para ver la respuesta',
     totalPreguntas: (n) => `${n} pregunta${n === 1 ? '' : 's'}`,
+    verMas: (n) => `Ver ${n} más`,
   },
   ayuda: {
     titulo: 'Ayuda',
@@ -631,6 +640,7 @@ export const es: Diccionario = {
     nodoResumen: 'Resumen ejecutivo',
     nodoAutoevaluacion: 'Autoevaluación',
     nodoYaCompletado: 'Ya completado — volver',
+    nodoRepetir: 'Completado — toca para repetir',
     nodoContinuar: 'Continuar',
     pantallaCompleta: 'Pantalla completa',
     videoBloqueadoTexto: 'Mirá el video completo para continuar',
@@ -747,6 +757,9 @@ export const en: Diccionario = {
     bienvenidoClaro: 'Welcome to the light',
     cancelar: 'Cancel',
     cargando: 'Loading...',
+    errorTitulo: 'Something went wrong',
+    errorTexto: 'We ran into an unexpected error. Go back to the start and try again.',
+    errorBoton: 'Back to start',
   },
   login: {
     tituloLogin: 'Welcome back',
@@ -881,6 +894,7 @@ export const en: Diccionario = {
     preguntaContador: (a, b) => `Question ${a} of ${b}`,
     tocaVer: 'Tap to reveal the answer',
     totalPreguntas: (n) => `${n} question${n === 1 ? '' : 's'}`,
+    verMas: (n) => `Show ${n} more`,
   },
   ayuda: {
     titulo: 'Help',
@@ -1011,6 +1025,7 @@ export const en: Diccionario = {
     nodoResumen: 'Executive summary',
     nodoAutoevaluacion: 'Self-check',
     nodoYaCompletado: 'Already completed — go back',
+    nodoRepetir: 'Completed — tap to repeat',
     nodoContinuar: 'Continue',
     pantallaCompleta: 'Fullscreen',
     videoBloqueadoTexto: 'Watch the full video to continue',

@@ -25,20 +25,19 @@ export interface MensajeAdmin {
 // Trae TODOS los mensajes pendientes (los que todavía no se descartaron),
 // más nuevo primero. Home los muestra todos apilados a la vez, cada uno con
 // su propia ✕ — cerrar uno no afecta a los demás.
-export async function getMensajesPendientes(): Promise<MensajeAdmin[]> {
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-  if (!user) return []
-
+//
+// userId como parámetro en vez de un supabase.auth.getUser() propio (que
+// revalida contra el servidor en cada llamada, a diferencia de la sesión ya
+// resuelta en App.tsx) — mismo criterio que academiaAccesoRemoto.ts.
+export async function getMensajesPendientes(userId: string): Promise<MensajeAdmin[]> {
   const [{ data: mensajes, error }, { data: descartados }] = await Promise.all([
     supabase
       .from('mensajes_admin')
       .select('id, tipo, texto, media_url, mostrar_siempre')
       .eq('activo', true)
-      .or(`destinatario_user_id.is.null,destinatario_user_id.eq.${user.id}`)
+      .or(`destinatario_user_id.is.null,destinatario_user_id.eq.${userId}`)
       .order('creado_en', { ascending: false }),
-    supabase.from('mensajes_admin_descartados').select('mensaje_id').eq('user_id', user.id),
+    supabase.from('mensajes_admin_descartados').select('mensaje_id').eq('user_id', userId),
   ])
 
   if (error || !mensajes) return []
@@ -59,10 +58,6 @@ export async function getMensajesPendientes(): Promise<MensajeAdmin[]> {
     }))
 }
 
-export async function descartarMensaje(mensajeId: string): Promise<void> {
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-  if (!user) return
-  await supabase.from('mensajes_admin_descartados').insert({ mensaje_id: mensajeId, user_id: user.id })
+export async function descartarMensaje(mensajeId: string, userId: string): Promise<void> {
+  await supabase.from('mensajes_admin_descartados').insert({ mensaje_id: mensajeId, user_id: userId })
 }

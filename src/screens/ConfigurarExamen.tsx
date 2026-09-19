@@ -108,7 +108,7 @@ export function ConfigurarExamen({
       // podría llegar todavía en su valor inicial (false) por la carrera
       // entre esta promesa y el render — se guarda en una variable local en
       // vez de depender del estado.
-      const libroHabilitado = cursoMeta.tieneLibros ? await getLibroPacientesEspecialesHabilitado() : false
+      const libroHabilitado = cursoMeta.tieneLibros ? await getLibroPacientesEspecialesHabilitado(userId) : false
       if (cancelado) return
       setMostrarSelectorFuenteLibro(libroHabilitado)
 

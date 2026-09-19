@@ -21,7 +21,7 @@ import { Spinner } from '@/components/Spinner'
 import { Button } from '@/components/ui/button'
 import { RUTA_SOPORTE } from '@/lib/rutas'
 import { getAcademiaHabilitada } from '@/lib/academiaAccesoRemoto'
-import { cargarProgresoAcademia, progresoInicialAcademia, type EstadoNodo, type ProgresoCap1 } from '@/lib/academiaProgresoLocal'
+import { cargarProgresoAcademia, progresoInicialAcademia, porcentajeCap1, type EstadoNodo, type ProgresoCap1 } from '@/lib/academiaProgresoLocal'
 import { getProgresoAcademiaRemoto, guardarProgresoAcademiaRemoto } from '@/lib/academiaProgresoRemoto'
 import type { Diccionario } from '@/lib/i18n'
 import type { Pantalla } from '@/types'
@@ -150,6 +150,7 @@ export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (
   const { t } = useAppSettings()
   const { key: navegacionKey } = useLocation()
   const [vista, setVista] = useState<VistaAcademia>('home')
+  const [repitiendo, setRepitiendo] = useState(false)
   const [nodoActivoId, setNodoActivoId] = useState<string | null>(null)
   const [progreso, setProgreso] = useState<ProgresoCap1>(() => progresoInicialAcademia())
   // false hasta que termina la carga inicial desde Supabase — evita que el
@@ -180,13 +181,13 @@ export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (
 
   useEffect(() => {
     let cancelado = false
-    getAcademiaHabilitada().then((habilitada) => {
+    getAcademiaHabilitada(userId).then((habilitada) => {
       if (!cancelado) setAcademiaHabilitada(habilitada)
     })
     return () => {
       cancelado = true
     }
-  }, [])
+  }, [userId])
 
   // Carga el progreso real de este usuario desde Supabase al entrar (o si
   // cambia de cuenta sin recargar la página — userId en las dependencias).
@@ -239,13 +240,18 @@ export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (
     return i >= 0 && i < NODOS_CAP1.length - 1 ? NODOS_CAP1[i + 1].id : null
   }
 
-  function abrirNodo(id: string) {
+  function abrirNodo(id: string, repetir = false) {
     if (progreso[id]?.estado === 'bloqueado') return
+    // Repetir la lección (2026-09-19): con todo completado, se vuelve a
+    // recorrer intro → videos → pruebas con las preguntas activas (no en
+    // modo solo-lectura). El progreso ya guardado no se pierde.
+    setRepitiendo(repetir)
     setNodoActivoId(id)
     setVista('nodo')
   }
 
   function volverALibro() {
+    setRepitiendo(false)
     setVista('libro')
     setNodoActivoId(null)
   }
@@ -319,6 +325,7 @@ export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (
               t={t}
               nodoId={nodoActivoId}
               progreso={progreso}
+              repitiendo={repitiendo}
               onCompletar={completarNodo}
               onAvanzarSinVolver={avanzarSinVolver}
               onVolver={volverALibro}
@@ -442,7 +449,7 @@ function PantallaLibro({
   progreso: ProgresoCap1
   recienCompletadoId: string | null
   onVolver: () => void
-  onAbrirNodo: (id: string) => void
+  onAbrirNodo: (id: string, repetir?: boolean) => void
   onAbrirProximo: () => void
 }) {
   const [capSeleccionado, setCapSeleccionado] = useState<CapituloLibro | null>(null)
@@ -521,7 +528,7 @@ function PantallaLibro({
             // .academia-color-activo/.academia-color-bloqueado en index.css.
             const acento = cap.listo ? 'academia-color-activo' : 'academia-color-bloqueado'
             const expandido = expandidoNumero === cap.numero
-            const pctCap1 = NODOS_CAP1.length > 0 ? (completadosCap1 / NODOS_CAP1.length) * 100 : 0
+            const pctCap1 = porcentajeCap1(progreso)
 
             const circulo = (
               <span
@@ -597,7 +604,7 @@ function PantallaLibro({
                           fila retoma o repasa esa ruta completa puertas
                           adentro (PantallaNodo, sin cambios). */}
                       <button
-                        onClick={() => onAbrirNodo(nodoDestinoCap1.id)}
+                        onClick={() => (cap1Completo ? onAbrirNodo(NODOS_CAP1[0].id, true) : onAbrirNodo(nodoDestinoCap1.id))}
                         className={`flex items-center gap-3 rounded-xl px-2 py-2.5 text-left transition-colors duration-700 ${
                           pcRecienCompletado ? 'bg-success/10' : ''
                         }`}
@@ -621,7 +628,7 @@ function PantallaLibro({
                         <span className="min-w-0 flex-1">
                           <span className="block truncate text-[13.5px] font-semibold text-foreground">{TEMAS_CAP1.pc.nombre}</span>
                           <span className="block text-[11px] font-medium text-muted-foreground">
-                            {cap1Completo ? t.academia.nodoYaCompletado : `${completadosCap1}/${NODOS_CAP1.length}`}
+                            {cap1Completo ? t.academia.nodoRepetir : `${completadosCap1}/${NODOS_CAP1.length}`}
                           </span>
                         </span>
                         <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground/70" />
@@ -1351,6 +1358,7 @@ function PantallaNodo({
   t,
   nodoId,
   progreso,
+  repitiendo,
   onCompletar,
   onAvanzarSinVolver,
   onVolver,
@@ -1358,6 +1366,7 @@ function PantallaNodo({
   t: Diccionario
   nodoId: string
   progreso: ProgresoCap1
+  repitiendo: boolean
   onCompletar: (nodoId: string) => void
   onAvanzarSinVolver: (nodoId: string, siguienteId: string) => void
   onVolver: () => void
@@ -1365,7 +1374,7 @@ function PantallaNodo({
   const nodo: NodoRuta | undefined = NODOS_CAP1.find((n) => n.id === nodoId)
   if (!nodo) return null
   const prog = progreso[nodoId] ?? { estado: 'bloqueado' as EstadoNodo }
-  const soloLectura = prog.estado === 'completado'
+  const soloLectura = prog.estado === 'completado' && !repitiendo
   const subtituloCap1 = 'Capítulo 1 · Discapacitado Físico'
   const idx = NODOS_CAP1.findIndex((n) => n.id === nodoId)
   const siguienteNodo = idx >= 0 ? NODOS_CAP1[idx + 1] : undefined
@@ -1379,7 +1388,14 @@ function PantallaNodo({
           </TarjetaContenido>
         ))}
         <BotonContinuar
-          onClick={() => (soloLectura ? onVolver() : onCompletar(nodoId))}
+          onClick={() => {
+            if (soloLectura) return onVolver()
+            // Corrección 2026-09-19: al terminar la intro se sigue directo al
+            // primer video (mismo mecanismo que video1→video2), sin volver a
+            // la lista del libro.
+            if (siguienteNodo) return onAvanzarSinVolver(nodoId, siguienteNodo.id)
+            return onCompletar(nodoId)
+          }}
           texto={soloLectura ? t.academia.nodoYaCompletado : t.academia.nodoContinuar}
         />
       </NodoLayout>

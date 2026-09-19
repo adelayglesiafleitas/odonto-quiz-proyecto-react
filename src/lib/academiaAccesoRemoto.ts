@@ -14,16 +14,18 @@
 
 import { supabase } from './supabase';
 
-export async function getAcademiaHabilitada(): Promise<boolean> {
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  if (!user) return false;
-
+// Recibe `userId` en vez de resolverlo acá con supabase.auth.getUser(): a
+// diferencia de getSession() (que lee de la sesión ya guardada en memoria),
+// getUser() revalida contra el servidor de Auth en cada llamada — todo
+// llamador de esta función ya tiene el userId de la sesión resuelta en
+// App.tsx, así que pedirlo de nuevo acá solo suma una ida y vuelta de red
+// redundante (más notorio en mobile). Mismo criterio que ya usan
+// historial.ts, tickets.ts y configExamen.ts.
+export async function getAcademiaHabilitada(userId: string): Promise<boolean> {
   const { data, error } = await supabase
     .from('perfiles')
     .select('academia_habilitada')
-    .eq('user_id', user.id)
+    .eq('user_id', userId)
     .maybeSingle();
 
   if (error || !data) return false;

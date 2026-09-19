@@ -132,17 +132,17 @@ export function Estadisticas({
   // claude/academia-progreso-supabase-diseno.md.
   const [academiaHabilitada, setAcademiaHabilitada] = useState(false)
   const [resumenAcademia, setResumenAcademia] = useState<ResumenAcademia>(() => calcularResumenAcademia(progresoInicialAcademia()))
-  const porcentajeAcademia = Math.round((resumenAcademia.temasCompletados / resumenAcademia.temasTotal) * 100)
+  const porcentajeAcademia = resumenAcademia.porcentaje
 
   useEffect(() => {
     let cancelado = false
-    getAcademiaHabilitada().then((habilitada) => {
+    getAcademiaHabilitada(userId).then((habilitada) => {
       if (!cancelado) setAcademiaHabilitada(habilitada)
     })
     return () => {
       cancelado = true
     }
-  }, [])
+  }, [userId])
 
   useEffect(() => {
     let cancelado = false
