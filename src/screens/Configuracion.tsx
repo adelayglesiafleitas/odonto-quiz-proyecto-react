@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
-import { Check, ChevronDown, LogOut, Palette, RotateCcw, User } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import { Check, ChevronDown, ChevronRight, LifeBuoy, LogOut, Palette, RotateCcw, User } from 'lucide-react'
+import { RUTA } from '@/lib/rutas'
+import { useSoporteNoLeidos } from '@/lib/tickets'
 import { useAppSettings } from '@/context/AppSettings'
 import { SettingsToggle } from '@/components/SettingsToggle'
 import { LogoMark } from '@/components/Logo'
@@ -26,7 +29,9 @@ export function Configuracion({
   onNavigate: (p: Pantalla) => void
   onLogout: () => void
 }) {
-  const { t, estilo, setEstilo } = useAppSettings()
+  const { t, estilo, setEstilo, idioma } = useAppSettings()
+  const navigate = useNavigate()
+  const sinLeerSoporte = useSoporteNoLeidos()
   const nombreMostrado = nickname && nickname.trim().length > 0 ? nickname : t.home.estudiante
   const [estiloAbierto, setEstiloAbierto] = useState(false)
 
@@ -88,8 +93,10 @@ export function Configuracion({
 
   return (
     <div className="app-shell bg-background px-6 pb-28 pt-6">
-      <div className="flex items-center justify-between gap-3">
-        <LogoMark className="h-8 w-auto" />
+      {/* Único header sin selector de tema/idioma (vive en "Preferencias"):
+          logo centrado y más grande para que no quede vacío a la derecha. */}
+      <div className="flex items-center justify-center">
+        <LogoMark className="h-11 w-auto" />
       </div>
 
       <h1 className="mt-6 text-lg font-extrabold text-foreground">{t.config.titulo}</h1>
@@ -103,6 +110,34 @@ export function Configuracion({
           <p className="truncate text-[15px] font-bold text-foreground">{nombreMostrado}</p>
         </div>
       </div>
+
+      {/* Ayuda y soporte: antes era una pestaña de la barra; ahora vive acá y
+          su lugar en la barra lo ocupa Comunidad. La pantalla /ayuda sigue
+          teniendo el tour, la guía de uso y Escribir a soporte / Mis consultas. */}
+      <button
+        onClick={() => navigate(RUTA.ayuda)}
+        className="card-elevated mt-3 flex w-full items-center gap-3 rounded-2xl bg-card p-4 text-left"
+      >
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
+          <LifeBuoy className="h-5 w-5" />
+        </span>
+        <div className="min-w-0 flex-1">
+          <p className="text-[15px] font-bold text-foreground">
+            {idioma === 'en' ? 'Help & support' : 'Ayuda y soporte'}
+          </p>
+          <p className="text-xs text-muted-foreground">
+            {idioma === 'en'
+              ? 'Write to support, my requests, app guide and tour'
+              : 'Escribir a soporte, mis consultas, guía de uso y tour'}
+          </p>
+        </div>
+        {sinLeerSoporte > 0 && (
+          <span className="flex h-5 min-w-5 shrink-0 items-center justify-center rounded-full bg-accent px-1.5 text-[11px] font-extrabold text-accent-foreground">
+            {sinLeerSoporte}
+          </span>
+        )}
+        <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
+      </button>
 
       <div className="card-elevated mt-3 rounded-2xl bg-card p-4">
         <p className="text-xs font-bold uppercase tracking-wide text-muted-foreground">{t.config.preferencias}</p>

@@ -27,6 +27,7 @@ const Examen = lazy(() => import('@/screens/Examen').then((m) => ({ default: m.E
 const Resultados = lazy(() => import('@/screens/Resultados').then((m) => ({ default: m.Resultados })))
 const Estudio = lazy(() => import('@/screens/Estudio').then((m) => ({ default: m.Estudio })))
 const Ayuda = lazy(() => import('@/screens/Ayuda').then((m) => ({ default: m.Ayuda })))
+const Comunidad = lazy(() => import('@/screens/Comunidad').then((m) => ({ default: m.Comunidad })))
 const Academia = lazy(() => import('@/screens/Academia').then((m) => ({ default: m.Academia })))
 const Configuracion = lazy(() => import('@/screens/Configuracion').then((m) => ({ default: m.Configuracion })))
 const Estadisticas = lazy(() => import('@/screens/Estadisticas').then((m) => ({ default: m.Estadisticas })))
@@ -431,6 +432,15 @@ function App() {
           <Route
             path={RUTA.ayuda}
             element={<Ayuda umbralAprobado={CURSO.porcentajeAprobado} userId={userId} onNavigate={irA} />}
+          />
+
+          <Route
+            path={RUTA.comunidad}
+            element={
+              <Protegida sesionLista={sesionLista} autenticado={autenticado}>
+                {userId && <Comunidad userId={userId} onNavigate={irA} />}
+              </Protegida>
+            }
           />
 
           <Route

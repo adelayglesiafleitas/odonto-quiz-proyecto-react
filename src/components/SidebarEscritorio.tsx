@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { Gauge, GraduationCap, LifeBuoy, UserCog, ClipboardCheck } from 'lucide-react'
+import { Gauge, GraduationCap, MessagesSquare, UserCog, ClipboardCheck } from 'lucide-react'
 import { useAppSettings } from '@/context/AppSettings'
 import type { TabPlana } from '@/components/BottomNav'
 import type { Pantalla } from '@/types'
@@ -20,7 +20,7 @@ export function SidebarEscritorio({ activo, onNavigate }: { activo: TabPlana; on
   const items: { id: TabPlana; icon: typeof Gauge; label: string }[] = [
     { id: 'home', icon: Gauge, label: t.nav.home },
     { id: 'academia', icon: GraduationCap, label: t.nav.academia },
-    { id: 'ayuda', icon: LifeBuoy, label: t.nav.ayuda },
+    { id: 'comunidad', icon: MessagesSquare, label: t.nav.comunidad },
     { id: 'config', icon: UserCog, label: t.nav.config },
   ]
 

@@ -417,7 +417,7 @@ export function Home({
         </div>
       </div>
 
-      <BottomNav activo="home" onNavigate={onNavigate} avisosAyuda={ticketsSinLeer.length} />
+      <BottomNav activo="home" onNavigate={onNavigate} />
       {mostrarTour && <TourBienvenida idioma={idioma} onCerrar={cerrarTour} />}
     </div>
   )

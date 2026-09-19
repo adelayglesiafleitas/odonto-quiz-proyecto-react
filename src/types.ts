@@ -71,6 +71,7 @@ export type Pantalla =
   | 'resultados'
   | 'estudio'
   | 'ayuda'
+  | 'comunidad'
   | 'academia'
   | 'config'
   | 'estadisticas'

@@ -15,6 +15,7 @@ export const RUTA: Record<Pantalla, string> = {
   resultados: '/simulacro/resultados',
   estudio: '/academia/estudio',
   ayuda: '/ayuda',
+  comunidad: '/comunidad',
   academia: '/academia',
   config: '/config',
   estadisticas: '/estadisticas',

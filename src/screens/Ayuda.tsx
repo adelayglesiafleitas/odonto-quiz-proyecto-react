@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
+  ArrowLeft,
   ClipboardList,
   Target,
   BookOpenCheck,
@@ -23,7 +24,7 @@ import { SettingsToggle } from '@/components/SettingsToggle'
 import { LogoMark } from '@/components/Logo'
 import { BottomNav } from '@/components/BottomNav'
 import TourBienvenida from '@/components/TourBienvenida'
-import { RUTA_SOPORTE } from '@/lib/rutas'
+import { RUTA, RUTA_SOPORTE } from '@/lib/rutas'
 import { listarMisTickets, contarNoLeidos, type Ticket } from '@/lib/tickets'
 import type { Pantalla } from '@/types'
 
@@ -100,7 +101,20 @@ export function Ayuda({
         <SettingsToggle />
       </div>
 
-      <h1 className="mt-6 text-lg font-extrabold text-foreground">{t.ayuda.titulo}</h1>
+      {/* Ayuda vive dentro de Configuración: la flecha vuelve siempre a /config
+          (explícito, no navigate(-1)) para que funcione también tras recargar. */}
+      <div className="mt-4 flex items-center gap-3">
+        <button
+          onClick={() => navigate(RUTA.config)}
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-card shadow-sm"
+          aria-label={t.comun.cancelar}
+        >
+          <ArrowLeft className="h-[18px] w-[18px] text-foreground" />
+        </button>
+        <h1 className="flex-1 text-lg font-extrabold text-foreground">
+          {idioma === 'en' ? 'Help & support' : 'Ayuda y soporte'}
+        </h1>
+      </div>
 
       <div className="mt-5 space-y-2">
         <button
@@ -306,7 +320,7 @@ export function Ayuda({
         </div>
       )}
 
-      <BottomNav activo="ayuda" onNavigate={onNavigate} avisosAyuda={tickets ? contarNoLeidos(tickets) : 0} />
+      <BottomNav activo="config" onNavigate={onNavigate} />
     </div>
   )
 }

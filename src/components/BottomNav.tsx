@@ -1,12 +1,14 @@
 import type { ReactNode } from 'react'
-import { Gauge, GraduationCap, LifeBuoy, UserCog, ClipboardCheck } from 'lucide-react'
+import { Gauge, GraduationCap, MessagesSquare, UserCog, ClipboardCheck } from 'lucide-react'
 import { useAppSettings } from '@/context/AppSettings'
+import { useNoLeidosComunidad } from '@/lib/comunidad'
+import { useSoporteNoLeidos } from '@/lib/tickets'
 import type { Pantalla } from '@/types'
 
 // 'simulacro' no es una pestaña plana seleccionable: se usa cuando estamos
 // en una pantalla asociada al botón central (p. ej. Configurar examen), para
 // que ninguna de las 4 pestañas se marque como activa por error.
-export type TabPlana = 'home' | 'academia' | 'ayuda' | 'config'
+export type TabPlana = 'home' | 'academia' | 'comunidad' | 'config'
 export type TabActivo = TabPlana | 'simulacro'
 
 /**
@@ -24,31 +26,28 @@ export function BottomNav({
   activo,
   onNavigate,
   accesorio,
-  avisosAyuda,
 }: {
   activo: TabActivo
   onNavigate: (p: Pantalla) => void
   accesorio?: ReactNode
-  // Sin-leídos de Atención al cliente, ya calculado por la pantalla que
-  // renderiza la barra (Home/Ayuda) — a propósito NO se busca acá adentro:
-  // las dos pantallas que usan BottomNav ya traen sus propios tickets
-  // (Home con suscripción Realtime, Ayuda con un fetch puntual), y si
-  // BottomNav abriera su propia suscripción en paralelo con el mismo
-  // canal (`tickets-usuario-<id>`) Supabase revienta con "cannot add
-  // postgres_changes callbacks ... after subscribe()" al intentar
-  // suscribirse dos veces al mismo canal desde Home + BottomNav a la vez.
-  // Ver claude/atencion-cliente-diseno.md, sección del aviso en Home +
-  // badge de la barra.
-  avisosAyuda?: number
 }) {
   const { t } = useAppSettings()
+  // Sin-leídos de Atención al cliente (numerito sobre Config), calculados acá
+  // para que salgan en TODAS las pantallas. Usa un canal Realtime con nombre
+  // único (no `tickets-usuario-<id>`, que ya abre Home): un mismo nombre de
+  // canal solo se puede suscribir una vez y reventaría con "cannot add
+  // postgres_changes callbacks ... after subscribe()".
+  const noLeidosSoporte = useSoporteNoLeidos()
+  // Sin-leídos del chat de Comunidad: canal propio (nombre único), distinto
+  // del de tickets, para no repetir el error de suscribirse dos veces al mismo.
+  const noLeidosChat = useNoLeidosComunidad()
 
   const izquierda: { id: TabPlana; icon: typeof Gauge; label: string }[] = [
     { id: 'home', icon: Gauge, label: t.nav.home },
     { id: 'academia', icon: GraduationCap, label: t.nav.academia },
   ]
   const derecha: { id: TabPlana; icon: typeof Gauge; label: string }[] = [
-    { id: 'ayuda', icon: LifeBuoy, label: t.nav.ayuda },
+    { id: 'comunidad', icon: MessagesSquare, label: t.nav.comunidad },
     { id: 'config', icon: UserCog, label: t.nav.config },
   ]
 
@@ -97,7 +96,7 @@ export function BottomNav({
         </button>
 
         {derecha.map((tab) => (
-          <Item key={tab.id} tab={tab} badge={tab.id === 'ayuda' ? avisosAyuda : undefined} />
+          <Item key={tab.id} tab={tab} badge={tab.id === 'config' ? noLeidosSoporte : tab.id === 'comunidad' ? noLeidosChat : undefined} />
         ))}
       </div>
     </nav>

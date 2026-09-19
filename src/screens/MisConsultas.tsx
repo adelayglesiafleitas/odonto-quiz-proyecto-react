@@ -120,7 +120,7 @@ export function MisConsultas({ userId, onNavigate }: { userId: string; onNavigat
         onCreado={(ticketId) => navigate(rutaSoporteDetalle(ticketId))}
       />
 
-      <BottomNav activo="ayuda" onNavigate={onNavigate} />
+      <BottomNav activo="config" onNavigate={onNavigate} />
     </div>
   )
 }

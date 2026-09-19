@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { supabase } from './supabase'
 import type { Pregunta } from '../types'
 
@@ -136,6 +137,59 @@ export async function marcarLeidoUsuario(ticketId: string): Promise<void> {
 
 export function contarNoLeidos(tickets: Ticket[]): number {
   return tickets.filter((t) => t.noLeidoUsuario).length
+}
+
+/**
+ * Cantidad de consultas con respuesta sin leer, para el numerito de la pestaña
+ * Config y de la tarjeta "Ayuda y soporte". Se actualiza solo (Realtime) y sube
+ * o baja al instante. Canal con nombre único: Home ya abre `tickets-usuario-<id>`
+ * y un mismo nombre no se puede suscribir dos veces.
+ */
+export function useSoporteNoLeidos(): number {
+  const [total, setTotal] = useState(0)
+
+  useEffect(() => {
+    let cancelado = false
+    let timer: ReturnType<typeof setTimeout> | null = null
+    let quitar: (() => void) | null = null
+    let uid: string | null = null
+
+    const recargar = () => {
+      if (!uid) return
+      listarMisTickets(uid).then((lista) => {
+        if (!cancelado) setTotal(contarNoLeidos(lista))
+      })
+    }
+    const programar = () => {
+      if (timer) clearTimeout(timer)
+      timer = setTimeout(recargar, 300)
+    }
+
+    supabase.auth.getSession().then(({ data }) => {
+      if (cancelado || !data.session) return
+      uid = data.session.user.id
+      recargar()
+      const canal = supabase
+        .channel(`soporte-nl-${uid}-${Math.random().toString(36).slice(2, 8)}`)
+        .on(
+          'postgres_changes',
+          { event: '*', schema: 'public', table: 'tickets', filter: `usuario_id=eq.${uid}` },
+          programar,
+        )
+        .subscribe()
+      quitar = () => {
+        supabase.removeChannel(canal)
+      }
+    })
+
+    return () => {
+      cancelado = true
+      if (timer) clearTimeout(timer)
+      if (quitar) quitar()
+    }
+  }, [])
+
+  return total
 }
 
 // "hace 12 min" / "hace 2 h" / "hace 5 d" — usado en la lista de tickets y

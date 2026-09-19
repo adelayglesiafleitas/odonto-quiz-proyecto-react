@@ -220,6 +220,7 @@ export interface Diccionario {
     home: string
     academia: string
     ayuda: string
+    comunidad: string
     config: string
     simulacro: string
   }
@@ -630,6 +631,7 @@ export const es: Diccionario = {
     home: 'Home',
     academia: 'Academia',
     ayuda: 'Ayuda',
+    comunidad: 'Comunidad',
     config: 'Config',
     simulacro: 'Examinarse',
   },
@@ -1037,6 +1039,7 @@ export const en: Diccionario = {
     home: 'Home',
     academia: 'Academy',
     ayuda: 'Help',
+    comunidad: 'Community',
     config: 'Settings',
     simulacro: 'Mock exam',
   },
