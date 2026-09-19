@@ -18,6 +18,18 @@ export interface Sala {
   modoLentoSeg: number
   pausada: boolean
   normas: string
+  /** Mensaje fijado por el equipo (barra bajo la cabecera). Vacío = se muestra la 1.ª línea de las normas. */
+  fijado: string
+}
+
+export interface ResumenSala {
+  salaId: string
+  miembros: number
+  ultCuerpo: string | null
+  ultAutorId: string | null
+  ultEsEquipo: boolean
+  ultBorrado: boolean
+  ultEn: string | null
 }
 
 export interface MiembroSala {
@@ -52,7 +64,27 @@ function mapSala(r: any): Sala {
     modoLentoSeg: r.modo_lento_seg,
     pausada: r.pausada,
     normas: r.normas ?? '',
+    fijado: r.fijado ?? '',
   }
+}
+
+/** Último mensaje y nº de miembros por grupo (función de base de datos: respeta quién puede leer qué). */
+export async function resumenSalas(): Promise<Map<string, ResumenSala>> {
+  const { data } = await supabase.rpc('comunidad_resumen')
+  const mapa = new Map<string, ResumenSala>()
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  for (const r of (data ?? []) as any[]) {
+    mapa.set(r.sala_id, {
+      salaId: r.sala_id,
+      miembros: Number(r.miembros),
+      ultCuerpo: r.ult_cuerpo,
+      ultAutorId: r.ult_autor_id,
+      ultEsEquipo: !!r.ult_es_equipo,
+      ultBorrado: !!r.ult_borrado,
+      ultEn: r.ult_en,
+    })
+  }
+  return mapa
 }
 
 function mapMensaje(r: any): MensajeChat {
@@ -221,6 +253,17 @@ export function suscribirseASala(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (p: any) => onSala(mapSala(p.new)),
     )
+    .subscribe()
+  return () => {
+    supabase.removeChannel(canal)
+  }
+}
+
+/** Canal de la lista de grupos (nombre único): avisa cuando entra cualquier mensaje visible para el usuario. */
+export function suscribirseAListado(onCambio: () => void): () => void {
+  const canal = supabase
+    .channel(`comunidad-lista-${Math.random().toString(36).slice(2, 8)}`)
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'comunidad_mensajes' }, onCambio)
     .subscribe()
   return () => {
     supabase.removeChannel(canal)

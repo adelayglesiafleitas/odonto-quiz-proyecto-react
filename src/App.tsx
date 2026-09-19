@@ -261,8 +261,12 @@ function App() {
     )
   }
 
+  // Comunidad usa dos paneles (lista de grupos + chat) en pantalla ancha, así
+  // que solo esa ruta se libera del ancho de móvil a partir de lg (1024 px).
+  const anchoRuta = location.pathname === RUTA.comunidad ? 'lg:max-w-6xl' : ''
+
   return (
-    <div className="mx-auto min-h-screen w-full max-w-md bg-background font-sans">
+    <div className={`mx-auto min-h-screen w-full max-w-md bg-background font-sans ${anchoRuta}`}>
       <Suspense fallback={<LoadingScreen />}>
         <Routes>
           <Route path={RUTA.splash} element={<LoadingScreen />} />
