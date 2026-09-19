@@ -21,14 +21,29 @@ export { TEMAS_TOTAL_CAP1 }
 
 export type EstadoNodo = 'bloqueado' | 'disponible' | 'completado'
 
+/** Una pregunta fallada, guardada para repasarla más adelante. */
+export interface ErrorAcademia {
+  /** `${pruebaId}:${índice en el pool}`, ej. "prueba1:3" o "pruebaFinal:0". */
+  preguntaId: string
+  /** ISO 8601 de la última vez que se falló. */
+  fecha: string
+}
+
 export interface ProgresoNodo {
   estado: EstadoNodo
   /**
-   * Intentos que hicieron falta la PRIMERA vez que se respondió la pregunta
-   * de este nodo (solo video1, video2 y pruebaFinal). Se fija una sola vez y
-   * no se sobrescribe: repetir la lección es práctica y no cambia la nota.
-   * Ver academiaPuntuacion.ts.
+   * Intentos que hicieron falta la PRIMERA vez que se respondió cada pregunta
+   * de la prueba final (una entrada por pregunta, en orden). Se fija una sola
+   * vez y no se sobrescribe: repetir la lección es práctica y no cambia la
+   * nota. Ver academiaPuntuacion.ts.
    */
+  intentosPreguntas?: number[]
+  /**
+   * Preguntas falladas en este nodo (video1/video2: la prueba del modal;
+   * pruebaFinal: sus 3 preguntas). Sin duplicados por `preguntaId`.
+   */
+  errores?: ErrorAcademia[]
+  /** @deprecated Marca vieja de una sola pregunta (antes de 2026-09-19). Ya no puntúa; se conserva solo para no romper progreso guardado. */
   intentos?: number
 }
 

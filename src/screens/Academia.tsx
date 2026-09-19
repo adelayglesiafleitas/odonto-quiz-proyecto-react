@@ -24,7 +24,7 @@ import { RUTA_SOPORTE } from '@/lib/rutas'
 import { getAcademiaHabilitada } from '@/lib/academiaAccesoRemoto'
 import { cargarProgresoAcademia, progresoInicialAcademia, porcentajeCap1, type EstadoNodo, type ProgresoCap1 } from '@/lib/academiaProgresoLocal'
 import {
-  NODOS_PREGUNTA_CAP1,
+  PREGUNTAS_PUNTUABLES_CAP1,
   PUNTOS_CAPITULOS,
   PUNTOS_LECCION_CAP1,
   PUNTOS_POR_CAPITULO,
@@ -34,6 +34,7 @@ import {
   estrellasIntentos,
   estrellasLeccion,
   fmtPuntos,
+  intentosDePregunta,
   puntosPregunta,
 } from '@/lib/academiaPuntuacion'
 import { getProgresoAcademiaRemoto, guardarProgresoAcademiaRemoto } from '@/lib/academiaProgresoRemoto'
@@ -44,6 +45,7 @@ import {
   INTRO_CAP1,
   LIBRO_INMACULADA,
   NODOS_CAP1,
+  PREGUNTAS_PRUEBA_FINAL_CAP1,
   PRUEBAS_CAP1,
   TEMAS_CAP1,
   VIDEOS_CAP1,
@@ -278,16 +280,29 @@ export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (
    * puntuación no tiene marca, así que la primera repetición queda como la
    * oficial.
    */
-  function conMarca(prev: ProgresoCap1, id: string, intentos?: number): ProgresoCap1 {
+  function conMarca(prev: ProgresoCap1, id: string, intentosPreguntas?: number[]): ProgresoCap1 {
     const actual = prev[id]
-    const marca = actual?.intentos ?? (intentos && intentos > 0 ? intentos : undefined)
-    return { ...prev, [id]: { ...actual, estado: 'completado', ...(marca ? { intentos: marca } : {}) } }
+    const marca = actual?.intentosPreguntas ?? (intentosPreguntas && intentosPreguntas.length > 0 ? intentosPreguntas : undefined)
+    return { ...prev, [id]: { ...actual, estado: 'completado', ...(marca ? { intentosPreguntas: marca } : {}) } }
   }
 
-  function completarNodo(id: string, intentos?: number) {
+  /**
+   * Guarda una pregunta fallada en el nodo (sin duplicados por `preguntaId`;
+   * si se vuelve a fallar solo se actualiza la fecha). No cambia el estado
+   * del nodo ni da/quita puntos: es el registro para repasar más adelante.
+   */
+  function registrarFallo(nodoId: string, preguntaId: string) {
+    setProgreso((prev) => {
+      const actual = prev[nodoId] ?? { estado: 'bloqueado' as EstadoNodo }
+      const resto = (actual.errores ?? []).filter((e) => e.preguntaId !== preguntaId)
+      return { ...prev, [nodoId]: { ...actual, errores: [...resto, { preguntaId, fecha: new Date().toISOString() }] } }
+    })
+  }
+
+  function completarNodo(id: string, intentosPreguntas?: number[]) {
     setProgreso((prev) => {
       const siguiente = siguienteNodoId(id)
-      const next: ProgresoCap1 = conMarca(prev, id, intentos)
+      const next: ProgresoCap1 = conMarca(prev, id, intentosPreguntas)
       if (siguiente && next[siguiente]?.estado === 'bloqueado') {
         next[siguiente] = { ...next[siguiente], estado: 'disponible' }
       }
@@ -315,9 +330,9 @@ export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (
    * remonta el componente con el video nuevo, lo que también reinicia su
    * animación de entrada (ver NodoVideo más abajo).
    */
-  function avanzarSinVolver(id: string, siguienteId: string, intentos?: number) {
+  function avanzarSinVolver(id: string, siguienteId: string) {
     setProgreso((prev) => {
-      const next: ProgresoCap1 = conMarca(prev, id, intentos)
+      const next: ProgresoCap1 = conMarca(prev, id)
       if (next[siguienteId]?.estado === 'bloqueado') {
         next[siguienteId] = { ...next[siguienteId], estado: 'disponible' }
       }
@@ -366,6 +381,7 @@ export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (
               repitiendo={repitiendo}
               onCompletar={completarNodo}
               onAvanzarSinVolver={avanzarSinVolver}
+              onFallo={registrarFallo}
               onVolver={volverALibro}
             />
           )}
@@ -994,10 +1010,10 @@ function PantallaResumenTema({ t, progreso, onVolver }: { t: Diccionario; progre
       </div>
 
       <div className="space-y-2">
-        {NODOS_PREGUNTA_CAP1.map((n, i) => {
-          const intentos = progreso[n.id]?.intentos
+        {PREGUNTAS_PUNTUABLES_CAP1.map((n, i) => {
+          const intentos = intentosDePregunta(progreso, n)
           return (
-            <div key={n.id} className="card-elevated flex items-center gap-3 rounded-2xl bg-card px-4 py-3">
+            <div key={`${n.nodoId}:${n.indice}`} className="card-elevated flex items-center gap-3 rounded-2xl bg-card px-4 py-3">
               <div className="min-w-0 flex-1">
                 <p className="truncate text-sm font-bold text-foreground">{n.titulo}</p>
                 <p className="text-xs font-medium text-muted-foreground">
@@ -1069,6 +1085,7 @@ function NodoPrueba({
   esFinal,
   etiquetaSiguiente,
   marcaPrevia,
+  onFallo,
   onContinuar,
 }: {
   t: Diccionario
@@ -1077,17 +1094,23 @@ function NodoPrueba({
   esUltima: boolean
   esFinal: boolean
   etiquetaSiguiente: string | null
-  /** Intentos de la marca oficial que ya tiene este nodo (undefined = todavía no tiene: esta vez cuenta). */
-  marcaPrevia?: number
-  onContinuar: (intentos: number) => void
+  /** Marca oficial que ya tiene este nodo: intentos por pregunta (undefined = todavía no tiene: esta vez cuenta). */
+  marcaPrevia?: number[]
+  /** Se llama cada vez que se falla la pregunta `indice` — la pantalla padre guarda el error. */
+  onFallo: (indice: number) => void
+  /** Al terminar: intentos que hicieron falta en cada pregunta, en orden. */
+  onContinuar: (intentosPreguntas: number[]) => void
 }) {
   // Arranca "comenzada" si es solo-lectura (repaso) o si no es la prueba
   // final (hoy no hay otro caso de nodo "prueba" standalone, pero por las
   // dudas no le mostramos intro a algo que no sea el cierre del capítulo).
   const [comenzada, setComenzada] = useState(soloLectura || !esFinal)
-  const [qIndex, setQIndex] = useState(() => Math.floor(Math.random() * preguntas.length))
+  // Cambio 2026-09-19: las preguntas son FIJAS y van en orden (ya no se
+  // sortea una al azar). Una pregunta fallada se queda hasta acertarla; los
+  // intentos de cada una se cuentan por separado y son los que puntúan.
+  const [qIndex, setQIndex] = useState(0)
   const [seleccion, setSeleccion] = useState<number | null>(null)
-  const [intentos, setIntentos] = useState(0)
+  const [intentosPorPregunta, setIntentosPorPregunta] = useState<number[]>(() => preguntas.map(() => 0))
 
   if (!comenzada) {
     return (
@@ -1103,20 +1126,26 @@ function NodoPrueba({
   }
 
   const pregunta = preguntas[qIndex]
+  const hayMasPreguntas = qIndex < preguntas.length - 1
   const respondido = seleccion !== null
   const acertada = respondido && seleccion === pregunta.correcta
-  const puedeContinuar = soloLectura || acertada
+  const puedeContinuar = soloLectura || (acertada && !hayMasPreguntas)
+  const intentosActual = intentosPorPregunta[qIndex]
 
   function elegir(oi: number) {
     if (seleccion !== null) return
     setSeleccion(oi)
-    setIntentos((n) => n + 1)
+    setIntentosPorPregunta((arr) => arr.map((n, i) => (i === qIndex ? n + 1 : n)))
+    if (oi !== pregunta.correcta) onFallo(qIndex)
   }
 
+  // La pregunta fallada se queda: mismo enunciado, nueva oportunidad.
   function reintentar() {
-    let siguiente = Math.floor(Math.random() * preguntas.length)
-    if (preguntas.length > 1 && siguiente === qIndex) siguiente = (siguiente + 1) % preguntas.length
-    setQIndex(siguiente)
+    setSeleccion(null)
+  }
+
+  function siguientePregunta() {
+    setQIndex((i) => i + 1)
     setSeleccion(null)
   }
 
@@ -1127,6 +1156,11 @@ function NodoPrueba({
           <p className="text-sm leading-relaxed text-foreground/85">{t.academia.pruebaYaCompletadaTexto}</p>
         ) : (
           <>
+            {preguntas.length > 1 && (
+              <p className="mb-1 text-[11px] font-bold uppercase tracking-wide text-muted-foreground">
+                {t.academia.puntPreguntaN(qIndex + 1)} / {preguntas.length}
+              </p>
+            )}
             <p className="text-[13px] font-bold leading-snug text-foreground">{pregunta.pregunta}</p>
             <div className="mt-2.5 space-y-1.5">
               {pregunta.opciones.map((op, oi) => {
@@ -1166,34 +1200,46 @@ function NodoPrueba({
         </div>
       )}
 
-      {!soloLectura && acertada && !esUltima && (
+      {!soloLectura && acertada && hayMasPreguntas && (
         <div className="card-elevated rounded-2xl bg-success/10 p-4 text-center">
           <p className="text-sm font-bold text-success">{t.academia.pruebaAprobadaTitulo}</p>
-          <ResultadoPuntos t={t} intentos={intentos} marcaPrevia={marcaPrevia} />
+          <ResultadoPuntos t={t} intentos={intentosActual} marcaPrevia={marcaPrevia?.[qIndex]} />
+          <Button onClick={siguientePregunta} className="mt-3 h-10 w-full rounded-xl font-bold">
+            {t.academia.nodoContinuar}
+          </Button>
         </div>
       )}
 
-      {!soloLectura && acertada && esUltima && (
+      {!soloLectura && acertada && !hayMasPreguntas && !esUltima && (
+        <div className="card-elevated rounded-2xl bg-success/10 p-4 text-center">
+          <p className="text-sm font-bold text-success">{t.academia.pruebaAprobadaTitulo}</p>
+          <ResultadoPuntos t={t} intentos={intentosActual} marcaPrevia={marcaPrevia?.[qIndex]} />
+        </div>
+      )}
+
+      {!soloLectura && acertada && !hayMasPreguntas && esUltima && (
         <div className="card-elevated rounded-2xl bg-success/10 p-4 text-center">
           <p className="text-sm font-bold text-success">{t.academia.capituloCompletadoTitulo}</p>
           <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{t.academia.capituloCompletadoTexto}</p>
-          <ResultadoPuntos t={t} intentos={intentos} marcaPrevia={marcaPrevia} />
+          <ResultadoPuntos t={t} intentos={intentosActual} marcaPrevia={marcaPrevia?.[qIndex]} />
         </div>
       )}
 
-      <BotonContinuar
-        disabled={!puedeContinuar}
-        texto={
-          soloLectura
-            ? t.academia.nodoYaCompletado
-            : acertada
-              ? etiquetaSiguiente
-                ? t.academia.continuarA(etiquetaSiguiente)
-                : t.academia.capituloCompletadoBoton
-              : t.academia.pruebaNecesitas
-        }
-        onClick={() => onContinuar(intentos)}
-      />
+      {(soloLectura || !hayMasPreguntas) && (
+        <BotonContinuar
+          disabled={!puedeContinuar}
+          texto={
+            soloLectura
+              ? t.academia.nodoYaCompletado
+              : acertada
+                ? etiquetaSiguiente
+                  ? t.academia.continuarA(etiquetaSiguiente)
+                  : t.academia.capituloCompletadoBoton
+                : t.academia.pruebaNecesitas
+          }
+          onClick={() => onContinuar(intentosPorPregunta)}
+        />
+      )}
     </>
   )
 }
@@ -1252,8 +1298,8 @@ function NodoVideo({
   preguntasModal,
   onContinuar,
   onAprobarModal,
+  onFalloModal,
   onSalirModal,
-  marcaPrevia,
 }: {
   t: Diccionario
   video: VideoAcademia
@@ -1264,9 +1310,9 @@ function NodoVideo({
   preguntasModal: PreguntaAcademia[] | null
   onContinuar: () => void
   /** Se llama cuando se acierta la pregunta del modal — avanza al siguiente video sin volver al mapa. */
-  onAprobarModal?: (intentos: number) => void
-  /** Intentos de la marca oficial que ya tiene este nodo (undefined = todavía no tiene: esta vez cuenta). */
-  marcaPrevia?: number
+  onAprobarModal?: () => void
+  /** Se llama cada vez que se falla la pregunta del modal (índice dentro del pool) — la pantalla padre guarda el error. */
+  onFalloModal?: (indicePregunta: number) => void
   /** Se llama al cerrar el modal con la "X" sin haber acertado — vuelve al mapa. */
   onSalirModal?: () => void
 }) {
@@ -1415,10 +1461,10 @@ function NodoVideo({
           t={t}
           abierto={modalAbierto}
           preguntas={preguntasModal}
-          marcaPrevia={marcaPrevia}
-          onAprobado={(intentos) => {
+          onFallo={(indice) => onFalloModal?.(indice)}
+          onAprobado={() => {
             setModalAbierto(false)
-            onAprobarModal?.(intentos)
+            onAprobarModal?.()
           }}
           onCerrar={() => {
             setModalAbierto(false)
@@ -1443,21 +1489,21 @@ function ModalPruebaVideo({
   t,
   abierto,
   preguntas,
-  marcaPrevia,
+  onFallo,
   onAprobado,
   onCerrar,
 }: {
   t: Diccionario
   abierto: boolean
   preguntas: PreguntaAcademia[]
-  marcaPrevia?: number
-  onAprobado: (intentos: number) => void
+  /** Se llama cada vez que se falla (índice de la pregunta dentro del pool). Estas pruebas no dan puntos, solo guardan el error. */
+  onFallo: (indice: number) => void
+  onAprobado: () => void
   onCerrar: () => void
 }) {
   const [qIndex, setQIndex] = useState(() => Math.floor(Math.random() * preguntas.length))
   const [seleccion, setSeleccion] = useState<number | null>(null)
   const [saliendo, setSaliendo] = useState(false)
-  const [intentos, setIntentos] = useState(0)
 
   if (!abierto) return null
 
@@ -1469,7 +1515,7 @@ function ModalPruebaVideo({
   function elegir(oi: number) {
     if (seleccion !== null) return
     setSeleccion(oi)
-    setIntentos((n) => n + 1)
+    if (oi !== pregunta.correcta) onFallo(qIndex)
   }
 
   function reintentar() {
@@ -1485,7 +1531,7 @@ function ModalPruebaVideo({
   // siempre, no hace falta plumbing extra).
   function confirmarAprobado() {
     setSaliendo(true)
-    setTimeout(() => onAprobado(intentos), 260)
+    setTimeout(() => onAprobado(), 260)
   }
 
   return (
@@ -1544,9 +1590,6 @@ function ModalPruebaVideo({
           <div className="mt-3 rounded-2xl bg-destructive/10 p-3 text-center">
             <p className="text-sm font-bold text-destructive">{t.academia.pruebaNoAprobadaTitulo}</p>
             <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{t.academia.pruebaNoAprobadaTexto}</p>
-            {marcaPrevia === undefined && (
-              <p className="mt-1 text-[11px] font-semibold leading-snug text-destructive">{t.academia.puntAvisoFallo}</p>
-            )}
             <Button onClick={reintentar} className="mt-3 h-10 rounded-xl px-5 font-bold">
               {t.academia.pruebaReintentar}
             </Button>
@@ -1556,7 +1599,6 @@ function ModalPruebaVideo({
         {respondido && acertada && (
           <div className="mt-3 rounded-2xl bg-success/10 p-3 text-center">
             <p className="text-sm font-bold text-success">{t.academia.pruebaAprobadaTitulo}</p>
-            <ResultadoPuntos t={t} intentos={intentos} marcaPrevia={marcaPrevia} />
             <Button onClick={confirmarAprobado} className="mt-3 h-10 w-full rounded-xl font-bold">
               {t.academia.nodoContinuar}
             </Button>
@@ -1574,14 +1616,16 @@ function PantallaNodo({
   repitiendo,
   onCompletar,
   onAvanzarSinVolver,
+  onFallo,
   onVolver,
 }: {
   t: Diccionario
   nodoId: string
   progreso: ProgresoCap1
   repitiendo: boolean
-  onCompletar: (nodoId: string, intentos?: number) => void
-  onAvanzarSinVolver: (nodoId: string, siguienteId: string, intentos?: number) => void
+  onCompletar: (nodoId: string, intentosPreguntas?: number[]) => void
+  onAvanzarSinVolver: (nodoId: string, siguienteId: string) => void
+  onFallo: (nodoId: string, preguntaId: string) => void
   onVolver: () => void
 }) {
   const nodo: NodoRuta | undefined = NODOS_CAP1.find((n) => n.id === nodoId)
@@ -1645,8 +1689,8 @@ function PantallaNodo({
             if (!video.pruebaId && siguienteNodo) return onAvanzarSinVolver(nodoId, siguienteNodo.id)
             return onCompletar(nodoId)
           }}
-          marcaPrevia={prog.intentos}
-          onAprobarModal={siguienteNodo ? (intentos) => onAvanzarSinVolver(nodoId, siguienteNodo.id, intentos) : undefined}
+          onAprobarModal={siguienteNodo ? () => onAvanzarSinVolver(nodoId, siguienteNodo.id) : undefined}
+          onFalloModal={(indice) => video.pruebaId && onFallo(nodoId, `${video.pruebaId}:${indice}`)}
           onSalirModal={onVolver}
         />
       </NodoLayout>
@@ -1654,8 +1698,10 @@ function PantallaNodo({
   }
 
   // tipo === 'prueba'
-  const preguntas = nodo.pruebaId ? PRUEBAS_CAP1[nodo.pruebaId] : undefined
-  if (!preguntas) return null
+  const poolPreguntas = nodo.pruebaId ? PRUEBAS_CAP1[nodo.pruebaId] : undefined
+  if (!poolPreguntas) return null
+  // La prueba final usa las primeras N preguntas del pool, fijas y en orden.
+  const preguntas = nodo.esFinal ? poolPreguntas.slice(0, PREGUNTAS_PRUEBA_FINAL_CAP1) : poolPreguntas
   const esUltima = !siguienteNodo
   const temaLabel = nodo.temaId ? TEMAS_CAP1[nodo.temaId].nombre : CAPITULOS_INMACULADA[0].titulo
 
@@ -1669,8 +1715,9 @@ function PantallaNodo({
         esUltima={esUltima}
         esFinal={Boolean(nodo.esFinal)}
         etiquetaSiguiente={siguienteNodo?.titulo ?? null}
-        marcaPrevia={prog.intentos}
-        onContinuar={(intentos) => (soloLectura ? onVolver() : onCompletar(nodoId, intentos))}
+        marcaPrevia={prog.intentosPreguntas}
+        onFallo={(indice) => onFallo(nodoId, `${nodo.pruebaId}:${indice}`)}
+        onContinuar={(intentosPreguntas) => (soloLectura ? onVolver() : onCompletar(nodoId, intentosPreguntas))}
       />
     </NodoLayout>
   )

@@ -406,6 +406,15 @@ export const PRUEBAS_CAP1: Record<PruebaId, PreguntaAcademia[]> = {
   ],
 }
 
+/**
+ * Cambio 2026-09-19 — las pruebas de después de video1/video2 ya NO dan
+ * puntos (solo guardan los errores). La prueba final es la única que
+ * puntúa y ahora tiene 3 preguntas FIJAS: las primeras 3 de
+ * `PRUEBAS_CAP1.pruebaFinal`, siempre en ese orden. El resto del pool queda
+ * guardado por si se quiere cambiar cuáles son (basta con reordenar el array).
+ */
+export const PREGUNTAS_PRUEBA_FINAL_CAP1 = 3
+
 export type TipoNodo = 'intro' | 'video' | 'prueba'
 
 export interface NodoRuta {
