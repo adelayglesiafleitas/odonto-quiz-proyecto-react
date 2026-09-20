@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react'
+import { useEffect, useState, type FormEvent } from 'react'
 import { LogoMark } from '@/components/Logo'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { SettingsToggle } from '@/components/SettingsToggle'
 import { useAppSettings } from '@/context/AppSettings'
 import { supabase } from '@/lib/supabase'
+import { comprobarNick, type ResultadoNick } from '@/lib/comunidad'
 import { Eye, EyeOff, Lock, Mail, AlertCircle, MailCheck, User } from 'lucide-react'
 
 type Modo = 'login' | 'registro'
@@ -44,6 +45,30 @@ export function Login({ onLogin }: { onLogin: () => void }) {
   const [error, setError] = useState<string | null>(null)
   const [revisarCorreo, setRevisarCorreo] = useState(false)
   const [cargando, setCargando] = useState(false)
+  const [estadoNick, setEstadoNick] = useState<ResultadoNick | 'buscando' | null>(null)
+
+  const textoNick = (r: ResultadoNick) =>
+    idioma === 'es'
+      ? { ok: 'Disponible', formato: 'Usa de 3 a 20 letras, números, punto, guion o guion bajo (sin espacios).', prohibido: 'Ese nick no está permitido.', duplicado: 'Ese nick ya está en uso. Prueba con otro.', error: 'No se pudo comprobar el nick.' }[r]
+      : { ok: 'Available', formato: 'Use 3 to 20 letters, numbers, dot, dash or underscore (no spaces).', prohibido: 'That nickname is not allowed.', duplicado: 'That nickname is taken. Try another one.', error: "Couldn't check the nickname." }[r]
+
+  // Comprueba en vivo que el nick no esté repetido (misma regla que el chat: un solo nick en toda la app).
+  useEffect(() => {
+    if (modo !== 'registro' || nick.trim().length === 0) {
+      setEstadoNick(null)
+      return
+    }
+    setEstadoNick('buscando')
+    let cancelado = false
+    const id = setTimeout(async () => {
+      const r = await comprobarNick(nick)
+      if (!cancelado) setEstadoNick(r)
+    }, 450)
+    return () => {
+      cancelado = true
+      clearTimeout(id)
+    }
+  }, [nick, modo])
 
   function cambiarModo(nuevo: Modo) {
     setModo(nuevo)
@@ -60,6 +85,14 @@ export function Login({ onLogin }: { onLogin: () => void }) {
     if (modo === 'registro' && nick.trim().length === 0) {
       setError(t.login.errorNickRequerido)
       return
+    }
+    if (modo === 'registro') {
+      const r = await comprobarNick(nick)
+      if (r !== 'ok') {
+        setEstadoNick(r)
+        setError(textoNick(r))
+        return
+      }
     }
     if (modo === 'registro' && clave !== confirmarClave) {
       setError(t.login.errorContrasenasNoCoinciden)
@@ -142,10 +175,16 @@ export function Login({ onLogin }: { onLogin: () => void }) {
                   onChange={(e) => setNick(e.target.value)}
                   className="h-11 rounded-xl pl-9"
                   autoComplete="nickname"
-                  maxLength={30}
+                  maxLength={20}
                   required
                 />
               </div>
+              {estadoNick && estadoNick !== 'buscando' && (
+                <p className={`text-xs font-semibold ${estadoNick === 'ok' ? 'text-accent' : 'text-destructive'}`}>{textoNick(estadoNick)}</p>
+              )}
+              {estadoNick === 'buscando' && (
+                <p className="text-xs text-muted-foreground">{idioma === 'es' ? 'Comprobando…' : 'Checking…'}</p>
+              )}
             </div>
           )}
 

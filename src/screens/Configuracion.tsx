@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Check, ChevronDown, ChevronRight, LifeBuoy, LogOut, Palette, RotateCcw, User } from 'lucide-react'
+import { Check, ChevronDown, ChevronRight, LifeBuoy, LogOut, Palette, Pencil, RotateCcw, User } from 'lucide-react'
+import { cambiarNick, comprobarNick, obtenerAlias, type ResultadoNick } from '@/lib/comunidad'
 import { RUTA } from '@/lib/rutas'
 import { useSoporteNoLeidos } from '@/lib/tickets'
 import { useAppSettings } from '@/context/AppSettings'
@@ -12,6 +13,139 @@ import { eliminarHistorialPropio } from '@/lib/historial'
 import { borrarProgresoAcademiaRemoto } from '@/lib/academiaProgresoRemoto'
 import { getAcademiaHabilitada } from '@/lib/academiaAccesoRemoto'
 import type { Pantalla } from '@/types'
+
+/** Fila con lápiz: muestra un nick y lo edita en el mismo sitio. `guardar` devuelve un mensaje de error o null. */
+function NickEditable({
+  etiqueta,
+  valor,
+  ayuda,
+  idioma,
+  minimo,
+  maximo,
+  patron,
+  verificar,
+  guardar,
+}: {
+  etiqueta: string
+  valor: string
+  ayuda?: string
+  idioma: string
+  minimo: number
+  maximo: number
+  patron?: RegExp
+  /** Comprobación en vivo (disponibilidad); null = sin problema. */
+  verificar?: (nuevo: string) => Promise<string | null>
+  guardar: (nuevo: string) => Promise<string | null>
+}) {
+  const en = idioma === 'en'
+  const [editando, setEditando] = useState(false)
+  const [texto, setTexto] = useState(valor)
+  const [error, setError] = useState<string | null>(null)
+  const [guardando, setGuardando] = useState(false)
+  const [hecho, setHecho] = useState(false)
+  const [libre, setLibre] = useState<'?' | 'ok' | string>('?')
+  const t = texto.trim()
+  const formatoOk = t.length >= minimo && t.length <= maximo && (!patron || patron.test(t)) && t !== valor
+  const valido = formatoOk && (!verificar || libre === 'ok')
+
+  // Comprueba en vivo (con una pequeña espera) que el nick no esté repetido.
+  useEffect(() => {
+    if (!editando || !verificar || !formatoOk) {
+      setLibre('?')
+      return
+    }
+    setLibre('?')
+    let cancelado = false
+    const id = setTimeout(async () => {
+      const e = await verificar(t)
+      if (!cancelado) setLibre(e ?? 'ok')
+    }, 400)
+    return () => {
+      cancelado = true
+      clearTimeout(id)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [t, editando, formatoOk])
+
+  async function ok() {
+    if (!valido) return
+    setGuardando(true)
+    setError(null)
+    const e = await guardar(t)
+    setGuardando(false)
+    if (e) return setError(e)
+    setEditando(false)
+    setHecho(true)
+    setTimeout(() => setHecho(false), 2500)
+  }
+
+  if (!editando) {
+    return (
+      <div className="flex items-center gap-3">
+        <div className="min-w-0 flex-1">
+          <p className="text-xs text-muted-foreground">{etiqueta}</p>
+          <p className="truncate text-[15px] font-bold text-foreground">
+            {valor}
+            {hecho && <span className="ml-2 text-xs font-bold text-accent">{en ? 'Saved' : 'Guardado'}</span>}
+          </p>
+        </div>
+        <button
+          onClick={() => {
+            setTexto(valor)
+            setError(null)
+            setEditando(true)
+          }}
+          aria-label={`${en ? 'Edit' : 'Editar'} ${etiqueta}`}
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-secondary text-foreground active:scale-95"
+        >
+          <Pencil className="h-4 w-4" />
+        </button>
+      </div>
+    )
+  }
+  return (
+    <div>
+      <label htmlFor={`nick-${etiqueta}`} className="text-xs text-muted-foreground">
+        {etiqueta}
+      </label>
+      <input
+        id={`nick-${etiqueta}`}
+        autoFocus
+        value={texto}
+        maxLength={maximo}
+        onChange={(e) => setTexto(e.target.value)}
+        onKeyDown={(e) => e.key === 'Enter' && ok()}
+        className="mt-1 w-full rounded-xl bg-secondary px-3 py-2.5 text-[15px] font-bold text-foreground outline-none"
+      />
+      {ayuda && <p className="mt-1 text-[11px] text-muted-foreground">{ayuda}</p>}
+      {formatoOk && verificar && libre === '?' && (
+        <p className="mt-1 text-xs text-muted-foreground">{en ? 'Checking…' : 'Comprobando…'}</p>
+      )}
+      {formatoOk && verificar && libre === 'ok' && (
+        <p className="mt-1 text-xs font-semibold text-accent">{en ? 'Available' : 'Disponible'}</p>
+      )}
+      {formatoOk && verificar && libre !== '?' && libre !== 'ok' && (
+        <p className="mt-1 text-xs font-semibold text-destructive">{libre}</p>
+      )}
+      {error && <p className="mt-1 text-xs font-semibold text-destructive">{error}</p>}
+      <div className="mt-2 flex gap-2">
+        <button
+          onClick={() => setEditando(false)}
+          className="flex-1 rounded-xl bg-secondary py-2 text-xs font-bold text-secondary-foreground"
+        >
+          {en ? 'Cancel' : 'Cancelar'}
+        </button>
+        <button
+          onClick={ok}
+          disabled={!valido || guardando}
+          className="accent-gradient flex-1 rounded-xl py-2 text-xs font-extrabold text-white disabled:opacity-40"
+        >
+          {en ? 'Save' : 'Guardar'}
+        </button>
+      </div>
+    </div>
+  )
+}
 
 /**
  * Pestaña "Config": cuenta, preferencias (tema/idioma), restablecer
@@ -34,6 +168,43 @@ export function Configuracion({
   const sinLeerSoporte = useSoporteNoLeidos()
   const nombreMostrado = nickname && nickname.trim().length > 0 ? nickname : t.home.estudiante
   const [estiloAbierto, setEstiloAbierto] = useState(false)
+  const [aliasChat, setAliasChat] = useState<string | null>(null)
+  const en = idioma === 'en'
+
+  useEffect(() => {
+    if (!userId) return
+    let cancelado = false
+    obtenerAlias(userId).then((a) => !cancelado && setAliasChat(a))
+    return () => {
+      cancelado = true
+    }
+  }, [userId])
+
+  function textoNick(e: ResultadoNick | string | undefined): string {
+    const m: Record<string, [string, string]> = {
+      duplicado: ['Ese nick ya está en uso. Prueba con otro.', 'That nickname is taken. Try another one.'],
+      formato: ['Usa de 3 a 20 letras, números, punto, guion o guion bajo (sin espacios).', 'Use 3 to 20 letters, numbers, dot, dash or underscore (no spaces).'],
+      prohibido: ['Ese nick no está permitido.', 'That nickname is not allowed.'],
+    }
+    const par = m[e ?? ''] ?? ['No se pudo guardar. Prueba de nuevo.', "Couldn't save it. Try again."]
+    return en ? par[1] : par[0]
+  }
+
+  async function verificarNick(nuevo: string): Promise<string | null> {
+    if (nuevo.toLowerCase() === (nombreMostrado ?? '').toLowerCase()) return null
+    const r = await comprobarNick(nuevo)
+    return r === 'ok' ? null : textoNick(r)
+  }
+
+  async function guardarNick(nuevo: string): Promise<string | null> {
+    if (!userId) return null
+    const r = await cambiarNick(userId, nuevo, aliasChat !== null)
+    if (r.ok) {
+      if (aliasChat !== null) setAliasChat(nuevo)
+      return null
+    }
+    return textoNick(r.error)
+  }
 
   // "Restablecer estadísticas": borra el historial de simulacros y, si
   // además tiene Academia habilitada, su progreso ahí — ambos en Supabase,
@@ -101,13 +272,27 @@ export function Configuracion({
 
       <h1 className="mt-6 text-lg font-extrabold text-foreground">{t.config.titulo}</h1>
 
-      <div className="card-elevated mt-4 flex items-center gap-3 rounded-2xl bg-card p-4">
+      <div className="card-elevated mt-4 flex items-start gap-3 rounded-2xl bg-card p-4">
         <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
           <User className="h-5 w-5" />
         </span>
-        <div className="min-w-0">
-          <p className="text-xs text-muted-foreground">{t.config.cuenta}</p>
-          <p className="truncate text-[15px] font-bold text-foreground">{nombreMostrado}</p>
+        <div className="min-w-0 flex-1 space-y-3">
+          <NickEditable
+            key={nombreMostrado}
+            etiqueta={t.config.cuenta}
+            valor={nombreMostrado}
+            idioma={idioma}
+            ayuda={
+              en
+                ? "Your nickname. It's also the name others see in Community. Change it whenever you like."
+                : 'Es tu nick. También es el nombre que ven los demás en Comunidad. Puedes cambiarlo cuando quieras.'
+            }
+            minimo={3}
+            maximo={20}
+            patron={/^[A-Za-z0-9_.-]+$/}
+            verificar={verificarNick}
+            guardar={guardarNick}
+          />
         </div>
       </div>
 

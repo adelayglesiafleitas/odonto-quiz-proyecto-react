@@ -20,6 +20,10 @@ export interface Sala {
   normas: string
   /** Mensaje fijado por el equipo (barra bajo la cabecera). Vacío = se muestra la 1.ª línea de las normas. */
   fijado: string
+  /** Color del icono del grupo (hex) o null = color automático. */
+  color: string | null
+  /** Descripción corta que se muestra en la ficha del grupo. */
+  descripcion: string
 }
 
 export interface ResumenSala {
@@ -51,6 +55,10 @@ export interface MensajeChat {
   borrado: boolean
   /** true si el autor modificó el texto después de enviarlo. */
   editado: boolean
+  /** Ids de los usuarios mencionados con @ (la base solo guarda miembros activos del grupo). */
+  menciones: string[]
+  /** true si el mensaje incluye @admin. */
+  mencionaAdmin: boolean
   creadoEn: string
 }
 
@@ -67,6 +75,8 @@ function mapSala(r: any): Sala {
     pausada: r.pausada,
     normas: r.normas ?? '',
     fijado: r.fijado ?? '',
+    color: r.color ?? null,
+    descripcion: r.descripcion ?? '',
   }
 }
 
@@ -100,6 +110,8 @@ function mapMensaje(r: any): MensajeChat {
     verificado: r.verificado,
     borrado: !!r.borrado_por,
     editado: !!r.editado_en,
+    menciones: r.menciones ?? [],
+    mencionaAdmin: !!r.menciona_admin,
     creadoEn: r.creado_en,
   }
 }
@@ -142,6 +154,51 @@ export async function crearAlias(userId: string, alias: string): Promise<{ ok: b
   if (error.code === '23505') return { ok: false, error: 'duplicado' }
   if (error.code === '23514') return { ok: false, error: 'formato' }
   return { ok: false, error: error.message.includes('no está permitido') ? 'prohibido' : 'desconocido' }
+}
+
+/** Cambia el alias del chat (la base revalida formato, duplicados y palabras reservadas). */
+export async function cambiarAlias(userId: string, alias: string): Promise<{ ok: boolean; error?: string }> {
+  const { error } = await supabase.from('comunidad_alias').update({ alias: alias.trim() }).eq('user_id', userId)
+  if (!error) return { ok: true }
+  if (error.code === '23505') return { ok: false, error: 'duplicado' }
+  if (error.code === '23514') return { ok: false, error: 'formato' }
+  if (error.message.includes('no está permitido')) return { ok: false, error: 'prohibido' }
+  return { ok: false, error: 'desconocido' }
+}
+
+export type ResultadoNick = 'ok' | 'formato' | 'prohibido' | 'duplicado' | 'error'
+
+/** Formato, palabras reservadas y disponibilidad (nadie más usa ese nick, sin distinguir mayúsculas). */
+export async function comprobarNick(nick: string): Promise<ResultadoNick> {
+  const n = nick.trim()
+  if (!/^[A-Za-z0-9_.-]{3,20}$/.test(n)) return 'formato'
+  if (/(admin|equipo|soporte|moderador|staff)/i.test(n)) return 'prohibido'
+  const { data, error } = await supabase.rpc('nick_disponible', { p_nick: n })
+  if (error) return 'error'
+  return data === true ? 'ok' : 'duplicado'
+}
+
+/**
+ * Un solo nick para toda la app: se guarda en la cuenta (nickname) y es el mismo alias del chat.
+ * Si el usuario ya tiene alias en Comunidad se actualiza también (la base valida formato, duplicados y
+ * palabras reservadas); si aún no lo tiene, se comprueba que nadie más lo use para que después le sirva en el chat.
+ */
+export async function cambiarNick(
+  userId: string,
+  nuevo: string,
+  tieneAlias: boolean,
+): Promise<{ ok: boolean; error?: string }> {
+  const nick = nuevo.trim()
+  if (!/^[A-Za-z0-9_.-]{3,20}$/.test(nick)) return { ok: false, error: 'formato' }
+  if (tieneAlias) {
+    const r = await cambiarAlias(userId, nick)
+    if (!r.ok) return r
+  } else {
+    const c = await comprobarNick(nick)
+    if (c !== 'ok') return { ok: false, error: c }
+  }
+  const { error } = await supabase.auth.updateUser({ data: { nickname: nick } })
+  return error ? { ok: false, error: 'desconocido' } : { ok: true }
 }
 
 export async function aliasDe(ids: string[]): Promise<Map<string, string>> {
@@ -422,15 +479,24 @@ export async function guardarAjustesSala(
   return !error
 }
 
-export async function silenciarUsuario(userId: string, horas: number, adminId: string): Promise<boolean> {
-  const hasta = new Date(Date.now() + horas * 3600000).toISOString()
+export async function silenciarUsuario(
+  userId: string,
+  horas: number | null,
+  adminId: string,
+  salaId: string | null = null,
+): Promise<boolean> {
+  const hasta = horas === null ? '2100-01-01T00:00:00Z' : new Date(Date.now() + horas * 3600000).toISOString()
   const { error } = await supabase
     .from('comunidad_silencios')
-    .insert({ user_id: userId, sala_id: null, hasta, motivo: 'Silenciado por el equipo', por: adminId })
+    .insert({ user_id: userId, sala_id: salaId, hasta, motivo: 'Silenciado por el equipo', por: adminId })
   if (!error) {
-    await supabase
-      .from('comunidad_acciones')
-      .insert({ admin_id: adminId, tipo: 'silencio', usuario_id: userId, detalle: `Usuario silenciado ${horas} h desde la app` })
+    await supabase.from('comunidad_acciones').insert({
+      admin_id: adminId,
+      tipo: 'silencio',
+      usuario_id: userId,
+      sala_id: salaId,
+      detalle: `Usuario silenciado ${horas === null ? 'indefinidamente' : horas + ' h'} desde la app${salaId ? ' (solo un grupo)' : ''}`,
+    })
   }
   return !error
 }
@@ -442,5 +508,59 @@ export async function identidadesDe(ids: string[]): Promise<Map<string, string>>
   const { data } = await supabase.rpc('comunidad_identidades', { p_ids: ids })
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   for (const r of (data ?? []) as any[]) mapa.set(r.user_id, r.email)
+  return mapa
+}
+
+/* ------------------------------------------------------------------ */
+/* Menciones (@alias y @admin). Solo alias: nunca correos. */
+
+/** Alias de los miembros activos del grupo (para el autocompletado al escribir @). */
+export async function aliasesDeSala(salaId: string): Promise<{ userId: string; alias: string }[]> {
+  const { data } = await supabase.rpc('comunidad_alias_sala', { p_sala: salaId })
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return ((data ?? []) as any[]).map((r) => ({ userId: r.user_id, alias: r.alias }))
+}
+
+/** Menciones sin leer por grupo para el usuario (no admin). */
+export async function mencionesNoLeidas(): Promise<Map<string, number>> {
+  const { data } = await supabase.rpc('comunidad_menciones_no_leidas')
+  const mapa = new Map<string, number>()
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  for (const r of (data ?? []) as any[]) mapa.set(r.sala_id, Number(r.n))
+  return mapa
+}
+
+const CLAVE_ADMIN_LEIDO = 'comunidad:adminMencionLeida:'
+
+export function marcarMencionAdminLeida(salaId: string): void {
+  try {
+    localStorage.setItem(CLAVE_ADMIN_LEIDO + salaId, new Date().toISOString())
+  } catch {
+    /* sin almacenamiento */
+  }
+  window.dispatchEvent(new Event('comunidad:leido'))
+}
+
+/** Para admins: cuántos @admin sin leer hay por grupo (última semana; lo leído se guarda en este dispositivo). */
+export async function mencionesAdminNoLeidas(): Promise<Map<string, number>> {
+  const desde = new Date(Date.now() - 7 * 86400000).toISOString()
+  const { data } = await supabase
+    .from('comunidad_mensajes')
+    .select('sala_id, creado_en')
+    .eq('menciona_admin', true)
+    .is('borrado_por', null)
+    .eq('es_equipo', false)
+    .gte('creado_en', desde)
+  const mapa = new Map<string, number>()
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  for (const r of (data ?? []) as any[]) {
+    let leida = ''
+    try {
+      leida = localStorage.getItem(CLAVE_ADMIN_LEIDO + r.sala_id) ?? ''
+    } catch {
+      /* sin almacenamiento */
+    }
+    if (!leida || r.creado_en > leida) mapa.set(r.sala_id, (mapa.get(r.sala_id) ?? 0) + 1)
+  }
   return mapa
 }

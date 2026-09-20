@@ -75,6 +75,18 @@ export const CURSOS: Record<string, CursoMeta> = {
     cantidadesDisponibles: [10, 20, 30, 40],
     tieneLibros: false,
   },
+  patologia: {
+    // Mismos valores que el resto de asignaturas (mismo formato de examen de
+    // homologación) — decisión del usuario al agregar esta asignatura
+    // (2026-09-20), no un dato propio de Patología Bucal verificado aparte.
+    // Banco: curso_id 'patologia' en la tabla preguntas (525 preguntas).
+    duracionOficialMinutos: 40,
+    cantidadOficial: 30,
+    porcentajeAprobado: 70,
+    tieneConvocatorias: false,
+    cantidadesDisponibles: [10, 20, 30, 40],
+    tieneLibros: false,
+  },
 }
 
 // CURSO_ID/CURSO son el curso "por defecto": todavía los usan Home,

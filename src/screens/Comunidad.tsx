@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import {
   ArrowLeft,
+  AtSign,
   BadgeCheck,
   BellOff,
   Flag,
@@ -19,11 +20,13 @@ import {
   Pin,
   Search,
   Send,
+  Smile,
   ShieldCheck,
   Sparkles,
   Trash2,
   X,
 } from 'lucide-react'
+import { supabase } from '@/lib/supabase'
 import { useAppSettings } from '@/context/AppSettings'
 import { SettingsToggle } from '@/components/SettingsToggle'
 import { LogoMark } from '@/components/Logo'
@@ -31,6 +34,11 @@ import { BottomNav } from '@/components/BottomNav'
 import {
   aceptarNormas,
   aliasDe,
+  comprobarNick,
+  aliasesDeSala,
+  marcarMencionAdminLeida,
+  mencionesAdminNoLeidas,
+  mencionesNoLeidas,
   borrarMensaje,
   borrarMiMensaje,
   editarMensaje,
@@ -76,7 +84,7 @@ const TX = {
     proximamente: 'Próximamente',
     masSecciones: 'Más secciones de la comunidad',
     masSeccionesDesc: 'Estamos preparando nuevas formas de estudiar en comunidad.',
-    equipo: 'Equipo',
+    equipo: 'Admin',
     avisosNombre: 'Avisos del equipo',
     soloLectura: 'Solo el equipo puede escribir aquí',
     pausa: 'Grupo en pausa: el equipo reactivará el chat pronto',
@@ -98,7 +106,7 @@ const TX = {
     normasFijadas: 'Normas del grupo',
     fijado: 'Fijado',
     aliasTitulo: 'Elige tu alias',
-    aliasDesc: 'Es el nombre que verán los demás. Nunca mostramos tu correo. 3 a 20 caracteres: letras, números, punto, guion y guion bajo.',
+    aliasDesc: 'Es el nombre que verán los demás. Nunca mostramos tu correo. 3 a 20 caracteres: letras, números, punto, guion y guion bajo. Es tu nick de la app: lo cambias en Config.',
     aliasPlaceholder: 'Tu alias',
     aliasGuardar: 'Guardar alias',
     aliasDuplicado: 'Ese alias ya está en uso.',
@@ -128,8 +136,24 @@ const TX = {
     ajFijado: 'Mensaje fijado',
     ajGuardar: 'Guardar',
     fijarMensaje: 'Fijar',
-    silenciar24: 'Silenciar 24 h',
+    silenciar24: 'Silenciar',
+    silTitulo: 'Silenciar a',
+    silEste: 'Solo en este grupo',
+    silTodos: 'En todos los grupos',
+    silDur: 'Duración',
+    sil1: '1 hora',
+    sil24: '24 horas',
+    sil7: '7 días',
+    silInd: 'Indefinido',
     hecho: 'Hecho',
+    emojis: 'Emojis',
+    emCaras: 'Caras',
+    emGestos: 'Gestos',
+    emSimbolos: 'Símbolos',
+    mencAdmin: 'avisa a todos los admins',
+    mencNadie: 'Nadie coincide',
+    mencMaximo: 'Máximo 5 menciones por mensaje',
+    acerca: 'Acerca del grupo',
     editar: 'Editar',
     editando: 'Editando mensaje',
     editado: 'editado',
@@ -163,7 +187,7 @@ const TX = {
     proximamente: 'Coming soon',
     masSecciones: 'More community sections',
     masSeccionesDesc: 'We are preparing new ways to study together.',
-    equipo: 'Team',
+    equipo: 'Admin',
     avisosNombre: 'Team announcements',
     soloLectura: 'Only the team can write here',
     pausa: 'Group paused: the team will reactivate the chat soon',
@@ -185,7 +209,7 @@ const TX = {
     normasFijadas: 'Group rules',
     fijado: 'Pinned',
     aliasTitulo: 'Choose your alias',
-    aliasDesc: 'This is the name others will see. We never show your email. 3 to 20 characters: letters, numbers, dot, dash and underscore.',
+    aliasDesc: 'This is the name others will see. We never show your email. 3 to 20 characters: letters, numbers, dot, dash and underscore. It is your app nickname: change it in Settings.',
     aliasPlaceholder: 'Your alias',
     aliasGuardar: 'Save alias',
     aliasDuplicado: 'That alias is already taken.',
@@ -215,8 +239,24 @@ const TX = {
     ajFijado: 'Pinned message',
     ajGuardar: 'Save',
     fijarMensaje: 'Pin',
-    silenciar24: 'Mute 24 h',
+    silenciar24: 'Mute',
+    silTitulo: 'Mute',
+    silEste: 'Only in this group',
+    silTodos: 'In all groups',
+    silDur: 'Duration',
+    sil1: '1 hour',
+    sil24: '24 hours',
+    sil7: '7 days',
+    silInd: 'Indefinite',
     hecho: 'Done',
+    emojis: 'Emoji',
+    emCaras: 'Faces',
+    emGestos: 'Gestures',
+    emSimbolos: 'Symbols',
+    mencAdmin: 'notifies all admins',
+    mencNadie: 'No matches',
+    mencMaximo: 'Up to 5 mentions per message',
+    acerca: 'About this group',
     editar: 'Edit',
     editando: 'Editing message',
     editado: 'edited',
@@ -259,7 +299,7 @@ function tono(clave: string): number {
   return h
 }
 
-function Avatar({ nombre, clave, size, avisos }: { nombre: string; clave: string; size: number; avisos?: boolean }) {
+function Avatar({ nombre, clave, size, avisos, color }: { nombre: string; clave: string; size: number; avisos?: boolean; color?: string | null }) {
   return (
     <span
       className="flex shrink-0 items-center justify-center rounded-full font-extrabold text-white"
@@ -267,7 +307,7 @@ function Avatar({ nombre, clave, size, avisos }: { nombre: string; clave: string
         width: size,
         height: size,
         fontSize: size * 0.36,
-        backgroundColor: avisos ? 'hsl(var(--accent))' : `hsl(${tono(clave)} 52% 40%)`,
+        backgroundColor: avisos ? 'hsl(var(--accent))' : (color ?? `hsl(${tono(clave)} 52% 40%)`),
       }}
     >
       {avisos ? <Megaphone style={{ width: size * 0.48, height: size * 0.48 }} /> : iniciales(nombre)}
@@ -330,6 +370,8 @@ export function Comunidad({ userId, onNavigate }: { userId: string; onNavigate: 
   const [salas, setSalas] = useState<Sala[] | null>(null)
   const [miembros, setMiembros] = useState<Map<string, MiembroSala>>(new Map())
   const [noLeidos, setNoLeidos] = useState<Map<string, number>>(new Map())
+  const [menciones, setMenciones] = useState<Map<string, number>>(new Map())
+  const equipoRef = useRef(false)
   const [resumen, setResumen] = useState<Map<string, ResumenSala>>(new Map())
   const [autoresLista, setAutoresLista] = useState<Map<string, string>>(new Map())
   const [equipo, setEquipo] = useState(false)
@@ -359,7 +401,14 @@ export function Comunidad({ userId, onNavigate }: { userId: string; onNavigate: 
   }, [cargarAcceso])
 
   const recargarListado = useCallback(async () => {
-    const [s, m, n, r] = await Promise.all([listarSalas(), listarMisMembresias(userId), noLeidosPorSala(), resumenSalas()])
+    const [s, m, n, r, me] = await Promise.all([
+      listarSalas(),
+      listarMisMembresias(userId),
+      noLeidosPorSala(),
+      resumenSalas(),
+      equipoRef.current ? mencionesAdminNoLeidas() : mencionesNoLeidas(),
+    ])
+    setMenciones(me)
     setSalas(s)
     setMiembros(m)
     setNoLeidos(n)
@@ -372,8 +421,10 @@ export function Comunidad({ userId, onNavigate }: { userId: string; onNavigate: 
     let cancelado = false
     Promise.all([esEquipo(), obtenerAlias(userId)]).then(([e, a]) => {
       if (cancelado) return
+      equipoRef.current = e
       setEquipo(e)
       setAlias(a)
+      if (e) recargarListado()
     })
     recargarListado()
     return () => {
@@ -407,19 +458,16 @@ export function Comunidad({ userId, onNavigate }: { userId: string; onNavigate: 
 
   const sala = useMemo(() => salas?.find((s) => s.id === salaId) ?? null, [salas, salaId])
 
-  // Avisos fijo arriba; el resto, por actividad reciente.
+  // Avisos fijo arriba; el resto, en el orden que define el admin.
   const salasOrdenadas = useMemo(() => {
     const lista = [...(salas ?? [])]
     lista.sort((a, b) => {
       if (esAvisos(a) !== esAvisos(b)) return esAvisos(a) ? -1 : 1
-      const ta = resumen.get(a.id)?.ultEn ?? ''
-      const tb = resumen.get(b.id)?.ultEn ?? ''
-      if (ta !== tb) return ta < tb ? 1 : -1
       return a.orden - b.orden
     })
     const q = filtro.trim().toLowerCase()
     return q ? lista.filter((s) => (esAvisos(s) ? tx.avisosNombre : s.nombre).toLowerCase().includes(q)) : lista
-  }, [salas, resumen, filtro, tx.avisosNombre])
+  }, [salas, filtro, tx.avisosNombre])
 
   async function abrirSala(s: Sala) {
     if (!miembros.has(s.id) && !equipo) {
@@ -443,6 +491,7 @@ export function Comunidad({ userId, onNavigate }: { userId: string; onNavigate: 
       cargando={salas === null}
       miembros={miembros}
       noLeidos={noLeidos}
+      menciones={menciones}
       resumen={resumen}
       autores={autoresLista}
       activa={salaId}
@@ -541,6 +590,7 @@ function ListaGrupos({
   cargando,
   miembros,
   noLeidos,
+  menciones,
   resumen,
   autores,
   activa,
@@ -555,6 +605,7 @@ function ListaGrupos({
   cargando: boolean
   miembros: Map<string, MiembroSala>
   noLeidos: Map<string, number>
+  menciones: Map<string, number>
   resumen: Map<string, ResumenSala>
   autores: Map<string, string>
   activa: string | null
@@ -585,6 +636,7 @@ function ListaGrupos({
         {salas.map((s) => {
           const m = miembros.get(s.id)
           const n = noLeidos.get(s.id) ?? 0
+          const nm = menciones.get(s.id) ?? 0
           const r = resumen.get(s.id)
           const avisos = esAvisos(s)
           const activo = activa === s.id
@@ -614,10 +666,10 @@ function ListaGrupos({
               key={s.id}
               onClick={() => onAbrir(s)}
               className={`flex w-full items-center gap-3 rounded-2xl p-2.5 text-left transition ${
-                activo ? 'bg-accent text-accent-foreground' : 'active:bg-secondary/60'
+                activo ? 'bg-accent text-accent-foreground' : nm > 0 ? 'bg-pink-500/10 active:bg-secondary/60' : 'active:bg-secondary/60'
               }`}
             >
-              <Avatar nombre={nombre} clave={s.id} size={46} avisos={avisos} />
+              <Avatar nombre={nombre} clave={s.id} size={46} avisos={avisos} color={s.color} />
               <div className="min-w-0 flex-1">
                 <p className="flex items-center gap-1.5 text-[15px] font-extrabold">
                   <span className="truncate">{nombre}</span>
@@ -632,7 +684,17 @@ function ListaGrupos({
                 <span className={`text-[11px] ${activo ? 'text-accent-foreground/85' : 'text-muted-foreground'}`}>
                   {r?.ultEn ? marcaLista(r.ultEn, idioma, tx) : ''}
                 </span>
-                {n > 0 ? (
+                {n > 0 || nm > 0 ? (
+                  <span className="flex items-center gap-1">
+                  {nm > 0 && (
+                    <span
+                      aria-label="@"
+                      className="flex h-5 w-5 items-center justify-center rounded-full bg-pink-500 text-white"
+                    >
+                      <AtSign className="h-3 w-3" strokeWidth={3} />
+                    </span>
+                  )}
+                  {n > 0 && (
                   <span
                     className={`flex h-5 min-w-5 items-center justify-center rounded-full px-1.5 text-[11px] font-extrabold ${
                       activo
@@ -643,6 +705,8 @@ function ListaGrupos({
                     }`}
                   >
                     {n > 99 ? '99+' : n}
+                  </span>
+                  )}
                   </span>
                 ) : avisos ? (
                   <Pin className="h-3.5 w-3.5 opacity-60" />
@@ -694,6 +758,12 @@ interface SalaChatProps {
   onVolver: () => void
 }
 
+const EMOJIS = {
+  caras: ['😀', '😃', '😄', '😁', '😆', '😅', '😂', '🙂', '😉', '😊', '😍', '😘', '😎', '🤔', '😐', '😴', '😢', '😭', '😡', '😱', '🙄', '😬', '🤗', '🤩'],
+  gestos: ['👍', '👎', '👏', '🙏', '💪', '👌', '✌️', '🤝', '👋', '🙌', '🤞', '👀'],
+  simbolos: ['❤️', '💔', '🔥', '⭐', '✅', '❌', '❓', '❗', '🎉', '📚', '🦷', '💡', '📝', '🎓', '⏰', '💯'],
+} as const
+
 const FONDO_CHAT = {
   backgroundImage:
     'radial-gradient(circle at 20% 30%, hsl(var(--accent) / 0.08) 0 2px, transparent 3px), radial-gradient(circle at 70% 70%, hsl(var(--accent) / 0.08) 0 2px, transparent 3px)',
@@ -730,6 +800,10 @@ function SalaChat({
   const [reportados, setReportados] = useState<Set<string>>(new Set())
   const [ajustes, setAjustes] = useState(false)
   const [limpieza, setLimpieza] = useState(false)
+  const [panelEmoji, setPanelEmoji] = useState(false)
+  const [catEmoji, setCatEmoji] = useState<'caras' | 'gestos' | 'simbolos'>('caras')
+  const taRef = useRef<HTMLTextAreaElement | null>(null)
+  const [silenciarA, setSilenciarA] = useState<{ id: string; nombre: string } | null>(null)
   const [correos, setCorreos] = useState<Map<string, string>>(new Map())
   const [editando, setEditando] = useState<MensajeChat | null>(null)
   const [confirmarDe, setConfirmarDe] = useState<string | null>(null)
@@ -741,6 +815,8 @@ function SalaChat({
   const [divisor, setDivisor] = useState<{ id: string; n: number } | null>(null)
   const [lejos, setLejos] = useState(false)
   const [nuevosAbajo, setNuevosAbajo] = useState(0)
+  const [miembrosAlias, setMiembrosAlias] = useState<{ userId: string; alias: string }[]>([])
+  const [mencion, setMencion] = useState<{ ini: number; q: string } | null>(null)
 
   const scrollRef = useRef<HTMLDivElement | null>(null)
   const cercaRef = useRef(true)
@@ -793,6 +869,76 @@ function SalaChat({
       quitar()
     }
   }, [sala.id, activo, equipo, userId, cargarAliases, onSalaCambio])
+
+  // Alias de los miembros del grupo (autocompletado de @). Solo alias, nunca correos.
+  useEffect(() => {
+    if (!activo || esAvisos(sala)) return
+    let cancelado = false
+    aliasesDeSala(sala.id).then((l) => !cancelado && setMiembrosAlias(l))
+    return () => {
+      cancelado = true
+    }
+  }, [sala, activo])
+
+  // El admin no tiene fila de lectura: sus avisos @admin se marcan leídos en este dispositivo.
+  useEffect(() => {
+    if (equipo && mensajes) marcarMencionAdminLeida(sala.id)
+  }, [equipo, mensajes, sala.id])
+
+  const conocidos = useMemo(() => {
+    const c = new Set<string>(['admin'])
+    miembrosAlias.forEach((a) => c.add(a.alias.toLowerCase()))
+    aliases.forEach((a) => c.add(a.toLowerCase()))
+    if (alias) c.add(alias.toLowerCase())
+    return c
+  }, [miembrosAlias, aliases, alias])
+
+  const opcionesMencion = useMemo(() => {
+    if (!mencion) return []
+    const q = mencion.q.toLowerCase()
+    const l: { alias: string; admin: boolean }[] = []
+    if (!equipo && 'admin'.startsWith(q)) l.push({ alias: 'admin', admin: true })
+    for (const a of miembrosAlias) {
+      if (a.alias.toLowerCase() === (alias ?? '').toLowerCase()) continue
+      if (a.alias.toLowerCase().startsWith(q)) l.push({ alias: a.alias, admin: false })
+      if (l.length >= 6) break
+    }
+    return l
+  }, [mencion, miembrosAlias, equipo, alias])
+
+  function detectarMencion(valor: string, pos: number) {
+    const antes = valor.slice(0, pos)
+    const m = /(^|\s)@([A-Za-z0-9_]{0,20})$/.exec(antes)
+    setMencion(m ? { ini: pos - m[2].length - 1, q: m[2] } : null)
+  }
+
+  function elegirMencion(nombreM: string) {
+    if (!mencion) return
+    const el = taRef.current
+    const fin = el?.selectionStart ?? texto.length
+    const nuevo = texto.slice(0, mencion.ini) + '@' + nombreM + ' ' + texto.slice(fin)
+    setTexto(nuevo.slice(0, 1000))
+    setMencion(null)
+    requestAnimationFrame(() => {
+      el?.focus()
+      const p = mencion.ini + nombreM.length + 2
+      el?.setSelectionRange(p, p)
+    })
+  }
+
+  /** Resalta @alias reales del grupo y @admin dentro del texto. */
+  function conMenciones(cuerpo: string, propio: boolean): ReactNode {
+    const partes = cuerpo.split(/(@[A-Za-z0-9_]{3,20})/g)
+    return partes.map((t, i) =>
+      i % 2 === 1 && conocidos.has(t.slice(1).toLowerCase()) ? (
+        <span key={i} className={`font-extrabold ${propio ? 'underline' : 'text-accent'}`}>
+          {t}
+        </span>
+      ) : (
+        t
+      ),
+    )
+  }
 
   // Solo el equipo ve quién es cada persona (correo real); los demás solo ven alias.
   useEffect(() => {
@@ -861,6 +1007,18 @@ function SalaChat({
     if (cfg.exigirNormas && !normasOk) return setPedirNormas(true)
   }
 
+  function insertarEmoji(e: string) {
+    const el = taRef.current
+    const ini = el?.selectionStart ?? texto.length
+    const fin = el?.selectionEnd ?? ini
+    setTexto((texto.slice(0, ini) + e + texto.slice(fin)).slice(0, 1000))
+    requestAnimationFrame(() => {
+      el?.focus()
+      const p = ini + e.length
+      el?.setSelectionRange(p, p)
+    })
+  }
+
   async function enviar() {
     const cuerpo = texto.trim()
     if (!cuerpo || enviando) return
@@ -924,7 +1082,7 @@ function SalaChat({
             <ArrowLeft className="h-5 w-5" />
           </button>
         )}
-        <Avatar nombre={sala.nombre} clave={sala.id} size={40} avisos={avisos} />
+        <Avatar nombre={sala.nombre} clave={sala.id} size={40} avisos={avisos} color={sala.color} />
         <div className="min-w-0 flex-1">
           <p className="truncate text-[15px] font-extrabold leading-tight text-foreground">{nombreSala}</p>
           <p className="flex items-center gap-1 truncate text-[11.5px] text-muted-foreground">
@@ -1102,7 +1260,7 @@ function SalaChat({
                           : propio
                             ? `accent-gradient text-white ${ultimo ? 'rounded-2xl rounded-br-md' : 'rounded-2xl'}`
                             : `bg-card text-foreground ${ultimo ? 'rounded-2xl rounded-bl-md' : 'rounded-2xl'}`
-                      }`}
+                      } ${!propio && !m.borrado && (m.menciones.includes(userId) || (equipo && m.mencionaAdmin)) ? 'ring-2 ring-pink-500/60' : ''}`}
                     >
                       {primero && !propio && !m.borrado && (
                         <p className="mb-0.5 flex items-center gap-1.5 text-[12px] font-extrabold" style={{ color: m.esEquipo ? 'hsl(var(--accent))' : `hsl(${tono(m.autorId)} 55% 42%)` }}>
@@ -1125,7 +1283,7 @@ function SalaChat({
                               <p className="line-clamp-2 opacity-80">{citado.borrado ? tx.borrado : citado.cuerpo}</p>
                             </div>
                           )}
-                          <span className="whitespace-pre-wrap break-words">{m.cuerpo}</span>
+                          <span className="whitespace-pre-wrap break-words">{conMenciones(m.cuerpo, propio)}</span>
                           <span className={`ml-2 inline-flex translate-y-[3px] items-center gap-0.5 text-[10px] ${propio ? 'text-white/75' : 'text-muted-foreground'}`}>
                             {m.editado && `${tx.editado} · `}
                             {hora(m.creadoEn, idioma)}
@@ -1222,8 +1380,8 @@ function SalaChat({
                         </button>
                         {!propio && !m.esEquipo && (
                           <button
-                            onClick={async () => {
-                              if (await silenciarUsuario(m.autorId, 24, userId)) setAviso(tx.hecho)
+                            onClick={() => {
+                              setSilenciarA({ id: m.autorId, nombre })
                               setAccionesDe(null)
                             }}
                             className="flex items-center gap-1 rounded-full bg-secondary px-3 py-1 text-[11px] font-bold text-foreground"
@@ -1315,12 +1473,82 @@ function SalaChat({
             {sala.pausada ? tx.pausa : miembro?.estado === 'pendiente' ? tx.pendiente : tx.soloLectura}
           </div>
         ) : (
+          <>
+          {mencion && !panelEmoji && (
+            <div className="card-elevated mb-2 overflow-hidden rounded-2xl border border-border bg-card">
+              {opcionesMencion.length === 0 ? (
+                <p className="px-4 py-3 text-xs text-muted-foreground">{tx.mencNadie}</p>
+              ) : (
+                opcionesMencion.map((o) => (
+                  <button
+                    key={o.alias}
+                    onMouseDown={(ev) => ev.preventDefault()}
+                    onClick={() => elegirMencion(o.alias)}
+                    className="flex w-full items-center gap-3 px-3 py-2 text-left active:bg-secondary"
+                  >
+                    <Avatar nombre={o.alias} clave={o.admin ? 'equipo' : o.alias} size={30} avisos={o.admin} />
+                    <span className="text-sm font-extrabold text-foreground">@{o.alias}</span>
+                    {o.admin && (
+                      <span className="ml-auto rounded-full bg-pink-500/15 px-2 py-0.5 text-[10px] font-extrabold uppercase text-pink-600">
+                        {tx.mencAdmin}
+                      </span>
+                    )}
+                  </button>
+                ))
+              )}
+            </div>
+          )}
+          {panelEmoji && (
+            <div className="mb-2 overflow-hidden rounded-2xl border border-border bg-card">
+              <div className="flex gap-1 border-b border-border px-2 py-1.5">
+                {(
+                  [
+                    ['caras', tx.emCaras],
+                    ['gestos', tx.emGestos],
+                    ['simbolos', tx.emSimbolos],
+                  ] as ['caras' | 'gestos' | 'simbolos', string][]
+                ).map(([id, l]) => (
+                  <button
+                    key={id}
+                    onClick={() => setCatEmoji(id)}
+                    className={`rounded-full px-3 py-1 text-[11px] font-bold ${catEmoji === id ? 'bg-accent text-white' : 'text-muted-foreground'}`}
+                  >
+                    {l}
+                  </button>
+                ))}
+              </div>
+              <div className="grid max-h-40 grid-cols-8 gap-0.5 overflow-y-auto p-2">
+                {EMOJIS[catEmoji].map((e) => (
+                  <button
+                    key={e}
+                    onMouseDown={(ev) => ev.preventDefault()}
+                    onClick={() => insertarEmoji(e)}
+                    className="flex h-9 items-center justify-center rounded-lg text-xl active:bg-secondary"
+                  >
+                    {e}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
           <div className="mb-2 flex items-end gap-2">
+            <button
+              onClick={() => setPanelEmoji((v) => !v)}
+              aria-label={tx.emojis}
+              aria-pressed={panelEmoji}
+              className={`flex h-[42px] w-[42px] shrink-0 items-center justify-center rounded-full ${panelEmoji ? 'bg-accent/15 text-accent' : 'text-muted-foreground active:bg-secondary'}`}
+            >
+              <Smile className="h-5 w-5" />
+            </button>
             <textarea
+              ref={taRef}
               id="comunidad-mensaje"
               value={texto}
               onFocus={intentarEscribir}
-              onChange={(e) => setTexto(e.target.value.slice(0, 1000))}
+              onChange={(e) => {
+                setTexto(e.target.value.slice(0, 1000))
+                detectarMencion(e.target.value, e.target.selectionStart)
+              }}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' && !e.shiftKey) {
                   e.preventDefault()
@@ -1340,6 +1568,7 @@ function SalaChat({
               <Send className="h-4 w-4" />
             </button>
           </div>
+          </>
         )}
       </div>
 
@@ -1350,6 +1579,19 @@ function SalaChat({
             tx={tx}
             onCambio={async (p) => {
               if (await guardarAjustesSala(sala.id, p)) onSalaCambio({ ...sala, ...p })
+            }}
+          />
+        </Hoja>
+      )}
+
+      {silenciarA && (
+        <Hoja titulo={`${tx.silTitulo} ${silenciarA.nombre}`} onCerrar={() => setSilenciarA(null)} cerrarLabel={tx.cerrar}>
+          <SilenciarSheet
+            tx={tx}
+            onElegir={async (horas, soloGrupo) => {
+              const ok = await silenciarUsuario(silenciarA.id, horas, userId, soloGrupo ? sala.id : null)
+              setSilenciarA(null)
+              if (ok) setAviso(tx.hecho)
             }}
           />
         </Hoja>
@@ -1371,6 +1613,12 @@ function SalaChat({
 
       {info && (
         <Hoja titulo={tx.normasTitulo} onCerrar={() => setInfo(false)} cerrarLabel={tx.cerrar}>
+          {sala.descripcion && (
+            <div className="mb-3">
+              <p className="text-[11px] font-extrabold uppercase text-muted-foreground">{tx.acerca}</p>
+              <p className="whitespace-pre-line text-sm text-foreground">{sala.descripcion}</p>
+            </div>
+          )}
           {sala.fijado && <p className="mb-3 whitespace-pre-line text-sm font-semibold text-foreground">{sala.fijado}</p>}
           <p className="whitespace-pre-line text-sm leading-relaxed text-muted-foreground">{sala.normas || '—'}</p>
         </Hoja>
@@ -1454,6 +1702,39 @@ function AjustesGrupo({ sala, tx, onCambio }: { sala: Sala; tx: Tx; onCambio: (p
         >
           {tx.ajGuardar}
         </button>
+      </div>
+    </div>
+  )
+}
+
+function SilenciarSheet({ tx, onElegir }: { tx: Tx; onElegir: (horas: number | null, soloGrupo: boolean) => void }) {
+  const [soloGrupo, setSoloGrupo] = useState(true)
+  const chip = (activo: boolean) =>
+    `rounded-full px-3 py-1.5 text-xs font-bold ${activo ? 'bg-accent text-white' : 'bg-secondary text-foreground'}`
+  return (
+    <div className="space-y-4">
+      <div className="flex flex-wrap gap-2">
+        <button onClick={() => setSoloGrupo(true)} className={chip(soloGrupo)}>
+          {tx.silEste}
+        </button>
+        <button onClick={() => setSoloGrupo(false)} className={chip(!soloGrupo)}>
+          {tx.silTodos}
+        </button>
+      </div>
+      <p className="text-xs font-bold text-muted-foreground">{tx.silDur}</p>
+      <div className="grid grid-cols-2 gap-2">
+        {(
+          [
+            [tx.sil1, 1],
+            [tx.sil24, 24],
+            [tx.sil7, 168],
+            [tx.silInd, null],
+          ] as [string, number | null][]
+        ).map(([l, h]) => (
+          <button key={l} onClick={() => onElegir(h, soloGrupo)} className="rounded-xl bg-secondary py-3 text-sm font-bold text-foreground active:scale-[0.98]">
+            {l}
+          </button>
+        ))}
       </div>
     </div>
   )
@@ -1575,12 +1856,28 @@ function AliasSheet({
   const [error, setError] = useState<string | null>(null)
   const [guardando, setGuardando] = useState(false)
 
+  // Sugiere el nick de la cuenta: es el mismo en toda la app (se cambia en Config).
+  useEffect(() => {
+    supabase.auth.getUser().then(({ data }) => {
+      const n = ((data.user?.user_metadata?.nickname as string | undefined) ?? '').trim()
+      if (/^[A-Za-z0-9_.-]{3,20}$/.test(n)) setValor((v) => v || n)
+    })
+  }, [])
+
   async function guardar() {
     setGuardando(true)
     setError(null)
+    const c = await comprobarNick(valor)
+    if (c === 'duplicado') {
+      setGuardando(false)
+      return setError(tx.aliasDuplicado)
+    }
     const r = await crearAlias(userId, valor)
     setGuardando(false)
-    if (r.ok) return onListo(valor.trim())
+    if (r.ok) {
+      await supabase.auth.updateUser({ data: { nickname: valor.trim() } })
+      return onListo(valor.trim())
+    }
     setError(
       r.error === 'duplicado' ? tx.aliasDuplicado : r.error === 'formato' ? tx.aliasFormato : r.error === 'prohibido' ? tx.aliasProhibido : tx.aliasError,
     )
