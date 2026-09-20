@@ -3,6 +3,8 @@ import {
   ArrowLeft,
   BadgeCheck,
   BellOff,
+  Flag,
+  Settings2,
   Bell,
   Check,
   ChevronDown,
@@ -13,6 +15,7 @@ import {
   MessagesSquare,
   MoreVertical,
   Pause,
+  Pencil,
   Pin,
   Search,
   Send,
@@ -29,7 +32,19 @@ import {
   aceptarNormas,
   aliasDe,
   borrarMensaje,
+  borrarMiMensaje,
+  editarMensaje,
+  limpiarMensajes,
   crearAlias,
+  estadoAcceso,
+  guardarAjustesSala,
+  identidadesDe,
+  obtenerConfigChat,
+  reportarMensaje,
+  silenciarUsuario,
+  suscribirseAConfig,
+  type ConfigChat,
+  type EstadoAcceso,
   enviarMensaje,
   esEquipo,
   listarMensajes,
@@ -101,6 +116,38 @@ const TX = {
     verificar: 'Verificar',
     quitarVerif: 'Quitar verificación',
     responder: 'Responder',
+    reportar: 'Reportar',
+    reportado: 'Reportado',
+    reporteError: 'No se pudo enviar el reporte.',
+    ajustes: 'Ajustes del grupo',
+    ajPausa: 'Pausar grupo',
+    ajSoloEquipo: 'Solo el equipo escribe',
+    ajAprobacion: 'Entrada con aprobación',
+    ajLento: 'Modo lento',
+    ajLentoOff: 'Sin límite',
+    ajFijado: 'Mensaje fijado',
+    ajGuardar: 'Guardar',
+    fijarMensaje: 'Fijar',
+    silenciar24: 'Silenciar 24 h',
+    hecho: 'Hecho',
+    editar: 'Editar',
+    editando: 'Editando mensaje',
+    editado: 'editado',
+    si: 'Sí, eliminar',
+    limpiar: 'Limpiar mensajes antiguos',
+    limpiarTitulo: 'Limpiar este grupo',
+    limpiarOtro: 'Otro',
+    limpiarDias: 'días',
+    limpiarCuenta: (n: number, d: number) => `Se borrarán ${n} mensajes con más de ${d} días. No se puede deshacer.`,
+    limpiarBorrar: 'Borrar',
+    limpiarConfirma: 'Confirmar borrado',
+    limpiarListo: (n: number) => `${n} mensajes borrados`,
+    accCerrado: 'El chat está cerrado por ahora',
+    accCerradoDesc: 'El equipo lo ha cerrado temporalmente. Vuelve más tarde.',
+    accBloqueado: 'No tienes acceso al chat',
+    accBloqueadoDesc: 'El equipo ha restringido tu acceso a la comunidad. Si crees que es un error, escríbenos desde Ayuda y soporte.',
+    accSinHab: 'El chat es solo para usuarios invitados',
+    accSinHabDesc: 'De momento el equipo está dando acceso poco a poco. Te avisaremos cuando llegue tu turno.',
     cerrar: 'Cerrar',
     enviarError: 'No se pudo enviar.',
     tu: 'Tú',
@@ -156,6 +203,38 @@ const TX = {
     verificar: 'Verify',
     quitarVerif: 'Remove verification',
     responder: 'Reply',
+    reportar: 'Report',
+    reportado: 'Reported',
+    reporteError: 'Could not send the report.',
+    ajustes: 'Group settings',
+    ajPausa: 'Pause group',
+    ajSoloEquipo: 'Only the team can write',
+    ajAprobacion: 'Join by approval',
+    ajLento: 'Slow mode',
+    ajLentoOff: 'Off',
+    ajFijado: 'Pinned message',
+    ajGuardar: 'Save',
+    fijarMensaje: 'Pin',
+    silenciar24: 'Mute 24 h',
+    hecho: 'Done',
+    editar: 'Edit',
+    editando: 'Editing message',
+    editado: 'edited',
+    si: 'Yes, delete',
+    limpiar: 'Clear old messages',
+    limpiarTitulo: 'Clear this group',
+    limpiarOtro: 'Other',
+    limpiarDias: 'days',
+    limpiarCuenta: (n: number, d: number) => `${n} messages older than ${d} days will be deleted. This cannot be undone.`,
+    limpiarBorrar: 'Delete',
+    limpiarConfirma: 'Confirm delete',
+    limpiarListo: (n: number) => `${n} messages deleted`,
+    accCerrado: 'The chat is closed for now',
+    accCerradoDesc: 'The team has closed it temporarily. Come back later.',
+    accBloqueado: "You don't have access to the chat",
+    accBloqueadoDesc: 'The team has restricted your access to the community. If you think this is a mistake, write to us from Help & support.',
+    accSinHab: 'The chat is invite-only for now',
+    accSinHabDesc: "The team is opening access gradually. We'll let you know when it's your turn.",
     cerrar: 'Close',
     enviarError: 'Could not send.',
     tu: 'You',
@@ -257,6 +336,27 @@ export function Comunidad({ userId, onNavigate }: { userId: string; onNavigate: 
   const [alias, setAlias] = useState<string | null | undefined>(undefined)
   const [salaId, setSalaId] = useState<string | null>(null)
   const [filtro, setFiltro] = useState('')
+  const [acceso, setAcceso] = useState<EstadoAcceso | null>(null)
+  const [cfg, setCfg] = useState<ConfigChat>({ exigirAlias: true, exigirNormas: true })
+
+  // Configuración compartida con el panel admin: se relee al abrir, al volver
+  // a la pestaña y cuando el admin cambia algo (Realtime).
+  const cargarAcceso = useCallback(async () => {
+    const [a, c] = await Promise.all([estadoAcceso(), obtenerConfigChat()])
+    setAcceso(a)
+    setCfg(c)
+  }, [])
+
+  useEffect(() => {
+    cargarAcceso()
+    const alVolver = () => document.visibilityState === 'visible' && cargarAcceso()
+    document.addEventListener('visibilitychange', alVolver)
+    const quitar = suscribirseAConfig(cargarAcceso)
+    return () => {
+      document.removeEventListener('visibilitychange', alVolver)
+      quitar()
+    }
+  }, [cargarAcceso])
 
   const recargarListado = useCallback(async () => {
     const [s, m, n, r] = await Promise.all([listarSalas(), listarMisMembresias(userId), noLeidosPorSala(), resumenSalas()])
@@ -359,6 +459,7 @@ export function Comunidad({ userId, onNavigate }: { userId: string; onNavigate: 
       userId={userId}
       equipo={equipo}
       alias={alias ?? null}
+      cfg={cfg}
       miembro={miembros.get(sala.id) ?? null}
       miembrosN={resumen.get(sala.id)?.miembros ?? null}
       embebido={ancho}
@@ -370,6 +471,32 @@ export function Comunidad({ userId, onNavigate }: { userId: string; onNavigate: 
       onVolver={cerrarSala}
     />
   ) : null
+
+  if (acceso !== null && acceso !== 'ok' && !equipo) {
+    const t =
+      acceso === 'cerrado'
+        ? [tx.accCerrado, tx.accCerradoDesc]
+        : acceso === 'bloqueado'
+          ? [tx.accBloqueado, tx.accBloqueadoDesc]
+          : [tx.accSinHab, tx.accSinHabDesc]
+    return (
+      <div className="app-shell bg-background px-6 pb-28 pt-6">
+        <div className="flex items-center justify-between gap-3">
+          <LogoMark className="h-8 w-auto" />
+          <SettingsToggle />
+        </div>
+        <h1 className="mt-6 text-lg font-extrabold text-foreground">{tx.titulo}</h1>
+        <div className="card-elevated mt-6 flex flex-col items-center gap-3 rounded-2xl bg-card px-6 py-10 text-center">
+          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-secondary text-muted-foreground">
+            <Lock className="h-6 w-6" />
+          </span>
+          <p className="text-base font-extrabold text-foreground">{t[0]}</p>
+          <p className="max-w-xs text-sm text-muted-foreground">{t[1]}</p>
+        </div>
+        <BottomNav activo="comunidad" onNavigate={onNavigate} />
+      </div>
+    )
+  }
 
   // Móvil con un grupo abierto: el chat ocupa toda la pantalla.
   if (!ancho && panel) return panel
@@ -555,6 +682,7 @@ interface SalaChatProps {
   userId: string
   equipo: boolean
   alias: string | null
+  cfg: ConfigChat
   miembro: MiembroSala | null
   miembrosN: number | null
   embebido: boolean
@@ -577,6 +705,7 @@ function SalaChat({
   userId,
   equipo,
   alias,
+  cfg,
   miembro,
   miembrosN,
   embebido,
@@ -598,6 +727,13 @@ function SalaChat({
   const [pedirAlias, setPedirAlias] = useState(false)
   const [pedirNormas, setPedirNormas] = useState(false)
   const [accionesDe, setAccionesDe] = useState<string | null>(null)
+  const [reportados, setReportados] = useState<Set<string>>(new Set())
+  const [ajustes, setAjustes] = useState(false)
+  const [limpieza, setLimpieza] = useState(false)
+  const [correos, setCorreos] = useState<Map<string, string>>(new Map())
+  const [editando, setEditando] = useState<MensajeChat | null>(null)
+  const [confirmarDe, setConfirmarDe] = useState<string | null>(null)
+  const [aviso, setAviso] = useState<string | null>(null)
   const [silenciado, setSilenciadoLocal] = useState(miembro?.silenciado ?? false)
   const [normasOk, setNormasOk] = useState(miembro?.normasAceptadas ?? false)
   const [buscando, setBuscando] = useState(false)
@@ -658,6 +794,20 @@ function SalaChat({
     }
   }, [sala.id, activo, equipo, userId, cargarAliases, onSalaCambio])
 
+  // Solo el equipo ve quién es cada persona (correo real); los demás solo ven alias.
+  useEffect(() => {
+    if (!equipo || !mensajes) return
+    const faltan = [...new Set(mensajes.map((m) => m.autorId))].filter((id) => !correos.has(id))
+    if (faltan.length === 0) return
+    identidadesDe(faltan).then((nuevos) =>
+      setCorreos((prev) => {
+        const copia = new Map(prev)
+        nuevos.forEach((v, k) => copia.set(k, v))
+        return copia
+      }),
+    )
+  }, [equipo, mensajes, correos])
+
   const irAbajo = useCallback((suave: boolean) => {
     const el = scrollRef.current
     if (el) el.scrollTo({ top: el.scrollHeight, behavior: suave ? 'smooth' : 'auto' })
@@ -690,7 +840,9 @@ function SalaChat({
   const visibles = useMemo(() => {
     if (!mensajes) return null
     const q = consulta.trim().toLowerCase()
-    return q ? mensajes.filter((m) => !m.borrado && m.cuerpo.toLowerCase().includes(q)) : mensajes
+    // Los mensajes eliminados no se muestran (ni como marcador).
+    const vivos = mensajes.filter((m) => !m.borrado)
+    return q ? vivos.filter((m) => m.cuerpo.toLowerCase().includes(q)) : vivos
   }, [mensajes, consulta])
 
   const porId = useMemo(() => new Map((mensajes ?? []).map((m) => [m.id, m])), [mensajes])
@@ -705,17 +857,26 @@ function SalaChat({
 
   function intentarEscribir() {
     if (equipo) return
-    if (!alias) return setPedirAlias(true)
-    if (!normasOk) return setPedirNormas(true)
+    if (cfg.exigirAlias && !alias) return setPedirAlias(true)
+    if (cfg.exigirNormas && !normasOk) return setPedirNormas(true)
   }
 
   async function enviar() {
     const cuerpo = texto.trim()
     if (!cuerpo || enviando) return
-    if (!equipo && !alias) return setPedirAlias(true)
-    if (!equipo && !normasOk) return setPedirNormas(true)
+    if (!equipo && cfg.exigirAlias && !alias) return setPedirAlias(true)
+    if (!equipo && cfg.exigirNormas && !normasOk) return setPedirNormas(true)
     setEnviando(true)
     setError(null)
+    if (editando) {
+      const r = await editarMensaje(editando.id, cuerpo)
+      setEnviando(false)
+      if (r.ok) {
+        setTexto('')
+        setEditando(null)
+      } else setError(r.error ?? tx.enviarError)
+      return
+    }
     const r = await enviarMensaje(sala.id, userId, cuerpo, respondiendo?.id)
     setEnviando(false)
     if (r.ok) {
@@ -724,6 +885,12 @@ function SalaChat({
     } else {
       setError(r.error ?? tx.enviarError)
     }
+  }
+
+  async function reportar(m: MensajeChat) {
+    const r = await reportarMensaje(m.id, sala.id, userId)
+    if (r === 'error') return setAviso(tx.reporteError)
+    setReportados((prev) => new Set(prev).add(m.id))
   }
 
   async function alternarSilencio() {
@@ -796,6 +963,30 @@ function SalaChat({
                 <Info className="h-4 w-4" />
                 {tx.menuInfo}
               </button>
+              {equipo && (
+                <button
+                  onClick={() => {
+                    setMenu(false)
+                    setAjustes(true)
+                  }}
+                  className="flex w-full items-center gap-3 px-4 py-3 text-left text-sm font-semibold text-foreground active:bg-secondary"
+                >
+                  <Settings2 className="h-4 w-4" />
+                  {tx.ajustes}
+                </button>
+              )}
+              {equipo && (
+                <button
+                  onClick={() => {
+                    setMenu(false)
+                    setLimpieza(true)
+                  }}
+                  className="flex w-full items-center gap-3 px-4 py-3 text-left text-sm font-semibold text-foreground active:bg-secondary"
+                >
+                  <Trash2 className="h-4 w-4" />
+                  {tx.limpiar}
+                </button>
+              )}
               {!equipo && (
                 <button onClick={salir} className="flex w-full items-center gap-3 px-4 py-3 text-left text-sm font-semibold text-destructive active:bg-secondary">
                   <LogOut className="h-4 w-4" />
@@ -868,7 +1059,8 @@ function SalaChat({
               !!a && a.autorId === m.autorId && Math.abs(new Date(a.creadoEn).getTime() - new Date(m.creadoEn).getTime()) < 5 * 60_000 && mismoDia(new Date(a.creadoEn), new Date(m.creadoEn))
             const primero = nuevoDia || !cerca(prev)
             const ultimo = !cerca(sig)
-            const citado = m.respondeA ? porId.get(m.respondeA) : undefined
+            const citadoRaw = m.respondeA ? porId.get(m.respondeA) : undefined
+            const citado = citadoRaw && !citadoRaw.borrado ? citadoRaw : undefined
             const nombre = nombreDe(m)
 
             return (
@@ -898,7 +1090,12 @@ function SalaChat({
                   )}
                   <div className={`flex max-w-[80%] flex-col ${propio ? 'items-end' : 'items-start'}`}>
                     <div
-                      onClick={() => equipo && !m.borrado && setAccionesDe(accionesDe === m.id ? null : m.id)}
+                      onClick={() => {
+                        if ((equipo || propio) && !m.borrado) {
+                          setConfirmarDe(null)
+                          setAccionesDe(accionesDe === m.id ? null : m.id)
+                        }
+                      }}
                       className={`relative px-3 py-1.5 text-[14px] leading-snug shadow-sm ${
                         m.borrado
                           ? 'rounded-2xl border border-dashed border-border bg-transparent italic text-muted-foreground'
@@ -910,6 +1107,9 @@ function SalaChat({
                       {primero && !propio && !m.borrado && (
                         <p className="mb-0.5 flex items-center gap-1.5 text-[12px] font-extrabold" style={{ color: m.esEquipo ? 'hsl(var(--accent))' : `hsl(${tono(m.autorId)} 55% 42%)` }}>
                           {nombre}
+                          {equipo && !m.esEquipo && correos.get(m.autorId) && (
+                            <span className="truncate text-[10px] font-semibold text-muted-foreground">{correos.get(m.autorId)}</span>
+                          )}
                           {m.esEquipo && (
                             <span className="rounded-md bg-accent/15 px-1 py-[1px] text-[9px] font-extrabold uppercase text-accent">{tx.equipo}</span>
                           )}
@@ -927,6 +1127,7 @@ function SalaChat({
                           )}
                           <span className="whitespace-pre-wrap break-words">{m.cuerpo}</span>
                           <span className={`ml-2 inline-flex translate-y-[3px] items-center gap-0.5 text-[10px] ${propio ? 'text-white/75' : 'text-muted-foreground'}`}>
+                            {m.editado && `${tx.editado} · `}
                             {hora(m.creadoEn, idioma)}
                             {propio && <Check className="h-3 w-3" />}
                           </span>
@@ -939,12 +1140,65 @@ function SalaChat({
                         {tx.verificada}
                       </p>
                     )}
-                    {!m.borrado && puedeEscribir && (
-                      <button onClick={() => setRespondiendo(m)} className="mt-0.5 text-[11px] font-semibold text-muted-foreground">
-                        {tx.responder}
-                      </button>
+                    {!m.borrado && (
+                      <div className="mt-0.5 flex items-center gap-3">
+                        {puedeEscribir && (
+                          <button onClick={() => setRespondiendo(m)} className="text-[11px] font-semibold text-muted-foreground">
+                            {tx.responder}
+                          </button>
+                        )}
+                        {!equipo && !propio && !m.esEquipo && (
+                          reportados.has(m.id) ? (
+                            <span className="text-[11px] font-semibold text-muted-foreground">{tx.reportado}</span>
+                          ) : (
+                            <button onClick={() => reportar(m)} className="flex items-center gap-1 text-[11px] font-semibold text-muted-foreground">
+                              <Flag className="h-3 w-3" />
+                              {tx.reportar}
+                            </button>
+                          )
+                        )}
+                      </div>
                     )}
-                    {equipo && accionesDe === m.id && !m.borrado && (
+                    {propio && accionesDe === m.id && !m.borrado && (
+                      <div className="mt-1 flex gap-2">
+                        {puedeEscribir && (
+                          <button
+                            onClick={() => {
+                              setEditando(m)
+                              setRespondiendo(null)
+                              setTexto(m.cuerpo)
+                              setAccionesDe(null)
+                            }}
+                            className="flex items-center gap-1 rounded-full bg-secondary px-3 py-1 text-[11px] font-bold text-foreground"
+                          >
+                            <Pencil className="h-3.5 w-3.5" />
+                            {tx.editar}
+                          </button>
+                        )}
+                        {confirmarDe === m.id ? (
+                          <button
+                            onClick={async () => {
+                              await borrarMiMensaje(m.id, userId)
+                              setConfirmarDe(null)
+                              setAccionesDe(null)
+                            }}
+                            className="flex items-center gap-1 rounded-full bg-destructive px-3 py-1 text-[11px] font-bold text-white"
+                          >
+                            <Trash2 className="h-3.5 w-3.5" />
+                            {tx.si}
+                          </button>
+                        ) : (
+                          <button
+                            onClick={() => setConfirmarDe(m.id)}
+                            className="flex items-center gap-1 rounded-full bg-destructive/10 px-3 py-1 text-[11px] font-bold text-destructive"
+                          >
+                            <Trash2 className="h-3.5 w-3.5" />
+                            {tx.borrar}
+                          </button>
+                        )}
+                      </div>
+                    )}
+                    {equipo && !propio && accionesDe === m.id && !m.borrado && (
                       <div className="mt-1 flex gap-2">
                         <button
                           onClick={async () => {
@@ -966,6 +1220,32 @@ function SalaChat({
                           <Trash2 className="h-3.5 w-3.5" />
                           {tx.borrar}
                         </button>
+                        {!propio && !m.esEquipo && (
+                          <button
+                            onClick={async () => {
+                              if (await silenciarUsuario(m.autorId, 24, userId)) setAviso(tx.hecho)
+                              setAccionesDe(null)
+                            }}
+                            className="flex items-center gap-1 rounded-full bg-secondary px-3 py-1 text-[11px] font-bold text-foreground"
+                          >
+                            <BellOff className="h-3.5 w-3.5" />
+                            {tx.silenciar24}
+                          </button>
+                        )}
+                        {!avisos && (
+                          <button
+                            onClick={async () => {
+                              if (await guardarAjustesSala(sala.id, { fijado: m.cuerpo.slice(0, 140) })) {
+                                onSalaCambio({ ...sala, fijado: m.cuerpo.slice(0, 140) })
+                              }
+                              setAccionesDe(null)
+                            }}
+                            className="flex items-center gap-1 rounded-full bg-secondary px-3 py-1 text-[11px] font-bold text-foreground"
+                          >
+                            <Pin className="h-3.5 w-3.5" />
+                            {tx.fijarMensaje}
+                          </button>
+                        )}
                       </div>
                     )}
                   </div>
@@ -993,6 +1273,23 @@ function SalaChat({
 
       {/* Escribir */}
       <div className="safe-bottom border-t border-border bg-card px-3 pt-2">
+        {editando && (
+          <div className="mb-2 flex items-center gap-2 rounded-xl border-l-4 border-accent bg-secondary px-3 py-1.5 text-xs">
+            <div className="min-w-0 flex-1">
+              <p className="font-bold text-accent">{tx.editando}</p>
+              <p className="truncate text-muted-foreground">{editando.cuerpo}</p>
+            </div>
+            <button
+              onClick={() => {
+                setEditando(null)
+                setTexto('')
+              }}
+              aria-label={tx.cerrar}
+            >
+              <X className="h-4 w-4 text-muted-foreground" />
+            </button>
+          </div>
+        )}
         {respondiendo && (
           <div className="mb-2 flex items-center gap-2 rounded-xl bg-secondary px-3 py-1.5 text-xs">
             <div className="min-w-0 flex-1 border-l-4 border-accent pl-2">
@@ -1007,6 +1304,11 @@ function SalaChat({
           </div>
         )}
         {error && <p className="mb-2 rounded-xl bg-destructive/10 px-3 py-1.5 text-xs font-semibold text-destructive">{error}</p>}
+        {aviso && (
+          <p onClick={() => setAviso(null)} className="mb-2 rounded-xl bg-secondary px-3 py-1.5 text-xs font-semibold text-foreground">
+            {aviso}
+          </p>
+        )}
         {!puedeEscribir ? (
           <div className="mb-2 flex items-center justify-center gap-2 rounded-full bg-secondary px-3 py-3 text-xs font-semibold text-muted-foreground">
             <Lock className="h-3.5 w-3.5" />
@@ -1041,6 +1343,32 @@ function SalaChat({
         )}
       </div>
 
+      {ajustes && (
+        <Hoja titulo={tx.ajustes} onCerrar={() => setAjustes(false)} cerrarLabel={tx.cerrar}>
+          <AjustesGrupo
+            sala={sala}
+            tx={tx}
+            onCambio={async (p) => {
+              if (await guardarAjustesSala(sala.id, p)) onSalaCambio({ ...sala, ...p })
+            }}
+          />
+        </Hoja>
+      )}
+
+      {limpieza && (
+        <Hoja titulo={tx.limpiarTitulo} onCerrar={() => setLimpieza(false)} cerrarLabel={tx.cerrar}>
+          <LimpiezaGrupo
+            salaId={sala.id}
+            tx={tx}
+            onListo={async (n) => {
+              setLimpieza(false)
+              setAviso(tx.limpiarListo(n))
+              setMensajes(await listarMensajes(sala.id))
+            }}
+          />
+        </Hoja>
+      )}
+
       {info && (
         <Hoja titulo={tx.normasTitulo} onCerrar={() => setInfo(false)} cerrarLabel={tx.cerrar}>
           {sala.fijado && <p className="mb-3 whitespace-pre-line text-sm font-semibold text-foreground">{sala.fijado}</p>}
@@ -1056,7 +1384,7 @@ function SalaChat({
           onListo={(a) => {
             onAlias(a)
             setPedirAlias(false)
-            if (!normasOk) setPedirNormas(true)
+            if (cfg.exigirNormas && !normasOk) setPedirNormas(true)
           }}
         />
       )}
@@ -1079,6 +1407,126 @@ function SalaChat({
           </button>
         </Hoja>
       )}
+    </div>
+  )
+}
+
+function AjustesGrupo({ sala, tx, onCambio }: { sala: Sala; tx: Tx; onCambio: (p: Partial<Sala>) => void }) {
+  const [fijado, setFijado] = useState(sala.fijado)
+  const Fila = ({ t, activo, onClick }: { t: string; activo: boolean; onClick: () => void }) => (
+    <button onClick={onClick} className="flex w-full items-center justify-between gap-3 py-2.5 text-left text-sm font-semibold text-foreground">
+      {t}
+      <span className={`relative h-6 w-11 shrink-0 rounded-full transition-colors ${activo ? 'bg-accent' : 'bg-muted-foreground/30'}`}>
+        <span className={`absolute top-0.5 h-5 w-5 rounded-full bg-white shadow transition-all ${activo ? 'left-[1.375rem]' : 'left-0.5'}`} />
+      </span>
+    </button>
+  )
+  return (
+    <div className="divide-y divide-border">
+      <Fila t={tx.ajPausa} activo={sala.pausada} onClick={() => onCambio({ pausada: !sala.pausada })} />
+      <Fila t={tx.ajSoloEquipo} activo={sala.escribe === 'equipo'} onClick={() => onCambio({ escribe: sala.escribe === 'equipo' ? 'todos' : 'equipo' })} />
+      <Fila t={tx.ajAprobacion} activo={sala.acceso === 'aprobacion'} onClick={() => onCambio({ acceso: sala.acceso === 'aprobacion' ? 'libre' : 'aprobacion' })} />
+      <div className="py-3">
+        <p className="mb-2 text-sm font-semibold text-foreground">{tx.ajLento}</p>
+        <div className="flex flex-wrap gap-2">
+          {[0, 10, 30, 60].map((n) => (
+            <button
+              key={n}
+              onClick={() => onCambio({ modoLentoSeg: n })}
+              className={`rounded-full px-3 py-1.5 text-xs font-bold ${sala.modoLentoSeg === n ? 'bg-accent text-white' : 'bg-secondary text-foreground'}`}
+            >
+              {n === 0 ? tx.ajLentoOff : n < 60 ? `${n} s` : '1 min'}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className="py-3">
+        <p className="mb-2 text-sm font-semibold text-foreground">{tx.ajFijado}</p>
+        <input
+          id="comunidad-ajuste-fijado"
+          value={fijado}
+          onChange={(e) => setFijado(e.target.value.slice(0, 140))}
+          className="w-full rounded-xl bg-secondary px-4 py-3 text-sm text-foreground outline-none"
+        />
+        <button
+          onClick={() => onCambio({ fijado })}
+          className="accent-gradient mt-3 w-full rounded-xl py-3 text-sm font-extrabold text-white active:scale-[0.98]"
+        >
+          {tx.ajGuardar}
+        </button>
+      </div>
+    </div>
+  )
+}
+
+function LimpiezaGrupo({ salaId, tx, onListo }: { salaId: string; tx: Tx; onListo: (n: number) => void }) {
+  const [dias, setDias] = useState(10)
+  const [otro, setOtro] = useState(false)
+  const [n, setN] = useState<number | null>(null)
+  const [confirmar, setConfirmar] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    let vivo = true
+    setN(null)
+    setConfirmar(false)
+    limpiarMensajes(Math.max(1, dias), salaId, false, false).then((r) => {
+      if (!vivo) return
+      if (r.error) setError(r.error)
+      else setN(r.n)
+    })
+    return () => {
+      vivo = false
+    }
+  }, [dias, salaId])
+
+  async function borrar() {
+    const r = await limpiarMensajes(Math.max(1, dias), salaId, false, true)
+    if (r.error) return setError(r.error)
+    onListo(r.n)
+  }
+
+  return (
+    <div>
+      <div className="flex flex-wrap items-center gap-2">
+        {[5, 10, 30].map((d) => (
+          <button
+            key={d}
+            onClick={() => {
+              setOtro(false)
+              setDias(d)
+            }}
+            className={`rounded-full px-3 py-1.5 text-xs font-bold ${!otro && dias === d ? 'bg-accent text-white' : 'bg-secondary text-foreground'}`}
+          >
+            {d} {tx.limpiarDias}
+          </button>
+        ))}
+        <button
+          onClick={() => setOtro(true)}
+          className={`rounded-full px-3 py-1.5 text-xs font-bold ${otro ? 'bg-accent text-white' : 'bg-secondary text-foreground'}`}
+        >
+          {tx.limpiarOtro}
+        </button>
+        {otro && (
+          <input
+            id="comunidad-limpiar-dias"
+            type="number"
+            min={1}
+            value={dias}
+            onChange={(e) => setDias(Math.max(1, Number(e.target.value) || 1))}
+            className="w-20 rounded-xl bg-secondary px-3 py-1.5 text-sm text-foreground outline-none"
+          />
+        )}
+      </div>
+      <p className="mt-3 text-sm text-muted-foreground">{n === null ? '…' : tx.limpiarCuenta(n, dias)}</p>
+      {error && <p className="mt-2 text-xs font-semibold text-destructive">{error}</p>}
+      <button
+        disabled={!n}
+        onClick={() => (confirmar ? borrar() : setConfirmar(true))}
+        className="mt-4 w-full rounded-xl bg-destructive py-3 text-sm font-extrabold text-white active:scale-[0.98] disabled:opacity-40"
+      >
+        {confirmar ? tx.limpiarConfirma : tx.limpiarBorrar}
+      </button>
     </div>
   )
 }

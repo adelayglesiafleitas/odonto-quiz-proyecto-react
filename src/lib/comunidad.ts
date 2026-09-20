@@ -49,6 +49,8 @@ export interface MensajeChat {
   esEquipo: boolean
   verificado: boolean
   borrado: boolean
+  /** true si el autor modificó el texto después de enviarlo. */
+  editado: boolean
   creadoEn: string
 }
 
@@ -97,6 +99,7 @@ function mapMensaje(r: any): MensajeChat {
     esEquipo: r.es_equipo,
     verificado: r.verificado,
     borrado: !!r.borrado_por,
+    editado: !!r.editado_en,
     creadoEn: r.creado_en,
   }
 }
@@ -204,6 +207,35 @@ export async function enviarMensaje(
   if (!error) return { ok: true }
   // Los triggers devuelven mensajes ya redactados en español: se muestran tal cual.
   return { ok: false, error: error.message }
+}
+
+/** El autor edita su propio texto (la base revalida palabras bloqueadas, silencio y pausa). */
+export async function editarMensaje(id: string, cuerpo: string): Promise<{ ok: boolean; error?: string }> {
+  const { error } = await supabase.from('comunidad_mensajes').update({ cuerpo }).eq('id', id)
+  return error ? { ok: false, error: error.message } : { ok: true }
+}
+
+/** El autor elimina su propio mensaje (queda "Mensaje eliminado"). */
+export async function borrarMiMensaje(id: string, userId: string): Promise<boolean> {
+  const { error } = await supabase.from('comunidad_mensajes').update({ borrado_por: userId }).eq('id', id)
+  return !error
+}
+
+/** Limpieza del equipo: cuenta (ejecutar=false) o borra (ejecutar=true) mensajes con más de `dias` días. Solo admins. */
+export async function limpiarMensajes(
+  dias: number,
+  salaId: string | null,
+  incluirEquipo: boolean,
+  ejecutar: boolean,
+): Promise<{ n: number; error?: string }> {
+  const { data, error } = await supabase.rpc('admin_chat_limpiar', {
+    p_dias: dias,
+    p_sala: salaId,
+    p_incluir_equipo: incluirEquipo,
+    p_ejecutar: ejecutar,
+  })
+  if (error) return { n: 0, error: error.message }
+  return { n: Number(data ?? 0) }
 }
 
 export async function marcarLeida(salaId: string, userId: string): Promise<void> {
@@ -325,4 +357,90 @@ export function useNoLeidosComunidad(): number {
   }, [])
 
   return total
+}
+
+/* ------------------------------------------------------------------ */
+/* Configuración compartida con el panel admin (una sola fuente: Supabase) */
+
+export type EstadoAcceso = 'ok' | 'cerrado' | 'bloqueado' | 'sin_habilitar'
+
+/** Quién puede entrar ahora mismo. Lo decide la base (comunidad_estado_acceso); el equipo siempre es 'ok'. */
+export async function estadoAcceso(): Promise<EstadoAcceso> {
+  const { data, error } = await supabase.rpc('comunidad_estado_acceso')
+  if (error || !data) return 'ok'
+  return data as EstadoAcceso
+}
+
+export interface ConfigChat {
+  exigirAlias: boolean
+  exigirNormas: boolean
+}
+
+export async function obtenerConfigChat(): Promise<ConfigChat> {
+  const { data } = await supabase.from('comunidad_config').select('exigir_alias, exigir_normas').eq('id', true).maybeSingle()
+  return { exigirAlias: data?.exigir_alias ?? true, exigirNormas: data?.exigir_normas ?? true }
+}
+
+/** Avisa cuando el panel admin cambia el chat abierto/cerrado, el modo de acceso o el acceso de este usuario. */
+export function suscribirseAConfig(alCambiar: () => void): () => void {
+  const canal = supabase
+    .channel(`comunidad-cfg-${Math.random().toString(36).slice(2, 10)}`)
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'comunidad_config' }, alCambiar)
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'comunidad_acceso_usuario' }, alCambiar)
+    .subscribe()
+  return () => {
+    supabase.removeChannel(canal)
+  }
+}
+
+export async function reportarMensaje(
+  mensajeId: string,
+  salaId: string,
+  userId: string,
+  motivo = '',
+): Promise<'ok' | 'duplicado' | 'error'> {
+  const { error } = await supabase
+    .from('comunidad_reportes')
+    .insert({ mensaje_id: mensajeId, sala_id: salaId, reportado_por: userId, motivo })
+  if (!error) return 'ok'
+  return error.code === '23505' ? 'duplicado' : 'error'
+}
+
+/* Herramientas del equipo (solo funcionan si es_admin() en la base). */
+
+export async function guardarAjustesSala(
+  salaId: string,
+  p: Partial<Pick<Sala, 'pausada' | 'escribe' | 'acceso' | 'modoLentoSeg' | 'fijado'>>,
+): Promise<boolean> {
+  const f: Record<string, unknown> = {}
+  if (p.pausada !== undefined) f.pausada = p.pausada
+  if (p.escribe !== undefined) f.escribe = p.escribe
+  if (p.acceso !== undefined) f.acceso = p.acceso
+  if (p.modoLentoSeg !== undefined) f.modo_lento_seg = p.modoLentoSeg
+  if (p.fijado !== undefined) f.fijado = p.fijado
+  const { error } = await supabase.from('comunidad_salas').update(f).eq('id', salaId)
+  return !error
+}
+
+export async function silenciarUsuario(userId: string, horas: number, adminId: string): Promise<boolean> {
+  const hasta = new Date(Date.now() + horas * 3600000).toISOString()
+  const { error } = await supabase
+    .from('comunidad_silencios')
+    .insert({ user_id: userId, sala_id: null, hasta, motivo: 'Silenciado por el equipo', por: adminId })
+  if (!error) {
+    await supabase
+      .from('comunidad_acciones')
+      .insert({ admin_id: adminId, tipo: 'silencio', usuario_id: userId, detalle: `Usuario silenciado ${horas} h desde la app` })
+  }
+  return !error
+}
+
+/** Correo real de los autores. Solo lo devuelve la base si quien pregunta es admin; el resto solo ve alias. */
+export async function identidadesDe(ids: string[]): Promise<Map<string, string>> {
+  const mapa = new Map<string, string>()
+  if (ids.length === 0) return mapa
+  const { data } = await supabase.rpc('comunidad_identidades', { p_ids: ids })
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  for (const r of (data ?? []) as any[]) mapa.set(r.user_id, r.email)
+  return mapa
 }

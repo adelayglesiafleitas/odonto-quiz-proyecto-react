@@ -63,6 +63,18 @@ export const CURSOS: Record<string, CursoMeta> = {
     cantidadesDisponibles: [10, 20, 30, 40],
     tieneLibros: false,
   },
+  forense: {
+    // Mismos valores que el resto de asignaturas (mismo formato de examen de
+    // homologación) — decisión del usuario al agregar esta asignatura
+    // (2026-09-20), no un dato propio de Odontología Legal y Forense
+    // verificado aparte. Banco: curso_id 'forense' en la tabla preguntas.
+    duracionOficialMinutos: 40,
+    cantidadOficial: 30,
+    porcentajeAprobado: 70,
+    tieneConvocatorias: false,
+    cantidadesDisponibles: [10, 20, 30, 40],
+    tieneLibros: false,
+  },
 }
 
 // CURSO_ID/CURSO son el curso "por defecto": todavía los usan Home,
