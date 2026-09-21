@@ -87,6 +87,33 @@ export const CURSOS: Record<string, CursoMeta> = {
     cantidadesDisponibles: [10, 20, 30, 40],
     tieneLibros: false,
   },
+  gestion: {
+    // Mismos valores que el resto de asignaturas (mismo formato de examen de
+    // homologación) — decisión asumida al agregar esta asignatura
+    // (2026-09-21), no un dato propio de Gestión Odontológica verificado
+    // aparte. Banco: curso_id 'gestion' en la tabla preguntas (613
+    // preguntas: 109 de examen en 'Examenes_Gestion_Crado_1' + 504 en 15 capítulos
+    // 'Tema NN - ...').
+    duracionOficialMinutos: 40,
+    cantidadOficial: 30,
+    porcentajeAprobado: 70,
+    tieneConvocatorias: false,
+    cantidadesDisponibles: [10, 20, 30, 40],
+    tieneLibros: false,
+  },
+  bioquimica: {
+    // Mismos valores que el resto de asignaturas (mismo formato de examen de
+    // homologación) — decisión asumida al agregar esta asignatura
+    // (2026-09-21), no un dato propio de Bioquímica verificado aparte.
+    // Banco: curso_id 'bioquimica' en la tabla preguntas (390 preguntas,
+    // un único capítulo 'Banco de preguntas', anio 0).
+    duracionOficialMinutos: 40,
+    cantidadOficial: 30,
+    porcentajeAprobado: 70,
+    tieneConvocatorias: false,
+    cantidadesDisponibles: [10, 20, 30, 40],
+    tieneLibros: false,
+  },
 }
 
 // CURSO_ID/CURSO son el curso "por defecto": todavía los usan Home,

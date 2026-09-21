@@ -1,4 +1,4 @@
-import { Stethoscope, Brain, SmilePlus, FlaskConical, Scale, Microscope, type LucideIcon } from 'lucide-react'
+import { Stethoscope, Brain, SmilePlus, FlaskConical, Scale, Microscope, Briefcase, Dna, type LucideIcon } from 'lucide-react'
 import type { Idioma } from '@/lib/i18n'
 
 export interface Asignatura {
@@ -26,6 +26,8 @@ const ASIGNATURAS_ES: Asignatura[] = [
   { id: 'materiales', cursoId: 'materiales', nombre: 'Materiales Odontológicos', disponible: true },
   { id: 'forense', cursoId: 'forense', nombre: 'Odontología Legal y Forense', disponible: true },
   { id: 'patologia', cursoId: 'patologia', nombre: 'Patología Bucal', disponible: true },
+  { id: 'gestion', cursoId: 'gestion', nombre: 'Gestión Odontológica', disponible: true },
+  { id: 'bioquimica', cursoId: 'bioquimica', nombre: 'Bioquímica', disponible: true },
 ]
 
 const ASIGNATURAS_EN: Asignatura[] = [
@@ -35,6 +37,8 @@ const ASIGNATURAS_EN: Asignatura[] = [
   { id: 'materiales', cursoId: 'materiales', nombre: 'Dental Materials', disponible: true },
   { id: 'forense', cursoId: 'forense', nombre: 'Forensic and Legal Dentistry', disponible: true },
   { id: 'patologia', cursoId: 'patologia', nombre: 'Oral Pathology', disponible: true },
+  { id: 'gestion', cursoId: 'gestion', nombre: 'Dental Practice Management', disponible: true },
+  { id: 'bioquimica', cursoId: 'bioquimica', nombre: 'Biochemistry', disponible: true },
 ]
 
 export function getAsignaturas(idioma: Idioma): Asignatura[] {
@@ -52,4 +56,6 @@ export const ICONO_CURSO: Record<string, LucideIcon> = {
   materiales: FlaskConical,
   forense: Scale,
   patologia: Microscope,
+  gestion: Briefcase,
+  bioquimica: Dna,
 }
