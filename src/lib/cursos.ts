@@ -114,6 +114,20 @@ export const CURSOS: Record<string, CursoMeta> = {
     cantidadesDisponibles: [10, 20, 30, 40],
     tieneLibros: false,
   },
+  preventiva: {
+    // Mismos valores que el resto de asignaturas (mismo formato de examen de
+    // homologación) — decisión asumida al agregar esta asignatura
+    // (2026-09-22), no un dato propio de Odontología Preventiva y Comunitaria
+    // verificado aparte. Banco: curso_id 'preventiva' en la tabla preguntas,
+    // generado a partir de la bibliografía oficial (Cuenca Sala/Baca García,
+    // Odontología Preventiva y Comunitaria, 4.ª ed. 2013).
+    duracionOficialMinutos: 40,
+    cantidadOficial: 30,
+    porcentajeAprobado: 70,
+    tieneConvocatorias: false,
+    cantidadesDisponibles: [10, 20, 30, 40],
+    tieneLibros: false,
+  },
 }
 
 // CURSO_ID/CURSO son el curso "por defecto": todavía los usan Home,

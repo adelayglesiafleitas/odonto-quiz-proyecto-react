@@ -1,4 +1,4 @@
-import { Stethoscope, Brain, SmilePlus, FlaskConical, Scale, Microscope, Briefcase, Dna, type LucideIcon } from 'lucide-react'
+import { Stethoscope, Brain, SmilePlus, FlaskConical, Scale, Microscope, Briefcase, Dna, ShieldCheck, type LucideIcon } from 'lucide-react'
 import type { Idioma } from '@/lib/i18n'
 
 export interface Asignatura {
@@ -28,6 +28,7 @@ const ASIGNATURAS_ES: Asignatura[] = [
   { id: 'patologia', cursoId: 'patologia', nombre: 'Patología Bucal', disponible: true },
   { id: 'gestion', cursoId: 'gestion', nombre: 'Gestión Odontológica', disponible: true },
   { id: 'bioquimica', cursoId: 'bioquimica', nombre: 'Bioquímica', disponible: true },
+  { id: 'preventiva', cursoId: 'preventiva', nombre: 'Odontología Preventiva y Comunitaria', disponible: true },
 ]
 
 const ASIGNATURAS_EN: Asignatura[] = [
@@ -39,6 +40,7 @@ const ASIGNATURAS_EN: Asignatura[] = [
   { id: 'patologia', cursoId: 'patologia', nombre: 'Oral Pathology', disponible: true },
   { id: 'gestion', cursoId: 'gestion', nombre: 'Dental Practice Management', disponible: true },
   { id: 'bioquimica', cursoId: 'bioquimica', nombre: 'Biochemistry', disponible: true },
+  { id: 'preventiva', cursoId: 'preventiva', nombre: 'Preventive and Community Dentistry', disponible: true },
 ]
 
 export function getAsignaturas(idioma: Idioma): Asignatura[] {
@@ -58,4 +60,5 @@ export const ICONO_CURSO: Record<string, LucideIcon> = {
   patologia: Microscope,
   gestion: Briefcase,
   bioquimica: Dna,
+  preventiva: ShieldCheck,
 }

@@ -1,0 +1,145 @@
+BIBLIOGRAFÍA OFICIAL 2026-27 vs. ARCHIVOS EN DISCO
+D:\tuttiPlay\odontologia_proye\bibliografia
+Revisión por título de archivo (no se abrió el contenido de los PDF)
+=====================================================================
+
+LEYENDA
+  [OK]     = el libro oficial está presente, coincide bien
+  [CHECK]  = presente pero hay que confirmar edición / está incompleto
+  [NO]     = no se encontró el libro oficial (solo apuntes/resúmenes/exámenes u otro autor)
+
+=====================================================================
+LISTOS PARA SACAR PREGUNTAS (libro oficial confirmado o casi)
+=====================================================================
+
+ORTODONCIA
+  Oficial: Proffit - Contemporary Orthodontics, 6ta ed. 2019
+  Oficial: Graber - Orthodontics: current principles and techniques, 7ma ed. 2023
+  Oficial: Bravo González - Teoría y Práctica de la Ortodoncia, 2023
+  [OK]    LIBROS/WILLIAM_R_PROFFIT_ORTODONCIA_CONTEMPORANEA_6TA_EDICION_2019.pdf
+          -> YA USADO (300 preguntas cargadas en Supabase)
+  [CHECK] LIBROS/GRABER ORTODONCIA PRINCIPIOS GENERALES Y TECNICAS.pdf
+          -> falta confirmar que sea la 7ma ed. 2023
+  [CHECK] LIBROS/Bravo - Ortodoncia.pdf
+          -> falta confirmar que sea "Teoría y Práctica de la Ortodoncia" 2023
+  Nota: LIBROS/OKESON_.pdf y TRATAMIENTO_DE_OCLUSION...8_EDICION.pdf están
+        archivados aquí por error - son bibliografía oficial de PRÓTESIS, no Ortodoncia.
+
+ODONTOLOGIA PACIENTES ESPECIALES
+  Oficial: Tomás Carmona - Odontología en Pacientes con Necesidades Especiales, 2022
+  [OK] Dra Inmaculada Tomás.pdf + carpeta "Libro Inma edición 2022/"
+       -> YA USADO en la app
+
+ODONTOLOGIA PREVENTIVA Y COMUNITARIA. EPIDEMIOLOGIA
+  Oficial: Cuenca Sala / Baca García - Odontología Preventiva y Comunitaria, 4ta ed. 2013
+  [OK] Libro Odontología preventiva 4ª edición.pdf
+  [OK] PREVENCION Cuenca.pdf
+
+PSICOLOGIA
+  Oficial (uno de 6 títulos): Berger - Psicología del desarrollo, 2016
+  [OK] Psicología del Desarrollo. Infancia y adolescencia. (Berger, Kathleen Stassen).pdf (x2 copias)
+  [NO] Vallejo-Ruiloba, Losada, Papalia/Martorell, Belloch/Sandín/Ramos, DSM-5-TR
+       -> no se encontraron
+
+GESTION ODONTOLOGICA
+  Oficial: Utrilla / Viñals / Carralero - Gestión en Odontología
+  [OK] LIBRO GESTION EN ODONTOLOGIA MARIO UTRILLA TRINIDAD.pdf
+  [NO] Alcaide (Cómprame y ¡Vende!), Reyes (Las 4 leyes), Pradera (Las cuentas del prisionero)
+
+PROTESIS ESTOMATOLOGICA
+  Oficial: Shillinburg - Fundamentos esenciales en prótesis fija
+  Oficial: Carr/McGivney/Brown - McCracken Prótesis Parcial Removible
+  [OK] Fundamentos Esenciales en Protesis Fija.pdf
+  [OK] McKraken.pdf
+  [NO] Rosenstiel, Zarb (Boucher), Mallat Desplats/Keogh
+  (ver también LIBROS/OKESON_.pdf dentro de la carpeta ORTODONCIA - es de esta asignatura)
+
+=====================================================================
+PARCIALES - HAY QUE VERIFICAR ANTES DE USAR
+=====================================================================
+
+CIRUGIA ORAL  (= "Cirugía Bucal" oficial)
+  Oficial: Gay Escoda/Berini - Tratado de Cirugía Bucal, 2004
+  Oficial: Martínez-González - Donado. Cirugía Bucal, 6ta ed. 2025
+  Oficial: Misch - Implantología contemporánea, 2009
+  Oficial: Martínez González/Peñarrocha/Calvo - Anestésicos y técnicas loco-regionales, 2011
+  Oficial: Gutiérrez Pérez - El Tercer Molar Incluido, 2011
+  [OK]    CIRU CIRUGIA BUCAL - DONADO.pdf
+  [CHECK] Tratado De Cirugia Bucal - Tomo I - Cosme Gay.pdf  -> falta Tomo II
+  [NO]    Misch, Martínez González et al (Anestésicos), Gutiérrez Pérez
+  (tienen Malamed Anestesia Local, que NO es el oficial)
+
+MATERIALES DENTALES
+  Oficial: Shen/Rawls/Esquivel-Upshaw - PHILLIPS Ciencia de los materiales dentales, 13ra ed. 2022
+  Oficial: Craig/Powers - Materiales dentales, 7ma ed. 2003
+  Oficial: Toledano Pérez - Arte y Ciencia de los Materiales Odontológicos, 2009
+  [CHECK] Ciencia_de_Los_Materiales_Dentales_Phillips.pdf (x2) -> confirmar 13ra ed.
+  [NO]    Craig/Powers, Toledano Pérez
+
+ENDODONCIA
+  Oficial: Durán-Sindreu - Manual de Endodoncia, 2022
+  Oficial: Castellucci - Endodontics, 2004
+  Oficial: Berman/Hargreaves - Cohen. Vías de la pulpa, 12da ed. 2022
+  [CHECK] COHEN VIAS DE LA PULPA.pdf (x2) -> confirmar 12da ed. 2022
+  [NO]    Durán-Sindreu, Castellucci
+
+RADIOLOGIA
+  Oficial: White/Pharoah - Oral radiology: principles and interpretation, 8va ed. 2018
+  Oficial: Iannucci/Howerton - Dental radiography, 6ta ed. 2021
+  Oficial: Koenig/Tamimi - Diagnostic imaging, 2da ed. 2017
+  [CHECK] Radiología Oral Principios E Interpretación.pdf -> probable White/Pharoah, confirmar edición
+  [NO]    Iannucci/Howerton, Koenig/Tamimi, Chen/Pope/Ott
+
+ODONTOPEDIATRIA
+  Oficial: Boj et al - Odontopediatría: Bebés, niños y adolescentes, 2019
+  Oficial: Fuks/Moskovitz/Tickotsky - Contemporary Endodontics for Children, 2023
+  [CHECK] BOJ (incompleto).pdf -> es el libro oficial pero está marcado incompleto
+  [NO]    Fuks/Moskovitz/Tickotsky
+
+MEDICINA PREVENTIVA Y SALUD PUBLICA  (citado dentro de Epidemiología y Salud Pública)
+  Oficial: Piédrola Gil - Medicina Preventiva y Salud Pública, 12da ed. 2015
+  [CHECK] MEDICINA PREVENTIVA Y SALUD PUBLICA.pdf -> probable Piédrola Gil, confirmar
+
+=====================================================================
+SIN NINGÚN LIBRO OFICIAL (solo apuntes/resúmenes/exámenes u otro autor)
+=====================================================================
+ANATOMIA HUMANA          - tienen McMinn, Netter, Berkovitz, Feneis, Santana Garay (no Gray/Prometheus/Sobotta/Martini)
+ANATOMÍA PATOLÓGICA      - solo apuntes/resúmenes (no Robbins ni Gómez de Ferraris)
+BIOESTADISTICA           - archivos genéricos, no coinciden con autores oficiales
+BIOQUIMICA HUMANA        - tienen Koolman (oficial es Lehninger)
+EPIDEMIOLOGIA            - archivos genéricos
+ERGONOMIA                - archivos genéricos
+FARMACOLOGIA             - tienen Katzung y Netter (oficial es Flórez / Rang y Dale / Down-Johnson-Mariotti)
+ODONTOLOGIA INTEGRADA INFANTIL - no coincide con Boj/Barbería-Maroto
+ODONTOLOGIA LEGAL Y FORENSE    - solo apuntes por tema, tienen Moya 1994 (no Gisbert Calabuig/Hospital Ribas/Menéndez de Lucas)
+PATOLOGIA BUCAL           - tienen Regezi/Sciubba (no está en la lista oficial)
+PATOLOGIA GENERAL Y MEDICA - solo apuntes (oficial: Farreras-Rozman / Harrison / Rose-Kaye)
+PATOLOGIA QUIRURGICA APLICADA - solo apuntes (oficial: Schwartz's Principles of Surgery / Sabiston)
+PATOLOGIA Y TERAPEUTICA DENTAL - solo apuntes USC (oficial: García Barbero, Nelson Wheeler, etc.)
+
+=====================================================================
+ASIGNATURAS OFICIALES SIN CARPETA PROPIA EN EL DISCO
+=====================================================================
+Anestesia y Reanimación, Clínica Odontológica Integrada de Adultos, Fisiología Humana,
+Gerodontología, Histología, Implantología, Introducción a la Odontología,
+Microbiología e Inmunología Humana, Periodoncia, Urgencias
+
+=====================================================================
+CARPETAS QUE NO SON ASIGNATURAS OFICIALES (no bibliografía para el examen)
+=====================================================================
+BIOLOGIA CELULAR (Lodish - no está en el temario oficial)
+VENEERS (no es asignatura del examen)
+EXAMENES SEVILLA_ / Exámenes Uic (bancos de exámenes prácticos - útiles después para
+   generar preguntas de práctica, pero no son "el libro" de bibliografía oficial)
+
+=====================================================================
+ORDEN SUGERIDO PARA SEGUIR SACANDO PREGUNTAS
+=====================================================================
+1. Ortodoncia: confirmar edición de Graber y Bravo González (LIBROS/GRABER...pdf,
+   LIBROS/Bravo - Ortodoncia.pdf) y generar preguntas de esos dos libros.
+2. Preventiva y Comunitaria (Cuenca, 4ta ed.) - match exacto, listo para procesar.
+3. Prótesis Estomatológica (Shillinburg + McCracken) - listo, falta mover/copiar
+   OKESON_.pdf desde la carpeta ORTODONCIA.
+4. Gestión Odontológica (Utrilla) - listo para procesar.
+5. Verificar los 5 "[CHECK]" (Cirugía Bucal, Materiales, Endodoncia, Radiología,
+   Odontopediatría) antes de usarlos como fuente.
