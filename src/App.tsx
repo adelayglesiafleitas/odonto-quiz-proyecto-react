@@ -246,7 +246,7 @@ function App() {
     })
     navigate(RUTA.examen)
   }
-
+  
   if (userId && verifDispositivo === 'bloqueado') {
     return (
       <div className="mx-auto min-h-screen w-full max-w-md bg-background font-sans">
