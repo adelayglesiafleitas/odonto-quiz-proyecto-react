@@ -78,8 +78,10 @@ export const CURSOS: Record<string, CursoMeta> = {
   patologia: {
     // Mismos valores que el resto de asignaturas (mismo formato de examen de
     // homologación) — decisión del usuario al agregar esta asignatura
-    // (2026-09-20), no un dato propio de Patología Bucal verificado aparte.
-    // Banco: curso_id 'patologia' en la tabla preguntas (525 preguntas).
+    // (2026-09-20), no un dato propio de Anatomía Patológica verificado
+    // aparte. Banco: curso_id 'patologia' en la tabla preguntas (670
+    // preguntas, tema 'Otros Exámenes'). Renombrada de "Patología Bucal" a
+    // "Anatomía Patológica" (nombre oficial de la asignatura) el 2026-09-23.
     duracionOficialMinutos: 40,
     cantidadOficial: 30,
     porcentajeAprobado: 70,
@@ -121,6 +123,21 @@ export const CURSOS: Record<string, CursoMeta> = {
     // verificado aparte. Banco: curso_id 'preventiva' en la tabla preguntas,
     // generado a partir de la bibliografía oficial (Cuenca Sala/Baca García,
     // Odontología Preventiva y Comunitaria, 4.ª ed. 2013).
+    duracionOficialMinutos: 40,
+    cantidadOficial: 30,
+    porcentajeAprobado: 70,
+    tieneConvocatorias: false,
+    cantidadesDisponibles: [10, 20, 30, 40],
+    tieneLibros: false,
+  },
+  protesis: {
+    // Mismos valores que el resto de asignaturas (mismo formato de examen de
+    // homologación) — decisión asumida al agregar esta asignatura
+    // (2026-09-23), no un dato propio de Prótesis Estomatológica verificado
+    // aparte. Banco: curso_id 'protesis' en la tabla preguntas (78
+    // preguntas en dos temas de bibliografía oficial: Shillingburg,
+    // Fundamentos Esenciales en Prótesis Fija, y McCracken, Prótesis
+    // Parcial Removible).
     duracionOficialMinutos: 40,
     cantidadOficial: 30,
     porcentajeAprobado: 70,
