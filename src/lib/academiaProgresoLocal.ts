@@ -27,6 +27,8 @@ export interface ErrorAcademia {
   preguntaId: string
   /** ISO 8601 de la última vez que se falló. */
   fecha: string
+  /** Cuántas veces se falló esta pregunta en total (2026-09-23). Registros viejos sin este campo cuentan como 1. */
+  veces?: number
 }
 
 export interface ProgresoNodo {
@@ -39,10 +41,22 @@ export interface ProgresoNodo {
    */
   intentosPreguntas?: number[]
   /**
-   * Preguntas falladas en este nodo (video1/video2: la prueba del modal;
-   * pruebaFinal: sus 3 preguntas). Sin duplicados por `preguntaId`.
+   * Preguntas falladas en este nodo (video: las preguntas de las pausas;
+   * pruebaFinal: sus 3 preguntas). Una entrada por `preguntaId`, con `veces`.
    */
   errores?: ErrorAcademia[]
+  /**
+   * Solo nodo `video` (rediseño 2026-09-23, un solo video con pausas):
+   * cuántas pausas de prueba intermedia ya se aprobaron. Al volver a entrar,
+   * el video retoma desde la última pausa aprobada.
+   */
+  pausasSuperadas?: number
+  /**
+   * Solo nodo `video`: true si el usuario llegó a la próxima pausa pendiente
+   * pero salió sin acertar la pregunta. Al volver, el video se coloca en esa
+   * pausa y la pregunta sale directamente (no hay que ver el tramo otra vez).
+   */
+  enPausa?: boolean
   /** @deprecated Marca vieja de una sola pregunta (antes de 2026-09-19). Ya no puntúa; se conserva solo para no romper progreso guardado. */
   intentos?: number
 }
@@ -67,17 +81,39 @@ const CLAVE_RESPUESTAS_ACADEMIA_VIEJA = 'academia_respuestas_inmaculada_cap1_v1'
 export function progresoInicialAcademia(): ProgresoCap1 {
   return {
     intro: { estado: 'disponible' },
-    video1: { estado: 'bloqueado' },
-    video2: { estado: 'bloqueado' },
-    video3: { estado: 'bloqueado' },
+    video: { estado: 'bloqueado' },
     pruebaFinal: { estado: 'bloqueado' },
   }
+}
+
+/**
+ * Rediseño 2026-09-23: los nodos video1/video2/video3 pasaron a ser uno solo
+ * (`video`). Adapta un progreso guardado con la forma vieja para que nadie
+ * quede trabado:
+ * - quien ya tenía la prueba final disponible o completada (vio los 3
+ *   videos viejos) queda con `video` completado;
+ * - quien había pasado la intro queda con `video` disponible.
+ * Las claves viejas (video1/2/3) se dejan tal cual: nada las lee.
+ */
+export function normalizarProgresoAcademia(progreso: ProgresoCap1): ProgresoCap1 {
+  const p: ProgresoCap1 = { ...progresoInicialAcademia(), ...progreso }
+  if (p.video.estado !== 'completado') {
+    const finalAbierta = p.pruebaFinal.estado !== 'bloqueado'
+    const videoViejoVisto = progreso.video3?.estado === 'completado'
+    if (finalAbierta || videoViejoVisto) {
+      p.video = { ...p.video, estado: 'completado' }
+      if (p.pruebaFinal.estado === 'bloqueado') p.pruebaFinal = { ...p.pruebaFinal, estado: 'disponible' }
+    } else if (p.video.estado === 'bloqueado' && p.intro.estado === 'completado') {
+      p.video = { ...p.video, estado: 'disponible' }
+    }
+  }
+  return p
 }
 
 export function cargarProgresoAcademia(): ProgresoCap1 {
   try {
     const guardado = localStorage.getItem(CLAVE_PROGRESO_ACADEMIA)
-    if (guardado) return { ...progresoInicialAcademia(), ...(JSON.parse(guardado) as ProgresoCap1) }
+    if (guardado) return normalizarProgresoAcademia(JSON.parse(guardado) as ProgresoCap1)
   } catch {
     // localStorage no disponible (modo privado, etc.): seguimos con el estado inicial.
   }

@@ -224,13 +224,42 @@ export const INTRO_CAP1 = {
 }
 
 /**
- * Los 3 videos reales del capítulo, servidos como archivos estáticos desde
- * `public/` (ver claude/academia-rediseno-capitulo1-videos.md — no van a
- * YouTube por ahora). `duracionSeg` es solo informativo (se muestra en la
- * ruta); el desbloqueo real depende del evento `ended` del <video>, no de
- * este número.
+ * REDISEÑO 2026-09-23 — UN SOLO VIDEO con pausas. Los 3 videos anteriores
+ * (video1/2/3.mp4) se reemplazan por un único video del Tema 1
+ * (`cap01-tema01.mp4`, 12:06, 1080p) que se va PARANDO solo en los puntos
+ * de `pausas`: al llegar a cada uno se pausa, sale de pantalla completa y
+ * abre la misma ventana modal de siempre (`ModalPruebaVideo`) con 1 pregunta
+ * de esa prueba intermedia. Al acertar, el video sigue desde ahí. No se
+ * puede adelantar más allá de la próxima pausa sin responder. Al terminar
+ * el video → botón "Continuar a Prueba final" (igual que antes con video3).
+ *
+ * Tramos del video (medidos sobre la etiqueta de sección que se ve abajo a
+ * la izquierda): Introducción 0:00 · Parálisis cerebral 1:30 · Epilepsia
+ * 4:18 · Distrofias musculares 7:51 · Síntesis 10:01.
  */
-export type VideoId = 'v1' | 'v2' | 'v3'
+export type VideoId = 'v1'
+
+export interface PausaVideo {
+  /** Segundo del video en el que se para (justo antes de que cambie de tramo). */
+  seg: number
+  pruebaId: PruebaId
+  /**
+   * Índices de `PRUEBAS_CAP1[pruebaId]` para esta pausa. La pregunta es FIJA
+   * (2026-09-23): sale siempre el PRIMER índice de la lista y, si se falla, se
+   * repite esa misma hasta acertarla. Para cambiar la pregunta de una pausa,
+   * poner su índice primero. Sin este campo, sale la pregunta 0 del pool.
+   * Estas preguntas no dan puntos; cada fallo se guarda en el progreso.
+   */
+  preguntas?: number[]
+}
+
+export interface SeccionVideo {
+  /** Segundo en que empieza el tramo. */
+  desde: number
+  titulo: string
+  /** Tema cuyo resumen se muestra debajo del video durante este tramo. */
+  temaId: TemaId
+}
 
 export interface VideoAcademia {
   id: VideoId
@@ -239,20 +268,36 @@ export interface VideoAcademia {
   /** Ruta pública del archivo (carpeta /public). */
   src: string
   duracionSeg: number
-  /**
-   * Si está presente, al terminar el video (evento `ended`) se abre
-   * automáticamente una ventana modal con 1 pregunta al azar de
-   * `PRUEBAS_CAP1[pruebaId]` — ver `ModalPruebaVideo` en Academia.tsx. Sin
-   * este campo (caso de v3) el nodo se comporta como antes: botón
-   * "Continuar" normal, sin modal.
-   */
-  pruebaId?: PruebaId
+  /** Puntos donde el video se para para la prueba intermedia, en orden. */
+  pausas: PausaVideo[]
+  /** Tramos del video, en orden — cambian el título y el resumen de la pantalla. */
+  secciones: SeccionVideo[]
 }
 
 export const VIDEOS_CAP1: VideoAcademia[] = [
-  { id: 'v1', temaId: 'pc', titulo: 'Parálisis Cerebral', src: '/academia/pacientes-especiales/cap-1/video1.mp4', duracionSeg: 255, pruebaId: 'prueba1' },
-  { id: 'v2', temaId: 'pc', titulo: 'Parálisis Cerebral (parte 2)', src: '/academia/pacientes-especiales/cap-1/video2.mp4', duracionSeg: 259, pruebaId: 'prueba2' },
-  { id: 'v3', temaId: 'pc', titulo: 'Parálisis Cerebral (parte 3)', src: '/academia/pacientes-especiales/cap-1/video3.mp4', duracionSeg: 206 },
+  {
+    id: 'v1',
+    temaId: 'pc',
+    titulo: 'Tema 1',
+    src: '/academia/pacientes-especiales/cap-1/cap01-tema01.mp4',
+    duracionSeg: 727,
+    pausas: [
+      // Fin de Parálisis cerebral (Epilepsia arranca en 4:18).
+      // Pregunta fija: prueba1[0] (espástica, 50-75 %).
+      { seg: 257.5, pruebaId: 'prueba1', preguntas: [0] },
+      // Fin de Epilepsia (Distrofias arranca en 7:51). Ojo: prueba2[4] (ECG /
+      // función pulmonar) es de Distrofia Muscular — no usarla en esta pausa.
+      // Pregunta fija: prueba2[0] (fase estable, más de 2 años sin crisis).
+      { seg: 471, pruebaId: 'prueba2', preguntas: [0] },
+    ],
+    secciones: [
+      { desde: 0, titulo: 'Introducción', temaId: 'pc' },
+      { desde: 90.5, titulo: 'Parálisis Cerebral', temaId: 'pc' },
+      { desde: 257.5, titulo: 'Epilepsia', temaId: 'epi' },
+      { desde: 471, titulo: 'Distrofias Musculares', temaId: 'dm' },
+      { desde: 601.5, titulo: 'Síntesis', temaId: 'dm' },
+    ],
+  },
 ]
 
 /**
@@ -437,11 +482,15 @@ export interface NodoRuta {
  * se vio Y la pregunta del modal se acertó (ver `avanzarSinVolver` en
  * Academia.tsx), no con solo terminar el video.
  */
+//
+// Rediseño 2026-09-23: los 3 nodos de video (video1/video2/video3) pasan a
+// ser UNO solo (`video`) — las pruebas intermedias viven ahora como pausas
+// dentro de ese video (ver `VideoAcademia.pausas`). Ruta: Intro → Video →
+// Prueba final. El progreso viejo con claves video1/2/3 se adapta al cargar
+// (ver `normalizarProgresoAcademia` en academiaProgresoLocal.ts).
 export const NODOS_CAP1: NodoRuta[] = [
   { id: 'intro', tipo: 'intro', titulo: 'Introducción' },
-  { id: 'video1', tipo: 'video', titulo: 'Parálisis Cerebral', temaId: 'pc', videoId: 'v1' },
-  { id: 'video2', tipo: 'video', titulo: 'Parálisis Cerebral (parte 2)', temaId: 'pc', videoId: 'v2' },
-  { id: 'video3', tipo: 'video', titulo: 'Parálisis Cerebral (parte 3)', temaId: 'pc', videoId: 'v3' },
+  { id: 'video', tipo: 'video', titulo: 'Video del tema', temaId: 'pc', videoId: 'v1' },
   { id: 'pruebaFinal', tipo: 'prueba', titulo: 'Prueba final', pruebaId: 'pruebaFinal', esFinal: true },
 ]
 

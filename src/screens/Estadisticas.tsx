@@ -16,7 +16,7 @@ import {
   type EstadisticaCapitulo,
 } from '@/lib/historial'
 import { getAcademiaHabilitada } from '@/lib/academiaAccesoRemoto'
-import { progresoInicialAcademia, calcularResumenAcademia, type ResumenAcademia } from '@/lib/academiaProgresoLocal'
+import { progresoInicialAcademia, calcularResumenAcademia, normalizarProgresoAcademia, type ResumenAcademia } from '@/lib/academiaProgresoLocal'
 import { getProgresoAcademiaRemoto } from '@/lib/academiaProgresoRemoto'
 import { CAPITULOS_INMACULADA } from '@/data/academiaInmaculada'
 import type { Pantalla } from '@/types'
@@ -147,7 +147,7 @@ export function Estadisticas({
   useEffect(() => {
     let cancelado = false
     getProgresoAcademiaRemoto(userId).then((remoto) => {
-      if (!cancelado && remoto) setResumenAcademia(calcularResumenAcademia(remoto))
+      if (!cancelado && remoto) setResumenAcademia(calcularResumenAcademia(normalizarProgresoAcademia(remoto)))
     })
     return () => {
       cancelado = true

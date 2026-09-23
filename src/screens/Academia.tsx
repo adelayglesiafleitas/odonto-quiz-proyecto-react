@@ -6,6 +6,7 @@ import {
   Check,
   ChevronDown,
   ChevronRight,
+  ListChecks,
   Lock,
   Maximize2,
   Play,
@@ -22,7 +23,7 @@ import { Spinner } from '@/components/Spinner'
 import { Button } from '@/components/ui/button'
 import { RUTA_SOPORTE } from '@/lib/rutas'
 import { getAcademiaHabilitada } from '@/lib/academiaAccesoRemoto'
-import { cargarProgresoAcademia, progresoInicialAcademia, porcentajeCap1, type EstadoNodo, type ProgresoCap1 } from '@/lib/academiaProgresoLocal'
+import { cargarProgresoAcademia, normalizarProgresoAcademia, progresoInicialAcademia, porcentajeCap1, type EstadoNodo, type ProgresoCap1 } from '@/lib/academiaProgresoLocal'
 import {
   PREGUNTAS_PUNTUABLES_CAP1,
   PUNTOS_CAPITULOS,
@@ -52,7 +53,6 @@ import {
   type CapituloLibro,
   type NodoRuta,
   type PreguntaAcademia,
-  type TemaAcademia,
   type VideoAcademia,
 } from '@/data/academiaInmaculada'
 
@@ -216,7 +216,7 @@ export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (
     getProgresoAcademiaRemoto(userId).then(async (remoto) => {
       if (cancelado) return
       if (remoto) {
-        setProgreso({ ...progresoInicialAcademia(), ...remoto })
+        setProgreso(normalizarProgresoAcademia(remoto))
       } else {
         const local = cargarProgresoAcademia()
         const tieneAvanceLocal = Object.values(local).some((n) => n.estado === 'completado')
@@ -287,15 +287,29 @@ export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (
   }
 
   /**
-   * Guarda una pregunta fallada en el nodo (sin duplicados por `preguntaId`;
-   * si se vuelve a fallar solo se actualiza la fecha). No cambia el estado
+   * Guarda una pregunta fallada en el nodo: una entrada por `preguntaId` con
+   * cuántas veces se falló (`veces`) y la fecha del último fallo. No cambia el estado
    * del nodo ni da/quita puntos: es el registro para repasar más adelante.
    */
   function registrarFallo(nodoId: string, preguntaId: string) {
     setProgreso((prev) => {
       const actual = prev[nodoId] ?? { estado: 'bloqueado' as EstadoNodo }
-      const resto = (actual.errores ?? []).filter((e) => e.preguntaId !== preguntaId)
-      return { ...prev, [nodoId]: { ...actual, errores: [...resto, { preguntaId, fecha: new Date().toISOString() }] } }
+      const previos = actual.errores ?? []
+      const anterior = previos.find((e) => e.preguntaId === preguntaId)
+      const resto = previos.filter((e) => e.preguntaId !== preguntaId)
+      const veces = (anterior?.veces ?? (anterior ? 1 : 0)) + 1
+      return { ...prev, [nodoId]: { ...actual, errores: [...resto, { preguntaId, fecha: new Date().toISOString(), veces }] } }
+    })
+  }
+
+  /**
+   * Guarda por dónde va el video (pausas aprobadas / parado en una pregunta)
+   * sin tocar el estado del nodo — ver NodoVideo.
+   */
+  function guardarEstadoVideo(nodoId: string, estado: EstadoVideoGuardado) {
+    setProgreso((prev) => {
+      const actual = prev[nodoId] ?? { estado: 'bloqueado' as EstadoNodo }
+      return { ...prev, [nodoId]: { ...actual, pausasSuperadas: estado.pausasSuperadas, enPausa: estado.enPausa } }
     })
   }
 
@@ -382,6 +396,7 @@ export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (
               onCompletar={completarNodo}
               onAvanzarSinVolver={avanzarSinVolver}
               onFallo={registrarFallo}
+              onGuardarVideo={guardarEstadoVideo}
               onVolver={volverALibro}
             />
           )}
@@ -1289,44 +1304,72 @@ function marcarAvisoGirarCelularVisto(videoId: string) {
   }
 }
 
+/** Estado del video que se guarda en el progreso (solo nodo `video`, fuera de "repetir"). */
+interface EstadoVideoGuardado {
+  pausasSuperadas: number
+  enPausa: boolean
+}
+
+/**
+ * Rediseño 2026-09-23 — UN SOLO VIDEO que se va parando. En cada punto de
+ * `video.pausas` el video se pausa, sale de pantalla completa (para que la
+ * pregunta nunca quede tapada, ver corrección 2026-09-18) y abre
+ * `ModalPruebaVideo` con 1 pregunta de esa prueba intermedia. Al acertar,
+ * sigue reproduciendo desde ahí. No se puede adelantar más allá de la
+ * próxima pausa pendiente (el `seeking` se recorta a esa pausa). Al terminar
+ * el video, botón "Continuar a Prueba final" como antes.
+ *
+ * Progreso: las pausas aprobadas (`pausasSuperadas`) y si quedó parado en
+ * una pregunta sin responder (`enPausa`) se guardan en el nodo, así al
+ * volver retoma en la última pausa aprobada — o directamente en la pregunta
+ * pendiente — sin tener que ver el tramo otra vez. En modo "repetir" no se
+ * guarda nada: arranca de 0 con las pausas activas. En modo solo-lectura
+ * (nodo ya completado) no hay pausas: el video se ve libre.
+ */
 function NodoVideo({
   t,
   video,
-  tema,
   soloLectura,
   etiquetaSiguiente,
-  preguntasModal,
+  estadoInicial,
+  onGuardarEstado,
   onContinuar,
-  onAprobarModal,
   onFalloModal,
   onSalirModal,
 }: {
   t: Diccionario
   video: VideoAcademia
-  tema: TemaAcademia
   soloLectura: boolean
   etiquetaSiguiente: string | null
-  /** Pool de preguntas para el modal que se abre solo al terminar el video (video1/video2). null = comportamiento de siempre (botón "Continuar", video3 y modo solo-lectura). */
-  preguntasModal: PreguntaAcademia[] | null
+  /** Dónde retomar (pausas ya aprobadas / parado en una pregunta). */
+  estadoInicial: EstadoVideoGuardado
+  /** Guarda el avance del video en el progreso. undefined = no guardar (modo repetir). */
+  onGuardarEstado?: (estado: EstadoVideoGuardado) => void
   onContinuar: () => void
-  /** Se llama cuando se acierta la pregunta del modal — avanza al siguiente video sin volver al mapa. */
-  onAprobarModal?: () => void
-  /** Se llama cada vez que se falla la pregunta del modal (índice dentro del pool) — la pantalla padre guarda el error. */
-  onFalloModal?: (indicePregunta: number) => void
+  /** Se llama cada vez que se falla la pregunta de una pausa — la pantalla padre guarda el error. */
+  onFalloModal: (preguntaId: string) => void
   /** Se llama al cerrar el modal con la "X" sin haber acertado — vuelve al mapa. */
-  onSalirModal?: () => void
+  onSalirModal: () => void
 }) {
-  const [terminado, setTerminado] = useState(soloLectura)
+  const pausas = soloLectura ? [] : video.pausas
+  const [superadas, setSuperadas] = useState(() => Math.min(estadoInicial.pausasSuperadas, pausas.length))
   const [modalAbierto, setModalAbierto] = useState(false)
+  // Sube cada vez que se abre el modal: remonta ModalPruebaVideo para que
+  // salga una pregunta nueva y se reinicie su animación de salida.
+  const [aperturas, setAperturas] = useState(0)
+  const [terminado, setTerminado] = useState(soloLectura)
+  const [seg, setSeg] = useState(0)
   const [avisoGirarVisible, setAvisoGirarVisible] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
-  const puedeContinuar = soloLectura || terminado
-  const requierePrueba = Boolean(preguntasModal && preguntasModal.length > 0)
+  // Refs espejo para los handlers del <video> (evitan leer estado viejo).
+  const superadasRef = useRef(superadas)
+  const modalAbiertoRef = useRef(false)
+  const posicionadoRef = useRef(false)
 
-  // Aviso "girá tu celular": solo mobile (heurística: puntero "coarse", o
-  // sea touch), solo mientras no se completó todavía este video, y solo la
-  // primera vez que se abre — ver helpers arriba. No corre en SSR/tests sin
-  // matchMedia por las dudas.
+  const pendiente = pausas[superadas]
+  const seccion = [...video.secciones].reverse().find((s) => seg >= s.desde) ?? video.secciones[0]
+  const tema = TEMAS_CAP1[seccion.temaId]
+
   useEffect(() => {
     if (soloLectura) return
     if (typeof window === 'undefined' || !window.matchMedia) return
@@ -1339,9 +1382,6 @@ function NodoVideo({
     marcarAvisoGirarCelularVisto(video.id)
   }
 
-  // Si ya está visible y el celular pasa a horizontal solo, se cierra
-  // solo — para eso está el aviso, no hace falta que el usuario lo cierre
-  // a mano si ya hizo caso.
   useEffect(() => {
     if (!avisoGirarVisible || typeof window === 'undefined' || !window.matchMedia) return
     const mq = window.matchMedia('(orientation: landscape)')
@@ -1353,24 +1393,85 @@ function NodoVideo({
     // eslint-disable-next-line react-hooks/exhaustive-deps -- cerrarAvisoGirar depende de video.id, no de sí misma
   }, [avisoGirarVisible, video.id])
 
-  function alTerminarVideo() {
-    setTerminado(true)
-    // Corrección 2026-09-18: si el video terminó en pantalla completa (el
-    // botón propio de acá abajo, o el nativo de los controles), hay que
-    // salir antes de abrir el modal — la Fullscreen API pinta el elemento
-    // fullscreen en una capa por encima de TODO el resto del DOM (aunque
-    // tenga z-index alto), así que sin este exit la pregunta quedaba
-    // invisible detrás del video congelado en su último cuadro. Es
-    // justamente el caso típico de girar el celular a horizontal para ver
-    // mejor: "la pregunta tiene que salir siempre delante" (pedido
-    // explícito del usuario). webkitExitFullscreen cubre Safari/iOS viejo.
+  // Sale de pantalla completa: Fullscreen API estándar, Safari viejo y el
+  // reproductor nativo de iOS (webkitExitFullscreen sobre el <video>).
+  function salirPantallaCompleta() {
     const doc = document as Document & { webkitExitFullscreen?: () => void; webkitFullscreenElement?: Element | null }
+    const el = videoRef.current as (HTMLVideoElement & { webkitExitFullscreen?: () => void; webkitDisplayingFullscreen?: boolean }) | null
     if (doc.fullscreenElement) doc.exitFullscreen?.().catch(() => {})
     else if (doc.webkitFullscreenElement) doc.webkitExitFullscreen?.()
-    // video1/video2 (rediseño 2026-09-17): en vez de mostrar el botón
-    // "Continuar a Prueba N", se abre sola la ventana con 1 pregunta al
-    // azar — ver ModalPruebaVideo más abajo.
-    if (requierePrueba) setModalAbierto(true)
+    if (el?.webkitDisplayingFullscreen) el.webkitExitFullscreen?.()
+  }
+
+  function abrirPregunta() {
+    modalAbiertoRef.current = true
+    setModalAbierto(true)
+    setAperturas((n) => n + 1)
+  }
+
+  function llegarAPausa() {
+    const el = videoRef.current
+    const pausa = pausas[superadasRef.current]
+    if (!el || !pausa || modalAbiertoRef.current) return
+    el.pause()
+    if (el.currentTime > pausa.seg) el.currentTime = pausa.seg
+    salirPantallaCompleta()
+    abrirPregunta()
+    onGuardarEstado?.({ pausasSuperadas: superadasRef.current, enPausa: true })
+  }
+
+  // Al tener los metadatos, coloca el video donde corresponde retomar.
+  function alCargarMetadatos() {
+    const el = videoRef.current
+    if (!el || posicionadoRef.current) return
+    posicionadoRef.current = true
+    if (soloLectura) return
+    const pausa = pausas[superadasRef.current]
+    if (estadoInicial.enPausa && pausa) {
+      el.currentTime = pausa.seg
+      setSeg(pausa.seg)
+      abrirPregunta()
+    } else if (superadasRef.current > 0) {
+      const desde = pausas[superadasRef.current - 1].seg
+      el.currentTime = desde
+      setSeg(desde)
+    }
+  }
+
+  function alActualizarTiempo() {
+    const el = videoRef.current
+    if (!el) return
+    setSeg(el.currentTime)
+    const pausa = pausas[superadasRef.current]
+    if (pausa && el.currentTime >= pausa.seg - 0.05) llegarAPausa()
+  }
+
+  // No se puede saltar la próxima pregunta arrastrando la barra.
+  function alBuscar() {
+    const el = videoRef.current
+    const pausa = pausas[superadasRef.current]
+    if (el && pausa && el.currentTime > pausa.seg) el.currentTime = pausa.seg
+  }
+
+  function alReproducir() {
+    if (avisoGirarVisible) cerrarAvisoGirar()
+    if (modalAbiertoRef.current) videoRef.current?.pause()
+  }
+
+  function alTerminarVideo() {
+    if (pausas[superadasRef.current]) return llegarAPausa()
+    setTerminado(true)
+    salirPantallaCompleta()
+  }
+
+  function alAprobarPausa() {
+    const nuevas = superadasRef.current + 1
+    superadasRef.current = nuevas
+    modalAbiertoRef.current = false
+    setSuperadas(nuevas)
+    setModalAbierto(false)
+    onGuardarEstado?.({ pausasSuperadas: nuevas, enPausa: false })
+    videoRef.current?.play().catch(() => {})
   }
 
   function entrarPantallaCompleta() {
@@ -1382,6 +1483,27 @@ function NodoVideo({
 
   return (
     <>
+      <div className="flex items-center justify-between gap-2 px-1">
+        <span
+          className="rounded-full px-3 py-1 text-[11px] font-extrabold uppercase tracking-wide"
+          style={{ background: 'color-mix(in srgb, var(--academia-accent, hsl(var(--accent))) 15%, transparent)', color: 'var(--academia-accent, hsl(var(--accent)))' }}
+        >
+          {seccion.titulo}
+        </span>
+        {pausas.length > 0 && (
+          <span className="flex items-center gap-1.5" aria-label={`${superadas}/${pausas.length}`}>
+            {pausas.map((p, i) => (
+              <span
+                key={p.seg}
+                className={`flex h-5 w-5 items-center justify-center rounded-full ${i < superadas ? 'bg-success text-success-foreground' : 'bg-secondary text-muted-foreground'}`}
+              >
+                {i < superadas ? <Check className="h-3 w-3" strokeWidth={3} /> : <ListChecks className="h-3 w-3" />}
+              </span>
+            ))}
+          </span>
+        )}
+      </div>
+
       <div className="relative overflow-hidden rounded-2xl bg-black">
         {/* eslint-disable-next-line jsx-a11y/media-has-caption -- son videos propios sin pista de subtítulos todavía */}
         <video
@@ -1389,9 +1511,13 @@ function NodoVideo({
           src={video.src}
           controls
           playsInline
+          preload="metadata"
           className="aspect-video w-full"
+          onLoadedMetadata={alCargarMetadatos}
+          onTimeUpdate={alActualizarTiempo}
+          onSeeking={alBuscar}
+          onPlay={alReproducir}
           onEnded={alTerminarVideo}
-          onPlay={avisoGirarVisible ? cerrarAvisoGirar : undefined}
         />
         <button
           type="button"
@@ -1403,10 +1529,6 @@ function NodoVideo({
           <Maximize2 className="h-4 w-4" />
         </button>
 
-        {/* Aviso "girá tu celular" (diseño: variante "ventana", aprobada
-            2026-09-17) — tocar en cualquier lado lo cierra, así "tocá play
-            para empezar igual" funciona de verdad: debajo queda el video
-            con sus controles nativos de siempre. */}
         {avisoGirarVisible && (
           <div
             role="button"
@@ -1434,41 +1556,35 @@ function NodoVideo({
         )}
       </div>
 
-      <TarjetaContenido titulo={t.academia.nodoResumen}>
+      <TarjetaContenido titulo={`${t.academia.nodoResumen} · ${tema.nombre}`}>
         <p className="text-sm leading-relaxed text-foreground/85">{tema.resumen}</p>
       </TarjetaContenido>
 
-      {!requierePrueba && (
-        <BotonContinuar
-          disabled={!puedeContinuar}
-          texto={
-            soloLectura
-              ? t.academia.nodoYaCompletado
-              : puedeContinuar && etiquetaSiguiente
-                ? t.academia.continuarA(etiquetaSiguiente)
-                : t.academia.videoBloqueadoTexto
-          }
-          onClick={onContinuar}
-        />
-      )}
+      <BotonContinuar
+        disabled={!terminado}
+        texto={
+          soloLectura
+            ? t.academia.nodoYaCompletado
+            : terminado && etiquetaSiguiente
+              ? t.academia.continuarA(etiquetaSiguiente)
+              : t.academia.videoBloqueadoTexto
+        }
+        onClick={onContinuar}
+      />
 
-      {requierePrueba && !terminado && (
-        <p className="px-1 pb-2 pt-1 text-center text-xs font-semibold text-muted-foreground">{t.academia.videoBloqueadoTexto}</p>
-      )}
-
-      {requierePrueba && preguntasModal && (
+      {pendiente && (
         <ModalPruebaVideo
+          key={`${superadas}-${aperturas}`}
           t={t}
           abierto={modalAbierto}
-          preguntas={preguntasModal}
-          onFallo={(indice) => onFalloModal?.(indice)}
-          onAprobado={() => {
-            setModalAbierto(false)
-            onAprobarModal?.()
-          }}
+          preguntas={PRUEBAS_CAP1[pendiente.pruebaId]}
+          indices={pendiente.preguntas}
+          onFallo={(indice) => onFalloModal(`${pendiente.pruebaId}:${indice}`)}
+          onAprobado={alAprobarPausa}
           onCerrar={() => {
+            modalAbiertoRef.current = false
             setModalAbierto(false)
-            onSalirModal?.()
+            onSalirModal()
           }}
         />
       )}
@@ -1477,7 +1593,8 @@ function NodoVideo({
 }
 
 /**
- * Ventana modal con 1 pregunta al azar de `preguntas` (mismo mecanismo que
+ * Ventana modal con 1 pregunta FIJA de `preguntas` (desde 2026-09-23 no se
+ * sortea: se repite la misma hasta acertarla; antes era al azar, mismo mecanismo que
  * `NodoPrueba`: nunca repite la que se acaba de fallar) — reemplaza el nodo
  * "Prueba 1"/"Prueba 2" de antes, abierta sola al terminar video1/video2
  * (rediseño 2026-09-17, ver NodoVideo arriba). Mismo patrón visual de
@@ -1489,6 +1606,7 @@ function ModalPruebaVideo({
   t,
   abierto,
   preguntas,
+  indices,
   onFallo,
   onAprobado,
   onCerrar,
@@ -1496,12 +1614,18 @@ function ModalPruebaVideo({
   t: Diccionario
   abierto: boolean
   preguntas: PreguntaAcademia[]
+  /** Índices de `preguntas` para esta pausa: sale siempre el primero (pregunta fija). Sin esto, la primera del pool. */
+  indices?: number[]
   /** Se llama cada vez que se falla (índice de la pregunta dentro del pool). Estas pruebas no dan puntos, solo guardan el error. */
   onFallo: (indice: number) => void
   onAprobado: () => void
   onCerrar: () => void
 }) {
-  const [qIndex, setQIndex] = useState(() => Math.floor(Math.random() * preguntas.length))
+  // Cambio 2026-09-23: la pregunta de cada pausa es FIJA (la primera de
+  // `indices`, o la primera del pool). Si se falla, se repite la MISMA
+  // pregunta hasta acertarla — no se sortea otra. No da puntos; cada fallo
+  // se guarda (onFallo).
+  const qIndex = indices && indices.length > 0 ? indices[0] : 0
   const [seleccion, setSeleccion] = useState<number | null>(null)
   const [saliendo, setSaliendo] = useState(false)
 
@@ -1518,10 +1642,8 @@ function ModalPruebaVideo({
     if (oi !== pregunta.correcta) onFallo(qIndex)
   }
 
+  // Misma pregunta, otra oportunidad.
   function reintentar() {
-    let siguiente = Math.floor(Math.random() * preguntas.length)
-    if (preguntas.length > 1 && siguiente === qIndex) siguiente = (siguiente + 1) % preguntas.length
-    setQIndex(siguiente)
     setSeleccion(null)
   }
 
@@ -1617,6 +1739,7 @@ function PantallaNodo({
   onCompletar,
   onAvanzarSinVolver,
   onFallo,
+  onGuardarVideo,
   onVolver,
 }: {
   t: Diccionario
@@ -1626,6 +1749,7 @@ function PantallaNodo({
   onCompletar: (nodoId: string, intentosPreguntas?: number[]) => void
   onAvanzarSinVolver: (nodoId: string, siguienteId: string) => void
   onFallo: (nodoId: string, preguntaId: string) => void
+  onGuardarVideo: (nodoId: string, estado: EstadoVideoGuardado) => void
   onVolver: () => void
 }) {
   const nodo: NodoRuta | undefined = NODOS_CAP1.find((n) => n.id === nodoId)
@@ -1661,36 +1785,29 @@ function PantallaNodo({
 
   if (nodo.tipo === 'video') {
     const video = VIDEOS_CAP1.find((v) => v.id === nodo.videoId)
-    const tema = nodo.temaId ? TEMAS_CAP1[nodo.temaId] : undefined
-    if (!video || !tema) return null
-    // Solo video1/video2 tienen `pruebaId` (ver VIDEOS_CAP1 en
-    // academiaInmaculada.ts) — eso es lo que decide si al terminar el video
-    // se abre el modal en vez del botón "Continuar" de siempre. En modo
-    // solo-lectura (revisitar un video ya completado) no se vuelve a exigir
-    // la prueba: se deja el botón simple de "Ya completado — volver".
-    const preguntasModal = !soloLectura && video.pruebaId ? PRUEBAS_CAP1[video.pruebaId] : null
+    if (!video) return null
+    // Rediseño 2026-09-23: un solo video con pausas (ver NodoVideo). En modo
+    // repetir arranca de 0 y no pisa lo guardado; en solo-lectura no hay
+    // pausas.
+    const estadoInicial = repitiendo || soloLectura ? { pausasSuperadas: 0, enPausa: false } : { pausasSuperadas: prog.pausasSuperadas ?? 0, enPausa: Boolean(prog.enPausa) }
     return (
-      <NodoLayout titulo={tema.nombre} subtitulo={subtituloCap1} onVolver={onVolver}>
+      <NodoLayout titulo={video.titulo} subtitulo={subtituloCap1} onVolver={onVolver}>
         <NodoVideo
           key={nodoId}
           t={t}
           video={video}
-          tema={tema}
           soloLectura={soloLectura}
           etiquetaSiguiente={siguienteNodo?.titulo ?? null}
-          preguntasModal={preguntasModal}
+          estadoInicial={estadoInicial}
+          onGuardarEstado={repitiendo || soloLectura ? undefined : (estado) => onGuardarVideo(nodoId, estado)}
           onContinuar={() => {
             if (soloLectura) return onVolver()
-            // Corrección 2026-09-18: video3 no tiene pruebaId (sin modal),
-            // pero igual sigue directo a la prueba final sin volver a la
-            // lista — mismo mecanismo que usa el modal al aprobar (ver
-            // onAprobarModal más abajo), pedido explícito del usuario ("al
-            // finalizar [video 3] se pasa a la prueba sin tener que salir").
-            if (!video.pruebaId && siguienteNodo) return onAvanzarSinVolver(nodoId, siguienteNodo.id)
+            // Al terminar el video se pasa directo a la prueba final, sin
+            // volver a la lista (igual que antes con video3).
+            if (siguienteNodo) return onAvanzarSinVolver(nodoId, siguienteNodo.id)
             return onCompletar(nodoId)
           }}
-          onAprobarModal={siguienteNodo ? () => onAvanzarSinVolver(nodoId, siguienteNodo.id) : undefined}
-          onFalloModal={(indice) => video.pruebaId && onFallo(nodoId, `${video.pruebaId}:${indice}`)}
+          onFalloModal={(preguntaId) => onFallo(nodoId, preguntaId)}
           onSalirModal={onVolver}
         />
       </NodoLayout>
