@@ -885,6 +885,63 @@ function PantallaProximoCapitulo({
 // — reemplaza al SVG dibujado a mano que había antes). Vive en public/ como
 // los videos/imágenes de academiaInmaculada.ts, así que se referencia por
 // ruta absoluta, no por import.
+/**
+ * Voz de la Academia (audios 2026-09-24, en public/academia/audio/, MP3
+ * recortados y con el volumen igualado). Un solo reproductor compartido:
+ * cada frase nueva corta la anterior para que nunca se pisen. Si el
+ * navegador bloquea el audio, se ignora en silencio (la app sigue igual).
+ *
+ * Mapa: prueba-intermedia → se abre la pregunta de una pausa (solo la
+ * primera vez de cada pausa) · acierto-seguir → acierta la pausa (el video
+ * retoma cuando termina la frase) · fallo-reintentar → falla la pausa ·
+ * prueba-final → tarjeta de entrada de la prueba final · leccion-concluida →
+ * acierta la última pregunta de la prueba final · repaso-errores → reservado
+ * para la pantalla de repaso de errores (todavía no existe).
+ */
+const VOZ_ACADEMIA = {
+  pruebaIntermedia: '/academia/audio/prueba-intermedia.mp3',
+  aciertoSeguir: '/academia/audio/acierto-seguir.mp3',
+  falloReintentar: '/academia/audio/fallo-reintentar.mp3',
+  pruebaFinal: '/academia/audio/prueba-final.mp3',
+  leccionConcluida: '/academia/audio/leccion-concluida.mp3',
+  repasoErrores: '/academia/audio/repaso-errores.mp3',
+} as const
+
+let vozActual: HTMLAudioElement | null = null
+
+function reproducirVoz(clave: keyof typeof VOZ_ACADEMIA) {
+  if (typeof Audio === 'undefined') return
+  detenerVoz()
+  const audio = new Audio(VOZ_ACADEMIA[clave])
+  vozActual = audio
+  audio.play().catch(() => {})
+}
+
+function detenerVoz() {
+  if (!vozActual) return
+  vozActual.pause()
+  vozActual = null
+}
+
+/** Resuelve cuando termina la frase que está sonando (o enseguida si no hay ninguna). Tope de seguridad: `maxMs`. */
+function esperarFinVoz(maxMs = 6000): Promise<void> {
+  const audio = vozActual
+  if (!audio || audio.ended || audio.error) return Promise.resolve()
+  return new Promise((resolve) => {
+    const fin = () => {
+      clearTimeout(tope)
+      audio.removeEventListener('ended', fin)
+      audio.removeEventListener('error', fin)
+      audio.removeEventListener('pause', fin)
+      resolve()
+    }
+    const tope = setTimeout(fin, maxMs)
+    audio.addEventListener('ended', fin)
+    audio.addEventListener('error', fin)
+    audio.addEventListener('pause', fin)
+  })
+}
+
 const MUELIN_SRC: Record<'neutral' | 'feliz' | 'de-nuevo', string> = {
   neutral: '/academia/muelin/neutral.png',
   feliz: '/academia/muelin/feliz.png',
@@ -1131,6 +1188,12 @@ function NodoPrueba({
   const [seleccion, setSeleccion] = useState<number | null>(null)
   const [intentosPorPregunta, setIntentosPorPregunta] = useState<number[]>(() => preguntas.map(() => 0))
 
+  // Voz: "Vamos a realizar una última prueba" al mostrar la entrada de la prueba final.
+  useEffect(() => {
+    if (!comenzada) reproducirVoz('pruebaFinal')
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- solo al montar la tarjeta de entrada
+  }, [])
+
   if (!comenzada) {
     return (
       <div className="card-elevated flex flex-col items-center gap-3 rounded-2xl bg-card p-6 text-center">
@@ -1156,6 +1219,8 @@ function NodoPrueba({
     setSeleccion(oi)
     setIntentosPorPregunta((arr) => arr.map((n, i) => (i === qIndex ? n + 1 : n)))
     if (oi !== pregunta.correcta) onFallo(qIndex)
+    // Voz: al acertar la última pregunta de la prueba final, cierre de la lección.
+    else if (esFinal && !soloLectura && qIndex === preguntas.length - 1) reproducirVoz('leccionConcluida')
   }
 
   // La pregunta fallada se queda: mismo enunciado, nueva oportunidad.
@@ -1361,6 +1426,10 @@ function NodoVideo({
   // Sube cada vez que se abre el modal: remonta ModalPruebaVideo para que
   // salga una pregunta nueva y se reinicie su animación de salida.
   const [aperturas, setAperturas] = useState(0)
+  // La voz "vamos a realizar una pequeña prueba" suena solo la primera vez
+  // que se abre cada pausa (no al volver de "Repetir trozo").
+  const [anunciar, setAnunciar] = useState(false)
+  const pausasAnunciadasRef = useRef(new Set<number>())
   const [terminado, setTerminado] = useState(soloLectura)
   const [seg, setSeg] = useState(0)
   const [avisoGirarVisible, setAvisoGirarVisible] = useState(false)
@@ -1408,6 +1477,9 @@ function NodoVideo({
   }
 
   function abrirPregunta() {
+    const indice = superadasRef.current
+    setAnunciar(!pausasAnunciadasRef.current.has(indice))
+    pausasAnunciadasRef.current.add(indice)
     modalAbiertoRef.current = true
     setModalAbierto(true)
     setAperturas((n) => n + 1)
@@ -1482,6 +1554,7 @@ function NodoVideo({
   // desde la pausa anterior (o desde el inicio). Al llegar otra vez a la
   // pausa, la pregunta se reabre sola.
   function repetirTrozo() {
+    detenerVoz()
     const el = videoRef.current
     modalAbiertoRef.current = false
     setModalAbierto(false)
@@ -1599,11 +1672,13 @@ function NodoVideo({
           preguntas={PRUEBAS_CAP1[pendiente.pruebaId]}
           indices={pendiente.preguntas}
           numero={superadas + 1}
+          anunciar={anunciar}
           total={pausas.length}
           onRepetirTrozo={repetirTrozo}
           onFallo={(indice) => onFalloModal(`${pendiente.pruebaId}:${indice}`)}
           onAprobado={alAprobarPausa}
           onCerrar={() => {
+            detenerVoz()
             modalAbiertoRef.current = false
             setModalAbierto(false)
             onSalirModal()
@@ -1645,6 +1720,7 @@ function ModalPruebaVideo({
   indices,
   numero,
   total,
+  anunciar,
   onFallo,
   onAprobado,
   onRepetirTrozo,
@@ -1658,6 +1734,8 @@ function ModalPruebaVideo({
   /** Número de esta pausa (1-based) y total de pausas del video, para el aviso "Pregunta n de m". */
   numero: number
   total: number
+  /** true = primera vez que se abre esta pausa: suena la voz de entrada. */
+  anunciar: boolean
   /** Se llama cada vez que se falla (índice de la pregunta dentro del pool). Estas pruebas no dan puntos, solo guardan el error. */
   onFallo: (indice: number) => void
   onAprobado: () => void
@@ -1668,6 +1746,13 @@ function ModalPruebaVideo({
   const qIndex = indices && indices.length > 0 ? indices[0] : 0
   const [seleccion, setSeleccion] = useState<number | null>(null)
   const [saliendo, setSaliendo] = useState(false)
+  const [esperandoVoz, setEsperandoVoz] = useState(false)
+
+  // Voz de entrada: "Bien. Vamos ahora a realizar una pequeña prueba".
+  useEffect(() => {
+    if (abierto && anunciar) reproducirVoz('pruebaIntermedia')
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- solo al abrir (el modal se remonta en cada apertura)
+  }, [abierto])
 
   if (!abierto) return null
 
@@ -1680,18 +1765,30 @@ function ModalPruebaVideo({
   function elegir(oi: number) {
     if (seleccion !== null) return
     setSeleccion(oi)
-    if (oi !== pregunta.correcta) onFallo(qIndex)
+    if (oi !== pregunta.correcta) {
+      onFallo(qIndex)
+      reproducirVoz('falloReintentar')
+    } else {
+      reproducirVoz('aciertoSeguir')
+    }
   }
 
   // Misma pregunta, otra oportunidad.
   function reintentar() {
+    detenerVoz()
     setSeleccion(null)
   }
 
-  // Sale con transición antes de avisarle al padre (el video retoma solo).
+  // Espera a que termine "Muy bien, vamos a seguir con la lección" (para que
+  // no se pise con el audio del video) y sale con transición antes de
+  // avisarle al padre (el video retoma solo).
   function confirmarAprobado() {
-    setSaliendo(true)
-    setTimeout(() => onAprobado(), 260)
+    if (esperandoVoz || saliendo) return
+    setEsperandoVoz(true)
+    esperarFinVoz().then(() => {
+      setSaliendo(true)
+      setTimeout(() => onAprobado(), 260)
+    })
   }
 
   return (
@@ -1782,7 +1879,7 @@ function ModalPruebaVideo({
               {acertada && (
                 <div className="mt-1 flex items-center gap-3 rounded-2xl bg-success/12 p-2.5 pl-3.5">
                   <p className="flex-1 text-base font-black text-success">{t.academia.pruebaAprobadaTitulo}</p>
-                  <Button onClick={confirmarAprobado} className="h-11 rounded-xl px-5 font-extrabold">
+                  <Button onClick={confirmarAprobado} disabled={esperandoVoz} className="h-11 rounded-xl px-5 font-extrabold">
                     {t.academia.videoSeguir}
                     <ArrowRight className="ml-1.5 h-4 w-4" />
                   </Button>

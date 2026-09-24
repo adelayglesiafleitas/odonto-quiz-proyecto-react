@@ -148,9 +148,10 @@ export const CURSOS: Record<string, CursoMeta> = {
   cirugia: {
     // Mismos valores que el resto de asignaturas (formato de examen de
     // homologación) — decisión asumida al agregar esta asignatura
-    // (2026-09-24). Banco: curso_id 'cirugia' en la tabla preguntas (142
-    // preguntas en un tema de bibliografía oficial: Gay Escoda y Berini,
-    // Tratado de Cirugía Bucal, Tomo I).
+    // (2026-09-24). Banco: curso_id 'cirugia' en la tabla preguntas (298
+    // preguntas en dos temas de bibliografía oficial: Gay Escoda y Berini,
+    // Tratado de Cirugía Bucal, Tomo I; y Donado, Cirugía Bucal: Patología
+    // y Técnica).
     duracionOficialMinutos: 40,
     cantidadOficial: 30,
     porcentajeAprobado: 70,
