@@ -145,6 +145,19 @@ export const CURSOS: Record<string, CursoMeta> = {
     cantidadesDisponibles: [10, 20, 30, 40],
     tieneLibros: false,
   },
+  cirugia: {
+    // Mismos valores que el resto de asignaturas (formato de examen de
+    // homologación) — decisión asumida al agregar esta asignatura
+    // (2026-09-24). Banco: curso_id 'cirugia' en la tabla preguntas (142
+    // preguntas en un tema de bibliografía oficial: Gay Escoda y Berini,
+    // Tratado de Cirugía Bucal, Tomo I).
+    duracionOficialMinutos: 40,
+    cantidadOficial: 30,
+    porcentajeAprobado: 70,
+    tieneConvocatorias: false,
+    cantidadesDisponibles: [10, 20, 30, 40],
+    tieneLibros: false,
+  },
 }
 
 // CURSO_ID/CURSO son el curso "por defecto": todavía los usan Home,

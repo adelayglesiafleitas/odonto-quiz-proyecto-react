@@ -774,3 +774,125 @@ button.card-elevated:focus-visible {
   .academia-aviso-girar-icono { animation: none; }
 }
 
+
+/* ------------------------------------------------------------------
+   Academia · pregunta sobre el video en pausa (rediseño 2026-09-24).
+   Capas: video oscurecido detrás → tarjeta de pregunta → corrección.
+   Todo el contenido respeta la zona segura (notch, esquinas, barra de
+   gestos) con env(safe-area-inset-*) + un mínimo, en cualquier vista.
+   ------------------------------------------------------------------ */
+.academia-pv-overlay {
+  --pv-top: max(12px, env(safe-area-inset-top));
+  --pv-right: max(16px, env(safe-area-inset-right));
+  --pv-bottom: max(16px, env(safe-area-inset-bottom));
+  --pv-left: max(16px, env(safe-area-inset-left));
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: var(--pv-top) var(--pv-right) var(--pv-bottom) var(--pv-left);
+  background: rgb(4 10 14 / 0.64);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  overscroll-behavior: contain;
+}
+
+/* Zona donde vive la tarjeta: ocupa el alto que queda y nunca se sale. */
+.academia-pv-cuerpo {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: flex-end; /* móvil vertical: abajo, al alcance del pulgar */
+  justify-content: center;
+}
+
+.academia-pv-tarjeta,
+.academia-pv-fallo {
+  width: 100%;
+  max-width: 28rem;
+  max-height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-radius: 24px;
+  padding: 18px;
+  transition: opacity 0.25s ease;
+}
+
+.academia-pv-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+}
+
+/* Pregunta atenuada mientras se muestra la corrección encima. */
+.academia-pv-atenuada {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* Capa de corrección: por encima de la pregunta, dentro de la zona segura. */
+.academia-pv-capa-fallo {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: calc(var(--pv-top) + 52px) var(--pv-right) var(--pv-bottom) var(--pv-left);
+  pointer-events: none;
+}
+.academia-pv-fallo {
+  pointer-events: auto;
+  box-shadow: 0 -12px 40px rgb(0 0 0 / 0.45);
+}
+
+/* Móvil horizontal (poca altura): 2 columnas para que nada quede cortado. */
+@media (orientation: landscape) and (max-height: 540px) {
+  .academia-pv-overlay {
+    --pv-top: max(10px, env(safe-area-inset-top));
+    --pv-bottom: max(12px, env(safe-area-inset-bottom));
+    gap: 8px;
+  }
+  .academia-pv-cuerpo { align-items: center; }
+  .academia-pv-tarjeta,
+  .academia-pv-fallo {
+    max-width: 56rem;
+    padding: 14px 16px;
+  }
+  .academia-pv-grid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 18px;
+  }
+  .academia-pv-muelin { width: 2.5rem; height: 2.5rem; }
+  .academia-pv-capa-fallo { padding-top: calc(var(--pv-top) + 44px); }
+}
+
+/* Tablet y PC: tarjeta centrada y más aire. */
+@media (min-width: 768px) and (min-height: 541px) {
+  .academia-pv-overlay {
+    --pv-top: max(24px, env(safe-area-inset-top));
+    --pv-right: max(32px, env(safe-area-inset-right));
+    --pv-bottom: max(32px, env(safe-area-inset-bottom));
+    --pv-left: max(32px, env(safe-area-inset-left));
+  }
+  .academia-pv-cuerpo { align-items: center; }
+  .academia-pv-tarjeta,
+  .academia-pv-fallo {
+    max-width: 40rem;
+    padding: 28px;
+    border-radius: 28px;
+  }
+  .academia-pv-capa-fallo { align-items: flex-end; }
+}
+
+/* Pantallas anchas (tablet horizontal, PC): pregunta | opciones. */
+@media (min-width: 1024px) and (min-height: 541px) {
+  .academia-pv-tarjeta,
+  .academia-pv-fallo { max-width: 60rem; }
+  .academia-pv-grid {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 32px;
+  }
+}

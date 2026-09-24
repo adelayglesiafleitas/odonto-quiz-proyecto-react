@@ -287,6 +287,16 @@ export interface Diccionario {
     pruebaNoAprobadaTexto: string
     pruebaReintentar: string
     pruebaAprobadaTitulo: string
+    videoEnPausa: string
+    videoPreguntaDe: (n: number, total: number) => string
+    videoRepetirTrozo: string
+    videoPista: string
+    videoFalloTitulo: string
+    videoFalloTexto: string
+    videoTuRespuesta: string
+    videoCorrecta: string
+    videoDatoClave: string
+    videoSeguir: string
     pruebaAprobadaTexto: (intentos: number) => string
     pruebaYaCompletadaTexto: string
     /** Pantalla de transición antes de la prueba final (tras el último video, sin volver a la lista) — ver NodoPrueba en Academia.tsx. */
@@ -696,6 +706,16 @@ export const es: Diccionario = {
     pruebaNoAprobadaTexto: 'Repasá el tema y volvé a intentar — te va a tocar otra pregunta.',
     pruebaReintentar: 'Reintentar',
     pruebaAprobadaTitulo: '¡Bien!',
+    videoEnPausa: 'Vídeo en pausa',
+    videoPreguntaDe: (n, total) => `Pregunta ${n} de ${total}`,
+    videoRepetirTrozo: 'Repetir trozo',
+    videoPista: '¿Te acuerdas de lo que acaba de decir el vídeo?',
+    videoFalloTitulo: '¡Uy, casi!',
+    videoFalloTexto: 'Mirá el dato clave y probá de nuevo con la misma pregunta.',
+    videoTuRespuesta: 'Tu respuesta',
+    videoCorrecta: 'Correcta',
+    videoDatoClave: 'Dato clave',
+    videoSeguir: 'Seguir el vídeo',
     pruebaAprobadaTexto: (intentos) => `Respondiste en ${intentos} ${intentos === 1 ? 'intento' : 'intentos'}.`,
     pruebaYaCompletadaTexto: 'Ya completaste esta prueba.',
     pruebaFinalIntroTitulo: '¡Muy bien! Ahora una prueba',
@@ -1104,6 +1124,16 @@ export const en: Diccionario = {
     pruebaNoAprobadaTexto: "Review the topic and try again — you'll get a different question.",
     pruebaReintentar: 'Try again',
     pruebaAprobadaTitulo: 'Nice!',
+    videoEnPausa: 'Video paused',
+    videoPreguntaDe: (n, total) => `Question ${n} of ${total}`,
+    videoRepetirTrozo: 'Replay clip',
+    videoPista: 'Remember what the video just said?',
+    videoFalloTitulo: 'Oops, almost!',
+    videoFalloTexto: 'Check the key point and try the same question again.',
+    videoTuRespuesta: 'Your answer',
+    videoCorrecta: 'Correct',
+    videoDatoClave: 'Key point',
+    videoSeguir: 'Keep watching',
     pruebaAprobadaTexto: (intentos) => `You answered in ${intentos} attempt${intentos === 1 ? '' : 's'}.`,
     pruebaYaCompletadaTexto: 'You already completed this quiz.',
     pruebaFinalIntroTitulo: 'Nice work! One more test',

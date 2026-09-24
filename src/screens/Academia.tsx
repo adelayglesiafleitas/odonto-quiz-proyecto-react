@@ -2,14 +2,18 @@ import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import {
   ArrowLeft,
+  ArrowRight,
   BookOpen,
   Check,
   ChevronDown,
   ChevronRight,
+  Lightbulb,
   ListChecks,
   Lock,
   Maximize2,
+  Pause,
   Play,
+  RotateCcw,
   Smartphone,
   Sparkles,
   Star,
@@ -1474,6 +1478,21 @@ function NodoVideo({
     videoRef.current?.play().catch(() => {})
   }
 
+  // "Repetir trozo": cierra la pregunta y vuelve a reproducir el tramo
+  // desde la pausa anterior (o desde el inicio). Al llegar otra vez a la
+  // pausa, la pregunta se reabre sola.
+  function repetirTrozo() {
+    const el = videoRef.current
+    modalAbiertoRef.current = false
+    setModalAbierto(false)
+    const desde = superadasRef.current > 0 ? pausas[superadasRef.current - 1].seg : 0
+    onGuardarEstado?.({ pausasSuperadas: superadasRef.current, enPausa: false })
+    if (!el) return
+    el.currentTime = desde
+    setSeg(desde)
+    el.play().catch(() => {})
+  }
+
   function entrarPantallaCompleta() {
     const el = videoRef.current as (HTMLVideoElement & { webkitEnterFullscreen?: () => void }) | null
     if (!el) return
@@ -1579,6 +1598,9 @@ function NodoVideo({
           abierto={modalAbierto}
           preguntas={PRUEBAS_CAP1[pendiente.pruebaId]}
           indices={pendiente.preguntas}
+          numero={superadas + 1}
+          total={pausas.length}
+          onRepetirTrozo={repetirTrozo}
           onFallo={(indice) => onFalloModal(`${pendiente.pruebaId}:${indice}`)}
           onAprobado={alAprobarPausa}
           onCerrar={() => {
@@ -1593,22 +1615,39 @@ function NodoVideo({
 }
 
 /**
- * Ventana modal con 1 pregunta FIJA de `preguntas` (desde 2026-09-23 no se
- * sortea: se repite la misma hasta acertarla; antes era al azar, mismo mecanismo que
- * `NodoPrueba`: nunca repite la que se acaba de fallar) — reemplaza el nodo
- * "Prueba 1"/"Prueba 2" de antes, abierta sola al terminar video1/video2
- * (rediseño 2026-09-17, ver NodoVideo arriba). Mismo patrón visual de
- * bottom-sheet que NuevaConsultaModal/ReportarPregunta.tsx. Muelín cambia de
- * cara según el estado: neutral antes de responder, contenta si acierta,
- * "de nuevo" si falla.
+ * Ventana de pregunta sobre el video en pausa (rediseño 2026-09-24, vistas
+ * responsive — ver canvas "Academia — preguntas sobre el vídeo").
+ *
+ * Capas, de atrás hacia adelante:
+ *   1. El video queda detrás, pausado, oscurecido y levemente desenfocado
+ *      (el overlay es translúcido: se ve el cuadro donde se paró).
+ *   2. La tarjeta de la pregunta encima. En móvil vertical va abajo (zona
+ *      del pulgar); en móvil horizontal se parte en 2 columnas (pregunta |
+ *      opciones) para que NUNCA quede cortada; en tablet/PC va centrada.
+ *   3. Si falla: la corrección sube POR ENCIMA de la pregunta (que queda
+ *      atenuada), con Muelín "de nuevo", tu respuesta vs la correcta, el
+ *      dato clave y los botones Repetir trozo / Reintentar.
+ *
+ * Nada interactivo toca los bordes: todo el padding sale de
+ * env(safe-area-inset-*) con un mínimo (ver .academia-pv-* en index.css),
+ * así el notch, las esquinas redondeadas y la barra de gestos no se comen
+ * nada. Si el alto no alcanza, la tarjeta scrollea por dentro.
+ *
+ * Lógica sin cambios respecto a 2026-09-23: pregunta FIJA (la primera de
+ * `indices`), si se falla se repite la MISMA hasta acertarla, no da puntos
+ * y cada fallo se guarda (onFallo). Nuevo: "Repetir trozo" (onRepetirTrozo)
+ * cierra la ventana y vuelve a reproducir el tramo desde la pausa anterior.
  */
 function ModalPruebaVideo({
   t,
   abierto,
   preguntas,
   indices,
+  numero,
+  total,
   onFallo,
   onAprobado,
+  onRepetirTrozo,
   onCerrar,
 }: {
   t: Diccionario
@@ -1616,15 +1655,16 @@ function ModalPruebaVideo({
   preguntas: PreguntaAcademia[]
   /** Índices de `preguntas` para esta pausa: sale siempre el primero (pregunta fija). Sin esto, la primera del pool. */
   indices?: number[]
+  /** Número de esta pausa (1-based) y total de pausas del video, para el aviso "Pregunta n de m". */
+  numero: number
+  total: number
   /** Se llama cada vez que se falla (índice de la pregunta dentro del pool). Estas pruebas no dan puntos, solo guardan el error. */
   onFallo: (indice: number) => void
   onAprobado: () => void
+  /** Cierra la ventana y vuelve a ver el tramo del video que lleva a esta pregunta. */
+  onRepetirTrozo: () => void
   onCerrar: () => void
 }) {
-  // Cambio 2026-09-23: la pregunta de cada pausa es FIJA (la primera de
-  // `indices`, o la primera del pool). Si se falla, se repite la MISMA
-  // pregunta hasta acertarla — no se sortea otra. No da puntos; cada fallo
-  // se guarda (onFallo).
   const qIndex = indices && indices.length > 0 ? indices[0] : 0
   const [seleccion, setSeleccion] = useState<number | null>(null)
   const [saliendo, setSaliendo] = useState(false)
@@ -1634,7 +1674,8 @@ function ModalPruebaVideo({
   const pregunta = preguntas[qIndex]
   const respondido = seleccion !== null
   const acertada = respondido && seleccion === pregunta.correcta
-  const expresionMuelin: 'neutral' | 'feliz' | 'de-nuevo' = !respondido ? 'neutral' : acertada ? 'feliz' : 'de-nuevo'
+  const fallada = respondido && !acertada
+  const letras = ['A', 'B', 'C', 'D', 'E', 'F']
 
   function elegir(oi: number) {
     if (seleccion !== null) return
@@ -1647,10 +1688,7 @@ function ModalPruebaVideo({
     setSeleccion(null)
   }
 
-  // Sale con transición (desliza hacia abajo + fade) antes de avisarle al
-  // padre — el siguiente video entra con la transición inversa gracias al
-  // remount por `key={nodoId}` en NodoVideo (mismas clases animate-in de
-  // siempre, no hace falta plumbing extra).
+  // Sale con transición antes de avisarle al padre (el video retoma solo).
   function confirmarAprobado() {
     setSaliendo(true)
     setTimeout(() => onAprobado(), 260)
@@ -1658,75 +1696,158 @@ function ModalPruebaVideo({
 
   return (
     <div
-      className={`safe-bottom fixed inset-0 z-50 flex items-end justify-center bg-black/40 p-4 duration-200 sm:items-center ${
-        saliendo ? 'animate-out fade-out' : 'animate-in fade-in'
-      }`}
+      className={`academia-pv-overlay duration-200 ${saliendo ? 'animate-out fade-out' : 'animate-in fade-in'}`}
+      role="dialog"
+      aria-modal="true"
+      aria-label={t.academia.nodoAutoevaluacion}
     >
-      <div
-        role="dialog"
-        aria-modal="true"
-        className={`card-elevated w-full max-w-sm rounded-3xl bg-card p-6 duration-300 ${
-          saliendo ? 'animate-out fade-out slide-out-to-bottom-4' : 'animate-in fade-in slide-in-from-bottom-4'
-        }`}
-      >
-        <div className="flex items-start justify-between gap-3">
-          <h3 className="text-base font-bold text-foreground">{t.academia.nodoAutoevaluacion}</h3>
-          <button
-            onClick={onCerrar}
-            aria-label={t.academia.libroCerrarSheet}
-            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-secondary text-foreground"
-          >
-            <X className="h-3.5 w-3.5" />
-          </button>
-        </div>
-
-        <div className="mt-3 flex items-start gap-3">
-          <Muelin expresion={expresionMuelin} className="h-14 w-14 shrink-0" />
-          <p className="min-w-0 flex-1 pt-1 text-[13px] font-bold leading-snug text-foreground">{pregunta.pregunta}</p>
-        </div>
-
-        <div className="mt-3 space-y-1.5">
-          {pregunta.opciones.map((op, oi) => {
-            let estilo = 'bg-secondary text-foreground/80'
-            if (respondido) {
-              if (oi === pregunta.correcta) estilo = 'bg-success/12 text-success'
-              else if (oi === seleccion) estilo = 'bg-destructive/12 text-destructive'
-              else estilo = 'bg-secondary/50 text-muted-foreground'
-            }
-            return (
-              <button
-                key={oi}
-                disabled={respondido}
-                onClick={() => elegir(oi)}
-                className={`w-full rounded-xl px-3 py-2 text-left text-xs font-medium transition ${estilo}`}
-              >
-                {op}
-              </button>
-            )
-          })}
-        </div>
-
-        {respondido && <p className="mt-2 text-[11px] leading-snug text-muted-foreground">{pregunta.feedback}</p>}
-
-        {respondido && !acertada && (
-          <div className="mt-3 rounded-2xl bg-destructive/10 p-3 text-center">
-            <p className="text-sm font-bold text-destructive">{t.academia.pruebaNoAprobadaTitulo}</p>
-            <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{t.academia.pruebaNoAprobadaTexto}</p>
-            <Button onClick={reintentar} className="mt-3 h-10 rounded-xl px-5 font-bold">
-              {t.academia.pruebaReintentar}
-            </Button>
-          </div>
-        )}
-
-        {respondido && acertada && (
-          <div className="mt-3 rounded-2xl bg-success/10 p-3 text-center">
-            <p className="text-sm font-bold text-success">{t.academia.pruebaAprobadaTitulo}</p>
-            <Button onClick={confirmarAprobado} className="mt-3 h-10 w-full rounded-xl font-bold">
-              {t.academia.nodoContinuar}
-            </Button>
-          </div>
-        )}
+      {/* Barra superior: repetir trozo · aviso de pausa · cerrar */}
+      <div className="flex shrink-0 items-center gap-2">
+        <button
+          type="button"
+          onClick={onRepetirTrozo}
+          disabled={fallada}
+          className="flex h-10 items-center gap-1.5 rounded-full bg-white/15 pl-2.5 pr-3.5 text-[13px] font-extrabold text-white backdrop-blur-sm transition active:scale-[0.97] disabled:invisible"
+        >
+          <RotateCcw className="h-4 w-4" />
+          {t.academia.videoRepetirTrozo}
+        </button>
+        <span className="flex-1" />
+        <span className="flex h-8 items-center gap-1.5 whitespace-nowrap rounded-full bg-white/15 px-3 text-xs font-extrabold text-white/90">
+          <Pause className="h-3 w-3" fill="currentColor" />
+          <span className="hidden min-[520px]:inline">{t.academia.videoEnPausa} · </span>
+          {t.academia.videoPreguntaDe(numero, total)}
+        </span>
+        <button
+          type="button"
+          onClick={onCerrar}
+          aria-label={t.academia.libroCerrarSheet}
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur-sm"
+        >
+          <X className="h-4 w-4" />
+        </button>
       </div>
+
+      {/* Capa 2: la pregunta */}
+      <div className="academia-pv-cuerpo">
+        <div
+          className={`academia-pv-tarjeta card-elevated bg-card duration-300 ${
+            saliendo ? 'animate-out fade-out slide-out-to-bottom-4' : 'animate-in fade-in slide-in-from-bottom-4'
+          } ${fallada ? 'academia-pv-atenuada' : ''}`}
+          aria-hidden={fallada}
+        >
+          <div className="academia-pv-grid">
+            <div className="flex min-w-0 flex-col gap-3">
+              <div className="flex items-start gap-3">
+                <Muelin expresion={acertada ? 'feliz' : 'neutral'} className="academia-pv-muelin h-12 w-12 shrink-0" />
+                <p className="min-w-0 flex-1 text-[15.5px] font-extrabold leading-snug text-foreground lg:text-lg">{pregunta.pregunta}</p>
+              </div>
+              {!respondido && (
+                <p className="academia-pv-pista text-xs font-bold text-muted-foreground">{t.academia.videoPista}</p>
+              )}
+            </div>
+
+            <div className="flex min-w-0 flex-col justify-center gap-2">
+              {pregunta.opciones.map((op, oi) => {
+                const esCorrecta = respondido && oi === pregunta.correcta
+                const esMia = respondido && oi === seleccion && !esCorrecta
+                const caja = esCorrecta
+                  ? 'border-success bg-success/12 text-success'
+                  : esMia
+                    ? 'border-destructive bg-destructive/12 text-destructive'
+                    : respondido
+                      ? 'border-transparent bg-secondary/50 text-muted-foreground'
+                      : 'border-border bg-secondary text-foreground hover:border-primary/60'
+                const insignia = esCorrecta
+                  ? 'bg-success text-success-foreground'
+                  : esMia
+                    ? 'bg-destructive text-destructive-foreground'
+                    : 'bg-background/70 text-muted-foreground'
+                return (
+                  <button
+                    key={oi}
+                    type="button"
+                    disabled={respondido}
+                    onClick={() => elegir(oi)}
+                    className={`flex min-h-[50px] w-full items-center gap-3 rounded-2xl border-2 px-2.5 py-2 text-left text-sm font-bold transition active:scale-[0.99] ${caja}`}
+                  >
+                    <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] text-[13px] font-black ${insignia}`}>
+                      {esCorrecta ? <Check className="h-4 w-4" strokeWidth={3} /> : esMia ? <X className="h-4 w-4" strokeWidth={3} /> : letras[oi]}
+                    </span>
+                    <span className="min-w-0 flex-1">{op}</span>
+                  </button>
+                )
+              })}
+
+              {acertada && (
+                <div className="mt-1 flex items-center gap-3 rounded-2xl bg-success/12 p-2.5 pl-3.5">
+                  <p className="flex-1 text-base font-black text-success">{t.academia.pruebaAprobadaTitulo}</p>
+                  <Button onClick={confirmarAprobado} className="h-11 rounded-xl px-5 font-extrabold">
+                    {t.academia.videoSeguir}
+                    <ArrowRight className="ml-1.5 h-4 w-4" />
+                  </Button>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Capa 3: la corrección, por encima de la pregunta */}
+      {fallada && (
+        <div className="academia-pv-capa-fallo">
+          <div className="academia-pv-fallo card-elevated animate-in fade-in slide-in-from-bottom-6 bg-card duration-300" role="alertdialog" aria-live="assertive">
+            <div className="academia-pv-grid">
+              <div className="flex min-w-0 flex-col gap-3">
+                <div className="flex items-center gap-3">
+                  <Muelin expresion="de-nuevo" className="h-16 w-16 shrink-0" />
+                  <div className="min-w-0">
+                    <p className="text-xl font-black text-destructive">{t.academia.videoFalloTitulo}</p>
+                    <p className="text-[13px] font-semibold leading-snug text-muted-foreground">{t.academia.videoFalloTexto}</p>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-1.5 text-[13.5px] font-bold">
+                  <p className="flex items-start gap-2 text-destructive">
+                    <span className="mt-px flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-destructive text-destructive-foreground">
+                      <X className="h-3 w-3" strokeWidth={3.5} />
+                    </span>
+                    <span>
+                      {t.academia.videoTuRespuesta}: {pregunta.opciones[seleccion ?? 0]}
+                    </span>
+                  </p>
+                  <p className="flex items-start gap-2 text-success">
+                    <span className="mt-px flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-success text-success-foreground">
+                      <Check className="h-3 w-3" strokeWidth={3.5} />
+                    </span>
+                    <span>
+                      {t.academia.videoCorrecta}: {pregunta.opciones[pregunta.correcta]}
+                    </span>
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex min-w-0 flex-col gap-3">
+                <div className="flex gap-2.5 rounded-2xl bg-secondary p-3">
+                  <Lightbulb className="mt-0.5 h-[18px] w-[18px] shrink-0 text-amber-500" />
+                  <p className="text-[13px] font-medium leading-relaxed text-foreground/85">
+                    <span className="font-extrabold text-foreground">{t.academia.videoDatoClave}:</span> {pregunta.feedback}
+                  </p>
+                </div>
+                <div className="mt-auto flex flex-col-reverse gap-2 min-[480px]:flex-row">
+                  <Button variant="outline" onClick={onRepetirTrozo} className="h-12 w-full rounded-2xl font-extrabold min-[480px]:w-auto min-[480px]:flex-1">
+                    <RotateCcw className="mr-1.5 h-4 w-4" />
+                    {t.academia.videoRepetirTrozo}
+                  </Button>
+                  <Button onClick={reintentar} className="h-12 w-full rounded-2xl font-extrabold min-[480px]:w-auto min-[480px]:flex-[1.4]">
+                    {t.academia.pruebaReintentar}
+                    <ArrowRight className="ml-1.5 h-4 w-4" />
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
