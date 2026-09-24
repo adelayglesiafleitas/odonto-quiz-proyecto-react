@@ -58,7 +58,7 @@ function mapPregunta(fila: any): Pregunta {
   }
 }
 
-async function traerCursoCompleto(cursoId: string): Promise<Pregunta[]> {
+async function traerCursoCompleto(cursoId: string): Promise<{ filas: Pregunta[]; completo: boolean }> {
   const filas: Pregunta[] = []
   let desde = 0
   for (;;) {
@@ -75,20 +75,24 @@ async function traerCursoCompleto(cursoId: string): Promise<Pregunta[]> {
       .range(desde, desde + TAMANO_PAGINA - 1)
     if (error) {
       console.error(`Error al cargar el banco de preguntas de "${cursoId}":`, error.message)
-      break
+      return { filas, completo: false }
     }
     const pagina = (data ?? []).map(mapPregunta)
     filas.push(...pagina)
     if (pagina.length < TAMANO_PAGINA) break
     desde += TAMANO_PAGINA
   }
-  return filas
+  return { filas, completo: true }
 }
 
 export function cargarBanco(cursoId: string): Promise<Pregunta[]> {
   if (!cargaPromises[cursoId]) {
-    cargaPromises[cursoId] = traerCursoCompleto(cursoId).then((filas) => {
+    cargaPromises[cursoId] = traerCursoCompleto(cursoId).then(({ filas, completo }) => {
       cache[cursoId] = filas
+      // Si alguna página falló (p. ej. un 401 puntual de Supabase), no se da
+      // el banco por bueno: la próxima vez que se pida, se vuelve a descargar
+      // entero en vez de quedarse con un banco a medias toda la sesión.
+      if (!completo) delete cargaPromises[cursoId]
       // Un curso real nunca debería volver vacío (RLS exige sesión iniciada,
       // y todo curso registrado en CURSOS tiene preguntas cargadas). Si pasa,
       // lo más probable es que la consulta se haya disparado antes de que la
