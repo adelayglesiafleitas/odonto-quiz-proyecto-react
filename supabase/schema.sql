@@ -344,3 +344,24 @@ create policy "Los admins actualizan cualquier perfil"
 create policy "Los admins crean cualquier perfil"
   on public.perfiles for insert
   with check (exists (select 1 from public.admins a where a.user_id = auth.uid()));
+
+-- 11) Contador de comunidad para la Home de la app (componente
+--     ContadorComunidad). Devuelve solo dos totales: usuarios registrados y
+--     usuarios distintos con al menos un simulacro en las últimas 24 h.
+--     security definer porque auth.users no es legible desde el cliente;
+--     no expone ningún dato individual.
+create or replace function public.app_contador_comunidad()
+returns table (total bigint, activos_hoy bigint)
+language sql
+stable
+security definer
+set search_path = public
+as $$
+  select
+    (select count(*) from auth.users),
+    (select count(distinct user_id) from public.historial_intentos
+      where fecha >= now() - interval '24 hours');
+$$;
+
+revoke all on function public.app_contador_comunidad() from public;
+grant execute on function public.app_contador_comunidad() to authenticated;

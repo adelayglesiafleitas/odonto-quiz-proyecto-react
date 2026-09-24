@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react'
 import { Stethoscope, Plus, ChevronRight } from 'lucide-react'
 import { useAppSettings } from '@/context/AppSettings'
 import { SettingsToggle } from '@/components/SettingsToggle'
@@ -36,11 +37,13 @@ export function ElegirAsignatura({
       </div>
 
       <div className="mt-5 space-y-3">
-        {asignaturas.map((asig) => {
+        {asignaturas.map((asig, i) => {
           const Icono = ICONO_CURSO[asig.cursoId] ?? Stethoscope
           return (
+            // El barrido va en un div aparte: si fuera en el botón, la
+            // animación (con fill "both") anularía su active:scale al tocarlo.
+            <div key={asig.id} className="anim-barrido" style={{ '--i': i } as CSSProperties}>
             <button
-              key={asig.id}
               onClick={() => onSeleccionar(asig.cursoId, asig.nombre)}
               className="card-elevated flex w-full items-center gap-4 rounded-2xl bg-card p-4 text-left transition active:scale-[0.98]"
             >
@@ -50,10 +53,14 @@ export function ElegirAsignatura({
               <span className="min-w-0 flex-1 text-[15px] font-bold text-foreground">{asig.nombre}</span>
               <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
             </button>
+            </div>
           )
         })}
 
-        <div className="flex items-center gap-4 rounded-2xl border border-dashed border-border p-4 text-muted-foreground">
+        <div
+          className="anim-barrido flex items-center gap-4 rounded-2xl border border-dashed border-border p-4 text-muted-foreground"
+          style={{ '--i': asignaturas.length } as CSSProperties}
+        >
           <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-secondary">
             <Plus className="h-5 w-5" />
           </span>

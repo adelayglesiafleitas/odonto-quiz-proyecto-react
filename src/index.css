@@ -475,6 +475,107 @@
   }
 }
 
+/* ---------------------------------------------------------------------------
+   Animaciones de la app (tanda 1, 2026-09-24): cambio de pantalla, cascadas,
+   entrada de preguntas del examen y confeti de Resultados.
+   Regla: las que envuelven pantallas enteras animan `left` (no `transform`),
+   porque un transform convertiría en relativos al contenedor los elementos
+   position: fixed de dentro (BottomNav, barras de acción, modales). Las de
+   elementos sueltos sí usan transform, pero con fill-mode `backwards`: al
+   terminar no queda ningún transform aplicado (si quedara, aunque fuera la
+   identidad, los modales `fixed` de dentro se posicionarían mal).
+   Con "reducir movimiento" del sistema la regla global de abajo las anula.
+--------------------------------------------------------------------------- */
+.pantalla-adelante,
+.pantalla-atras,
+.pantalla-fundido {
+  position: relative;
+  animation-duration: 280ms;
+  animation-timing-function: cubic-bezier(0.22, 0.8, 0.24, 1);
+  animation-fill-mode: both;
+}
+.pantalla-adelante { animation-name: pantalla-entra-derecha; }
+.pantalla-atras { animation-name: pantalla-entra-izquierda; }
+.pantalla-fundido { animation-name: pantalla-fundido; animation-duration: 220ms; }
+@keyframes pantalla-entra-derecha {
+  from { opacity: 0; left: 28px; }
+  to { opacity: 1; left: 0; }
+}
+@keyframes pantalla-entra-izquierda {
+  from { opacity: 0; left: -28px; }
+  to { opacity: 1; left: 0; }
+}
+@keyframes pantalla-fundido {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Cascada: cada elemento sube con fundido, con retraso según --i. */
+.anim-cascada {
+  animation: anim-subir 420ms cubic-bezier(0.22, 0.8, 0.24, 1) backwards;
+  animation-delay: calc(var(--i, 0) * 70ms + 80ms);
+}
+@keyframes anim-subir {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Barrido desde la derecha con rebote (lista de asignaturas). */
+.anim-barrido {
+  animation: anim-barrido 520ms cubic-bezier(0.3, 0.9, 0.3, 1) backwards;
+  animation-delay: calc(var(--i, 0) * 65ms + 60ms);
+}
+@keyframes anim-barrido {
+  0% { opacity: 0; transform: translateX(90px); }
+  70% { opacity: 1; transform: translateX(-6px); }
+  100% { opacity: 1; transform: none; }
+}
+
+/* Examen: la pregunta entra desde el lado hacia donde se avanza. */
+.anim-pregunta-adelante { animation: anim-desde-derecha 300ms cubic-bezier(0.22, 0.8, 0.24, 1) backwards; }
+.anim-pregunta-atras { animation: anim-desde-izquierda 300ms cubic-bezier(0.22, 0.8, 0.24, 1) backwards; }
+@keyframes anim-desde-derecha {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes anim-desde-izquierda {
+  from { opacity: 0; transform: translateX(-24px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* "Pop" al marcar una opción (la letra rebota). */
+.anim-pop { animation: anim-pop 320ms cubic-bezier(0.34, 1.56, 0.64, 1); }
+@keyframes anim-pop {
+  0% { transform: scale(0.7); }
+  100% { transform: none; }
+}
+
+/* Resultados: la nota aparece con un pequeño rebote. */
+.anim-nota { animation: anim-nota 600ms cubic-bezier(0.34, 1.56, 0.64, 1) backwards; animation-delay: 150ms; }
+@keyframes anim-nota {
+  from { opacity: 0; transform: scale(0.6); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Confeti (componente Confeti.tsx). */
+.confeti-pieza {
+  position: absolute;
+  top: -12px;
+  width: 7px;
+  height: 11px;
+  border-radius: 2px;
+  opacity: 0;
+  animation: confeti-caer var(--dur, 2.4s) cubic-bezier(0.25, 0.6, 0.4, 1) var(--delay, 0s) forwards;
+}
+@keyframes confeti-caer {
+  0% { opacity: 1; transform: translate3d(0, 0, 0) rotate(0deg); }
+  85% { opacity: 1; }
+  100% { opacity: 0; transform: translate3d(var(--dx, 0px), 340px, 0) rotate(var(--rot, 540deg)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .confeti-pieza { display: none; }
+}
+
 /* Respect the OS-level "reduce motion" preference: this covers vestibular
    and motion-sensitivity needs alongside the color/contrast work above. */
 @media (prefers-reduced-motion: reduce) {

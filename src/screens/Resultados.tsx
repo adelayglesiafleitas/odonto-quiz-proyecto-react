@@ -1,10 +1,12 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState, type CSSProperties } from 'react'
 import type { ConteoCapitulo, Pregunta } from '@/types'
 import type { RespuestaUsuario } from './Examen'
 import { Button } from '@/components/ui/button'
 import { Spinner } from '@/components/Spinner'
 import { BottomNav } from '@/components/BottomNav'
 import { ReportarPregunta } from '@/components/ReportarPregunta'
+import { Confeti } from '@/components/Confeti'
+import { useConteo } from '@/lib/useConteo'
 import { guardarIntentoRemoto, getHistorialRemoto, calcularPromedio } from '@/lib/historial'
 import { useAppSettings } from '@/context/AppSettings'
 import { CheckCircle2, XCircle, RotateCcw, Home as HomeIcon, ChevronDown, Clock, AlarmClockOff, Target, ChevronRight } from 'lucide-react'
@@ -123,10 +125,13 @@ export function Resultados({
   }, [])
 
   const circunferencia = 2 * Math.PI * 54
+  // La nota y el anillo suben de 0 a la nota real al entrar.
+  const porcentajeAnimado = useConteo(porcentaje, 1300, 250)
 
   return (
     <div className="app-shell bg-background pb-56">
-      <div className={`rounded-b-[32px] px-6 pb-8 pt-8 text-white ${aprobado ? 'brand-gradient' : 'bg-gradient-to-br from-[#7a1f2b] to-[#4a1018]'}`}>
+      <div className={`relative overflow-hidden rounded-b-[32px] px-6 pb-8 pt-8 text-white ${aprobado ? 'brand-gradient' : 'bg-gradient-to-br from-[#7a1f2b] to-[#4a1018]'}`}>
+        {aprobado && <Confeti />}
         <p className="text-center text-xs font-bold uppercase tracking-widest text-white/60">
           {aprobado ? t.resultados.aprobado : t.resultados.noAprobado}
         </p>
@@ -146,22 +151,21 @@ export function Resultados({
               strokeWidth="10"
               strokeLinecap="round"
               strokeDasharray={circunferencia}
-              strokeDashoffset={circunferencia - (porcentaje / 100) * circunferencia}
-              style={{ transition: 'stroke-dashoffset 1s ease-out' }}
+              strokeDashoffset={circunferencia - (porcentajeAnimado / 100) * circunferencia}
             />
           </svg>
-          <div className="absolute flex flex-col items-center">
-            <span className="text-3xl font-extrabold">{porcentaje}%</span>
+          <div className="anim-nota absolute flex flex-col items-center">
+            <span className="text-3xl font-extrabold tabular-nums">{Math.round(porcentajeAnimado)}%</span>
             <span className="text-[10px] font-medium text-white/60">{correctas}/{preguntas.length} {t.resultados.correctasSufijo}</span>
           </div>
         </div>
 
         <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <div className="rounded-2xl bg-white/10 px-4 py-2.5 text-center">
+          <div className="anim-cascada rounded-2xl bg-white/10 px-4 py-2.5 text-center" style={{ '--i': 6 } as CSSProperties}>
             <p className="text-sm font-extrabold">{umbralAprobado}%</p>
             <p className="text-[10px] text-white/60">{t.resultados.minimoAprobatorio}</p>
           </div>
-          <div className="rounded-2xl bg-white/10 px-4 py-2.5 text-center">
+          <div className="anim-cascada rounded-2xl bg-white/10 px-4 py-2.5 text-center" style={{ '--i': 7 } as CSSProperties}>
             {cargandoPromedio ? (
               <Spinner className="mx-auto h-4 w-4 text-white/70" />
             ) : (
@@ -169,7 +173,7 @@ export function Resultados({
             )}
             <p className="mt-0.5 text-[10px] text-white/60">{t.resultados.tuPromedio}</p>
           </div>
-          <div className="rounded-2xl bg-white/10 px-4 py-2.5 text-center">
+          <div className="anim-cascada rounded-2xl bg-white/10 px-4 py-2.5 text-center" style={{ '--i': 8 } as CSSProperties}>
             <p className="flex items-center justify-center gap-1 text-sm font-extrabold">
               <Clock className="h-3.5 w-3.5" />
               {formatearTiempo(tiempoUsadoSeg)}
@@ -189,7 +193,7 @@ export function Resultados({
       </div>
 
       {preguntasFalladas.length > 0 && (
-        <div className="mt-6 px-6">
+        <div className="anim-cascada mt-6 px-6" style={{ '--i': 9 } as CSSProperties}>
           <button
             onClick={() => onRepasarFallos(preguntasFalladas)}
             className="card-elevated flex w-full items-center gap-3 rounded-2xl bg-card p-4 text-left transition active:scale-[0.98]"

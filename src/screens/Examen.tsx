@@ -33,6 +33,8 @@ export function Examen({
   const [indice, setIndice] = useState(0)
   const [respuestas, setRespuestas] = useState<RespuestaUsuario>({})
   const [confirmarSalir, setConfirmarSalir] = useState(false)
+  // Hacia dónde se movió la última vez (para que la pregunta entre por ese lado).
+  const [direccion, setDireccion] = useState<'adelante' | 'atras'>('adelante')
   const [tiempoRestante, setTiempoRestante] = useState((tiempoLimiteMinutos ?? 0) * 60)
   const inicioRef = useRef(Date.now())
   const respuestasRef = useRef<RespuestaUsuario>({})
@@ -87,12 +89,17 @@ export function Examen({
   }
 
   function siguiente() {
-    if (indice < preguntas.length - 1) setIndice((i) => i + 1)
-    else finalizarUnaVez(false)
+    if (indice < preguntas.length - 1) {
+      setDireccion('adelante')
+      setIndice((i) => i + 1)
+    } else finalizarUnaVez(false)
   }
 
   function anterior() {
-    if (indice > 0) setIndice((i) => i - 1)
+    if (indice > 0) {
+      setDireccion('atras')
+      setIndice((i) => i - 1)
+    }
   }
 
   return (
@@ -130,10 +137,14 @@ export function Examen({
             <span className="w-8" />
           )}
         </div>
-        <Progress value={progreso} className="mt-3 h-1.5" />
+        <Progress value={progreso} className="mt-3 h-1.5 [&>div]:duration-500 [&>div]:ease-out" />
       </div>
 
       <div className="flex-1 overflow-y-auto px-5 py-6 pb-64">
+        <div
+          key={indice}
+          className={direccion === 'adelante' ? 'anim-pregunta-adelante' : 'anim-pregunta-atras'}
+        >
         {pregunta.caso && (
           <div className="card-elevated mb-3 rounded-2xl bg-secondary/60 p-4">
             <p className="text-[10px] font-bold uppercase tracking-wide text-muted-foreground">
@@ -174,6 +185,8 @@ export function Examen({
                     código de color que antes usaban los íconos de radio. */}
                 <span
                   className={`mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center border-2 text-xs font-extrabold transition-colors ${
+                    activa ? 'anim-pop' : ''
+                  } ${
                     esMultiple ? 'rounded-lg' : 'rounded-full'
                   } ${
                     activa
@@ -188,6 +201,7 @@ export function Examen({
             )
           })}
         </div>
+        </div>
       </div>
 
       <div className="safe-bottom fixed inset-x-0 bottom-0 border-t border-border bg-background/95 p-4 backdrop-blur">
@@ -199,7 +213,10 @@ export function Examen({
               return (
                 <button
                   key={p.numero}
-                  onClick={() => setIndice(i)}
+                  onClick={() => {
+                    setDireccion(i < indice ? 'atras' : 'adelante')
+                    setIndice(i)
+                  }}
                   aria-label={t.examen.preguntaContador(i + 1, preguntas.length)}
                   aria-current={actual}
                   className={`flex aspect-square w-full items-center justify-center rounded-md border text-[10px] transition ${

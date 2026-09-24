@@ -1,5 +1,5 @@
-import { lazy, Suspense, useEffect, useState, type ReactNode } from 'react'
-import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom'
+import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from 'react'
+import { Routes, Route, Navigate, useNavigate, useLocation, useNavigationType } from 'react-router-dom'
 import type { Session } from '@supabase/supabase-js'
 import type { Pantalla, Pregunta, IntentoExamen } from '@/types'
 import { cargarBanco, seleccionarPreguntas, obtenerPreguntasPorNumero } from '@/lib/data'
@@ -59,6 +59,10 @@ interface ResultadoExamen {
 // mientras Supabase resuelve en segundo plano), alguien con la sesión
 // guardada que entra directo a una URL como /home vería un rebote falso a
 // login antes de terminar de cargar.
+
+// Pestañas de la barra inferior: entre ellas la transición es solo fundido.
+const RUTAS_PESTANA = new Set<string>([RUTA.home, RUTA.academia, RUTA.comunidad, RUTA.config])
+
 function Protegida({
   sesionLista,
   autenticado,
@@ -76,6 +80,26 @@ function Protegida({
 function App() {
   const navigate = useNavigate()
   const location = useLocation()
+  // Transición entre pantallas (ver index.css, "Animaciones de la app"):
+  // hacia delante entra desde la derecha, al volver atrás desde la izquierda,
+  // y entre pestañas de la barra de abajo solo fundido (son del mismo nivel).
+  // La clase se calcula solo cuando cambia la ruta (y se guarda), para que
+  // un re-render cualquiera no cambie la animación y la reinicie.
+  const tipoNavegacion = useNavigationType()
+  const transicionRef = useRef({ ruta: location.pathname, clase: 'pantalla-fundido' })
+  if (transicionRef.current.ruta !== location.pathname) {
+    const anterior = transicionRef.current.ruta
+    transicionRef.current = {
+      ruta: location.pathname,
+      clase:
+        RUTAS_PESTANA.has(anterior) && RUTAS_PESTANA.has(location.pathname)
+          ? 'pantalla-fundido'
+          : tipoNavegacion === 'POP'
+            ? 'pantalla-atras'
+            : 'pantalla-adelante',
+    }
+  }
+  const claseTransicion = transicionRef.current.clase
   const [session, setSession] = useState<Session | null>(null)
   const [sesionLista, setSesionLista] = useState(false)
   const [tiempoMinimoListo, setTiempoMinimoListo] = useState(false)
@@ -265,9 +289,11 @@ function App() {
   // que solo esa ruta se libera del ancho de móvil a partir de lg (1024 px).
   const anchoRuta = location.pathname === RUTA.comunidad ? 'lg:max-w-6xl' : ''
 
+
   return (
-    <div className={`mx-auto min-h-screen w-full max-w-md bg-background font-sans ${anchoRuta}`}>
+    <div className={`mx-auto min-h-screen w-full max-w-md overflow-x-clip bg-background font-sans ${anchoRuta}`}>
       <Suspense fallback={<LoadingScreen />}>
+        <div key={location.pathname} className={claseTransicion}>
         <Routes>
           <Route path={RUTA.splash} element={<LoadingScreen />} />
 
@@ -485,6 +511,7 @@ function App() {
 
           <Route path="*" element={<Navigate to={RUTA.splash} replace />} />
         </Routes>
+        </div>
       </Suspense>
     </div>
   )

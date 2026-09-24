@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type CSSProperties } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { LogoMark } from '@/components/Logo'
 import { Spinner } from '@/components/Spinner'
@@ -13,6 +13,8 @@ import TourBienvenida from '@/components/TourBienvenida'
 import { getVioTourBienvenida, marcarTourBienvenidaVisto } from '@/lib/tourBienvenidaRemoto'
 import { getMensajesPendientes, descartarMensaje, type MensajeAdmin } from '@/lib/mensajesAdminRemoto'
 import { MensajeAdminBanner } from '@/components/MensajeAdminBanner'
+import { ContadorComunidad } from '@/components/ContadorComunidad'
+import { useConteo } from '@/lib/useConteo'
 import { listarMisTickets, suscribirseAMisTickets, type Ticket } from '@/lib/tickets'
 import { RUTA_SOPORTE, rutaSoporteDetalle } from '@/lib/rutas'
 import { ICONO_BIENVENIDA, ICONO_CTA } from '@/lib/temaIconos'
@@ -69,6 +71,8 @@ export function Home({
   // aparecer si se vuelve a entrar a Home, hasta que se abra el hilo.
   const [ticketsSinLeer, setTicketsSinLeer] = useState<Ticket[]>([])
   const [avisoTicketCerrado, setAvisoTicketCerrado] = useState(false)
+  // Anillo y % de progreso: suben de 0 al valor real al cargar.
+  const promedioAnimado = useConteo(cargandoStats ? 0 : promedio, 1100, 150)
   const IconoBienvenida = ICONO_BIENVENIDA[estilo]
   const IconoCta = ICONO_CTA[estilo]
 
@@ -195,25 +199,24 @@ export function Home({
                       strokeWidth="7"
                       strokeLinecap="round"
                       strokeDasharray={PROMEDIO_CIRCUNFERENCIA}
-                      strokeDashoffset={PROMEDIO_CIRCUNFERENCIA - (promedio / 100) * PROMEDIO_CIRCUNFERENCIA}
-                      style={{ transition: 'stroke-dashoffset 1s ease-out' }}
+                      strokeDashoffset={PROMEDIO_CIRCUNFERENCIA - (promedioAnimado / 100) * PROMEDIO_CIRCUNFERENCIA}
                     />
                   </svg>
-                  <span className="absolute text-lg font-extrabold">{promedio}%</span>
+                  <span className="absolute text-lg font-extrabold tabular-nums">{Math.round(promedioAnimado)}%</span>
                 </div>
                 <p className="max-w-[6.5rem] text-[11px] leading-snug text-white/60">{t.home.promedioSufijo(intentos)}</p>
               </div>
               <div className="flex flex-col items-end gap-1.5 text-right">
-                <div className="flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1">
+                <div className="anim-cascada flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1" style={{ '--i': 1 } as CSSProperties}>
                   <Trophy className="h-3.5 w-3.5 text-[#ffd166]" />
                   <span className="text-xs font-semibold">{mejor}% {t.home.mejorPuntaje}</span>
                 </div>
-                <div className="flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1">
+                <div className="anim-cascada flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1" style={{ '--i': 2 } as CSSProperties}>
                   <TrendingUp className="h-3.5 w-3.5 text-[#1fc6c6]" />
                   <span className="text-xs font-semibold">{t.home.meta(cursoMeta.porcentajeAprobado)}</span>
                 </div>
                 {racha > 0 && (
-                  <div className="flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1">
+                  <div className="anim-cascada flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1" style={{ '--i': 3 } as CSSProperties}>
                     <Flame className="h-3.5 w-3.5 text-[#ff8a5b]" />
                     <span className="text-xs font-semibold">{t.home.racha(racha)}</span>
                   </div>
@@ -231,6 +234,8 @@ export function Home({
             <ChevronRight className="h-3.5 w-3.5" />
           </button>
         </div>
+
+        <ContadorComunidad idioma={idioma} />
       </div>
 
       {(primeraVisita && !bienvenidaPrimeraVisitaCerrada) ||
@@ -317,7 +322,7 @@ export function Home({
         </div>
       ) : null}
 
-      <div className="mt-6 px-6">
+      <div className="anim-cascada mt-6 px-6" style={{ '--i': 3 } as CSSProperties}>
         <button
           type="button"
           onClick={() => onNavigate('asignaturas')}
@@ -369,7 +374,7 @@ export function Home({
         </button>
       </div>
 
-      <div className="mt-4 px-6">
+      <div className="anim-cascada mt-4 px-6" style={{ '--i': 4 } as CSSProperties}>
         <div className="card-elevated relative min-h-[132px] rounded-2xl bg-card">
           <div
             className={`absolute inset-0 flex flex-col justify-center overflow-hidden rounded-2xl border p-4 ${
