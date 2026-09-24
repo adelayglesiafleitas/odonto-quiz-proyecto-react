@@ -82,6 +82,8 @@ export function progresoInicialAcademia(): ProgresoCap1 {
   return {
     intro: { estado: 'disponible' },
     video: { estado: 'bloqueado' },
+    videoAnestesia: { estado: 'bloqueado' },
+    pruebaAnestesia: { estado: 'bloqueado' },
     pruebaFinal: { estado: 'bloqueado' },
   }
 }
@@ -106,6 +108,15 @@ export function normalizarProgresoAcademia(progreso: ProgresoCap1): ProgresoCap1
     } else if (p.video.estado === 'bloqueado' && p.intro.estado === 'completado') {
       p.video = { ...p.video, estado: 'disponible' }
     }
+  }
+  // 2026-09-24: Tema 2 (videoAnestesia → pruebaAnestesia) se agregó entre el
+  // video y la prueba final. A quien ya había terminado el video se le abre
+  // el Tema 2 (su prueba final, disponible o completada, queda como estaba).
+  if (p.video.estado === 'completado' && p.videoAnestesia.estado === 'bloqueado') {
+    p.videoAnestesia = { ...p.videoAnestesia, estado: 'disponible' }
+  }
+  if (p.videoAnestesia.estado === 'completado' && p.pruebaAnestesia.estado === 'bloqueado') {
+    p.pruebaAnestesia = { ...p.pruebaAnestesia, estado: 'disponible' }
   }
   return p
 }

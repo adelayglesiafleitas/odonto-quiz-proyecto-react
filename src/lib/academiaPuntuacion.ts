@@ -40,12 +40,12 @@ export interface PreguntaPuntuable {
 }
 
 /** Preguntas que puntúan: las de la prueba final de la lección (las de los videos no). */
-export const PREGUNTAS_PUNTUABLES_CAP1: PreguntaPuntuable[] = NODOS_CAP1.filter((n) => n.tipo === 'prueba').flatMap((n) =>
+export const PREGUNTAS_PUNTUABLES_CAP1: PreguntaPuntuable[] = NODOS_CAP1.filter((n) => n.tipo === 'prueba' && n.esFinal).flatMap((n) =>
   Array.from({ length: PREGUNTAS_PRUEBA_FINAL_CAP1 }, (_, indice) => ({ nodoId: n.id, indice, titulo: n.titulo })),
 )
 
 /** Nodos con preguntas que puntúan (solo la prueba final). Se conserva por compatibilidad. */
-export const NODOS_PREGUNTA_CAP1 = NODOS_CAP1.filter((n) => n.tipo === 'prueba')
+export const NODOS_PREGUNTA_CAP1 = NODOS_CAP1.filter((n) => n.tipo === 'prueba' && n.esFinal)
 
 export const PUNTOS_LECCION_CAP1 = PUNTOS_POR_CAPITULO / TEMAS_TOTAL_CAP1
 export const PUNTOS_PREGUNTA_CAP1 = PUNTOS_LECCION_CAP1 / Math.max(1, PREGUNTAS_PUNTUABLES_CAP1.length)

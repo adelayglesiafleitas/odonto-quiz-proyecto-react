@@ -237,7 +237,7 @@ export const INTRO_CAP1 = {
  * la izquierda): Introducción 0:00 · Parálisis cerebral 1:30 · Epilepsia
  * 4:18 · Distrofias musculares 7:51 · Síntesis 10:01.
  */
-export type VideoId = 'v1'
+export type VideoId = 'v1' | 'v2'
 
 export interface PausaVideo {
   /** Segundo del video en el que se para (justo antes de que cambie de tramo). */
@@ -298,6 +298,19 @@ export const VIDEOS_CAP1: VideoAcademia[] = [
       { desde: 601.5, titulo: 'Síntesis', temaId: 'dm' },
     ],
   },
+  // 2026-09-24 — Tema 2: Técnicas anestésicas en parálisis cerebral
+  // (`cap01-tema02.mp4`, 1:57, 1080p, comprimido igual que el tema 1). Es
+  // corto: sin pausas; el cuestionario va entero al final, como nodo propio
+  // (`pruebaAnestesia` en NODOS_CAP1, pool `PRUEBAS_CAP1.anestesiaPc`).
+  {
+    id: 'v2',
+    temaId: 'pc',
+    titulo: 'Tema 2 · Técnicas anestésicas',
+    src: '/academia/pacientes-especiales/cap-1/cap01-tema02.mp4',
+    duracionSeg: 117,
+    pausas: [],
+    secciones: [{ desde: 0, titulo: 'Técnicas anestésicas', temaId: 'pc' }],
+  },
 ]
 
 /**
@@ -312,9 +325,71 @@ export const VIDEOS_CAP1: VideoAcademia[] = [
  * Epilepsia y Comorbilidades Sistémicas", preguntas 6 a 10), se mantiene
  * fiel a la fuente.
  */
-export type PruebaId = 'prueba1' | 'prueba2' | 'pruebaFinal'
+export type PruebaId = 'prueba1' | 'prueba2' | 'pruebaFinal' | 'anestesiaPc'
 
 export const PRUEBAS_CAP1: Record<PruebaId, PreguntaAcademia[]> = {
+  // 2026-09-24 — Cuestionario "Técnicas Anestésicas en Pacientes con Parálisis
+  // Cerebral" (docx del usuario): 5 preguntas, 4 opciones, la justificación
+  // clínica de la clave va como feedback. Se responde al final del video del
+  // Tema 2; no puntúa (hay que acertar cada una para avanzar, los fallos se
+  // guardan), igual que las preguntas de las pausas.
+  anestesiaPc: [
+    {
+      pregunta: '¿Cuál es la principal limitación para la aplicación práctica de la anestesia local en pacientes con parálisis cerebral?',
+      opciones: [
+        'La existencia de contraindicaciones farmacológicas absolutas para los anestésicos locales.',
+        'La presencia de movimientos incontrolables en el paciente durante el procedimiento.',
+        'El riesgo elevado de desencadenar cuadros de hipertermia maligna.',
+        'La imposibilidad estricta de combinarla con otras técnicas de sedación.',
+      ],
+      correcta: 1,
+      feedback: 'No existen contraindicaciones clínicas absolutas para el uso de anestesia local en pacientes con parálisis cerebral, pero su aplicación práctica está limitada por los movimientos incontrolables del paciente.',
+    },
+    {
+      pregunta: '¿Para qué indicaciones clínicas está señalada principalmente la sedación consciente en odontología?',
+      opciones: [
+        'Control de la ansiedad, las náuseas y la distonía lingual.',
+        'Tratamientos quirúrgicos complejos en los cuatro cuadrantes.',
+        'Casos con estenosis grave de la vía aérea superior preexistente.',
+        'Exclusivamente para procedimientos de exodoncia múltiple bajo anestesia profunda.',
+      ],
+      correcta: 0,
+      feedback: 'La sedación consciente (oral con hidroxicina/benzodiazepinas o inhalatoria con óxido nitroso) está indicada para controlar la ansiedad, el reflejo de náusea y la distonía lingual.',
+    },
+    {
+      pregunta: '¿Por qué razón es indispensable realizar una consulta médica previa antes de administrar sedación consciente?',
+      opciones: [
+        'Por la presencia de alergias conocidas a los anestésicos locales habituales.',
+        'Por el riesgo de hipotermia grave durante la intervención.',
+        'Por el uso preexistente de neurolépticos y las dificultades respiratorias del paciente.',
+        'Para evaluar obligatoriamente la necesidad de intubación endotraqueal.',
+      ],
+      correcta: 2,
+      feedback: 'Se requiere consulta médica previa debido a la administración de neurolépticos y a las posibles dificultades respiratorias que pueda presentar el paciente con parálisis cerebral.',
+    },
+    {
+      pregunta: '¿Qué riesgo crítico requiere especial consideración y seguimiento durante y después de aplicar sedación intravenosa?',
+      opciones: [
+        'Reflujo gastroesofágico agudo posoperatorio.',
+        'Estenosis de la vía aérea superior.',
+        'Hipotermia severa perioperatoria.',
+        'Necrosis localizada de la mucosa lingual.',
+      ],
+      correcta: 1,
+      feedback: 'La sedación intravenosa, indicada ante movimientos incontrolables y falta de colaboración, exige atención especial durante y después del procedimiento debido al riesgo de estenosis de la vía aérea superior.',
+    },
+    {
+      pregunta: '¿En cuál de los siguientes escenarios está indicada la anestesia general?',
+      opciones: [
+        'En limpiezas dentales rutinarias en pacientes colaboradores.',
+        'En tratamientos dentales complejos (como rehabilitación protésica) o extensos (afectación de los cuatro cuadrantes).',
+        'Siempre que se aplique óxido nitroso por vía inhalatoria.',
+        'Únicamente cuando haya fracasado la anestesia local en un solo diente.',
+      ],
+      correcta: 1,
+      feedback: 'La anestesia general está indicada ante movimientos incontrolables, falta de colaboración, o tratamientos complejos (rehabilitación protésica) y extensos (cuatro cuadrantes), vigilando riesgos como aspiración, hipotermia y reflujo.',
+    },
+  ],
   prueba1: [
     {
       pregunta:
@@ -491,6 +566,9 @@ export interface NodoRuta {
 export const NODOS_CAP1: NodoRuta[] = [
   { id: 'intro', tipo: 'intro', titulo: 'Introducción' },
   { id: 'video', tipo: 'video', titulo: 'Video del tema', temaId: 'pc', videoId: 'v1' },
+  // 2026-09-24 — Tema 2 (video corto) + su cuestionario de 5 al final.
+  { id: 'videoAnestesia', tipo: 'video', titulo: 'Técnicas anestésicas', temaId: 'pc', videoId: 'v2' },
+  { id: 'pruebaAnestesia', tipo: 'prueba', titulo: 'Cuestionario de anestesia', temaId: 'pc', pruebaId: 'anestesiaPc' },
   { id: 'pruebaFinal', tipo: 'prueba', titulo: 'Prueba final', pruebaId: 'pruebaFinal', esFinal: true },
 ]
 

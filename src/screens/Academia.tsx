@@ -1163,8 +1163,14 @@ function NodoPrueba({
   marcaPrevia,
   onFallo,
   onContinuar,
+  titulo,
+  onSalir,
 }: {
   t: Diccionario
+  /** Nombre del nodo ("Prueba final", "Cuestionario de anestesia"), para el aviso de arriba. */
+  titulo: string
+  /** Cerrar con la X: vuelve a la ruta sin completar. */
+  onSalir: () => void
   preguntas: PreguntaAcademia[]
   soloLectura: boolean
   esUltima: boolean
@@ -1187,10 +1193,13 @@ function NodoPrueba({
   const [qIndex, setQIndex] = useState(0)
   const [seleccion, setSeleccion] = useState<number | null>(null)
   const [intentosPorPregunta, setIntentosPorPregunta] = useState<number[]>(() => preguntas.map(() => 0))
+  const [saliendo, setSaliendo] = useState(false)
 
   // Voz: "Vamos a realizar una última prueba" al mostrar la entrada de la prueba final.
   useEffect(() => {
     if (!comenzada) reproducirVoz('pruebaFinal')
+    // Cuestionario de un tema (no final, 2026-09-24): misma voz que las pausas.
+    else if (!esFinal && !soloLectura) reproducirVoz('pruebaIntermedia')
     // eslint-disable-next-line react-hooks/exhaustive-deps -- solo al montar la tarjeta de entrada
   }, [])
 
@@ -1207,124 +1216,106 @@ function NodoPrueba({
     )
   }
 
+  // Ya completada (sin repetir): solo el aviso y volver.
+  if (soloLectura) {
+    return (
+      <>
+        <TarjetaContenido titulo={titulo}>
+          <p className="text-sm leading-relaxed text-foreground/85">{t.academia.pruebaYaCompletadaTexto}</p>
+        </TarjetaContenido>
+        <BotonContinuar texto={t.academia.nodoYaCompletado} onClick={() => onContinuar(intentosPorPregunta)} />
+      </>
+    )
+  }
+
   const pregunta = preguntas[qIndex]
   const hayMasPreguntas = qIndex < preguntas.length - 1
-  const respondido = seleccion !== null
-  const acertada = respondido && seleccion === pregunta.correcta
-  const puedeContinuar = soloLectura || (acertada && !hayMasPreguntas)
   const intentosActual = intentosPorPregunta[qIndex]
+  const fallada = seleccion !== null && seleccion !== pregunta.correcta
 
   function elegir(oi: number) {
     if (seleccion !== null) return
     setSeleccion(oi)
     setIntentosPorPregunta((arr) => arr.map((n, i) => (i === qIndex ? n + 1 : n)))
-    if (oi !== pregunta.correcta) onFallo(qIndex)
-    // Voz: al acertar la última pregunta de la prueba final, cierre de la lección.
-    else if (esFinal && !soloLectura && qIndex === preguntas.length - 1) reproducirVoz('leccionConcluida')
+    if (oi !== pregunta.correcta) {
+      onFallo(qIndex)
+      if (!esFinal) reproducirVoz('falloReintentar')
+    }
+    // Voz: al acertar la última pregunta de la prueba final, cierre de la
+    // lección; en un cuestionario de tema, "vamos a seguir con la lección".
+    else if (qIndex === preguntas.length - 1) reproducirVoz(esFinal ? 'leccionConcluida' : 'aciertoSeguir')
   }
 
   // La pregunta fallada se queda: mismo enunciado, nueva oportunidad.
   function reintentar() {
+    detenerVoz()
     setSeleccion(null)
   }
 
   function siguientePregunta() {
+    detenerVoz()
     setQIndex((i) => i + 1)
     setSeleccion(null)
   }
 
+  // Última pregunta acertada: espera a que termine la frase y sale con
+  // transición antes de seguir (el padre guarda la marca / avanza).
+  function terminar() {
+    if (saliendo) return
+    esperarFinVoz().then(() => {
+      setSaliendo(true)
+      setTimeout(() => onContinuar(intentosPorPregunta), 260)
+    })
+  }
+
+  const tituloAcierto = !hayMasPreguntas && esFinal && esUltima ? t.academia.capituloCompletadoTitulo : t.academia.pruebaAprobadaTitulo
+  const textoSeguir = hayMasPreguntas
+    ? t.academia.nodoContinuar
+    : etiquetaSiguiente
+      ? t.academia.continuarA(etiquetaSiguiente)
+      : t.academia.capituloCompletadoBoton
+
   return (
-    <>
-      <TarjetaContenido titulo={t.academia.nodoAutoevaluacion}>
-        {soloLectura ? (
-          <p className="text-sm leading-relaxed text-foreground/85">{t.academia.pruebaYaCompletadaTexto}</p>
-        ) : (
-          <>
-            {preguntas.length > 1 && (
-              <p className="mb-1 text-[11px] font-bold uppercase tracking-wide text-muted-foreground">
-                {t.academia.puntPreguntaN(qIndex + 1)} / {preguntas.length}
-              </p>
-            )}
-            <p className="text-[13px] font-bold leading-snug text-foreground">{pregunta.pregunta}</p>
-            <div className="mt-2.5 space-y-1.5">
-              {pregunta.opciones.map((op, oi) => {
-                let estilo = 'bg-secondary text-foreground/80'
-                if (respondido) {
-                  if (oi === pregunta.correcta) estilo = 'bg-success/12 text-success'
-                  else if (oi === seleccion) estilo = 'bg-destructive/12 text-destructive'
-                  else estilo = 'bg-secondary/50 text-muted-foreground'
-                }
-                return (
-                  <button
-                    key={oi}
-                    disabled={respondido}
-                    onClick={() => elegir(oi)}
-                    className={`w-full rounded-xl px-3 py-2 text-left text-xs font-medium transition ${estilo}`}
-                  >
-                    {op}
-                  </button>
-                )
-              })}
-            </div>
-            {respondido && <p className="mt-2 text-[11px] leading-snug text-muted-foreground">{pregunta.feedback}</p>}
-          </>
-        )}
-      </TarjetaContenido>
-
-      {!soloLectura && respondido && !acertada && (
-        <div className="card-elevated rounded-2xl bg-destructive/10 p-4 text-center">
-          <p className="text-sm font-bold text-destructive">{t.academia.pruebaNoAprobadaTitulo}</p>
-          <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{t.academia.pruebaNoAprobadaTexto}</p>
-          {marcaPrevia === undefined && (
-            <p className="mt-1 text-[11px] font-semibold leading-snug text-destructive">{t.academia.puntAvisoFallo}</p>
+    <CapasPregunta
+      key={qIndex}
+      t={t}
+      pregunta={pregunta}
+      seleccion={seleccion}
+      onElegir={elegir}
+      etiqueta={titulo}
+      etiquetaCorta={t.academia.videoPreguntaDe(qIndex + 1, preguntas.length)}
+      iconoEtiqueta={<ListChecks className="h-3.5 w-3.5 shrink-0" />}
+      saliendo={saliendo}
+      onCerrar={() => {
+        detenerVoz()
+        onSalir()
+      }}
+      panelAcierto={
+        <div className="mt-1 flex flex-col gap-2 rounded-2xl bg-success/12 p-3">
+          <p className="text-center text-base font-black text-success">{tituloAcierto}</p>
+          {!hayMasPreguntas && esFinal && esUltima && (
+            <p className="text-center text-xs leading-relaxed text-muted-foreground">{t.academia.capituloCompletadoTexto}</p>
           )}
-          <Button onClick={reintentar} className="mt-3 h-10 rounded-xl px-5 font-bold">
-            {t.academia.pruebaReintentar}
+          {/* Solo la prueba final puntúa: estrellas y puntos de esta pregunta. */}
+          {esFinal && <ResultadoPuntos t={t} intentos={intentosActual} marcaPrevia={marcaPrevia?.[qIndex]} />}
+          <Button onClick={hayMasPreguntas ? siguientePregunta : terminar} disabled={saliendo} className="h-11 w-full rounded-xl font-extrabold">
+            {textoSeguir}
+            <ArrowRight className="ml-1.5 h-4 w-4" />
           </Button>
         </div>
-      )}
-
-      {!soloLectura && acertada && hayMasPreguntas && (
-        <div className="card-elevated rounded-2xl bg-success/10 p-4 text-center">
-          <p className="text-sm font-bold text-success">{t.academia.pruebaAprobadaTitulo}</p>
-          <ResultadoPuntos t={t} intentos={intentosActual} marcaPrevia={marcaPrevia?.[qIndex]} />
-          <Button onClick={siguientePregunta} className="mt-3 h-10 w-full rounded-xl font-bold">
-            {t.academia.nodoContinuar}
-          </Button>
-        </div>
-      )}
-
-      {!soloLectura && acertada && !hayMasPreguntas && !esUltima && (
-        <div className="card-elevated rounded-2xl bg-success/10 p-4 text-center">
-          <p className="text-sm font-bold text-success">{t.academia.pruebaAprobadaTitulo}</p>
-          <ResultadoPuntos t={t} intentos={intentosActual} marcaPrevia={marcaPrevia?.[qIndex]} />
-        </div>
-      )}
-
-      {!soloLectura && acertada && !hayMasPreguntas && esUltima && (
-        <div className="card-elevated rounded-2xl bg-success/10 p-4 text-center">
-          <p className="text-sm font-bold text-success">{t.academia.capituloCompletadoTitulo}</p>
-          <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{t.academia.capituloCompletadoTexto}</p>
-          <ResultadoPuntos t={t} intentos={intentosActual} marcaPrevia={marcaPrevia?.[qIndex]} />
-        </div>
-      )}
-
-      {(soloLectura || !hayMasPreguntas) && (
-        <BotonContinuar
-          disabled={!puedeContinuar}
-          texto={
-            soloLectura
-              ? t.academia.nodoYaCompletado
-              : acertada
-                ? etiquetaSiguiente
-                  ? t.academia.continuarA(etiquetaSiguiente)
-                  : t.academia.capituloCompletadoBoton
-                : t.academia.pruebaNecesitas
-          }
-          onClick={() => onContinuar(intentosPorPregunta)}
-        />
-      )}
-    </>
+      }
+      avisoFallo={
+        esFinal && fallada && marcaPrevia === undefined ? (
+          <p className="text-xs font-semibold leading-snug text-destructive">{t.academia.puntAvisoFallo}</p>
+        ) : undefined
+      }
+      accionesFallo={
+        <Button onClick={reintentar} className="h-12 w-full rounded-2xl font-extrabold">
+          {t.academia.pruebaReintentar}
+          <ArrowRight className="ml-1.5 h-4 w-4" />
+        </Button>
+      }
+    />
   )
 }
 
@@ -1690,6 +1681,201 @@ function NodoVideo({
 }
 
 /**
+ * Pregunta "por capas" (rediseño 2026-09-24) — un solo diseño para las
+ * pausas del video (`ModalPruebaVideo`), los cuestionarios de tema y la
+ * prueba final (`NodoPrueba`):
+ *   1. lo de atrás (video pausado o la pantalla del nodo) queda oscurecido;
+ *   2. la tarjeta de la pregunta encima — abajo en móvil vertical, en 2
+ *      columnas (pregunta | opciones) en móvil horizontal, centrada en
+ *      tablet/PC, y scrollea por dentro si no entra: nunca se corta;
+ *   3. si se falla, la corrección sube por encima (pregunta atenuada) con
+ *      Muelín "de nuevo", tu respuesta vs la correcta y el dato clave.
+ * Todo respeta la zona segura (env(safe-area-inset-*), ver .academia-pv-*
+ * en index.css). Solo dibuja: el estado (selección, intentos, puntos) lo
+ * lleva quien la usa.
+ */
+function CapasPregunta({
+  t,
+  pregunta,
+  seleccion,
+  onElegir,
+  etiqueta,
+  etiquetaCorta,
+  iconoEtiqueta,
+  accionIzquierda,
+  pista,
+  saliendo = false,
+  onCerrar,
+  panelAcierto,
+  accionesFallo,
+  avisoFallo,
+}: {
+  t: Diccionario
+  pregunta: PreguntaAcademia
+  seleccion: number | null
+  onElegir: (oi: number) => void
+  /** Parte larga del aviso de arriba (se oculta en pantallas angostas), ej. "Vídeo en pausa". */
+  etiqueta: string
+  /** Parte corta, siempre visible, ej. "Pregunta 1 de 3". */
+  etiquetaCorta: string
+  iconoEtiqueta?: ReactNode
+  /** Botón de la izquierda de la barra (ej. "Repetir trozo"). */
+  accionIzquierda?: ReactNode
+  pista?: string
+  saliendo?: boolean
+  onCerrar: () => void
+  /** Lo que aparece debajo de las opciones al acertar (título, puntos, botón para seguir). */
+  panelAcierto?: ReactNode
+  /** Botones de la capa de corrección. */
+  accionesFallo: ReactNode
+  /** Aviso extra en la capa de corrección (ej. los puntos que ya no se alcanzan). */
+  avisoFallo?: ReactNode
+}) {
+  const respondido = seleccion !== null
+  const acertada = respondido && seleccion === pregunta.correcta
+  const fallada = respondido && !acertada
+  const letras = ['A', 'B', 'C', 'D', 'E', 'F']
+  const panelRef = useRef<HTMLDivElement>(null)
+
+  // En pantallas bajas el panel de "¡Bien!" puede quedar fuera de la vista
+  // de la tarjeta: se lo trae a la vista al aparecer.
+  useEffect(() => {
+    if (acertada) panelRef.current?.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
+  }, [acertada])
+
+  return (
+    <div
+      className={`academia-pv-overlay duration-200 ${saliendo ? 'animate-out fade-out' : 'animate-in fade-in'}`}
+      role="dialog"
+      aria-modal="true"
+      aria-label={t.academia.nodoAutoevaluacion}
+    >
+      {/* Barra superior: acción · aviso · cerrar */}
+      <div className="flex shrink-0 items-center gap-2">
+        {accionIzquierda}
+        <span className="flex-1" />
+        <span className="flex h-8 min-w-0 items-center gap-1.5 whitespace-nowrap rounded-full bg-white/15 px-3 text-xs font-extrabold text-white/90">
+          {iconoEtiqueta}
+          <span className="hidden truncate min-[520px]:inline">{etiqueta} · </span>
+          {etiquetaCorta}
+        </span>
+        <button
+          type="button"
+          onClick={onCerrar}
+          aria-label={t.academia.libroCerrarSheet}
+          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur-sm"
+        >
+          <X className="h-4 w-4" />
+        </button>
+      </div>
+
+      {/* Capa 2: la pregunta */}
+      <div className="academia-pv-cuerpo">
+        <div
+          className={`academia-pv-tarjeta card-elevated bg-card duration-300 ${
+            saliendo ? 'animate-out fade-out slide-out-to-bottom-4' : 'animate-in fade-in slide-in-from-bottom-4'
+          } ${fallada ? 'academia-pv-atenuada' : ''}`}
+          aria-hidden={fallada}
+        >
+          <div className="academia-pv-grid">
+            <div className="flex min-w-0 flex-col gap-3">
+              <div className="flex items-start gap-3">
+                <Muelin expresion={acertada ? 'feliz' : 'neutral'} className="academia-pv-muelin h-12 w-12 shrink-0" />
+                <p className="min-w-0 flex-1 text-[15.5px] font-extrabold leading-snug text-foreground lg:text-lg">{pregunta.pregunta}</p>
+              </div>
+              {!respondido && pista && <p className="academia-pv-pista text-xs font-bold text-muted-foreground">{pista}</p>}
+            </div>
+
+            <div className="flex min-w-0 flex-col justify-center gap-2">
+              {pregunta.opciones.map((op, oi) => {
+                const esCorrecta = respondido && oi === pregunta.correcta
+                const esMia = respondido && oi === seleccion && !esCorrecta
+                const caja = esCorrecta
+                  ? 'border-success bg-success/12 text-success'
+                  : esMia
+                    ? 'border-destructive bg-destructive/12 text-destructive'
+                    : respondido
+                      ? 'border-transparent bg-secondary/50 text-muted-foreground'
+                      : 'border-border bg-secondary text-foreground hover:border-primary/60'
+                const insignia = esCorrecta
+                  ? 'bg-success text-success-foreground'
+                  : esMia
+                    ? 'bg-destructive text-destructive-foreground'
+                    : 'bg-background/70 text-muted-foreground'
+                return (
+                  <button
+                    key={oi}
+                    type="button"
+                    disabled={respondido}
+                    onClick={() => onElegir(oi)}
+                    className={`flex min-h-[50px] w-full items-center gap-3 rounded-2xl border-2 px-2.5 py-2 text-left text-sm font-bold transition active:scale-[0.99] ${caja}`}
+                  >
+                    <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] text-[13px] font-black ${insignia}`}>
+                      {esCorrecta ? <Check className="h-4 w-4" strokeWidth={3} /> : esMia ? <X className="h-4 w-4" strokeWidth={3} /> : letras[oi]}
+                    </span>
+                    <span className="min-w-0 flex-1">{op}</span>
+                  </button>
+                )
+              })}
+
+              {acertada && panelAcierto && <div ref={panelRef}>{panelAcierto}</div>}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Capa 3: la corrección, por encima de la pregunta */}
+      {fallada && (
+        <div className="academia-pv-capa-fallo">
+          <div className="academia-pv-fallo card-elevated animate-in fade-in slide-in-from-bottom-6 bg-card duration-300" role="alertdialog" aria-live="assertive">
+            <div className="academia-pv-grid">
+              <div className="flex min-w-0 flex-col gap-3">
+                <div className="flex items-center gap-3">
+                  <Muelin expresion="de-nuevo" className="h-16 w-16 shrink-0" />
+                  <div className="min-w-0">
+                    <p className="text-xl font-black text-destructive">{t.academia.videoFalloTitulo}</p>
+                    <p className="text-[13px] font-semibold leading-snug text-muted-foreground">{t.academia.videoFalloTexto}</p>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-1.5 text-[13.5px] font-bold">
+                  <p className="flex items-start gap-2 text-destructive">
+                    <span className="mt-px flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-destructive text-destructive-foreground">
+                      <X className="h-3 w-3" strokeWidth={3.5} />
+                    </span>
+                    <span>
+                      {t.academia.videoTuRespuesta}: {pregunta.opciones[seleccion ?? 0]}
+                    </span>
+                  </p>
+                  <p className="flex items-start gap-2 text-success">
+                    <span className="mt-px flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-success text-success-foreground">
+                      <Check className="h-3 w-3" strokeWidth={3.5} />
+                    </span>
+                    <span>
+                      {t.academia.videoCorrecta}: {pregunta.opciones[pregunta.correcta]}
+                    </span>
+                  </p>
+                </div>
+                {avisoFallo}
+              </div>
+
+              <div className="flex min-w-0 flex-col gap-3">
+                <div className="flex gap-2.5 rounded-2xl bg-secondary p-3">
+                  <Lightbulb className="mt-0.5 h-[18px] w-[18px] shrink-0 text-amber-500" />
+                  <p className="text-[13px] font-medium leading-relaxed text-foreground/85">
+                    <span className="font-extrabold text-foreground">{t.academia.videoDatoClave}:</span> {pregunta.feedback}
+                  </p>
+                </div>
+                <div className="mt-auto flex flex-col-reverse gap-2 min-[480px]:flex-row">{accionesFallo}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+/**
  * Ventana de pregunta sobre el video en pausa (rediseño 2026-09-24, vistas
  * responsive — ver canvas "Academia — preguntas sobre el vídeo").
  *
@@ -1760,7 +1946,6 @@ function ModalPruebaVideo({
   const respondido = seleccion !== null
   const acertada = respondido && seleccion === pregunta.correcta
   const fallada = respondido && !acertada
-  const letras = ['A', 'B', 'C', 'D', 'E', 'F']
 
   function elegir(oi: number) {
     if (seleccion !== null) return
@@ -1792,160 +1977,50 @@ function ModalPruebaVideo({
   }
 
   return (
-    <div
-      className={`academia-pv-overlay duration-200 ${saliendo ? 'animate-out fade-out' : 'animate-in fade-in'}`}
-      role="dialog"
-      aria-modal="true"
-      aria-label={t.academia.nodoAutoevaluacion}
-    >
-      {/* Barra superior: repetir trozo · aviso de pausa · cerrar */}
-      <div className="flex shrink-0 items-center gap-2">
+    <CapasPregunta
+      t={t}
+      pregunta={pregunta}
+      seleccion={seleccion}
+      onElegir={elegir}
+      etiqueta={t.academia.videoEnPausa}
+      etiquetaCorta={t.academia.videoPreguntaDe(numero, total)}
+      iconoEtiqueta={<Pause className="h-3 w-3 shrink-0" fill="currentColor" />}
+      accionIzquierda={
         <button
           type="button"
           onClick={onRepetirTrozo}
           disabled={fallada}
-          className="flex h-10 items-center gap-1.5 rounded-full bg-white/15 pl-2.5 pr-3.5 text-[13px] font-extrabold text-white backdrop-blur-sm transition active:scale-[0.97] disabled:invisible"
+          className="flex h-10 shrink-0 items-center gap-1.5 rounded-full bg-white/15 pl-2.5 pr-3.5 text-[13px] font-extrabold text-white backdrop-blur-sm transition active:scale-[0.97] disabled:invisible"
         >
           <RotateCcw className="h-4 w-4" />
           {t.academia.videoRepetirTrozo}
         </button>
-        <span className="flex-1" />
-        <span className="flex h-8 items-center gap-1.5 whitespace-nowrap rounded-full bg-white/15 px-3 text-xs font-extrabold text-white/90">
-          <Pause className="h-3 w-3" fill="currentColor" />
-          <span className="hidden min-[520px]:inline">{t.academia.videoEnPausa} · </span>
-          {t.academia.videoPreguntaDe(numero, total)}
-        </span>
-        <button
-          type="button"
-          onClick={onCerrar}
-          aria-label={t.academia.libroCerrarSheet}
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur-sm"
-        >
-          <X className="h-4 w-4" />
-        </button>
-      </div>
-
-      {/* Capa 2: la pregunta */}
-      <div className="academia-pv-cuerpo">
-        <div
-          className={`academia-pv-tarjeta card-elevated bg-card duration-300 ${
-            saliendo ? 'animate-out fade-out slide-out-to-bottom-4' : 'animate-in fade-in slide-in-from-bottom-4'
-          } ${fallada ? 'academia-pv-atenuada' : ''}`}
-          aria-hidden={fallada}
-        >
-          <div className="academia-pv-grid">
-            <div className="flex min-w-0 flex-col gap-3">
-              <div className="flex items-start gap-3">
-                <Muelin expresion={acertada ? 'feliz' : 'neutral'} className="academia-pv-muelin h-12 w-12 shrink-0" />
-                <p className="min-w-0 flex-1 text-[15.5px] font-extrabold leading-snug text-foreground lg:text-lg">{pregunta.pregunta}</p>
-              </div>
-              {!respondido && (
-                <p className="academia-pv-pista text-xs font-bold text-muted-foreground">{t.academia.videoPista}</p>
-              )}
-            </div>
-
-            <div className="flex min-w-0 flex-col justify-center gap-2">
-              {pregunta.opciones.map((op, oi) => {
-                const esCorrecta = respondido && oi === pregunta.correcta
-                const esMia = respondido && oi === seleccion && !esCorrecta
-                const caja = esCorrecta
-                  ? 'border-success bg-success/12 text-success'
-                  : esMia
-                    ? 'border-destructive bg-destructive/12 text-destructive'
-                    : respondido
-                      ? 'border-transparent bg-secondary/50 text-muted-foreground'
-                      : 'border-border bg-secondary text-foreground hover:border-primary/60'
-                const insignia = esCorrecta
-                  ? 'bg-success text-success-foreground'
-                  : esMia
-                    ? 'bg-destructive text-destructive-foreground'
-                    : 'bg-background/70 text-muted-foreground'
-                return (
-                  <button
-                    key={oi}
-                    type="button"
-                    disabled={respondido}
-                    onClick={() => elegir(oi)}
-                    className={`flex min-h-[50px] w-full items-center gap-3 rounded-2xl border-2 px-2.5 py-2 text-left text-sm font-bold transition active:scale-[0.99] ${caja}`}
-                  >
-                    <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] text-[13px] font-black ${insignia}`}>
-                      {esCorrecta ? <Check className="h-4 w-4" strokeWidth={3} /> : esMia ? <X className="h-4 w-4" strokeWidth={3} /> : letras[oi]}
-                    </span>
-                    <span className="min-w-0 flex-1">{op}</span>
-                  </button>
-                )
-              })}
-
-              {acertada && (
-                <div className="mt-1 flex items-center gap-3 rounded-2xl bg-success/12 p-2.5 pl-3.5">
-                  <p className="flex-1 text-base font-black text-success">{t.academia.pruebaAprobadaTitulo}</p>
-                  <Button onClick={confirmarAprobado} disabled={esperandoVoz} className="h-11 rounded-xl px-5 font-extrabold">
-                    {t.academia.videoSeguir}
-                    <ArrowRight className="ml-1.5 h-4 w-4" />
-                  </Button>
-                </div>
-              )}
-            </div>
-          </div>
+      }
+      pista={t.academia.videoPista}
+      saliendo={saliendo}
+      onCerrar={onCerrar}
+      panelAcierto={
+        <div className="mt-1 flex items-center gap-3 rounded-2xl bg-success/12 p-2.5 pl-3.5">
+          <p className="flex-1 text-base font-black text-success">{t.academia.pruebaAprobadaTitulo}</p>
+          <Button onClick={confirmarAprobado} disabled={esperandoVoz} className="h-11 rounded-xl px-5 font-extrabold">
+            {t.academia.videoSeguir}
+            <ArrowRight className="ml-1.5 h-4 w-4" />
+          </Button>
         </div>
-      </div>
-
-      {/* Capa 3: la corrección, por encima de la pregunta */}
-      {fallada && (
-        <div className="academia-pv-capa-fallo">
-          <div className="academia-pv-fallo card-elevated animate-in fade-in slide-in-from-bottom-6 bg-card duration-300" role="alertdialog" aria-live="assertive">
-            <div className="academia-pv-grid">
-              <div className="flex min-w-0 flex-col gap-3">
-                <div className="flex items-center gap-3">
-                  <Muelin expresion="de-nuevo" className="h-16 w-16 shrink-0" />
-                  <div className="min-w-0">
-                    <p className="text-xl font-black text-destructive">{t.academia.videoFalloTitulo}</p>
-                    <p className="text-[13px] font-semibold leading-snug text-muted-foreground">{t.academia.videoFalloTexto}</p>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-1.5 text-[13.5px] font-bold">
-                  <p className="flex items-start gap-2 text-destructive">
-                    <span className="mt-px flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-destructive text-destructive-foreground">
-                      <X className="h-3 w-3" strokeWidth={3.5} />
-                    </span>
-                    <span>
-                      {t.academia.videoTuRespuesta}: {pregunta.opciones[seleccion ?? 0]}
-                    </span>
-                  </p>
-                  <p className="flex items-start gap-2 text-success">
-                    <span className="mt-px flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-success text-success-foreground">
-                      <Check className="h-3 w-3" strokeWidth={3.5} />
-                    </span>
-                    <span>
-                      {t.academia.videoCorrecta}: {pregunta.opciones[pregunta.correcta]}
-                    </span>
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex min-w-0 flex-col gap-3">
-                <div className="flex gap-2.5 rounded-2xl bg-secondary p-3">
-                  <Lightbulb className="mt-0.5 h-[18px] w-[18px] shrink-0 text-amber-500" />
-                  <p className="text-[13px] font-medium leading-relaxed text-foreground/85">
-                    <span className="font-extrabold text-foreground">{t.academia.videoDatoClave}:</span> {pregunta.feedback}
-                  </p>
-                </div>
-                <div className="mt-auto flex flex-col-reverse gap-2 min-[480px]:flex-row">
-                  <Button variant="outline" onClick={onRepetirTrozo} className="h-12 w-full rounded-2xl font-extrabold min-[480px]:w-auto min-[480px]:flex-1">
-                    <RotateCcw className="mr-1.5 h-4 w-4" />
-                    {t.academia.videoRepetirTrozo}
-                  </Button>
-                  <Button onClick={reintentar} className="h-12 w-full rounded-2xl font-extrabold min-[480px]:w-auto min-[480px]:flex-[1.4]">
-                    {t.academia.pruebaReintentar}
-                    <ArrowRight className="ml-1.5 h-4 w-4" />
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
+      }
+      accionesFallo={
+        <>
+          <Button variant="outline" onClick={onRepetirTrozo} className="h-12 w-full rounded-2xl font-extrabold min-[480px]:w-auto min-[480px]:flex-1">
+            <RotateCcw className="mr-1.5 h-4 w-4" />
+            {t.academia.videoRepetirTrozo}
+          </Button>
+          <Button onClick={reintentar} className="h-12 w-full rounded-2xl font-extrabold min-[480px]:w-auto min-[480px]:flex-[1.4]">
+            {t.academia.pruebaReintentar}
+            <ArrowRight className="ml-1.5 h-4 w-4" />
+          </Button>
+        </>
+      }
+    />
   )
 }
 
@@ -2020,7 +2095,7 @@ function PantallaNodo({
           onGuardarEstado={repitiendo || soloLectura ? undefined : (estado) => onGuardarVideo(nodoId, estado)}
           onContinuar={() => {
             if (soloLectura) return onVolver()
-            // Al terminar el video se pasa directo a la prueba final, sin
+            // Al terminar el video se pasa directo al nodo siguiente, sin
             // volver a la lista (igual que antes con video3).
             if (siguienteNodo) return onAvanzarSinVolver(nodoId, siguienteNodo.id)
             return onCompletar(nodoId)
@@ -2051,8 +2126,17 @@ function PantallaNodo({
         esFinal={Boolean(nodo.esFinal)}
         etiquetaSiguiente={siguienteNodo?.titulo ?? null}
         marcaPrevia={prog.intentosPreguntas}
+        titulo={nodo.titulo}
+        onSalir={onVolver}
         onFallo={(indice) => onFallo(nodoId, `${nodo.pruebaId}:${indice}`)}
-        onContinuar={(intentosPreguntas) => (soloLectura ? onVolver() : onCompletar(nodoId, intentosPreguntas))}
+        onContinuar={(intentosPreguntas) => {
+          if (soloLectura) return onVolver()
+          // Cuestionario de un tema (no puntúa): sigue directo al nodo
+          // siguiente, igual que video → siguiente. La prueba final guarda la
+          // marca con los intentos y cierra con el resumen.
+          if (!nodo.esFinal && siguienteNodo) return onAvanzarSinVolver(nodoId, siguienteNodo.id)
+          return onCompletar(nodoId, intentosPreguntas)
+        }}
       />
     </NodoLayout>
   )
