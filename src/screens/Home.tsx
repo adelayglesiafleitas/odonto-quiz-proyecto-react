@@ -5,7 +5,7 @@ import { Spinner } from '@/components/Spinner'
 import { SettingsToggle } from '@/components/SettingsToggle'
 import { BottomNav } from '@/components/BottomNav'
 import { useAppSettings } from '@/context/AppSettings'
-import { getHistorialRemoto, calcularPromedio, getFechasIntentos, calcularRacha } from '@/lib/historial'
+import { getHistorialRemoto, calcularPromedio, getFechasIntentos, calcularRacha, calcularActividadSemanal, type ActividadDia } from '@/lib/historial'
 import { getFrases, indiceFraseAleatoria } from '@/lib/frases'
 import { getBienvenida, getBienvenidaPrimeraVisita } from '@/lib/bienvenida'
 import { getCtaEmpezar } from '@/lib/ctaEmpezar'
@@ -20,8 +20,8 @@ import { RUTA_SOPORTE, rutaSoporteDetalle } from '@/lib/rutas'
 import { ICONO_BIENVENIDA, ICONO_CTA } from '@/lib/temaIconos'
 import { colorStrokePorcentaje } from '@/lib/utils'
 import type { CursoMeta } from '@/lib/cursos'
-import { LogOut, Trophy, TrendingUp, Quote, Flame, BarChart3, ChevronRight, MessageCircleQuestion, X } from 'lucide-react'
-import type { Pantalla } from '@/types'
+import { LogOut, Trophy, TrendingUp, TrendingDown, Quote, Flame, BarChart3, ChevronRight, MessageCircleQuestion, X, ClipboardCheck, FileText, Clock } from 'lucide-react'
+import type { IntentoExamen, Pantalla } from '@/types'
 
 const PROMEDIO_CIRCUNFERENCIA = 2 * Math.PI * 32
 
@@ -48,6 +48,9 @@ export function Home({
   const [intentos, setIntentos] = useState(0)
   const [racha, setRacha] = useState(0)
   const [cargandoStats, setCargandoStats] = useState(true)
+  // Datos extra del rediseño Neón (todo sale del mismo historial ya cargado).
+  const [historialCurso, setHistorialCurso] = useState<IntentoExamen[]>([])
+  const [actividad, setActividad] = useState<ActividadDia[]>([])
   const [indiceFrase] = useState(() => indiceFraseAleatoria(getFrases(idioma).length))
   const frase = getFrases(idioma)[indiceFrase]
   const [bienvenida] = useState(() => getBienvenida(idioma, nombreMostrado))
@@ -73,6 +76,7 @@ export function Home({
   const [avisoTicketCerrado, setAvisoTicketCerrado] = useState(false)
   // Anillo y % de progreso: suben de 0 al valor real al cargar.
   const promedioAnimado = useConteo(cargandoStats ? 0 : promedio, 1100, 150)
+  const resumen = resumirHistorial(historialCurso)
   const IconoBienvenida = ICONO_BIENVENIDA[estilo]
   const IconoCta = ICONO_CTA[estilo]
 
@@ -86,6 +90,8 @@ export function Home({
         setIntentos(historial.length)
         setPromedio(calcularPromedio(historial))
         setRacha(calcularRacha(fechas))
+        setHistorialCurso(historial)
+        setActividad(calcularActividadSemanal(fechas))
         setCargandoStats(false)
       },
     )
@@ -173,23 +179,40 @@ export function Home({
           </div>
         </div>
 
-        <div className="card-elevated mt-5 rounded-3xl bg-white/10 p-5 backdrop-blur-sm">
-          <div className="text-center">
-            <p className="text-xs text-white/60">{t.home.hola}</p>
-            <p className="-mt-0.5 text-lg font-bold">{nombreMostrado}</p>
-          </div>
-
-          <p className="mt-3 text-xs font-medium text-white/70">{t.home.progreso}</p>
-          {cargandoStats ? (
-            <div className="mt-4 flex items-center justify-center py-2.5">
-              <Spinner className="h-6 w-6 text-white/70" />
+        <div className="card-elevated relative mt-5 overflow-hidden rounded-3xl bg-white/10 p-5 backdrop-blur-sm">
+          <DienteDecorativo className="pointer-events-none absolute -right-5 top-2 h-32 w-28 opacity-70" />
+          <div className="relative flex items-center gap-3">
+            <div className="min-w-0 flex-1">
+              <p className="text-xl font-medium leading-tight">
+                {t.home.hola} <span className="font-extrabold">{nombreMostrado}</span>
+              </p>
+              <p className="mt-1.5 text-[13px] leading-snug text-white/75">{t.home.constancia}</p>
+              {resumen.tendencia !== null && (
+                <div className="mt-3 inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-black/20 py-1.5 pl-1.5 pr-3">
+                  <span
+                    className={`flex h-7 w-7 items-center justify-center rounded-xl ${
+                      resumen.tendencia >= 0 ? 'bg-emerald-400/15 text-emerald-300' : 'bg-orange-400/15 text-orange-300'
+                    }`}
+                  >
+                    {resumen.tendencia >= 0 ? <TrendingUp className="h-4 w-4" /> : <TrendingDown className="h-4 w-4" />}
+                  </span>
+                  <span className="leading-tight">
+                    <span className={`block text-[13px] font-extrabold ${resumen.tendencia >= 0 ? 'text-emerald-300' : 'text-orange-300'}`}>
+                      {resumen.tendencia >= 0 ? '+' : ''}
+                      {resumen.tendencia}%
+                    </span>
+                    <span className="block text-[10px] text-white/60">{t.home.estaSemana}</span>
+                  </span>
+                </div>
+              )}
             </div>
-          ) : (
-            <div className="mt-3 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="relative flex h-20 w-20 shrink-0 items-center justify-center">
-                  <svg viewBox="0 0 80 80" className="h-full w-full -rotate-90">
-                    <circle cx="40" cy="40" r="32" fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="7" />
+            <div className="relative mr-6 flex h-28 w-28 shrink-0 items-center justify-center">
+              {cargandoStats ? (
+                <Spinner className="h-6 w-6 text-white/70" />
+              ) : (
+                <>
+                  <svg viewBox="0 0 80 80" className="glow-cian h-full w-full -rotate-90">
+                    <circle cx="40" cy="40" r="32" fill="rgba(0,0,0,0.18)" stroke="rgba(255,255,255,0.15)" strokeWidth="7" />
                     <circle
                       cx="40"
                       cy="40"
@@ -202,36 +225,25 @@ export function Home({
                       strokeDashoffset={PROMEDIO_CIRCUNFERENCIA - (promedioAnimado / 100) * PROMEDIO_CIRCUNFERENCIA}
                     />
                   </svg>
-                  <span className="absolute text-lg font-extrabold tabular-nums">{Math.round(promedioAnimado)}%</span>
-                </div>
-                <p className="max-w-[6.5rem] text-[11px] leading-snug text-white/60">{t.home.promedioSufijo(intentos)}</p>
-              </div>
-              <div className="flex flex-col items-end gap-1.5 text-right">
-                <div className="anim-cascada flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1" style={{ '--i': 1 } as CSSProperties}>
-                  <Trophy className="h-3.5 w-3.5 text-[#ffd166]" />
-                  <span className="text-xs font-semibold">{mejor}% {t.home.mejorPuntaje}</span>
-                </div>
-                <div className="anim-cascada flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1" style={{ '--i': 2 } as CSSProperties}>
-                  <TrendingUp className="h-3.5 w-3.5 text-[#1fc6c6]" />
-                  <span className="text-xs font-semibold">{t.home.meta(cursoMeta.porcentajeAprobado)}</span>
-                </div>
-                {racha > 0 && (
-                  <div className="anim-cascada flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1" style={{ '--i': 3 } as CSSProperties}>
-                    <Flame className="h-3.5 w-3.5 text-[#ff8a5b]" />
-                    <span className="text-xs font-semibold">{t.home.racha(racha)}</span>
-                  </div>
-                )}
-              </div>
+                  <span className="absolute flex flex-col items-center leading-none">
+                    <span className="text-2xl font-extrabold tabular-nums">
+                      {Math.round(promedioAnimado)}
+                      <span className="text-sm">%</span>
+                    </span>
+                    <span className="mt-1 text-[10px] text-white/70">{t.home.tuPromedio}</span>
+                  </span>
+                </>
+              )}
             </div>
-          )}
+          </div>
 
           <button
             onClick={() => onNavigate('estadisticas')}
-            className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-2xl bg-white/10 py-2.5 text-xs font-bold text-white transition active:scale-[0.98] hover:bg-white/15"
+            className="relative mt-4 flex w-full items-center justify-center gap-1.5 rounded-2xl border border-white/20 bg-black/15 py-3 text-[13px] font-bold text-white transition active:scale-[0.98] hover:bg-black/25"
           >
-            <BarChart3 className="h-3.5 w-3.5" />
+            <BarChart3 className="h-4 w-4" />
             {t.home.verEstadisticas}
-            <ChevronRight className="h-3.5 w-3.5" />
+            <ChevronRight className="h-4 w-4" />
           </button>
         </div>
 
@@ -322,6 +334,38 @@ export function Home({
         </div>
       ) : null}
 
+      <div className="mt-5 grid grid-cols-2 gap-3 px-6">
+        <div className="card-elevated anim-cascada rounded-2xl bg-card p-3.5" style={{ '--i': 1 } as CSSProperties}>
+          <div className="flex items-center gap-2">
+            <Flame className="h-6 w-6 shrink-0 text-orange-400 drop-shadow-[0_0_6px_rgba(255,140,40,0.55)]" />
+            <p className="text-[11.5px] text-muted-foreground">{t.home.rachaActual}</p>
+          </div>
+          <p className="mt-1.5 text-lg font-extrabold text-foreground">{t.home.dias(racha)}</p>
+          <div className="mt-2 flex gap-1" aria-hidden="true">
+            {actividad.map((dia, k) => (
+              <span
+                key={k}
+                className={`h-2.5 w-2.5 rounded-full ${
+                  dia.cantidad > 0 ? 'bg-accent shadow-[0_0_6px_hsl(var(--accent)/0.7)]' : 'bg-muted-foreground/25'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+        <div className="card-elevated anim-cascada rounded-2xl bg-card p-3.5" style={{ '--i': 2 } as CSSProperties}>
+          <div className="flex items-center gap-2">
+            <Trophy className="h-6 w-6 shrink-0 text-amber-400 drop-shadow-[0_0_6px_rgba(255,200,60,0.5)]" />
+            <p className="text-[11.5px] text-muted-foreground">{t.home.mejorResultado}</p>
+          </div>
+          <p className="mt-1.5 text-lg font-extrabold text-foreground">{mejor}%</p>
+          {resumen.notas.length >= 2 ? (
+            <Sparkline valores={resumen.notas} />
+          ) : (
+            <p className="mt-1 text-[11px] text-muted-foreground">{t.home.meta(cursoMeta.porcentajeAprobado)}</p>
+          )}
+        </div>
+      </div>
+
       <div className="anim-cascada mt-6 px-6" style={{ '--i': 3 } as CSSProperties}>
         <button
           type="button"
@@ -349,7 +393,10 @@ export function Home({
             >
               <IconoCta className="h-3.5 w-3.5 text-white" />
             </span>
-            {t.home.ctaKicker}
+            <span className="flex-1">{t.home.proximoSimulacro}</span>
+            <span className="rounded-lg border border-emerald-400/35 bg-emerald-400/10 px-2 py-0.5 text-[10px] normal-case tracking-normal text-emerald-400">
+              {t.home.recomendado}
+            </span>
           </div>
           <p
             className="relative mt-2.5 animate-cta-bounce text-[19px] font-extrabold leading-snug"
@@ -374,7 +421,27 @@ export function Home({
         </button>
       </div>
 
-      <div className="anim-cascada mt-4 px-6" style={{ '--i': 4 } as CSSProperties}>
+      <div className="mt-4 grid grid-cols-3 gap-2.5 px-6">
+        {[
+          { Icono: ClipboardCheck, etiqueta: t.home.simulacros, valor: String(intentos) },
+          { Icono: FileText, etiqueta: t.home.preguntasRespondidas, valor: resumen.preguntas.toLocaleString(idioma) },
+          { Icono: Clock, etiqueta: t.home.tiempoEstudio, valor: formatoHoras(resumen.segundos) },
+        ].map(({ Icono, etiqueta, valor }, k) => (
+          <div
+            key={etiqueta}
+            className="card-elevated anim-cascada rounded-2xl bg-card p-3"
+            style={{ '--i': 4 + k } as CSSProperties}
+          >
+            <span className="flex h-8 w-8 items-center justify-center rounded-xl border border-accent/30 bg-accent/10 text-accent">
+              <Icono className="h-4 w-4" />
+            </span>
+            <p className="mt-2.5 text-[10.5px] leading-tight text-muted-foreground">{etiqueta}</p>
+            <p className="mt-0.5 text-[17px] font-extrabold tabular-nums text-foreground">{valor}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="anim-cascada mt-4 px-6" style={{ '--i': 7 } as CSSProperties}>
         <div className="card-elevated relative min-h-[132px] rounded-2xl bg-card">
           <div
             className={`absolute inset-0 flex flex-col justify-center overflow-hidden rounded-2xl border p-4 ${
@@ -425,5 +492,77 @@ export function Home({
       <BottomNav activo="home" onNavigate={onNavigate} />
       {mostrarTour && <TourBienvenida idioma={idioma} onCerrar={cerrarTour} />}
     </div>
+  )
+}
+
+// --- Rediseño Neón: helpers de la Home -----------------------------------
+
+/** Resumen del historial del curso para las tarjetas nuevas de la Home. */
+function resumirHistorial(historial: IntentoExamen[]) {
+  const ahora = Date.now()
+  const DIA = 86_400_000
+  const media = (xs: IntentoExamen[]) => xs.reduce((a, i) => a + i.porcentaje, 0) / xs.length
+  const estaSemana = historial.filter((i) => ahora - new Date(i.fecha).getTime() < 7 * DIA)
+  const semanaPasada = historial.filter((i) => {
+    const d = ahora - new Date(i.fecha).getTime()
+    return d >= 7 * DIA && d < 14 * DIA
+  })
+  const tendencia =
+    estaSemana.length > 0 && semanaPasada.length > 0 ? Math.round(media(estaSemana) - media(semanaPasada)) : null
+  const ordenado = [...historial].sort((a, b) => new Date(a.fecha).getTime() - new Date(b.fecha).getTime())
+  return {
+    tendencia,
+    notas: ordenado.slice(-7).map((i) => i.porcentaje),
+    preguntas: historial.reduce((a, i) => a + i.totalPreguntas, 0),
+    segundos: historial.reduce((a, i) => a + i.tiempoUsadoSeg, 0),
+  }
+}
+
+function formatoHoras(seg: number): string {
+  if (seg < 3600) return `${Math.round(seg / 60)} min`
+  return `${Math.round(seg / 3600)} h`
+}
+
+/** Mini gráfica de las últimas notas (0–100). */
+function Sparkline({ valores }: { valores: number[] }) {
+  const ancho = 100
+  const alto = 26
+  const paso = ancho / (valores.length - 1)
+  const puntos = valores.map((v, k) => `${(k * paso).toFixed(1)},${(alto - 2 - (v / 100) * (alto - 4)).toFixed(1)}`).join(' ')
+  return (
+    <svg viewBox={`0 0 ${ancho} ${alto}`} className="glow-cian mt-1.5 h-6 w-full" preserveAspectRatio="none" aria-hidden="true">
+      <polyline
+        points={puntos}
+        fill="none"
+        stroke="hsl(var(--accent))"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        vectorEffect="non-scaling-stroke"
+      />
+    </svg>
+  )
+}
+
+/** Muela de cristal decorativa para la tarjeta del saludo. */
+function DienteDecorativo({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 100 120" className={className} aria-hidden="true">
+      <defs>
+        <linearGradient id="diente-home" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#bff7fb" stopOpacity="0.7" />
+          <stop offset="0.5" stopColor="#3fb8c8" stopOpacity="0.3" />
+          <stop offset="1" stopColor="#0d4552" stopOpacity="0.15" />
+        </linearGradient>
+      </defs>
+      <path
+        d="M20 12c10-8 22-4 30 2 8-6 20-10 30-2 12 10 10 32 4 46-4 10-6 24-8 40-1 10-9 14-13 4-3-8-5-22-13-22s-10 14-13 22c-4 10-12 6-13-4-2-16-4-30-8-40-6-14-8-36 4-46z"
+        fill="url(#diente-home)"
+        stroke="#9eeef5"
+        strokeOpacity="0.45"
+        strokeWidth="1.2"
+      />
+      <path d="M34 22c6-3 12-2 16 2" fill="none" stroke="#e6fdff" strokeOpacity="0.65" strokeWidth="2" strokeLinecap="round" />
+    </svg>
   )
 }

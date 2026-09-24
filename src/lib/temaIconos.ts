@@ -8,6 +8,7 @@ import type { Estilo } from '@/lib/settings'
  * algunos estilos los reinterpretan para reforzar su temática.
  */
 export const ICONO_BIENVENIDA: Record<Estilo, LucideIcon> = {
+  neon: Sparkles,
   clasico: Sparkles,
   acqua: Sparkles,
   electrico: Zap,
@@ -18,6 +19,7 @@ export const ICONO_BIENVENIDA: Record<Estilo, LucideIcon> = {
 }
 
 export const ICONO_CTA: Record<Estilo, LucideIcon> = {
+  neon: Rocket,
   clasico: Rocket,
   acqua: Rocket,
   electrico: Zap,

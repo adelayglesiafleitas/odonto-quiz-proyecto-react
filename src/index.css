@@ -379,6 +379,47 @@
   }
 
 
+  /* Estilo "Neón" (rediseño 2026-09-25, concepto "DentiQuiz neón"): azul
+     petróleo casi negro, tarjetas de cristal con borde turquesa y brillos
+     cian. Es oscuro siempre: el bloque vale igual con y sin .dark (como el
+     concepto aprobado, que solo existe en oscuro). Las tarjetas de cristal y
+     los brillos se aplican más abajo, en "Estilo Neón: cristal y brillos". */
+  .estilo-neon,
+  .dark.estilo-neon {
+    --brand-bg: radial-gradient(120% 90% at 85% 0%, rgba(53, 227, 234, 0.22) 0%, transparent 55%),
+      linear-gradient(160deg, #0f4450 0%, #0a2c35 55%, #061a20 100%);
+    --brand-accent-bg: linear-gradient(90deg, #3cf0f2 0%, #22c9d6 100%);
+    --background: 195 61% 6%;
+    --foreground: 188 60% 95%;
+    --card: 196 50% 10%;
+    --card-foreground: 188 60% 95%;
+    --popover: 196 50% 10%;
+    --popover-foreground: 188 60% 95%;
+    --primary: 182 81% 56%;
+    --primary-foreground: 189 83% 9%;
+    --secondary: 195 50% 14%;
+    --secondary-foreground: 188 40% 90%;
+    --muted: 194 50% 12%;
+    --muted-foreground: 192 20% 69%;
+    --accent: 182 81% 56%;
+    --accent-foreground: 189 83% 9%;
+    --border: 187 45% 21%;
+    --input: 190 25% 40%;
+    --ring: 182 81% 56%;
+    --home-hero-bg: linear-gradient(120deg, rgba(24, 96, 110, 0.78), rgba(9, 44, 54, 0.92) 60%, rgba(6, 30, 38, 0.96));
+    --home-hero-border: rgba(64, 210, 222, 0.45);
+    --home-hero-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 0 22px rgba(53, 227, 234, 0.1);
+    --home-hero-transform: none;
+    --home-hero-glow: radial-gradient(circle, rgba(53, 227, 234, 0.45), transparent 70%);
+    --home-hero-ink: #eaf8fa;
+    --home-hero-ink-muted: #b9d4da;
+    --home-hero-kicker: #35e3ea;
+    --home-hero-badge-bg: linear-gradient(135deg, #3cf0f2, #14a6b3);
+    --home-hero-btn-bg: linear-gradient(90deg, #3cf0f2, #22c9d6);
+    --home-hero-btn-ink: #04262c;
+    --home-hero-ring: #35e3ea;
+  }
+
   /* Estilo "Galaxia": Galaxia: cielo nocturno con estrellas (oscuro) o cosmos pastel de día (claro). Igual que Acqua, cada uno
      redefine los tokens semánticos globales + las --home-hero-*. A diferencia
      de Acqua, este SÍ respeta el toggle claro/oscuro: el bloque de abajo cubre
@@ -641,6 +682,38 @@ button.card-elevated:focus-visible {
     0 0 0 1px hsl(var(--accent) / 0.3),
     0 2px 4px rgba(0, 0, 0, 0.25),
     0 16px 32px -12px rgba(0, 0, 0, 0.65);
+}
+
+/* Estilo Neón: cristal y brillos. Las tarjetas (.card-elevated) pasan a
+   cristal ahumado con borde turquesa fino; los botones principales y los
+   anillos llevan un brillo cian suave. Solo con .estilo-neon en <html>. */
+.estilo-neon .app-shell {
+  background-image: radial-gradient(120% 45% at 50% 0%, rgba(20, 84, 98, 0.45) 0%, transparent 60%);
+}
+.estilo-neon .card-elevated {
+  background-image: linear-gradient(160deg, rgba(34, 92, 106, 0.45), rgba(10, 32, 40, 0.35));
+  box-shadow:
+    0 0 0 1px rgba(64, 196, 210, 0.28),
+    inset 0 1px 0 rgba(160, 240, 248, 0.07),
+    0 12px 28px -12px rgba(0, 0, 0, 0.7);
+}
+.estilo-neon button.card-elevated:hover,
+.estilo-neon button.card-elevated:focus-visible {
+  box-shadow:
+    0 0 0 1px rgba(53, 227, 234, 0.55),
+    0 0 18px rgba(53, 227, 234, 0.18),
+    0 16px 32px -12px rgba(0, 0, 0, 0.75);
+}
+.estilo-neon .bg-primary,
+.estilo-neon .accent-gradient {
+  box-shadow: 0 0 18px rgba(53, 227, 234, 0.35);
+}
+/* Sobre el cian brillante el texto blanco no se lee: en Neón, tinta oscura. */
+.estilo-neon .accent-gradient {
+  color: #04262c !important;
+}
+.estilo-neon .glow-cian {
+  filter: drop-shadow(0 0 8px rgba(53, 227, 234, 0.55));
 }
 
 ::-webkit-scrollbar {

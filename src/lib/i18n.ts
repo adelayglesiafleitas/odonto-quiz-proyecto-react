@@ -70,6 +70,17 @@ export interface Diccionario {
     ctaKicker: string
     racha: (n: number) => string
     verEstadisticas: string
+    constancia: string
+    estaSemana: string
+    tuPromedio: string
+    rachaActual: string
+    dias: (n: number) => string
+    mejorResultado: string
+    proximoSimulacro: string
+    recomendado: string
+    simulacros: string
+    preguntasRespondidas: string
+    tiempoEstudio: string
     avisoSoporteEtiquetaSingular: string
     avisoSoporteEtiquetaPlural: string
     avisoSoporteTextoSingular: (asunto: string) => string
@@ -314,6 +325,8 @@ export interface Diccionario {
     proximamente: string
     estiloTitulo: string
     estiloSubtitulo: string
+    estiloNeonNombre: string
+    estiloNeonDesc: string
     estiloClasicoNombre: string
     estiloClasicoDesc: string
     estiloAcquaNombre: string
@@ -464,6 +477,17 @@ export const es: Diccionario = {
     ctaKicker: 'Tu próxima prueba te espera',
     racha: (n) => `${n} día${n === 1 ? '' : 's'} seguidos`,
     verEstadisticas: 'Ver estadísticas completas',
+    constancia: 'Tu constancia te acerca a tu objetivo.',
+    estaSemana: 'esta semana',
+    tuPromedio: 'tu promedio',
+    rachaActual: 'Racha actual',
+    dias: (n) => `${n} día${n === 1 ? '' : 's'}`,
+    mejorResultado: 'Mejor resultado',
+    proximoSimulacro: 'Próximo simulacro',
+    recomendado: 'Recomendado',
+    simulacros: 'Simulacros',
+    preguntasRespondidas: 'Preguntas respondidas',
+    tiempoEstudio: 'Tiempo de estudio',
     avisoSoporteEtiquetaSingular: 'Respuesta de soporte',
     avisoSoporteEtiquetaPlural: 'Respuestas de soporte',
     avisoSoporteTextoSingular: (asunto) => `Te respondieron: «${asunto}»`,
@@ -642,7 +666,7 @@ export const es: Diccionario = {
     academia: 'Academia',
     ayuda: 'Ayuda',
     comunidad: 'Comunidad',
-    config: 'Config',
+    config: 'Perfil',
     simulacro: 'Examinarse',
   },
   academia: {
@@ -732,6 +756,8 @@ export const es: Diccionario = {
     proximamente: 'Próximamente',
     estiloTitulo: 'Estilo de la app',
     estiloSubtitulo: 'Elegí cómo se ve tu app',
+    estiloNeonNombre: 'Neón',
+    estiloNeonDesc: 'Cristal oscuro con brillos turquesa',
     estiloClasicoNombre: 'Clásico',
     estiloClasicoDesc: 'El estilo teal oscuro de siempre',
     estiloAcquaNombre: 'Acqua',
@@ -882,6 +908,17 @@ export const en: Diccionario = {
     ctaKicker: 'Your next quiz is waiting',
     racha: (n) => `${n}-day streak`,
     verEstadisticas: 'View full statistics',
+    constancia: 'Consistency brings you closer to your goal.',
+    estaSemana: 'this week',
+    tuPromedio: 'your average',
+    rachaActual: 'Current streak',
+    dias: (n) => `${n} day${n === 1 ? '' : 's'}`,
+    mejorResultado: 'Best result',
+    proximoSimulacro: 'Next mock exam',
+    recomendado: 'Recommended',
+    simulacros: 'Mock exams',
+    preguntasRespondidas: 'Questions answered',
+    tiempoEstudio: 'Study time',
     avisoSoporteEtiquetaSingular: 'Support reply',
     avisoSoporteEtiquetaPlural: 'Support replies',
     avisoSoporteTextoSingular: (asunto) => `You got a reply: "${asunto}"`,
@@ -1060,7 +1097,7 @@ export const en: Diccionario = {
     academia: 'Academy',
     ayuda: 'Help',
     comunidad: 'Community',
-    config: 'Settings',
+    config: 'Profile',
     simulacro: 'Mock exam',
   },
   academia: {
@@ -1150,6 +1187,8 @@ export const en: Diccionario = {
     proximamente: 'Coming soon',
     estiloTitulo: 'App style',
     estiloSubtitulo: 'Choose how your app looks',
+    estiloNeonNombre: 'Neon',
+    estiloNeonDesc: 'Dark glass with turquoise glow',
     estiloClasicoNombre: 'Classic',
     estiloClasicoDesc: 'The classic dark teal look',
     estiloAcquaNombre: 'Acqua',

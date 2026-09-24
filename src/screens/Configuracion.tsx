@@ -358,6 +358,29 @@ export function Configuracion({
         {estiloAbierto && (
           <div className="space-y-1 border-t border-border p-2">
             <button
+              onClick={() => setEstilo('neon')}
+              className={`flex w-full items-center gap-3 rounded-xl p-2.5 text-left transition ${
+                estilo === 'neon' ? 'bg-secondary' : ''
+              }`}
+            >
+              <span
+                className="h-9 w-9 shrink-0 rounded-lg"
+                style={{ background: 'linear-gradient(135deg, #0c2a33, #35e3ea)', boxShadow: '0 0 10px rgba(53,227,234,0.45)' }}
+              />
+              <div className="flex-1">
+                <p className="text-sm font-bold text-foreground">{t.config.estiloNeonNombre}</p>
+                <p className="text-xs text-muted-foreground">{t.config.estiloNeonDesc}</p>
+              </div>
+              <span
+                className={`flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full border-2 ${
+                  estilo === 'neon' ? 'border-accent' : 'border-border'
+                }`}
+              >
+                {estilo === 'neon' && <span className="h-2.5 w-2.5 rounded-full bg-accent" />}
+              </span>
+            </button>
+
+            <button
               onClick={() => setEstilo('clasico')}
               className={`flex w-full items-center gap-3 rounded-xl p-2.5 text-left transition ${
                 estilo === 'clasico' ? 'bg-secondary' : ''
