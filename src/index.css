@@ -712,6 +712,16 @@ button.card-elevated:focus-visible {
 .estilo-neon .accent-gradient {
   color: #04262c !important;
 }
+/* Un botón seleccionado lleva a la vez .card-elevated y .bg-primary o
+   .accent-gradient. El cristal de .estilo-neon .card-elevated (más
+   específico) tapaba ese fondo con su degradado oscuro, y el texto oscuro
+   de Neón desaparecía encima. Seleccionado = fondo sólido, sin cristal. */
+.estilo-neon .card-elevated.bg-primary {
+  background-image: none;
+}
+.estilo-neon .card-elevated.accent-gradient {
+  background: var(--brand-accent-bg);
+}
 .estilo-neon .glow-cian {
   filter: drop-shadow(0 0 8px rgba(53, 227, 234, 0.55));
 }
