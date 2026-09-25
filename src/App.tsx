@@ -336,6 +336,7 @@ function App() {
                   <LoadingScreen label={t.asignaturas.cargandoBanco(cargandoAsignatura)} />
                 ) : (
                   <ElegirAsignatura
+                    userId={userId}
                     onSeleccionar={(cursoId, nombre) => {
                       setCursoIdExamen(cursoId)
                       // Muestra la pantalla de carga de inmediato (en vez de

@@ -362,6 +362,17 @@ export interface Diccionario {
     // Pantalla de carga a pantalla completa mientras se trae de Supabase el
     // banco de preguntas de la asignatura recién elegida (ver App.tsx).
     cargandoBanco: (nombre: string) => string
+    mediaGlobal: string
+    aprobarias: (aprobadas: number, total: number) => string
+    seApruebaCon: (pct: number) => string
+    leyendaAprobado: string
+    leyendaCerca: string
+    leyendaFlojo: string
+    elegir: string
+    mediaUltimos: string
+    sinSimulacros: string
+    detalle: (intentos: number, tendencia: number | null) => string
+    sinMediaGlobal: string
   }
   estadisticas: {
     titulo: string
@@ -791,6 +802,18 @@ export const es: Diccionario = {
     titulo: '¿Qué vas a examinar?',
     subtitulo: 'Elige la asignatura para configurar tu simulacro.',
     cargandoBanco: (nombre) => `Cargando preguntas de ${nombre}…`,
+    mediaGlobal: 'Tu media global',
+    aprobarias: (a, t) => `Aprobarías ${a} de ${t} asignaturas`,
+    seApruebaCon: (p) => `Se aprueba con un ${p}%`,
+    leyendaAprobado: '≥ 70 aprobado',
+    leyendaCerca: '50–69 cerca',
+    leyendaFlojo: '< 50 flojo',
+    elegir: 'Elige asignatura',
+    mediaUltimos: 'Media de tus últimos simulacros',
+    sinSimulacros: 'Sin simulacros todavía',
+    detalle: (n, tend) =>
+      `${n} ${n === 1 ? 'simulacro' : 'simulacros'}${tend === null || tend === 0 ? '' : ` · ${tend > 0 ? '↑' : '↓'} ${Math.abs(tend)} pts`}`,
+    sinMediaGlobal: 'Haz tu primer simulacro para ver tu media',
   },
   estadisticas: {
     titulo: 'Estadísticas',
@@ -1222,6 +1245,18 @@ export const en: Diccionario = {
     titulo: 'What are you testing on?',
     subtitulo: 'Choose a subject to set up your mock exam.',
     cargandoBanco: (nombre) => `Loading ${nombre} questions…`,
+    mediaGlobal: 'Your overall average',
+    aprobarias: (a, t) => `You'd pass ${a} of ${t} subjects`,
+    seApruebaCon: (p) => `Pass mark: ${p}%`,
+    leyendaAprobado: '≥ 70 pass',
+    leyendaCerca: '50–69 close',
+    leyendaFlojo: '< 50 weak',
+    elegir: 'Choose a subject',
+    mediaUltimos: 'Average of your recent mock exams',
+    sinSimulacros: 'No mock exams yet',
+    detalle: (n, tend) =>
+      `${n} ${n === 1 ? 'mock exam' : 'mock exams'}${tend === null || tend === 0 ? '' : ` · ${tend > 0 ? '↑' : '↓'} ${Math.abs(tend)} pts`}`,
+    sinMediaGlobal: 'Take your first mock exam to see your average',
   },
   estadisticas: {
     titulo: 'Statistics',

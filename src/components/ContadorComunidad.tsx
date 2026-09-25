@@ -4,7 +4,7 @@
 // Si la función de la base falla o no existe todavía, no se muestra nada.
 import { useEffect, useState } from 'react'
 import { useConteo } from '@/lib/useConteo'
-import { GraduationCap } from 'lucide-react'
+import { GraduationCap, User } from 'lucide-react'
 import { getContadorComunidad, type ContadorComunidad as Datos } from '@/lib/comunidadContador'
 import type { Idioma } from '@/lib/i18n'
 
@@ -82,6 +82,41 @@ export function ContadorComunidad({ idioma }: { idioma: Idioma }) {
           <span className="text-[11px] font-bold tabular-nums text-emerald-200">{tx.hoy(datos.activosHoy)}</span>
         </div>
       )}
+    </div>
+  )
+}
+
+// Versión compacta para la cabecera de la Home: solo el icono de persona y la
+// cifra de estudiantes registrados (misma fuente que la tira de arriba). El
+// texto completo va en title/aria-label para quien lo necesite.
+export function ContadorPersonas({ idioma }: { idioma: Idioma }) {
+  const [datos, setDatos] = useState<Datos | null>(null)
+  const total = Math.round(useConteo(datos?.total ?? 0, 1100))
+  const tx = TEXTOS[idioma === 'en' ? 'en' : 'es']
+  const locale = idioma === 'en' ? 'en' : 'es'
+
+  useEffect(() => {
+    let cancelado = false
+    getContadorComunidad().then((d) => {
+      if (!cancelado) setDatos(d)
+    })
+    return () => {
+      cancelado = true
+    }
+  }, [])
+
+  if (!datos || datos.total === 0) return null
+
+  const etiqueta = `${datos.total.toLocaleString(locale)} ${tx.estudiantes(datos.total)}`
+  return (
+    <div
+      className="flex h-9 items-center gap-1 rounded-full bg-white/10 px-2.5 text-white animate-in fade-in duration-500"
+      title={etiqueta}
+      aria-label={etiqueta}
+      role="status"
+    >
+      <User className="h-4 w-4 text-white/80" aria-hidden="true" />
+      <span className="text-sm font-bold tabular-nums">{total.toLocaleString(locale)}</span>
     </div>
   )
 }

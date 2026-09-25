@@ -77,6 +77,52 @@ export async function getUltimosIntentos(userId: string, limite = 10): Promise<I
   return (data ?? []).map(filaAIntento)
 }
 
+// Media por asignatura para la pantalla "Examinarse" (ElegirAsignatura):
+// una sola consulta liviana (curso_id + porcentaje) con los intentos más
+// recientes de todas las asignaturas, y el cálculo por curso se hace aquí.
+// La media usa los últimos MEDIA_POR_CURSO intentos de cada curso (igual
+// criterio de "cómo vas ahora" que el promedio de la Home); la tendencia
+// compara los 3 últimos con los 3 anteriores y solo existe con 4+ intentos.
+export interface MediaCurso {
+  media: number
+  intentos: number
+  tendencia: number | null
+}
+
+const MEDIA_POR_CURSO = 10
+const MEDIAS_MAX_FILAS = 400
+
+export async function getMediasPorCurso(userId: string): Promise<Record<string, MediaCurso>> {
+  const { data, error } = await supabase
+    .from('historial_intentos')
+    .select('curso_id, porcentaje')
+    .eq('user_id', userId)
+    .order('fecha', { ascending: false })
+    .limit(MEDIAS_MAX_FILAS)
+
+  if (error) {
+    console.error('Error al leer las medias por asignatura:', error.message)
+    return {}
+  }
+
+  const porCurso: Record<string, number[]> = {}
+  for (const fila of data ?? []) {
+    const lista = (porCurso[fila.curso_id] ??= [])
+    if (lista.length < MEDIA_POR_CURSO) lista.push(Number(fila.porcentaje) || 0)
+  }
+
+  const promedio = (xs: number[]) => xs.reduce((a, b) => a + b, 0) / xs.length
+  const resultado: Record<string, MediaCurso> = {}
+  for (const [cursoId, pcts] of Object.entries(porCurso)) {
+    resultado[cursoId] = {
+      media: Math.round(promedio(pcts)),
+      intentos: pcts.length,
+      tendencia: pcts.length >= 4 ? Math.round(promedio(pcts.slice(0, 3)) - promedio(pcts.slice(3, 6))) : null,
+    }
+  }
+  return resultado
+}
+
 export async function guardarIntentoRemoto(userId: string, intento: IntentoExamen): Promise<void> {
   const { error } = await supabase.from('historial_intentos').insert({
     user_id: userId,

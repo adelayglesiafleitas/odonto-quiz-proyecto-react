@@ -13,7 +13,7 @@ import TourBienvenida from '@/components/TourBienvenida'
 import { getVioTourBienvenida, marcarTourBienvenidaVisto } from '@/lib/tourBienvenidaRemoto'
 import { getMensajesPendientes, descartarMensaje, type MensajeAdmin } from '@/lib/mensajesAdminRemoto'
 import { MensajeAdminBanner } from '@/components/MensajeAdminBanner'
-import { ContadorComunidad } from '@/components/ContadorComunidad'
+import { ContadorPersonas } from '@/components/ContadorComunidad'
 import { useConteo } from '@/lib/useConteo'
 import { listarMisTickets, suscribirseAMisTickets, type Ticket } from '@/lib/tickets'
 import { RUTA_SOPORTE, rutaSoporteDetalle } from '@/lib/rutas'
@@ -165,9 +165,13 @@ export function Home({
   return (
     <div className="app-shell bg-background pb-28">
       <div className="brand-gradient rounded-b-[32px] px-6 pb-8 pt-6 text-white">
-        <div className="flex items-center justify-between">
-          <LogoMark className="h-10 w-auto" variante="oscuro" />
-          <div className="flex items-center gap-2">
+        <div className="flex items-center justify-between gap-2">
+          {/* min-w-0 + object-left: en móviles de 360 px el logo cede ancho
+              (se achica sin deformarse) para que quepan el contador, el tema,
+              el idioma y cerrar sesión en la misma fila. */}
+          <LogoMark className="h-10 w-auto min-w-0 shrink object-left" variante="oscuro" />
+          <div className="flex shrink-0 items-center gap-1.5">
+            <ContadorPersonas idioma={idioma} />
             <SettingsToggle variante="oscuro" />
             <button
               onClick={onLogout}
@@ -247,7 +251,6 @@ export function Home({
           </button>
         </div>
 
-        <ContadorComunidad idioma={idioma} />
       </div>
 
       {(primeraVisita && !bienvenidaPrimeraVisitaCerrada) ||
