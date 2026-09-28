@@ -16,32 +16,32 @@ const SLIDES_ES: SlideTour[] = [
   {
     icono: 'bienvenida',
     titulo: 'Bienvenido a Odonto Quiz',
-    texto: 'Te armamos un recorrido rápido para que le saques el jugo desde el primer día.',
+    texto: 'Te preparamos un recorrido rápido para que le saques el máximo provecho desde el primer día.',
   },
   {
     icono: 'racha',
-    titulo: 'Empezá por tu racha',
-    texto: 'Cada día que practicás suma. No se trata de ser perfecto, se trata de no aflojar.',
+    titulo: 'Empieza por tu racha',
+    texto: 'Cada día que practicas suma. No se trata de ser perfecto, se trata de no rendirse.',
   },
   {
     icono: 'simulacro',
-    titulo: 'Practicá en condiciones reales',
+    titulo: 'Practica en condiciones reales',
     texto:
-      'El modo oficial arma el examen con la misma cantidad de preguntas y el mismo tiempo que el real. Sin sorpresas el día que importa.',
+      'El modo oficial crea el examen con la misma cantidad de preguntas y el mismo tiempo que el real. Sin sorpresas el día que importa.',
   },
   {
     icono: 'estudio',
-    titulo: 'Repasá capítulo por capítulo',
-    texto: 'Elegí un tema puntual y practicá pregunta por pregunta, con feedback inmediato.',
+    titulo: 'Repasa capítulo por capítulo',
+    texto: 'Elige un tema concreto y practica pregunta por pregunta, con feedback inmediato.',
   },
   {
     icono: 'resultados',
-    titulo: 'Mirá qué tema repasar',
+    titulo: 'Descubre qué tema repasar',
     texto: 'Al terminar un simulacro, un semáforo por tema te muestra dónde estás fuerte y dónde no.',
   },
   {
     icono: 'estadisticas',
-    titulo: 'Mirá tu evolución',
+    titulo: 'Sigue tu evolución',
     texto:
       'El gráfico de estadísticas te muestra si el método está funcionando semana a semana, no solo en un simulacro suelto.',
   },

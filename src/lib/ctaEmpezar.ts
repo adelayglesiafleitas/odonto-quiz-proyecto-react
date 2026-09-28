@@ -6,17 +6,17 @@ export interface CtaEmpezar {
 }
 
 /**
- * Textos para la card "Empezá ya" que aparece en Home, debajo de la frase
+ * Textos para la card "Empieza ya" que aparece en Home, debajo de la frase
  * del día, invitando a arrancar un simulacro. Se elige uno al azar por
  * carga de Home (mismo patrón que las frases motivacionales), para que no
  * se sienta repetitivo con el uso diario.
  */
 const CTA_ES: CtaEmpezar[] = [
-  { headline: '¡Empezá ya!', sub: 'Tu próxima prueba está lista para vos.' },
-  { headline: '¡Dale, es tu turno!', sub: 'Unos minutos alcanzan para sumar otro repaso.' },
-  { headline: '¡Vamos con todo!', sub: 'Practicá ahora y encará un simulacro más.' },
-  { headline: '¡A darle, no esperes más!', sub: 'No dejes pasar el envión de hoy.' },
-  { headline: '¡Este es el momento!', sub: 'Metele antes de que se te escape el día.' },
+  { headline: '¡Empieza ya!', sub: 'Tu próxima prueba está lista para ti.' },
+  { headline: '¡Vamos, es tu turno!', sub: 'Unos minutos bastan para sumar otro repaso.' },
+  { headline: '¡Tú puedes!', sub: 'Practica ahora y haz un simulacro más.' },
+  { headline: '¡No esperes más!', sub: 'Aprovecha el impulso de hoy.' },
+  { headline: '¡Este es el momento!', sub: 'Hazlo antes de que se te escape el día.' },
 ]
 
 const CTA_EN: CtaEmpezar[] = [

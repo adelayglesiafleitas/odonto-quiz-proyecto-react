@@ -11,31 +11,31 @@ type MensajeFn = (nombre: string) => string
 const MENSAJES_DIA_ES: MensajeFn[][] = [
   [
     (n) => `Domingo tranquilo, ${n}. Buen día para sumar un repaso más.`,
-    (n) => `Hola, ${n}. Un ratito hoy también te acerca a la meta.`,
+    (n) => `Hola, ${n}. Un rato hoy también te acerca a la meta.`,
   ],
   [
-    (n) => `Nada como empezar un lunes con toda la pila, ${n}.`,
-    (n) => `Arranca la semana, ${n}. Cada lunes suma.`,
+    (n) => `Nada como empezar un lunes con toda la energía, ${n}.`,
+    (n) => `Empieza la semana, ${n}. Cada lunes suma.`,
   ],
   [
     (n) => `Martes de seguir sumando repasos, ${n}.`,
-    (n) => `Ya agarraste ritmo esta semana. Seguí así, ${n}.`,
+    (n) => `Ya tomaste ritmo esta semana. Sigue así, ${n}.`,
   ],
   [
-    (n) => `Mitad de semana, mitad de camino. Seguí adelante, ${n}.`,
+    (n) => `Mitad de semana, mitad de camino. Sigue adelante, ${n}.`,
     (n) => `Miércoles: el mejor día para no bajar el ritmo, ${n}.`,
   ],
   [
-    (n) => `Ya casi llegás al fin de semana, no aflojes, ${n}.`,
+    (n) => `Ya casi llegas al fin de semana, no te detengas, ${n}.`,
     (n) => `Jueves de sostener el esfuerzo, ${n}.`,
   ],
   [
-    (n) => `Viernes: cerrá la semana con un buen repaso, ${n}.`,
-    (n) => `Último empujón de la semana. Vos podés, ${n}.`,
+    (n) => `Viernes: cierra la semana con un buen repaso, ${n}.`,
+    (n) => `Último empujón de la semana. Tú puedes, ${n}.`,
   ],
   [
     (n) => `Sábado también cuenta para acercarte a tu meta, ${n}.`,
-    (n) => `Un ratito de estudio este sábado suma un montón, ${n}.`,
+    (n) => `Un rato de estudio este sábado suma mucho, ${n}.`,
   ],
 ]
 

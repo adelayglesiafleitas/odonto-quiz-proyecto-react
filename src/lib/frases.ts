@@ -12,16 +12,16 @@ export interface Frase {
  * `autor` para atribuirlas.
  */
 const FRASES_ES: Frase[] = [
-  { texto: 'Cada pregunta que practicás hoy es un paso menos para llegar a tu meta.' },
-  { texto: 'No necesitás saberlo todo, necesitás seguir intentándolo.' },
+  { texto: 'Cada pregunta que practicas hoy es un paso menos para llegar a tu meta.' },
+  { texto: 'No necesitas saberlo todo, necesitas seguir intentándolo.' },
   { texto: 'El que estudia con constancia, tarde o temprano aprueba.' },
   { texto: 'Tu ritmo es válido. Lo importante es no detenerte.' },
-  { texto: 'Equivocarte en un simulacro es mejor que equivocarte en el examen real: aprovechá el error.' },
-  { texto: 'Confiá en el proceso: cada repaso suma, aunque hoy no lo sientas.' },
-  { texto: 'Llegaste hasta acá porque podés. Seguí.' },
+  { texto: 'Equivocarte en un simulacro es mejor que equivocarte en el examen real: aprovecha el error.' },
+  { texto: 'Confía en el proceso: cada repaso suma, aunque hoy no lo sientas.' },
+  { texto: 'Llegaste hasta aquí porque puedes. Sigue.' },
   { texto: 'El cansancio es temporal, el título es para siempre.' },
-  { texto: 'No compares tu avance con el de otros: comparalo con el tuyo de ayer.' },
-  { texto: 'Un examen no define lo que sabés. Solo mide un día.' },
+  { texto: 'No compares tu avance con el de otros: compáralo con el tuyo de ayer.' },
+  { texto: 'Un examen no define lo que sabes. Solo mide un día.' },
 ]
 
 const FRASES_EN: Frase[] = [
