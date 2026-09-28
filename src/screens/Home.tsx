@@ -1,4 +1,4 @@
-import { useEffect, useState, type CSSProperties } from 'react'
+import { useEffect, useMemo, useState, type CSSProperties } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { LogoMark } from '@/components/Logo'
 import { Spinner } from '@/components/Spinner'
@@ -82,12 +82,10 @@ export function Home({
   // aparecer si se vuelve a entrar a Home, hasta que se abra el hilo.
   const [ticketsSinLeer, setTicketsSinLeer] = useState<Ticket[]>([])
   const [avisoTicketCerrado, setAvisoTicketCerrado] = useState(false)
-  // Anillo y % de progreso: suben de 0 al valor real al cargar.
-  const promedioAnimado = useConteo(cargandoStats ? 0 : promedio, 1100, 150)
-  const resumen = resumirHistorial(historialCurso)
+  const resumen = useMemo(() => resumirHistorial(historialCurso), [historialCurso])
   const IconoBienvenida = ICONO_BIENVENIDA[estilo]
   const IconoCta = ICONO_CTA[estilo]
-  const puntoDebil = elegirPuntoDebil(capitulos)
+  const puntoDebil = useMemo(() => elegirPuntoDebil(capitulos), [capitulos])
 
   useEffect(() => {
     let cancelado = false
@@ -246,33 +244,7 @@ export function Home({
           <div className="card-elevated w-[56%] max-w-[230px] shrink-0 rounded-3xl bg-white/10 p-3 backdrop-blur-sm">
             <div className="flex items-center gap-2.5">
               <div className="relative flex h-[78px] w-[78px] shrink-0 items-center justify-center">
-                {cargandoStats ? (
-                  <Spinner className="h-5 w-5 text-white/70" />
-                ) : (
-                  <>
-                    <svg viewBox="0 0 80 80" className="glow-cian h-full w-full -rotate-90">
-                      <circle cx="40" cy="40" r="32" fill="rgba(0,0,0,0.18)" stroke="rgba(255,255,255,0.15)" strokeWidth="7" />
-                      <circle
-                        cx="40"
-                        cy="40"
-                        r="32"
-                        fill="none"
-                        stroke={colorStrokePorcentaje(promedio)}
-                        strokeWidth="7"
-                        strokeLinecap="round"
-                        strokeDasharray={PROMEDIO_CIRCUNFERENCIA}
-                        strokeDashoffset={PROMEDIO_CIRCUNFERENCIA - (promedioAnimado / 100) * PROMEDIO_CIRCUNFERENCIA}
-                      />
-                    </svg>
-                    <span className="absolute flex flex-col items-center leading-none">
-                      <span className="text-lg font-extrabold tabular-nums">
-                        {Math.round(promedioAnimado)}
-                        <span className="text-[11px]">%</span>
-                      </span>
-                      <span className="mt-0.5 text-[8.5px] text-white/70">{t.home.tuPromedio}</span>
-                    </span>
-                  </>
-                )}
+                <AnilloPromedio promedio={promedio} cargando={cargandoStats} etiqueta={t.home.tuPromedio} />
               </div>
               <div className="min-w-0 flex-1 border-l border-white/15 pl-2.5">
                 <div className="flex items-center gap-1.5">
@@ -593,6 +565,42 @@ export function Home({
 }
 
 // --- Rediseño Neón: helpers de la Home -----------------------------------
+
+/**
+ * Anillo del promedio con el número que sube de 0 al valor real. Va en su
+ * propio componente porque useConteo actualiza el estado en cada frame
+ * (~60 veces por segundo durante la animación): así solo se redibuja el
+ * anillo, no la Home entera.
+ */
+function AnilloPromedio({ promedio, cargando, etiqueta }: { promedio: number; cargando: boolean; etiqueta: string }) {
+  const promedioAnimado = useConteo(cargando ? 0 : promedio, 1100, 150)
+  if (cargando) return <Spinner className="h-5 w-5 text-white/70" />
+  return (
+    <>
+      <svg viewBox="0 0 80 80" className="glow-cian h-full w-full -rotate-90">
+        <circle cx="40" cy="40" r="32" fill="rgba(0,0,0,0.18)" stroke="rgba(255,255,255,0.15)" strokeWidth="7" />
+        <circle
+          cx="40"
+          cy="40"
+          r="32"
+          fill="none"
+          stroke={colorStrokePorcentaje(promedio)}
+          strokeWidth="7"
+          strokeLinecap="round"
+          strokeDasharray={PROMEDIO_CIRCUNFERENCIA}
+          strokeDashoffset={PROMEDIO_CIRCUNFERENCIA - (promedioAnimado / 100) * PROMEDIO_CIRCUNFERENCIA}
+        />
+      </svg>
+      <span className="absolute flex flex-col items-center leading-none">
+        <span className="text-lg font-extrabold tabular-nums">
+          {Math.round(promedioAnimado)}
+          <span className="text-[11px]">%</span>
+        </span>
+        <span className="mt-0.5 text-[8.5px] text-white/70">{etiqueta}</span>
+      </span>
+    </>
+  )
+}
 
 const AVATARES_COMUNIDAD = [
   'linear-gradient(135deg, #2dd8d8, #12908f)',

@@ -2,7 +2,8 @@ import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from 'rea
 import { Routes, Route, Navigate, useNavigate, useLocation, useNavigationType } from 'react-router-dom'
 import type { Session } from '@supabase/supabase-js'
 import type { Pantalla, Pregunta, IntentoExamen } from '@/types'
-import { cargarBanco, seleccionarPreguntas, obtenerPreguntasPorNumero } from '@/lib/data'
+import { cargarBanco, getPreguntas, seleccionarPreguntas, obtenerPreguntasPorNumero } from '@/lib/data'
+import { borrarBancosGuardados } from '@/lib/bancoCache'
 import { CURSO, CURSO_ID, CURSOS } from '@/lib/cursos'
 import { supabase } from '@/lib/supabase'
 import { verificarDispositivo, cerrarSesionOtrosDispositivos, liberarDispositivoActual, registrarAperturaSiToca } from '@/lib/dispositivos'
@@ -74,6 +75,25 @@ function Protegida({
 }) {
   if (!sesionLista) return <LoadingScreen />
   if (!autenticado) return <Navigate to={RUTA.login} replace />
+  return <>{children}</>
+}
+
+// Pantallas que leen el banco de forma síncrona (getPreguntas): esperan a que
+// esté cargado. Desde que la Home ya no espera al banco para mostrarse, se
+// puede llegar aquí mientras aún se descarga (o recargando la página).
+function EsperarBanco({ cursoId, children }: { cursoId: string; children: ReactNode }) {
+  const [listo, setListo] = useState(() => getPreguntas(cursoId).length > 0)
+  useEffect(() => {
+    if (listo) return
+    let cancelado = false
+    cargarBanco(cursoId).then(() => {
+      if (!cancelado) setListo(true)
+    })
+    return () => {
+      cancelado = true
+    }
+  }, [cursoId, listo])
+  if (!listo) return <LoadingScreen />
   return <>{children}</>
 }
 
@@ -190,7 +210,9 @@ function App() {
   useEffect(() => {
     if (location.pathname !== RUTA.splash || !sesionLista || !tiempoMinimoListo) return
     if (autenticado) {
-      cargarBanco(CURSO_ID).then(() => navigate(RUTA.home, { replace: true }))
+      // La Home no usa el banco: se entra ya y el banco se carga detrás.
+      cargarBanco(CURSO_ID)
+      navigate(RUTA.home, { replace: true })
     } else {
       navigate(RUTA.login, { replace: true })
     }
@@ -206,6 +228,7 @@ function App() {
       await liberarDispositivoActual(userId)
     }
     await supabase.auth.signOut()
+    void borrarBancosGuardados()
     setVerifDispositivo('pendiente')
     navigate(RUTA.login, { replace: true })
   }
@@ -317,7 +340,12 @@ function App() {
               ) : autenticado ? (
                 <Navigate to={RUTA.home} replace />
               ) : (
-                <Login onLogin={() => cargarBanco(CURSO_ID).then(() => navigate(RUTA.home, { replace: true }))} />
+                <Login
+                  onLogin={() => {
+                    cargarBanco(CURSO_ID)
+                    navigate(RUTA.home, { replace: true })
+                  }}
+                />
               )
             }
           />
@@ -375,14 +403,16 @@ function App() {
             element={
               <Protegida sesionLista={sesionLista} autenticado={autenticado}>
                 {userId && (
-                  <ConfigurarExamen
-                    userId={userId}
-                    cursoId={cursoIdExamen}
-                    cursoMeta={CURSOS[cursoIdExamen]}
-                    onBack={() => navigate(RUTA.asignaturas)}
-                    onNavigate={irA}
-                    onIniciar={iniciarExamen}
-                  />
+                  <EsperarBanco cursoId={cursoIdExamen}>
+                    <ConfigurarExamen
+                      userId={userId}
+                      cursoId={cursoIdExamen}
+                      cursoMeta={CURSOS[cursoIdExamen]}
+                      onBack={() => navigate(RUTA.asignaturas)}
+                      onNavigate={irA}
+                      onIniciar={iniciarExamen}
+                    />
+                  </EsperarBanco>
                 )}
               </Protegida>
             }
@@ -448,7 +478,12 @@ function App() {
             }
           />
 
-          <Route path={RUTA.estudio} element={<Estudio onBack={() => navigate(RUTA.home)} onNavigate={irA} />} />
+          <Route path={RUTA.estudio} element={
+              <EsperarBanco cursoId={CURSO_ID}>
+                <Estudio onBack={() => navigate(RUTA.home)} onNavigate={irA} />
+              </EsperarBanco>
+            }
+          />
 
           <Route
             path={RUTA.estadisticas}

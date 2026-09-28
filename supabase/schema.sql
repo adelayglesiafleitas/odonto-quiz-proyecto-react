@@ -462,3 +462,31 @@ grant execute on function public.registrar_apertura() to authenticated;
 -- admin_listar_usuarios: ahora devuelve también `ultima_apertura`
 -- (left join public.perfiles). Se hizo drop + create por el cambio de tipo
 -- de retorno; execute solo para authenticated.
+
+-- ---------------------------------------------------------------------------
+-- 2026-09-28 — Optimización (migraciones version_banco_preguntas y
+-- rls_initplan_auth_uid, aplicadas en Supabase):
+-- 1) version_banco(): versión del banco de un curso para la caché local del
+--    cliente (src/lib/bancoCache.ts). Cambia si se agrega, borra, edita u
+--    oculta una pregunta.
+-- 2) Las políticas RLS que usaban auth.uid() / es_admin() / es_staff() sin
+--    envolver pasan a (select ...): misma lógica, se evalúa una vez por
+--    consulta en vez de una vez por fila.
+-- 3) admin_eliminar_usuario y las proteger_* ya no se pueden ejecutar como
+--    anon; tickets_set_resuelto_en y borrar_tickets_resueltos_antiguos con
+--    search_path fijo.
+-- ---------------------------------------------------------------------------
+create or replace function public.version_banco(p_curso_ids text[])
+returns table(total bigint, ultima timestamptz)
+language sql
+stable
+security invoker
+set search_path = public
+as $$
+  select count(*) filter (where not oculta), max(actualizado_en)
+  from public.preguntas
+  where curso_id = any(p_curso_ids);
+$$;
+
+revoke execute on function public.version_banco(text[]) from anon, public;
+grant execute on function public.version_banco(text[]) to authenticated;

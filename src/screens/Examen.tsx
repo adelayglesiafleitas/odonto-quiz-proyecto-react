@@ -10,6 +10,57 @@ import { ArrowLeft, ArrowRight, X, Timer, AlertTriangle } from 'lucide-react'
 
 export type RespuestaUsuario = Record<number, string[]>
 
+// Cronómetro del examen en su propio componente: antes el estado del tiempo
+// vivía en Examen y cada segundo se volvía a dibujar la pantalla entera
+// (pregunta, opciones, navegación). Ahora solo se actualiza esta pastilla.
+// El tiempo se calcula con el reloj real (Date.now() - inicio), no restando
+// 1 por tick: si el móvil pone la pestaña en segundo plano y frena los
+// intervalos, al volver el tiempo sigue siendo el correcto.
+function Cronometro({ totalSeg, inicio, onAgotado }: { totalSeg: number; inicio: number; onAgotado: () => void }) {
+  const calcular = () => Math.max(0, totalSeg - Math.floor((Date.now() - inicio) / 1000))
+  const [restante, setRestante] = useState(calcular)
+  const onAgotadoRef = useRef(onAgotado)
+  onAgotadoRef.current = onAgotado
+
+  useEffect(() => {
+    let terminado = false
+    const tick = () => {
+      if (terminado) return
+      const r = Math.max(0, totalSeg - Math.floor((Date.now() - inicio) / 1000))
+      setRestante(r)
+      if (r <= 0) {
+        terminado = true
+        clearInterval(timer)
+        onAgotadoRef.current()
+      }
+    }
+    const timer = setInterval(tick, 1000)
+    document.addEventListener('visibilitychange', tick)
+    return () => {
+      clearInterval(timer)
+      document.removeEventListener('visibilitychange', tick)
+    }
+  }, [totalSeg, inicio])
+
+  const tiempoBajo = totalSeg > 0 && restante / totalSeg <= 0.15
+  const tiempoMedio = totalSeg > 0 && restante / totalSeg <= 0.3
+  return (
+    <span
+      role="timer"
+      className={`flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold transition-colors ${
+        tiempoBajo
+          ? 'bg-destructive/15 text-destructive'
+          : tiempoMedio
+            ? 'bg-amber-400/20 text-amber-600'
+            : 'bg-accent/12 text-accent'
+      }`}
+    >
+      {tiempoBajo ? <AlertTriangle className="h-3.5 w-3.5" /> : <Timer className="h-3.5 w-3.5" />}
+      {formatearTiempo(restante)}
+    </span>
+  )
+}
+
 function formatearTiempo(seg: number): string {
   const m = Math.floor(seg / 60)
   const s = seg % 60
@@ -35,7 +86,6 @@ export function Examen({
   const [confirmarSalir, setConfirmarSalir] = useState(false)
   // Hacia dónde se movió la última vez (para que la pregunta entre por ese lado).
   const [direccion, setDireccion] = useState<'adelante' | 'atras'>('adelante')
-  const [tiempoRestante, setTiempoRestante] = useState((tiempoLimiteMinutos ?? 0) * 60)
   const inicioRef = useRef(Date.now())
   const respuestasRef = useRef<RespuestaUsuario>({})
   const finalizadoRef = useRef(false)
@@ -55,25 +105,7 @@ export function Examen({
     onFinalizar(respuestasRef.current, tiempoUsadoSeg, agotoTiempo)
   }
 
-  useEffect(() => {
-    if (tiempoLimiteMinutos === null) return
-    const timer = setInterval(() => {
-      setTiempoRestante((t) => {
-        if (t <= 1) {
-          clearInterval(timer)
-          finalizarUnaVez(true)
-          return 0
-        }
-        return t - 1
-      })
-    }, 1000)
-    return () => clearInterval(timer)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tiempoLimiteMinutos])
-
   const totalSeg = (tiempoLimiteMinutos ?? 0) * 60
-  const tiempoBajo = tiempoLimiteMinutos !== null && totalSeg > 0 && tiempoRestante / totalSeg <= 0.15
-  const tiempoMedio = tiempoLimiteMinutos !== null && totalSeg > 0 && tiempoRestante / totalSeg <= 0.3
 
   function toggleOpcion(letra: string) {
     setRespuestas((prev) => {
@@ -121,18 +153,7 @@ export function Examen({
             {t.examen.preguntaContador(indice + 1, preguntas.length)}
           </span>
           {tiempoLimiteMinutos !== null ? (
-            <span
-              className={`flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold transition-colors ${
-                tiempoBajo
-                  ? 'bg-destructive/15 text-destructive'
-                  : tiempoMedio
-                    ? 'bg-amber-400/20 text-amber-600'
-                    : 'bg-accent/12 text-accent'
-              }`}
-            >
-              {tiempoBajo ? <AlertTriangle className="h-3.5 w-3.5" /> : <Timer className="h-3.5 w-3.5" />}
-              {formatearTiempo(tiempoRestante)}
-            </span>
+            <Cronometro totalSeg={totalSeg} inicio={inicioRef.current} onAgotado={() => finalizarUnaVez(true)} />
           ) : (
             <span className="w-8" />
           )}

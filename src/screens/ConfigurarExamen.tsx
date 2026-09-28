@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Spinner } from '@/components/Spinner'
 import {
@@ -161,14 +161,40 @@ export function ConfigurarExamen({
   // como opciones sueltas en esta lista (eso solo pasa al elegir Fuente
   // "Libro") — el filtro por nombre de capítulo (Exámenes CRADO/Otros
   // Exámenes) ya las deja afuera de esos dos conteos igual.
-  const preguntasDeFuente =
-    fuente === 'libro' && libroSeleccionado ? preguntas.filter((p) => p.libro === libroSeleccionado) : preguntas
+  const preguntasDeFuente = useMemo(
+    () => (fuente === 'libro' && libroSeleccionado ? preguntas.filter((p) => p.libro === libroSeleccionado) : preguntas),
+    [preguntas, fuente, libroSeleccionado],
+  )
   const todosLosCapitulos =
     fuente === 'libro' && libroSeleccionado ? getCapitulos(cursoId, libroSeleccionado) : getCapitulos(cursoId, null)
 
-  const disponibles = preguntasDeFuente.filter(
-    (p) => (capitulos.length === 0 || capitulos.includes(p.capitulo)) && (anio === 'todos' || p.anio === anio),
-  ).length
+  // Conteos de la lista (total, por capítulo, por libro) en UNA pasada por el
+  // banco. Antes se hacía un .filter() del banco entero por cada fila de la
+  // lista en cada render: con Ortodoncia, cientos de miles de operaciones por
+  // cada toque. Solo se recalcula al cambiar de fuente, libro o año.
+  const conteos = useMemo(() => {
+    const porCapitulo = new Map<string, number>()
+    let total = 0
+    for (const p of preguntasDeFuente) {
+      if (anio !== 'todos' && p.anio !== anio) continue
+      total++
+      porCapitulo.set(p.capitulo, (porCapitulo.get(p.capitulo) ?? 0) + 1)
+    }
+    const porLibro = new Map<string, number>()
+    for (const p of preguntas) {
+      if (!p.libro || (anio !== 'todos' && p.anio !== anio)) continue
+      porLibro.set(p.libro, (porLibro.get(p.libro) ?? 0) + 1)
+    }
+    return { total, porCapitulo, porLibro }
+  }, [preguntasDeFuente, preguntas, anio])
+
+  const disponibles = useMemo(
+    () =>
+      capitulos.length === 0
+        ? conteos.total
+        : capitulos.reduce((suma, cap) => suma + (conteos.porCapitulo.get(cap) ?? 0), 0),
+    [capitulos, conteos],
+  )
 
   // "Todos los capítulos" en Fuente Libro tiene que resolverse a la lista
   // concreta de capítulos de ESE libro antes de guardar/arrancar: un array
@@ -488,14 +514,12 @@ export function ConfigurarExamen({
               >
                 {t.configurar.todosCapitulos}
                 <span className={capitulos.length === 0 ? 'text-white/70' : 'text-muted-foreground'}>
-                  {preguntasDeFuente.filter((p) => anio === 'todos' || p.anio === anio).length} {t.configurar.preguntas}
+                  {conteos.total} {t.configurar.preguntas}
                 </span>
               </button>
               <div className="max-h-64 space-y-2 overflow-y-auto pr-1">
                 {todosLosCapitulos.map((cap) => {
-                  const n = preguntasDeFuente.filter(
-                    (p) => p.capitulo === cap && (anio === 'todos' || p.anio === anio),
-                  ).length
+                  const n = conteos.porCapitulo.get(cap) ?? 0
                   const activo = capitulos.includes(cap)
                   return (
                     <button
@@ -516,9 +540,7 @@ export function ConfigurarExamen({
                 {fuente === 'examenes' &&
                   libros.map((libro) => {
                     const capitulosDelLibro = getCapitulos(cursoId, libro)
-                    const n = preguntas.filter(
-                      (p) => p.libro === libro && (anio === 'todos' || p.anio === anio),
-                    ).length
+                    const n = conteos.porLibro.get(libro) ?? 0
                     const activo = capitulosDelLibro.length > 0 && capitulosDelLibro.every((c) => capitulos.includes(c))
                     const { autor, tema } = formatearLibro(libro)
                     return (

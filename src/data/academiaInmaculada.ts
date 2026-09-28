@@ -218,7 +218,7 @@ export const INTRO_CAP1 = {
     {
       titulo: 'Cómo está armado',
       texto:
-        'Por ahora el capítulo tiene el video de Parálisis Cerebral, dividido en 3 partes. Al terminar cada parte aparece una pregunta y hay que responderla bien para pasar a la siguiente — si sale mal, se puede reintentar. Al final de las 3 partes hay una prueba que cierra el capítulo. Epilepsia y Distrofias Musculares se van a sumar más adelante.',
+        'El capítulo empieza con el vídeo de Parálisis Cerebral. El vídeo se para dos veces con una pregunta: hay que acertarla para seguir y, si fallas, se repite. Al terminar el vídeo viene una prueba final que cierra el capítulo. Epilepsia y Distrofias Musculares se sumarán más adelante.',
     },
   ],
 }
@@ -237,7 +237,7 @@ export const INTRO_CAP1 = {
  * la izquierda): Introducción 0:00 · Parálisis cerebral 1:30 · Epilepsia
  * 4:18 · Distrofias musculares 7:51 · Síntesis 10:01.
  */
-export type VideoId = 'v1' | 'v2'
+export type VideoId = 'v1'
 
 export interface PausaVideo {
   /** Segundo del video en el que se para (justo antes de que cambie de tramo). */
@@ -275,255 +275,242 @@ export interface VideoAcademia {
 }
 
 export const VIDEOS_CAP1: VideoAcademia[] = [
+  // 2026-09-28 — VÍDEO NUEVO del Tema 1 ("Odontología y Parálisis Cerebral",
+  // 5:27, 720p, 11 diapositivas en 6 segmentos). Sustituye al de 12:06 (el
+  // anterior y su cuestionario dejan de usarse). Dos pausas en los segundos
+  // que pidió el usuario, cada una con 1 pregunta FIJA de `tema1Pc`:
   {
     id: 'v1',
     temaId: 'pc',
     titulo: 'Tema 1',
     src: '/academia/pacientes-especiales/cap-1/cap01-tema01.mp4',
-    duracionSeg: 727,
+    duracionSeg: 327,
     pausas: [
-      // Fin de Parálisis cerebral (Epilepsia arranca en 4:18).
-      // Pregunta fija: prueba1[0] (espástica, 50-75 %).
-      { seg: 257.5, pruebaId: 'prueba1', preguntas: [0] },
-      // Fin de Epilepsia (Distrofias arranca en 7:51). Ojo: prueba2[4] (ECG /
-      // función pulmonar) es de Distrofia Muscular — no usarla en esta pausa.
-      // Pregunta fija: prueba2[0] (fase estable, más de 2 años sin crisis).
-      { seg: 471, pruebaId: 'prueba2', preguntas: [0] },
+      // 2:00 — fin de Complicaciones (diapositivas 2-4). Pregunta 3:
+      // reflejo de morder → abrebocas; deglución/tos → dique de goma.
+      { seg: 120, pruebaId: 'tema1Pc', preguntas: [2] },
+      // 3:30 — fin de Cita y sillón dental (diapositiva 7). Pregunta 8:
+      // sillón a 45º para prevenir aspiraciones.
+      { seg: 210, pruebaId: 'tema1Pc', preguntas: [7] },
     ],
+    // Medido sobre la etiqueta de segmento de abajo a la izquierda.
     secciones: [
       { desde: 0, titulo: 'Introducción', temaId: 'pc' },
-      { desde: 90.5, titulo: 'Parálisis Cerebral', temaId: 'pc' },
-      { desde: 257.5, titulo: 'Epilepsia', temaId: 'epi' },
-      { desde: 471, titulo: 'Distrofias Musculares', temaId: 'dm' },
-      { desde: 601.5, titulo: 'Síntesis', temaId: 'dm' },
+      { desde: 23.6, titulo: 'Complicaciones', temaId: 'pc' },
+      { desde: 121, titulo: 'Técnicas anestésicas', temaId: 'pc' },
+      { desde: 179.5, titulo: 'Cita y sillón dental', temaId: 'pc' },
+      { desde: 210.5, titulo: 'Tratamiento odontológico', temaId: 'pc' },
+      { desde: 269.5, titulo: 'Farmacología', temaId: 'pc' },
+      { desde: 297.9, titulo: 'Emergencia médica', temaId: 'pc' },
     ],
-  },
-  // 2026-09-24 — Tema 2: Técnicas anestésicas en parálisis cerebral
-  // (`cap01-tema02.mp4`, 1:57, 1080p, comprimido igual que el tema 1). Es
-  // corto: sin pausas; el cuestionario va entero al final, como nodo propio
-  // (`pruebaAnestesia` en NODOS_CAP1, pool `PRUEBAS_CAP1.anestesiaPc`).
-  {
-    id: 'v2',
-    temaId: 'pc',
-    titulo: 'Tema 2 · Técnicas anestésicas',
-    src: '/academia/pacientes-especiales/cap-1/cap01-tema02.mp4',
-    duracionSeg: 117,
-    pausas: [],
-    secciones: [{ desde: 0, titulo: 'Técnicas anestésicas', temaId: 'pc' }],
   },
 ]
 
 /**
- * Las 3 pruebas del capítulo (5 preguntas cada una), tal como vienen del
- * documento "Examen de Odontología Especial" que pasó el usuario — 3
- * opciones por pregunta, con la justificación clínica ya integrada como
- * feedback. Hay que responder las 5 bien para aprobar (ver `quizCompleto`/
- * lógica de aprobación en Academia.tsx) — no es un puntaje parcial.
- *
- * Nota: la pregunta 10 (dentro de `prueba2`) es sobre Distrofia Muscular,
- * no Epilepsia — así está agrupada en el documento original ("Tramo 2:
- * Epilepsia y Comorbilidades Sistémicas", preguntas 6 a 10), se mantiene
- * fiel a la fuente.
+ * 2026-09-28 — Preguntas del Tema 1 (docx "Odontología y Parálisis Cerebral —
+ * Test Cap01 tema 01"): 15 preguntas, 4 opciones, en el orden del docx; la
+ * justificación de la clave va como feedback (sin las referencias numéricas).
+ * - `tema1Pc`: el pool entero; las pausas del vídeo usan índices fijos.
+ * - `finalTema1`: la prueba final (la única que puntúa) — 3 preguntas fijas
+ *   de todo el tema. Para cambiarlas, cambiar `ORDEN_FINAL_TEMA1`.
+ * El Tema 2 viejo (Técnicas anestésicas: vídeo + cuestionario) se quitó de
+ * la ruta; el Tema 1 es un solo vídeo. El nuevo Tema 2 llegará aparte.
+ * Las pruebas del vídeo anterior (prueba1/prueba2/pruebaFinal) se quitaron.
  */
-export type PruebaId = 'prueba1' | 'prueba2' | 'pruebaFinal' | 'anestesiaPc'
+export type PruebaId = 'tema1Pc' | 'finalTema1'
+
+const PREGUNTAS_TEMA1_PC: PreguntaAcademia[] = [
+  // Bloque 1 — Complicaciones, manejo conductual, hallazgos orales, anestesia local / sedación IV
+  // 1
+  {
+    pregunta: '¿Cuál es la forma clínica de Parálisis Cerebral más frecuente y cuáles son sus manifestaciones características?',
+    opciones: [
+      'Atetoide (15%), caracterizada por movimientos vermiformes e involuntarios.',
+      'Atáxica (5-10%), caracterizada por la alteración del equilibrio y la marcha.',
+      'Espástica (50-75%), caracterizada por hipertonía muscular, contracturas e hiperreflexia.',
+      'Mixta, caracterizada exclusivamente por rigidez muscular severa e hipotonía facial.',
+    ],
+    correcta: 2,
+    feedback: 'La forma espástica representa el 50-75% de los casos y cursa con hipertonía y contracturas.',
+  },
+  // 2
+  {
+    pregunta: '¿Cuál es la regla fundamental para aplicar la restricción física suave en pacientes con movimientos incontrolables (atetosis o corea)?',
+    opciones: [
+      'Inmovilizar con cinchas rígidas antes de iniciar la consulta sin requerir consentimiento.',
+      'Sostener la cabeza y miembros de forma firme pero suave, haciendo fuerza únicamente durante el movimiento involuntario y con consentimiento previo.',
+      'Aplicar fuerza continua e ininterrumpida durante toda la sesión sobre las articulaciones del paciente.',
+      'Evitar cualquier contacto físico y realizar el tratamiento únicamente con sedación intravenosa obligatoria.',
+    ],
+    correcta: 1,
+    feedback: 'La restricción física suave exige consentimiento previo y fuerza aplicada solo durante el movimiento involuntario.',
+  },
+  // 3
+  {
+    pregunta: 'Ante la presencia de reflejos patológicos en el gabinete, ¿qué dispositivos específicos están indicados para controlar el reflejo anormal de morder y el reflejo anormal de deglución/tos, respectivamente?',
+    opciones: [
+      'Dique de goma para el reflejo de morder y abrebocas para el reflejo de deglución.',
+      'Parches de escopolamina para el reflejo de morder y eyector de saliva para el reflejo de deglución.',
+      'Abrebocas para el reflejo de morder y dique de goma para el reflejo de deglución/tos.',
+      'Cinchas de fijación para el reflejo de morder y mascarilla nasofaríngea para el reflejo de deglución.',
+    ],
+    correcta: 2,
+    feedback: 'El abrebocas previene el cierre por el reflejo de morder y el dique de goma protege la vía respiratoria.',
+  },
+  // 4
+  {
+    pregunta: '¿Qué factores contribuyen principalmente al elevado riesgo de caries y atrición anormal (que afecta al 40-70% de los casos) en pacientes con parálisis cerebral?',
+    opciones: [
+      'Dieta blanda cariogénica, jarabes antiepilépticos con alto contenido de azúcares y bruxismo.',
+      'Uso de enjuagues fluorados, hipotonía orofacial y hábito de deglución atípica.',
+      'Falta de flujo salival, ausencia de reflejo de morder y uso de prótesis fijas.',
+      'Dieta ácida exclusiva, tartrectomías frecuentes e hiperplasia gingival inducida por neurolépticos.',
+    ],
+    correcta: 0,
+    feedback: 'La dieta blanda, la sacarosa/viscosidad de jarabes y el bruxismo explican la alta prevalencia de caries y atrición.',
+  },
+  // 5
+  {
+    pregunta: '¿Qué riesgo crítico se debe vigilar durante y después de la administración de sedación intravenosa (IV) en el gabinete?',
+    opciones: [
+      'Hipertermia maligna inmediata.',
+      'Estenosis de la vía aérea superior.',
+      'Paro cardíaco por fibrilación.',
+      'Dislocación espontánea irreducible de la ATM.',
+    ],
+    correcta: 1,
+    feedback: 'La sedación IV requiere vigilancia estrecha por el riesgo de estenosis de la vía aérea superior.',
+  },
+  // Bloque 2 — Anestesia general, cita y sillón dental, odontología preventiva y conservadora
+  // 6
+  {
+    pregunta: '¿Cuáles son las tres complicaciones peri y posoperatorias principales a prevenir durante un procedimiento bajo Anestesia General?',
+    opciones: [
+      'Espasmos musculares, hipertensión e hiperplasia gingival.',
+      'Aspiración, hipotermia y reflujo gastroesofágico.',
+      'Estenosis de la vía aérea, queilitis comisural y atrición dentaria.',
+      'Dislocación de ATM, arritmia ventricular y sialorrea aguda.',
+    ],
+    correcta: 1,
+    feedback: 'En anestesia general los riesgos principales son aspiración, hipotermia y reflujo gastroesofágico.',
+  },
+  // 7
+  {
+    pregunta: 'Ante la necesidad de realizar un tratamiento dental simple en un paciente que acude en silla de ruedas, ¿cuál es la recomendación ergonómica de elección?',
+    opciones: [
+      'Trasladar obligatoriamente al paciente al sillón dental utilizando una grúa mecánica.',
+      'Inducir sedación profunda para poder realizar la transferencia al sillón.',
+      'Realizar la atención directamente en la propia silla de ruedas del paciente y programar sesiones cortas.',
+      'Reclinar la silla de ruedas a 90º y colocar un abrebocas metálico de fijación rápida.',
+    ],
+    correcta: 2,
+    feedback: 'Para intervenciones simples se recomienda la atención en la propia silla de ruedas para evitar traslados.',
+  },
+  // 8
+  {
+    pregunta: '¿A qué ángulo de inclinación debe mantenerse el sillón dental para prevenir eficazmente el riesgo de aspiraciones en el paciente?',
+    opciones: [
+      'En posición completamente horizontal (180º).',
+      'En torno a los 45º.',
+      'En posición vertical estricta a 90º.',
+      'En posición de Trendelenburg (-15º).',
+    ],
+    correcta: 1,
+    feedback: 'La inclinación a 45º previene eficazmente la aspiración de líquidos y secreciones.',
+  },
+  // 9
+  {
+    pregunta: '¿Por qué motivo están expresamente contraindicados los enjuagues bucales en pacientes con parálisis cerebral?',
+    opciones: [
+      'Por causar tinción irreversible en obturaciones de composite.',
+      'Por la dificultad para enjuagarse y el riesgo de ingesta indeseada de líquidos.',
+      'Por interactuar negativamente con los parches de escopolamina.',
+      'Por desencadenar espasmos en la musculatura masticatoria.',
+    ],
+    correcta: 1,
+    feedback: 'Los enjuagues se contraindican por la incapacidad de escupir y el riesgo de broncoaspiración o ingesta.',
+  },
+  // 10
+  {
+    pregunta: 'En odontología conservadora, si la técnica de restauración con composite se ve comprometida por movimientos incontrolables o humedad, ¿qué material de obturación en bloque está indicado?',
+    opciones: [
+      'Amalgama de plata con adhesivo sintético.',
+      'Cemento de fosfato de zinc convencional.',
+      'Sistema de restauración con vidrio híbrido.',
+      'Resina fluida autograbante de curado dual.',
+    ],
+    correcta: 2,
+    feedback: 'El vidrio híbrido permite la obturación en bloque cuando la técnica adhesiva con composite se compromete.',
+  },
+  // Bloque 3 — Especialidades complejas, farmacología / sialorrea y emergencias médicas
+  // 11
+  {
+    pregunta: 'En la rehabilitación prostodóncica de pacientes con epilepsia o ataxia, ¿por qué razón se prioriza la prótesis fija frente a la removible?',
+    opciones: [
+      'Porque la prótesis fija es más económica y rápida de confeccionar.',
+      'Porque la prótesis removible presenta dificultad de uso y un alto riesgo de desalojo, fractura o aspiración durante una crisis convulsiva.',
+      'Porque las prótesis fijas no requieren higiene oral diaria.',
+      'Porque el escáner intraoral no permite diseñar estructuras removibles.',
+    ],
+    correcta: 1,
+    feedback: 'Las prótesis removibles conllevan riesgo de desalojo y aspiración accidental durante una convulsión.',
+  },
+  // 12
+  {
+    pregunta: '¿Cómo debe aplicarse la clorhexidina para el tratamiento periodontal precoz en estos pacientes?',
+    opciones: [
+      'Mediante colutorio con enjuagues de 1 minuto dos veces al día.',
+      'En forma de spray, gel o gasa impregnada (evitando enjuagues bucales).',
+      'Únicamente diluida en el agua del ultrasónico durante la tartrectomía.',
+      'En irrigaciones subgingivales con jeringa de alta presión.',
+    ],
+    correcta: 1,
+    feedback: 'La clorhexidina debe aplicarse en gel, spray o gasa impregnada sin recurrir a enjuagues.',
+  },
+  // 13
+  {
+    pregunta: '¿Qué técnica avanzada se utiliza para el control farmacológico del babeo o sialorrea mediante la inhibición directa de las glándulas submaxilares?',
+    opciones: [
+      'Aplicación de gel de fluoruro diamino de plata en el conducto de Stenon.',
+      'Inyecciones de toxina botulínica bajo control ecográfico.',
+      'Prescripción de neurolépticos orales en dosis masivas.',
+      'Infiltración de anestesia local con vasoconstrictor cada 12 horas.',
+    ],
+    correcta: 1,
+    feedback: 'La toxina botulínica ecoguiada en glándulas submaxilares es el tratamiento avanzado de elección para el babeo.',
+  },
+  // 14
+  {
+    pregunta: '¿Qué efecto secundario oral característico produce el uso continuado de fármacos antiepilépticos de base?',
+    opciones: [
+      'Necrosis pulpar espontánea.',
+      'Agrandamiento e hiperplasia gingival.',
+      'Atrofia del hueso alveolar en abanico.',
+      'Hipersalivación ácida exclusivamente nocturna.',
+    ],
+    correcta: 1,
+    feedback: 'Los antiepilépticos producen agrandamiento/hiperplasia gingival como efecto secundario común.',
+  },
+  // 15
+  {
+    pregunta: 'Ante el desencadenamiento de una crisis convulsiva en el gabinete odontológico, ¿cuál debe ser el primer paso del protocolo de emergencia?',
+    opciones: [
+      'Administrar inmediatamente agua o líquidos orales para calmar al paciente.',
+      'Inclinar el sillón dental a 180º e iniciar respiración boca a boca.',
+      'Interrumpir inmediatamente el procedimiento y despejar la cavidad oral de cualquier instrumento o material.',
+      'Aplicar una inyección intramuscular de toxina botulínica.',
+    ],
+    correcta: 2,
+    feedback: 'La prioridad ante una crisis es detener el trabajo y despejar la boca para proteger la vía aérea y evitar traumatismos.',
+  },
+]
+
+/** Prueba final: 1 (espástica), 10 (vidrio híbrido) y 13 (toxina botulínica). */
+const ORDEN_FINAL_TEMA1 = [0, 9, 12]
 
 export const PRUEBAS_CAP1: Record<PruebaId, PreguntaAcademia[]> = {
-  // 2026-09-24 — Cuestionario "Técnicas Anestésicas en Pacientes con Parálisis
-  // Cerebral" (docx del usuario): 5 preguntas, 4 opciones, la justificación
-  // clínica de la clave va como feedback. Se responde al final del video del
-  // Tema 2; no puntúa (hay que acertar cada una para avanzar, los fallos se
-  // guardan), igual que las preguntas de las pausas.
-  anestesiaPc: [
-    {
-      pregunta: '¿Cuál es la principal limitación para la aplicación práctica de la anestesia local en pacientes con parálisis cerebral?',
-      opciones: [
-        'La existencia de contraindicaciones farmacológicas absolutas para los anestésicos locales.',
-        'La presencia de movimientos incontrolables en el paciente durante el procedimiento.',
-        'El riesgo elevado de desencadenar cuadros de hipertermia maligna.',
-        'La imposibilidad estricta de combinarla con otras técnicas de sedación.',
-      ],
-      correcta: 1,
-      feedback: 'No existen contraindicaciones clínicas absolutas para el uso de anestesia local en pacientes con parálisis cerebral, pero su aplicación práctica está limitada por los movimientos incontrolables del paciente.',
-    },
-    {
-      pregunta: '¿Para qué indicaciones clínicas está señalada principalmente la sedación consciente en odontología?',
-      opciones: [
-        'Control de la ansiedad, las náuseas y la distonía lingual.',
-        'Tratamientos quirúrgicos complejos en los cuatro cuadrantes.',
-        'Casos con estenosis grave de la vía aérea superior preexistente.',
-        'Exclusivamente para procedimientos de exodoncia múltiple bajo anestesia profunda.',
-      ],
-      correcta: 0,
-      feedback: 'La sedación consciente (oral con hidroxicina/benzodiazepinas o inhalatoria con óxido nitroso) está indicada para controlar la ansiedad, el reflejo de náusea y la distonía lingual.',
-    },
-    {
-      pregunta: '¿Por qué razón es indispensable realizar una consulta médica previa antes de administrar sedación consciente?',
-      opciones: [
-        'Por la presencia de alergias conocidas a los anestésicos locales habituales.',
-        'Por el riesgo de hipotermia grave durante la intervención.',
-        'Por el uso preexistente de neurolépticos y las dificultades respiratorias del paciente.',
-        'Para evaluar obligatoriamente la necesidad de intubación endotraqueal.',
-      ],
-      correcta: 2,
-      feedback: 'Se requiere consulta médica previa debido a la administración de neurolépticos y a las posibles dificultades respiratorias que pueda presentar el paciente con parálisis cerebral.',
-    },
-    {
-      pregunta: '¿Qué riesgo crítico requiere especial consideración y seguimiento durante y después de aplicar sedación intravenosa?',
-      opciones: [
-        'Reflujo gastroesofágico agudo posoperatorio.',
-        'Estenosis de la vía aérea superior.',
-        'Hipotermia severa perioperatoria.',
-        'Necrosis localizada de la mucosa lingual.',
-      ],
-      correcta: 1,
-      feedback: 'La sedación intravenosa, indicada ante movimientos incontrolables y falta de colaboración, exige atención especial durante y después del procedimiento debido al riesgo de estenosis de la vía aérea superior.',
-    },
-    {
-      pregunta: '¿En cuál de los siguientes escenarios está indicada la anestesia general?',
-      opciones: [
-        'En limpiezas dentales rutinarias en pacientes colaboradores.',
-        'En tratamientos dentales complejos (como rehabilitación protésica) o extensos (afectación de los cuatro cuadrantes).',
-        'Siempre que se aplique óxido nitroso por vía inhalatoria.',
-        'Únicamente cuando haya fracasado la anestesia local en un solo diente.',
-      ],
-      correcta: 1,
-      feedback: 'La anestesia general está indicada ante movimientos incontrolables, falta de colaboración, o tratamientos complejos (rehabilitación protésica) y extensos (cuatro cuadrantes), vigilando riesgos como aspiración, hipotermia y reflujo.',
-    },
-  ],
-  prueba1: [
-    {
-      pregunta:
-        '¿Qué porcentaje de pacientes con Parálisis Cerebral presenta el fenotipo de tipo espástico, caracterizado clínicamente por hipertonía muscular, contracturas e hiperreflexia tendinosa?',
-      opciones: ['5% al 10%', '15%', '50% al 75%'],
-      correcta: 2,
-      feedback:
-        'El fenotipo espástico es el más prevalente en la parálisis cerebral, afectando a un 50-75% de los pacientes, mientras que la atetosis representa el 15% y la ataxia un 5-10%.',
-    },
-    {
-      pregunta: 'En el marco de la odontología preventiva para niños con Parálisis Cerebral, ¿por qué se recomienda la aplicación de flúor en barniz en lugar de flúor en gel?',
-      opciones: [
-        'Porque el gel destruye las restauraciones de amalgama previamente colocadas.',
-        'Porque el barniz implica una menor cantidad de flúor ingerido en comparación con la aplicación en gel.',
-        'Porque el gel de flúor induce espasmos musculares inmediatos al contacto oral.',
-      ],
-      correcta: 1,
-      feedback: 'Se indica la aplicación de barniz de flúor para reducir la cantidad de flúor ingerido por el paciente al presentar reflejos de deglución alterados.',
-    },
-    {
-      pregunta: 'Durante la atención de un paciente con Parálisis Cerebral en el sillón dental, ¿cuál es la inclinación máxima del asiento recomendada para prevenir aspiraciones?',
-      opciones: ['Posición en decúbito supino completo a 0°.', 'Mantener una postura en torno a los 40°.', 'Posición vertical estricta a 90°.'],
-      correcta: 1,
-      feedback: 'No se debe inclinar en exceso el sillón dental; es necesario mantener al paciente en una postura cercana a los 40° para evitar la aparición de estertores y neumonías por aspiración.',
-    },
-    {
-      pregunta: 'Ante la presencia confirmada del reflejo anormal de deglución y tos en un paciente con Parálisis Cerebral, ¿cuál es la medida de aislamiento u operativa de uso obligatorio?',
-      opciones: ['El empleo del dique de goma.', 'La realización exclusiva de enjuagues con clorhexidina.', 'El uso de abrebocas de goma rígida únicamente.'],
-      correcta: 0,
-      feedback: 'El reflejo anormal de morder exige el uso de abrebocas, mientras que el reflejo anormal de deglución y tos requiere obligatoriamente el uso del dique de goma.',
-    },
-    {
-      pregunta: 'Para el control clínico de la sialorrea (babeo excesivo) en pacientes con Parálisis Cerebral, ¿cuál de los siguientes tratamientos invasivos/farmacológicos se encuentra descrito?',
-      opciones: [
-        'La aplicación de inyecciones de toxina botulínica en la glándula submaxilar guiada por ecografía.',
-        'La administración prolongada de jarabes antiepilépticos hiperconcentrados en azúcar.',
-        'La exodoncia preventiva de todos los molares inferiores.',
-      ],
-      correcta: 0,
-      feedback:
-        'Entre los tratamientos descritos para la sialorrea se incluye la terapia de biofeedback, anticolinérgicos (escopolamina), cirugía salival y la inyección ecoguiada de toxina botulínica en glándulas submaxilares.',
-    },
-  ],
-  prueba2: [
-    {
-      pregunta:
-        'Para considerar que una epilepsia se encuentra en "fase estable" y poder realizar el tratamiento dental ambulatorio con seguridad, ¿cuánto tiempo debe haber transcurrido sin que el paciente presente crisis convulsivas?',
-      opciones: ['Más de 6 meses.', 'Más de 1 año.', 'Más de 2 años.'],
-      correcta: 2,
-      feedback: 'La condición se considera activa si el último ataque ocurrió en los 2 años previos; se debe efectuar consulta médica y tratar en "fase estable" (más de 2 años sin crisis).',
-    },
-    {
-      pregunta:
-        '¿Por qué el uso de AINEs (como el ácido acetilsalicílico o ibuprofeno) se encuentra desaconsejado o contraindicado en pacientes epilépticos tratados con valproato sódico o carbamazepina?',
-      opciones: [
-        'Porque desencadenan de forma inmediata una crisis de falta de atención o "petit mal".',
-        'Porque incrementan el riesgo de hemorragia al sumarse a la alteración de la agregación plaquetaria o trombocitopenia causada por estos fármacos.',
-        'Porque inactivan de manera irreversible el efecto anticonvulsivante de la medicación.',
-      ],
-      correcta: 1,
-      feedback:
-        'El valproato sódico y la carbamazepina pueden causar trombocitopenia y alterar la agregación plaquetaria; el uso concomitante de AINEs eleva sustancialmente el riesgo de sangrado gingival o quirúrgico.',
-    },
-    {
-      pregunta: 'En pacientes con epilepsia severa de tipo "gran mal", ¿cuál es la indicación protésica de elección y la contraindicación absoluta descrita?',
-      opciones: [
-        'Elección: prótesis removible de acrílico; contraindicación: prótesis fija de metal-porcelana.',
-        'Elección: prótesis fija en dientes anteriores con caras palatinas metálicas; contraindicación: prótesis removible.',
-        'Elección: prótesis removible parcial metálica; contraindicación: implantes osteointegrados.',
-      ],
-      correcta: 1,
-      feedback:
-        'En epilepsia severa ("gran mal"), la prótesis removible está contraindicada por riesgo de fractura e impacto/obstrucción de la vía aérea en una crisis; la elección es prótesis fija con caras palatinas metálicas.',
-    },
-    {
-      pregunta: 'Durante la fase ictal o convulsiva activa de un ataque epiléptico "gran mal" en el gabinete, ¿cuál de las siguientes acciones representa una contraindicación estricta?',
-      opciones: [
-        'Girar suavemente al paciente hacia un lado para evitar la aspiración de secreciones.',
-        'Introducir objetos duros entre los dientes o contener con fuerza los movimientos del paciente.',
-        'Desaflojar la ropa apretada o ceñida y retirar objetos peligrosos del entorno.',
-      ],
-      correcta: 1,
-      feedback: 'Ante una crisis convulsiva, jamás deben introducirse objetos duros en la boca ni intentar contener o agarrar al paciente con fuerza.',
-    },
-    {
-      pregunta:
-        'Antes de iniciar un tratamiento odontológico en un paciente con Distrofia Muscular, ¿qué pruebas de evaluación médica previa se deben requerir obligatoriamente debido a sus comorbilidades sistémicas?',
-      opciones: ['Tests de función pulmonar, electrocardiograma (ECG) y radiografía de tórax.', 'Electroencefalograma de 24 horas y tomografía de cráneo.', 'Prueba de tolerancia a la glucosa y perfil tiroideo completo.'],
-      correcta: 0,
-      feedback: 'Debido al riesgo de cardiomiopatía, arritmias y fallo respiratorio, la interconsulta médica en distrofias musculares exige test de función pulmonar, ECG y radiografía de tórax.',
-    },
-  ],
-  pruebaFinal: [
-    {
-      pregunta:
-        'En la sedación consciente de un paciente con Distrofia Muscular, ¿qué grupo farmacológico se encuentra estrictamente prohibido debido a la posibilidad de desencadenar una depresión respiratoria letal?',
-      opciones: ['Los anestésicos locales con vasoconstrictor tipo adrenalina.', 'Los fármacos opioides y las benzodiacepinas.', 'Los antisépticos bucales con clorhexidina.'],
-      correcta: 1,
-      feedback: 'En la sedación consciente de pacientes con distrofia muscular deben evitarse los opioides y las benzodiacepinas, ya que provocan una severa depresión respiratoria.',
-    },
-    {
-      pregunta:
-        '¿Cuál de las siguientes complicaciones anestésicas de máxima gravedad y riesgo vital se encuentra asociada a la anestesia general con agentes bloqueantes neuromusculares en pacientes con Distrofia Muscular?',
-      opciones: ['Hipertermia maligna.', 'Hiperplasia gingival aguda.', 'Sialorrea masiva postoperatoria.'],
-      correcta: 0,
-      feedback: 'La anestesia general en distrofias musculares presenta riesgo de intubación difícil, depresión respiratoria, regurgitación y desarrollo de hipertermia maligna.',
-    },
-    {
-      pregunta: '¿Cuál es la inclinación recomendada para el sillón dental y la modalidad de trabajo requerida para atender a un paciente con Distrofia Muscular?',
-      opciones: [
-        'Inclinación a 0° (horizontal) y sesiones extensas de más de 2 horas.',
-        'Inclinación en torno a los 45° y sesiones cortas debido a la rápida fatiga muscular.',
-        'Inclinación vertical a 90° sin uso de dique de goma ni aspiración.',
-      ],
-      correcta: 1,
-      feedback: 'El sillón dental debe posicionarse a 45° para proteger la vía aérea y se deben programar citas cortas debido a la rápida fatiga producida por la debilidad muscular.',
-    },
-    {
-      pregunta: '¿Por qué el tratamiento de ortodoncia en pacientes con Distrofias Musculares presenta un pronóstico impredecible?',
-      opciones: [
-        'Debido al desarrollo progresivo e ininterrumpido de las alteraciones dentofaciales y musculares.',
-        'Por la imposibilidad absoluta de conseguir adhesión sobre el esmalte dental.',
-        'Porque la medicación anticonvulsivante disuelve los aditamentos ortodóncicos.',
-      ],
-      correcta: 0,
-      feedback: 'En la distrofia muscular, el tratamiento de ortodoncia es de pronóstico impredecible a causa de la evolución progresiva de las alteraciones dentofaciales y la miopatía facial.',
-    },
-    {
-      pregunta: 'De acuerdo con la Matriz Maestra de Riesgos Clínicos, ¿cuál es la inclinación del sillón dental estandarizada para Parálisis Cerebral y Distrofia Muscular respectivamente?',
-      opciones: ['10° en Parálisis Cerebral y 20° en Distrofia Muscular.', '40° en Parálisis Cerebral y 45° en Distrofia Muscular.', '80° en Parálisis Cerebral y 90° en Distrofia Muscular.'],
-      correcta: 1,
-      feedback: 'La postura estandarizada de prevención de aspiración en Parálisis Cerebral se fija en torno a los 40°, mientras que para las Distrofias Musculares se establece exactamente en 45°.',
-    },
-  ],
+  tema1Pc: PREGUNTAS_TEMA1_PC,
+  finalTema1: ORDEN_FINAL_TEMA1.map((i) => PREGUNTAS_TEMA1_PC[i]),
 }
 
 /**
@@ -566,10 +553,7 @@ export interface NodoRuta {
 export const NODOS_CAP1: NodoRuta[] = [
   { id: 'intro', tipo: 'intro', titulo: 'Introducción' },
   { id: 'video', tipo: 'video', titulo: 'Video del tema', temaId: 'pc', videoId: 'v1' },
-  // 2026-09-24 — Tema 2 (video corto) + su cuestionario de 5 al final.
-  { id: 'videoAnestesia', tipo: 'video', titulo: 'Técnicas anestésicas', temaId: 'pc', videoId: 'v2' },
-  { id: 'pruebaAnestesia', tipo: 'prueba', titulo: 'Cuestionario de anestesia', temaId: 'pc', pruebaId: 'anestesiaPc' },
-  { id: 'pruebaFinal', tipo: 'prueba', titulo: 'Prueba final', pruebaId: 'pruebaFinal', esFinal: true },
+  { id: 'pruebaFinal', tipo: 'prueba', titulo: 'Prueba final', pruebaId: 'finalTema1', esFinal: true },
 ]
 
 export interface CapituloLibro {

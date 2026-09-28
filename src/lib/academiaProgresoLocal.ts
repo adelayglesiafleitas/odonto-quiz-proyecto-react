@@ -23,7 +23,7 @@ export type EstadoNodo = 'bloqueado' | 'disponible' | 'completado'
 
 /** Una pregunta fallada, guardada para repasarla más adelante. */
 export interface ErrorAcademia {
-  /** `${pruebaId}:${índice en el pool}`, ej. "prueba1:3" o "pruebaFinal:0". */
+  /** `${pruebaId}:${índice en el pool}`, ej. "tema1Pc:2" o "finalTema1:0". */
   preguntaId: string
   /** ISO 8601 de la última vez que se falló. */
   fecha: string
@@ -57,6 +57,11 @@ export interface ProgresoNodo {
    * pausa y la pregunta sale directamente (no hay que ver el tramo otra vez).
    */
   enPausa?: boolean
+  /**
+   * Solo nodo `video`: versión del vídeo a la que corresponden
+   * `pausasSuperadas`/`enPausa` (ver VERSION_VIDEO_TEMA1).
+   */
+  videoVersion?: number
   /** @deprecated Marca vieja de una sola pregunta (antes de 2026-09-19). Ya no puntúa; se conserva solo para no romper progreso guardado. */
   intentos?: number
 }
@@ -64,6 +69,8 @@ export interface ProgresoNodo {
 export type ProgresoCap1 = Record<string, ProgresoNodo>
 
 export const CLAVE_PROGRESO_ACADEMIA = 'academia_progreso_inmaculada_cap1_v1'
+/** Sube cada vez que se cambia el vídeo del Tema 1 (2 = vídeo de 5:27, 2026-09-28). */
+export const VERSION_VIDEO_TEMA1 = 2
 // Clave vieja de localStorage (rediseño 2026-09-16: cada prueba pasó a
 // mostrar 1 sola pregunta al azar en vez de un set fijo, así que dejó de
 // tener sentido persistir "qué opción se eligió" por pregunta). Se sigue
@@ -82,8 +89,6 @@ export function progresoInicialAcademia(): ProgresoCap1 {
   return {
     intro: { estado: 'disponible' },
     video: { estado: 'bloqueado' },
-    videoAnestesia: { estado: 'bloqueado' },
-    pruebaAnestesia: { estado: 'bloqueado' },
     pruebaFinal: { estado: 'bloqueado' },
   }
 }
@@ -99,6 +104,12 @@ export function progresoInicialAcademia(): ProgresoCap1 {
  */
 export function normalizarProgresoAcademia(progreso: ProgresoCap1): ProgresoCap1 {
   const p: ProgresoCap1 = { ...progresoInicialAcademia(), ...progreso }
+  // 2026-09-28: el vídeo del Tema 1 se cambió por otro (5:27, pausas en otros
+  // segundos). A quien lo tenía a medias se le reinician las pausas; quien ya
+  // lo había completado lo sigue teniendo completado.
+  if (p.video && p.video.estado !== 'completado' && p.video.videoVersion !== VERSION_VIDEO_TEMA1) {
+    p.video = { ...p.video, pausasSuperadas: 0, enPausa: false, videoVersion: VERSION_VIDEO_TEMA1 }
+  }
   if (p.video.estado !== 'completado') {
     const finalAbierta = p.pruebaFinal.estado !== 'bloqueado'
     const videoViejoVisto = progreso.video3?.estado === 'completado'
@@ -109,14 +120,11 @@ export function normalizarProgresoAcademia(progreso: ProgresoCap1): ProgresoCap1
       p.video = { ...p.video, estado: 'disponible' }
     }
   }
-  // 2026-09-24: Tema 2 (videoAnestesia → pruebaAnestesia) se agregó entre el
-  // video y la prueba final. A quien ya había terminado el video se le abre
-  // el Tema 2 (su prueba final, disponible o completada, queda como estaba).
-  if (p.video.estado === 'completado' && p.videoAnestesia.estado === 'bloqueado') {
-    p.videoAnestesia = { ...p.videoAnestesia, estado: 'disponible' }
-  }
-  if (p.videoAnestesia.estado === 'completado' && p.pruebaAnestesia.estado === 'bloqueado') {
-    p.pruebaAnestesia = { ...p.pruebaAnestesia, estado: 'disponible' }
+  // 2026-09-28: se quitó el Tema 2 viejo (videoAnestesia/pruebaAnestesia);
+  // la ruta vuelve a ser Intro → Vídeo → Prueba final. A quien ya terminó el
+  // vídeo se le abre la prueba final. Las claves viejas quedan sin uso.
+  if (p.video.estado === 'completado' && p.pruebaFinal.estado === 'bloqueado') {
+    p.pruebaFinal = { ...p.pruebaFinal, estado: 'disponible' }
   }
   return p
 }

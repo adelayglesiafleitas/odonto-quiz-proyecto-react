@@ -7,7 +7,6 @@ import {
   Check,
   ChevronDown,
   ChevronRight,
-  Lightbulb,
   ListChecks,
   Lock,
   Maximize2,
@@ -1167,7 +1166,7 @@ function NodoPrueba({
   onSalir,
 }: {
   t: Diccionario
-  /** Nombre del nodo ("Prueba final", "Cuestionario de anestesia"), para el aviso de arriba. */
+  /** Nombre del nodo (p. ej. "Prueba final"), para el aviso de arriba. */
   titulo: string
   /** Cerrar con la X: vuelve a la ruta sin completar. */
   onSalir: () => void
@@ -1788,7 +1787,9 @@ function CapasPregunta({
 
             <div className="flex min-w-0 flex-col justify-center gap-2">
               {pregunta.opciones.map((op, oi) => {
-                const esCorrecta = respondido && oi === pregunta.correcta
+                // 2026-09-28: al fallar NO se revela la correcta (el alumno la
+                // tiene que encontrar solo); solo se marca en verde al acertar.
+                const esCorrecta = acertada && oi === pregunta.correcta
                 const esMia = respondido && oi === seleccion && !esCorrecta
                 const caja = esCorrecta
                   ? 'border-success bg-success/12 text-success'
@@ -1846,25 +1847,11 @@ function CapasPregunta({
                       {t.academia.videoTuRespuesta}: {pregunta.opciones[seleccion ?? 0]}
                     </span>
                   </p>
-                  <p className="flex items-start gap-2 text-success">
-                    <span className="mt-px flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-success text-success-foreground">
-                      <Check className="h-3 w-3" strokeWidth={3.5} />
-                    </span>
-                    <span>
-                      {t.academia.videoCorrecta}: {pregunta.opciones[pregunta.correcta]}
-                    </span>
-                  </p>
                 </div>
                 {avisoFallo}
               </div>
 
               <div className="flex min-w-0 flex-col gap-3">
-                <div className="flex gap-2.5 rounded-2xl bg-secondary p-3">
-                  <Lightbulb className="mt-0.5 h-[18px] w-[18px] shrink-0 text-amber-500" />
-                  <p className="text-[13px] font-medium leading-relaxed text-foreground/85">
-                    <span className="font-extrabold text-foreground">{t.academia.videoDatoClave}:</span> {pregunta.feedback}
-                  </p>
-                </div>
                 <div className="mt-auto flex flex-col-reverse gap-2 min-[480px]:flex-row">{accionesFallo}</div>
               </div>
             </div>
@@ -1886,8 +1873,9 @@ function CapasPregunta({
  *      del pulgar); en móvil horizontal se parte en 2 columnas (pregunta |
  *      opciones) para que NUNCA quede cortada; en tablet/PC va centrada.
  *   3. Si falla: la corrección sube POR ENCIMA de la pregunta (que queda
- *      atenuada), con Muelín "de nuevo", tu respuesta vs la correcta, el
- *      dato clave y los botones Repetir trozo / Reintentar.
+ *      atenuada), con Muelín "de nuevo", tu respuesta y los botones
+ *      Repetir trozo / Reintentar. No se muestra la correcta ni el dato
+ *      clave (2026-09-28): el alumno la tiene que encontrar solo.
  *
  * Nada interactivo toca los bordes: todo el padding sale de
  * env(safe-area-inset-*) con un mínimo (ver .academia-pv-* en index.css),

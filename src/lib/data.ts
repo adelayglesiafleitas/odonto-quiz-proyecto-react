@@ -1,5 +1,6 @@
 import { supabase } from './supabase'
 import type { Pregunta } from '../types'
+import { leerBancoGuardado, guardarBanco } from './bancoCache'
 
 // Banco de preguntas: antes vivía como JSON estático embebido en el bundle
 // (un import() dinámico por curso — ver el historial de este archivo). Ahora
@@ -58,21 +59,46 @@ function mapPregunta(fila: any): Pregunta {
   }
 }
 
-async function traerCursoCompleto(cursoId: string): Promise<{ filas: Pregunta[]; completo: boolean }> {
+const COLUMNAS = 'numero, pregunta, asignatura, capitulo, anio, bibliografia, opciones, caso, libro'
+// Cuántas páginas de 1000 se piden a la vez. Antes iban una detrás de otra
+// (Ortodoncia = 18 viajes seguidos); en paralelo tarda lo que tarden las más
+// lentas de cada tanda.
+const PAGINAS_EN_PARALELO = 4
+
+async function traerPagina(cursoId: string, desde: number) {
+  return supabase
+    .from('preguntas')
+    .select(COLUMNAS)
+    .in('curso_id', dbIdsPara(cursoId))
+    // Una pregunta oculta desde el admin (columna `oculta`, migración
+    // agregar_oculta_preguntas) sigue en la tabla pero no debe llegar nunca
+    // a un examen — de ahí este filtro. Default false, así que no afecta a
+    // ninguna pregunta que no haya sido ocultada explícitamente.
+    .eq('oculta', false)
+    // `numero` es único por asignatura, no por curso (un curso puede juntar
+    // dos curso_id): `id` desempata para que las páginas no se pisen.
+    .order('numero', { ascending: true })
+    .order('id', { ascending: true })
+    .range(desde, desde + TAMANO_PAGINA - 1)
+}
+
+// Versión del banco en el servidor (función `version_banco`): total de
+// preguntas visibles + última edición. null si la función falla.
+async function versionServidor(cursoId: string): Promise<{ total: number; clave: string } | null> {
+  const { data, error } = await supabase.rpc('version_banco', { p_curso_ids: dbIdsPara(cursoId) })
+  if (error || !data) return null
+  const fila = Array.isArray(data) ? data[0] : data
+  if (!fila) return null
+  const total = Number(fila.total) || 0
+  return { total, clave: `${total}|${fila.ultima ?? ''}` }
+}
+
+// Descarga clásica, página a página, para cuando no se conoce el total.
+async function traerSecuencial(cursoId: string): Promise<{ filas: Pregunta[]; completo: boolean }> {
   const filas: Pregunta[] = []
   let desde = 0
   for (;;) {
-    const { data, error } = await supabase
-      .from('preguntas')
-      .select('numero, pregunta, asignatura, capitulo, anio, bibliografia, opciones, caso, libro')
-      .in('curso_id', dbIdsPara(cursoId))
-      // Una pregunta oculta desde el admin (columna `oculta`, migración
-      // agregar_oculta_preguntas) sigue en la tabla pero no debe llegar nunca
-      // a un examen — de ahí este filtro. Default false, así que no afecta a
-      // ninguna pregunta que no haya sido ocultada explícitamente.
-      .eq('oculta', false)
-      .order('numero', { ascending: true })
-      .range(desde, desde + TAMANO_PAGINA - 1)
+    const { data, error } = await traerPagina(cursoId, desde)
     if (error) {
       console.error(`Error al cargar el banco de preguntas de "${cursoId}":`, error.message)
       return { filas, completo: false }
@@ -83,6 +109,52 @@ async function traerCursoCompleto(cursoId: string): Promise<{ filas: Pregunta[];
     desde += TAMANO_PAGINA
   }
   return { filas, completo: true }
+}
+
+// Con el total conocido, pide las páginas en tandas paralelas.
+async function traerEnParalelo(cursoId: string, total: number): Promise<{ filas: Pregunta[]; completo: boolean }> {
+  const inicios: number[] = []
+  for (let d = 0; d < total; d += TAMANO_PAGINA) inicios.push(d)
+  const paginas: Pregunta[][] = new Array(inicios.length)
+  for (let i = 0; i < inicios.length; i += PAGINAS_EN_PARALELO) {
+    const tanda = inicios.slice(i, i + PAGINAS_EN_PARALELO)
+    const respuestas = await Promise.all(tanda.map((d) => traerPagina(cursoId, d)))
+    for (let k = 0; k < respuestas.length; k++) {
+      const { data, error } = respuestas[k]
+      if (error) {
+        console.error(`Error al cargar el banco de preguntas de "${cursoId}":`, error.message)
+        return { filas: paginas.flat(), completo: false }
+      }
+      paginas[i + k] = (data ?? []).map(mapPregunta)
+    }
+  }
+  const filas = paginas.flat()
+  // Si alguien agregó o borró preguntas justo mientras se descargaba, el
+  // total ya no cuadra: no se guarda en el dispositivo (la próxima apertura
+  // vuelve a comparar versiones y descarga de nuevo).
+  return { filas, completo: filas.length === total }
+}
+
+async function traerCursoCompleto(cursoId: string): Promise<{ filas: Pregunta[]; completo: boolean }> {
+  const [version, guardado] = await Promise.all([versionServidor(cursoId), leerBancoGuardado(cursoId)])
+
+  // Sin poder consultar la versión (función no disponible, sin red...): si
+  // hay un banco guardado se usa tal cual; si no, descarga clásica.
+  if (!version) {
+    if (guardado && guardado.filas.length > 0) return { filas: guardado.filas, completo: true }
+    return traerSecuencial(cursoId)
+  }
+
+  // Nada cambió en el servidor desde la última descarga: cero tráfico.
+  if (guardado && guardado.version === version.clave && guardado.filas.length === version.total) {
+    return { filas: guardado.filas, completo: true }
+  }
+
+  const resultado = await traerEnParalelo(cursoId, version.total)
+  if (resultado.completo && resultado.filas.length > 0) {
+    void guardarBanco(cursoId, { version: version.clave, filas: resultado.filas })
+  }
+  return resultado
 }
 
 export function cargarBanco(cursoId: string): Promise<Pregunta[]> {
@@ -110,6 +182,24 @@ export function getPreguntas(cursoId: string): Pregunta[] {
   return cache[cursoId] ?? []
 }
 
+// Listas derivadas del banco (capítulos, libros, años): antes se recorría el
+// banco entero en cada llamada, y ConfigurarExamen las pide en cada render
+// (Ortodoncia = 17k preguntas). Se calculan una vez por banco cargado; al ir
+// atadas al array (WeakMap), si el banco se vuelve a descargar se recalculan
+// solas.
+const derivados = new WeakMap<Pregunta[], Map<string, unknown>>()
+
+function memoBanco<T>(cursoId: string, clave: string, calcular: (banco: Pregunta[]) => T): T {
+  const banco = getPreguntas(cursoId)
+  let mapa = derivados.get(banco)
+  if (!mapa) {
+    mapa = new Map()
+    derivados.set(banco, mapa)
+  }
+  if (!mapa.has(clave)) mapa.set(clave, calcular(banco))
+  return mapa.get(clave) as T
+}
+
 // `libro` opcional filtra a los capítulos de una fuente concreta:
 // - null (default) = capítulos de "Exámenes", es decir preguntas sin `libro`
 //   (mismo resultado que antes de que existiera esta columna, para todo
@@ -117,28 +207,29 @@ export function getPreguntas(cursoId: string): Pregunta[] {
 // - un nombre de libro = capítulos de ese libro únicamente.
 // Ver Fuente en ConfigurarExamen.tsx.
 export function getCapitulos(cursoId: string, libro: string | null = null): string[] {
-  const preguntas = getPreguntas(cursoId).filter((p) => (p.libro ?? null) === libro)
-  const set = new Set(preguntas.map((p) => p.capitulo))
-  return Array.from(set).sort()
+  return memoBanco(cursoId, `capitulos:${libro ?? ''}`, (banco) => {
+    const set = new Set(banco.filter((p) => (p.libro ?? null) === libro).map((p) => p.capitulo))
+    return Array.from(set).sort()
+  })
 }
 
 // Nombres de los libros cargados para este curso (fuente "Libro" en
 // ConfigurarExamen.tsx). Vacío en todo curso sin ninguna pregunta de libro.
 export function getLibros(cursoId: string): string[] {
-  const set = new Set(
-    getPreguntas(cursoId)
-      .map((p) => p.libro)
-      .filter((l): l is string => !!l),
-  )
-  return Array.from(set).sort()
+  return memoBanco(cursoId, 'libros', (banco) => {
+    const set = new Set(banco.map((p) => p.libro).filter((l): l is string => !!l))
+    return Array.from(set).sort()
+  })
 }
 
 export function getAnios(cursoId: string): number[] {
   // anio = 0 significa "banco temático sin convocatoria real verificada"
   // (ver cursos.ts); no se muestra como opción de convocatoria seleccionable.
-  const set = new Set(getPreguntas(cursoId).map((p) => p.anio))
-  set.delete(0)
-  return Array.from(set).sort((a, b) => b - a)
+  return memoBanco(cursoId, 'anios', (banco) => {
+    const set = new Set(banco.map((p) => p.anio))
+    set.delete(0)
+    return Array.from(set).sort((a, b) => b - a)
+  })
 }
 
 // Recupera un set puntual de preguntas por su `numero` dentro de un curso,
@@ -150,7 +241,7 @@ export async function obtenerPreguntasPorNumero(cursoId: string, numeros: number
   if (numeros.length === 0) return []
   const { data, error } = await supabase
     .from('preguntas')
-    .select('numero, pregunta, asignatura, capitulo, anio, bibliografia, opciones, caso, libro')
+    .select(COLUMNAS)
     .in('curso_id', dbIdsPara(cursoId))
     .in('numero', numeros)
     .eq('oculta', false)

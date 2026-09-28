@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react'
+import { createContext, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { getDiccionario, type Idioma, type Diccionario } from '@/lib/i18n'
 import {
   getTemaGuardado,
@@ -89,8 +89,18 @@ export function AppSettingsProvider({ children }: { children: ReactNode }) {
     guardarEstilo(nuevoEstilo)
   }
 
+  // El toast vive en este mismo provider: sin useMemo, cada vez que aparece
+  // o se oculta, el `value` era un objeto nuevo y se redibujaban todas las
+  // pantallas que usan useAppSettings(). Solo cambia si cambia tema, idioma
+  // o estilo (las funciones solo dependen de esos valores).
+  const valor = useMemo(
+    () => ({ tema, idioma, t, toggleTema, setIdioma, estilo, setEstilo }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [tema, idioma, t, estilo],
+  )
+
   return (
-    <AppSettingsContext.Provider value={{ tema, idioma, t, toggleTema, setIdioma, estilo, setEstilo }}>
+    <AppSettingsContext.Provider value={valor}>
       {children}
       <div
         className={`pointer-events-none fixed inset-x-0 top-4 z-[100] flex justify-center transition-all duration-300 ${
