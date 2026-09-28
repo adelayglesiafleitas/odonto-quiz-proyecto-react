@@ -5,7 +5,7 @@ import type { Pantalla, Pregunta, IntentoExamen } from '@/types'
 import { cargarBanco, seleccionarPreguntas, obtenerPreguntasPorNumero } from '@/lib/data'
 import { CURSO, CURSO_ID, CURSOS } from '@/lib/cursos'
 import { supabase } from '@/lib/supabase'
-import { verificarDispositivo, cerrarSesionOtrosDispositivos, liberarDispositivoActual } from '@/lib/dispositivos'
+import { verificarDispositivo, cerrarSesionOtrosDispositivos, liberarDispositivoActual, registrarAperturaSiToca } from '@/lib/dispositivos'
 import { RUTA, RUTA_SOPORTE, RUTA_SOPORTE_DETALLE } from '@/lib/rutas'
 import { LoadingScreen } from '@/components/LoadingScreen'
 import { useAppSettings } from '@/context/AppSettings'
@@ -171,6 +171,18 @@ function App() {
     return () => {
       cancelado = true
     }
+  }, [userId])
+
+  // Volver a la app desde segundo plano también cuenta como "abrirla"
+  // (panel de admin, "Última apertura"). Al arrancar ya lo registra
+  // verificarDispositivo; esto es solo para cuando la app se queda abierta.
+  useEffect(() => {
+    if (!userId) return
+    const alVolver = () => {
+      if (document.visibilityState === 'visible') registrarAperturaSiToca()
+    }
+    document.addEventListener('visibilitychange', alVolver)
+    return () => document.removeEventListener('visibilitychange', alVolver)
   }, [userId])
 
   // Splash ('/'): solo decide algo mientras seguimos ahí, para no interferir

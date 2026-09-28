@@ -365,3 +365,100 @@ $$;
 
 revoke all on function public.app_contador_comunidad() from public;
 grant execute on function public.app_contador_comunidad() to authenticated;
+
+-- 12) ENCUESTA-TEMPORAL — Encuesta "Ayúdanos a mejorar" (ver
+--     claude/encuesta-feedback-diseno.md). Una fila por usuario y campaña;
+--     la fila se crea al mostrarse la ventana, así que "existe fila" = "ya la
+--     vio" y no se le vuelve a mostrar (se muestra una sola vez, la cierre
+--     con la ✕ o la termine). Cada "Siguiente" hace upsert de lo contestado.
+--     Tabla aislada: ninguna otra depende de ella; se puede borrar entera
+--     cuando se retire la encuesta.
+create table if not exists public.encuesta_respuestas (
+  user_id uuid not null default auth.uid() references auth.users(id) on delete cascade,
+  campania text not null,
+  nps smallint check (nps between 0 and 10),
+  canales text[] not null default '{}' constraint encuesta_canales_max check (cardinality(canales) <= 8),
+  canal_otro text check (char_length(canal_otro) <= 80),
+  funcion text check (char_length(funcion) <= 300),
+  cambio text check (char_length(cambio) <= 300),
+  completada boolean not null default false,
+  ultimo_paso smallint not null default 0 check (ultimo_paso between 0 and 4),
+  cerrada_con_x boolean not null default false,
+  creada_en timestamptz not null default now(),
+  actualizada_en timestamptz not null default now(),
+  primary key (user_id, campania)
+);
+
+alter table public.encuesta_respuestas enable row level security;
+
+create policy "Los usuarios ven su propia respuesta de encuesta"
+  on public.encuesta_respuestas for select
+  using ((select auth.uid()) = user_id);
+
+create policy "Los usuarios crean su propia respuesta de encuesta"
+  on public.encuesta_respuestas for insert
+  with check ((select auth.uid()) = user_id);
+
+create policy "Los usuarios actualizan su propia respuesta de encuesta"
+  on public.encuesta_respuestas for update
+  using ((select auth.uid()) = user_id)
+  with check ((select auth.uid()) = user_id);
+
+create policy "Los admins ven todas las respuestas de encuesta"
+  on public.encuesta_respuestas for select
+  using (exists (select 1 from public.admins a where a.user_id = (select auth.uid())));
+
+create or replace function public.encuesta_respuestas_tocar()
+returns trigger language plpgsql set search_path = public as $$
+begin
+  new.actualizada_en := now();
+  return new;
+end;
+$$;
+
+create trigger encuesta_respuestas_actualizada
+  before update on public.encuesta_respuestas
+  for each row execute function public.encuesta_respuestas_tocar();
+
+-- 12b) ENCUESTA-TEMPORAL — Los admins pueden borrar la fila de un usuario
+--      para que la encuesta le vuelva a salir (botón "Repetir encuesta" del
+--      panel de admin, pensado para probarla con la propia cuenta).
+create policy "Los admins borran respuestas de encuesta"
+  on public.encuesta_respuestas for delete
+  using (exists (select 1 from public.admins a where a.user_id = (select auth.uid())));
+
+-- 13) Última apertura de la app (panel de admin, pantalla Usuarios). Antes
+--     el admin mostraba auth.users.last_sign_in_at, que solo cambia al hacer
+--     login con contraseña: como la sesión queda guardada, se quedaba días
+--     atrás. Ahora:
+--     - perfiles.ultima_apertura (sobrevive a cerrar sesión, a diferencia de
+--       dispositivos_activos, cuya fila se borra), backfill inicial con
+--       max(dispositivos_activos.ultimo_uso);
+--     - verificar_dispositivo (al arrancar la app) la actualiza;
+--     - registrar_apertura() (al volver a la app desde segundo plano, como
+--       mucho cada 5 min, ver src/lib/dispositivos.ts);
+--     - admin_listar_usuarios() la devuelve como `ultima_apertura`.
+--     Hora del servidor (now()), no la del móvil.
+alter table public.perfiles add column if not exists ultima_apertura timestamptz;
+
+create or replace function public.registrar_apertura()
+returns void
+language sql
+security invoker
+set search_path = public
+as $$
+  insert into public.perfiles (user_id, ultima_apertura)
+  values (auth.uid(), now())
+  on conflict (user_id) do update set ultima_apertura = excluded.ultima_apertura;
+$$;
+revoke all on function public.registrar_apertura() from public, anon;
+grant execute on function public.registrar_apertura() to authenticated;
+
+-- verificar_dispositivo: añade, justo después de comprobar auth.uid(),
+--   insert into public.perfiles (user_id, ultima_apertura) values (v_user_id, v_ahora)
+--     on conflict (user_id) do update set ultima_apertura = excluded.ultima_apertura;
+-- (definición completa aplicada en la migración perfiles_ultima_apertura).
+
+-- admin_listar_usuarios: ahora devuelve también `ultima_apertura`
+-- (left join public.perfiles). Se hizo drop + create por el cambio de tipo
+-- de retorno; execute solo para authenticated.

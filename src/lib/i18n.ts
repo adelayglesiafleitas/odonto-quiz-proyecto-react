@@ -81,6 +81,12 @@ export interface Diccionario {
     simulacros: string
     preguntasRespondidas: string
     tiempoEstudio: string
+    comunidadTitulo: string
+    comunidadEstudiantes: (n: number) => string
+    comunidadHoy: (n: number) => string
+    comunidadEntrar: string
+    reforzarEtiqueta: string
+    reforzarAcierto: (pct: number) => string
     avisoSoporteEtiquetaSingular: string
     avisoSoporteEtiquetaPlural: string
     avisoSoporteTextoSingular: (asunto: string) => string
@@ -499,6 +505,12 @@ export const es: Diccionario = {
     simulacros: 'Simulacros',
     preguntasRespondidas: 'Preguntas respondidas',
     tiempoEstudio: 'Tiempo de estudio',
+    comunidadTitulo: 'Comunidad',
+    comunidadEstudiantes: (n: number) => (n === 1 ? 'estudiante prepara la homologación contigo' : 'estudiantes preparan la homologación contigo'),
+    comunidadHoy: (n: number) => `${n} hoy`,
+    comunidadEntrar: 'Entrar al chat de la comunidad',
+    reforzarEtiqueta: 'Refuerza',
+    reforzarAcierto: (pct: number) => `${pct}% de acierto`,
     avisoSoporteEtiquetaSingular: 'Respuesta de soporte',
     avisoSoporteEtiquetaPlural: 'Respuestas de soporte',
     avisoSoporteTextoSingular: (asunto) => `Te respondieron: «${asunto}»`,
@@ -942,6 +954,12 @@ export const en: Diccionario = {
     simulacros: 'Mock exams',
     preguntasRespondidas: 'Questions answered',
     tiempoEstudio: 'Study time',
+    comunidadTitulo: 'Community',
+    comunidadEstudiantes: (n: number) => (n === 1 ? 'student is preparing with you' : 'students are preparing with you'),
+    comunidadHoy: (n: number) => `${n} today`,
+    comunidadEntrar: 'Join the community chat',
+    reforzarEtiqueta: 'Work on',
+    reforzarAcierto: (pct: number) => `${pct}% correct`,
     avisoSoporteEtiquetaSingular: 'Support reply',
     avisoSoporteEtiquetaPlural: 'Support replies',
     avisoSoporteTextoSingular: (asunto) => `You got a reply: "${asunto}"`,

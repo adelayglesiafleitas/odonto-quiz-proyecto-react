@@ -5,7 +5,8 @@ import { Spinner } from '@/components/Spinner'
 import { SettingsToggle } from '@/components/SettingsToggle'
 import { BottomNav } from '@/components/BottomNav'
 import { useAppSettings } from '@/context/AppSettings'
-import { getHistorialRemoto, calcularPromedio, getFechasIntentos, calcularRacha, calcularActividadSemanal, type ActividadDia } from '@/lib/historial'
+import { getHistorialRemoto, calcularPromedio, getFechasIntentos, calcularRacha, getEstadisticasCapitulos, type EstadisticaCapitulo } from '@/lib/historial'
+import { getContadorComunidad, type ContadorComunidad } from '@/lib/comunidadContador'
 import { getFrases, indiceFraseAleatoria } from '@/lib/frases'
 import { getBienvenida, getBienvenidaPrimeraVisita } from '@/lib/bienvenida'
 import { getCtaEmpezar } from '@/lib/ctaEmpezar'
@@ -13,6 +14,9 @@ import TourBienvenida from '@/components/TourBienvenida'
 import { getVioTourBienvenida, marcarTourBienvenidaVisto } from '@/lib/tourBienvenidaRemoto'
 import { getMensajesPendientes, descartarMensaje, type MensajeAdmin } from '@/lib/mensajesAdminRemoto'
 import { MensajeAdminBanner } from '@/components/MensajeAdminBanner'
+// ENCUESTA-TEMPORAL (ver src/lib/encuestaRemoto.ts)
+import { EncuestaFeedback } from '@/components/EncuestaFeedback'
+import { debeMostrarEncuesta } from '@/lib/encuestaRemoto'
 import { ContadorPersonas } from '@/components/ContadorComunidad'
 import { useConteo } from '@/lib/useConteo'
 import { listarMisTickets, suscribirseAMisTickets, type Ticket } from '@/lib/tickets'
@@ -20,7 +24,7 @@ import { RUTA_SOPORTE, rutaSoporteDetalle } from '@/lib/rutas'
 import { ICONO_BIENVENIDA, ICONO_CTA } from '@/lib/temaIconos'
 import { colorStrokePorcentaje } from '@/lib/utils'
 import type { CursoMeta } from '@/lib/cursos'
-import { LogOut, Trophy, TrendingUp, TrendingDown, Quote, Flame, BarChart3, ChevronRight, MessageCircleQuestion, X, ClipboardCheck, FileText, Clock } from 'lucide-react'
+import { LogOut, Trophy, TrendingUp, TrendingDown, Quote, Flame, BarChart3, ChevronRight, MessageCircleQuestion, X, ClipboardCheck, FileText, Clock, GraduationCap } from 'lucide-react'
 import type { IntentoExamen, Pantalla } from '@/types'
 
 const PROMEDIO_CIRCUNFERENCIA = 2 * Math.PI * 32
@@ -50,7 +54,9 @@ export function Home({
   const [cargandoStats, setCargandoStats] = useState(true)
   // Datos extra del rediseño Neón (todo sale del mismo historial ya cargado).
   const [historialCurso, setHistorialCurso] = useState<IntentoExamen[]>([])
-  const [actividad, setActividad] = useState<ActividadDia[]>([])
+  // Tarjetas Comunidad y Refuerza (rediseño Home 2026-09-28).
+  const [capitulos, setCapitulos] = useState<EstadisticaCapitulo[]>([])
+  const [comunidad, setComunidad] = useState<ContadorComunidad | null>(null)
   const [indiceFrase] = useState(() => indiceFraseAleatoria(getFrases(idioma).length))
   const frase = getFrases(idioma)[indiceFrase]
   const [bienvenida] = useState(() => getBienvenida(idioma, nombreMostrado))
@@ -65,6 +71,8 @@ export function Home({
   const [bienvenidaPrimeraVisitaCerrada, setBienvenidaPrimeraVisitaCerrada] = useState(false)
   const [textoBienvenidaPrimeraVisita] = useState(() => getBienvenidaPrimeraVisita(idioma, nombreMostrado))
   const [colaMensajes, setColaMensajes] = useState<MensajeAdmin[]>([])
+  // ENCUESTA-TEMPORAL
+  const [mostrarEncuesta, setMostrarEncuesta] = useState(false)
   // Aviso de "te respondieron" (ver claude/atencion-cliente-diseno.md): se
   // recalcula acá con la misma fuente que ya usa el badge de BottomNav
   // (`no_leido_usuario`), no una cola de "descartados" aparte como la de
@@ -79,19 +87,20 @@ export function Home({
   const resumen = resumirHistorial(historialCurso)
   const IconoBienvenida = ICONO_BIENVENIDA[estilo]
   const IconoCta = ICONO_CTA[estilo]
+  const puntoDebil = elegirPuntoDebil(capitulos)
 
   useEffect(() => {
     let cancelado = false
     setCargandoStats(true)
-    Promise.all([getHistorialRemoto(userId, cursoId), getFechasIntentos(userId, cursoId)]).then(
-      ([historial, fechas]) => {
+    Promise.all([getHistorialRemoto(userId, cursoId), getFechasIntentos(userId, cursoId), getEstadisticasCapitulos(cursoId)]).then(
+      ([historial, fechas, porCapitulo]) => {
         if (cancelado) return
         setMejor(historial.reduce((max, i) => Math.max(max, i.porcentaje), 0))
         setIntentos(historial.length)
         setPromedio(calcularPromedio(historial))
         setRacha(calcularRacha(fechas))
         setHistorialCurso(historial)
-        setActividad(calcularActividadSemanal(fechas))
+        setCapitulos(porCapitulo)
         setCargandoStats(false)
       },
     )
@@ -99,6 +108,16 @@ export function Home({
       cancelado = true
     }
   }, [userId, cursoId])
+
+  useEffect(() => {
+    let cancelado = false
+    getContadorComunidad().then((d) => {
+      if (!cancelado) setComunidad(d)
+    })
+    return () => {
+      cancelado = true
+    }
+  }, [])
 
   useEffect(() => {
     const timer = setTimeout(() => setMostrarBienvenida(false), 3200)
@@ -116,6 +135,22 @@ export function Home({
     })
     return () => {
       cancelado = true
+    }
+  }, [userId])
+
+  // ENCUESTA-TEMPORAL — debeMostrarEncuesta decide todo (tour ya visto,
+  // al menos un simulacro, sin mensajes nuevos del admin, y que no la haya
+  // visto antes). Pequeña espera para que no tape la Home nada más entrar.
+  useEffect(() => {
+    let cancelado = false
+    const timer = setTimeout(() => {
+      debeMostrarEncuesta(userId).then((mostrar) => {
+        if (!cancelado && mostrar) setMostrarEncuesta(true)
+      })
+    }, 1500)
+    return () => {
+      cancelado = true
+      clearTimeout(timer)
     }
   }, [userId])
 
@@ -183,74 +218,101 @@ export function Home({
           </div>
         </div>
 
-        <div className="card-elevated relative mt-5 overflow-hidden rounded-3xl bg-white/10 p-5 backdrop-blur-sm">
-          <DienteDecorativo className="pointer-events-none absolute -right-5 top-2 h-32 w-28 opacity-70" />
-          <div className="relative flex items-center gap-3">
-            <div className="min-w-0 flex-1">
-              <p className="text-xl font-medium leading-tight">
-                {t.home.hola} <span className="font-extrabold">{nombreMostrado}</span>
-              </p>
-              <p className="mt-1.5 text-[13px] leading-snug text-white/75">{t.home.constancia}</p>
-              {resumen.tendencia !== null && (
-                <div className="mt-3 inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-black/20 py-1.5 pl-1.5 pr-3">
-                  <span
-                    className={`flex h-7 w-7 items-center justify-center rounded-xl ${
-                      resumen.tendencia >= 0 ? 'bg-emerald-400/15 text-emerald-300' : 'bg-orange-400/15 text-orange-300'
-                    }`}
-                  >
-                    {resumen.tendencia >= 0 ? <TrendingUp className="h-4 w-4" /> : <TrendingDown className="h-4 w-4" />}
-                  </span>
-                  <span className="leading-tight">
-                    <span className={`block text-[13px] font-extrabold ${resumen.tendencia >= 0 ? 'text-emerald-300' : 'text-orange-300'}`}>
-                      {resumen.tendencia >= 0 ? '+' : ''}
-                      {resumen.tendencia}%
-                    </span>
-                    <span className="block text-[10px] text-white/60">{t.home.estaSemana}</span>
-                  </span>
-                </div>
-              )}
-            </div>
-            <div className="relative mr-6 flex h-28 w-28 shrink-0 items-center justify-center">
-              {cargandoStats ? (
-                <Spinner className="h-6 w-6 text-white/70" />
-              ) : (
-                <>
-                  <svg viewBox="0 0 80 80" className="glow-cian h-full w-full -rotate-90">
-                    <circle cx="40" cy="40" r="32" fill="rgba(0,0,0,0.18)" stroke="rgba(255,255,255,0.15)" strokeWidth="7" />
-                    <circle
-                      cx="40"
-                      cy="40"
-                      r="32"
-                      fill="none"
-                      stroke={colorStrokePorcentaje(promedio)}
-                      strokeWidth="7"
-                      strokeLinecap="round"
-                      strokeDasharray={PROMEDIO_CIRCUNFERENCIA}
-                      strokeDashoffset={PROMEDIO_CIRCUNFERENCIA - (promedioAnimado / 100) * PROMEDIO_CIRCUNFERENCIA}
-                    />
-                  </svg>
-                  <span className="absolute flex flex-col items-center leading-none">
-                    <span className="text-2xl font-extrabold tabular-nums">
-                      {Math.round(promedioAnimado)}
-                      <span className="text-sm">%</span>
-                    </span>
-                    <span className="mt-1 text-[10px] text-white/70">{t.home.tuPromedio}</span>
-                  </span>
-                </>
-              )}
-            </div>
+        {/* Saludo a la izquierda y tarjeta de progreso a la derecha (diseño
+            "DentiQuiz Home", 2026-09-28). Racha y mejor resultado viven ahora
+            dentro de esta tarjeta; Simulacros es la fila de abajo. */}
+        <div className="mt-5 flex items-center gap-3">
+          <div className="min-w-0 flex-1">
+            <p className="text-2xl font-medium leading-tight">
+              {t.home.hola} <span className="font-extrabold">{nombreMostrado}</span>
+            </p>
+            <p className="mt-1.5 text-[13px] leading-snug text-white/75">{t.home.constancia}</p>
+            {resumen.tendencia !== null && (
+              <div className="mt-3 inline-flex items-center gap-1.5 rounded-xl border border-white/15 bg-black/20 px-2 py-1">
+                {resumen.tendencia >= 0 ? (
+                  <TrendingUp className="h-3.5 w-3.5 text-emerald-300" />
+                ) : (
+                  <TrendingDown className="h-3.5 w-3.5 text-orange-300" />
+                )}
+                <span className={`text-[12px] font-extrabold ${resumen.tendencia >= 0 ? 'text-emerald-300' : 'text-orange-300'}`}>
+                  {resumen.tendencia >= 0 ? '+' : ''}
+                  {resumen.tendencia}%
+                </span>
+                <span className="text-[10px] text-white/60">{t.home.estaSemana}</span>
+              </div>
+            )}
           </div>
 
-          <button
-            onClick={() => onNavigate('estadisticas')}
-            className="relative mt-4 flex w-full items-center justify-center gap-1.5 rounded-2xl border border-white/20 bg-black/15 py-3 text-[13px] font-bold text-white transition active:scale-[0.98] hover:bg-black/25"
-          >
-            <BarChart3 className="h-4 w-4" />
-            {t.home.verEstadisticas}
-            <ChevronRight className="h-4 w-4" />
-          </button>
+          <div className="card-elevated w-[56%] max-w-[230px] shrink-0 rounded-3xl bg-white/10 p-3 backdrop-blur-sm">
+            <div className="flex items-center gap-2.5">
+              <div className="relative flex h-[78px] w-[78px] shrink-0 items-center justify-center">
+                {cargandoStats ? (
+                  <Spinner className="h-5 w-5 text-white/70" />
+                ) : (
+                  <>
+                    <svg viewBox="0 0 80 80" className="glow-cian h-full w-full -rotate-90">
+                      <circle cx="40" cy="40" r="32" fill="rgba(0,0,0,0.18)" stroke="rgba(255,255,255,0.15)" strokeWidth="7" />
+                      <circle
+                        cx="40"
+                        cy="40"
+                        r="32"
+                        fill="none"
+                        stroke={colorStrokePorcentaje(promedio)}
+                        strokeWidth="7"
+                        strokeLinecap="round"
+                        strokeDasharray={PROMEDIO_CIRCUNFERENCIA}
+                        strokeDashoffset={PROMEDIO_CIRCUNFERENCIA - (promedioAnimado / 100) * PROMEDIO_CIRCUNFERENCIA}
+                      />
+                    </svg>
+                    <span className="absolute flex flex-col items-center leading-none">
+                      <span className="text-lg font-extrabold tabular-nums">
+                        {Math.round(promedioAnimado)}
+                        <span className="text-[11px]">%</span>
+                      </span>
+                      <span className="mt-0.5 text-[8.5px] text-white/70">{t.home.tuPromedio}</span>
+                    </span>
+                  </>
+                )}
+              </div>
+              <div className="min-w-0 flex-1 border-l border-white/15 pl-2.5">
+                <div className="flex items-center gap-1.5">
+                  <Flame className="h-5 w-5 shrink-0 text-orange-400 drop-shadow-[0_0_6px_rgba(255,140,40,0.55)]" />
+                  <div className="min-w-0 leading-tight">
+                    <p className="text-[10.5px] text-white/65">{t.home.rachaActual}</p>
+                    <p className="text-[14px] font-extrabold">{t.home.dias(racha)}</p>
+                  </div>
+                </div>
+                <div className="mt-2 flex items-center gap-1.5 border-t border-white/15 pt-2">
+                  <Trophy className="h-5 w-5 shrink-0 text-amber-400 drop-shadow-[0_0_6px_rgba(255,200,60,0.5)]" />
+                  <div className="min-w-0 leading-tight">
+                    <p className="text-[10.5px] text-white/65">{t.home.mejorResultado}</p>
+                    <p className="text-[14px] font-extrabold">{mejor}%</p>
+                    <p className="truncate text-[10px] text-white/60">{t.home.meta(cursoMeta.porcentajeAprobado)}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => onNavigate('historial')}
+              className="mt-2.5 flex w-full items-center gap-2 border-t border-white/15 pt-2.5 text-left text-[13px] text-white transition hover:text-white/80"
+            >
+              <ClipboardCheck className="h-4 w-4 shrink-0 text-accent" />
+              <span className="flex-1">{t.home.simulacros}</span>
+              <span className="font-extrabold tabular-nums">{intentos}</span>
+              <ChevronRight className="h-4 w-4 text-white/60" />
+            </button>
+          </div>
         </div>
 
+        <button
+          onClick={() => onNavigate('estadisticas')}
+          className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-2xl border border-white/20 bg-black/15 py-3.5 text-[14px] font-bold text-white transition active:scale-[0.98] hover:bg-black/25"
+        >
+          <BarChart3 className="h-4 w-4" />
+          {t.home.verEstadisticas}
+          <ChevronRight className="h-4 w-4" />
+        </button>
       </div>
 
       {(primeraVisita && !bienvenidaPrimeraVisitaCerrada) ||
@@ -337,38 +399,6 @@ export function Home({
         </div>
       ) : null}
 
-      <div className="mt-5 grid grid-cols-2 gap-3 px-6">
-        <div className="card-elevated anim-cascada rounded-2xl bg-card p-3.5" style={{ '--i': 1 } as CSSProperties}>
-          <div className="flex items-center gap-2">
-            <Flame className="h-6 w-6 shrink-0 text-orange-400 drop-shadow-[0_0_6px_rgba(255,140,40,0.55)]" />
-            <p className="text-[11.5px] text-muted-foreground">{t.home.rachaActual}</p>
-          </div>
-          <p className="mt-1.5 text-lg font-extrabold text-foreground">{t.home.dias(racha)}</p>
-          <div className="mt-2 flex gap-1" aria-hidden="true">
-            {actividad.map((dia, k) => (
-              <span
-                key={k}
-                className={`h-2.5 w-2.5 rounded-full ${
-                  dia.cantidad > 0 ? 'bg-accent shadow-[0_0_6px_hsl(var(--accent)/0.7)]' : 'bg-muted-foreground/25'
-                }`}
-              />
-            ))}
-          </div>
-        </div>
-        <div className="card-elevated anim-cascada rounded-2xl bg-card p-3.5" style={{ '--i': 2 } as CSSProperties}>
-          <div className="flex items-center gap-2">
-            <Trophy className="h-6 w-6 shrink-0 text-amber-400 drop-shadow-[0_0_6px_rgba(255,200,60,0.5)]" />
-            <p className="text-[11.5px] text-muted-foreground">{t.home.mejorResultado}</p>
-          </div>
-          <p className="mt-1.5 text-lg font-extrabold text-foreground">{mejor}%</p>
-          {resumen.notas.length >= 2 ? (
-            <Sparkline valores={resumen.notas} />
-          ) : (
-            <p className="mt-1 text-[11px] text-muted-foreground">{t.home.meta(cursoMeta.porcentajeAprobado)}</p>
-          )}
-        </div>
-      </div>
-
       <div className="anim-cascada mt-6 px-6" style={{ '--i': 3 } as CSSProperties}>
         <button
           type="button"
@@ -411,22 +441,21 @@ export function Home({
             {cta.sub}
           </p>
           <div
-            className="relative mt-3.5 inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-extrabold"
+            className="relative mt-4 flex h-14 w-full items-center justify-center gap-2 rounded-2xl text-lg font-extrabold"
             style={{ background: 'var(--home-hero-btn-bg)', color: 'var(--home-hero-btn-ink)' }}
           >
             <span
-              className="pointer-events-none absolute inset-0 rounded-full border-2 animate-pulse-ring"
+              className="pointer-events-none absolute inset-0 rounded-2xl border-2 animate-pulse-ring"
               style={{ borderColor: 'var(--home-hero-ring)' }}
             />
             {t.home.empezar}
-            <ChevronRight className="h-3.5 w-3.5 animate-cta-arrow" />
+            <ChevronRight className="h-5 w-5 animate-cta-arrow" />
           </div>
         </button>
       </div>
 
-      <div className="mt-4 grid grid-cols-3 gap-2.5 px-6">
+      <div className="mt-4 grid grid-cols-2 gap-2.5 px-6">
         {[
-          { Icono: ClipboardCheck, etiqueta: t.home.simulacros, valor: String(intentos) },
           { Icono: FileText, etiqueta: t.home.preguntasRespondidas, valor: resumen.preguntas.toLocaleString(idioma) },
           { Icono: Clock, etiqueta: t.home.tiempoEstudio, valor: formatoHoras(resumen.segundos) },
         ].map(({ Icono, etiqueta, valor }, k) => (
@@ -444,7 +473,68 @@ export function Home({
         ))}
       </div>
 
-      <div className="anim-cascada mt-4 px-6" style={{ '--i': 7 } as CSSProperties}>
+      {comunidad && comunidad.total > 0 && (
+        <div className="anim-cascada mt-4 px-6" style={{ '--i': 7 } as CSSProperties}>
+          <div className="card-elevated rounded-2xl bg-card p-4">
+            <div className="flex items-center justify-between gap-2">
+              <p className="text-[15px] font-extrabold text-foreground">{t.home.comunidadTitulo}</p>
+              {comunidad.activosHoy > 0 && (
+                <span className="flex items-center gap-1.5 rounded-full bg-emerald-400/15 px-2.5 py-1">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75 motion-reduce:hidden" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+                  </span>
+                  <span className="text-[11px] font-bold tabular-nums text-emerald-300">{t.home.comunidadHoy(comunidad.activosHoy)}</span>
+                </span>
+              )}
+            </div>
+            <div className="mt-3 flex items-center gap-3">
+              <div className="flex shrink-0 -space-x-2.5" aria-hidden="true">
+                {AVATARES_COMUNIDAD.map((fondo, i) => (
+                  <span key={i} className="h-9 w-9 rounded-full ring-[3px] ring-card" style={{ background: fondo, zIndex: 5 - i }} />
+                ))}
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-secondary ring-[3px] ring-card">
+                  <GraduationCap className="h-4 w-4 text-accent" />
+                </span>
+              </div>
+              <p className="min-w-0 text-[13px] leading-snug text-muted-foreground">
+                <span className="font-extrabold tabular-nums text-foreground">{comunidad.total.toLocaleString(idioma)}</span>{' '}
+                {t.home.comunidadEstudiantes(comunidad.total)}
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => onNavigate('comunidad')}
+              className="mt-3 flex w-full items-center justify-between rounded-xl bg-secondary px-3.5 py-3 text-[13px] font-bold text-accent transition active:scale-[0.98] hover:bg-secondary/70"
+            >
+              {t.home.comunidadEntrar}
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+      )}
+
+      {puntoDebil && (
+        <div className="anim-cascada mt-4 px-6" style={{ '--i': 8 } as CSSProperties}>
+          <button
+            type="button"
+            onClick={() => onNavigate('estadisticas')}
+            className="card-elevated flex w-full items-center gap-3 rounded-2xl bg-card p-4 text-left transition active:scale-[0.98]"
+          >
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-400/15 text-orange-400">
+              <TrendingDown className="h-5 w-5" />
+            </span>
+            <span className="min-w-0 flex-1">
+              <span className="block text-[11px] font-bold uppercase tracking-wide text-orange-400">{t.home.reforzarEtiqueta}</span>
+              <span className="mt-0.5 block truncate text-[15px] font-extrabold text-foreground">{puntoDebil.capitulo}</span>
+              <span className="block text-[12px] text-muted-foreground">{t.home.reforzarAcierto(puntoDebil.porcentaje)}</span>
+            </span>
+            <ChevronRight className="h-5 w-5 shrink-0 text-muted-foreground" />
+          </button>
+        </div>
+      )}
+
+      <div className="anim-cascada mt-4 px-6" style={{ '--i': 9 } as CSSProperties}>
         <div className="card-elevated relative min-h-[132px] rounded-2xl bg-card">
           <div
             className={`absolute inset-0 flex flex-col justify-center overflow-hidden rounded-2xl border p-4 ${
@@ -494,11 +584,30 @@ export function Home({
 
       <BottomNav activo="home" onNavigate={onNavigate} />
       {mostrarTour && <TourBienvenida idioma={idioma} onCerrar={cerrarTour} />}
+      {/* ENCUESTA-TEMPORAL */}
+      {mostrarEncuesta && !mostrarTour && (
+        <EncuestaFeedback userId={userId} idioma={idioma} onCerrar={() => setMostrarEncuesta(false)} />
+      )}
     </div>
   )
 }
 
 // --- Rediseño Neón: helpers de la Home -----------------------------------
+
+const AVATARES_COMUNIDAD = [
+  'linear-gradient(135deg, #2dd8d8, #12908f)',
+  'linear-gradient(135deg, #a78bfa, #6d4fd1)',
+  'linear-gradient(135deg, #ff8a5b, #e5576b)',
+  'linear-gradient(135deg, #5ee08f, #2f7d4f)',
+]
+
+/** Capítulo con peor % de acierto (mínimo 5 preguntas para no fiarse de 1-2). */
+function elegirPuntoDebil(capitulos: EstadisticaCapitulo[]) {
+  const conDatos = capitulos.filter((c) => c.total >= 5)
+  if (conDatos.length === 0) return null
+  const peor = conDatos.reduce((a, c) => (c.correctas / c.total < a.correctas / a.total ? c : a))
+  return { capitulo: peor.capitulo, porcentaje: Math.round((peor.correctas / peor.total) * 100) }
+}
 
 /** Resumen del historial del curso para las tarjetas nuevas de la Home. */
 function resumirHistorial(historial: IntentoExamen[]) {
@@ -524,48 +633,4 @@ function resumirHistorial(historial: IntentoExamen[]) {
 function formatoHoras(seg: number): string {
   if (seg < 3600) return `${Math.round(seg / 60)} min`
   return `${Math.round(seg / 3600)} h`
-}
-
-/** Mini gráfica de las últimas notas (0–100). */
-function Sparkline({ valores }: { valores: number[] }) {
-  const ancho = 100
-  const alto = 26
-  const paso = ancho / (valores.length - 1)
-  const puntos = valores.map((v, k) => `${(k * paso).toFixed(1)},${(alto - 2 - (v / 100) * (alto - 4)).toFixed(1)}`).join(' ')
-  return (
-    <svg viewBox={`0 0 ${ancho} ${alto}`} className="glow-cian mt-1.5 h-6 w-full" preserveAspectRatio="none" aria-hidden="true">
-      <polyline
-        points={puntos}
-        fill="none"
-        stroke="hsl(var(--accent))"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        vectorEffect="non-scaling-stroke"
-      />
-    </svg>
-  )
-}
-
-/** Muela de cristal decorativa para la tarjeta del saludo. */
-function DienteDecorativo({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 100 120" className={className} aria-hidden="true">
-      <defs>
-        <linearGradient id="diente-home" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#bff7fb" stopOpacity="0.7" />
-          <stop offset="0.5" stopColor="#3fb8c8" stopOpacity="0.3" />
-          <stop offset="1" stopColor="#0d4552" stopOpacity="0.15" />
-        </linearGradient>
-      </defs>
-      <path
-        d="M20 12c10-8 22-4 30 2 8-6 20-10 30-2 12 10 10 32 4 46-4 10-6 24-8 40-1 10-9 14-13 4-3-8-5-22-13-22s-10 14-13 22c-4 10-12 6-13-4-2-16-4-30-8-40-6-14-8-36 4-46z"
-        fill="url(#diente-home)"
-        stroke="#9eeef5"
-        strokeOpacity="0.45"
-        strokeWidth="1.2"
-      />
-      <path d="M34 22c6-3 12-2 16 2" fill="none" stroke="#e6fdff" strokeOpacity="0.65" strokeWidth="2" strokeLinecap="round" />
-    </svg>
-  )
 }

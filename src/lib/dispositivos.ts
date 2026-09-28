@@ -63,3 +63,21 @@ export async function liberarDispositivoActual(userId: string): Promise<void> {
   const deviceId = getDeviceId()
   await supabase.from('dispositivos_activos').delete().eq('user_id', userId).eq('device_id', deviceId)
 }
+
+// Última apertura de la app (panel de admin, pantalla Usuarios; ver
+// supabase/schema.sql, sección 13). Al arrancar ya la registra
+// verificar_dispositivo; esto cubre volver a la app desde segundo plano
+// (pestaña o PWA que se queda abierta), como mucho una vez cada 5 min para
+// no hacer una llamada en cada cambio de pestaña. La hora la pone el
+// servidor. Si falla (sin red), no pasa nada: se registra en la siguiente.
+const INTERVALO_APERTURA_MS = 5 * 60_000
+let ultimaAperturaRegistrada = Date.now()
+
+export function registrarAperturaSiToca(): void {
+  const ahora = Date.now()
+  if (ahora - ultimaAperturaRegistrada < INTERVALO_APERTURA_MS) return
+  ultimaAperturaRegistrada = ahora
+  supabase.rpc('registrar_apertura').then(({ error }) => {
+    if (error) console.warn('[apertura] no se pudo registrar', error.message)
+  })
+}
