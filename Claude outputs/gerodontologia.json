@@ -1,0 +1,5517 @@
+[
+ {
+  "numero": 1,
+  "pregunta": "Una de estas afirmaciones es FALSA en relación a la prescripción de fármacos a los ancianos:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC 2020",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Hay que valorar la necesidad de un nuevo fármaco antes de administrarlo",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Hay que adecuar las dosis a la edad del anciano y a su estado",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Hay que comenzar por las dosis más altas y luego ir bajando",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Hay que utilizar pautas sencillas",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Hay que dar las formas farmacéuticas mejor toleradas",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 2,
+  "pregunta": "Señale la afirmación correcta sobre la saliva:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC 2020",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "La estimulación simpática produce saliva acuosa",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "La estimulación simpática es clínicamente más útil para el tto de la xerostomía",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "La estimulación simpática se da con menos frecuencia",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "La estimulación simpática da una saliva rica en mucina",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "La estimulación simpática libera calicreína en los acinos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 3,
+  "pregunta": "Señale la afirmación FALSA sobre los fármacos en ancianos:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC 2020",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "El metronidazol en ancianos está contraindicado",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "El uso de clindamicina no precisa ajustar las dosis",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "La dosis máxima de paracetamol al día son de 4 g",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "A los ancianos hay que prescribir los mínimos AINES",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "El analgésico de elección en ancianos es el paracetamol",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 4,
+  "pregunta": "En el sistema PADI no entra:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC 2020",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Los tratamientos pulpares en permanentes",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Los selladores de fisuras",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "La atención a los niños discapacitados",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Los tratamientos en piezas temporales",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Las exodoncias",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 5,
+  "pregunta": "En un paciente anciano, tener SARCOPENIA puede implicar:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC 2020",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Tener menos actividad física",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Tener menos fuerza",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Aumentar las posibilidades de caídas",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Enlentecer la velocidad al caminar",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Todas son correctas",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 6,
+  "pregunta": "Las benzodiazepinas de elección para el tratamiento dental en ancianos son:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC 2020",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Las que tienen acción anticonvulsivante",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Las de vida media corta",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Las más baratas",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Las que tienen acción más miorrelajante",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Todas las respuestas son correctas",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 7,
+  "pregunta": "Respecto al diagnóstico de la caries dental, ¿cuál de los siguientes métodos es INCORRECTO?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC 2020",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "QLF",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "CarieScan PRO",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Root ZX",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Sonda CPI",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "DIAGNOdent",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 8,
+  "pregunta": "Los AINES disminuyen los efectos de:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC 2020",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Los antihipertensivos",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Los anticoagulantes",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "El metotrexato",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "La aspirina",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "De todos los anteriores",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 9,
+  "pregunta": "¿Son características propias de la pulpa dental del paciente adulto mayor?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC 2020",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Mayor vascularización pulpar",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Menor vascularización pulpar",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Mayor volumen pulpar",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Pulpa dental con más terminaciones nerviosas que el adulto joven",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "C y D son ciertas",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 10,
+  "pregunta": "La infección por invasión de los tejidos superficiales o profundos por hongos se llama:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC 2020",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Micosis",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Micotoxicosis",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Micetismo",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Alergia a los hongos",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Todas son falsas",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 11,
+  "pregunta": "Señale la falsa de estas afirmaciones relacionadas con el envejecimiento:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Aumenta la neumatización del maxilar superior",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "El maxilar inferior es el más afectado por el envejecimiento",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Aumenta la porosidad del hueso esponjoso",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "El maxilar superior es un hueso inmóvil",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Todas son falsas",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 12,
+  "pregunta": "¿Qué idea de envejecimiento es la que se busca en la actualidad?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Envejecimiento seguro",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Envejecimiento saludable",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Envejecimiento activo",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Envejecimiento integral",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Envejecimiento global",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 13,
+  "pregunta": "Señale la afirmación FALSA",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Los objetivos de salud propuestos en alma ata se han conseguido",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "La salud es un estado acumulativo",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "La salud y la enfermedad es algo a plantear al alcanzar la tercera edad",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "La enfermedad constituye una vivencia única para cada persona, determinada por su experiencia individual y por su personalidad",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "La enfermedad es una alteración del funcionamiento y/o de la estructura tal que determina una desventaja social en el sujeto en su contenido histórico geográfico y cultural",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 14,
+  "pregunta": "Es consecuencia del envejecimiento",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "La pérdida de masa magra",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "La disminución del tejido adiposos profundo",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "El aumento de la grasa subcutánea",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "El aumento de las proporciones de agua",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Ninguno de los anteriores",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 15,
+  "pregunta": "El tipo más frecuente de demencia a partir de los 65 años es:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Demencia - infarto",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Encefalopatía de Binswanger",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Arterioesclerosis cerebral",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Enfermedad de Alzheimer",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Hidrocefalia normotensiva",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 16,
+  "pregunta": "Mediante el sistema ICDAS, el código 1 hace referencia a:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Lesión de mancha blanca visible con el campo húmedo",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Lesión de mancha marrón visible con el campo húmedo",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Cambio visible en el esmalte con el campo seco",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Translucidez en el esmalte",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Mancha extrínseca en el diente",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 17,
+  "pregunta": "El valor aproximado de pH por debajo del cual se produce una desmineralización de los tejidos dentales se llama:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "PH umbral",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "PH cariogénico",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "PH de desmineralización",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "PH ácido",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "PH crítico",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 18,
+  "pregunta": "Respecto al manejo clínico de la halitosis, señale la CORRECTA:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Higiene oral adecuada",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Uso rutinario de antisépticos",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Tratamiento de la causa",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Consejo dietético",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Todas las anteriores son ciertas",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 19,
+  "pregunta": "La presencia de hiperplasia tipo granular exofítica en el paladar puede identificarse con:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Candidiasis eritematosa",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Estomatitis tipo 1 de Newton",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Estomatitis tipo 2 de Newton",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Estomatitis tipo 3 de Newton",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Estomatitis pseudomembranosa",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 20,
+  "pregunta": "Entre las lesiones precancerosas frecuentes en ancianos NO se ENCUENTRA habitualmente",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "El épulis fibromatoso",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "La leucoplasia",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "El lupus eritematoso discoide",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "La eritroplasia",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "El COCE",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 21,
+  "pregunta": "Una uranitis candidiásica tiene que ver con:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Infección fúngica transmitida por vía fetal",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Lesión micótica del velo del paladar",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Infección por cándidas en forma romboidal en el dorso de la lengua",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Pérdida de la dimensión vertical",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Deficiencia vitamínica",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 22,
+  "pregunta": "Cuál de las siguientes complicaciones de una exodoncia en un anciano no guarda relación con la edad",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Desgarro de tejidos",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Fractura de la tuberosidad",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Fractura mandibular",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Alveolitis en relación con la edad",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Luxación de dientes vecinos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 23,
+  "pregunta": "Una de las siguientes actitudes no está asociada con la xerostomía:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Consumo antidepresivos tricíclicos",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Recibir tratamiento de radioterapia",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Consumo de broncodilatadores",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Consumo de tabaco y alcohol",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Todas las anteriores están asociadas",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 24,
+  "pregunta": "Si el paciente sufriera dolor y nos viéramos obligados a darle un analgésico como el tramadol con cual de estos fármacos que consume deberíamos tener cuidado",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Acenocumarol",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Venlafaxina",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Prolia",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "A y B",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "C y A",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 25,
+  "pregunta": "Si el paciente sufriera dolor y pensáramos en darle un AINE tipo ibuprofeno en cual de estas patologías podríamos provocar un empeoramiento",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Neuralgia del trigémino",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Vértigo",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "HTA",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Fibrilación",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Tromboflebitis",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 26,
+  "pregunta": "La función que menos se deteriora con la vejez:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "El habla",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Masticación",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Deglución",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Flujo salival",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Movilidad",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 27,
+  "pregunta": "Paciente con 15 dientes desahuciados, ¿cuál es el plan de tratamiento?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Exos lo antes posible",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Raspados",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Impresiones + inmediata",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Impresiones de diagnóstico + rodete + PPR de resina",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 28,
+  "pregunta": "Cual es cierta Leucoplasia:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Lesión blanca no compatible con otro diagnóstico",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Da sintomatología",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "No asociada a alcohol y tabaco",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Estudio histológico",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 29,
+  "pregunta": "En el envejecimiento, señale la FALSA:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Aumento del flujo plasmático renal",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Disminución de la secreción de los túbulos renales",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Disminución de la absorción",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Aumento en la orina",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 30,
+  "pregunta": "¿Cuáles de estas afirmaciones es cierta sobre la determinación de la saturación de oxígeno?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Es importante para saber el grado de EPOC de los pacientes",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Es indicador del grado de insuficiencia cardiopulmonar",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Es indicador del grado de perfusión sanguínea periférica",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Es indicador del riesgo de síncope vasovagal",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Es imprescindible en tratamientos cruentos al anciano",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 31,
+  "pregunta": "Señale la afirmación cierta:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Existe una relación clara causa-efecto entre edentulismo y envejecimiento",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "El maxilar está más afectado que la mandíbula por el envejecimiento",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "La pérdida de dientes es una condición fisiológica debida al transcurso del tiempo",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "A mandíbula es un hueso neumático y amortiguador",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Los senos maxilares disminuyen su tamaño al envejecer",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 32,
+  "pregunta": "¿Por qué puede disminuir la sensibilidad dentinaria en los ancianos?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Por la diminución del umbral doloroso propio de la vejez",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Por la existencia de túbulos dentinarios libres",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Por la existencia de dentina esclerótica",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Por el desgaste oclusal",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Por la falta de irrigación cerebral",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 33,
+  "pregunta": "¿Cuál es el tratamiento de primera elección en un anciano diabético descompensado con una candidiasis oral?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Mycostatin a demanda",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Mycostatin tópico 1-2 cucharaditas de 2,5ml 3 veces al día y tragar el producto",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Diflucan 5ml 1 vez al día durante 7-14 días",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Anfiotercina B vía oral",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Tratar la prótesis con gel de fluconazol",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 34,
+  "pregunta": "Cuando hablamos de “Percepción del individuo sobre su posición en la vida dentro del contexto cultural y el sistema de valores en el que vive y con respecto a sus metas, expectativas, normas y preocupaciones”, estamos refiriéndonos al concepto de:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Salud",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Calidad de vida",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Enfermedad",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Esperanza de vida",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Longevidad",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 35,
+  "pregunta": "Cuando hablamos de RESILIENCIA HOMEOSTÁTICA nos referimos a:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "La disminución de la capacidad para recuperar parámetros fisiológicos cuando se han alterado",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "La escasa respuesta a la reparación y curación",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "La falta de resistencia a las infecciones",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Modificaciones de conducta",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Modificaciones en la actitud",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 36,
+  "pregunta": "¿Qué es la nociocepción?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "El proceso por el cual se codifican los estímulos gratos",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "El proceso neuronal por el que se codifican las sensaciones negativas",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "El proceso neuronal por el que se codifican y procesan los estímulos táctiles",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "El proceso neuronal de captación de datos",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "El proceso neuronal mediante el que se codifican y procesan estímulos potencialmente dañinos.",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 37,
+  "pregunta": "Señale la falsa respecto a la arteritis del temporal",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Se caracteriza por afectar a gente de edad avanzada",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Se da preferentemente en varones",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Hay dolor en las arterias de cuero cabelludo",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Hay dolor en maseteros",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Te puede quedar ciego",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 38,
+  "pregunta": "El tratamiento de elección en primera instancia de la neuralgia del trigémino es:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "La gabapentina",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "La oxacarbacepina",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "La fenitoína",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "El triptizol",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "La amitryptilina",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 39,
+  "pregunta": "El tratamiento de elección de la NT secundaria a zóster es, de entre todos estos:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Antiinflamatorios no esteroideos a dosis altas",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Corticosteroides inyectables",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Aciclovir oral",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Valaciclovir oral",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Gabapentina de modo inicial",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 40,
+  "pregunta": "Señale los cambios que ocurren en el anciano",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Alcalinización del pH salival",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Engrosamiento de la encía",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Osteocondensación generalizada",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Contracción de la cápsula y ligamentos de la ATM",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Atrofia del ligamento alveolodentario",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 41,
+  "pregunta": "No es un síndrome geriátrico:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Las caídas",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "La discinesia tardía",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "La malnutrición",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "La presentación atípica de las enfermedades",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "La polifarmacia",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 42,
+  "pregunta": "La valoración geriátrica integral permite",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Disminuir el número de caídas",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Aumentar el tiempo de hospitalización",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Mejorar la función afectiva y cognitiva",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Limitar los sobreesfuerzos físicos",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Aumentar el grado de higiene personal",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 43,
+  "pregunta": "Uno de estos es una escala de valoración de las actividades instrumentales de la vida",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Escala de Lawton",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Escala de Barthel",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Miniexamen cognoscitivo",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Índice de Katz",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Prueba de Tinetti",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 44,
+  "pregunta": "Señale la afirmación correcta:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "El número de efectos adversos de los fármacos es directamente proporcional al número de fármacos consumidos en ancianos mayores de 75 años",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "En número de efectos adversos de los fármacos es inversamente proporcional al número de fármacos consumidos en ancianos mayores de 75 años",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "No hay relación entre fármacos consumidos y efectos adversos sobre ancianos",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "El consumo responsable de fármacos no produce efectos adversos en los ancianos",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Los hombres consumen más fármacos que las mujeres",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 45,
+  "pregunta": "¿Cómo podemos hacer para aumentar la adherencia al tratamiento?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Disminuir el costo de los fármacos",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Dejar las pastillas en lugares accesibles y visibles",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Hacer que el anciano acuda la CAP a recibir las dosis diurnas",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Simplificar las pautas",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Hacerle tomar conciencia al anciano de la importancia de ello",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 46,
+  "pregunta": "Cuál es la variable que no se tiene en cuenta en la fórmula de Cockcroft:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Edad",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Sexo",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Peso",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Creatinina en sangre",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Capacidad muscular",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 47,
+  "pregunta": "La benzodiacepina de elección entre las siguientes en ancianos para el tratamiento odontológico puntual es:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Orfidal",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Rohipol",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Loramet",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Lexatin",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Tranquimazin",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 48,
+  "pregunta": "Señale la falsa en relación a la discinesia tardía",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Es un conjunto de tics frecuente en ancianos",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Suele relacionarse con neurolépticos",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "El paciente suele estar muy angustiado por los síntomas",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "No hay tratamiento especifico",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Hay casos en que no se asocia con la ingesta de fármacos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 49,
+  "pregunta": "Respecto a los torus palatinos y mandibulares, señale la opción falsa:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Son exóstosis óseas",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Presentan una densa cortical y escaso hueso esponjoso",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Su excéresis está siempre indicada",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Están recubiertos de una mucosa delgada y poco irrigada que se ulcera con cierta facilidad",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Impiden o dificultan el diseño del conector de la prótesis removible.",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 50,
+  "pregunta": "Entre las finalidades del desbridamiento quirúrgico de un absceso, están:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Al descomprimir los tejidos se mejora la vascularización, se retiran restos necróticos y se oxigena el tejido en el que se desarrolla la infección.",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Crear un medio desfavorable para los gérmenes anaerobios",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Disminuir la cantidad de gérmenes patógenos",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Disminuir el dolor",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Todas las anteriores",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 51,
+  "pregunta": "Uno de estos aspectos parece tener un papel protector en la caries de raíz",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "La presencia de actinomices",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "La presencia de streptoccoccus sobrinus",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "La presencia de streptoccoccus mutans",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "La presencia de streptoccoccus sanguis",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "La presencia de lactobacillus",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 52,
+  "pregunta": "El Oral Health Risk Assessment es:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Un indicador de nivel de caries",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Un test administrado en centros hospitalarios por dentistas especializados",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Un test administrado a pacientes institucionalizados por dentistas",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Un test administrado a pacientes institucionalizados por cuidadores",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Un test administrado a pacientes en las consultas dentales",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 53,
+  "pregunta": "En odontogeriatría al aplicar geles de flúor son de elección:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Los que no son tirotrópicos",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Los de fosfato ácido fluorado",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "No se recomienda su uso",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Los de fluoruros de aminas con 12.500 ppm",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Los de fluoruro sódico",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 54,
+  "pregunta": "Señale la afirmación correcta para los ancianos",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "El mejor cepillo de dientes es el “crossed-strand”",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "No existen cepillos “adaptables” a la mano de los pacientes ancianos",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Los cepillos eléctricos son un dispendio inútil para el anciano",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Deben cepillarse en sitios donde no se ponga en riesgo su intimidad y su dignidad",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Hay que procurar ir rápido al cepillar los dientes puesto que se cansan",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 55,
+  "pregunta": "De las actividades básicas de la vida diaria (ABVD) podemos decir que:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Son actividades instrumentales",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Forman parte de ellas los contactos sociales y las relaciones interpersonales",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Para su desarrollo es necesaria la ayuda de otras personas",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Están estrechamente vinculadas a los cuidados personales",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Se realizan ocasionalmente",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 56,
+  "pregunta": "Respecto a la valoración funcional podemos decir que:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Es un proceso dirigido a recoger información sobre la autonomía del anciano",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Es un índice que se utiliza para valorar la enfermedad osteoarticular",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "No es de gran utilidad",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "No se aplica normalmente en la valoración del anciano",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Hoy en día está en desuso",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 57,
+  "pregunta": "Ante un paciente con un índice de Niessen Leve, nuestra acción será:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Cuidados de emergencia",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Explicar FHO al cuidador",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Requerirá sedación",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Tratamiento protésico con cambios mínimos",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Prevención agresiva",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 58,
+  "pregunta": "En qué situación hay que hacer un duplicado de la prótesis completa",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Siempre que el paciente tenga una prótesis vieja con los dientes gastados",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Siempre que los parámetros biológicos de la anterior sean correctos",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Cuando queramos que tenga una de recambio",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Cuando se haya fracturado muchas veces",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Cuando se mueva la vieja",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 59,
+  "pregunta": "¿Cuál de estas afirmaciones es falsa respecto a la PC?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Para aumentar la sujeción hay que conseguir una buena adaptación",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "La PC debe superar ligeramente el límite de la mucosa adherida",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Es mejor que el tamaño de la completa sea lo más reducido posible",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "La falta de fijación tiene que ver con la presencia de úlceras de decúbito",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "La falta de sujeción crea problemas psicológicos en ocasiones.",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 60,
+  "pregunta": "El índice de Eichner sirve para:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Clasificar las superficies edéntulas",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Clasificar la morfología de la arcada",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Clasificar el pronóstico de los dientes",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Clasificar el contacto oclusal funcional",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Clasificar el estado de la prótesis",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 61,
+  "pregunta": "Dentro de las técnicas mínimamente invasivas NO se incluye:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "El uso de sono abrasión",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "El uso de contraángulo multiplicador",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "El uso de láser",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "El uso de ozono",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "El uso de tratamientos restauradores atraumáticos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 62,
+  "pregunta": "¿Cuál de las siguientes glándulas salivales produce saliva puramente serosa?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Parótidas",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Sublinguales",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Labiales",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Submaxilares",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Palatinas",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 63,
+  "pregunta": "La tasa de saliva en reposo en sujetos sanos:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "1,4 ml/min",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "0,9 ml/min",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "0,6 ml/min",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "0,4 ml/min",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "1,2 ml/min",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 64,
+  "pregunta": "¿Cuál de estos no es un condicionamiento para la elaboración de una prótesis completa?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "La reabsorción de procesos alveolares",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "La artrosis",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "La edad",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "La hiposialia",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Los problemas económicos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 65,
+  "pregunta": "Señale la falsa. Para evitar las reacciones adversas hay que:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Utilizar hierbas medicinales",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Empezar con dosis bajas e ir subiendo",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Prescribir pocos fármacos",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Revisar periódicamente la prescripción",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Conocer las interrelaciones farmacológicas más frecuentes",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 66,
+  "pregunta": "Uno de estos es una variable a tener en cuenta para el cálculo de riesgo de caries radicular",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "El índice de Pfeiffer",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "El índice de Katz",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "El índice de frecuencia de visitas",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "El índice de Down-Jones",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "El índice de McLeran",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 67,
+  "pregunta": "Uno de estos índices tiene que ver con el deterioro cognitivo",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "El índice de Pfeiffer",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "El índice de Katz",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "El índice de frecuentación de visitas",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "El índice Down – Jones",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "El índice de McLeran",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 68,
+  "pregunta": "¿Cuál de las siguientes no es una de las características que definen la enfermedad de caries?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC 2021",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Multifactorial",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Sistémica",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Infecciosa",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Crónica",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "De carácter dinámico",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 69,
+  "pregunta": "¿Cuál es el grosor que debe tener la capa de cemento cuando se realiza una pulpotomía?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC 2021",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "5 mm",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "8 mm",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "2 mm",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "4 mm",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Todos son falsos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 70,
+  "pregunta": "¿Cuál de las siguientes afirmaciones no es cierta?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC 2021",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Las pericoronaritis no son específicas de la población geriátrica",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Una profilaxis completa puede producir la desinclusión de un diente retenido",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Siempre retiraremos cualquier torus palatino o lingual en un paciente para prevenir futuras indefensión con sus prótesis removibles",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "La exéresis del épulis fissuratum podemos realizarla mediante bisturí frío, láser de CO2 o electrobisturí",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Todas son ciertas",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 71,
+  "pregunta": "El modelo biomédico se refiere al:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC 2021",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Las desventajas sociales que determinen la anormalidad",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "El que incluye las situaciones de predisposición genética a padecer enfermedades",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "El que hace referencia a las anormalidades en el funcionamiento de estructura o órgano",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "El que incluye situaciones como el embarazo",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "El que incluye aspectos psicológicos relacionados con la conciencia de enfermedad y consecuencias",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 72,
+  "pregunta": "Un factor de mal pronóstico de una leucoplasia es:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC 2021",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "La edad superior a 70 años",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Ser hombre",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "El tener tamaño menor de 1 cm",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "La falta de agresividad histológica",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "El situarse en mucosa yugal",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 73,
+  "pregunta": "Solo uno de estos fármacos no facilita la posibilidad de un sangrado excesivo:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC 2021",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Metotrexato",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Anticoagulantes",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Alcohol",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Colchicina",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Ciclosporina",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 74,
+  "pregunta": "Señale cuál de los siguientes factores no está relacionado con el potencial cariogénico de la dieta:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC 2021",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Consistencia de los alimentos",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Cantidad total de azúcar consumida",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Patrón de ingesta",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Temperatura a la que se consumen los alimentos",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Tipo de azúcares que se consumen",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 75,
+  "pregunta": "¿Cuál de las siguientes definiciones corresponde a la erosión?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC 2021",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Pérdida de tejido dental o de una restauración causada por el contacto del diente durante la masticación o una parafunción",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Progresivo desgaste de tejido dental causado por la acción bacteriana",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Desgaste patológico de los dientes como resultado de hábitos o sustancias",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Pérdida de tejido dentario en el área cervical del diente causada por fuerzas tensionales y compresivas durante la flexión del diente",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Progresiva pérdida de tejido dental provocada por procesos químicos, sin acción bacteriana",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 76,
+  "pregunta": "¿Cuál de las siguientes características NO corresponde a la prevención primaria?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC 2021",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "El objetivo es mantener una población sana para minimizar el riesgo de enfermedad",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Existen medidas específicas dirigidas a prevenir una enfermedad o grupo de enfermedades concretas",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Limitar la progresión y los efectos de la enfermedad en la fase más inicial, después de su aparición",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Proteger a las personas frente a la enfermedad, habitualmente mediante la colocación de barreras entre el agente etiológico y el huésped",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Existen medidas de prevención inespecíficas que se aplican sobre el individuo y la población y que tienen unos beneficios generales",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 77,
+  "pregunta": "¿Cuál de los siguientes pasos NO se realiza en el examen para determinar la puntuación ICDAS?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC 2021",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Colocar rollos de algodón en el vestíbulo",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Pedir al paciente que se quite cualquier aparato removible",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Examen visual de la superficie húmeda",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Examen visual de la superficie seca",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Humedecer la superficie del diente durante 5 segundos",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 78,
+  "pregunta": "En cuanto al tratamiento de la xerostomía:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC 2021",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "La masticación es el principal mecanismo para estimular el flujo salival",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Las dietas deben ser ricas en HC; beber agua y hacer comidas pequeñas y frecuentes para estimular la salivación",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "La pilocarpina es efectiva cuando todavía existe capacidad secretora glandular",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "A y C son correctas",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "A, B, y C son correctas",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 79,
+  "pregunta": "Respecto al manejo clínico de la xerostomía:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC 2021",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Higiene oral adecuada",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Uso de estimulantes salivales",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Prevención de caries",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Si fuera posible, cambiar la medicación que produce la xerostomía",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Todas las anteriores",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 80,
+  "pregunta": "Paciente con xerostomía que acude con la mucosa lisa, de color rojo brillante y sensación de ardor. ¿Qué patología presenta?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC 2021",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Candidiasis pseudomembranosa",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Candidiasis atrófica",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Candidiasis hiperplásica",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Queilitis angular",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Épulis fisurado",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 81,
+  "pregunta": "¿Cuáles de las siguientes características son propias del sistema Locator?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC 2021",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Facilidad de higiene",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Bajo perfil de emergencia",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Incompatibilidad con diferentes sistemas de implantes",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Todas son ciertas",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "A y B son ciertas",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 82,
+  "pregunta": "El envejecimiento se asocia a conceptos como:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen Gerodontología UIC 2021",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Fragilidad",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Cambios de la estructura familiar",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Dependencia",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Todas son ciertas",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "A y B son ciertas",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 83,
+  "pregunta": "¿Qué condición no es imprescindible para realizar estudios histológicos en las patologías autoinmunes?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen de seminarios de Gerodontología UIC 2020",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Debe realizarse en ampollas de reciente aparición",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Debe enviarse solamente incluido en solución de Tzanck",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Las ampollas deben tener entre 42-48 horas",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Debe incluir tejido sano perilesional",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Debe incluir 2 márgenes laterales de la ampolla",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 84,
+  "pregunta": "¿En cuál de las siguientes funciones tiene participación especial el hígado?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen de seminarios de Gerodontología UIC 2020",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Formación de factores de coagulación",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Metabolismo de los hidratos de carbono grasas y proteínas",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Regulación del volumen sanguíneo",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Formación y almacenamiento de glucógeno",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Limpieza de la sangre",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 85,
+  "pregunta": "¿Con qué patología solemos ver asociada la lengua saburral?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen de seminarios de Gerodontología UIC 2020",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Gastritis crónica",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Sd. Pilórico",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Sd. del intestino irritable",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Estreñimiento crónico",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Todas las anteriores son correctas",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 86,
+  "pregunta": "El tratamiento genérico de las enfermedades autoinmunes consiste en:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen de seminarios de Gerodontología UIC 2020",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Corticoides y terapia fotodinámica",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Inmunosupresores y AINES potentes",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Inmunosupresores y corticoides",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Corticoides y opioides leves",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 87,
+  "pregunta": "¿Cuál de los siguientes fármacos puede provocar fácilmente discinesias?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen de seminarios de Gerodontología UIC 2020",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Oxprenolol",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Levodopa",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Todos ellos",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Alprazolam",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Citalopram",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 88,
+  "pregunta": "¿Cuál de los siguientes fármacos es un betabloqueante?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen de seminarios de Gerodontología UIC 2020",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Oxprenolol",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Pramipexol",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Citalopram",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Alprazolam",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Ninguno de ellos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 89,
+  "pregunta": "¿Qué indica un buen control de la diabetes?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen de seminarios de Gerodontología UIC 2020",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Ninguna de las anteriores implica un buen control",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Una hemoglobina glicosilada menor de 7,5",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "La ausencia de síntomas de la enfermedad",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Una correcta cicatrización tras las exodoncias",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Una glucemia de 120 o menos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 90,
+  "pregunta": "¿Cuál de las siguientes consideraciones corresponde al manejo odontológico del paciente con diabetes mellitus tipo 1?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen de seminarios de Gerodontología UIC 2020",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Si la Hb glicosilada es inferior a 7,5 solo trataremos casos urgentes con dolor",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Podemos tratarlo tranquilamente con un 8,9 de Hb glicosilada",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Dar la hora de consulta preferentemente por la tarde en función del grado de control",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Si nota algún mareo o malestar durante la consulta administrar nitroglicerina",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "El paciente ha de tomar su dosis habitual de insulina y comer a su hora",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 91,
+  "pregunta": "Indique la afirmación correcta en diabéticos:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen de seminarios de Gerodontología UIC 2020",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Precisan antibióticos antes de cualquier tto cruento de modo habitual",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Siempre hay que dar amoxicilina antes de efectuar una exodoncia",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Se pueden usar corticoides como antiinflamatorios sin problemas",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Se pueden usar AINES como antiinflamatorios sin problemas",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "El antibiótico de elección es la amoxicilina",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 92,
+  "pregunta": "La clasificación de MacLeran se usa para:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen de seminarios de Gerodontología UIC 2020",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Clasificar al paciente de Alzheimer según el estadio de su enfermedad",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Clasificar al paciente según el deterioro de sus funciones mentales",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Clasificar el grado de dependencia de los ancianos",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Clasificar al anciano según su grado de colaboración en la higiene oral",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Clasificar al paciente según su manejo odontológico",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 93,
+  "pregunta": "¿Cuál de las siguientes acciones NO se aconseja en el manejo de una crisis epiléptica?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Examen de seminarios de Gerodontología UIC 2020",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Llamar a urgencias",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Introducir elementos en la boca",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Controlar el tiempo",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Proteger la cabeza y la vía aérea",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Colocar el cuerpo del paciente en un lugar seguro",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 94,
+  "pregunta": "¿Las sobredentaduras aumentan la calidad de vida de los pacientes que eran portadores de PPR?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot Seminario 12 (Gerodontología y prótesis) UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "No está claro",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Sí, así lo reporta la bibliografía",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "No, así lo reporta la bibliografía",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Hay controversia en la bibliografía",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 95,
+  "pregunta": "¿Qué sistema con mayor retención propondrías para una sobredentadura?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot Seminario 12 (Gerodontología y prótesis) UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "O ring",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Locator",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Barras",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Todos retienen igual",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 96,
+  "pregunta": "¿Cuál es la incidencia más común en sobredentadura con Locator?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot Seminario 12 (Gerodontología y prótesis) UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Descementado de la cazoleta",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Fractura de Locator",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Aflojamiento del Locator",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "No hay incidencias",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 97,
+  "pregunta": "¿Cuál es el tipo de prótesis más utilizada en paciente gero en España?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot Seminario 12 (Gerodontología y prótesis) UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Removible",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Prótesis fija",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Rehabilitación implantológica fija",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Sobredentadura sobre implantes",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 98,
+  "pregunta": "La remoción de biofilm bacteriano de las prótesis es de capital importancia para…",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot Seminario 12 (Gerodontología y prótesis) UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Minimizar la estomatitis y mejorar la salud oral",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Un mejor ajuste de la prótesis",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Evitar rebases",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Evitar pérdida de D.V",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 99,
+  "pregunta": "¿Qué tto crees que es el más adecuado? Paciente que precisa prótesis nueva por estética. El diseño de la prótesis anterior correcto. No hay limitaciones económicas.",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot Seminario 12 (Gerodontología y prótesis) UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Rebasado",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Duplicado",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Prótesis nueva",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Completa superior y sobredentadura inferior con implantes",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 100,
+  "pregunta": "¿Qué prótesis propones? Paciente que precisa prótesis nueva removible. Paciente quiere el máximo estabilidad. Estado periodontal correcto. No hay limitaciones económicas",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot Seminario 12 (Gerodontología y prótesis) UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Esquelético superior e inferior",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Esquelético superior y parcial de resina inferior",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Parcial de resina superior e inferior",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Parcial de resina superior y esquelético inferior",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 101,
+  "pregunta": "¿Qué tto propondrías? Paciente que precisa prótesis nueva removible. Condición económica muy débil.",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot Seminario 12 (Gerodontología y prótesis) UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Esquelético inferior + corona M/C de 4.7",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Parcial de resina + corona M/C 47",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Puente fijo M/C 44-47",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Insistir en solución implantológica",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 102,
+  "pregunta": "¿Qué tto propones? Paciente acude prótesis completa con D.V correcta y oclusión correcta. Se le introduce alimento",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot Seminario 12 (Gerodontología y prótesis) UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Prótesis completa nueva",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Duplicado",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Rebasado",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Convencer al pte para tto implantológico",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 103,
+  "pregunta": "¿Qué tipo de prótesis es la más adecuada? Paciente de 72 años acude con perio generalizada moderada en tto. Se realiza exo de 42, 41, 31, 32, 33 con movilidad grado 3 y diversas fístulas. Puente de 35 a 37. No quiere implantes.",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot Seminario 12 (Gerodontología y prótesis) UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Esquelético",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Puente fijo de 43 a 34",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Parcial de resina inferior",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Maryland de 43 a 34",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 104,
+  "pregunta": "En prótesis completa la oclusión más adecuada es…",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot Seminario 12 (Gerodontología y prótesis) UIC",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Bibalanceada",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Guía canina",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Función de grupo posterior",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Indiferente",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 105,
+  "pregunta": "La población mundial tiende a…",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Envejecimiento sólo en España",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Rejuvenecimiento",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "No esta determinada",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Envejecimiento",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 106,
+  "pregunta": "Una puntuación de 3 en el IMO de Niessen corresponde a...",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Muy elevado",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Moderado",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Elevado",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Leve",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 107,
+  "pregunta": "¿Qué índice nos indica la funcionalidad de un individuo?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "IMO de Niessen",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "CAO",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Barthel",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Ninguno de estos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 108,
+  "pregunta": "¿Qué test nos sirve para evaluar el riesgo de patología oral?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Pfeiffer",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "OHRA",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Barthel",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Todos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 109,
+  "pregunta": "Un índice de Barthel de 93 corresponde a…",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Dependencia moderada",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Independencia",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Dependencia leve",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Dependencia Total",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 110,
+  "pregunta": "Un paciente con IMO de Niessen moderado requiere…",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Citas Cortas",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Prevención agresiva",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Tratamiento protesico con cambios mínimos",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Todas",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 111,
+  "pregunta": "Un paciente con IMO de Niessen severo requiere..",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Instrucciones de cuidado oral al cuidador",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Cuidados de emergencia",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Puede requerir sedación",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Todas",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 112,
+  "pregunta": "¿Cuál de los siguientes no es un factor favorecedor de la patología oral?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Patología de base",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Fotorejuvenecimiento en labios",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Medicamentos",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Prótesis",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 113,
+  "pregunta": "¿Cuál no es un tipo de estomatitis protésica?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Asintomática",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Traumática",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Crónica",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Eritematosa",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 114,
+  "pregunta": "Las úlceras traumáticas no son:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Agudas",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Dolorosas desde el inicio",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Presentan clara relación causa-efecto",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Típicas en ancianos",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 115,
+  "pregunta": "¿Qué factor no es desencadenante del herpes intraoral?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Menstruación",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Estrés",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Dieta",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Exposición solar prolongada",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 116,
+  "pregunta": "La neuralgia del trigémino se caracteriza por:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Dolor agudo e insoportable de corta duración",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Espasmos incontrolables de los músculos",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Episodios prolongados de dolor en un lado de la cara",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Parálisis de un lado de la cara",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 117,
+  "pregunta": "En el dolor de origen neuropático podemos encontrar las siguientes características, excepto:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "El dolor es prolongado en el tiempo",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "En algunos casos no están afectados los pares craneales",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Aparece asociado a lesiones del sistema nervioso",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Sin estímulos nociceptivos evidentes entre episodios",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 118,
+  "pregunta": "En la neuralgia postherpética podemos encontrar las siguientes características, excepto:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Aparece asociado al virus varicela-zoster",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "El dolor es punzante, urente y prolongado en el tiempo",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "El paciente puede referir parestesias",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Suele afectar la segunda rama del trigémino",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 119,
+  "pregunta": "En cuanto a la neuralgia esencial del trigémino, no es característico que:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Como pruebas complementarias se puede utilizar la RMN",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "La carbamacepina es el fármaco de elección",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Es un tic doloroso",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "La rama más afectada es la primera",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 120,
+  "pregunta": "Respecto a la neuralgia esencial del trigémino, no es cierto que:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Afecta sobretodo a la segunda y tercera rama del trigémino",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "El dolor es muy intenso y de escasos segundos",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Suele aparecer antes de los 40 años",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Es más frecuente en sexo femenino",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 121,
+  "pregunta": "¿Cuál NO corresponde a un posible diagnóstico diferencial de la neuralgia del trigémino?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Dolor dental",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Sinusitis",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Cefalea en racimos",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Todos son posibles diagnósticos iniciales",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 122,
+  "pregunta": "Sensación de ardor intraoral crónico que no tiene ninguna causa identificable. ¿Qué podría ser?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Trastorno temporomandibular",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Neuralgia del trigémino",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Dolor orofacial neurovascular",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Sindrome de boca ardiente",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 123,
+  "pregunta": "¿Qué característica no corresponde a la neuralgia del trigémino?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Existe poca irradiación fuera del área del Nervio Trigémino",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Los estímulos dolorosos ligeros pueden provocar el dolor",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Se produce un máximo de 5 ataques de dolor al día",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Se utiliza la Resonancia Magnética para su diagnóstico",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 124,
+  "pregunta": "El envejecimiento NO presenta:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Patología sistémica",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Complejidad para efectuar correcta pauta farmacológica",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Cambios fisiológicos",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Interacciones medicamentosas",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 125,
+  "pregunta": "¿Qué problemas relacionados con los fármacos no aumentan con la edad?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Variabilidad farmacocinética",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Influencia con las patologías",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Variabilidad farmacodinámica",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Todos los anteriores aumentan con la edad",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 126,
+  "pregunta": "¿Cuál de las siguientes NO tiene relación con una reacción adversa a medicamentos (RAM) tipo B?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Menos habituales",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Difícilmente previsibles",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Morbilidad alta",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Mortalidad alta",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 127,
+  "pregunta": "¿Cuál de las siguientes NO tiene relación con una reacción adversa a medicamentos (RAM) tipo A?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Imprevisibles",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Concentración anormalmente alta del fármaco en el lugar de acción",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Alteraciones en la curva \"dose-response\"",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Administración simultanea de fármacos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 128,
+  "pregunta": "No es un tipo de interacción medicamentosa:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Fármaco-alcohol",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Fármaco-fármaco",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Fármaco-enfermedad",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Fármaco-ambiente",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 129,
+  "pregunta": "¿Cuál de los siguientes NO forma parte de los principios de prescripción en geriatría?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Subida escalonada de la dosis hasta el efecto deseado",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Inicio con 1/2 dosis recomendada",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Revisar periódicamente la prescripción",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Prescripción de tantos medicamentos como haga falta",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 130,
+  "pregunta": "Respecto a los antibióticos, indique la falsa:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Aumentan biodisponibilidad de anticonceptivos orales",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Tetraciclina + Insulina: Aumenta su efecto y hay mayor hipoglucemia.",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Metronidazol+ Alcohol: Dolores de cabeza, palpitaciones y náuseas.",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Metronidazol+ Fenitoína: Aumenta efecto y toxicidad",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 131,
+  "pregunta": "Respecto a los antibióticos, señale la falsa:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Amoxi/Clav + Metotrexato: Aumenta el efecto del metotrexate y afecta hígado",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Amoxi/Clav + Alopurinol: Reacciones cutáneas",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Amoxi/Clav + Tetraciclinas: Reduce el efecto de la amoxicilina",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Todas son ciertas",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 132,
+  "pregunta": "Respecto a las interacciones farmacológicas, indique la verdadera:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Ketoconazol+ Nifedipino: Aumentan el riesgo de hipotensión y taquicardias",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Fluconazol+ Anticoagulante: Aumenta el tiempo de protrombina.",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Todas son ciertas",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Fluconazol+ Sulfonilureas: Aumenta la hipoglucemia",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 133,
+  "pregunta": "¿Cuál es el objetivo de la terapia de pulpa vital?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Utilización de biomateriales para preservar la menor vitalidad de la pulpa",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Utilización de composites para preservar la menor vitalidad de la pulpa",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Utilización de biomateriales para preservar la mayor vitalidad de la pulpa",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Utilización de cementos para preservar la menor vitalidad de la pulpa",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 134,
+  "pregunta": "Paciente de 70 años que acude con caries radicular. Clínicamente observamos una lesión cavitada de menos de 0,5 mm. ¿Tratamiento?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Obturación de la lesión con composite",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Obturación de la lesión con ionómero de vidrio",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Técnica de micro-Invasión, recontorneando y pulido",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Higiene + enseñanzas de HO",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 135,
+  "pregunta": "El uso de Carisolv está indicado en… Señale la FALSA.",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Caries radiculares",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Caries con afectación pulpar",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Caries profundas cerca de la pulpa",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Caries en dentina",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 136,
+  "pregunta": "Señale los posibles factores de riesgo para la caries radicular en el paciente adulto mayor:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Mala higiene oral",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Dieta cariogénica aumentada",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Portador de prótesis parciales removibles",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Todas la anteriores",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 137,
+  "pregunta": "En cuanto al manejo preventivo de las caries radiculares, señale la verdadera:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Complementación de flúor o utilización de barnices",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Identificar los factores de riesgo individuales en cada paciente",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Enseñanza de higiene oral",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Todas las anteriores",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 138,
+  "pregunta": "Respecto a las restauraciones de compómero, es falso que:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Mejoran el sellado marginal",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Pueden utilizarse en caries radicular",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Son ionómero de vidrio + una resina auto o fotopolimerizable",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Han mejorado la estética y la manipulación de los primeros ionómeros",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 139,
+  "pregunta": "Respecto a los cambios que se producen con la edad en el tejido pulpar, es cierto que:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Disminución gradual de la celularidad así como grosor de las fibras colágen",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Aumento gradual de la celularidad y aumento del grosor de fibras colágenas",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Disminución gradual de la celularidad y aumento grosor de las fibras colágen",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Aumento gradual celularidad y disminución del grosor y de fibras colágenas",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 140,
+  "pregunta": "Respecto a los cambios que se producen con la edad en el tejido dentario, es cierto que:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Formación continuada de dentina primaria que reduce el tamaño de la cámara",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Formación continuada de dentina terciara que reduce el tamaño de la cámara",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Formación continuada de dentina secundaria que aumento el tamaño de la cámara",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Formación continuada de dentina secundaria que reduce el tamaño de la cámara",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 141,
+  "pregunta": "Señale la falsa respecto a la interrelación entre la alimentación y las personas mayores:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Necesidades de vitaminas y minerales",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Cambios en la fisiología digestiva",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Cambio en la composición corporal",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Aumento del gasto metabólico",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 142,
+  "pregunta": "De entre los siguientes, señale el que corresponde a un cambio físico producido en la vejez:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Mayores niveles de secreción gástrica y pancreática",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Aumento de la sensación del gusto",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Se observa un aumento de la secreción salival",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Conservación del gusto dulce",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 143,
+  "pregunta": "Señale la falsa respecto a las medidas antropométricas en el anciano:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Disminución de agua extracelular",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Pérdida de masa ósea",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Aumento del porcentaje graso y aumento de masa muscular",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Aumento del porcentaje graso y pérdida de masa muscular",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 144,
+  "pregunta": "Respecto a las necesidades y requerimientos nutricionales en las personas de edad avanzada:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Debe beber 2 litros de agua al día",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Disminuye la sensación de sed",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Hay riesgo de sufrir deshidratación",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Todas son ciertas",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 145,
+  "pregunta": "Respecto a las necesidades y requerimientos nutricionales en las personas de edad avanzada, señale la FALSA:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Se recomienda una disminución de la ingesta de sodio en los ancianos",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Se recomienda una disminución de la ingesta de calcio en los ancianos",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Se recomienda un aumento de la ingesta de magnesio en los ancianos",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Se recomienda un aumento de la ingesta de potasio en los ancianos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 146,
+  "pregunta": "Señale la verdadera respecto a los requerimientos nutricionales en situaciones especiales:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Enfermedades cardiovascular, disminución de lípidos saturados",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Obesidad, no requerimiento nutricional",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Diabetes, aumenta hidratos de carbono de absorción rápida",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Osteoporosis, ingesta de vitamina A y magnesio",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 147,
+  "pregunta": "Posibles causas de anorexia en el paciente mayor:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Procesos interrecurentes",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Constipación patologías de base",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Ingesta de otros alimentos fuera de las comidas",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Todas las anteriores",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 148,
+  "pregunta": "¿Qué pautas preventivas adoptar en la primera visita del paciente adulto mayor?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Enseñar técnicas de higiene oral",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Evaluación de la xerostomía",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Aplicación de flúor tópico",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Todas las anteriores",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 149,
+  "pregunta": "¿Cuál de las siguientes no sería una recomendación para la nutrición en el paciente adulto mayor?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Valorar estado emocional y salud mental",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Vigilar el sobrepeso (comer acompañados)",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Capacidad de hacer vida social",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "La no ingesta de 2 litros de agua al día",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 150,
+  "pregunta": "Respecto a la farmacología y la xerostomía en el anciano, indique la FALSA:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "El 85% de pacientes seniles ambulatorios toman fármacos",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "La toma de fármacos es la primera causa de xerostomía",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Existen más de 400 fármacos con acción anticolinérgica",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "El 95% >65 años toman fármacos xerostorizantes",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 151,
+  "pregunta": "¿Cuáles no son causas patológicas de la sialorrea?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Colocación de prótesis en sus fases iniciales",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Parkinson",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Intoxicación por mercurio",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Ninguna de las anteriores",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 152,
+  "pregunta": "¿Qué medicamento no produce xerostomía?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Broncodiladores",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Antidepresivos tricíclicos",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Pilocarpina",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Agonistas adrenérgicos centrales",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 153,
+  "pregunta": "¿Qué patología no suele cursar con xerostomía?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Alzheimer",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Síndrome de Sjögren",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Hipertensión",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Parkinson",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 154,
+  "pregunta": "Se establece el diagnóstico de xerostomía cuando:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Produce dificultad para hablar, deglutir o disgeusia",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Flujo salival basal es menos de 0,2ml/min",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Se producen alteraciones en el patrón alimenticio",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Todas son ciertas",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 155,
+  "pregunta": "Señale la falsa. La xerostomía produce:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Aumento del índice de caries",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Resistencia a las infecciones",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Halitosis",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Problemas protésicos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 156,
+  "pregunta": "¿Qué utilizar para el diagnóstico de xerostomía? Señale la falsa.",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Test de fricción con el espejo",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Masaje glandular",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Test de Sansón",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Sialometría",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 157,
+  "pregunta": "No se ha demostrado eficacia para la estimulación de la producción salival de:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Cevimilina 30mg/8horas",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Pilocarpina 5mg/8horas",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Acupuntura",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Flores de Bach 5 gotas /8 horas",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 158,
+  "pregunta": "Las cavidades que empiezan en la superficie proximal de molares y premolares se denominan:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Clase 2",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Clase 4",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Clase 1",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Clase 5",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 159,
+  "pregunta": "¿Es necesario limpiar los dientes al realizar un registro ICDAS?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "No hace falta siempre si la lesión se visualiza",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Solo se limpian si presenta una higiene oral deficiente",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Siempre se tienen que limpiar",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Nunca se tienen que limpiar",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 160,
+  "pregunta": "¿Es la edad una limitación para plantearse un tratamiento implantológico?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "La edad sí es una limitación para un tratamiento con implantes.",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "La edad no es una limitación para un tratamiento con implantes.",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "La edad, a partir de los 75, es una limitación",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "La edad, a partir de los 85, es una limitación",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 161,
+  "pregunta": "¿Influye la patología sistémica controlada en el adulto mayor para una solución implantológica?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Si influye negativamente, así lo refleja a bibliografía",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "No influye negativamente, asi lo refleja la bibliografía",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "No hay bibliografía al respecto",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Actualmente hay controversia en la bibliografía",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 162,
+  "pregunta": "En referencia al envejecimiento y la osteointegración:",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Bibliografía reporta mayor fracaso en paciente gero vs joven.",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "La oseointegración se altera con el envejecimiento",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "La oseointegración no sé altera con el envejecimiento",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "A y C son ciertas",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 163,
+  "pregunta": "¿Cuál es el quiste odontogénico más frecuente en el paciente adulto mayor?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Quiste radicular y quiste residual",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Quiste nasopalatino",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Quiste periodontal",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Queratoquiste",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 164,
+  "pregunta": "Paciente bajo tratamiento con Sintrom con un INR de 3. ¿Podríamos realizar todas las extracciones el mismo día?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Máximo 3 dientes por sesión con INR dentro de rango",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "No nunca",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Si siempre que esté entre 2,5 y 3,5",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Si si el paciente firma el consentimiento informado",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 165,
+  "pregunta": "Entre la sintomatología infecciosa de los dientes retenidos, ¿cuál no es específica del paciente geriátrico?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "No suelen tener sintomatología infecciosa",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Pericoronaritis",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Suele pasar desapercibida",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Angina de Ludwig",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 166,
+  "pregunta": "¿Cuál de los siguientes fármacos es un anticoagulante oral?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Furosemida Kern Pharma comprimidos 40mg",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Xarelto comprimidos 15 mg",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Sinemet Plus 100/25mg",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Duphalac solución oral",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 167,
+  "pregunta": "¿Cuál es la cifra normal de plaquetas?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Más de 400.000",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Entre 150.000 y 400.000",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Entre 65.000 y 150.000",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Entre 40 y 65.000",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 168,
+  "pregunta": "¿A qué grupo de medicamentos pertenece el ramipril?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Antidiabético oral",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Antiagregante plaquetario",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Inhibidores de la ECA (inhibidores de la enzima convertidora angiotensina)",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Antidepresivos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 169,
+  "pregunta": "¿Cuál de las siguientes NO es una medida local de control de la hemorragia tras una exodoncia?",
+  "asignatura": "Gerodontología",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Kahoot de Gerodontología UIC 2020-21",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Enjuagues con ácido tranexámico entre 2 y 7 días después",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Eliminar la mayor cantidad de tejido óseo",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Legrar el alveolo para eliminar en tejido de granulación",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Irrigar el alveolo con fármacos antifibrinolíticos",
+    "correcta": false
+   }
+  ]
+ }
+]
