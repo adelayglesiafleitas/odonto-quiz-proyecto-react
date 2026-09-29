@@ -1,0 +1,5457 @@
+[
+ {
+  "numero": 1,
+  "pregunta": "Un paciente tiene disnea, tos nocturna, en la exploración se auscultan roncus y sibilancias y un tercer tono cardíaco (ritmo de galope). Señale cual es el diagnóstico más probable:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Pericarditis aguda de origen infeccioso",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Insuficiencia cardiaca izquierda",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Insuficiencia cardiaca derecha",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Estenosis mitral",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Bronquitis crónica agudizada.",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 2,
+  "pregunta": "El antibiótico de segunda elección en la profilaxis de endocarditis bacteriana, cuando el paciente es alérgico a penicilina es:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Ampicilina",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Eritromicina",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Clindamicina",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Amoxicilina",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Cefalexina",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 3,
+  "pregunta": "Señale la enzima específica para el diagnóstico de infarto de miocardio.",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Láctico-deshidrogenasa (LDH)",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Creatinfosfocinasa",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "GOT",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "GGT",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Troponina",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 4,
+  "pregunta": "Es criterio diagnóstico de hipertensión arterial:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "PA sistólica > 135 mmHg y diastólica >90 mmHg",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "PA sistólica > 140 mmHg y diastólica > 85 mmHg",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "PA sistólica > 140 mmHg y diastólica > 90 mmHg",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "PA sistólica > 130-139 mmHg y diastólica > 85-89 mmHg",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "PA sistólica > 135-139 mmHg y diastólica >80-89 mmHg",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 5,
+  "pregunta": "Uno de los siguientes datos semiológicos no corresponde a una crisis de angor estable:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Duración del dolor inferior a 30min.",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "En EKG hay elevación del espacio ST",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Dolor en región retroesternal",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Dolor precordial tipo opresivo",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "El dolor desaparece con el reposo",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 6,
+  "pregunta": "Señale cual de las siguientes se considera una indicación clara de profilaxis de endocarditis bacteriana:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Comunicación interauricular",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Padecer una valvulopatía",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Persona portadora de marcapasos",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Antes de realizar una endoscopia digestiva.",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "En todas las anteriores circunstancias",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 7,
+  "pregunta": "Cual de las siguientes características de la evaluación de dolor torácico, es no es compatible con el diagnóstico de pericarditis",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Dolor torácico de carácter opresivo",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Desencadenado por el esfuerzo",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Alivio con vasodilatadores",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Puede ser exacerbado con los movimientos respiratorios",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Existe una postura antiálgica efectiva",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 8,
+  "pregunta": "La placa de ateroma inestable que al romperse induce la formación de trombo de fibrina, causa un cuadro clínico:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Angina inestable",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Angina estable",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Infarto de miocardio",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Angina variable de Prinzmetal",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Isquemia miocárdica silente",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 9,
+  "pregunta": "El principal problema sanitario de la hipercolesterolemia familiar es:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Aparición de xantomas",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Aparición de xantelasmas",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Aparición de anillo corneal",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Pancreatitis",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Aterosclerosis",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 10,
+  "pregunta": "La HTA es causa de aterosclerosis principalmente por el siguiente mecanismo patogénico:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Lesión endotelial",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Porque induce la aparición de hiperlipemia",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Favorece la agregación plaquetaria",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Por elevación de la liberación de Factor de Crecimiento de células musculares lisas vasculares",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "La HTA no interviene en la patogenia de la aterosclerosis",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 11,
+  "pregunta": "Señale la pauta más correcta para realizar la profilaxis de endocarditis bacteriana, antes de un procedimiento odontológico de riesgo:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Amoxicilina vía oral 30 min. antes del procedimiento odontológico",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Amoxicilina vía endovenosa, 1h antes del procedimiento odontológico",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Si es alérgico a amoxicilina, Clindamicina 30 min. antes del procedimiento odontológico",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Amoxicilina oral, 1h antes del procedimiento odontológico",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Metronidazol vía oral, 1h antes del procedimiento odontológico",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 12,
+  "pregunta": "El germen causal más frecuente de endocarditis bacteriana tras una manipulación odontológica es:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Estafilococo aureus",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Estafilococo epidermidis",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Estreptococo viridans",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Bacterias gramnegativas",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Helicobacter pylori",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 13,
+  "pregunta": "Para confirmar un diagnóstico de sospecha de angor pectoris, solicitaremos una de las siguientes pruebas:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "EKG y bioquímica de sangre, indicando la solicitud de perfil cardiaco",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Prueba de esfuerzo",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Ecocardiografía Doppler",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Resonancia magnética nuclear, de tórax",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Radiografía de tórax",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 14,
+  "pregunta": "De las siguientes opciones, señale la información que no puede aportar una Ecocardiografía Doppler:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "La existencia de hipertensión pulmonar",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "El prolapso de la mitral",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "La coexistencia de coronariopatía",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "El área valvular",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "El gradiente de presiones",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 15,
+  "pregunta": "Sobre que órganos repercute el daño de la Hipertensión Arterial",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Riñón, hígado y sistema nervioso.",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Riñón, encéfalo e hígado.",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Corazón, riñón y sistema nervioso.",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Páncreas, hígado y bazo.",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Riñón, hígado y corazón",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 16,
+  "pregunta": "La insuficiencia respiratoria se define por la presencia de:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Presión arterial de oxígeno < de 60 mmHg y/o P de CO2 > 45 mmHg",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Presión arterial de oxígeno > de 40 mmHg y/o P de CO2 > 45 mmHg",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Presión arterial de oxígeno < de 80 mmHg y/o P de CO2 > 30 mmHg",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Presión arterial de oxígeno < de 90 mmHg y/o P de CO2 > 40 mmHg",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Ninguna de las anteriores",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 17,
+  "pregunta": "¿En cuál de las siguientes situaciones haremos profilaxis de endocarditis bacteriana ante una extracción dentaria?",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Valvulopatías",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Cardiopatías congénitas",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Prótesis valvular",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Antecedentes de endocarditis previa",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Todas ellas",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 18,
+  "pregunta": "¿Cuál de estas enzimas o isoenzimas se considera específica de la necrosis miocárdica?",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Láctico-deshidrogenasa",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Creatinfosfocinasa",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "GOT",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "GPT",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Isoenzima MB de la creatinfosfocinasa",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 19,
+  "pregunta": "Para realizar el diagnóstico de angina de pecho, ¿Qué exploraciones complementarias se necesitan?",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "ECG",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Pruebas de esfuerzo",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Ecocardiografía",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "No son necesarias las exploraciones complementarias",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Coronariografía",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 20,
+  "pregunta": "Un paciente que ha presentado una crisis anginosa característica 1 hora antes de acudir al hospital ¿Qué alteraciones electrocardiográficas presentará?",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Depresión del segmento ST",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Ascenso del segmento ST de concavidad hacia arriba",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Normalidad electrocardiográfica",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Aparición de onda Q ancha y profunda",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "PR alargado",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 21,
+  "pregunta": "Señale una sospecha diagnóstica, en un paciente que refiere dolor torácico que se alivia al adoptar la posición de tórax inclinado hacia delante:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Derrame pleural",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Aneurisma de aorta torácica",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Pericarditis",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Insuficiencia cardíaca izquierda",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Pleuritis",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 22,
+  "pregunta": "El déficit de GH en el adulto se manifiesta por la siguiente semiología, excepto por:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Hiperglucemia",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Hiperlipemia",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Obesidad visceral",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Enfermedades cardiovasculares",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Disminución de masa ósea",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 23,
+  "pregunta": "Señale cuál de las siguientes opciones expone manifestaciones de hipotiroidismo",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Frialdad y palidez de piel. Diarrea y pérdida de peso",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Macroglosia, intolerancia al frío, uñas quebradizas y taquicardia",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Macroglosia, anorexia, pérdida de peso y poliuria",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Sensorio deprimido, bradicardia, aumento de peso",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Macroglosia, anorexia y pérdida de peso",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 24,
+  "pregunta": "Señale la afirmación que no corresponde a la Diabetes mellitus Tipo 1:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "El Ac contra las cél β de los islotes pancreáticos, es el más específico. Se asocia a obesidad",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "El 90% de los casos es de origen autoinmune",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Suele aparecer en edad juvenil",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Puede manifestarse con cetoacidosis",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Puede ser un factor de riesgo cardiovascules",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 25,
+  "pregunta": "El Síndrome metabólico acontece en pacientes con:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Dislipemia",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Aterosclerosis",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Adultos obesos con diabetes Mellitus tipo 1",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Adultos no obesos con diabetes Mellitus tipo 2",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Adultos obesos con diabetes Mellitus tipo 2",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 26,
+  "pregunta": "Se describe la afectación del cráneo como “granos de sal y pimienta” en la siguiente enfermedad ósea",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Mieloma",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Enfermedad de Paget",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Hiperparatiroidismo",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Osteoporosis",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Osteomalacia",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 27,
+  "pregunta": "La presencia de niveles elevados de somatomedinas en sangre (IGF-1) indica",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Hipertiroidismo",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Diabetes mellitus tipo 1",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Déficit de hormona del crecimiento (GH)",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "S de Cushing",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Acromegalia",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 28,
+  "pregunta": "Un paciente tiene exoftalmos, taquicardia y temblor, pensaremos que padece:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Hiperparatiroidismo",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Hipertiroidismo",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Hipotiroidismo",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Enfermedad de Cushing",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Enfermedad de Graves Basedow",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 29,
+  "pregunta": "El épulis es una lesión bucal que se presenta en:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Hipertiroidismo",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Hiperparatiroidismo",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Enfermedad de Addison",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Hipoparatiroidismo",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Hipotiroidismo",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 30,
+  "pregunta": "Señale la afirmación correcta",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "El bocio siempre es hiperfuncionante",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "El bocio siempre es hipofuncionante",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "El bocio siempre es normofuncionante",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Bocio es solo término anatómico",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Bocio es la existencia de un nódulo hiperfuncionante",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 31,
+  "pregunta": "Las pigmentaciones melánicas en mucosa yugal, son características de una de las siguientes patologías:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Enfermedad de Cushing",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Diabetes Insípida",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Acromegalia",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Enfermedad de Addison",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Diabetes Mellitus",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 32,
+  "pregunta": "El edema periorbitario es característico de una de las siguientes enfermedades endocrinas",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Bocio",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Hipertiroidismo",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Hipotiroidismo",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Síndrome de Cushing",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Enfermedad de Addison",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 33,
+  "pregunta": "Una de las siguientes manifestaciones clínicas no acontece en el S de Cushing",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Hiperglucemia",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Pérdida de peso",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Estrías en piel",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Hirsutismo",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Osteoporosis",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 34,
+  "pregunta": "La hemoglobina glicosilada (HbA1c) está elevada en una de las siguientes enfermedades:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Acromegalia",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Panhipopituitarismo",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Hipertiroidismo",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Diabetes mellitus",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "S de Cushing",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 35,
+  "pregunta": "Cual de las siguientes manifestaciones clínicas no acontece en la acromegalia:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Prognatismo",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Aumento de tamaño de pies y manos",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Hipoglucemia",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Aumento de peso",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Hipertensión arteria",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 36,
+  "pregunta": "De entre las múltiples manifestaciones del hipotiroidismo, no se incluye una de las siguientes",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Hiperlipemia e hiperglucemia",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Hiperlipemia y anemia",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Hiperprolactinemia",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Bocio",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Ninguna de las anteriores se presenta en hipotiroidismo",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 37,
+  "pregunta": "El déficit de riboflavina se manifiesta con:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Dermatitis seborreica",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Pigmentación de piel expuesta al sol",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Demencia",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Estreñimiento",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Hiperplasia gingival",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 38,
+  "pregunta": "Cual de las siguientes enfermedades cursa con hiperglucemia",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Acromegalia",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Addison y Hemocromatosis",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Hipertiroidismo",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Hemocromatosis y acromegalia",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Hemocromatosis",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 39,
+  "pregunta": "Cual de de las siguientes no es una manifestación clínica de hipertiroidismo",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Intolerancia al calor",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Erosión dental",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Maloclusión",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Polifagia y pérdida de peso",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Ardor bucal",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 40,
+  "pregunta": "La Disgeusia puede ser una manifestación bucal de la siguiente enfermedad metabólica:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Acromegalia",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Hipotiroidismo",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Hipertiroidismo",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Diabetes Mellitus",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Enfermedad de Addison",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 41,
+  "pregunta": "Cuál de las siguientes opciones, es criterio diagnóstico de intolerancia a la glucosa:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Test de Sobrecarga de glucosa: glucemia 140-199 mg/dL a las dos horas de su administración",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Glucemia basal 115-125 mg/dL",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Test de Sobrecarga de glucosa: glucemia > 199 mg/dL a las dos horas de su administración",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Glucemia basal >126 mg/dL",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 42,
+  "pregunta": "La pigmentación gris azulada en la mucosa del paladar, es más característica de una de las siguientes enfermedades:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Enfermedad de Addison",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Hemocromatosis",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Saturnismo",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Acromegalia",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Escorbuto",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 43,
+  "pregunta": "La pigmentación gris en la mucosa gingival, es más característica de una de las siguientes enfermedades:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Saturnismo",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Enfermedad de Addison",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Acromegalia",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Hemocromatosis",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Escorbuto",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 44,
+  "pregunta": "Un paciente con bocio, padecerá hipotiroidismo si existe:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Tiroiditis de Hashimoto",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Enfermedad de Graves Basedow",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Tras prescipción facultativa de Amiodarona",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Bocio multinodular",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Nódulo hiperfuncionante",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 45,
+  "pregunta": "Para conocer si un nódulo tiroideo es sólido o quístico, solicitaremos en primer lugar una de las siguientes pruebas complementarias:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Ecografía tiroidea",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "RMN cervicotorácica",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "TAC cervicotorácica",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Gammagrafía tiroidea",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Punción del nódulo",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 46,
+  "pregunta": "Cual de los siguientes parámetros, no es criterio para identificar el S metabólico",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Obesidad abdominal",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Triglicéridos altos",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Colesterol HDL bajo",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "HTA",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Poliglobulia",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 47,
+  "pregunta": "De las siguientes posibles causas de la osteoporosis, señale uno falso",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Hiperparatiroidismo",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Enfermedad de Addison",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Hipertiroidismo",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Diabetes mellitus",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Delgadez extrema",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 48,
+  "pregunta": "Los cálculos biliares más frecuentes en nuestro medio, están formados por:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Colesterol",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Colesterol y sales biliares",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Colesterol y bilirrubinato",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Bilirrubinato y ácidos grasos",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Colesterol y ácidos grasos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 49,
+  "pregunta": "¿Cuál de las siguientes hormonas eleva los niveles de calcio en la sangre?",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Calcitonina",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "PTH",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "ACTH",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "TSH",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "T4",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 50,
+  "pregunta": "En el diagnostico de la Obesidad es esencial la presencia de un exceso de grasa corporal. Señale el depósito de grasa más relacionado con las complicaciones cardiovasculares del paciente obeso:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Grasa subcutánea en las piernas",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Grasa subcutánea en los brazos",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "La grasa Visceral",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "La grasa a nivel del cuello.",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Todas son relevantes para las complicaciones cardiovasculares",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 51,
+  "pregunta": "En los datos de laboratorio del hipertiroidismo no encontraremos:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Hipercolesterolemia",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Aumento de las fosfatasas alcalinas",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Aumento T3 Y T4 (sobre todo T4 Libre)",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Disminución de “TSH”",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Anticuerpos +++ Antitiroglobulina y Antimicrosomales",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 52,
+  "pregunta": "En el hipotiroidismo primario es cierto lo siguiente excepto:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Aumento de CPK",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Disminución de T3, T4 y TSH",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Cardiomegalia",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Edema periorbitario",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Macroglosia",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 53,
+  "pregunta": "De las siguientes afirmaciones señale la incorrecta sobre la D.M. tipo II:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Se asocia con defectos en la secreción de la Insulina y en su acción",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Es más frecuente a partir de los 30 años",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Tienen tendencia a desarrollar cetoacidosis",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Pueden presentar los síntomas clásicos de diabetes (polifagia, poliuria…)",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Puede presentarse en pacientes no obesos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 54,
+  "pregunta": "En un sujeto de 52 años, que presenta: Hipoglucemia, Hipotension. Hiperpigmentacion cutánea, diarrea y dolor de abdomen, sospecharia la presencia de...",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Enfermedad de Graves Basedow.",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Diabetes Insípida.",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Enfermedad de Cushing",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Enfermedad de Addison",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Síndrome de Fanconi.",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 55,
+  "pregunta": "¿Cuál de las siguientes afirmaciones es correcta cuando nos referimos a las funciones del tiroides?",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Regula el consumo de oxígeno y la termogénesis",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Regula el balance mineral",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Regula la síntesis y degradación de las proteínas",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Regula el metabolismo glucídico y el lipídico",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Todas son correctas",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 56,
+  "pregunta": "Un líquido plasmático turbio tras 12 horas en la nevera a 4ºC presenta una capa cremosa en la superficie con la zona inferior clara ¿Qué lípidos tienen aumentados?",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Colesterol endógeno",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Colesterol exógeno",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Triglicéridos endógenos",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Quilomicrones",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "A y C",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 57,
+  "pregunta": "¿Qué es falso al referirnos a los síntomas que se producen en el hipertiroidismo?",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Anorexia",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Adelgazamiento",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Diarreas",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Atrofia y debilidad muscular",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Acropaquia",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 58,
+  "pregunta": "En la acromegalia encontraremos los siguientes rasgos clínicos excepto:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Deformidad de partes acras",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Protrusión del arco cigomático y mandibular",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Microglosia",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Diastema",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Voz ronca.",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 59,
+  "pregunta": "Entre las manifestaciones que se producen en el hiperparatiroidismo encontraremos las siguientes excepto:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Pérdida de hueso trabecular",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Fracturas patológicas",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Quistes de la mandíbula.",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Dolores óseos",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Artralgias",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 60,
+  "pregunta": "En el Hipotiroidismo primario, podemos encontrar, desde el punto de vista analítico lo siguiente excepto:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Hipocolesterolemia.",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Elevación de TSH.",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Descenso de T4 y T3",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Aumento de LDL colesterol.",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Todo esto lo encontraremos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 61,
+  "pregunta": "¿Cuál de las siguientes pautas del tratamiento de la anorexia es falsa?",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Dieta equilibrada con horario regular",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Dieta de 2000-2500 cal/día",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Premio/castigo",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Vigilar la ingesta y las idas al W.C",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Ganancia de peso 1 kg por semana",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 62,
+  "pregunta": "De las siguientes afirmaciones una es incorrecta en el síndrome metabólico:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Aumento de la Resistencia Insulínica",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Obesidad central",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Disminución de la Actividad simpática",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Disminución de las HDL-Colesterol",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Aumento de la Angiotensina II",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 63,
+  "pregunta": "Entre las alteraciones clínicas que se producen en el síndrome de Cushing podemos encontrar las siguientes excepto:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Obesidad",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Hipotensión",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Adinamia",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Osteoporosis",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Depresión",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 64,
+  "pregunta": "Cuando una persona está recuperándose de una enfermedad y se acentúan los síntomas, decimos que tiene:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Recaída",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Recidiva",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Convalecencia",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Fase de pródromo",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Fase de declinación",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 65,
+  "pregunta": "La tetania puede ser una de las manifestaciones clínicas de una de las siguientes enfermedades endocrinas",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Hipoparatiroidismo",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Hiperparatiroidismo",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Hipotiroidismo",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Enfermedad de Addison",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Diabetes",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 66,
+  "pregunta": "La triada de Cushing en el síndrome de hipertensión craneal se caracteriza por:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Bradicardia e hipotensión arteria",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Taquicardia e hipotensión arterial",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Alteraciones respiratorias, HTA y bradicardia",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Hipotensión arterial y Taquicardia",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Todas las opciones anteriores pueden ser correctas",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 67,
+  "pregunta": "El aceite de oliva es un:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Ácido graso saturado",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Una parafina",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Ácido graso monoinsaturado",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Ácido graso poliinsaturado",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Ácido graso vegetal. Ácido linoléico.",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 68,
+  "pregunta": "Una de las siguientes afirmaciones sobre a Diabetes Mellitus tipo 2 es falsa, señálela:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Es más frecuente en adultos",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Se manifiesta con poliuria polidipsia",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Se manifiesta con cetonemia y cetonuria",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Se trata con dieta y antidiabeticos orales",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Son falsas la a y c",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 69,
+  "pregunta": "Cual de los siguientes tipos de pólipos colónicos, tiene mayor capacidad de desarrollar displasia, y por tanto, cáncer:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Tubular",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Velloso",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Tubulovelloso",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Hiperplásicos",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Metacrónicos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 70,
+  "pregunta": "Cual de las siguientes opciones, no es un criterio diagnóstico de dispepsia no ulcerosa:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Plenitud postprandial que produce molestia",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Saciedad precoz",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Dolor epigastrio",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Ardor epigástrico",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Estreñimiento",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 71,
+  "pregunta": "La Proctitis es más frecuente en:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Síndrome de intestino irritable",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Cáncer de colon",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Colitis ulcerosa",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Enteropatía por gluten",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Enfermedad de Crohn",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 72,
+  "pregunta": "Señale una enfermedad que curse con colestasis intrahepática",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Litiasis biliar",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Hepatitis aguda",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Quiste pancreático",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Cáncer de páncreas",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Pancreatitis aguda",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 73,
+  "pregunta": "Cual de los siguientes no es un mecanismo lesional del Helicobacter Pylori",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Colonización de las células epiteliales de la mucosa",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Inhibición de la secreción de somatostatina",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Producción de citoquinas citotóxicas",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Atrofia gástrica",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Todas las opciones anteriores son mecanismo lesional del HP",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 74,
+  "pregunta": "Cual de los siguientes criterios es diagnóstico del reflujo gastroesofágico patológico:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Causa síntomas",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "El número de reflujos al día",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "La duración del reflujo",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "La cuantía del material refluido",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Cuando pH en el esófago es inferior a 4 o superior a 6",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 75,
+  "pregunta": "El método serológico de elección para diagnóstico y seguimiento de la enfermedad celíaca es uno de los siguientes:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Ac antitransglutaminasa (TTG)",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Hemograma",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Ac anti-gliadina (AAG)",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Tránsito intestinal",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Coprocultivo",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 76,
+  "pregunta": "Cual de los siguientes trastornos no se asocia al Síndrome de Intestino Irritable (SII):",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Fibromialgia",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "S de fatiga crónica",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "S de dolor pélvico crónico",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Trastorno de la articulación ATM",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Polineuropatía periférica",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 77,
+  "pregunta": "Señale cual de las siguientes características no corresponde al Helicobacter Pylori",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Puede adherirse a las células epiteliales",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Tiene ureasa",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Produce citoquinas citotóxicas que le protege del huésped",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Produce pH ácido para habitar en el estómago",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Existen cepas altamente virulentas",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 78,
+  "pregunta": "Las lesiones perianales, son más frecuentes en la siguiente enfermedad digestiva:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Síndrome de intestino irritable",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Cáncer de colon",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Colitis ulcerosa",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Enteropatía por gluten",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Enfermedad de Crohn",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 79,
+  "pregunta": "Señale cual de las siguientes manifestaciones clínicas no ocurre en el síndrome de intestino irritable:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Estreñimiento",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Dolor anal",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Rectorragia",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Distensión abdominal",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Diarrea",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 80,
+  "pregunta": "La forma clínica más frecuente de la enfermedad de Crohn es:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Proctosigmoiditis",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Proctitis",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Ileocólica",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Gástrica",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Esofágica",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 81,
+  "pregunta": "La pigmentación oral de predominio en el bermellón labial y perioral sugiere la sospecha diagnóstica de:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Enfermedad de Addison",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Intoxicación por plomo",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Hemocromatosis",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Poliposis intestinal familiar",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Pigmentación por tetraciclina (gingiva y paladar y dientes si gestación)",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 82,
+  "pregunta": "La prueba diagnóstica de elección que permite el diagnóstico definitivo de enfermedad celíaca del adulto es:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Biopsia intestinal",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Tránsito intestinal",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Ac antigliadina",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Ac frente la transglutaminasa tisular (tTG)",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Exceso de grasas en heces",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 83,
+  "pregunta": "En los datos de laboratorio de un paciente adulto con enfermedad celíaca, encontraremos las siguientes alteraciones excepto una:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Presencia de HLA DQ8",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Anemia",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Ac antinucleares",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Ac frente la transglutaminasa tisular (tTG)",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Test de la D-Xilosa positivo",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 84,
+  "pregunta": "Ante la sospecha clínica de cólico biliar, que prueba realizaría:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Determinación de bilirrubina total",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Determinación de transaminasas",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "TAC abdominal",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Ecografía abdominal",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Radiografía simple de abdomen",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 85,
+  "pregunta": "La enfermedad celíaca causa manifestaciones clínicas e histológicas, cuando el paciente ingiere los siguientes cereales",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Trigo, centeno, cebada y avena",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Trigo, maíz, centeno y mijo",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Trigo maíz y arroz",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Trigo y cebada",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Trigo y centeno",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 86,
+  "pregunta": "Señale una enfermedad que curse con colestasis extrahepática",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Pancreatitis aguda",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Cirrosis hepática",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Hepatitis aguda",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Colangitis aguda",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Todas causan colestasis intrahepática",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 87,
+  "pregunta": "Cual de las siguientes lesiones orales es más característica de la enfermedad de Crohn:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Glositis con glosodinia",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Granulomatosis oral",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Disgeusia",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "A y b son correctas",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "B y c son correctas",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 88,
+  "pregunta": "La queilitis granulomatosa puede ser una manifestación de:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Lepra",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Enfermedad de Crohn",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Pelagra",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Tuberculosis",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Esclerodermia",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 89,
+  "pregunta": "Qué características definen más acertadamente el concepto de enfermedad por reflujo gastroesofágico (ERGE):",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Pirosis y dolor torácico",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Disfagia y pirosis",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Esofagitis en la endoscopia y pirosis",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Regurgitación y esofagitis en la endoscopia",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Esofagitis y regurgitación",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 90,
+  "pregunta": "Señale cual de las siguientes opciones es una afirmación correcta:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "El pólipo colónico hamartomatoso es neoplásico",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "El pólipo colónico inflamatorio es neoplásico",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Los pólipos adenomatosos colónicos, tienen alto riesgo de evolucionar a cáncer",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Para la detección precoz del cáncer de colon se recomienda realizar un enema opaco a partir de los 50 años de edad",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Cuando hay historia familiar de cáncer de colon tipo no polipoideo, no hay recomendación expresa de screening de cáncer en los miembros de su familia",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 91,
+  "pregunta": "Cual de las siguientes características no corresponde a la colitis ulcerosa",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Afectación continua",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Afectación transmural",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Presencia de seudopólipos",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Pérdida de haustras del colon",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Diarrea con sangre",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 92,
+  "pregunta": "La manifestación clínica más característica de la enfermedad por reflujo gastroesofágico (ERGE) no complicada es:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Odinofagia",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Regurgitación",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Pirosis",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Disfagia",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Dolor torácico",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 93,
+  "pregunta": "La manifestación clínica más característica del ESPASMO ESOFÁGICO DIFUSO es:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Odinofagia",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Regurgitación",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Pirosis",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Dolor en epigastrio",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Dolor torácico",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 94,
+  "pregunta": "Un paciente tiene dolor en hipocondrio derecho, fiebre, ictericia y coluria. El diagnóstico más probable es:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Litiasis biliar",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Colecistitis aguda",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Colecistitis crónica",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Coledocolitiasis",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Pancreatitis",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 95,
+  "pregunta": "Cual de las siguientes manifestaciones no acontece en la dispepsia no ulcerosa:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Diarrea",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Malestar en abdomen superior",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Disconfort en epigastrio",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Dolor en abdomen superior",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Saciedad precoz",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 96,
+  "pregunta": "Cual de las siguientes características no corresponde a la enfermedad de Crohn",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Afectación discontinua",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Afectación transmural",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Presencia de úlceras en “borde de sello”",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Estenosis",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Megacolon",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 97,
+  "pregunta": "Un paciente está vacunado frente al VHB si en la serología es positivo el siguiente marcador:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Anti-HBsAg",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Anti-HBeAg",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Anti-HBcAg",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Anti-HBsAg y Anti-HBc",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Todos ellos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 98,
+  "pregunta": "Señale la afirmación incorrecta respecto a los marcadores de la Hepatitis B",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "HBsAg+ indica que son altamente infecciosos y presentan lesiones hepáticas activas",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "El segundo que se aprecia en suero HBeAg",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "La determinación de IgM es útil para diagnóstico de infección aguda por VHB",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "En el periodo ventana sólo se detectan Ac antiHBc",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "El HBeAg es una proteína soluble que se forma durante la replicación",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 99,
+  "pregunta": "Un paciente es altamente contagioso si presenta",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "HbsAg+",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "HBeAg+",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "HBcAg+",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Todos ellos",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Ninguno de ellos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 100,
+  "pregunta": "Señale la afirmación incorrecta sobre la enfermedad de Crohn",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Los anticonceptivos deben evitarse",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "El patrón más frecuente es el ileocólico",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "El patrón más frecuente es el colónico",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Es frecuente la enfermedad perianal",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Todas las opciones anteriores son correctas",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 101,
+  "pregunta": "Qué características clínicas caracterizan a la enfermedad por reflujo gastroesofágico (ERGE):",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Pirosis y dolor torácico",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Disfagia y dolor torácico",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Regurgitación y pirosis",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Regurgitación y esofagitis en la endoscopia",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Esofagitis y regurgitación",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 102,
+  "pregunta": "¿Qué es falso al referirnos a la hepatitis D?",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "El virus en la superficie, presenta el HBsAg",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "El HDAg es la única proteína que se expresa durante la infección",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "La infección por VHD se produce solamente durante la infección por VHB",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "La sobreinfección afecta a portadores de HBsAg",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "La sobreinfección evoluciona a curación",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 103,
+  "pregunta": "Cual de las siguientes manifestaciones clínicas pueden presentarse en la cirrosis hepática sin hipertensión portal:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Ascitis y encefalopatía hepática",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Hemorragia digestiva por rotura de varices esofágicas y esplenomegalia",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Hipertrofia parotídea y eritema palmar",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Hepatomegalia y esplenomegalia",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Encefalopatía hepática y fétor hepático",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 104,
+  "pregunta": "Cual de las siguientes diátesis hemorrágicas, es de naturaleza autoinmune:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Púrpura trombocitopénica idiopática",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Púrpura tambocitopénica Trombótica",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Enfermedad de Von Villebrand",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Hemofilia A",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Hemofilia B",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 105,
+  "pregunta": "Señale la opción falsa respecto al linfoma no Hodgkin (LNH):",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Es frecuente la afectación bucal",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Es una enfermedad ganglionar diseminada",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "El linfoma de Burkitt es un LNH",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "De forma característica se manifiesta con fiebre y sudoración profusa",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "El virus Epstein Barr causa un tipo de LNH",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 106,
+  "pregunta": "Un paciente tiene fracturas óseas y en la analítica se encuentra la existencia de una paraproteína. El diagnóstico de sospecha será:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Enfermedad de Paget",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Osteomalacia",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Mieloma múltiple",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Osteoporosis",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Ninguna de los anteriores es correcta",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 107,
+  "pregunta": "Las células de Reed Sternberg son halladas en la médula ósea de pacientes que padecen:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Mieloma múltiple",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Enfermedad de las cadenas ligeras",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Leucemia mieloide crónica",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Linfoma no Hodgkin",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Linfoma Hodgkin",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 108,
+  "pregunta": "En la enfermedad por infección por el VIH, puede haber enfermedades neoplásicas hematológicas. De las siguientes opciones, señale una que está especialmente relacionada.",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Leucemia linfoide aguda",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Leucemia mieloide crónica",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Linfoma no Hodgkin",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Púrpura trombótica trombocitopénica",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Mieloma múltiple.",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 109,
+  "pregunta": "La hiperplasia gingival es más característica y frecuente en una de las siguientes enfermedades",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Anemia megaloblástica",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Linfoma Hodgkin",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Mieloma",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Leucemia linfocítica aguda",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Leucemia mieloide aguda",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 110,
+  "pregunta": "Señale el nombre que se aplica a la diátesis hemorrágica debida a Ac frente proteasa del Factor Von Willebrand:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Púrpura trombocitopénica idiopática (PTI)",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "CID",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Púrpura de Schölein Henoch",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Púrpura trombótica trombocitopénica (PTT)",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Enfermedad de Rendu Osler",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 111,
+  "pregunta": "Un paciente con fiebre intermitente, sudoración nocturna profusa y pérdida de peso, nos hace pensar en:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Linfoma no Hodgkin",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Linfoma Hodgkin",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Leucemia mieloide aguda",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Linfoma linfoplasmocitario",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Mieloma múltiple",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 112,
+  "pregunta": "La Púrpura Trombocitopénica Trombótica, es una diátesis hemorrágica:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Angiopática",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Plasmopática",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Trombopática",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Trombopénica",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Es una enfermedad sistémica de origen autoinmune",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 113,
+  "pregunta": "Es cierto del Mieloma Múltiple que:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Es una proliferación monoclonal de la serie mieloide",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Afecta principalmente ganglios y huesos",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Cursa con gran actividad osteolítica (destrucción ósea)",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Es típica la existencia de células de Reed Sternberg",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Se manifiesta con úlceras necróticas en cavidad bucal",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 114,
+  "pregunta": "Las leucemias pueden manifestarse en la cavidad oral de diversas formas, señale cual de las siguientes no es característica de ésta enfermedad",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Gingivitis",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Hiperplasia gingival",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Úlceras",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Petequias",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Tumor blando rojo",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 115,
+  "pregunta": "Señale la opción falsa respecto al Linfoma tipo Hodgkin:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Hay afectación de una cadena ganglionar, no dolorosa",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Se detectan células de Reed-Sternberg",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Tiene peor pronóstico que el Linfoma no Hodgkin",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Con frecuencia hay afectación de la cavidad oral",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Es rara la afectación extraganglionar",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 116,
+  "pregunta": "Cual de las siguientes manifestaciones clinicas NO es característica del Mieloma Multiple.",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Dolor óseo",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Inmunidad a las infecciones.",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Nefrolitiasis e Hipertensión.",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Síndrome anémico",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Nefropatia e Insuficiencia Renal.",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 117,
+  "pregunta": "La prueba de Rumpel-Leede, si es positiva nos indica:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Púrpura hemorrágica",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Trombocitopenia",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Disminución plaquetaria",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Linfoma",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Fragilidad capilar",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 118,
+  "pregunta": "Coiloniquia es",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Uñas con un punteado en su superficie",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Uñas con aumento del ángulo convexo",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Dificultad para realizar movimientos rápidos y alternantes",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "La asociación de miosis, ptosis palpebral y enoftalmos",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Uñas frágiles y cóncavas",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 119,
+  "pregunta": "¿Dónde encontramos el cromosoma Filadelfia?",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "En las leucemias linfoides crónicas",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "En las leucemias mieloides crónicas",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "En las leucemias agudas linfoblásticas",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "En las leucemias agudas no linfoblásticas",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "En todas ellas",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 120,
+  "pregunta": "La aparición de ganglios grandes e indoloros en el cuello nos debe hacer sospechar:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Leucemia aguda",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Cáncer de colon",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Anemia megaloblástica",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Linfoma de Hodgkin",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Ninguno de ellos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 121,
+  "pregunta": "Para realizar la exploración de los ganglios nos podemos valer de todo lo siguiente excepto:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Inspección",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Palpación",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Gammagrafía de tórax",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "TAC",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Biopsia",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 122,
+  "pregunta": "¿Cuál de los siguientes trastornos descartaría en primer lugar en un paciente con eosinofilia?",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Infección vírica",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Neumonía neumocócica",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Leucemia mieloide",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Carcinoma de pulmón",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Asma alérgica bronquial",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 123,
+  "pregunta": "La formación de anticuerpos antiplaquetarios es causa de:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Diátesis hemorrágica angiopática",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Diátesis hemorrágica por púrpura trombopenia idiopática",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Diátesis hemorrágica por púrpura trombopénica trombótica",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Diátesis hemorrágica plasmopática",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Coagulación intravascular diseminada",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 124,
+  "pregunta": "Cual de las siguientes manifestaciones clínicas no corresponde a la enfermedad S. de Parkinson:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Temblor",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Rigidez muscular",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Disminución de movimientos involuntarios",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Articulación del lenguaje deficiente",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Hipercinesia.",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 125,
+  "pregunta": "El accidente cerebrovascular que dura menos de 24h, se denomina:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Infarto cerebral agudo",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Accidente vascular cerebral hemorrágico",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Accidente vascular cerebral Lacunar",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Pródromo del accidente cerebrovascular",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Accidente isquémico transitorio",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 126,
+  "pregunta": "Cual de las siguientes no es una manifestación del síndrome meníngeo:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Signo de Kerning",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Signo de Bruzinski",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Rigidez de nuca",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Signo de Lasegue",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Postura en plegaria mahometana",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 127,
+  "pregunta": "Cuando el ACV se debe a patología de arterias cerebrales de pequeño calibre, acontece:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Isquemia cerebrovascular transitória",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Hemorragia cerebrovascular prodrómica",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Isquemia cerebrovascular trombótica",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Infarto cerebrovascular lacunar",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Hemorragia cerebrovascular embólica",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 128,
+  "pregunta": "La causa más frecuente de hemorragia cerebral, es:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Hipercolesterolemia",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Diabetes Mellitus",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Estenosis mitral",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Hipertensión Arterial",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Síndrome metabólico",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 129,
+  "pregunta": "Cual de las siguientes manifestaciones clínicas neurológicas no corresponde al síndrome piramidal",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Clonus",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Espasticidad",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Marcha en segador",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Hipertonía con signo de la rueda dentada",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Hipertonía con signo de la navaja",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 130,
+  "pregunta": "El temblor de reposo es característico de:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Enfermedad de Parkinson",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Síndrome piramidal",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Síndrome cerebeloso",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Hipertiroidismo",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Enfermedad de la motoneurona",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 131,
+  "pregunta": "De los siguientes ¿Cuál no es un factor de riesgo para la producción de émbolos productores de accidente vascular cerebral?",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "La endocarditis infecciosa",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "La fibrilación auricular",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Los aneurismas ventriculares",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "La hipertensión arterial",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "El infarto de miocardio",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 132,
+  "pregunta": "La pérdida de los automatismos motores del Parkinson se debe a:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "La rigidez",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "La hipertonía extrapiramidal",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "La pérdida de reflejos posturales",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Al fenómeno de la congelación",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "La hipocinesia",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 133,
+  "pregunta": "¿Cuál de las siguientes es la causa más frecuente de un infarto cerebral embólico?",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Hipercolesterolemia",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Diabetes mellitus",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Fibrilación auricular",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Insuficiencia cardiaca",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Ninguna de ellas",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 134,
+  "pregunta": "Uno de los siguientes síntomas no se incluye en el síndrome de irritación meníngea:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Intolerancia a estímulos acústicos",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Cefalea",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Anosmia",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Vómitos",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Hiperestesia cutánea",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 135,
+  "pregunta": "La hemorragia cerebral, es una de las causas que produce accidente vascular Cerebral. ¿Cuál de las siguientes es su etiología más importante?",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Hipercolesterolemia",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Diabetes Mellitus",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Stress",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Hipertensión Arterial",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Obesidad",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 136,
+  "pregunta": "La lesión característica del síndrome de Parkinson se localiza en:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Núcleo pálido",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Núcleo estriado",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Sustancia negra",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Núcleo subtalámico",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Tálamo",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 137,
+  "pregunta": "La causa más frecuente de hemorragia subaracnoidea es:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Insuficiencia circulatoria aguda",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Traumatismo craneoencefálico",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Rotura de aneurisma",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Hemorragia en la cápsula interna",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Hemangioma cerebral",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 138,
+  "pregunta": "En la artrosis, la lesión inicial acontece en:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Sinovial",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Cartílago",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Cápsula",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Menisco",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Ligamentos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 139,
+  "pregunta": "Señale cuál de las siguientes alteraciones esqueléticas no corresponde a las observadas en la artrosis",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Desintegración de cartílago articular",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Neoformaciòn ósea subcondral",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Neoformaciòn ósea de márgenes articulares",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Vértebras en “Lluvia”, en la exploración radiológica",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Geodas",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 140,
+  "pregunta": "En la artritis reumatoide, la lesión inicial acontece en:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Sinovial",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Cartílago",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Cápsula",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Menisco",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Ligamentos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 141,
+  "pregunta": "Señale una manifestación radiológica que no corresponda al diagnóstico de enfermedad de Paget:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Deformidad",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Radiotransparencia",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Fracturas",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Aumento de tamaño óseo",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Aumento de las epífisis de huesos largos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 142,
+  "pregunta": "Cual de los siguientes hallazgos radiológicos no se aprecia en la enfermedad de Paget:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Aumento de densidad ósea",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Seudofracturas de Looser-Milkman",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Deformidad",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Aumento de tamaño óseo",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Fracturas",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 143,
+  "pregunta": "En la imagen radiológica de una articulación afectada por artritis reumatoide, podemos encontrar de forma característica:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Destrucción del cartílago y hueso subyacente",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Destrucción del hueso subcondral y osteofitos",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Nódulos de Heberden y geodas",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Degradación del cartílago y esclerosis del hueso subcondral",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Engrosamiento de la cápsula articular y ostreofitos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 144,
+  "pregunta": "El pannus que aparece en la artritis reumatoide, es la patología de una de las siguientes estructuras articulares:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Sinovial",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Cartílago",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Cápsula",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Menisco",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Bursa articular",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 145,
+  "pregunta": "Señale cuál de los siguientes factores etiopatogénicos, no interviene en el desarrollo de artrosis",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Envejecimiento",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Factores genéticos",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Microtraumatisoms reiterados",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Hormonales",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Alteraciones del sistema inmune",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 146,
+  "pregunta": "La afectación articular en cadera de la artrosis se denomina:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Coxartrosis",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Gonartosis",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Deformidad de Heberden",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Hallux valgus",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Cadera de Colles",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 147,
+  "pregunta": "El aumento de osteoide y retraso en la mineralización, son datos diagnósticos de",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Osteoporosis",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Artritis reumatoide avanzada",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Artrosis",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Enfermedad de Paget",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Osteomalacia",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 148,
+  "pregunta": "Señale la opción correcta sobre osteoporosis",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "En la osteoporosis senil son frecuentes las fracturas vertebrales",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "En la osteoporosis postmenopáusica es frecuente las fracturas de muñeca",
+    "correcta": true
+   },
+   {
+    "letra": "C",
+    "texto": "Entre las pruebas complementarias, permite su diagnóstico la elevación de la fosfatasa alcalina",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Entre las pruebas complementarias, permite su diagnóstico la hipocalcemia",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Son frecuentes las fracturas de Looser-Milkman",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 149,
+  "pregunta": "Cual de los siguientes no es un criterio diagnóstico de artritis reumatoide",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Artritis simétrica",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Afectación de al menos 3 articulaciones",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Factor reumatoide positivo",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Anticuerpos ANA positivos",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Rigidez matutina de al menos 1 hora de duración",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 150,
+  "pregunta": "Cual de las siguientes no es una manifestación clínica habitual en la artrosis",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Afectación del estado general",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Dolor articular",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Rigidez matutina",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Limitación de la movilidad",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Impotencia funcional y deformidad",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 151,
+  "pregunta": "Cual de las siguientes manifestaciones afectan a los pacientes diagnosticados de artritis reumatoide",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Úlceras y nódulos en piel",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Hallux valgus",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Dedos en cuello de cisne y nódulos de Bouchard",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "A y b son correctas",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "A y c son correctas",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 152,
+  "pregunta": "En una radiografía de columna se aprecia: estrechamiento de la interlínea articular, osteofitos y geodas. Señale un posible diagnóstico",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Osteomalacia",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Enfermedad de Paget",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Artritis",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Artritis reumatoide",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Artrosis",
+    "correcta": true
+   }
+  ]
+ },
+ {
+  "numero": 153,
+  "pregunta": "En la osteoporosis de columna dorsal, es mas frecuente la aparición de:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Vértebra vacía",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Vértebra en diábolo",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Vértebra en cuña",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Vértebra en lluvia",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Vértebra aplastada",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 154,
+  "pregunta": "La deformidad de la articulación interfalángica proximal se denomina",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Nódulo artrósico",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Nódulo reumatoideo",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Nódulo de Bouchard",
+    "correcta": true
+   },
+   {
+    "letra": "D",
+    "texto": "Nódulo de Heberden",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Tofos",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 155,
+  "pregunta": "Cual de los siguientes hallazgos radiológicos no se aprecia en la osteomalacia:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Aumento de densidad ósea",
+    "correcta": true
+   },
+   {
+    "letra": "B",
+    "texto": "Seudofracturas de Looser-Milkman",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Deformidad",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Fracturas",
+    "correcta": false
+   },
+   {
+    "letra": "E",
+    "texto": "Radiotransparencia",
+    "correcta": false
+   }
+  ]
+ },
+ {
+  "numero": 156,
+  "pregunta": "El aumento de tamaño y deformidad ósea, caracterizan a una de las siguientes enfermedades:",
+  "asignatura": "Patología Médica",
+  "capitulo": "Otros Exámenes",
+  "anio": 0,
+  "bibliografia": "Banco de preguntas de exámenes de Patología General y Médica, Grado en Odontología, Universidad de Sevilla",
+  "opciones": [
+   {
+    "letra": "A",
+    "texto": "Osteoporosis",
+    "correcta": false
+   },
+   {
+    "letra": "B",
+    "texto": "Osteomalacia",
+    "correcta": false
+   },
+   {
+    "letra": "C",
+    "texto": "Artrosis",
+    "correcta": false
+   },
+   {
+    "letra": "D",
+    "texto": "Enfermedad de Paget",
+    "correcta": true
+   },
+   {
+    "letra": "E",
+    "texto": "Artritis reumatoide",
+    "correcta": false
+   }
+  ]
+ }
+]

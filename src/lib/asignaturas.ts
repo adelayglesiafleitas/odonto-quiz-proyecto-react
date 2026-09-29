@@ -1,4 +1,4 @@
-import { Stethoscope, Brain, SmilePlus, FlaskConical, Scale, Microscope, Briefcase, Dna, ShieldCheck, Crown, Scissors, Bone, HeartHandshake, type LucideIcon } from 'lucide-react'
+import { Stethoscope, Brain, SmilePlus, FlaskConical, Scale, Microscope, Briefcase, Dna, ShieldCheck, Crown, Scissors, Bone, HeartHandshake, HeartPulse, type LucideIcon } from 'lucide-react'
 import type { Idioma } from '@/lib/i18n'
 
 export interface Asignatura {
@@ -33,6 +33,7 @@ const ASIGNATURAS_ES: Asignatura[] = [
   { id: 'cirugia', cursoId: 'cirugia', nombre: 'Cirugía Bucal', disponible: true },
   { id: 'anatomia', cursoId: 'anatomia', nombre: 'Anatomía Humana', disponible: true },
   { id: 'gerodontologia', cursoId: 'gerodontologia', nombre: 'Gerodontología', disponible: true },
+  { id: 'patologia-medica', cursoId: 'patologia_medica', nombre: 'Patología Médica', disponible: true },
 ]
 
 const ASIGNATURAS_EN: Asignatura[] = [
@@ -49,6 +50,7 @@ const ASIGNATURAS_EN: Asignatura[] = [
   { id: 'cirugia', cursoId: 'cirugia', nombre: 'Oral Surgery', disponible: true },
   { id: 'anatomia', cursoId: 'anatomia', nombre: 'Human Anatomy', disponible: true },
   { id: 'gerodontologia', cursoId: 'gerodontologia', nombre: 'Geriatric Dentistry', disponible: true },
+  { id: 'patologia-medica', cursoId: 'patologia_medica', nombre: 'Medical Pathology', disponible: true },
 ]
 
 export function getAsignaturas(idioma: Idioma): Asignatura[] {
@@ -73,4 +75,5 @@ export const ICONO_CURSO: Record<string, LucideIcon> = {
   cirugia: Scissors,
   anatomia: Bone,
   gerodontologia: HeartHandshake,
+  patologia_medica: HeartPulse,
 }
