@@ -28,7 +28,6 @@ import { RUTA_SOPORTE } from '@/lib/rutas'
 import { getAcademiaHabilitada } from '@/lib/academiaAccesoRemoto'
 import { cargarProgresoAcademia, normalizarProgresoAcademia, progresoInicialAcademia, porcentajeCap1, type EstadoNodo, type ProgresoCap1 } from '@/lib/academiaProgresoLocal'
 import {
-  PREGUNTAS_PUNTUABLES_CAP1,
   PUNTOS_CAPITULOS,
   PUNTOS_LECCION_CAP1,
   PUNTOS_POR_CAPITULO,
@@ -39,6 +38,7 @@ import {
   estrellasLeccion,
   fmtPuntos,
   intentosDePregunta,
+  preguntasPuntuables,
   puntosPregunta,
 } from '@/lib/academiaPuntuacion'
 import { getProgresoAcademiaRemoto, guardarProgresoAcademiaRemoto } from '@/lib/academiaProgresoRemoto'
@@ -49,6 +49,7 @@ import {
   INTRO_CAP1,
   LIBRO_INMACULADA,
   NODOS_CAP1,
+  ORDEN_TEMAS_CAP1,
   PREGUNTAS_PRUEBA_FINAL_CAP1,
   PRUEBAS_CAP1,
   TEMAS_CAP1,
@@ -56,7 +57,9 @@ import {
   type CapituloLibro,
   type NodoRuta,
   type PreguntaAcademia,
+  type TemaId,
   type VideoAcademia,
+  nodosDeTema,
 } from '@/data/academiaInmaculada'
 
 /**
@@ -185,6 +188,8 @@ export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (
   // video1/video2 no pasan por acá: su celebración es el estado "¡Bien!" de
   // Muelín adentro del modal (ver ModalPruebaVideo), no vuelven a la lista.
   const [recienCompletadoId, setRecienCompletadoId] = useState<string | null>(null)
+  // Tema cuyo resumen se muestra al cerrar su prueba final (2026-09-30).
+  const [resumenTemaId, setResumenTemaId] = useState<TemaId>('pc')
 
   // Academia no tiene rutas propias para libro/ruta/nodo (todo vive en el
   // estado `vista` de acá adentro) — así que si el usuario ya está adentro
@@ -328,7 +333,11 @@ export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (
     setRecienCompletadoId(id)
     // Al cerrar el tema (prueba final) se muestra el resumen con las estrellas;
     // el resto de los nodos vuelve al libro como siempre.
-    if (!siguienteNodoId(id)) {
+    // 2026-09-30: cada tema cierra con su prueba final (`esFinal`), aunque
+    // detrás venga el siguiente tema.
+    const nodoCompletado = NODOS_CAP1.find((n) => n.id === id)
+    if (nodoCompletado?.esFinal || !siguienteNodoId(id)) {
+      setResumenTemaId(nodoCompletado?.temaId ?? 'pc')
       setRepitiendo(false)
       setNodoActivoId(null)
       setVista('resumen')
@@ -388,7 +397,7 @@ export function Academia({ userId, onNavigate }: { userId: string; onNavigate: (
             <PantallaProximoCapitulo t={t} onVolver={() => setVista('libro')} onIrACap1={() => setVista('libro')} />
           )}
 
-          {vista === 'resumen' && <PantallaResumenTema t={t} progreso={progreso} onVolver={volverALibro} />}
+          {vista === 'resumen' && <PantallaResumenTema t={t} progreso={progreso} temaId={resumenTemaId} onVolver={volverALibro} />}
 
           {vista === 'nodo' && nodoActivoId && (
             <PantallaNodo
@@ -531,16 +540,7 @@ function PantallaLibro({
   // uno (`cap.listo`).
   const [expandidoNumero, setExpandidoNumero] = useState<number | null>(1)
   const completados = CAPITULOS_INMACULADA.filter((cap) => estadoCapitulo(cap, cap1Completo) === 'completado').length
-  const completadosCap1 = NODOS_CAP1.filter((n) => progreso[n.id]?.estado === 'completado').length
   const punt = calcularPuntuacion(progreso)
-  const siguienteNodoCap1 = NODOS_CAP1.find((n) => progreso[n.id]?.estado === 'disponible')
-  // A dónde navega la fila "Parálisis Cerebral": retoma en el próximo nodo
-  // sin completar, o vuelve a 'intro' si ya se completaron los 5 (repaso).
-  const nodoDestinoCap1 = siguienteNodoCap1 ?? NODOS_CAP1[0]
-  // Resalta la fila "Parálisis Cerebral" (no un nodo suelto — ya no se
-  // listan por separado) apenas se vuelve a la lista tras completar
-  // cualquiera de sus 5 nodos internos.
-  const pcRecienCompletado = recienCompletadoId !== null && NODOS_CAP1.some((n) => n.id === recienCompletadoId)
 
   function confirmarApertura() {
     setCapSeleccionado(null)
@@ -701,65 +701,74 @@ function PantallaLibro({
 
                     {expandido && (
                     <div className="mt-2.5 flex flex-col gap-0.5 border-t border-border/60 pt-2.5">
-                      {/* "Parálisis Cerebral" es el único tema con contenido
-                          real del capítulo: sus 5 nodos (intro, 3 videos,
-                          prueba final) no se listan sueltos acá — tocar la
-                          fila retoma o repasa esa ruta completa puertas
-                          adentro (PantallaNodo, sin cambios). */}
-                      <button
-                        onClick={() => (cap1Completo ? onAbrirNodo(NODOS_CAP1[0].id, true) : onAbrirNodo(nodoDestinoCap1.id))}
-                        className={`flex items-center gap-3 rounded-xl px-2 py-2.5 text-left transition-colors duration-700 ${
-                          pcRecienCompletado ? 'bg-success/10' : ''
-                        }`}
-                      >
-                        <span
-                          className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${
-                            cap1Completo ? 'bg-success text-success-foreground' : 'border-2 text-foreground'
-                          }`}
-                          style={
-                            !cap1Completo
-                              ? { borderColor: 'var(--academia-accent, hsl(var(--accent)))', color: 'var(--academia-accent, hsl(var(--accent)))' }
-                              : undefined
-                          }
-                        >
-                          {cap1Completo ? (
-                            <Check className="h-4 w-4" strokeWidth={2.5} />
-                          ) : (
-                            <Play className="h-[13px] w-[13px]" fill="currentColor" />
-                          )}
-                        </span>
-                        <span className="min-w-0 flex-1">
-                          <span className="block truncate text-[13.5px] font-semibold text-foreground">{TEMAS_CAP1.pc.nombre}</span>
-                          <span className="block text-[11px] font-medium text-muted-foreground">
-                            {cap1Completo ? t.academia.nodoRepetir : `${completadosCap1}/${NODOS_CAP1.length}`}
-                          </span>
-                        </span>
-                        {punt.preguntasRespondidas > 0 && (
-                          <span className="shrink-0 text-right">
-                            <Estrellas t={t} n={estrellasLeccion(punt)} size={14} />
-                            <span className="block text-[11px] font-extrabold text-muted-foreground">
-                              {fmtPuntos(punt.notaCap1)} / {fmtPuntos(PUNTOS_LECCION_CAP1)}
+                      {/* 2026-09-30: una fila por tema. Tocar la fila de un
+                          tema con contenido retoma su ruta en el próximo
+                          nodo sin completar (o la repite entera si ya está
+                          completa). Un tema se desbloquea al terminar el
+                          anterior; los que aún no tienen vídeo muestran
+                          "Próximamente". */}
+                      {ORDEN_TEMAS_CAP1.map((temaId) => {
+                        const nodos = nodosDeTema(temaId)
+                        if (nodos.length === 0 || progreso[nodos[0].id]?.estado === 'bloqueado' || !progreso[nodos[0].id]) {
+                          return (
+                            <div key={temaId} className="flex items-center gap-3 rounded-xl px-2 py-2.5 opacity-60">
+                              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-secondary text-muted-foreground/70">
+                                <Lock className="h-[13px] w-[13px]" />
+                              </span>
+                              <span className="min-w-0 flex-1">
+                                <span className="block truncate text-[13.5px] font-semibold text-muted-foreground/70">{TEMAS_CAP1[temaId].nombre}</span>
+                                <span className="block text-[11px] font-medium text-muted-foreground/60">
+                                  {nodos.length === 0 ? t.academia.libroProximamente : t.academia.temaBloqueado}
+                                </span>
+                              </span>
+                            </div>
+                          )
+                        }
+                        const completadosTema = nodos.filter((n) => progreso[n.id]?.estado === 'completado').length
+                        const temaCompleto = completadosTema === nodos.length
+                        const destino = nodos.find((n) => progreso[n.id]?.estado === 'disponible') ?? nodos[0]
+                        const recien = recienCompletadoId !== null && nodos.some((n) => n.id === recienCompletadoId)
+                        const puntTema = calcularPuntuacion(progreso, temaId)
+                        return (
+                          <button
+                            key={temaId}
+                            onClick={() => (temaCompleto ? onAbrirNodo(nodos[0].id, true) : onAbrirNodo(destino.id))}
+                            className={`flex items-center gap-3 rounded-xl px-2 py-2.5 text-left transition-colors duration-700 ${recien ? 'bg-success/10' : ''}`}
+                          >
+                            <span
+                              className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${
+                                temaCompleto ? 'bg-success text-success-foreground' : 'border-2 text-foreground'
+                              }`}
+                              style={
+                                !temaCompleto
+                                  ? { borderColor: 'var(--academia-accent, hsl(var(--accent)))', color: 'var(--academia-accent, hsl(var(--accent)))' }
+                                  : undefined
+                              }
+                            >
+                              {temaCompleto ? (
+                                <Check className="h-4 w-4" strokeWidth={2.5} />
+                              ) : (
+                                <Play className="h-[13px] w-[13px]" fill="currentColor" />
+                              )}
                             </span>
-                          </span>
-                        )}
-                        <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground/70" />
-                      </button>
-
-                      {/* Epilepsia y Distrofia Muscular: sin video propio
-                          todavía (ver corrección 2026-09-18 en
-                          academiaInmaculada.ts) — filas informativas, no
-                          clicables. */}
-                      {(['epi', 'dm'] as const).map((temaId) => (
-                        <div key={temaId} className="flex items-center gap-3 rounded-xl px-2 py-2.5 opacity-60">
-                          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-secondary text-muted-foreground/70">
-                            <Lock className="h-[13px] w-[13px]" />
-                          </span>
-                          <span className="min-w-0 flex-1">
-                            <span className="block truncate text-[13.5px] font-semibold text-muted-foreground/70">{TEMAS_CAP1[temaId].nombre}</span>
-                            <span className="block text-[11px] font-medium text-muted-foreground/60">{t.academia.libroProximamente}</span>
-                          </span>
-                        </div>
-                      ))}
+                            <span className="min-w-0 flex-1">
+                              <span className="block truncate text-[13.5px] font-semibold text-foreground">{TEMAS_CAP1[temaId].nombre}</span>
+                              <span className="block text-[11px] font-medium text-muted-foreground">
+                                {temaCompleto ? t.academia.nodoRepetir : `${completadosTema}/${nodos.length}`}
+                              </span>
+                            </span>
+                            {puntTema.preguntasRespondidas > 0 && (
+                              <span className="shrink-0 text-right">
+                                <Estrellas t={t} n={estrellasLeccion(puntTema)} size={14} />
+                                <span className="block text-[11px] font-extrabold text-muted-foreground">
+                                  {fmtPuntos(puntTema.notaCap1)} / {fmtPuntos(PUNTOS_LECCION_CAP1)}
+                                </span>
+                              </span>
+                            )}
+                            <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground/70" />
+                          </button>
+                        )
+                      })}
                     </div>
                     )}
                   </div>
@@ -1067,12 +1076,12 @@ function ResultadoPuntos({ t, intentos, marcaPrevia }: { t: Diccionario; intento
  * Resumen que se abre al terminar la prueba final: estrellas por pregunta,
  * puntos del tema, nota total y la insignia "Sin fallos".
  */
-function PantallaResumenTema({ t, progreso, onVolver }: { t: Diccionario; progreso: ProgresoCap1; onVolver: () => void }) {
-  const punt = calcularPuntuacion(progreso)
+function PantallaResumenTema({ t, progreso, temaId, onVolver }: { t: Diccionario; progreso: ProgresoCap1; temaId: TemaId; onVolver: () => void }) {
+  const punt = calcularPuntuacion(progreso, temaId)
   return (
     <NodoLayout titulo={t.academia.puntResumenTitulo} subtitulo="Capítulo 1 · Discapacitado Físico" onVolver={onVolver}>
       <div className="rounded-3xl bg-primary p-5 text-center text-primary-foreground">
-        <p className="text-[13px] font-bold opacity-80">{t.academia.puntTemaCompletada(TEMAS_CAP1.pc.nombre)}</p>
+        <p className="text-[13px] font-bold opacity-80">{t.academia.puntTemaCompletada(TEMAS_CAP1[temaId].nombre)}</p>
         <div className="mt-2 flex justify-center">
           <Estrellas t={t} n={estrellasLeccion(punt)} size={40} />
         </div>
@@ -1085,7 +1094,7 @@ function PantallaResumenTema({ t, progreso, onVolver }: { t: Diccionario; progre
       </div>
 
       <div className="space-y-2">
-        {PREGUNTAS_PUNTUABLES_CAP1.map((n, i) => {
+        {preguntasPuntuables(temaId).map((n, i) => {
           const intentos = intentosDePregunta(progreso, n)
           return (
             <div key={`${n.nodoId}:${n.indice}`} className="card-elevated flex items-center gap-3 rounded-2xl bg-card px-4 py-3">
@@ -2039,7 +2048,10 @@ function PantallaNodo({
   const soloLectura = prog.estado === 'completado' && !repitiendo
   const subtituloCap1 = 'Capítulo 1 · Discapacitado Físico'
   const idx = NODOS_CAP1.findIndex((n) => n.id === nodoId)
-  const siguienteNodo = idx >= 0 ? NODOS_CAP1[idx + 1] : undefined
+  const siguienteGlobal = idx >= 0 ? NODOS_CAP1[idx + 1] : undefined
+  // 2026-09-30: la ruta de cada tema termina en su prueba final; el tema
+  // siguiente se abre desde su propia fila del capítulo.
+  const siguienteNodo = siguienteGlobal && siguienteGlobal.temaId === nodo.temaId ? siguienteGlobal : undefined
 
   if (nodo.tipo === 'intro') {
     return (
@@ -2100,7 +2112,8 @@ function PantallaNodo({
   if (!poolPreguntas) return null
   // La prueba final usa las primeras N preguntas del pool, fijas y en orden.
   const preguntas = nodo.esFinal ? poolPreguntas.slice(0, PREGUNTAS_PRUEBA_FINAL_CAP1) : poolPreguntas
-  const esUltima = !siguienteNodo
+  // "¡Capítulo completado!" solo al cerrar el último tema, cuando todos los temas tienen contenido.
+  const esUltima = !siguienteGlobal && ORDEN_TEMAS_CAP1.every((id) => nodosDeTema(id).length > 0)
   const temaLabel = nodo.temaId ? TEMAS_CAP1[nodo.temaId].nombre : CAPITULOS_INMACULADA[0].titulo
 
   return (

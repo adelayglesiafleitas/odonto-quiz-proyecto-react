@@ -261,6 +261,7 @@ export interface Diccionario {
     proximoCapMensaje: string
     proximoCapVolverCap1: string
     rutaBloqueado: string
+    temaBloqueado: string
     rutaEmpezar: string
     rutaCompletados: (completados: number, total: number) => string
     /** Frase del globo de Muelín (mascota) junto al nodo "actual" de la Ruta. */
@@ -712,6 +713,7 @@ export const es: Diccionario = {
     proximoCapMensaje: 'Estamos preparando este capítulo. Mientras tanto, puedes repasar el Capítulo 1 o seguir practicando en el banco de preguntas.',
     proximoCapVolverCap1: 'Volver al Capítulo 1',
     rutaBloqueado: 'Completa el nodo anterior para desbloquear este.',
+    temaBloqueado: 'Completa el tema anterior',
     rutaEmpezar: 'Empezar',
     rutaCompletados: (completados, total) => `${completados} de ${total} completados`,
     muelinFrase: '¡Vamos, ya casi terminas el capítulo!',
@@ -1161,6 +1163,7 @@ export const en: Diccionario = {
     proximoCapMensaje: "We're preparing this chapter. In the meantime, you can review Chapter 1 or keep practicing in the question bank.",
     proximoCapVolverCap1: 'Back to Chapter 1',
     rutaBloqueado: 'Finish the previous node to unlock this one.',
+    temaBloqueado: 'Finish the previous topic',
     rutaEmpezar: 'Start',
     rutaCompletados: (completados, total) => `${completados} of ${total} completed`,
     muelinFrase: "Come on, you're almost done with the chapter!",

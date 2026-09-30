@@ -59,6 +59,8 @@
  * se pueden re-vincular a sus propios videos el día que existan.
  */
 
+import { PREGUNTAS_TEMA2_EPI } from './academiaTema2Epilepsia'
+
 export interface PreguntaAcademia {
   /** Enunciado de la pregunta. */
   pregunta: string
@@ -237,7 +239,7 @@ export const INTRO_CAP1 = {
  * la izquierda): Introducción 0:00 · Parálisis cerebral 1:30 · Epilepsia
  * 4:18 · Distrofias musculares 7:51 · Síntesis 10:01.
  */
-export type VideoId = 'v1'
+export type VideoId = 'v1' | 'v2'
 
 export interface PausaVideo {
   /** Segundo del video en el que se para (justo antes de que cambie de tramo). */
@@ -304,6 +306,33 @@ export const VIDEOS_CAP1: VideoAcademia[] = [
       { desde: 297.9, titulo: 'Emergencia médica', temaId: 'pc' },
     ],
   },
+  // 2026-09-30 — Tema 2 "Odontología y Epilepsia" (5:42, 720p, 10
+  // diapositivas en 6 segmentos). Pausas en los puntos que pidió el usuario,
+  // cada una con 1 pregunta FIJA de `tema2Epi`:
+  {
+    id: 'v2',
+    temaId: 'epi',
+    titulo: 'Tema 2',
+    src: '/academia/pacientes-especiales/cap-1/cap01-tema02.mp4',
+    duracionSeg: 342,
+    pausas: [
+      // 2:50 — tras Cita y sillón dental. Pregunta 5: perros de alerta.
+      { seg: 170, pruebaId: 'tema2Epi', preguntas: [4] },
+      // Final del vídeo — tras el protocolo de emergencia. Pregunta 14:
+      // interrumpir el tratamiento y retirar instrumentos y dique.
+      { seg: 341.5, pruebaId: 'tema2Epi', preguntas: [13] },
+    ],
+    // Medido sobre la etiqueta de segmento de abajo a la izquierda.
+    secciones: [
+      { desde: 0, titulo: 'Introducción', temaId: 'epi' },
+      { desde: 24, titulo: 'Complicaciones', temaId: 'epi' },
+      { desde: 102.5, titulo: 'Técnicas anestésicas', temaId: 'epi' },
+      { desde: 137, titulo: 'Cita y sillón dental', temaId: 'epi' },
+      { desde: 168.5, titulo: 'Tratamiento odontológico', temaId: 'epi' },
+      { desde: 236, titulo: 'Farmacología', temaId: 'epi' },
+      { desde: 270.5, titulo: 'Emergencia médica', temaId: 'epi' },
+    ],
+  },
 ]
 
 /**
@@ -317,7 +346,7 @@ export const VIDEOS_CAP1: VideoAcademia[] = [
  * la ruta; el Tema 1 es un solo vídeo. El nuevo Tema 2 llegará aparte.
  * Las pruebas del vídeo anterior (prueba1/prueba2/pruebaFinal) se quitaron.
  */
-export type PruebaId = 'tema1Pc' | 'finalTema1'
+export type PruebaId = 'tema1Pc' | 'finalTema1' | 'tema2Epi' | 'finalTema2'
 
 const PREGUNTAS_TEMA1_PC: PreguntaAcademia[] = [
   // Bloque 1 — Complicaciones, manejo conductual, hallazgos orales, anestesia local / sedación IV
@@ -508,9 +537,14 @@ const PREGUNTAS_TEMA1_PC: PreguntaAcademia[] = [
 /** Prueba final: 1 (espástica), 10 (vidrio híbrido) y 13 (toxina botulínica). */
 const ORDEN_FINAL_TEMA1 = [0, 9, 12]
 
+/** Prueba final del Tema 2 (Epilepsia): 2 (hiperplasia gingival), 8 (prótesis removible) y 13 (status epilepticus). */
+const ORDEN_FINAL_TEMA2 = [1, 7, 12]
+
 export const PRUEBAS_CAP1: Record<PruebaId, PreguntaAcademia[]> = {
   tema1Pc: PREGUNTAS_TEMA1_PC,
   finalTema1: ORDEN_FINAL_TEMA1.map((i) => PREGUNTAS_TEMA1_PC[i]),
+  tema2Epi: PREGUNTAS_TEMA2_EPI,
+  finalTema2: ORDEN_FINAL_TEMA2.map((i) => PREGUNTAS_TEMA2_EPI[i]),
 }
 
 /**
@@ -550,11 +584,26 @@ export interface NodoRuta {
 // dentro de ese video (ver `VideoAcademia.pausas`). Ruta: Intro → Video →
 // Prueba final. El progreso viejo con claves video1/2/3 se adapta al cargar
 // (ver `normalizarProgresoAcademia` en academiaProgresoLocal.ts).
+//
+// 2026-09-30: se suma el Tema 2 (Epilepsia): Vídeo 2 → Prueba final 2. Cada
+// nodo lleva su `temaId`; cada tema es una fila propia dentro del capítulo
+// (ver `nodosDeTema`). El Tema 2 se desbloquea al terminar la prueba final
+// del Tema 1.
 export const NODOS_CAP1: NodoRuta[] = [
-  { id: 'intro', tipo: 'intro', titulo: 'Introducción' },
+  { id: 'intro', tipo: 'intro', titulo: 'Introducción', temaId: 'pc' },
   { id: 'video', tipo: 'video', titulo: 'Video del tema', temaId: 'pc', videoId: 'v1' },
-  { id: 'pruebaFinal', tipo: 'prueba', titulo: 'Prueba final', pruebaId: 'finalTema1', esFinal: true },
+  { id: 'pruebaFinal', tipo: 'prueba', titulo: 'Prueba final', temaId: 'pc', pruebaId: 'finalTema1', esFinal: true },
+  { id: 'videoEpi', tipo: 'video', titulo: 'Video del tema', temaId: 'epi', videoId: 'v2' },
+  { id: 'pruebaFinalEpi', tipo: 'prueba', titulo: 'Prueba final', temaId: 'epi', pruebaId: 'finalTema2', esFinal: true },
 ]
+
+/** Nodos de la ruta que pertenecen a un tema, en orden (vacío = tema sin contenido todavía). */
+export function nodosDeTema(temaId: TemaId): NodoRuta[] {
+  return NODOS_CAP1.filter((n) => n.temaId === temaId)
+}
+
+/** Temas del Capítulo 1 en orden. */
+export const ORDEN_TEMAS_CAP1: TemaId[] = ['pc', 'epi', 'dm']
 
 export interface CapituloLibro {
   numero: number

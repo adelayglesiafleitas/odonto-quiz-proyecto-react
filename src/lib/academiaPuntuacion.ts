@@ -21,7 +21,7 @@
 // Importa solo el TIPO de academiaProgresoLocal (se borra al compilar) para
 // no crear una dependencia circular con ese archivo.
 
-import { CAPITULOS_INMACULADA, NODOS_CAP1, PREGUNTAS_PRUEBA_FINAL_CAP1 } from '@/data/academiaInmaculada'
+import { CAPITULOS_INMACULADA, NODOS_CAP1, PREGUNTAS_PRUEBA_FINAL_CAP1, type TemaId } from '@/data/academiaInmaculada'
 import type { ProgresoCap1 } from './academiaProgresoLocal'
 
 export const PUNTOS_POR_CAPITULO = 5
@@ -37,18 +37,23 @@ export interface PreguntaPuntuable {
   /** Posición de la pregunta dentro de la prueba (0-based). */
   indice: number
   titulo: string
+  /** Tema (lección) al que pertenece la prueba final. */
+  temaId?: TemaId
 }
 
 /** Preguntas que puntúan: las de la prueba final de la lección (las de los videos no). */
 export const PREGUNTAS_PUNTUABLES_CAP1: PreguntaPuntuable[] = NODOS_CAP1.filter((n) => n.tipo === 'prueba' && n.esFinal).flatMap((n) =>
-  Array.from({ length: PREGUNTAS_PRUEBA_FINAL_CAP1 }, (_, indice) => ({ nodoId: n.id, indice, titulo: n.titulo })),
+  Array.from({ length: PREGUNTAS_PRUEBA_FINAL_CAP1 }, (_, indice) => ({ nodoId: n.id, indice, titulo: n.titulo, temaId: n.temaId })),
 )
 
 /** Nodos con preguntas que puntúan (solo la prueba final). Se conserva por compatibilidad. */
 export const NODOS_PREGUNTA_CAP1 = NODOS_CAP1.filter((n) => n.tipo === 'prueba' && n.esFinal)
 
 export const PUNTOS_LECCION_CAP1 = PUNTOS_POR_CAPITULO / TEMAS_TOTAL_CAP1
-export const PUNTOS_PREGUNTA_CAP1 = PUNTOS_LECCION_CAP1 / Math.max(1, PREGUNTAS_PUNTUABLES_CAP1.length)
+// 2026-09-30: cada lección vale PUNTOS_LECCION_CAP1 repartido entre SUS 3
+// preguntas (antes se dividía entre todas las puntuables, que con 2 temas
+// habría bajado el valor de cada lección a la mitad).
+export const PUNTOS_PREGUNTA_CAP1 = PUNTOS_LECCION_CAP1 / PREGUNTAS_PRUEBA_FINAL_CAP1
 
 export function factorIntentos(intentos: number): number {
   if (intentos <= 1) return 1
@@ -85,26 +90,41 @@ export interface ResumenPuntuacion {
   sinFallos: boolean
 }
 
-export function calcularPuntuacion(progreso: ProgresoCap1): ResumenPuntuacion {
+/** Preguntas puntuables de un tema (o todas, sin tema). */
+export function preguntasPuntuables(temaId?: TemaId): PreguntaPuntuable[] {
+  return temaId ? PREGUNTAS_PUNTUABLES_CAP1.filter((p) => p.temaId === temaId) : PREGUNTAS_PUNTUABLES_CAP1
+}
+
+/**
+ * Con `temaId` (2026-09-30), `notaCap1`/estrellas/preguntas son solo de esa
+ * lección; `notaTotal` sigue siendo la nota total de todo lo cursado.
+ */
+export function calcularPuntuacion(progreso: ProgresoCap1, temaId?: TemaId): ResumenPuntuacion {
+  let notaTotal = 0
+  for (const p of PREGUNTAS_PUNTUABLES_CAP1) {
+    const intentos = intentosDePregunta(progreso, p)
+    if (intentos) notaTotal += puntosPregunta(intentos)
+  }
+  const lista = preguntasPuntuables(temaId)
   let notaCap1 = 0
   let estrellas = 0
   let respondidas = 0
-  for (const p of PREGUNTAS_PUNTUABLES_CAP1) {
+  for (const p of lista) {
     const intentos = intentosDePregunta(progreso, p)
     if (!intentos) continue
     respondidas += 1
     notaCap1 += puntosPregunta(intentos)
     estrellas += estrellasIntentos(intentos)
   }
-  const total = PREGUNTAS_PUNTUABLES_CAP1.length
+  const total = lista.length
   return {
-    notaTotal: notaCap1,
+    notaTotal,
     notaCap1,
     preguntasRespondidas: respondidas,
     preguntasTotal: total,
     estrellas,
     estrellasMax: total * 3,
-    sinFallos: total > 0 && respondidas === total && PREGUNTAS_PUNTUABLES_CAP1.every((p) => intentosDePregunta(progreso, p) === 1),
+    sinFallos: total > 0 && respondidas === total && lista.every((p) => intentosDePregunta(progreso, p) === 1),
   }
 }
 

@@ -199,6 +199,19 @@ export const CURSOS: Record<string, CursoMeta> = {
     cantidadesDisponibles: [10, 20, 30, 40],
     tieneLibros: false,
   },
+  medicina_bucal: {
+    // Mismos valores que el resto de asignaturas (formato de examen de
+    // homologación) — decisión asumida al agregar esta asignatura
+    // (2026-09-29). Banco: curso_id 'medicina_bucal' en la tabla preguntas
+    // (119 preguntas de las oposiciones SAS Odontoestomatólogo/a de AP 2023
+    // y 2025 con plantilla definitiva; tema "Oposición SAS").
+    duracionOficialMinutos: 40,
+    cantidadOficial: 30,
+    porcentajeAprobado: 70,
+    tieneConvocatorias: false,
+    cantidadesDisponibles: [10, 20, 30, 40],
+    tieneLibros: false,
+  },
 }
 
 // CURSO_ID/CURSO son el curso "por defecto": todavía los usan Home,

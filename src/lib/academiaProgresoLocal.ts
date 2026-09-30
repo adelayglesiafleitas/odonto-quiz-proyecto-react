@@ -14,7 +14,7 @@
 // Ver claude/restablecer-estadisticas-academia-estadisticas-diseno.md y
 // claude/academia-progreso-supabase-diseno.md.
 
-import { NODOS_CAP1 } from '@/data/academiaInmaculada'
+import { NODOS_CAP1, ORDEN_TEMAS_CAP1, nodosDeTema } from '@/data/academiaInmaculada'
 import { TEMAS_TOTAL_CAP1, calcularPuntuacion } from './academiaPuntuacion'
 
 export { TEMAS_TOTAL_CAP1 }
@@ -90,6 +90,8 @@ export function progresoInicialAcademia(): ProgresoCap1 {
     intro: { estado: 'disponible' },
     video: { estado: 'bloqueado' },
     pruebaFinal: { estado: 'bloqueado' },
+    videoEpi: { estado: 'bloqueado' },
+    pruebaFinalEpi: { estado: 'bloqueado' },
   }
 }
 
@@ -125,6 +127,14 @@ export function normalizarProgresoAcademia(progreso: ProgresoCap1): ProgresoCap1
   // vídeo se le abre la prueba final. Las claves viejas quedan sin uso.
   if (p.video.estado === 'completado' && p.pruebaFinal.estado === 'bloqueado') {
     p.pruebaFinal = { ...p.pruebaFinal, estado: 'disponible' }
+  }
+  // 2026-09-30: Tema 2 (Epilepsia). Quien ya terminó el Tema 1 lo tiene
+  // disponible; si ya vio el vídeo 2, la prueba final 2 queda abierta.
+  if (p.pruebaFinal.estado === 'completado' && p.videoEpi.estado === 'bloqueado') {
+    p.videoEpi = { ...p.videoEpi, estado: 'disponible' }
+  }
+  if (p.videoEpi.estado === 'completado' && p.pruebaFinalEpi.estado === 'bloqueado') {
+    p.pruebaFinalEpi = { ...p.pruebaFinalEpi, estado: 'disponible' }
   }
   return p
 }
@@ -179,9 +189,14 @@ export interface ResumenAcademia {
 // repartido entre los 3 temas del capítulo. Cuando se carguen los otros
 // temas, sumar su progreso acá.
 export function porcentajeCap1(progreso: ProgresoCap1): number {
-  if (NODOS_CAP1.length === 0) return 0
-  const completados = NODOS_CAP1.filter((n) => progreso[n.id]?.estado === 'completado').length
-  return (completados / NODOS_CAP1.length / TEMAS_TOTAL_CAP1) * 100
+  // 2026-09-30: cada tema pesa 1/3 del capítulo, según sus propios nodos.
+  let suma = 0
+  for (const temaId of ORDEN_TEMAS_CAP1) {
+    const nodos = nodosDeTema(temaId)
+    if (nodos.length === 0) continue
+    suma += nodos.filter((n) => progreso[n.id]?.estado === 'completado').length / nodos.length
+  }
+  return (suma / TEMAS_TOTAL_CAP1) * 100
 }
 
 // Usado por la sección "Academia" de Estadisticas.tsx: reduce el progreso
