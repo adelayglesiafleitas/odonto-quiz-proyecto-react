@@ -17,8 +17,10 @@ import {
   RotateCcw,
   Library,
   FileText,
+  BookOpen,
 } from 'lucide-react'
 import { getAnios, getCapitulos, getLibros, getPreguntas } from '@/lib/data'
+import { tieneCitaVerificada } from '@/lib/bibliografia'
 import { getConfigExamenRemota, guardarConfigExamenRemota } from '@/lib/configExamen'
 import { getLibroPacientesEspecialesHabilitado } from '@/lib/fuenteLibroAccesoRemoto'
 import { useAppSettings } from '@/context/AppSettings'
@@ -174,18 +176,29 @@ export function ConfigurarExamen({
   // cada toque. Solo se recalcula al cambiar de fuente, libro o año.
   const conteos = useMemo(() => {
     const porCapitulo = new Map<string, number>()
+    // Cuántas preguntas de cada categoría tienen cita real verificada contra
+    // el libro (formato "cap. N, pág. Y", ver bibliografia.ts). Solo decide
+    // si esa categoría se marca "con referencia del libro" más abajo.
+    const porCapituloConCita = new Map<string, number>()
     let total = 0
     for (const p of preguntasDeFuente) {
       if (anio !== 'todos' && p.anio !== anio) continue
       total++
       porCapitulo.set(p.capitulo, (porCapitulo.get(p.capitulo) ?? 0) + 1)
+      if (tieneCitaVerificada(p.bibliografia)) {
+        porCapituloConCita.set(p.capitulo, (porCapituloConCita.get(p.capitulo) ?? 0) + 1)
+      }
     }
     const porLibro = new Map<string, number>()
+    const porLibroConCita = new Map<string, number>()
     for (const p of preguntas) {
       if (!p.libro || (anio !== 'todos' && p.anio !== anio)) continue
       porLibro.set(p.libro, (porLibro.get(p.libro) ?? 0) + 1)
+      if (tieneCitaVerificada(p.bibliografia)) {
+        porLibroConCita.set(p.libro, (porLibroConCita.get(p.libro) ?? 0) + 1)
+      }
     }
-    return { total, porCapitulo, porLibro }
+    return { total, porCapitulo, porCapituloConCita, porLibro, porLibroConCita }
   }, [preguntasDeFuente, preguntas, anio])
 
   const disponibles = useMemo(
@@ -201,6 +214,13 @@ export function ConfigurarExamen({
   // vacío en seleccionarPreguntas() trae el curso entero (exámenes + todos
   // los libros), que es lo que se quiere para Fuente Exámenes pero no para
   // Fuente Libro cuando el usuario quiso acotarse a un libro puntual.
+  // Una categoría (o libro) se marca "con referencia del libro" cuando la
+  // mayoría de sus preguntas tienen cita real verificada — así no se cuelga
+  // el sello por una sola pregunta suelta que la tenga.
+  function tieneCitaMayoritaria(total: number, conCita: number): boolean {
+    return total > 0 && conCita / total >= 0.5
+  }
+
   function capitulosParaIniciar(): string[] {
     if (fuente === 'libro' && libroSeleccionado && capitulos.length === 0) {
       return getCapitulos(cursoId, libroSeleccionado)
@@ -521,6 +541,7 @@ export function ConfigurarExamen({
                 {todosLosCapitulos.map((cap) => {
                   const n = conteos.porCapitulo.get(cap) ?? 0
                   const activo = capitulos.includes(cap)
+                  const conReferencia = tieneCitaMayoritaria(n, conteos.porCapituloConCita.get(cap) ?? 0)
                   return (
                     <button
                       key={cap}
@@ -529,9 +550,21 @@ export function ConfigurarExamen({
                         activo ? 'bg-primary text-primary-foreground' : 'bg-card text-foreground'
                       }`}
                     >
-                      <span className="flex min-w-0 items-center gap-2 truncate pr-2">
-                        {activo && <Check className="h-4 w-4 shrink-0" />}
-                        <span className="truncate">{cap}</span>
+                      <span className="flex min-w-0 flex-col gap-1 pr-2">
+                        <span className="flex min-w-0 items-center gap-2 truncate">
+                          {activo && <Check className="h-4 w-4 shrink-0" />}
+                          <span className="truncate">{cap}</span>
+                        </span>
+                        {conReferencia && (
+                          <span
+                            className={`inline-flex w-fit items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-bold ${
+                              activo ? 'bg-white/15 text-white' : 'bg-info/10 text-info'
+                            }`}
+                          >
+                            <BookOpen className="h-2.5 w-2.5" />
+                            {t.configurar.conReferencia}
+                          </span>
+                        )}
                       </span>
                       <span className={`shrink-0 ${activo ? 'text-white/70' : 'text-muted-foreground'}`}>{n}</span>
                     </button>
@@ -554,7 +587,7 @@ export function ConfigurarExamen({
                         <span className="flex min-w-0 items-center gap-2 pr-2">
                           {activo && <Check className="h-4 w-4 shrink-0" />}
                           <Library className="h-4 w-4 shrink-0" />
-                          <span className="flex min-w-0 flex-col">
+                          <span className="flex min-w-0 flex-col gap-1">
                             <span className="truncate">{autor}</span>
                             {tema && (
                               <span
@@ -563,6 +596,16 @@ export function ConfigurarExamen({
                                 }`}
                               >
                                 {tema}
+                              </span>
+                            )}
+                            {tieneCitaMayoritaria(n, conteos.porLibroConCita.get(libro) ?? 0) && (
+                              <span
+                                className={`inline-flex w-fit items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-bold ${
+                                  activo ? 'bg-white/15 text-white' : 'bg-info/10 text-info'
+                                }`}
+                              >
+                                <BookOpen className="h-2.5 w-2.5" />
+                                {t.configurar.conReferencia}
                               </span>
                             )}
                           </span>

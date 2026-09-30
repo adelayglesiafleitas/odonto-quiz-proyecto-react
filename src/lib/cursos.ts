@@ -46,7 +46,8 @@ export const CURSOS: Record<string, CursoMeta> = {
     porcentajeAprobado: 70,
     tieneConvocatorias: false,
     cantidadesDisponibles: [10, 20, 30, 40],
-    tieneLibros: false,
+    // Proffit 6.ª ed. — 300 preguntas citadas con cap. y pág. (2026-09-30).
+    tieneLibros: true,
   },
   materiales: {
     // Mismos valores que odontología/psicología/ortodoncia (mismo formato de

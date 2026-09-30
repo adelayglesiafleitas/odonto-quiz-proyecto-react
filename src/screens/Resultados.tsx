@@ -9,8 +9,9 @@ import { Confeti } from '@/components/Confeti'
 import { useConteo } from '@/lib/useConteo'
 import { guardarIntentoRemoto, getHistorialRemoto, calcularPromedio } from '@/lib/historial'
 import { useAppSettings } from '@/context/AppSettings'
-import { CheckCircle2, XCircle, RotateCcw, Home as HomeIcon, ChevronDown, Clock, AlarmClockOff, Target, ChevronRight } from 'lucide-react'
+import { CheckCircle2, XCircle, RotateCcw, Home as HomeIcon, ChevronDown, Clock, AlarmClockOff, Target, ChevronRight, BookOpen } from 'lucide-react'
 import type { Pantalla } from '@/types'
+import { parsearBibliografia } from '@/lib/bibliografia'
 
 function formatearTiempo(seg: number): string {
   const m = Math.floor(seg / 60)
@@ -61,6 +62,10 @@ export function Resultados({
 }) {
   const { t } = useAppSettings()
   const [expandido, setExpandido] = useState<number | null>(null)
+  // Qué preguntas tienen su tarjeta de "referencia del libro" desplegada.
+  // Es independiente de `expandido`: al reabrir una pregunta se recuerda
+  // si el alumno ya había abierto la referencia.
+  const [referenciasAbiertas, setReferenciasAbiertas] = useState<Set<number>>(new Set())
   const [promedio, setPromedio] = useState(0)
   const [cargandoPromedio, setCargandoPromedio] = useState(true)
 
@@ -123,6 +128,15 @@ export function Resultados({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  function alternarReferencia(numero: number) {
+    setReferenciasAbiertas((prev) => {
+      const next = new Set(prev)
+      if (next.has(numero)) next.delete(numero)
+      else next.add(numero)
+      return next
+    })
+  }
 
   const circunferencia = 2 * Math.PI * 54
   // La nota y el anillo suben de 0 a la nota real al entrar.
@@ -263,6 +277,42 @@ export function Resultados({
                         </div>
                       )
                     })}
+                    {(() => {
+                      const ref = parsearBibliografia(p.bibliografia)
+                      if (!ref) return null
+                      const refAbierta = referenciasAbiertas.has(p.numero)
+                      return (
+                        <div className="mt-2 overflow-hidden rounded-xl border border-info/25 bg-info/[0.06]">
+                          <button
+                            onClick={() => alternarReferencia(p.numero)}
+                            className="flex w-full items-center gap-2.5 px-3.5 py-2.5 text-left"
+                          >
+                            <BookOpen className="h-4 w-4 shrink-0 text-info" />
+                            <span className="min-w-0 flex-1">
+                              <span className="block text-xs font-bold text-info">{t.resultados.verReferencia}</span>
+                              <span className="block text-[11px] text-info/70">{t.resultados.verReferenciaDesc}</span>
+                            </span>
+                            <ChevronDown
+                              className={`h-3.5 w-3.5 shrink-0 text-info transition-transform ${refAbierta ? 'rotate-180' : ''}`}
+                            />
+                          </button>
+                          {refAbierta && (
+                            <div className="space-y-2 border-t border-info/20 px-3.5 pb-3.5 pt-3">
+                              <p className="text-[11px] font-semibold text-info/90">{ref.meta}</p>
+                              {ref.justificacion && (
+                                <p className="text-xs leading-snug text-foreground/80">{ref.justificacion}</p>
+                              )}
+                              {ref.cita && (
+                                <p className="rounded-lg border-l-2 border-info/40 bg-card px-3 py-2 font-serif text-sm italic leading-snug text-foreground/90">
+                                  &ldquo;{ref.cita}&rdquo;
+                                </p>
+                              )}
+                              <p className="text-[10px] text-info/60">{t.resultados.referenciaNota}</p>
+                            </div>
+                          )}
+                        </div>
+                      )
+                    })()}
                     <div className="pt-1">
                       <ReportarPregunta userId={userId} pregunta={p} />
                     </div>

@@ -115,6 +115,7 @@ export interface Diccionario {
     fuenteLibro: string
     capitulo: string
     capituloAyuda: string
+    conReferencia: string
     todosCapitulos: string
     anio: string
     todosAnios: string
@@ -157,6 +158,9 @@ export interface Diccionario {
     convocatoria: (anio: number | 'todos') => string
     repasarFallosTitulo: string
     repasarFallosDesc: (n: number) => string
+    verReferencia: string
+    verReferenciaDesc: string
+    referenciaNota: string
   }
   estudio: {
     titulo: string
@@ -540,6 +544,7 @@ export const es: Diccionario = {
     fuenteLibro: 'Libro',
     capitulo: 'Categoría',
     capituloAyuda: 'Puedes elegir más de uno',
+    conReferencia: 'Con referencia del libro',
     todosCapitulos: 'Todas las categorías',
     anio: 'Convocatoria',
     todosAnios: 'Todas las convocatorias',
@@ -583,6 +588,9 @@ export const es: Diccionario = {
     convocatoria: (anio) => (anio === 'todos' ? 'Todas las convocatorias' : `Convocatoria ${anio}`),
     repasarFallosTitulo: 'Repasar lo que fallé',
     repasarFallosDesc: (n) => `${n} pregunta${n === 1 ? '' : 's'} para repasar`,
+    verReferencia: 'Ver referencia del libro',
+    verReferenciaDesc: 'Comprueba la respuesta tú mismo',
+    referenciaNota: 'Consulta esa página del libro para entender por qué era esa la respuesta.',
   },
   estudio: {
     titulo: 'Modo estudio',
@@ -990,6 +998,7 @@ export const en: Diccionario = {
     fuenteLibro: 'Book',
     capitulo: 'Category',
     capituloAyuda: 'You can pick more than one',
+    conReferencia: 'With book reference',
     todosCapitulos: 'All categories',
     anio: 'Exam year',
     todosAnios: 'All years',
@@ -1033,6 +1042,9 @@ export const en: Diccionario = {
     convocatoria: (anio) => (anio === 'todos' ? 'All years' : `${anio} exam year`),
     repasarFallosTitulo: 'Review what I missed',
     repasarFallosDesc: (n) => `${n} question${n === 1 ? '' : 's'} to review`,
+    verReferencia: 'View book reference',
+    verReferenciaDesc: 'Check the answer for yourself',
+    referenciaNota: 'Check that page in the book to understand why that was the answer.',
   },
   estudio: {
     titulo: 'Study mode',

@@ -1,5 +1,5 @@
 import { useEffect, useState, type CSSProperties } from 'react'
-import { Stethoscope, Plus } from 'lucide-react'
+import { Stethoscope, Plus, BookOpen } from 'lucide-react'
 import { useAppSettings } from '@/context/AppSettings'
 import { SettingsToggle } from '@/components/SettingsToggle'
 import { LogoMark } from '@/components/Logo'
@@ -198,6 +198,12 @@ export function ElegirAsignatura({
                   {medias && (
                     <span className="block text-xs text-muted-foreground">
                       {dato ? t.asignaturas.detalle(dato.intentos, dato.tendencia) : t.asignaturas.sinSimulacros}
+                    </span>
+                  )}
+                  {CURSOS[asig.cursoId]?.tieneLibros && (
+                    <span className="mt-1 inline-flex items-center gap-1 rounded-full border border-info/25 bg-info/[0.08] px-2 py-0.5 text-[10px] font-semibold text-info">
+                      <BookOpen className="h-2.5 w-2.5" />
+                      {t.configurar.conReferencia}
                     </span>
                   )}
                 </span>
